@@ -395,26 +395,32 @@ TG_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5
 
 
 # ── ШАБЛОНЫ ──────────────────────────────────────────
-
 def nav_html(active='news'):
-    pages = [
-        ('news', '/', 'Новости'),
-        ('materials', '/materials/', 'Материалы'),
-        ('longreads', '/longreads/', 'Лонгриды'),
-        ('about', '/about/', 'О проекте'),
-        ('contacts', '/contacts/', 'Контакты'),
-    ]
-    links = ''.join(
-        f'<a class="nl{" on" if k==active else ""}" href="{url}">{label}</a>'
-        for k, url, label in pages
-    )
-    return f"""<nav><div class="ni">
-  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
-  <div class="nav-links">{links}</div>
-  <div class="nav-r">
-    <a class="tgb" href="{TG_CHANNEL}" target="_blank" rel="noopener">{TG_SVG} Telegram</a>
+    return f"""
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="{TG_CHANNEL}" style="color:#d44">Telegram</a>
+    </div>
+
   </div>
-</div></nav>"""
+</nav>
+"""
 
 
 def footer_html():
