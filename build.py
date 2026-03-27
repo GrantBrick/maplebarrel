@@ -711,13 +711,25 @@ def _img_block(p, loading='lazy'):
 
 def hero_card(p):
     src_label = source_name(p.get('source', ''))
-    return (f'<a class="hero-card card" href="{post_url(p)}">'
-            f'{_img_block(p, "eager")}'
-            f'<div class="card-body hc-body">'
+    img = post_img_src(p)
+    src = p.get('source', '')
+    bg, fg, label = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    if img:
+        img_html = (f'<div class="hc-img">'
+                    f'<img src="{img}" alt="" loading="eager" '
+                    f"onerror=\"this.parentNode.style.background='{bg}'\">"
+                    f'</div>')
+    else:
+        img_html = (f'<div class="hc-img" style="background:{bg}">'
+                    f'<span style="color:{fg};font-size:14px;font-weight:700;letter-spacing:.5px">{label}</span>'
+                    f'</div>')
+    return (f'<a class="hero-card" href="{post_url(p)}">'
+            f'{img_html}'
+            f'<div class="hc-body">'
             f'<div><span class="src-badge">{esc(src_label)}</span></div>'
-            f'<div class="card-title hc-title">{esc(p["title"])}</div>'
-            f'<div class="card-excerpt hc-ex">{esc(p.get("excerpt",""))}</div>'
-            f'<div class="card-meta">'
+            f'<div class="hc-title">{esc(p["title"])}</div>'
+            f'<div class="hc-ex">{esc(p.get("excerpt",""))}</div>'
+            f'<div class="card-meta" style="margin-top:auto;padding-top:10px;border-top:1px solid var(--br)">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_row(p.get("tags"), 3)}</div>'
             f'</div>'
