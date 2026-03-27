@@ -1,677 +1,925 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>#жильё — Maple Barrel</title>
-<meta name="description" content="Все материалы по теме «жильё» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
-<link rel="canonical" href="https://journalists.ca/tag/zhilyo/">
-<meta property="og:title" content="#жильё — Maple Barrel">
-<meta property="og:description" content="Все материалы по теме «жильё» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
-<meta property="og:url" content="https://journalists.ca/tag/zhilyo/">
-<meta property="og:type" content="article">
-<meta property="og:image" content="https://journalists.ca/og-default.jpg">
-<meta property="og:locale" content="ru_RU">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="#жильё — Maple Barrel">
-<meta name="twitter:description" content="Все материалы по теме «жильё» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
-<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-
-:root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --t:#111;
-  --t2:#555;
-  --t3:#888;
-  --br:#e5e5e5;
---serif:'Playfair Display', Georgia, serif;
---sans:'Golos Text', system-ui, sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#жильё | Maple Barrel</title>
+    <style>
+:root {
+    --bg: #ffffff;
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --accent: #c53030;
+    --border: #eeeeee;
+    --bg-alt: #f9f9f9;
 }
-
-body{
-  background:#ffffff;
-  color:#111;
-  font-family:var(--sans);
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    line-height: 1.6; color: var(--text-main); background: var(--bg); 
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-img{display:block;width:100%;height:100%;object-fit:cover}
-
-/* ── NAV ── */
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
-.logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:1px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--cream);background:var(--bg3)}
-.nl.on{color:var(--cream);background:var(--bg3)}
-.nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.2)}
-.tgb{
-  background:#c0392b;
-  color:#fff;
-  border-radius:6px;
-  padding:6px 14px;
-  font-weight:600;
-  font-size:13px;
-  border:none;
+a { color: inherit; text-decoration: none; }
+header { 
+    background: #fff; border-bottom: 1px solid var(--border); 
+    padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000;
 }
-
-.tgb:hover{
-  background:#a93226;
+.header-content { 
+    max-width: 800px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
 }
-
-.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
-
-/* ── CARD SYSTEM ── */
-/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:6px;
-  overflow:hidden;
-  transition:transform .15s;
+.logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.03em; color: var(--accent); }
+.nav-menu { display: flex; gap: 1.2rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+.nav-menu a:hover { color: var(--accent); }
+.container { max-width: 800px; margin: 2.5rem auto; padding: 0 20px; }
+.post-card { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+.post-card:last-child { border-bottom: none; }
+.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; font-weight: 500; }
+.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; background: var(--bg-alt); }
+.post-image { width: 100%; height: auto; display: block; }
+.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; color: #222; }
+.post-content b, .post-content strong { font-weight: 700; color: #000; }
+.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { 
+    font-size: 0.75rem; padding: 5px 12px; border-radius: 4px; 
+    background: var(--bg-alt); color: #555; font-weight: 600; border: 1px solid #eee;
 }
-.card:hover{
-  transform:translateY(-2px);
-}
-
-/* Image container — always 16:9, consistent shadow on image */
-.card-img{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:var(--bg4);
-  flex-shrink:0;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-
-.card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
-
-/* Card body — cream-tinted text on dark */
-.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#c0392b;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.35;
-  color:#111;
-}
-.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-.card-date{font-size:10px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
-
-/* Tags — topic-colored by category */
-.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
-.tag:hover{opacity:.8}
-/* politics/elections */
-.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-/* economy/tariffs */
-.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-/* immigration */
-.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-/* regions */
-.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-/* longreads */
-.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-/* default */
-.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
-
-/* Tag category mapping */
-.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
-
-/* ── PAGINATION ── */
-.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--cream)}
-.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-.pb.disabled{opacity:.3;pointer-events:none}
-
-/* ── TAG FILTER BAR ── */
-.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--cream)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-
-/* ── FOOTER ── */
-footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
-.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
-.flogo .lf{color:var(--maple)}
-.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
-.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
-.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--cream)}
-.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
-
-/* ── TG CTA ── */
-.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
-.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
-.ctxt{flex:1}
-.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
-.csub{font-size:13px;color:var(--t2)}
-.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
-.ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
-
-/* ── RESPONSIVE ── */
-@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
-
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
-.tag-hdr p{font-size:13px;color:var(--t3)}
-@media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
+.person-badge { border-color: #fed7d7; color: var(--accent); }
+.pagination { margin: 4rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
+.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.page-title { margin-bottom: 3rem; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; }
+footer { text-align: center; padding: 4rem 0; color: #aaa; font-size: 0.75rem; border-top: 1px solid var(--border); }
+@media (max-width: 600px) { .nav-menu { display: none; } }
 </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">MAPLE BARREL</a>
+            <nav class="nav-menu">
+                <a href="/materials/">Материалы</a>
+                <a href="/longreads/">Лонгриды</a>
+                <a href="/about/">О проекте</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container"><h1 class="page-title">#жильё</h1><article class="post-card">
+        <span class="post-date">1 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1619@01-12-2025_15-27-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Молодые канадцы, вытесненные с рынка жилья, уходят в инвестиции
+​﻿
 
-<nav style="background:#fff;border-bottom:1px solid #eee;">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+Из-за недоступных цен на жильё <a href="https://www.theglobeandmail.com/investing/markets/inside-the-market/article-priced-out-of-housing-younger-canadians-turn-to-the-stock-market/">канадская молодёжь всё чаще выбирает фондовый рынок</a>. Онлайн-платформы упростили торговлю, комиссии исчезли — и доля инвесторов младше 35 лет среди клиентов брокеров удвоилась с 2018 года, достигнув 28%.
 
-    <!-- LEFT -->
-    <div style="display:flex;gap:16px;font-size:14px;color:#555">
-      <a href="/" style="color:#000">Новости</a>
-      <a href="/materials/">Материалы</a>
-      <a href="/longreads/">Лонгриды</a>
-    </div>
+​﻿
 
-    <!-- CENTER LOGO -->
-    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
-      Maple <span style="color:#d44">🍁</span> Barrel
-    </div>
+Параллельно именно молодые семьи сокращают ипотечные долги — единственная возрастная группа, где это происходит с конца 2022 года. Для многих вход в рынок жилья закрыт: соотношение цен и доходов выросло с 3,5 до восьми за полвека, а в Торонто и Ванкувере выплаты по ипотеке съедают две трети и почти весь доход семьи.
 
-    <!-- RIGHT -->
-    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
-      <a href="/about/">О проекте</a>
-      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
-    </div>
+​﻿
 
-  </div>
-</nav>
+Инвестиции стали альтернативой: по данным CFA Institute, почти 75% канадцев 18–25 лет владеют хотя бы одним активом — против 56% в США. Кто-то пытается так быстрее накопить на первый взнос, о чём свидетельствует рост активов в FHSA. Другие делают ставку на рынок как на основной путь к капиталу.
 
-<div class="wrap">
-  <div class="tag-hdr">
-    <h1>#жильё</h1>
-    <p>344 материалов по теме</p>
-  </div>
-  <div class="tag-grid"><a class="card" href="/post/2025-12-23-sever-britanskoy-kolumbii-teryaet-rabotnikov-iz-za-uzhestoch/">
-  <div class="card-img"><img src="/photos/photo_1817@23-12-2025_19-45-14.jpg" alt="Север Британской Колумбии теряет работников из-за ужесточения правил для иностранцев" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Север Британской Колумбии теряет работников из-за ужесточения правил для иностранцев</div>
-    <div class="card-excerpt">Новые ограничения на программу временных иностранных работников уже бьют по малым и удалённым городам на севере Британской Колумбии. Бизнес и местные экономические организации предупреждают: вакансии</div>
-    <div class="card-meta">
-      <span class="card-date">23 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-22-pervoe-rozhdestvo-kanady-bez-hudsons-bay-company/">
-  <div class="card-img"><img src="/photos/photo_1808@22-12-2025_20-46-01.jpg" alt="Первое Рождество Канады без Hudson’s Bay Company" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Первое Рождество Канады без Hudson’s Bay Company</div>
-    <div class="card-excerpt">Впервые за более чем три с половиной века Канада встречает Рождество без Hudson’s Bay Company — компании, которая не просто торговала, а буквально участвовала в создании страны.   Финал оказался симво</div>
-    <div class="card-meta">
-      <span class="card-date">22 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-22-pervye-deputaty-pokoleniya-z-v-parlamente-kanady-nabirayut-v/">
-  <div class="card-img"><img src="/photos/photo_1804@22-12-2025_13-52-20.jpg" alt="Первые депутаты поколения Z в парламенте Канады набирают влияние" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Первые депутаты поколения Z в парламенте Канады набирают влияние</div>
-    <div class="card-excerpt">Весенние федеральные выборы впервые привели в Палату общин депутатов, родившихся в 2000-х годах. Либеральные депутаты Фарес Аль Сауд, Амандип Содхи, Джейк Саватцки и Татьяна Огюст стали первыми предст</div>
-    <div class="card-meta">
-      <span class="card-date">22 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-21-antiimmigrantskie-nastroeniya-v-kanade-rastut-na-fone-raspad/">
-  <div class="card-img"><img src="/photos/photo_1800@21-12-2025_17-45-17.jpg" alt="Антииммигрантские настроения в Канаде растут на фоне распада прежнего консенсуса" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ca.news.yahoo.com</div>
-    <div class="card-title">Антииммигрантские настроения в Канаде растут на фоне распада прежнего консенсуса</div>
-    <div class="card-excerpt">Канадский общественный консенсус — идея о том, что иммиграция в целом приносит стране пользу — заметно разрушается. Примерно половина канадцев сегодня считает, что иммигрантов в страну приезжает слишк</div>
-    <div class="card-meta">
-      <span class="card-date">21 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-20-vankuver-uroven-vakantnyh-kvartir-maksimum-s-1980-h/">
-  <div class="card-img"><img src="/photos/photo_1792@20-12-2025_10-43-01.jpg" alt="Ванкувер: уровень вакантных квартир — максимум с 1980-х" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Ванкувер: уровень вакантных квартир — максимум с 1980-х</div>
-    <div class="card-excerpt">Впервые за почти 40 лет в Метро Ванкувере зафиксирован уровень вакантности, который считается «здоровым» по североамериканским меркам.   По данным Canada Mortgage and Housing Corporation, в 2025 году</div>
-    <div class="card-meta">
-      <span class="card-date">20 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-19-buduschee-pera-polieva-reshit-odna-rech-na-sezde-konservator/">
-  <div class="card-img"><img src="/photos/photo_1787@19-12-2025_18-35-04.jpg" alt="Будущее Пьера Полиева решит одна речь — на съезде консерваторов в Калгари" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">hilltimes.com</div>
-    <div class="card-title">Будущее Пьера Полиева решит одна речь — на съезде консерваторов в Калгари</div>
-    <div class="card-excerpt">Судьба лидерства Пьера Полиева в Консервативной партии будет зависеть от того, что именно он скажет делегатам на съезде партии в Калгари в конце января. Об этом The Hill Times заявил ветеран партии и</div>
-    <div class="card-meta">
-      <span class="card-date">19 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-19-v-kanade-bolee-tryoh-bezrabotnyh-na-kazhduyu-vakansiyu/">
-  <div class="card-img"><img src="/photos/photo_1781@19-12-2025_10-34-01.jpg" alt="В Канаде — более трёх безработных на каждую вакансию" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">В Канаде — более трёх безработных на каждую вакансию</div>
-    <div class="card-excerpt">По данным Statistics Canada, в октябре на одну открытую вакансию приходилось в среднем 3,3 безработных человека. За год этот показатель вырос на 0,5, что отражает охлаждение рынка труда.   Уровень без</div>
-    <div class="card-meta">
-      <span class="card-date">19 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-18-konservatory-pytayutsya-perevernut-stranitsu-posle-katastrof/">
-  <div class="card-img"><img src="/photos/photo_1778@18-12-2025_15-19-01.jpg" alt="Консерваторы пытаются перевернуть страницу после «катастрофы 2025 года»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Консерваторы пытаются перевернуть страницу после «катастрофы 2025 года»</div>
-    <div class="card-excerpt">Год назад Пьер Полиев выглядел почти неизбежным будущим премьер-министром. Консерваторы опережали либералов на 25 пунктов, Джастин Трюдо был на выходе, а внутри партии уже делили портфели.    Затем вс</div>
-    <div class="card-meta">
-      <span class="card-date">18 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-15-pochemu-molodyozh-v-kanade-stala-samym-neschastnym-pokolenie/">
-  <div class="card-img"><img src="/photos/photo_1758@15-12-2025_20-30-57.jpg" alt="Почему молодёжь в Канаде стала самым несчастным поколением" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Почему молодёжь в Канаде стала самым несчастным поколением</div>
-    <div class="card-excerpt">Канадская молодёжь — больше не самая счастливая часть общества. По данным World Happiness Report, люди младше 30 лет, которые ещё в 2011 году лидировали по уровню удовлетворённости жизнью, теперь оказ</div>
-    <div class="card-meta">
-      <span class="card-date">15 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-15-conestoga-college-okazalsya-v-chisle-glavnyh-zhertv-rezkogo-/">
-  <div class="card-img"><img src="/photos/photo_1754@15-12-2025_13-20-00.jpg" alt="Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой.</div>
-    <div class="card-excerpt">Ещё в конце 2023 года колледж из Китченера переживал настоящий бум: число иностранных студентов выросло до 32,5 тыс., что на 145% больше всего за два года. Доходы Conestoga почти утроились и достигли</div>
-    <div class="card-meta">
-      <span class="card-date">15 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-14-kelouna-lider-kanady-po-urovnyu-pustuyuschih-arendnyh-kvarti/">
-  <div class="card-img"><img src="/photos/photo_1747@14-12-2025_14-14-01.jpg" alt="Келоуна — лидер Канады по уровню пустующих арендных квартир" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">Келоуна — лидер Канады по уровню пустующих арендных квартир</div>
-    <div class="card-excerpt">Келоуна неожиданно вышла на первое место среди всех канадских агломераций по уровню вакантности арендного жилья. По данным ежегодного отчёта CMHC, показатель достиг 6,4% — резкий рост по сравнению с 3</div>
-    <div class="card-meta">
-      <span class="card-date">14 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-12-arendnyh-kvartir-stalo-bolshe-no-arenda-dlya-kanadtsev-vsyo-/">
-  <div class="card-img"><img src="/photos/photo_1737@12-12-2025_20-35-16.jpg" alt="Арендных квартир стало больше, но аренда для канадцев всё ещё неподъёмная" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Арендных квартир стало больше, но аренда для канадцев всё ещё неподъёмная</div>
-    <div class="card-excerpt">‌﻿  Новые данные CMHC показывают парадоксальную картину: предложение на рынке аренды растёт, вакантных квартир становится больше — но цены снижаться не спешат. Для многих семей это означает одно: жиль</div>
-    <div class="card-meta">
-      <span class="card-date">12 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-11-pokolenie-x-podminaet-pod-sebya-bogatstvo-kanady-bumery-tery/">
-  <div class="card-img"><img src="/photos/photo_1720@11-12-2025_17-02-01.jpg" alt="Поколение X подминает под себя богатство Канады: бумеры теряют монополию на деньги" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">financialpost.com</div>
-    <div class="card-title">Поколение X подминает под себя богатство Канады: бумеры теряют монополию на деньги</div>
-    <div class="card-excerpt">Общая стоимость активов канадских домохозяйств во втором квартале 2025 года достигла рекордных $17,87 трлн, но распределены эти деньги очень неравномерно. Финансовый отчёт Financial Post показывает: «</div>
-    <div class="card-meta">
-      <span class="card-date">11 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-10-novye-avto-prevraschayutsya-v-velikiy-kanadskiy-pylesos-dlya/">
-  <div class="card-img"><img src="/photos/photo_1713@10-12-2025_19-32-54.jpg" alt="Новые авто превращаются в «Великий канадский пылесос для денег»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Новые авто превращаются в «Великий канадский пылесос для денег»</div>
-    <div class="card-excerpt">⁠  В The Globe and Mail Роб Кэррик пишет, что канадцы постепенно приходят к очевидному: новые автомобили стали одной из самых разрушительных статей расходов, сопоставимой по давлению на бюджет с жильё</div>
-    <div class="card-meta">
-      <span class="card-date">10 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-10-ford-davit-na-gossluzhaschih-ontario-nuzhno-vozvraschatsya-v/">
-  <div class="card-img"><img src="/photos/photo_1710@10-12-2025_13-47-54.jpg" alt="Форд давит на госслужащих Онтарио: «Нужно возвращаться в офис»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Форд давит на госслужащих Онтарио: «Нужно возвращаться в офис»</div>
-    <div class="card-excerpt">‌﻿   Премьер Даг Форд вновь потребовал от сотрудников провинциального правительства работать очно пять дней в неделю. Поводом стали данные Toronto Star: почти 11 тысяч из примерно 60 тысяч работников</div>
-    <div class="card-meta">
-      <span class="card-date">10 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-08-rabotaet-li-programma-vremennyh-inostrannyh-rabotnikov-da-go/">
-  <div class="card-img"><img src="/photos/photo_1695@08-12-2025_21-42-01.jpg" alt="Работает ли программа временных иностранных работников? “Да”, говорят владельцы Tims — особенно те, кто платит копейки" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thebeaverton.com</div>
-    <div class="card-title">Работает ли программа временных иностранных работников? “Да”, говорят владельцы Tims — особенно те, кто платит копейки</div>
-    <div class="card-excerpt">﻿   Редакция Beaverton решила проверить, насколько эффективно устроена федеральная программа привлечения временных иностранных работников. Для этого мы обратились к людям, которые знают тему лучше все</div>
-    <div class="card-meta">
-      <span class="card-date">8 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-08-saskatun-afganskaya-obschina-trebuet-ot-ottavy-uskorit-vezd-/">
-  <div class="card-img"><img src="/photos/photo_1691@08-12-2025_13-18-01.jpg" alt="Саскатун: афганская община требует от Оттавы ускорить въезд семей, застрявших в Пакистане" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Саскатун: афганская община требует от Оттавы ускорить въезд семей, застрявших в Пакистане</div>
-    <div class="card-excerpt">У городского совета Саскатуна собрались десятки местных афганцев и волонтёров — они обращаются к федеральному правительству с просьбой ускорить переселение людей, чьи канадские заявки давно одобрены,</div>
-    <div class="card-meta">
-      <span class="card-date">8 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-07-novaya-zhilischnaya-struktura-karni-bolshe-byurokratii-chem-/">
-  <div class="card-img"><img src="/photos/photo_1687@07-12-2025_15-27-01.jpg" alt="Новая жилищная структура Карни: больше бюрократии, чем домов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Новая жилищная структура Карни: больше бюрократии, чем домов</div>
-    <div class="card-excerpt">‌  Премьер Марк Карни представил Build Canada Homes (BCH) как федеральный инструмент для ускорения стройки доступного жилья. Агентство стартует с $13 млрд и большими обещаниями: строить быстрее, сохра</div>
-    <div class="card-meta">
-      <span class="card-date">7 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-06-milliony-teryayutsya-v-sotsvyplatah-britanskoy-kolumbii-sotr/">
-  <div class="card-img"><img src="/photos/photo_1673@06-12-2025_10-38-01.jpg" alt="Миллионы «теряются» в соцвыплатах Британской Колумбии: сотрудники бьют тревогу" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">Миллионы «теряются» в соцвыплатах Британской Колумбии: сотрудники бьют тревогу</div>
-    <div class="card-excerpt">Global News представило расследование, основанное на документах и рассказах работников министерства соцразвития. Они утверждают: ведомство годами одобряет выплаты людям, которые по правилам не имеют н</div>
-    <div class="card-meta">
-      <span class="card-date">6 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-05-konservatory-nazvali-ministra-immigratsii-ochen-plohim-zased/">
-  <div class="card-img"><img src="/photos/photo_1667@05-12-2025_14-31-51.jpg" alt="Консерваторы назвали министра иммиграции «очень плохим», заседание комитета перешло в личные выпады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Консерваторы назвали министра иммиграции «очень плохим», заседание комитета перешло в личные выпады</div>
-    <div class="card-excerpt">На парламентском комитете по иммиграции в четверг произошло одно из самых резких столкновений за последнее время. Мишель Ремпел Гарнер, главный критик иммиграционной политики от Консерваторов, практич</div>
-    <div class="card-meta">
-      <span class="card-date">5 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-05-karni-pobil-rekord-tryudo-po-stoimosti-pravitelstvennogo-ret/">
-  <div class="card-img"><img src="/photos/photo_1666@05-12-2025_13-36-47.jpg" alt="Карни побил рекорд Трюдо по стоимости правительственного ретрита" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">torontosun.com</div>
-    <div class="card-title">Карни побил рекорд Трюдо по стоимости правительственного ретрита</div>
-    <div class="card-excerpt">Документы, представленные в парламенте по запросу консерватора Керри Диотта, показали: сентябрьский выездной сбор кабинета Марка Карни в Pan Pacific Toronto обошёлся казне в $532 372. Это выше расходо</div>
-    <div class="card-meta">
-      <span class="card-date">5 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-04-ministr-immigratsii-preduprezhdaet-inostrantsev-ne-zloupotre/">
-  <div class="card-img"><img src="/photos/photo_1642@04-12-2025_11-12-08.jpg" alt="Министр иммиграции предупреждает иностранцев: не злоупотребляйте Канадской системой убежища, пока США и Великобритания закручивают гайки" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Министр иммиграции предупреждает иностранцев: не злоупотребляйте Канадской системой убежища, пока США и Великобритания закручивают гайки</div>
-    <div class="card-excerpt">⁠  Лена Диаб дала понять: Канада не станет запасным аэродромом для тех, кто пытается обойти ужесточённые правила в других странах G7. На фоне того, что Вашингтон фактически остановил приём заявлений н</div>
-    <div class="card-meta">
-      <span class="card-date">4 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-03-statkan-poteryal-sotni-tysyach-negrazhdan-perepis-2021-goda-/">
-  <div class="card-img"><img src="/photos/photo_1635@03-12-2025_14-06-46.jpg" alt="Статкан «потерял» сотни тысяч неграждан: перепись 2021 года не досчиталась трети временных жителей" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Статкан «потерял» сотни тысяч неграждан: перепись 2021 года не досчиталась трети временных жителей</div>
-    <div class="card-excerpt">Новый отчёт Statistics Canada признаёт: в переписи 2021 года не были учтены примерно 38% людей без гражданства, живущих в стране на временной основе. Это студенты, временные рабочие и просители убежищ</div>
-    <div class="card-meta">
-      <span class="card-date">3 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-03-chou-hochet-podnyat-sbory-s-dorogih-sdelok-na-rynke-zhilya-t/">
-  <div class="card-img"><img src="/photos/photo_1633@03-12-2025_11-07-39.jpg" alt="Чоу хочет поднять сборы с дорогих сделок на рынке жилья Торонто" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Чоу хочет поднять сборы с дорогих сделок на рынке жилья Торонто</div>
-    <div class="card-excerpt">Мэр Оливия Чоу предлагает увеличить налог на покупку недвижимости дороже трёх миллионов долларов. Речь идёт о повышении муниципального сбора на передачу прав собственности — меры, которую город утверд</div>
-    <div class="card-meta">
-      <span class="card-date">3 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-02-otchyot-produktovye-banki-v-ontario-treschat-pod-davleniem-r/">
-  <div class="card-img"><img src="/photos/photo_1624@02-12-2025_11-57-02.jpg" alt="Отчёт: продуктовые банки в Онтарио трещат под давлением растущей бедности" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cp24.com</div>
-    <div class="card-title">Отчёт: продуктовые банки в Онтарио трещат под давлением растущей бедности</div>
-    <div class="card-excerpt">Feed Ontario публикует тревожные цифры: за год к продовольственной помощи обратились более миллиона жителей провинции — абсолютный рекорд за всё время наблюдений. Это на 87% выше уровня 2019 года.   В</div>
-    <div class="card-meta">
-      <span class="card-date">2 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-02-priyuty-ottavy-zabity-uzhe-v-nachale-zimy-lyudi-spyat-na-pol/">
-  <div class="card-img"><img src="/photos/photo_1623@02-12-2025_09-57-27.jpg" alt="Приюты Оттавы забиты уже в начале зимы, люди спят на полу и в стульях" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Приюты Оттавы забиты уже в начале зимы, люди спят на полу и в стульях</div>
-    <div class="card-excerpt">В Оттаве зима только началась, а система приютов уже не справляется. Руководители крупнейших учреждений говорят, что работают на пределе, причём без городских ночных центров обогрева, которые мэрия та</div>
-    <div class="card-meta">
-      <span class="card-date">2 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-01-molodye-kanadtsy-vytesnennye-s-rynka-zhilya-uhodyat-v-invest/">
-  <div class="card-img"><img src="/photos/photo_1619@01-12-2025_15-27-01.jpg" alt="Молодые канадцы, вытесненные с рынка жилья, уходят в инвестиции" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Молодые канадцы, вытесненные с рынка жилья, уходят в инвестиции</div>
-    <div class="card-excerpt">﻿  Из-за недоступных цен на жильё канадская молодёжь всё чаще выбирает фондовый рынок. Онлайн-платформы упростили торговлю, комиссии исчезли — и доля инвесторов младше 35 лет среди клиентов брокеров у</div>
-    <div class="card-meta">
-      <span class="card-date">1 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-28-u-desyatkov-tysyach-byvshih-inostrannyh-studentov-vot-vot-is/">
-  <div class="card-img"><img src="/photos/photo_1603@28-11-2025_15-29-01.jpg" alt="У десятков тысяч бывших иностранных студентов вот-вот истекают визы. Что будет дальше — туманно" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">У десятков тысяч бывших иностранных студентов вот-вот истекают визы. Что будет дальше — туманно</div>
-    <div class="card-excerpt">‌﻿  По данным, предоставленным The Globe and Mail, к 31 декабря истекают разрешения на работу у 31,6 тысячи выпускников канадских вузов. Это одна из самых уязвимых групп временных жителей, и эксперты</div>
-    <div class="card-meta">
-      <span class="card-date">28 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-27-voennyh-vsyo-bolshe-uhodit-iz-sluzhby-zhilyo-razvalivaetsya-/">
-  <div class="card-img"><img src="/photos/photo_1593@27-11-2025_09-54-01.jpg" alt="Военных всё больше уходит из службы: жильё разваливается, врачей не найти" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">torontosun.com</div>
-    <div class="card-title">Военных всё больше уходит из службы: жильё разваливается, врачей не найти</div>
-    <div class="card-excerpt">Внутренний отчёт, на который ссылается Blacklock’s Reporter, фиксирует то, о чём в армии давно говорят вполголоса: люди увольняются не из-за формы службы, а из-за быта.  В 2024 году перемещению подвер</div>
-    <div class="card-meta">
-      <span class="card-date">27 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-26-prodazhi-novostroek-v-toronto-upali-do-urovnya-blizkogo-k-os/">
-  <div class="card-img"><img src="/photos/photo_1584@26-11-2025_09-17-01.jpg" alt="Продажи новостроек в Торонто упали до уровня, близкого к остановке: за месяц продано всего 54 кондо" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Продажи новостроек в Торонто упали до уровня, близкого к остановке: за месяц продано всего 54 кондо</div>
-    <div class="card-excerpt">Рынок новых домов в GTA проваливается всё глубже. По данным Altus Group для ассоциации BILD, в октябре по всему региону продали только 248 новых кондо — на два процента меньше прошлогоднего рекордно с</div>
-    <div class="card-meta">
-      <span class="card-date">26 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-25-statkan-opyat-podvezla-infografiku-kotoruyu-mozhno-smelo-pri/">
-  <div class="card-img"><img src="/photos/photo_1578@25-11-2025_14-03-53.jpg" alt="Статкан опять подвезла инфографику, которую можно смело приклеивать к двери кабинета Марка Карни как объяснительную записку — “как мы довели систему до ручки за" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">www150.statcan.gc.ca</div>
-    <div class="card-title">Статкан опять подвезла инфографику, которую можно смело приклеивать к двери кабинета Марка Карни как объяснительную записку — “как мы довели систему до ручки за</div>
-    <div class="card-excerpt">десять лет”.   Наблюдаем картину: в 2014/15 международники были четвертью контингента колледжей. Теперь — половина. Индия — 59% всех студентов в паблик-колледжах. Китай, который раньше был №1, теперь</div>
-    <div class="card-meta">
-      <span class="card-date">25 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-25-goldstin-liberalnaya-immigratsionnaya-politika-utopila-urove/">
-  <div class="card-img"><img src="/photos/photo_1575@25-11-2025_10-33-07.jpg" alt="Голдстин: либеральная иммиграционная политика утопила уровень жизни в Канаде" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">torontosun.com</div>
-    <div class="card-title">Голдстин: либеральная иммиграционная политика утопила уровень жизни в Канаде</div>
-    <div class="card-excerpt">Лорри Голдстин из Toronto Sun разобрал новую волну споров после заявления вице-президента США Джей Ди Вэнса. Он заявил, что наша стагнация — не от торговых выпадов Вашингтона, а от того, что Оттава ра</div>
-    <div class="card-meta">
-      <span class="card-date">25 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-24-karni-i-modi-zapuskayut-peregovory-o-novom-torgovom-soglashe/">
-  <div class="card-img"><img src="/photos/photo_1572@24-11-2025_13-36-53.jpg" alt="Карни и Моди запускают переговоры о новом торговом соглашении между Канадой и Индией" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Карни и Моди запускают переговоры о новом торговом соглашении между Канадой и Индией</div>
-    <div class="card-excerpt">CBC сообщает: премьер Марк Карни и премьер-министр Индии Нарендра Моди договорились начать переговоры по всеобъемлющему экономическому соглашению. Индийское внешнеполитическое ведомство назвало цель —</div>
-    <div class="card-meta">
-      <span class="card-date">24 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-24-sorval-bron-za-43-tys-a-potom-predlozhil-te-zhe-komnaty-za-1/">
-  <div class="card-img"><img src="/photos/photo_1568@24-11-2025_09-26-38.jpg" alt="сорвал бронь за $4,3 тыс., а потом предложил те же комнаты за $17 тыс." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">сорвал бронь за $4,3 тыс., а потом предложил те же комнаты за $17 тыс.</div>
-    <div class="card-excerpt">История из Go Public CBC: жительница Онтарио Эрика Манн забронировала на  четырёхкомнатный номер в монреальском Holland Hotel на Гран-при «Формулы-1» 2026 года. Цена — около $4,3 тыс. Всё подтверждено</div>
-    <div class="card-meta">
-      <span class="card-date">24 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-22-cmhc-startov-stroitelstva-domov-dlya-pokupateley-minimum-za-/">
-  <div class="card-img"><img src="/photos/photo_1565@22-11-2025_19-01-21.jpg" alt="CMHC: Стартов строительства домов для покупателей — минимум за 30 лет, аренда бьёт рекорды" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thehub.ca</div>
-    <div class="card-title">CMHC: Стартов строительства домов для покупателей — минимум за 30 лет, аренда бьёт рекорды</div>
-    <div class="card-excerpt">‌﻿   Данные CMHC показывают: 2025-й идёт к самому слабому году для индивидуального жилья с середины 90-х. За первые десять месяцев начато всего чуть больше 41 тысячи объектов для будущих владельцев. Е</div>
-    <div class="card-meta">
-      <span class="card-date">22 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-19-kris-selli-gonka-za-liderstvo-v-federalnom-ndp-vyglyadit-kak/">
-  <div class="card-img"><img src="/photos/photo_1530@19-11-2025_12-02-13.jpg" alt="Крис Селли: гонка за лидерство в федеральном НДП выглядит как затяжной поход к обрыву" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Крис Селли: гонка за лидерство в федеральном НДП выглядит как затяжной поход к обрыву</div>
-    <div class="card-excerpt">Постмедиа публикует разбор Криса Селли о том, как партия, потерявшая официальное признание в Палате общин, пытается выбрать нового лидера — и почему всё это напоминает мучительное затухание, а не обно</div>
-    <div class="card-meta">
-      <span class="card-date">19 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-18-kanadskie-snowbirds-svorachivayut-v-meksiku-politika-trampa-/">
-  <div class="card-img"><img src="/photos/photo_1522@18-11-2025_14-54-01.jpg" alt="Канадские snowbirds сворачивают в Мексику: политика Трампа бьёт по Флориде" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Канадские snowbirds сворачивают в Мексику: политика Трампа бьёт по Флориде</div>
-    <div class="card-excerpt">‌﻿  Канадские snowbirds, много лет зимовавшие во Флориде, всё чаще выбирают другие направления. CBC пообщалось с туристами и местными бизнесами — и там явно нервничают: постоянный поток гостей с север</div>
-    <div class="card-meta">
-      <span class="card-date">18 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-15-karni-progressivnyy-konservator-liberal-s-somneniyami-razbir/">
-  <div class="card-img"><img src="/photos/photo_1499@15-11-2025_12-29-01.jpg" alt="Карни — прогрессивный консерватор? Либерал с сомнениями разбирает бюджет" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Карни — прогрессивный консерватор? Либерал с сомнениями разбирает бюджет</div>
-    <div class="card-excerpt">CBC публикует занятный разбор: либеральный депутат Натаниэль Эрскин-Смит, который давно не стесняется критиковать собственное правительство, называет бюджет Марка Карни «неплохим прогрессивно-консерва</div>
-    <div class="card-meta">
-      <span class="card-date">15 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-14-mnenie-vysshee-obrazovanie-v-britanskoy-kolumbii-medlenno-tr/">
-  <div class="card-img"><img src="/photos/photo_1495@14-11-2025_19-57-01.jpg" alt="Мнение: высшее образование в Британской Колумбии медленно трещит по швам" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">vancouversun.com</div>
-    <div class="card-title">Мнение: высшее образование в Британской Колумбии медленно трещит по швам</div>
-    <div class="card-excerpt">﻿  Тревор МакФадьен пишет в Vancouver Sun, что система уже не держится на собственных опорах. Федеральный лимит на приём иностранных студентов подаётся как шаг в сфере жилья и борьба с сомнительными к</div>
-    <div class="card-meta">
-      <span class="card-date">14 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-14-zhit-na-vankuver-aylende-stanovitsya-dorozhe-novyy-raschyot-/">
-  <div class="card-img"><img src="/photos/photo_1494@14-11-2025_18-20-15.jpg" alt="Жить на Ванкувер-Айленде становится дороже: новый расчёт прожиточного минимума" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cheknews.ca</div>
-    <div class="card-title">Жить на Ванкувер-Айленде становится дороже: новый расчёт прожиточного минимума</div>
-    <div class="card-excerpt">﻿  Свежий отчёт Living Wage BC показал рост необходимых доходов сразу в нескольких сообществах острова. Больше всех прибавил Комокс-Вэлли — +4,1%, сумма выросла до $25,35 в час.  ﻿  Виктория по-прежне</div>
-    <div class="card-meta">
-      <span class="card-date">14 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a></div>
-  <div class="pgn"><a class="pb" href="/tag/zhilyo/page/2/">←</a><a class="pb" href="/tag/zhilyo/">1</a><a class="pb" href="/tag/zhilyo/page/2/">2</a><a class="pb on" href="/tag/zhilyo/page/3/">3</a><a class="pb" href="/tag/zhilyo/page/4/">4</a><a class="pb" href="/tag/zhilyo/page/5/">5</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/zhilyo/page/9/">9</a><a class="pb" href="/tag/zhilyo/page/4/">→</a></div>
-</div>
-<footer>
-<div class="fi">
-  <div>
-    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
-    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
-    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
-  </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
-</div>
-<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
-</footer>
+​﻿
+
+С начала пандемии индекс S&P/TSX удвоился с учётом дивидендов, биткойн вырос почти в десять раз. Эта динамика подтолкнула новое поколение к акциям, ETF и даже опционным стратегиям.
+
+​﻿
+
+Но проблема остаётся: рынок капитала не заменяет дефицит доступного жилья. Средний возраст первого покупателя растёт — в Онтарио он уже около 40 лет. Для части молодёжи инвестиции помогут, для многих — нет: отставание от жилищной лестницы может обернуться долгосрочной потерей финансовой устойчивости.
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
+    </article><article class="post-card">
+        <span class="post-date">28 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1603@28-11-2025_15-29-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">У десятков тысяч бывших иностранных студентов вот-вот истекают визы. Что будет дальше — туманно
+
+​‌﻿
+
+<a href="https://www.theglobeandmail.com/business/article-international-students-visas-expiring-soon-what-happens-next/">По данным, предоставленным The Globe and Mail,</a> к 31 декабря истекают разрешения на работу у 31,6 тысячи выпускников канадских вузов. Это одна из самых уязвимых групп временных жителей, и эксперты всё громче задают вопрос: сколько людей останутся в стране без статуса?
+
+​‌﻿
+
+Официальных оценок нет. IRCC признаёт, что не знает, сколько обладателей просроченных PGWP продолжают жить в Канаде. CBSA в прошлом году депортировала около 18 тысяч человек, но не сообщает, кто именно попал под выдворение. Экономисты, включая Бенджамина Таля из CIBC, предполагают, что среди тех, кто остаётся без документов, могут быть сотни тысяч бывших временных жителей.
+
+​‌﻿
+
+Пик истекающих PGWP был в прошлом году — около 70 тысяч. Сейчас эта цифра ниже, но всё равно огромная. И статистика переходов удручающая: из примерно 115 тысяч обладателей PGWP, срок которых закончился в 2025 году, только 12% смогли продлить разрешение или перейти на другой тип визы. Часть получила ПМЖ — в 2022 году их доля составила те же 12%.
+
+​‌﻿
+
+Многие пытаются искать обходные маршруты — туристические визы, новые рабочие разрешения, даже запросы убежища. По словам Сайеда Хуссана из Migrant Workers Alliance for Change, всё больше выпускников живут фактически без документов. И на фоне высоких расходов, низких зарплат и ограничений на путь к ПМЖ всё больше думают об отъезде.
+
+​‌﻿
+
+Конфликт вокруг международных студентов стал символом резкой смены курса. Их число выросло с 350 тысяч в 2015 году до миллиона в 2023-м. PGWP увеличились более чем в шесть раз. Это была осознанная ставка Оттавы времён нехватки рабочих рук: страна активно привлекала студентов, давая понять, что обучение — дорога к ПМЖ.
+
+​‌﻿
+
+Но после общественного давления из-за цен на жильё и перегрузки инфраструктуры правительство резко закрутило гайки: сократило выдачу учебных разрешений, ужесточило переходы на ПМЖ и взяло курс на снижение доли временных жителей. План — опустить показатель до 5% населения к 2027 году. Сейчас это 7,3%, около 3 миллионов человек — без учёта тех, чьи визы уже просрочены.
+
+​‌﻿
+
+Сегодня тысячи бывших студентов, накопивших долги за обучение и рассчитывавших остаться, рискуют оказаться в правовом вакууме. Протесты, как в Брамптоне прошлой осенью, вполне могут повториться — особенно среди тех, кто поверил прежним обещаниям и теперь сталкивается с закрытыми дверями.
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ircc/" class="badge">#IRCC</a></div>
+    </article><article class="post-card">
+        <span class="post-date">27 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1593@27-11-2025_09-54-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Военных всё больше уходит из службы: жильё разваливается, врачей не найти
+​
+<a href="https://torontosun.com/news/national/canadian-soldiers-leaving-military-due-to-bad-housing-and-health-care">Внутренний отчёт, на который ссылается Blacklock’s Reporter</a>, фиксирует то, о чём в армии давно говорят вполголоса: люди увольняются не из-за формы службы, а из-за быта.
+​
+В 2024 году перемещению подверглась более десятая часть личного состава. Каждое такое перемещение — потеря второго дохода в семье, новый поиск врача, новые очереди в детские сады и бесконечные попытки найти жильё по доступной цене. Для многих с детьми это просто непроходной барьер.
+​
+Ожидание места в детсаду на базе — до 32 месяцев. С жильём ещё хуже. Исследователи отмечают: всё больше военнослужащих предпочитают уволиться, чем снова попадать в этот цикл. Среди младших чинов уровень ухода — 9,4%.
+​
+Картина дополняется проверкой генпрокурора Карен Хоган: часть служебных домов признана непригодной для проживания. Неработающие туалеты, повреждения несущих стен, здания 60-летнего возраста и старше — одно из построек датируется 1930 годом.
+​
+На очереди за жильём стоят 3 706 человек, а доступных единиц — 205. При том что армия — второй по величине арендодатель в стране с 21 тысячей зданий под управлением.
+​
+Отчёты показывают: четверть инфраструктуры старше полувека и требует серьёзного ремонта и модернизации. Но пока деньги не дошли до объектов, военные голосуют ногами.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">26 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1584@26-11-2025_09-17-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Продажи новостроек в Торонто упали до уровня, близкого к остановке: за месяц продано всего 54 кондо
+
+​
+
+Рынок новых домов в GTA проваливается всё глубже. <a href="https://www.ctvnews.ca/toronto/article/new-home-sales-in-the-gta-continue-to-sink-to-record-lows-with-just-25-condo-units-sold-in-old-toronto-in-october-bild/">По данным Altus Group для ассоциации BILD</a>, в октябре по всему региону продали только 248 новых кондо — на два процента меньше прошлогоднего рекордно слабого месяца. Продажи новых домов в целом упали на 41%.
+
+​
+
+Ситуация в самом Торонто ещё мрачнее: во всех районах города вместе взятых — от Скарборо до Этобико — продано всего 54 новых квартиры, из них лишь 25 — в границах старого Торонто.
+
+​
+
+Причина проста: покупатели не двигаются, если продукт не попадает в очень узкие условия по цене. На рынок почти не выходит новая застройка — за месяц запустили только один проект малоэтажного жилья. В итоге запасы непроданного достигли исторического максимума — 23,5 месяца при текущих темпах продаж. Это свыше 21 тысячи единиц жилья, включая 15,5 тысячи кондо.
+
+​
+
+Цены продолжают давить рынок: эталонная стоимость нового кондо поднялась до $1,03 млн, тогда как для малоэтажных домов опустилась до $1,43 млн.
+
+​
+
+В BILD открыто говорят о риске «полной остановки отрасли» и требуют, чтобы правительства перестали разгонять стоимость новостроек своими надбавками. По мнению ассоциации, федеральная скидка по HST для покупателей-новичков — слишком узкая мера. Они поддерживают призыв Дага Форда сделать освобождение от HST доступным для всех покупателей новых домов, а не только для тех, кто покупает жильё дешевле $1 млн впервые.
+
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
+    </article><article class="post-card">
+        <span class="post-date">25 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1575@25-11-2025_10-33-07.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Голдстин: либеральная иммиграционная политика утопила уровень жизни в Канаде
+​
+
+<a href="https://torontosun.com/opinion/columnists/goldstein-yes-unsustainable-immigration-lowered-our-standard-of-living">Лорри Голдстин из Toronto Sun</a> разобрал новую волну споров после заявления вице-президента США Джей Ди Вэнса. Он заявил, что наша стагнация — не от торговых выпадов Вашингтона, а от того, что Оттава разогнала приток приезжих до абсурда.
+​
+
+Вэнс ткнул в график с реальным ВВП на человека: у Канады показатели падают, и ощутимо. Он напомнил, что доля людей, родившихся за пределами страны, у нас самая высокая в G7, а уровень жизни застрял. И что жалобы на США — попытка отвлечь внимание от провалов собственных руководителей.
+​
+
+Факт, который неприятен либералам: за десятилетие правления Джастина Трюдо прирост реального ВВП на человека составил мизерные 1,4% — худший результат среди развитых стран ОЭСР после эпохи Великой депрессии.
+​
+
+Параллельно разрыв с США стал огромным. По данным Всемирного банка, американский ВВП на человека сейчас примерно на 58% выше канадского в постоянных долларах.
+​
+
+Причём проблемы начались не вчера. Хронически слабые инвестиции, высокие налоги и удушающие регуляции бьют по продуктивности десятилетиями. В такой ситуации иммиграционная система должна быть чётко выстроена и согласована с возможностями страны. Но правительство Трюдо решило иначе.
+​
+
+Сам Марк Карни — ещё до прихода в премьерское кресло — признал, что огромные иммиграционные квоты и раздутое госфинансирование подорвали экономику ещё раньше, чем появились угрозы со стороны Дональда Трампа.
+​
+
+Трюдо позднее подтвердил очевидное: поток постоянных резидентов после 2020 года вышел из-под контроля, а наплыв иностранных студентов и временных работников вырос быстрее, чем страна могла переварить.
+​
+
+Как выяснила Canadian Press, кабинет Трюдо в 2022 году поднял цели по приёму новых приезжих, проигнорировав предупреждения собственных чиновников. Те заранее писали, что жильё дорожает, а медицина и так задыхается.
+​
+
+Цитата из внутренних документов: рост населения обгоняет темпы строительства; скачки в иммиграционных потоках усиливают давление на доступность жилья и медуслуги.
+​
+
+Тревогу били и крупнейшие банки.
+– National Bank: открытие «шлюзов» во время резкого повышения ставок создало рекордный перекос между спросом и предложением на рынке жилья.
+– TD: сохранение сверхвысоких квот может разнести дефицит жилья ещё на полмиллиона единиц за два года.
+– BMO: обещанный эффект на рынке труда съедается ростом спроса на жильё.
+​
+
+Вэнс перегибает, утверждая, что торговая война США здесь ни при чём. Но его центральная мысль бьёт точно в цель: многолетняя политика сверхвысоких квот нанесла экономике серьёзный урон — и это признают уже сами либералы.
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">24 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1568@24-11-2025_09-26-38.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content"><a href="None">Booking.com</a> сорвал бронь за $4,3 тыс., а потом предложил те же комнаты за $17 тыс.
+
+​
+
+<a href="https://www.cbc.ca/news/gopublic/go-public-booking-com-hotel-rates-9.6985480">История из Go Public CBC</a>: жительница Онтарио Эрика Манн забронировала на <a href="None">Booking.com</a> четырёхкомнатный номер в монреальском Holland Hotel на Гран-при «Формулы-1» 2026 года. Цена — около $4,3 тыс. Всё подтверждено, родственники уже купили билеты.
+
+​
+
+Через несколько недель — звонок из отеля: «Тариф ошибочный, отменяйте или платите больше $17 тыс.» <a href="None">Booking.com</a> подтвердил: либо отмена, либо новая сумма. Без вариантов. После отказа клиентки сайт аннулировал бронь сам.
+
+​
+
+К этому моменту цены в Монреале уже ушли вверх. Манн начала звонить в поддержку, но каждый раз звучала одна и та же фраза про «неверный тариф». Отель объяснил CBC, что система автоматически подтягивает расценки под даты Гран-при, однако произошёл сбой, и кратко на сайте появились обычные ставки. Эти пару минут и позволили Манн оформить сделку.
+
+​
+
+Компания сослалась на своё правило: если ставка выглядит «явно неправильной», бронь могут отменить. Но юрист по цифровому праву Дэвид Фьюэр из CIPPIC считает такую практику перекладыванием рисков на клиентов. По его словам, речь не о том, что номер случайно выставили за один доллар — расхождение здесь куда тоньше, а у пользователя нет инструментов защититься.
+
+​
+
+После запроса CBC <a href="None">Booking.com</a> пересмотрел позицию и сообщил Манн, что оставит ей исходную бронь и покроет разницу. Женщина призналась, что облегчение есть, но сама необходимость пробиваться через медиа — показатель того, как работают крупные платформы.
+
+​
+
+Фьюэр советует тем, кто бронирует жильё на даты массовых событий, фиксировать цену скриншотами, звонить в отель для подтверждения и рассчитывать на банки с хорошей системой споров. Манн говорит, что сделала всё возможное — но всё равно вынуждена была почти два месяца выбивать то, что уже оплатила.
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ontario/" class="badge">#Онтарио</a></div>
+    </article><article class="post-card">
+        <span class="post-date">22 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1565@22-11-2025_19-01-21.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">CMHC: Стартов строительства домов для покупателей — минимум за 30 лет, аренда бьёт рекорды
+
+​‌﻿ ​
+
+<a href="https://thehub.ca/2025/11/21/housing-starts-for-canadian-homeowners-set-to-hit-30-year-low-as-rentals-hit-record-high-in-2025-cmhc/">Данные CMHC показывают</a>: 2025-й идёт к самому слабому году для индивидуального жилья с середины 90-х. За первые десять месяцев начато всего чуть больше 41 тысячи объектов для будущих владельцев. Если темпы сохранятся, год закончится на уровне около 51 тысячи — вдвое меньше пика 2002 года.
+
+​‌﻿ ​
+
+На фоне этого картина по аренде противоположная: почти 88 тысяч новых арендных проектов с января по октябрь, и итог за год может превысить 105 тысяч. То есть за 2025 год арендное строительство удваивает объём жилья, строящегося для покупки.
+
+​‌﻿ ​
+
+Экономист Майк Моффат говорит, что доходность арендных проектов стала выше, чем у высотных кондо. Одновременно в разных городах стало трудно строить малоэтажное жильё — играют роль сборы, налоги и правила землепользования.
+
+​‌﻿ ​
+
+Падение цен на жильё тоже внесло вклад. Средняя цена в октябре — 679,9 тысячи долларов, минус пятая часть к пику 2022 года. По словам Моффата, продажи просели, потому что постройка новых объектов часто не покрывает расходов — проект сложно сделать рентабельным и получить под него финансирование.
+
+​‌﻿ ​
+
+Спрос на аренду растёт: влияние оказывает увеличение числа иммигрантов и временных жителей, а также молодых канадцев, которые не могут перейти из аренды в покупку. Средняя аренда — около 2,1 тысячи долларов в месяц, заметно выше уровня 2020 года.
+
+​‌﻿ ​
+
+Федеральные решения последних лет подталкивали рынок именно в сторону арендных домов: отмена GST для таких проектов, ускоренная амортизация и дешёвые кредиты на строительство. Моффат подчёркивает — рост аренды стал результатом политики, а не классического рыночного импульса.
+
+​‌﻿ ​
+
+Кондо в этом году просели сильнее всего: ожидается чуть более 50 тысяч новых проектов, на девять тысяч меньше, чем в 2024-м. В Торонто продажи новых кондо в августе упали на 90 процентов от среднего за десятилетие.
+
+​‌﻿ ​
+
+Доля доходов, уходящая на жильё, растёт. По оценкам Оттавы, канадцы тратят на жильё и коммуналку от трети до половины заработка. Перспективы улучшения туманны: Моффат предполагает несколько лет падения строительной активности.
+
+​‌﻿ ​
+
+Правительство Карни обещало ряд мер для улучшения ситуации, но в бюджете реализовали полностью лишь возврат GST для покупателей новых домов, а агентство Build Canada Homes расходует выделенные средства медленнее, чем планировалось. Льготы для небольших арендных зданий не дошли до этапа исполнения.
+
+​‌﻿ ​
+
+Для молодёжи прогноз неблагоприятный: через пять лет покупка жилья может стать ещё менее доступной — спрос останется высоким, а предложение рискует просесть.
+
+​‌﻿ ​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
+    </article><article class="post-card">
+        <span class="post-date">15 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1499@15-11-2025_12-29-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Карни — прогрессивный консерватор? Либерал с сомнениями разбирает бюджет
+
+​
+
+<a href="https://www.cbc.ca/news/politics/carney-dentremont-poilievre-budget-analysis-9.6979682">CBC публикует занятный разбор</a>: либеральный депутат Натаниэль Эрскин-Смит, который давно не стесняется критиковать собственное правительство, называет бюджет Марка Карни «неплохим прогрессивно-консервативным документом». Полушутя, конечно, но намёк очевиден — новый премьер демонстративно отходит от ряда символов эпохи Трюдо и переезжает ближе к центру-правому полю.
+
+​
+
+Что именно выброшено за борт из наследия Трюдо? Улетел роскошный налог на яхты и частные самолёты. Прощай, обещание высадить два миллиарда деревьев — теперь будет один. Судьба потолка выбросов для нефтегазовой отрасли под вопросом. Газовый экспорт, к которому правительство Трюдо относилось прохладно, теперь фактически приветствуется, вместе с восстановленным налоговым кредитом для LNG. Отменён потребительский углеродный сбор, возвращены прежние правила налогообложения прироста капитала, свернута цифровая налоговая мера.
+
+​
+
+Но важные элементы либеральной соцполитики Карни трогать не стал: детские выплаты, федеральное финансирование детсадов, стоматологическая программа — всё остаётся. Некоторые министерства режут бюджеты на 15 процентов, но направления, связанные с коренными народами и равенством, попали под более мягкое сокращение.
+
+​
+
+Главное отличие — масштаб заявленных экономических мер. Правительство Трюдо планировало урезать аппарат на 5 000 позиций и сократить расходы на 15,8 млрд за пять лет. Карни собирается убрать 40 000 мест и выжать 44 млрд за четыре года. Слово «продуктивность» в документе встречается 131 раз — почти вдвое чаще, чем в последнем бюджете Трюдо.
+
+​
+
+Если смотреть на это глазами старых прогконсерваторов времён Брайана Малруни, то сочетание экономического акцента с умеренной экологической повесткой выглядит вполне узнаваемым. Неудивительно, что бывший депутат-прогконсерватор Крис д’Антремон легко поддержал документ и даже перешёл к либералам на следующий день.
+
+​
+
+Но либералы из собственного крыла подмечают и слабые места. Во-первых, климат. Карни пытается быть «зелёным, но реалистичным», но это может размыть бренд партии и подставить её под удары со стороны НДП. Во-вторых, жильё. Правительство продлевает финансирование Build Canada Homes, но ключевых налоговых стимулов для аренды, обещанных весной, в бюджете нет. Для Пьера Полиева — это идеальный повод напомнить, почему многие искали перемен в мае: жильё по-прежнему дорого, доходы не растут.
+
+​
+
+Так прогконсервативный ли это бюджет? Скорее, карниевский. Смесь экономического сдвига вправо, осторожного сохранения соцпроектов и попытки показать, что либералы способны меняться — без того, чтобы стать консерваторами. Поддержка Эрскин-Смита и д’Антремона гарантирована. Остальное решит голосование в понедельник.
+
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">14 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1495@14-11-2025_19-57-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Мнение: высшее образование в Британской Колумбии медленно трещит по швам
+
+​﻿
+
+<a href="https://vancouversun.com/opinion/op-ed/opinion-the-slow-unravelling-of-higher-education-in-b-c-has-begun">Тревор МакФадьен пишет в Vancouver Sun</a>, что система уже не держится на собственных опорах. Федеральный лимит на приём иностранных студентов подаётся как шаг в сфере жилья и борьба с сомнительными колледжами, но фактически он перерезает источник доходов, который долгие годы закрывал дыру, возникшую из-за хронического недофинансирования со стороны провинции.
+
+​﻿
+
+Десятилетиями кампусы наращивали контингент, сталкивались с растущими запросами студентов, ветшающей инфраструктурой и увеличением стоимости технологий — а базовое финансирование не росло. Руководству повторяли мантры про «поиск новых источников», что на практике означало одно: привлекать всё больше иностранных студентов и их плату за обучение, чтобы удержать afloat местные программы. Теперь эта подставка выбита.
+
+​﻿
+
+И речь не о больших университетах в Метро Ванкувере. Удар примут на себя VIU, Camosun, North Island College, TRU, Capilano, Selkirk, Okanagan College, UNBC — учреждения, от которых зависят регионы. Эти кампусы невозможно заменить «переездом в UBC». Огромное число студентов физически или финансово не могут уехать.
+
+Малые вузы — это рабочие места, подготовка местных кадров, экономическая активность и идентичность территорий. Когда их сжимает, рушатся целые цепочки: от программ в сфере образования и медсестринского дела до trades и соцработы.
+
+​﻿
+
+Результат уже понятен: меньше курсов, меньше поддержки, заморозка программ, которые напрямую связаны с потребностями сообществ. Для многих это будет фактическая потеря доступа к высшему образованию.
+
+​﻿
+
+Аргументы про «разгрузку рынка жилья» тоже не выдерживают проверки. Студенты не создавали дефицит — его вызвали годы недостройки, бюрократия и отсутствие продуманного плана по жилью для студентов. Уменьшение числа студентов без строительства жилья меняет только картинку, а не причину.
+
+​﻿
+
+МакФадьен предлагает очевидный шаг: привязать набор студентов к строительству кампусного жилья. Это один из самых быстрых способов увеличить недорогой арендный фонд.
+
+Но без серьёзных действий провинции и Оттавы ситуация не изменится: нужно вернуть адекватный уровень финансирования на студента, различать публичные университеты и частные коммерческие колледжи, а также развивать жильё при кампусах.
+
+​﻿
+
+Пустые разговоры о «поддержке среднего класса» рядом не стоят с ролью региональных вузов. Они и создают для людей шанс получить образование, не покидая свои сообщества.
+
+Окно возможностей ещё открыто — но ненадолго.
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">10 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1463@10-11-2025_13-12-07.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Что дал бюджет-2025 поколению Z и миллениалам
+​
+Первый бюджет правительства Марка Карни обещал «поколенческие инвестиции» — но молодые канадцы, похоже, остались с ощущением déjà vu. Обещаний много, но конкретных мер, способных изменить их экономическую реальность — безработицу, рост цен и недоступное жильё — почти нет.
+​
+Рост цен и расходы
+
+<a href="https://financialpost.com/news/canada-budget-2025-generation-z-millennial-canadians">Бюджет признал,</a> что инфляция и дороговизна жизни давят на всех, но новых инструментов для реального облегчения не предложил. Из свежего — лишь проверка банковских комиссий (включая Interac и банкоматы) с отчётом в 2026 году. Остальное — старые инициативы вроде снижения налогов для среднего класса и отмены углеродного сбора.
+​
+Для молодых семей правительство продолжит программы детсадов и школьного питания, а также увеличит выплаты по Canada Child Benefit, которые вырастут на 5,2% — до 30,1 млрд долларов. Но это помощь не столько молодым без детей, сколько семьям с маленькими детьми.
+​
+Эксперты, такие как Пол Кершоу из Generation Squeeze, отмечают, что реальный прирост бюджетных расходов уходит не молодым, а пожилым: расходы на пенсионные программы к 2029 году вырастут на 28 млрд, тогда как на жильё — лишь на 1,6 млрд, образование — на 1,9 млрд, занятость молодёжи — меньше миллиарда.
+​
+Жильё
+Главный элемент «жилищного блока» — агентство Build Canada Homes, получившее 13 млрд на пять лет для строительства кооперативного и доступного жилья. Освобождение от GST для первых покупателей домов дешевле миллиона долларов также вошло в бюджет.
+​
+Гендиректор Royal LePage Фил Сопер назвал инициативу самым системным подходом к проблеме за два десятилетия, но отметил: без реального роста строительства любые льготы превращаются в самообман. Экономисты сомневаются, что стране удастся удвоить темпы жилищного строительства — не хватает рабочих, материалов и спроса. В итоге цены вряд ли снизятся, а молодые останутся вне рынка.
+​
+Рабочие места и безработица
+Безработица среди канадской молодёжи — 14,7%, максимум с 2010 года (если не считать пандемию). Бюджет выделяет 595 млн на программу Canada Summer Jobs и ещё 308 млн на обучение и поддержку 20 тысяч молодых людей, сталкивающихся с барьерами при трудоустройстве. Ещё 635 млн пойдут на 55 тысяч стажировок для студентов и 40 млн — на создание Youth Climate Corps, который займётся экологическими проектами.
+​
+Но аналитики предупреждают: краткосрочные подработки не решают проблему системной безработицы. Молодёжь хочет не летней занятости, а стабильных перспектив — особенно в эпоху ИИ.
+​
+Цифровая экономика и финансы
+Бюджет продвигает концепцию «открытого банкинга» и обещает закон, позволяющий клиентам делиться своими финансовыми данными с финтех-компаниями. Правительство уверяет, что это повысит конкуренцию и снизит комиссии, особенно для цифрово активных пользователей — то есть молодых канадцев.
+​
+Однако специалисты, такие как Васс Беднар из Canadian SHIELD Institute, предупреждают: под видом «удобства» новые игроки могут просто получить доступ к личным данным клиентов.
+​
+Итог
+Несмотря на громкие заявления о «поколенческих инвестициях», бюджет-2025 лишь частично затронул проблемы поколения Z и миллениалов. Молодым достались обещания, а основные средства — пенсионерам и крупным инфраструктурным проектам. Для тех, кто ждёт облегчения на рынке труда и жилья, реальное улучшение остаётся впереди — если оно вообще придёт.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ekonomika/" class="badge">#экономика</a></div>
+    </article><article class="post-card">
+        <span class="post-date">10 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1462@10-11-2025_11-57-04.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Канадцы отворачиваются от США: бэби-бумеры массово отказываются от поездок, молодёжь выбирает «тихий туризм»
+​
+Пока Дональд Трамп снова сидит в Белом доме, всё больше канадцев решают, что отдыхать где угодно — только не в Америке. <a href="https://www.thecanadianpressnews.ca/business/baby-boomers-lead-shift-away-from-u-s-visits-younger-people-go-quiet-travelling/article_0e4013cb-ab52-53d8-9868-3a0751c33f17.html">По данным Statistics Canada</a>, число возвращающихся из США канадцев в сентябре упало почти на треть по сравнению с прошлым годом. Это девятый месяц подряд, когда поездки через границу идут на спад.
+​
+Особенно резко охладели к южному соседу представители поколения бэби-бумеров — лишь 10% из них планируют визит в Штаты этой зимой, что на две трети меньше, чем год назад. Среди зумеров падение скромнее — 18%, но общая тенденция та же.
+​
+Причины очевидны: недовольство политикой Трампа, таможенные тарифы, агрессивная риторика о «51-м штате», слабый курс канадского доллара (всего 71 цент США) и общая усталость от американских реалий.
+​
+На этом фоне авиакомпании перестраиваются: Air Canada сокращает рейсы в США и наращивает направления в Карибы, Латинскую Америку и Европу. Американские штаты, заметив отток, запускают рекламные кампании, чтобы вернуть канадских туристов — например, Калифорния с лозунгом California Loves Canada.
+​
+Тем не менее поток через границу не иссяк: только в сентябре 1,8 миллиона канадцев вернулись из США по воздуху и суше. Но настроение заметно изменилось. Одни боятся миграционных проверок и произвола ICE, другие — просто не хотят «впитывать атмосферу Трампа».
+​
+Некоторые всё же ездят — но без фанфар. Эксперты называют это «quiet travelling» — путешествия без публикаций, сторис и геотегов, чтобы не вызывать осуждения. «Они скажут: да, я лечу туда, но без лишней шумихи», — отмечает директор Ассоциации страхования путешествий Уилл Макалир.
+​
+Молодёжь при этом продолжает ездить в США чаще, чем старшее поколение, — банально из-за бюджета. «Поездка в Орландо обойдётся дешевле, чем в Токио», — говорит финансовый блогер Барри Чой.
+​
+Бизнес-туры, в отличие от отдыха, идут без перерывов: «Работа есть работа», — признаёт жительница Монреаля Катрин Пакин, которая недавно летала в Вашингтон по делам.
+​
+А вот для так называемых «сноубёрдов» — канадцев, зимующих во Флориде и Аризоне, — выбора попросту нет. До 40% из них имеют жильё в США и не оставят дома без присмотра. «Они поедут — у них там друзья, сообщество и солнце», — говорит Стивен Файн из Snowbird Advisor Insurance.
+​
+И, как добавляет редактор Snowbird Advisor Джилл Уайкс, сезон только начинается: «Первая метель ещё не прошла. Когда она придёт — многим захочется сбежать».
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">5 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1422@05-11-2025_11-05-50.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Оттава закручивает кран для временных мигрантов: минус 43 % уже в 2026 году
+​
+<a href="https://www.cbc.ca/news/politics/canada-rudcing-temporary-residents-budget-9.6966217">Федеральное правительство резко меняет курс на иммиграцию</a>: в бюджете, представленном во вторник, зафиксировано, что Канада в 2026 финансовом году примет только 385 000 временных жителей — это примерно на 43 % меньше цели, которую ставили ещё в прошлом плане. В 2027 и 2028 годах планка опустится ещё ниже — до 370 000.
+​
+Для сравнения: в прошлогоднем иммиграционном плане говорилось о более чем 516 000 временных резидентов в 2026-м. То есть правительство Карни не просто «чуть подкрутило» систему — оно делает временную миграцию центральной точкой сдерживания общего притока людей.
+​
+Министр финансов Франсуа-Филипп Шампан объяснил это просто: страна вышла на предел по жилью, школам и здравоохранению. «Канадцы понимают, что мы достигли — а иногда и превысили — нашу способность принимать людей», — сказал он. Поэтому задача теперь — вернуть иммиграцию на «устойчивый уровень» и одновременно сделать так, чтобы в страну попадали те, кто действительно нужен экономике.
+​
+Что меняется конкретно
+​
+– В 2026 году: 385 000 временных резидентов.
+– В 2027–2028: по 370 000.
+– Это примерно на 40–43 % меньше, чем изначально планировалось на середину десятилетия.
+​
+Причём Оттава уже в 2025-м урезала потоки: по бюджету, число временных жителей в 2025 году было фактически вдвое меньше, чем в 2024-м, а приезды иностранных студентов сократились на 60 %. Также на треть упали запросы на убежище.
+​
+Параллельно правительство удерживает приём постоянных жителей на уровне 380 000 в год на ближайшие три года, но внутри этого потока увеличивает долю экономических мигрантов — с 59 до 64 %. То есть идея понятна: меньше людей «вообще», больше тех, кто сразу может работать по специальности.
+​
+Почему так жёстко по «временным»
+​
+– между 2018 и 2024 годами доля временных жителей в населении Канады удвоилась и достигла 7,5 %;
+– жильё, медики и школы просто не успевают за этим ростом;
+– и, что важно, общественное мнение тоже повернуло: последний опрос Environics показал, что 56 % канадцев считают, что страна принимает слишком много иммигрантов.
+​
+На этом фоне либералы хотят опустить долю временных жителей ниже 5 % к 2028 году.
+​
+Но отбор «топов» продолжается
+​
+При всей жёсткости, бюджет одновременно открывает «быстрые коридоры» для нужных Канаде людей:
+– разовая быстрая выдача ПМЖ 33 000 держателям рабочих разрешений в ближайшие два года;
+– новый ускоренный маршрут для держателей американских виз H-1B (высококвалифицированные специалисты, прежде всего техсектор). Напомню: когда Канада открыла такой маршрут в 2023 году, квоту разобрали за 24 часа;
+– $1,7 млрд на 13 лет, чтобы заманивать в университеты и лаборатории «высококвалифицированных международных исследователей».
+​
+То есть Карни и Шампан говорят: «мы сокращаем массовый поток, но усиливаем элитный».
+​
+Не всем это нравится
+​
+Сеть Migrant Rights Network уже назвала план «шокирующей атакой на беженцев и мигрантов» и обвинила правительство в том, что оно перекладывает ответственность за кризис с жильём и медициной на приезжих, вместо того чтобы бороться с дефицитом жилья и недофинансированием систем.
+​
+Но политически это решение вписывается в новый иммиграционный курс либералов под Карни: меньше временных, более управляемые цифры, приоритет экономике — и всё это на фоне бюджета с огромными капиталовложениями, которому нужно общественное одобрение.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">5 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1421@05-11-2025_09-06-40.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Бюджет-2025: ставка на мегастройку и промышленность, дефицит — $78,3 млрд
+​
+<a href="https://www.ctvnews.ca/politics/article/liberals-set-to-deliver-highly-anticipated-federal-budget-today/">Правительство Марка Карни представило</a> первый федеральный бюджет — документ на 406 страниц, который сам премьер называет планом «экономики, созданной канадцами и для канадцев». Суть простая: Оттава делает огромный рывок в капитальных вложениях — инфраструктура, оборона, жильё, индустриальная политика — и при этом режет повседневные расходы государства. Цена за это — дефицит в разы выше, чем обещали ещё год назад.
+​
+В 2025–26 финансовом году дефицит составит $78,3 млрд. Для сравнения: в декабрьском фискальном обновлении прошлого правительства на этот же год прогнозировали $42,2 млрд. Затем дефицит должен постепенно снижаться: до $65,4 млрд в 2026–27 и до $56,6 млрд к 2029–30.
+​
+Оттава объясняет: если сейчас начать агрессивно «худеть» по дефициту, придётся резать детсады, стоматологию, фармакare и другие социальные программы — а карниевские либералы этого делать не хотят. Поэтому приоритет — «поколенческие инвестиции», которые, по их версии, поднимут производительность и потом обеспечат рост зарплат и налоговых поступлений.
+​
+Что именно вкладывают
+​
+Бюджет закладывает $280 млрд капитальных расходов на пять лет. Это не «социалка», а то, что должно строиться, производиться и увеличивать мощность экономики. Внутри:
+– $115 млрд — на инфраструктуру, включая новый фонд Build Communities Strong для местных проектов;
+– $110 млрд — на продуктивность и конкурентоспособность (региональное развитие, поддержка ИИ, квантовых технологий, электромобилей, «супервычет по производительности», R&D-стимулы);
+– $81,8 млрд — на оборону и безопасность, чтобы «перестроить, перевооружить и вложиться» в армию;
+– $25 млрд — на ускорение жилищного строительства, в том числе уже анонсированные $13 млрд на программу Build Canada Homes.
+​
+Финмин Франсуа-Филипп Шампан на брифинге говорил в лоб: у Канады сейчас есть то, что миру нужно — критические минералы, технологии, ИИ, и этим надо воспользоваться, пока США заняты тарифными войнами и перекраивают торговую систему.
+​
+Почему дефицит так раздулся
+​
+Всего в документе — $141 млрд новых расходов. Из них $51,2 млрд правительство обещает «отбить» за счёт экономии, то есть чистый новый расход — $89,7 млрд. Параллельно они обещают сбалансировать операционный бюджет — то есть повседневные траты — к 2028–29 году и даже выйти там на профицит $1,7 млрд.
+​
+Идея такая: капитальные траты будут со временем занимать всё больший кусок дефицита — с 58 % в 2025–26 до 100 % после 2028–29. То есть «минус» в бюджете — это уже не зарплаты чиновникам, а стройки, корабли, техника, порты и линии электропередач.
+​
+Оборона, НАТО и новый подсчёт
+​
+Отдельный блок — армия. Всего — $81,8 млрд на пять лет. В эту сумму входит ранее объявленное Карни $9 млрд, чтобы Канада уже в этом году показала НАТО заветные 2 % ВВП. В бюджет заложили и «Стратегию оборонной индустрии» на $6,6 млрд — по сути, подпитку канадских производителей, чтобы закупки шли «внутри страны».
+​
+Примечание: либералы, судя по документу, расширяют, что именно они считают «обороной», чтобы выйти на 2 % — туда попадают и некоторые расходы по безопасности.
+​
+Жильё и большие проекты
+​
+По жилью — не революция, а «суперзарядка» уже объявленных планов: $25 млрд, из них большая часть — перераспределённые деньги. Обещают ускорить «национальные строительные проекты», но новых «мостов века» поименованно не объявили — вместо этого создают офис крупных проектов и усиливают коренные консультации, чтобы всё это вообще можно было строить.
+​
+А что для обычных людей?
+​
+Слабое место бюджета — почти нет прямых мер по стоимости жизни. Либералы отвечают: мы строим экономику, которая будет платить больше, и тогда будет из чего снижать налоги и финансировать медицину. Но прямо сейчас в документе скорее про бизнес и инфраструктуру, чем про чек в карман.
+​
+При этом базовые социальные вещи — детсад, стоматологию, фармакare, выплаты пожилым — оставили. Добавили долгосрочное финансирование школьной программы питания и упростили доступ к Canada Disability Benefit.
+​
+Где будут резать
+​
+Летом министрам дали задание: найти до 15 %</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">4 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1420@04-11-2025_21-34-03.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Правительство Карни резко сокращает временную иммиграцию и замораживает приём постоянных жителей
+​
+<a href="https://nationalpost.com/news/politics/federal-budget-2025-mark-carney-immigration">Федеральное правительство представило в бюджете масштабное ужесточение</a> иммиграционной политики: число временных иммигрантов будет урезано почти наполовину, а программа приёма постоянных резидентов — заморожена до 2028 года.
+​
+По новому трёхлетнему плану, количество иностранных студентов, получающих визы в Канаду, сократят до 150 000 в год — это вдвое меньше, чем планировалось ранее. Для колледжей и университетов, чьи бюджеты во многом зависят от иностранных учащихся, это станет тяжёлым ударом.
+​
+В целом, в 2025 году правительство намерено выдать 385 000 временных виз — против 673 000, запланированных прежней администрацией. В 2026–2027 годах эта цифра снизится до 370 000. Таким образом, поток временных мигрантов сократится более чем на 40 % всего за один год.
+​
+При этом приём постоянных жителей зафиксируют на уровне 380 000 в год, без роста до конца десятилетия. В бюджете говорится, что сокращения необходимы, поскольку «иммиграционная система вышла из-под контроля» и «страна больше не справляется с масштабом притока».
+​
+«Мы возвращаем контроль над системой и ставим Канаду на устойчивую траекторию — чтобы она могла выполнять свои обещания перед теми, кто называет её домом», — говорится в документе.
+​
+Консервативный лидер Пьер Полиев уже давно призывает к «жёстким лимитам» на иммиграцию и обвиняет либералов в том, что рост населения перегрузил жильё, медицину и школы. По данным правительства, доля временных жителей выросла с 3,5 % населения в 2018 году до 7,5 % к 2024-му.
+​
+Министр финансов Франсуа-Филипп Шампан заявил, что сокращение иммиграции позволит «лучше интегрировать прибывающих»:
+​
+«Если вы приглашаете людей в страну, у вас есть обязанность дать им жильё, доступ к образованию и медицинским услугам», — сказал он.
+​
+Одновременно в бюджете заложен миллиард долларов на 13 лет для программы привлечения лучших иностранных исследователей — в рамках новой стратегии «International Talent Attraction Plan».
+​
+«Мы снижаем общее число прибывающих до устойчивого уровня, но при этом делаем ставку на лучших и самых талантливых», — отметил Шампан.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">4 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1415@04-11-2025_10-21-53.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Карни готовит «большой и дерзкий» бюджет: либералы представят финансовый план во вторник
+​
+Правительство Марка Карни выходит на главный политический момент сезона: <a href="https://www.cbc.ca/news/politics/carney-first-federal-budget-9.6965161">во вторник либералы представят свой первый федеральный бюджет</a> — документ, который сам премьер называет «поколенческим». Министр финансов Франсуа-Филипп Шампан пообещал, что «это тот бюджет, который вы запомните», а Карни — что он «определит следующее столетие» для Канады.
+​
+После недельного турне по Азии, где премьер искал новые рынки сбыта на фоне тарифных войн с США, Карни заявил, что его правительство готово «ввести Канаду в новую эру» и превратить её «из зависимой в устойчивую экономику». Он обещает «катализировать беспрецедентные инвестиции» и укрепить репутацию страны как «энергетической сверхдержавы» — с упором на нефть, газ и возобновляемую энергетику.
+​
+Шампан, как и положено, купил новые туфли накануне представления бюджета — по канадской парламентской традиции — и заявил, что документ отразит «смелое видение будущего». По его словам, «Канадцы просят нас строить большое и дерзкое — и мы это сделаем».
+​
+​
+Что уже известно о цифрах и приоритетах
+​
+Предстоящий бюджет объединит амбициозные инвестиции с сокращениями внутри правительства. Основные статьи расходов, объявленные заранее, включают:
+– 9 миллиардов долларов на оборону;
+– 13 миллиардов на создание агентства Build Canada Homes;
+– 2 миллиарда на малые модульные ядерные реакторы в Дарлингтоне (Онтарио);
+– 5 миллиардов на стратегический фонд реагирования;
+– 3,6 миллиарда на временные меры страхования по безработице из-за тарифной неопределённости;
+– 1,8 миллиарда на усиление федеральной полиции;
+– 370 миллионов на стимулирование производства биотоплива;
+– 660 миллионов на программы гендерного равенства и безопасность;
+– почти 100 миллионов на признание иностранных квалификаций;
+– 450 миллионов на переподготовку работников.
+​
+В целом, Карни обещает «меньше тратить, но больше инвестировать»: то есть увеличивать капиталовложения в инфраструктуру, энергетику и промышленность, но урезать операционные расходы — зарплаты, ведомства, субсидии. По словам премьера, бюрократия выросла «в разы быстрее населения», и «эти времена закончились». В течение трёх лет операционный бюджет должен выйти на баланс.
+​
+​
+Политическая математика и риск выборов
+​
+Либералы Карни управляют меньшинством: у них 169 мест в Палате общин, поэтому для прохождения бюджета нужно как минимум три голоса оппозиции — или два, если спикер проголосует в случае ничьей. Пока таких голосов нет.
+​
+Консерваторы Пьера Полиева требуют, чтобы дефицит не превышал 42 миллиарда, как обещалось ранее. Но, по оценкам экономистов, он может дойти до 100 миллиардов — с учётом военных расходов, программ по жилью и тарифной поддержки промышленности. Полиев назвал подход Карни «ещё одним витком безудержных трат, долга и инфляции».
+​
+Блок Квебекуа требует повышения пенсий и вложений в здравоохранение, чего правительство, скорее всего, не даст. Временный лидер НДП Дон Дэвис заявил, что его партия не поддержит «бюджет жёсткой экономии», но не исключил варианта воздержаться. Если документ провалится, страна может уйти на выборы уже к Рождеству. Карни, по его словам, «полностью готов к такому исходу».
+​
+​
+Акценты: жильё, армия, промышленность, налоги
+​
+Бюджет, по ожиданиям, усилит программы строительства и военных расходов. После лет недофинансирования армия получит дополнительный импульс — как и жилищный сектор, где либералы планируют масштабное расширение государственного строительства.
+​
+На фоне американских тарифов на сталь, алюминий, автомобили и древесину, Оттава готовит меры поддержки этих отраслей. Также ожидаются налоговые изменения, направленные на «рост, конкуренцию и снижение рисков инвестиций». Одновременно вводится политика «Покупай канадское» — для строительства, инфраструктуры и обороны будут использоваться материалы и технологии местного производства.
+​
+При этом Карни обещает «болезненные, но нужные решения»: часть ранее заявленных программ — например, обещание высадить два миллиарда деревьев — будет урезана.
+​
+​
+Разногласия среди экономистов
+​
+Экспер</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
+    </article><article class="post-card">
+        <span class="post-date">2 ноября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1401@02-11-2025_12-03-59.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Опрос: жители Квебека всё меньше доверяют государству, СМИ — и друг другу
+
+​
+Новое исследование Institut de la confiance показало: за последние десять лет уровень доверия в Квебеке резко упал. 65% жителей меньше доверяют правительству, 68% — системе здравоохранения, а 68% — СМИ. Даже между людьми снизилась взаимная вежливость и толерантность.
+
+​
+Молодёжь особенно пессимистична:
+– 89% боятся, что не смогут позволить себе жильё,
+– 85% тревожатся из-за экономической нестабильности,
+– 81% — из-за климатического кризиса,
+– 76% уверены, что искусственный интеллект сократит рабочие места.
+
+​
+<a href="https://www.ctvnews.ca/montreal/article/quebecers-are-losing-trust-in-their-institutions-and-each-other-poll/">Дональд Рьондо из Института доверия считает</a> ситуацию тревожной:
+
+«Мы не верим, что общество или государство способны справиться с множеством кризисов — от климата до дезинформации».
+
+​
+Политолог Донал Гилл из Конкордии добавляет, что проблема — в «технократическом управлении без воображения». По его словам, правящие элиты «обещают много, делают мало», а люди чувствуют себя отстранёнными от власти. Это питательная почва для популизма и ксенофобии.
+
+​
+Рост неравенства и исчезновение среднего класса усиливают чувство отчуждения.
+
+«Мы богаче, чем когда-либо, но разрыв между “имеющими” и “не имеющими” — рекордный», — говорит Гилл.
+
+​
+Он считает, что Квебеку нужны «смелые идеи» — не бухгалтерское администрирование, а вдохновляющее видение будущего, как у Рене Левека 30 лет назад.
+
+​
+Тем не менее, в отчёте есть и луч света: большинство квебекцев сохраняют сильную обеспокоенность экологией и требуют регулирования ИИ. Это, считают эксперты, может стать основой для нового общественного договора — если политики рискнут думать дальше, чем на три года вперёд.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
+    </article><article class="post-card">
+        <span class="post-date">31 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1389@31-10-2025_14-51-58.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">В Канаде — новый «нормальный» голод: посещаемость продовольственных банков удвоилась с 2019 года
+
+​
+<a href="https://nationalpost.com/life/food/food-bank-visits-canada">По данным отчёта Food Banks Canada HungerCount 2025</a>, в марте зафиксировано рекордное число обращений за помощью — 2,2 миллиона визитов за один месяц. Это вдвое больше, чем шесть лет назад, и на 5% больше, чем в прошлом году.
+
+​
+Организация предупреждает: бедность и голод в стране становятся «новой нормой». Причём теперь это не только безработные и малоимущие — почти 20% посетителей продовольственных банков имеют постоянную работу. В 2019 году таких было лишь 12%. Люди с зарплатой просто не могут позволить себе еду и жильё.
+
+​
+Особенно быстро растёт доля новоприбывших иммигрантов: они составляют 34% клиентов (рост на 160% за шесть лет). Среди причин — временные или низкооплачиваемые контракты, закрытые рабочие визы, ограничения для студентов и недоступность страховых выплат.
+
+​
+Растёт число пожилых канадцев (8,3% клиентов против 6,8% до пандемии) и двухродительских семей с детьми — их теперь 23% вместо 19%. Каждый третий посетитель — ребёнок: около 712 тысяч визитов в месяц, почти вдвое больше, чем до пандемии.
+
+​
+Глава Food Banks Canada Кирстин Бёрдсли сказала CTV:
+
+«Это становится новой нормой — а не должно. Мы должны добиться, чтобы в следующем году эти цифры пошли вниз».
+
+​
+Организация предлагает срочные меры: расширить систему страхования занятости, инвестировать в доступное жильё, ввести пособие на продукты для малообеспеченных и сделать школьные программы питания постоянными.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">31 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1387@31-10-2025_13-47-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Бюджет Карни может обернуться выборами — но Полиев и НДП не спешат их устраивать
+
+​
+В Оттаве — предкризисная тишина. Либеральное правительство Марка Карни <a href="https://www.cbc.ca/news/politics/conservative-ndp-budget-election-vote-9.6960615">готовится представить свой первый бюджет 4 ноября</a>, но в парламенте не хватает голосов, чтобы его утвердить.
+
+​
+Источники CBC сообщают, что и консерваторы Пьера Полиева, и ослабленная НДП всерьёз рассматривают вариант провалить голосование, что автоматически приведёт к досрочным выборам.
+
+​
+Проблема в том, что никто на самом деле выборов сейчас не хочет. Полиев не собирается поддерживать либералов, но и в кампанию идти не готов. Его требование — отмена промышленного углеродного налога и дефицит не выше $42 млрд — очевидно, невыполнимы.
+
+​
+В то же время НДП осталась без лидера, без денег и с худшим результатом за поколение. Партия выберет нового руководителя только в марте. По данным источников, часть из семи депутатов НДП может просто воздержаться, позволив бюджету пройти без официальной поддержки.
+
+​
+Консерваторам даже приказали временно «не нападать на НДП», чтобы не осложнять закулисные переговоры. Раньше Полиев называл Джагмита Сингха «прицепом к либералам», но теперь решил помолчать.
+
+​
+Либералы тем временем отчаянно ищут союзников. Карни предложил блоковцам часть их требований — например, борьбу с налоговыми лазейками в транспортной отрасли. Но остальные просьбы, вроде щедрых выплат пожилым и субсидий на жильё, маловероятны: Карни пообещал сбалансировать бюджет за три года.
+
+​
+Если правительство не найдёт поддержки, страна может снова пойти на выборы — уже до Рождества.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/vybory/" class="badge">#выборы</a></div>
+    </article><article class="post-card">
+        <span class="post-date">30 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1376@30-10-2025_12-17-00.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Почему всё больше канадских пенсионеров оказываются бездомными
+​
+Проблема бездомности в Канаде стремительно стареет. <a href="https://www.ctvnews.ca/canada/article/canadian-shelters-see-an-increase-in-seniors-experiencing-homelessness/">По данным федеральных подсчётов</a>, почти треть всех бездомных в стране — старше 50 лет, а около 4% — старше 65.
+​
+Организация The Mustard Seed, управляющая приютами в Саскачеване, Альберте и Британской Колумбии, сообщает, что за последний год количество пожилых людей, обращающихся за помощью, в некоторых городах удвоилось. В Ред-Дире в 2023 году только 12% постояльцев приюта были старше 55 лет, а в 2024-м — уже 29%. Похожие цифры — в женском приюте Калгари.
+​
+«Мы видим устойчивый рост числа пожилых людей среди наших клиентов. Это одна из самых быстрорастущих групп», — говорит глава организации Джеймс Гарднер. По его словам, сочетание фиксированного дохода, растущих цен на жильё и медицинских расходов делает жизнь одиноких пожилых особенно уязвимой. Потеря супруга и, соответственно, второй пенсии тоже часто становится толчком к утрате дома.
+​
+Руководитель приюта Salvation Army Crossroads в Саскатуне Гордон Тейлор признаётся, что каждый раз, когда видит пожилого человека у дверей своего учреждения, думает одно:
+
+«Это не то место, где кто-то должен оказаться на склоне лет. У нас должна быть лучшая система, чтобы люди не доходили до этого».
+​
+Исследователь проекта Aging in the Right Place Джо Хамфрис отмечает, что половина бездомных старшего возраста теряет жильё впервые после 55 лет. При этом система поддержки ориентирована в основном на тех, кто долго живёт на улице и имеет проблемы с зависимостями или психическим здоровьем.
+​
+«Но многие пожилые люди не страдают зависимостями — им нужна помощь с мобильностью, уходом, доступом к коляскам и ходункам», — говорит он.
+​
+Учёные также фиксируют эффект «ускоренного старения» у пожилых бездомных: стресс, холод, недоедание и болезни заставляют организм изнашиваться гораздо быстрее. Человек в 50 может выглядеть и чувствовать себя на 65.
+​
+Хамфрис и его команда исследуют, как адаптировать приюты и жильё для престарелых к новым реалиям. Но пока очевидно одно — в Канаде становится всё больше пожилых, у которых просто нет дома, куда можно вернуться.
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">28 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1360@28-10-2025_18-33-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">В Торонто снова рекорд по использованию продуктовых банков — 4,1 миллиона визитов за год
+
+​
+С марта 2024 по апрель 2025 жители Торонто обратились в продуктовые банки более 4,1 миллиона раз, г<a href="https://www.cbc.ca/news/canada/toronto/whos-hungry-2025-toronto-food-banks-9.6952657">оворится в свежем отчёте Who’s Hungry от Daily Bread Food Bank и North York Harvest Food Bank</a>. Это на 637 тысяч визитов больше, чем годом ранее, и на 340% больше, чем в 2019-м.
+
+​
+«Чтобы достичь миллиона визитов, понадобилось 38 лет. Чтобы достичь двух — два года. Трёх — один год. И вот мы уже на отметке 4,1 миллиона», — говорит глава Daily Bread Нил Хезерингтон.
+
+​
+За отчётный период впервые в очередях за едой оказались 112 тысяч новых клиентов, а каждый четвёртый из всех посетителей — ребёнок. Почти каждая пятая семья с детьми призналась, что дети голодали хотя бы раз в неделю.
+
+​
+Почти все опрошенные (96%) назвали рост стоимости жизни главной причиной, заставившей их прийти за продуктами.
+
+​
+Хезерингтон подчёркивает: продовольственная нестабильность — лишь симптом глубинных проблем. «Главная — это отсутствие доступного жилья. Решим её — и потребность в продуктовых банках начнёт снижаться», — говорит он. Вторая проблема, по его словам, — «недостаточные социальные выплаты», особенно для людей с инвалидностью.
+
+​
+Директор организации Ontario Living Wage Network Крейг Пикторн соглашается: «Речь не о продовольственной безопасности, а о доходах. Люди идут за бесплатной едой, потому что не зарабатывают достаточно».
+
+​
+Минимальная почасовая ставка в Онтарио с 1 октября выросла до $17,60, но «живая зарплата», необходимая для покрытия базовых нужд, по оценке сети OLWN, в Торонто почти на $9 выше.
+
+​
+Глава Food Banks Canada Кристин Бёрдсли называет ситуацию национальным кризисом, требующим системных решений: «Бедность и голод становятся нормой. Мы не можем строить сильную Канаду, когда соседи голодают».
+
+​
+В отчёте Who’s Hungry выдвинуты конкретные требования к властям всех уровней:
+– федеральному правительству — повысить пособие по инвалидности выше черты бедности и расширить доступ к нему;
+– провинции — обеспечить, чтобы минимум четверть из запланированных 1,5 миллиона новых домов были социальным или доступным жильём;
+– городу — продвинуть стратегию борьбы с бедностью и расширить программы дешёвого жилья, детского ухода, транспорта и питания.
+
+​
+Хезерингтон всё же выражает осторожный оптимизм: «В этом году наконец запущено федеральное пособие по инвалидности, а программа Canada Builds под руководством Аны Байлау выделит $13 миллиардов на новое жильё. Есть надежда, что в следующем отчёте мы увидим снижение числа визитов».
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
+    </article><article class="post-card">
+        <span class="post-date">27 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1352@27-10-2025_19-15-15.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Канада готовится объявить новые иммиграционные цели — но как понять, «правильное» число?
+​
+<a href="https://financialpost.com/news/economy/right-number-canada-new-immigration-targets">Правительство Марка Карни представит свой первый план</a> по уровням иммиграции в начале ноября — на фоне растущей безработицы и критики в адрес программы временных иностранных работников. Министр иммиграции Лена Диаб пока не раскрыла, будет ли Оттава снижать цели, оставит ли их без изменений или рискнёт повысить — последнее выглядит маловероятным.
+​
+Сейчас в силе действуют цели, установленные ещё при прошлом кабинете: 395 000 новых постоянных жителей в 2025 году, 380 000 в 2026-м и 365 000 в 2027-м — резкое сокращение по сравнению с 485 000, запланированными на 2024 год. Кроме того, правительство намерено к 2027 году сократить число временных резидентов до 5 % от населения.
+​
+​
+Иммиграция традиционно остаётся ключевым двигателем канадской экономики: по данным Statistics Canada, иммигранты составляют 32 % всех владельцев бизнеса с наёмными сотрудниками, почти 40 % заняты в транспорте и логистике и более 20 % — в строительстве.
+​
+Большая часть новых иммигрантов поступает по экономической категории — молодые и квалифицированные специалисты. В 2025 году им отведено около 230 000 мест, то есть почти 60 % общего числа. Ещё 20 % — для семейного воссоединения, остальное — для беженцев и гуманитарных случаев.
+​
+​
+За последние годы иммиграционные приоритеты Канады несколько раз менялись. После пандемии, на фоне нехватки рабочей силы, цели выросли до 500 000 человек в год. Но затем — всплеск цен на жильё, дефицит инфраструктуры и перегруженные сервисы. Бывший премьер Джастин Трюдо в 2024 году объяснил снижение так: «Нам нужно позволить сообществам и инфраструктуре догнать рост населения».
+​
+​
+Сейчас Оттава ищет баланс между экономическими и социальными задачами. Экономисты вроде Ребекки Янг (Bank of Nova Scotia) считают, что оптимальный уровень — «достаточный для покрытия спроса на труд, но не настолько высокий, чтобы подрывать производительность и разгонять безработицу». По её расчётам, ежегодный прирост населения в 350 000 человек позволил бы удерживать экономику в равновесии.
+​
+Аналитики C.D. Howe Institute ожидают лёгкого снижения целей и призывают «сосредоточиться на качестве иммиграции, а не на численности».
+​
+​
+Бизнес-сообщества не требуют увеличения квот, но жалуются на неравномерное распределение рабочей силы: в ряде регионов, особенно сельских, по-прежнему не хватает работников. «Ночные смены, тяжёлый физический труд, мясопереработка — это просто непопулярные работы», — говорит Диана Пальмерин-Веласко из Канадской торговой палаты. По её словам, 10 % региональных палат бизнеса уже предупредили о нехватке иностранной рабочей силы.
+​
+​
+Тем временем лидер консерваторов Пьер Полиев требует закрыть программу временных иностранных работников (TFWP), обвиняя её в вытеснении канадцев с рынка труда. Однако, по данным бывшего министра Марка Миллера, участники этой программы составляют менее 10 % всех временных резидентов. Основную долю занимают иностранные студенты и участники Международной программы мобильности.
+​
+​
+По оценке Statistics Canada, темпы роста населения уже замедлились: во втором квартале 2025 года они составили всего 0,1 % — минимальное значение со времён пандемии. Но, как отмечают аналитики Scotia Bank, сокращение идёт медленнее, чем ожидалось.
+​
+Экономисты предупреждают: правительству придётся быть не только осторожным, но и последовательным. «Нужно не просто считать сегодняшние вакансии, а думать на годы вперёд, — говорит Янг. — Если мы инвестируем в правильных людей сейчас, через пять лет они смогут закрывать самые разные потребности рынка труда».
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a><a href="/person/dzhastin-tryudo/" class="badge person-badge">Джастин Трюдо</a> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">27 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1349@27-10-2025_14-41-34.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Правительство Форда отказалось от планов пересмотреть право арендаторов на «гарантию проживания»
+​
+<a href="https://www.ctvnews.ca/toronto/politics/queens-park/article/ford-government-walks-back-on-plan-to-consider-changes-to-renters-right-to-security-of-tenure/">После волны критики правительство Онтарио заявило,</a> что не будет вносить изменения в закон, защищающий право арендаторов оставаться в своих домах, если они соблюдают условия договора и нормы жилищного законодательства.
+​
+Министр муниципальных дел и жилищного строительства Роб Флак подтвердил в воскресенье, что правительство отказывается от консультаций по изменению правил краткосрочных и помесячных арен, известных как security of tenure.
+​
+«Мы не будем проводить консультации по этому вопросу. Жители Онтарио ожидают стабильности и предсказуемости на рынке аренды, и сейчас не время менять систему», — написал Флак в X (Twitter).
+​
+Эти изменения изначально рассматривались как часть законопроекта Fighting Delays, Building Faster Act, который включает более 40 пунктов реформ.
+​
+Флак отметил, что правительство продолжит «внедрять здравые меры для укрепления рынка аренды» — включая восстановление работы Совета по делам арендодателей и арендаторов (LTB), борьбу со злоупотреблениями и поощрение строительства новых арендных домов.
+​
+​
+Отказ от инициативы последовал после жёсткой реакции арендаторов, общественных организаций и политиков.
+​
+Мэр Торонто Оливия Чау назвала разворот правительства «облегчением»:
+«Эти изменения стали бы катастрофой для половины жителей Торонто, которые арендуют жильё, и подарком для крупных корпораций», — написала она. — «Это победа арендаторов, которые громко заявили о себе».
+​
+При этом Чау подчеркнула, что в законе всё ещё остаются положения, «ослабляющие защиту арендаторов» и уменьшающие компенсации при выселении «не по их вине». Она призвала правительство вернуть полный контроль над арендной платой и усилить защиту прав жильцов.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
+    </article><article class="post-card">
+        <span class="post-date">24 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1331@24-10-2025_12-52-08.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Правительство Онтарио отступает от цели построить 1,5 миллиона домов за 10 лет
+
+​
+
+Похоже, правительство Дага Форда тихо сворачивает свой громкий план «1,5 миллиона домов за десятилетие».
+
+​
+
+<a href="https://www.cbc.ca/news/canada/toronto/ontario-noncommittal-1-5-million-homes-10-years-9.6950869?cmp=rss">Министр жилищного строительства Роб Флак представил новый законопроект</a>, который, по его словам, должен ускорить процесс одобрений и снизить бюрократические барьеры для застройщиков. Однако, когда журналисты спросили, позволит ли это достичь прежней цели, министр уклонился от прямого ответа:
+
+​
+
+«Я сосредоточен на том, чтобы быстрее начинать стройки. Что будет дальше — увидим. Мы в жилищном кризисе, и мы это понимаем», — сказал Флак.
+
+​
+
+По данным финансового управления провинции, количество новых строек в первом квартале 2025 года оказалось самым низким с 2009-го. Даже с учётом университетских общежитий и прочих «новых категорий жилья» провинция далека от нужного темпа.
+
+​
+
+Вместо громких цифр новый законопроект снимает часть «зелёных» стандартов, включая требование зелёных крыш в Торонто, упрощает зонирование, ускоряет создание жилых районов у транспортных узлов и сокращает бюрократию при выдаче разрешений.
+
+​
+
+Глава Ассоциации строительной индустрии Онтарио Дейв Уилкс приветствовал инициативу: «Этот закон признаёт необходимость строить быстрее и дешевле, чтобы семьи могли себе позволить жильё».
+
+​
+
+Однако эксперты отмечают: даже при самых оптимистичных сценариях цель в 1,5 миллиона домов теперь выглядит скорее политическим слоганом, чем реальным планом.
+
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
+    </article><article class="post-card">
+        <span class="post-date">23 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1321@23-10-2025_09-01-53.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Карни предупреждает о «жертвах» ради экономических реформ и готовит «поколенческий» бюджет
+​
+<a href="https://www.cbc.ca/news/politics/politics-carney-address-budget-9.6948685">Премьер-министр Марк Карни выступил в Оттаве с речью</a>, обозначив основные приоритеты предстоящего федерального бюджета и предупредив канадцев: «путь к сильной экономике потребует времени и жертв».
+
+​
+«Если мы не начнём действовать сейчас, давление только усилится. Преобразование экономики не произойдёт быстро — это займёт время и потребует от нас определённых жертв», — сказал Карни, обращаясь к студентам Университета Оттавы.
+
+​
+Премьер подчеркнул, что страна должна адаптироваться к «более конкурентному и враждебному миру» и пообещал «решительно сокращать излишние расходы», действуя «прозрачно и справедливо».
+
+​
+Главная цель его правительства — удвоить экспорт за пределы США в течение следующего десятилетия, диверсифицировав торговлю и укрепив связи с Азией и Латинской Америкой. В новом бюджете, который будет представлен 4 ноября, ожидаются:
+– стратегия климатической конкурентоспособности,
+– новая иммиграционная программа,
+– план по привлечению международных специалистов.
+
+​
+Карни уже провёл серию встреч с лидерами оппозиции, включая Пьера Полиева. После переговоров лидер консерваторов заявил, что обсудил «необходимость доступного бюджета» с широкими налоговыми послаблениями и ограничением дефицита до $42 млрд. «Он не дал никаких обещаний, так что посмотрим, что он представит», — сказал Полиев, обвинив правительство в «неконтролируемых расходах».
+
+​
+Либералы называют предстоящий бюджет «поколенческим», намекая на масштабные реформы, которые могут увеличить дефицит. Однако в условиях правительства меньшинства Карни понадобится поддержка хотя бы одной партии.
+
+​
+Bloc Québécois уже выдвинул шесть «абсолютных» условий: рост федеральных трансферов на здравоохранение, инвестиции в инфраструктуру и жильё, а также беспроцентные кредиты для молодых покупателей жилья.
+
+​
+НДП также пока не обещает поддержки. Временный лидер Дон Дэвис заявил: «Решение о выборах зависит от Карни. Это его обязанность — предложить бюджет, который сможет получить поддержку хотя бы одной оппозиционной партии».
+
+​
+Бюджет 4 ноября может стать ключевым испытанием для нового премьера: провал голосования автоматически приведёт к выборам.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/zhilyo/" class="badge">#жильё</a></div>
+    </article><article class="post-card">
+        <span class="post-date">16 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1276@16-10-2025_20-09-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-content">Что значит «жить комфортно» в Канаде: новое исследование
+​
+<a href="https://nationalpost.com/news/canada/what-a-comfortable-income-looks-like-in-canada-according-to-a-new-survey">По данным опроса MoneySense и Leger</a>, проведённого среди 9 000 канадцев в 79 городах, для большинства жителей страны комфортная жизнь начинается с годового дохода семьи в 100 000 долларов.
+​
+Любопытно, что этот показатель почти совпадает с официальными данными: по данным Statistic Canada, средний располагаемый доход канадских домохозяйств в 2024 году составил 100 702 доллара.
+​
+Однако понятие «комфорт» сильно зависит от возраста, размера семьи, владения жильём и региона. Так, в Ричмонд-Хилле, Онтарио, нужно зарабатывать около 106 500 долларов, чтобы чувствовать себя финансово уверенно. В десятку дорогих городов попали также Милтон, Уитби и Северный Ванкувер. А вот в Труа-Ривьер (Квебек) достаточно менее 58 000 долларов в год, чтобы жить «на уровне».
+​
+Инфляция тоже играет свою роль: 100 долларов 2020 года сегодня эквивалентны примерно 118 долларам, что ощутимо снижает покупательную способность. При этом, по данным Бюро парламентского бюджетного управления, с 2019 года цены выросли на 15 %, но доходы — на 21 %. То есть формально канадцы стали богаче, но реальное ощущение достатка заметно различается.
+​
+И если крупные города вроде Торонто и Ванкувера продолжают требовать шести цифр для «комфорта», то в регионах остаётся шанс жить спокойно и с более скромным заработком — при условии, что вы не платите ипотеку под 6 % и не снимаете жильё за цену самолёта до Кубы.
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
+    </article><div class="pagination"><a href="/tag/zhilyo/page/2/" class="btn">← Назад</a><a href="/tag/zhilyo/page/4/" class="btn">Вперед →</a></div></main>
+    <footer>&copy; 2024–2026 Maple Barrel. Journalists.ca</footer>
 </body>
 </html>
