@@ -673,120 +673,60 @@ def build_post_page(p, related):
 # ── ГЛАВНАЯ (НОВОСТИ) ─────────────────────────────────
 
 def build_news_index(posts_by_date):
-    css = """
-/* ── TODAY LAYOUT ── */
-.day-hdr{display:flex;align-items:baseline;gap:12px;padding:18px 0 14px;border-bottom:2px solid var(--br);margin-bottom:16px}
-.day-label{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--cream)}
-.day-sub{font-size:12px;color:var(--t3)}
+    posts = []
+    for d in sorted(posts_by_date.keys(), reverse=True):
+        posts.extend(posts_by_date[d])
 
-/* Hero — full-width split: large image left, text right */
-.hero-card{display:grid;grid-template-columns:1.5fr 1fr;margin-bottom:16px;border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
-.hc-img{overflow:hidden;background:var(--bg4);min-height:280px;position:relative;display:flex;align-items:center;justify-content:center}
-.hc-img img{width:100%;height:100%;object-fit:cover}
-.hc-img .emoji-fallback{font-size:64px;color:var(--t4)}
-.hc-body{background:var(--card);padding:28px 26px 24px;display:flex;flex-direction:column;gap:10px}
-.hc-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.25;color:var(--cream);flex:1}
-.hc-ex{font-size:14px;color:var(--t2);line-height:1.6;-webkit-line-clamp:4;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
-.hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+    # --- логика ---
+    featured = [p for p in posts if 'в глубину' in (p.get('tags') or [])][:4]
+    if len(featured) < 4:
+        featured += posts[:4 - len(featured)]
 
-/* Secondary 3-grid */
-.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+    longreads = [p for p in posts if 'в глубину' in (p.get('tags') or [])][:6]
+    latest = posts[:10]
+    feed = posts[4:]
 
-/* Compact numbered list */
-.compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);border-radius:8px;overflow:hidden;margin-bottom:24px}
-.compact-item{background:var(--card);display:flex;gap:12px;padding:13px 15px;align-items:flex-start;transition:background .12s}
-.compact-item:hover{background:var(--card-hover)}
-.ci-num{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--bg5);flex-shrink:0;line-height:1;min-width:28px;text-align:right}
-.ci-body{flex:1;display:flex;flex-direction:column;gap:4px}
-.ci-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--cream)}
-
-/* Yesterday — 4-grid */
-.yesterday-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
-
-/* Previous days — collapsible */
-.prev-section{margin-top:8px}
-.prev-day{margin-bottom:12px}
-.prev-day-btn{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
-.prev-day-btn:hover .pd-label{color:var(--cream)}
-.pd-label{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--t2);transition:color .15s}
-.pd-count{font-size:12px;color:var(--t3)}
-.pd-tog{font-size:12px;color:var(--t4);margin-left:auto}
-.prev-posts{display:none;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px 0}
-.prev-posts.open{display:grid}
-.pp-card{background:var(--card);border-radius:7px;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;gap:5px;transition:background .12s}
-.pp-card:hover{background:var(--card-hover)}
-.pp-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--cream);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-
-@media(max-width:1000px){.yesterday-grid{grid-template-columns:repeat(3,1fr)}.prev-posts{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.hero-card{grid-template-columns:1fr}.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.sec-grid{grid-template-columns:1fr}.yesterday-grid{grid-template-columns:1fr}}
-"""
-    dates = sorted(posts_by_date.keys(), reverse=True)
     html = '<div class="wrap">'
 
-    for di, date in enumerate(dates[:9]):
-        posts = posts_by_date[date]
-        if di == 0:
-            label = 'Сегодня'
-        elif di == 1:
-            label = 'Вчера'
-        else:
-            label = fmt_date_full_short(date)
+    # ГЛАВНОЕ
+    html += '<h2 style="margin-bottom:16px">Главное</h2>'
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">'
+    for p in featured:
+        html += small_card(p)
+    html += '</div>'
 
-        if di == 0:
-            # TODAY: hero + 3-grid + compact list
-            html += f'<div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(posts)} материалов · {fmt_date_full_short(date)}</div></div>'
-            if posts:
-                html += hero_card(posts[0])
-            if len(posts) > 1:
-                sec = posts[1:4]
-                html += f'<div class="sec-grid">{"".join(small_card(p) for p in sec)}</div>'
-            if len(posts) > 4:
-                rest = posts[4:]
-                html += f'<div class="compact-grid">{"".join(compact_item(p, i+5) for i, p in enumerate(rest))}</div>'
+    # ЛОНГРИДЫ
+    html += '<h2 style="margin:36px 0 16px">Лонгриды</h2>'
+    html += '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">'
+    for p in longreads:
+        html += small_card(p)
+    html += '</div>'
 
-        elif di == 1:
-            # YESTERDAY: 4-card grid
-            html += f'<div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(posts)} материалов</div></div>'
-            html += f'<div class="yesterday-grid">{"".join(small_card(p) for p in posts[:8])}</div>'
-            if len(posts) > 8:
-                extra = posts[8:]
-                html += f'<div class="compact-grid" style="margin-top:-10px;margin-bottom:24px">{"".join(compact_item(p, i+9) for i, p in enumerate(extra))}</div>'
+    # ЛЕНТА + САЙДБАР
+    html += '<div style="display:grid;grid-template-columns:3fr 1fr;gap:40px;margin-top:40px">'
 
-        else:
-            # PREVIOUS DAYS: collapsible
-            if di == 2:
-                html += '<div class="prev-section">'
-            posts_html = ''.join(f'''<a class="pp-card" href="{post_url(p)}">
-              <div class="card-src">{esc(p.get("source",""))}</div>
-              <div class="pp-title">{esc(p["title"])}</div>
-              <div class="card-date" style="font-size:10px">{fmt_date(p["date"])}</div>
-            </a>''' for p in posts)
-            idx_str = str(di)
-            html += f'''<div class="prev-day">
-              <button class="prev-day-btn" onclick="toggleDay('{idx_str}')">
-                <span class="pd-label">{label}</span>
-                <span class="pd-count">{len(posts)} материалов</span>
-                <span class="pd-tog" id="pt{idx_str}">+ показать</span>
-              </button>
-              <div class="prev-posts" id="pd{idx_str}">{posts_html}</div>
-            </div>'''
+    # ЛЕНТА
+    html += '<div>'
+    html += '<h2 style="margin-bottom:16px">Лента</h2>'
+    html += ''.join(small_card(p) for p in feed[:40])
+    html += '</div>'
 
-    if len(dates) > 2:
-        html += '</div>'  # close prev-section
+    # САЙДБАР
+    html += '<div>'
+    html += '<h3 style="margin-bottom:12px">Последние</h3>'
+    html += ''.join(compact_item(p, i+1) for i, p in enumerate(latest))
+    html += '</div>'
 
     html += '</div>'
-    html += '<script>function toggleDay(id){const el=document.getElementById("pd"+id);const tog=document.getElementById("pt"+id);const open=el.classList.toggle("open");tog.textContent=open?"− скрыть":"+ показать"}</script>'
+    html += '</div>'
 
     return page_shell(
-        title="Maple Barrel — Новости Канады на русском",
-        desc="Ежедневный обзор канадских СМИ на русском языке. Политика, экономика и жизнь Канады из CBC, Globe and Mail, CTV и других ведущих изданий.",
+        title="Maple Barrel",
+        desc="Новости Канады",
         url="/",
         content=html,
-        active='news',
-        css_extra=css
+        active='news'
     )
-
 
 # ── МАТЕРИАЛЫ ─────────────────────────────────────────
 
