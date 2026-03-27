@@ -255,6 +255,8 @@ COMMON_CSS = """
   --t2:#555;
   --t3:#888;
   --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
 
 body{
@@ -280,7 +282,19 @@ nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0
 .nav-r{display:flex;align-items:center;gap:10px}
 .tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
 .tgb:hover{background:rgba(91,155,213,.2)}
-.tgb svg{width:13px;height:13px;flex-shrink:0}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
+}
+
+.tgb:hover{
+  background:#a93226;
+}
 
 .wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
@@ -311,8 +325,19 @@ nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0
 
 /* Card body — cream-tinted text on dark */
 .card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
-.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
 .card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
 .card-date{font-size:10px;color:var(--t3)}
@@ -382,7 +407,6 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
 @media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 """
-
 FONTS_LINK = '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">'
 
 TG_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>'
