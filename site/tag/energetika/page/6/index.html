@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#энергетика</h1>
     <p>359 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-09-02-karni-pod-pritselom-eksperty-trebuyut-tsifrovogo-suverenitet/">
-  <div class="sc-img"><img src="/photos/photo_1016@02-09-2025_13-57-03.jpg" alt="Карни под прицелом: эксперты требуют цифрового суверенитета и отказа от «закона о сильных границах»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Карни под прицелом: эксперты требуют цифрового суверенитета и отказа от «закона о сильных границах»</div>
-    <div class="pex">Почти 70 общественных деятелей, учёных и организаций подписали открытое письмо премьер-министру Марку Карни. Они требуют срочно заняться защитой цифрового суверенитета Канады и выбросить в корзину зак</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-09-02-karni-pod-pritselom-eksperty-trebuyut-tsifrovogo-suverenitet/">
+  <div class="card-img"><img src="/photos/photo_1016@02-09-2025_13-57-03.jpg" alt="Карни под прицелом: эксперты требуют цифрового суверенитета и отказа от «закона о сильных границах»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Карни под прицелом: эксперты требуют цифрового суверенитета и отказа от «закона о сильных границах»</div>
+    <div class="card-excerpt">Почти 70 общественных деятелей, учёных и организаций подписали открытое письмо премьер-министру Марку Карни. Они требуют срочно заняться защитой цифрового суверенитета Канады и выбросить в корзину зак</div>
+    <div class="card-meta">
+      <span class="card-date">2 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-01-v-kanade-spryatan-million-v-zolote-vot-chto-izvestno-ob-ohot/">
-  <div class="sc-img"><img src="/photos/photo_1009@01-09-2025_10-12-01.jpg" alt="В Канаде спрятан миллион в золоте. Вот что известно об охоте за сокровищем" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В Канаде спрятан миллион в золоте. Вот что известно об охоте за сокровищем</div>
-    <div class="pex">Газета The Northern Miner запустила «Великую канадскую охоту за сокровищем» — масштабный конкурс, где главный приз спрятан прямо под открытым небом: кейс с кодом, который можно обменять на миллион дол</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-09-01-v-kanade-spryatan-million-v-zolote-vot-chto-izvestno-ob-ohot/">
+  <div class="card-img"><img src="/photos/photo_1009@01-09-2025_10-12-01.jpg" alt="В Канаде спрятан миллион в золоте. Вот что известно об охоте за сокровищем" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Канаде спрятан миллион в золоте. Вот что известно об охоте за сокровищем</div>
+    <div class="card-excerpt">Газета The Northern Miner запустила «Великую канадскую охоту за сокровищем» — масштабный конкурс, где главный приз спрятан прямо под открытым небом: кейс с кодом, который можно обменять на миллион дол</div>
+    <div class="card-meta">
+      <span class="card-date">1 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-31-telefonnaya-liniya-dobra-supruzheskaya-para-iz-okanagana-slu/">
-  <div class="sc-img"><img src="/photos/photo_1005@31-08-2025_10-51-37.jpg" alt="Телефонная линия добра: супружеская пара из Оканагана случайно стала «службой поддержки» Napoleon Grills" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Телефонная линия добра: супружеская пара из Оканагана случайно стала «службой поддержки» Napoleon Grills</div>
-    <div class="pex">Джим Классен и Мирьяна Комльенович из Саммерленда (Британская Колумбия) вдруг оказались на передовой жаркого сезона барбекю. Их номер каким-то образом оказался в поисковиках как контактная линия канад</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-31-telefonnaya-liniya-dobra-supruzheskaya-para-iz-okanagana-slu/">
+  <div class="card-img"><img src="/photos/photo_1005@31-08-2025_10-51-37.jpg" alt="Телефонная линия добра: супружеская пара из Оканагана случайно стала «службой поддержки» Napoleon Grills" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Телефонная линия добра: супружеская пара из Оканагана случайно стала «службой поддержки» Napoleon Grills</div>
+    <div class="card-excerpt">Джим Классен и Мирьяна Комльенович из Саммерленда (Британская Колумбия) вдруг оказались на передовой жаркого сезона барбекю. Их номер каким-то образом оказался в поисковиках как контактная линия канад</div>
+    <div class="card-meta">
+      <span class="card-date">31 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-30-boykot-jack-daniels-v-kanade-prodazhi-ruhnuli-na-62/">
-  <div class="sc-img"><img src="/photos/photo_1001@30-08-2025_10-06-33.jpg" alt="Бойкот Jack Daniel’s в Канаде: продажи рухнули на 62%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Бойкот Jack Daniel’s в Канаде: продажи рухнули на 62%</div>
-    <div class="pex">Американская Brown-Forman, владелец брендов Jack Daniel’s и Woodford Reserve, признала: канадский бойкот ударил по бизнесу болезненно. За последний квартал продажи в Канаду обвалились на 62% по сравне</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/sshakanada/">#США–Канада</a></div></div>
+</a><a class="card" href="/post/2025-08-30-boykot-jack-daniels-v-kanade-prodazhi-ruhnuli-na-62/">
+  <div class="card-img"><img src="/photos/photo_1001@30-08-2025_10-06-33.jpg" alt="Бойкот Jack Daniel’s в Канаде: продажи рухнули на 62%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Бойкот Jack Daniel’s в Канаде: продажи рухнули на 62%</div>
+    <div class="card-excerpt">Американская Brown-Forman, владелец брендов Jack Daniel’s и Woodford Reserve, признала: канадский бойкот ударил по бизнесу болезненно. За последний квартал продажи в Канаду обвалились на 62% по сравне</div>
+    <div class="card-meta">
+      <span class="card-date">30 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-29-beyond-the-ballot-medovyy-mesyats-karni-zakonchilsya/">
-  <div class="sc-img"><img src="/photos/photo_999@29-08-2025_13-48-38.jpg" alt="Beyond the Ballot: «медовый месяц» Карни закончился" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">kamloopsbcnow.com</div>
-    <div class="ptit sc-title">Beyond the Ballot: «медовый месяц» Карни закончился</div>
-    <div class="pex">В эфире KelownaNow бывшая депутатка Британской Колумбии Рене Меррифилд разнесла Марка Карни и его первые месяцы в кресле премьера.   Главный удар — по энергетике. Меррифилд назвала европейское турне К</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-29-beyond-the-ballot-medovyy-mesyats-karni-zakonchilsya/">
+  <div class="card-img"><img src="/photos/photo_999@29-08-2025_13-48-38.jpg" alt="Beyond the Ballot: «медовый месяц» Карни закончился" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">kamloopsbcnow.com</div>
+    <div class="card-title">Beyond the Ballot: «медовый месяц» Карни закончился</div>
+    <div class="card-excerpt">В эфире KelownaNow бывшая депутатка Британской Колумбии Рене Меррифилд разнесла Марка Карни и его первые месяцы в кресле премьера.   Главный удар — по энергетике. Меррифилд назвала европейское турне К</div>
+    <div class="card-meta">
+      <span class="card-date">29 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-24-hudsons-bay-protiv-vladeltsev-nedvizhimosti-kto-kogo/">
-  <div class="sc-img"><img src="/photos/photo_969@24-08-2025_09-01-45.jpg" alt="Hudson’s Bay против владельцев недвижимости: кто кого" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">timescolonist.com</div>
-    <div class="ptit sc-title">Hudson’s Bay против владельцев недвижимости: кто кого</div>
-    <div class="pex">﻿ История с банкротством Hudson’s Bay продолжает обрастать скандалами. Теперь сама компания и один из её крупнейших кредиторов, американский фонд Pathlight Capital, обвинили владельцев торговых площад</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-24-hudsons-bay-protiv-vladeltsev-nedvizhimosti-kto-kogo/">
+  <div class="card-img"><img src="/photos/photo_969@24-08-2025_09-01-45.jpg" alt="Hudson’s Bay против владельцев недвижимости: кто кого" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">timescolonist.com</div>
+    <div class="card-title">Hudson’s Bay против владельцев недвижимости: кто кого</div>
+    <div class="card-excerpt">﻿ История с банкротством Hudson’s Bay продолжает обрастать скандалами. Теперь сама компания и один из её крупнейших кредиторов, американский фонд Pathlight Capital, обвинили владельцев торговых площад</div>
+    <div class="card-meta">
+      <span class="card-date">24 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-20-poliev-vsyo-eschyo-hochet-srazhatsya-s-tryudo/">
-  <div class="sc-img"><img src="/photos/photo_949@20-08-2025_14-43-01.jpg" alt="Полиев всё ещё хочет сражаться с Трюдо" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalobserver.com</div>
-    <div class="ptit sc-title">Полиев всё ещё хочет сражаться с Трюдо</div>
-    <div class="pex">Колонка Эдриенн Таннер (The Globe and Mail) которая кажется материалом Beaverton. Но нет.   Пьер Полиев вернулся в парламент после проигрыша своего округа в апреле. Казалось бы, четыре месяца перерыва</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-08-20-poliev-vsyo-eschyo-hochet-srazhatsya-s-tryudo/">
+  <div class="card-img"><img src="/photos/photo_949@20-08-2025_14-43-01.jpg" alt="Полиев всё ещё хочет сражаться с Трюдо" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalobserver.com</div>
+    <div class="card-title">Полиев всё ещё хочет сражаться с Трюдо</div>
+    <div class="card-excerpt">Колонка Эдриенн Таннер (The Globe and Mail) которая кажется материалом Beaverton. Но нет.   Пьер Полиев вернулся в парламент после проигрыша своего округа в апреле. Казалось бы, четыре месяца перерыва</div>
+    <div class="card-meta">
+      <span class="card-date">20 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-20-spyaschiy-hozyain-kvartiry-zaschitilsya-ot-grabitelya-i-sam-/">
-  <div class="sc-img"><img src="/photos/photo_948@20-08-2025_11-59-01.jpg" alt="Спящий хозяин квартиры защитился от грабителя – и сам оказался под обвинением" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Спящий хозяин квартиры защитился от грабителя – и сам оказался под обвинением</div>
-    <div class="pex">История из Линдси (Онтарио) взбудоражила всю Канаду. Ранним утром в понедельник мужчина проснулся у себя дома и обнаружил незваного гостя. Завязалась драка, в результате которой предполагаемый взломщи</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-20-spyaschiy-hozyain-kvartiry-zaschitilsya-ot-grabitelya-i-sam-/">
+  <div class="card-img"><img src="/photos/photo_948@20-08-2025_11-59-01.jpg" alt="Спящий хозяин квартиры защитился от грабителя – и сам оказался под обвинением" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Спящий хозяин квартиры защитился от грабителя – и сам оказался под обвинением</div>
+    <div class="card-excerpt">История из Линдси (Онтарио) взбудоражила всю Канаду. Ранним утром в понедельник мужчина проснулся у себя дома и обнаружил незваного гостя. Завязалась драка, в результате которой предполагаемый взломщи</div>
+    <div class="card-meta">
+      <span class="card-date">20 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-19-iyulskaya-inflyatsiya-produkty-dorozhayut-benzin-desheveet/">
-  <div class="sc-img"><img src="/photos/photo_943@19-08-2025_13-49-01.jpg" alt="Июльская инфляция: продукты дорожают, бензин дешевеет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">www150.statcan.gc.ca</div>
-    <div class="ptit sc-title">Июльская инфляция: продукты дорожают, бензин дешевеет</div>
-    <div class="pex">Статистика Канады опубликовала свежие данные по индексу потребительских цен (CPI). В июле 2025 года инфляция составила 1,7 % в годовом выражении. Это ниже июньских 1,9 %.  Главная причина замедления —</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-08-19-iyulskaya-inflyatsiya-produkty-dorozhayut-benzin-desheveet/">
+  <div class="card-img"><img src="/photos/photo_943@19-08-2025_13-49-01.jpg" alt="Июльская инфляция: продукты дорожают, бензин дешевеет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">www150.statcan.gc.ca</div>
+    <div class="card-title">Июльская инфляция: продукты дорожают, бензин дешевеет</div>
+    <div class="card-excerpt">Статистика Канады опубликовала свежие данные по индексу потребительских цен (CPI). В июле 2025 года инфляция составила 1,7 % в годовом выражении. Это ниже июньских 1,9 %.  Главная причина замедления —</div>
+    <div class="card-meta">
+      <span class="card-date">19 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-19-per-poliev-ofitsialno-vozvraschaetsya-v-parlament-na-etot-ra/">
-  <div class="sc-img"><img src="/photos/photo_941@19-08-2025_10-19-01.jpg" alt="Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте.</div>
-    <div class="pex">Итог допвыборов был предсказуем: это один из самых консервативных округов страны, и поражение там выглядело бы катастрофой для партии.  Полиев фактически перезапустил свою карьеру после весеннего пров</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-08-19-per-poliev-ofitsialno-vozvraschaetsya-v-parlament-na-etot-ra/">
+  <div class="card-img"><img src="/photos/photo_941@19-08-2025_10-19-01.jpg" alt="Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте.</div>
+    <div class="card-excerpt">Итог допвыборов был предсказуем: это один из самых консервативных округов страны, и поражение там выглядело бы катастрофой для партии.  Полиев фактически перезапустил свою карьеру после весеннего пров</div>
+    <div class="card-meta">
+      <span class="card-date">19 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-10-krupneyshie-developery-kanady-protiv-sdelki-rubi-lyu-po-poku/">
-  <div class="sc-img"><img src="/photos/photo_906@10-08-2025_15-41-24.jpg" alt="Крупнейшие девелоперы Канады против сделки Руби Лю по покупке 25 бывших магазинов Hudson’s Bay" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Крупнейшие девелоперы Канады против сделки Руби Лю по покупке 25 бывших магазинов Hudson’s Bay</div>
-    <div class="pex">Сразу несколько крупнейших канадских компаний в сфере коммерческой недвижимости — Cadillac Fairview, Oxford Properties, Ivanhoe Cambridge, KingSett Capital, Morguard Investments и Primaris REIT — обра</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-10-krupneyshie-developery-kanady-protiv-sdelki-rubi-lyu-po-poku/">
+  <div class="card-img"><img src="/photos/photo_906@10-08-2025_15-41-24.jpg" alt="Крупнейшие девелоперы Канады против сделки Руби Лю по покупке 25 бывших магазинов Hudson’s Bay" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Крупнейшие девелоперы Канады против сделки Руби Лю по покупке 25 бывших магазинов Hudson’s Bay</div>
+    <div class="card-excerpt">Сразу несколько крупнейших канадских компаний в сфере коммерческой недвижимости — Cadillac Fairview, Oxford Properties, Ivanhoe Cambridge, KingSett Capital, Morguard Investments и Primaris REIT — обра</div>
+    <div class="card-meta">
+      <span class="card-date">10 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-09-per-poliev-obvinil-marka-karni-v-provale-peregovorov-s-donal/">
-  <div class="sc-img"><img src="/photos/photo_903@09-08-2025_14-09-01.jpg" alt="Пьер Полиев обвинил Марка Карни в провале переговоров с Дональдом Трампом и призвал к узким ответным тарифам." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Пьер Полиев обвинил Марка Карни в провале переговоров с Дональдом Трампом и призвал к узким ответным тарифам.</div>
-    <div class="pex">Выступая в Калгари, лидер консерваторов заявил, что тарифы США на канадские товары — «неоправданные и необоснованные», а премьер не выполнил обещание заключить сделку с Трампом. По словам Полиева, Кар</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-08-09-per-poliev-obvinil-marka-karni-v-provale-peregovorov-s-donal/">
+  <div class="card-img"><img src="/photos/photo_903@09-08-2025_14-09-01.jpg" alt="Пьер Полиев обвинил Марка Карни в провале переговоров с Дональдом Трампом и призвал к узким ответным тарифам." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Пьер Полиев обвинил Марка Карни в провале переговоров с Дональдом Трампом и призвал к узким ответным тарифам.</div>
+    <div class="card-excerpt">Выступая в Калгари, лидер консерваторов заявил, что тарифы США на канадские товары — «неоправданные и необоснованные», а премьер не выполнил обещание заключить сделку с Трампом. По словам Полиева, Кар</div>
+    <div class="card-meta">
+      <span class="card-date">9 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-09-pravitelstvo-marka-karni-aktivno-vosstanavlivaet-otnosheniya/">
-  <div class="sc-img"><img src="/photos/photo_901@09-08-2025_11-07-01.jpg" alt="Правительство Марка Карни активно восстанавливает отношения с Мексикой на фоне тарифных угроз Дональда Трампа и предстоящего пересмотра североамериканского торг" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bloomberg.com</div>
-    <div class="ptit sc-title">Правительство Марка Карни активно восстанавливает отношения с Мексикой на фоне тарифных угроз Дональда Трампа и предстоящего пересмотра североамериканского торг</div>
-    <div class="pex">ового соглашения USMCA.  – На этой неделе министр иностранных дел Анита Ананд и министр финансов Франсуа-Филипп Шампань посетили Мехико, встретившись с президентом Клаудией Шейнбаум, её министрами и п</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-09-pravitelstvo-marka-karni-aktivno-vosstanavlivaet-otnosheniya/">
+  <div class="card-img"><img src="/photos/photo_901@09-08-2025_11-07-01.jpg" alt="Правительство Марка Карни активно восстанавливает отношения с Мексикой на фоне тарифных угроз Дональда Трампа и предстоящего пересмотра североамериканского торг" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bloomberg.com</div>
+    <div class="card-title">Правительство Марка Карни активно восстанавливает отношения с Мексикой на фоне тарифных угроз Дональда Трампа и предстоящего пересмотра североамериканского торг</div>
+    <div class="card-excerpt">ового соглашения USMCA.  – На этой неделе министр иностранных дел Анита Ананд и министр финансов Франсуа-Филипп Шампань посетили Мехико, встретившись с президентом Клаудией Шейнбаум, её министрами и п</div>
+    <div class="card-meta">
+      <span class="card-date">9 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-08-claires-canada-podayot-na-bankrotstvo-i-skoree-vsego-zakroet/">
-  <div class="sc-img"><img src="/photos/photo_894@08-08-2025_10-46-45.jpg" alt="Claire’s Canada подаёт на банкротство и, скорее всего, закроет все магазины" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Claire’s Canada подаёт на банкротство и, скорее всего, закроет все магазины</div>
-    <div class="pex">Один из самых узнаваемых подростковых брендов аксессуаров — Claire’s — заявил о возможной полной ликвидации бизнеса в Канаде. Компания начала процесс защиты от кредиторов через суд Онтарио, а её амери</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-08-claires-canada-podayot-na-bankrotstvo-i-skoree-vsego-zakroet/">
+  <div class="card-img"><img src="/photos/photo_894@08-08-2025_10-46-45.jpg" alt="Claire’s Canada подаёт на банкротство и, скорее всего, закроет все магазины" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Claire’s Canada подаёт на банкротство и, скорее всего, закроет все магазины</div>
+    <div class="card-excerpt">Один из самых узнаваемых подростковых брендов аксессуаров — Claire’s — заявил о возможной полной ликвидации бизнеса в Канаде. Компания начала процесс защиты от кредиторов через суд Онтарио, а её амери</div>
+    <div class="card-meta">
+      <span class="card-date">8 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-03-krazha-zasada-i-izvineniya-kak-para-iz-toronto-vernula-svoi-/">
-  <div class="sc-img"><img src="/photos/photo_870@03-08-2025_16-52-01.jpg" alt="Кража, засада и извинения: как пара из Торонто вернула свои велосипеды" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Кража, засада и извинения: как пара из Торонто вернула свои велосипеды</div>
-    <div class="pex">Ноа Розен и Сюзан Карлсен — владельцы мастерской VéloColour в Торонто, специализирующейся на кастомной покраске дорогих велосипедов. Их личные байки, стоимостью свыше $5000 и доработанные вручную, был</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-08-03-krazha-zasada-i-izvineniya-kak-para-iz-toronto-vernula-svoi-/">
+  <div class="card-img"><img src="/photos/photo_870@03-08-2025_16-52-01.jpg" alt="Кража, засада и извинения: как пара из Торонто вернула свои велосипеды" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Кража, засада и извинения: как пара из Торонто вернула свои велосипеды</div>
+    <div class="card-excerpt">Ноа Розен и Сюзан Карлсен — владельцы мастерской VéloColour в Торонто, специализирующейся на кастомной покраске дорогих велосипедов. Их личные байки, стоимостью свыше $5000 и доработанные вручную, был</div>
+    <div class="card-meta">
+      <span class="card-date">3 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-03-senator-kanada-dolzhna-proveryat-vseh-inostrannyh-studentov-/">
-  <div class="sc-img"><img src="/photos/photo_867@03-08-2025_10-21-33.jpg" alt="Сенатор: Канада должна проверять всех иностранных студентов на криминальное прошлое" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">sencanada.ca</div>
-    <div class="ptit sc-title">Сенатор: Канада должна проверять всех иностранных студентов на криминальное прошлое</div>
-    <div class="pex">Сенатор Перси Дауни (Принс Эдвард Айленд) заявил, что федеральное правительство подвергает канадцев риску, не требуя обязательных проверок безопасности от иностранных студентов. После того как в этом</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-03-senator-kanada-dolzhna-proveryat-vseh-inostrannyh-studentov-/">
+  <div class="card-img"><img src="/photos/photo_867@03-08-2025_10-21-33.jpg" alt="Сенатор: Канада должна проверять всех иностранных студентов на криминальное прошлое" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">sencanada.ca</div>
+    <div class="card-title">Сенатор: Канада должна проверять всех иностранных студентов на криминальное прошлое</div>
+    <div class="card-excerpt">Сенатор Перси Дауни (Принс Эдвард Айленд) заявил, что федеральное правительство подвергает канадцев риску, не требуя обязательных проверок безопасности от иностранных студентов. После того как в этом</div>
+    <div class="card-meta">
+      <span class="card-date">3 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-31-s-1-avgusta-35-tramp-okonchatelno-pereshyol-k-ekonomicheskoy/">
-  <div class="sc-img"><img src="/photos/photo_857@31-07-2025_21-30-51.jpg" alt="С 1 августа — 35%: Трамп окончательно перешёл к экономической войне с Канадой" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">С 1 августа — 35%: Трамп окончательно перешёл к экономической войне с Канадой</div>
-    <div class="pex">Дональд Трамп подписал указ о повышении тарифа на канадские товары с 25% до 35%. Решение вступает в силу уже завтра, 1 августа, сообщили в Белом доме.  Цитата из официального заявления: “В ответ на пр</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-31-s-1-avgusta-35-tramp-okonchatelno-pereshyol-k-ekonomicheskoy/">
+  <div class="card-img"><img src="/photos/photo_857@31-07-2025_21-30-51.jpg" alt="С 1 августа — 35%: Трамп окончательно перешёл к экономической войне с Канадой" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">С 1 августа — 35%: Трамп окончательно перешёл к экономической войне с Канадой</div>
+    <div class="card-excerpt">Дональд Трамп подписал указ о повышении тарифа на канадские товары с 25% до 35%. Решение вступает в силу уже завтра, 1 августа, сообщили в Белом доме.  Цитата из официального заявления: “В ответ на пр</div>
+    <div class="card-meta">
+      <span class="card-date">31 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-30-per-poliev-debatiruet-s-9-kandidatami-v-alberte-na-fone-reko/">
-  <div class="sc-img"><img src="/photos/photo_846@30-07-2025_11-36-42.jpg" alt="Пьер Полиев дебатирует с 9 кандидатами в Альберте — на фоне рекордных 210 соперников в бюллетене" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Пьер Полиев дебатирует с 9 кандидатами в Альберте — на фоне рекордных 210 соперников в бюллетене</div>
-    <div class="pex">Во вторник в Камроуз, Альберта, лидер Консерваторов Пьер Полиев выступил на дебатах в рамках довыборов в округе Battle River–Crowfoot.   Его основная идея — «принести местные проблемы на национальный</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-07-30-per-poliev-debatiruet-s-9-kandidatami-v-alberte-na-fone-reko/">
+  <div class="card-img"><img src="/photos/photo_846@30-07-2025_11-36-42.jpg" alt="Пьер Полиев дебатирует с 9 кандидатами в Альберте — на фоне рекордных 210 соперников в бюллетене" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Пьер Полиев дебатирует с 9 кандидатами в Альберте — на фоне рекордных 210 соперников в бюллетене</div>
+    <div class="card-excerpt">Во вторник в Камроуз, Альберта, лидер Консерваторов Пьер Полиев выступил на дебатах в рамках довыборов в округе Battle River–Crowfoot.   Его основная идея — «принести местные проблемы на национальный</div>
+    <div class="card-meta">
+      <span class="card-date">30 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-24-cbc-kanadskie-seti-prodvigayut-import-pod-vidom-nashego/">
-  <div class="sc-img"><img src="/photos/photo_818@24-07-2025_15-28-01.jpg" alt="CBC: Канадские сети продвигают импорт под видом “нашего”" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">CBC: Канадские сети продвигают импорт под видом “нашего”</div>
-    <div class="pex">Расследование CBC показало, что крупные продуктовые сети, включая Sobeys, Loblaws и Metro  активно используют кленовый лист и маркировки вроде “Product of Canada” и “Made in Canada” на товарах, которы</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-24-cbc-kanadskie-seti-prodvigayut-import-pod-vidom-nashego/">
+  <div class="card-img"><img src="/photos/photo_818@24-07-2025_15-28-01.jpg" alt="CBC: Канадские сети продвигают импорт под видом “нашего”" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">CBC: Канадские сети продвигают импорт под видом “нашего”</div>
+    <div class="card-excerpt">Расследование CBC показало, что крупные продуктовые сети, включая Sobeys, Loblaws и Metro  активно используют кленовый лист и маркировки вроде “Product of Canada” и “Made in Canada” на товарах, которы</div>
+    <div class="card-meta">
+      <span class="card-date">24 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-22-liberaly-bolshe-ne-progressivnye-posle-uhoda-dzhastina-tryud/">
-  <div class="sc-img"><img src="/photos/photo_808@22-07-2025_14-24-01.jpg" alt="Либералы больше не прогрессивные. После ухода Джастина Трюдо и прихода Марка Карни партия резко сдвинулась вправо." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">hilltimes.com</div>
-    <div class="ptit sc-title">Либералы больше не прогрессивные. После ухода Джастина Трюдо и прихода Марка Карни партия резко сдвинулась вправо.</div>
-    <div class="pex">Аббас Рана из The Hill Times пишет о том, как либералы под руководством Марка Карни уходят с позиций прогрессивного центра в сторону экономического консерватизма. Партия меняется — и далеко не всем в</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-07-22-liberaly-bolshe-ne-progressivnye-posle-uhoda-dzhastina-tryud/">
+  <div class="card-img"><img src="/photos/photo_808@22-07-2025_14-24-01.jpg" alt="Либералы больше не прогрессивные. После ухода Джастина Трюдо и прихода Марка Карни партия резко сдвинулась вправо." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">hilltimes.com</div>
+    <div class="card-title">Либералы больше не прогрессивные. После ухода Джастина Трюдо и прихода Марка Карни партия резко сдвинулась вправо.</div>
+    <div class="card-excerpt">Аббас Рана из The Hill Times пишет о том, как либералы под руководством Марка Карни уходят с позиций прогрессивного центра в сторону экономического консерватизма. Партия меняется — и далеко не всем в</div>
+    <div class="card-meta">
+      <span class="card-date">22 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-22-operatsiya-unifier-kak-kanadskie-voennye-uzhe-10-let-obuchay/">
-  <div class="sc-img"><img src="/photos/photo_806@22-07-2025_12-34-01.jpg" alt="Операция UNIFIER: как канадские военные уже 10 лет обучают украинцев воевать" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">canadianaffairs.news</div>
-    <div class="ptit sc-title">Операция UNIFIER: как канадские военные уже 10 лет обучают украинцев воевать</div>
-    <div class="pex">Тысячи украинцев, ещё недавно работавшие в магазинах и на фермах, теперь учатся у канадцев — как разминировать танковые мины, оказывать помощь на поле боя и даже обезвреживать вражеские гранаты под ви</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/ukraina/">#Украина</a></div></div>
+</a><a class="card" href="/post/2025-07-22-operatsiya-unifier-kak-kanadskie-voennye-uzhe-10-let-obuchay/">
+  <div class="card-img"><img src="/photos/photo_806@22-07-2025_12-34-01.jpg" alt="Операция UNIFIER: как канадские военные уже 10 лет обучают украинцев воевать" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">canadianaffairs.news</div>
+    <div class="card-title">Операция UNIFIER: как канадские военные уже 10 лет обучают украинцев воевать</div>
+    <div class="card-excerpt">Тысячи украинцев, ещё недавно работавшие в магазинах и на фермах, теперь учатся у канадцев — как разминировать танковые мины, оказывать помощь на поле боя и даже обезвреживать вражеские гранаты под ви</div>
+    <div class="card-meta">
+      <span class="card-date">22 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-21-alberta-rezko-snizila-potreblenie-alkogolya-i-vyshla-v-lider/">
-  <div class="sc-img"><img src="/photos/photo_803@21-07-2025_15-27-01.jpg" alt="Алберта резко снизила потребление алкоголя и вышла в лидеры по тратам на марихуану. Но напрямую эти два факта между собой не связаны." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Алберта резко снизила потребление алкоголя и вышла в лидеры по тратам на марихуану. Но напрямую эти два факта между собой не связаны.</div>
-    <div class="pex">В 2008 году Алберта была первой в стране по потреблению алкоголя — 9,7 литра чистого спирта на человека в год. Сейчас это 7,6 литра. Спад — один из самых резких в Канаде. Для сравнения: это минус 107</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-07-21-alberta-rezko-snizila-potreblenie-alkogolya-i-vyshla-v-lider/">
+  <div class="card-img"><img src="/photos/photo_803@21-07-2025_15-27-01.jpg" alt="Алберта резко снизила потребление алкоголя и вышла в лидеры по тратам на марихуану. Но напрямую эти два факта между собой не связаны." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Алберта резко снизила потребление алкоголя и вышла в лидеры по тратам на марихуану. Но напрямую эти два факта между собой не связаны.</div>
+    <div class="card-excerpt">В 2008 году Алберта была первой в стране по потреблению алкоголя — 9,7 литра чистого спирта на человека в год. Сейчас это 7,6 литра. Спад — один из самых резких в Канаде. Для сравнения: это минус 107</div>
+    <div class="card-meta">
+      <span class="card-date">21 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-21-canada-strong-pass-rasshiryaetsya-bolshe-muzeev-bolshe-skido/">
-  <div class="sc-img"><img src="/photos/photo_801@21-07-2025_12-38-01.jpg" alt="Canada Strong Pass расширяется: больше музеев, больше скидок" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Canada Strong Pass расширяется: больше музеев, больше скидок</div>
-    <div class="pex">Федеральная программа Canada Strong Pass, запущенная весной 2025 года, расширяется — к ней присоединились новые музеи и галереи в провинциях и территориях, которые до этого не участвовали в инициативе</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-21-canada-strong-pass-rasshiryaetsya-bolshe-muzeev-bolshe-skido/">
+  <div class="card-img"><img src="/photos/photo_801@21-07-2025_12-38-01.jpg" alt="Canada Strong Pass расширяется: больше музеев, больше скидок" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Canada Strong Pass расширяется: больше музеев, больше скидок</div>
+    <div class="card-excerpt">Федеральная программа Canada Strong Pass, запущенная весной 2025 года, расширяется — к ней присоединились новые музеи и галереи в провинциях и территориях, которые до этого не участвовали в инициативе</div>
+    <div class="card-meta">
+      <span class="card-date">21 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-18-kolonizatsiya-v-2025-vozhdi-korennyh-narodov-alberty-protiv-/">
-  <div class="sc-img"><img src="/photos/photo_783@18-07-2025_13-52-01.jpg" alt="«Колонизация в 2025»: вожди коренных народов Альберты против закона Карни C-5" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">calgary.citynews.ca</div>
-    <div class="ptit sc-title">«Колонизация в 2025»: вожди коренных народов Альберты против закона Карни C-5</div>
-    <div class="pex">Вожди Первых Наций из договоров 6 и 8 резко выступили против законопроекта С-5, назвав его нарушением прав и примером “колонизации” под видом модернизации.  Закон C-5 даёт федеральному кабинету право</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-18-kolonizatsiya-v-2025-vozhdi-korennyh-narodov-alberty-protiv-/">
+  <div class="card-img"><img src="/photos/photo_783@18-07-2025_13-52-01.jpg" alt="«Колонизация в 2025»: вожди коренных народов Альберты против закона Карни C-5" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">calgary.citynews.ca</div>
+    <div class="card-title">«Колонизация в 2025»: вожди коренных народов Альберты против закона Карни C-5</div>
+    <div class="card-excerpt">Вожди Первых Наций из договоров 6 и 8 резко выступили против законопроекта С-5, назвав его нарушением прав и примером “колонизации” под видом модернизации.  Закон C-5 даёт федеральному кабинету право</div>
+    <div class="card-meta">
+      <span class="card-date">18 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-16-hudsons-bay-obvinyaet-svoego-zhe-kreditora-v-sabotazhe-sdelk/">
-  <div class="sc-img"><img src="/photos/photo_764@16-07-2025_08-44-01.jpg" alt="Hudson’s Bay обвиняет своего же кредитора в саботаже сделки с Руби Лю" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Hudson’s Bay обвиняет своего же кредитора в саботаже сделки с Руби Лю</div>
-    <div class="pex">Юридическая война за наследие Hudson’s Bay набирает обороты. После того как кредитор Restore Capital подал в суд на компанию с требованием отменить сделку с миллиардершей Руби Лю, руководство Bay дало</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-16-hudsons-bay-obvinyaet-svoego-zhe-kreditora-v-sabotazhe-sdelk/">
+  <div class="card-img"><img src="/photos/photo_764@16-07-2025_08-44-01.jpg" alt="Hudson’s Bay обвиняет своего же кредитора в саботаже сделки с Руби Лю" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Hudson’s Bay обвиняет своего же кредитора в саботаже сделки с Руби Лю</div>
+    <div class="card-excerpt">Юридическая война за наследие Hudson’s Bay набирает обороты. После того как кредитор Restore Capital подал в суд на компанию с требованием отменить сделку с миллиардершей Руби Лю, руководство Bay дало</div>
+    <div class="card-meta">
+      <span class="card-date">16 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-15-iyunskaya-inflyatsiya-v-kanade-uskorilas-signal-nestabilnost/">
-  <div class="sc-img"><img src="/photos/photo_757@15-07-2025_11-04-01.jpg" alt="Июньская инфляция в Канаде ускорилась — сигнал нестабильности на фоне тарифной войны и роста цен на машины" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">www150.statcan.gc.ca</div>
-    <div class="ptit sc-title">Июньская инфляция в Канаде ускорилась — сигнал нестабильности на фоне тарифной войны и роста цен на машины</div>
-    <div class="pex">(Consumer Price Index, June 2025, Statistics Canada)  Согласно свежим данным Статистики Канады, инфляция в июне составила 1.9% в годовом выражении, что выше, чем 1.7% в мае.  Это усиление произошло на</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-07-15-iyunskaya-inflyatsiya-v-kanade-uskorilas-signal-nestabilnost/">
+  <div class="card-img"><img src="/photos/photo_757@15-07-2025_11-04-01.jpg" alt="Июньская инфляция в Канаде ускорилась — сигнал нестабильности на фоне тарифной войны и роста цен на машины" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">www150.statcan.gc.ca</div>
+    <div class="card-title">Июньская инфляция в Канаде ускорилась — сигнал нестабильности на фоне тарифной войны и роста цен на машины</div>
+    <div class="card-excerpt">(Consumer Price Index, June 2025, Statistics Canada)  Согласно свежим данным Статистики Канады, инфляция в июне составила 1.9% в годовом выражении, что выше, чем 1.7% в мае.  Это усиление произошло на</div>
+    <div class="card-meta">
+      <span class="card-date">15 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-15-respublikantsy-zhaluyutsya-na-kanadskiy-dym-i-odnovremenno-g/">
-  <div class="sc-img"><img src="/photos/photo_756@15-07-2025_09-40-56.jpg" alt="Республиканцы жалуются на канадский дым — и одновременно голосуют за рост выбросов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theguardian.com</div>
-    <div class="ptit sc-title">Республиканцы жалуются на канадский дым — и одновременно голосуют за рост выбросов</div>
-    <div class="pex">Американские республиканцы из Конгресса направили письмо послу Канады с жалобой на «удушающий» дым от лесных пожаров, который якобы портит лето их избирателям в Висконсине и Миннесоте.   Но есть нюанс</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/klimat/">#климат</a></div></div>
+</a><a class="card" href="/post/2025-07-15-respublikantsy-zhaluyutsya-na-kanadskiy-dym-i-odnovremenno-g/">
+  <div class="card-img"><img src="/photos/photo_756@15-07-2025_09-40-56.jpg" alt="Республиканцы жалуются на канадский дым — и одновременно голосуют за рост выбросов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theguardian.com</div>
+    <div class="card-title">Республиканцы жалуются на канадский дым — и одновременно голосуют за рост выбросов</div>
+    <div class="card-excerpt">Американские республиканцы из Конгресса направили письмо послу Канады с жалобой на «удушающий» дым от лесных пожаров, который якобы портит лето их избирателям в Висконсине и Миннесоте.   Но есть нюанс</div>
+    <div class="card-meta">
+      <span class="card-date">15 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-15-polievu-budet-neprosto-v-nadyozhnoy-alberte-nazrevaet-tihiy-/">
-  <div class="sc-img"><img src="/photos/photo_755@15-07-2025_08-24-29.jpg" alt="Полиеву будет непросто: в надёжной Альберте назревает тихий бунт против «парашютного» лидера" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">calgaryherald.com</div>
-    <div class="ptit sc-title">Полиеву будет непросто: в надёжной Альберте назревает тихий бунт против «парашютного» лидера</div>
-    <div class="pex">Пьер Полиев выбрал для довыборов округ Battle River–Crowfoot, самый «безопасный» для консерваторов в стране, где его однопартиец Дэмиен Курек получил 82% в апреле.   Но судя по тону кампании, лёгкой п</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-15-polievu-budet-neprosto-v-nadyozhnoy-alberte-nazrevaet-tihiy-/">
+  <div class="card-img"><img src="/photos/photo_755@15-07-2025_08-24-29.jpg" alt="Полиеву будет непросто: в надёжной Альберте назревает тихий бунт против «парашютного» лидера" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">calgaryherald.com</div>
+    <div class="card-title">Полиеву будет непросто: в надёжной Альберте назревает тихий бунт против «парашютного» лидера</div>
+    <div class="card-excerpt">Пьер Полиев выбрал для довыборов округ Battle River–Crowfoot, самый «безопасный» для консерваторов в стране, где его однопартиец Дэмиен Курек получил 82% в апреле.   Но судя по тону кампании, лёгкой п</div>
+    <div class="card-meta">
+      <span class="card-date">15 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-14-uchyonye-preduprezhdayut-arkticheskoe-razlivanie-nefti-mozhe/">
-  <div class="sc-img"><img src="/photos/photo_748@14-07-2025_12-19-01.jpg" alt="Учёные предупреждают: арктическое разливание нефти может стать катастрофой — микробы не справятся. Роскошный материал от CBC" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Учёные предупреждают: арктическое разливание нефти может стать катастрофой — микробы не справятся. Роскошный материал от CBC</div>
-    <div class="pex">Команда исследователей GenIce II из Университета Манитобы бьёт тревогу: при разливе нефти в Арктике природные “очистители” — микробы — будут слишком медленными, чтобы предотвратить экологическую катас</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/arktika/">#Арктика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-14-uchyonye-preduprezhdayut-arkticheskoe-razlivanie-nefti-mozhe/">
+  <div class="card-img"><img src="/photos/photo_748@14-07-2025_12-19-01.jpg" alt="Учёные предупреждают: арктическое разливание нефти может стать катастрофой — микробы не справятся. Роскошный материал от CBC" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Учёные предупреждают: арктическое разливание нефти может стать катастрофой — микробы не справятся. Роскошный материал от CBC</div>
+    <div class="card-excerpt">Команда исследователей GenIce II из Университета Манитобы бьёт тревогу: при разливе нефти в Арктике природные “очистители” — микробы — будут слишком медленными, чтобы предотвратить экологическую катас</div>
+    <div class="card-meta">
+      <span class="card-date">14 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-14-krayne-pravye-teorii-zagovora-o-pozharah-kanada-pod-udarom-m/">
-  <div class="sc-img"><img src="/photos/photo_747@14-07-2025_10-17-01.jpg" alt="Крайне правые теории заговора о пожарах: Канада под ударом MAGA-пропаганды" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalobserver.com</div>
-    <div class="ptit sc-title">Крайне правые теории заговора о пожарах: Канада под ударом MAGA-пропаганды</div>
-    <div class="pex">С апреля по июнь 2025 года крайне правые канадские и американские медиа активно распространяли дезинформацию о лесных пожарах в Канаде, сообщает организация Climate Action Against Disinformation.   По</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/klimat/">#климат</a></div></div>
+</a><a class="card" href="/post/2025-07-14-krayne-pravye-teorii-zagovora-o-pozharah-kanada-pod-udarom-m/">
+  <div class="card-img"><img src="/photos/photo_747@14-07-2025_10-17-01.jpg" alt="Крайне правые теории заговора о пожарах: Канада под ударом MAGA-пропаганды" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalobserver.com</div>
+    <div class="card-title">Крайне правые теории заговора о пожарах: Канада под ударом MAGA-пропаганды</div>
+    <div class="card-excerpt">С апреля по июнь 2025 года крайне правые канадские и американские медиа активно распространяли дезинформацию о лесных пожарах в Канаде, сообщает организация Climate Action Against Disinformation.   По</div>
+    <div class="card-meta">
+      <span class="card-date">14 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-13-rost-na-996-ugon-avtomobiley-samoe-bystrorastuschee-prestupl/">
-  <div class="sc-img"><img src="/photos/photo_744@13-07-2025_17-44-01.jpg" alt="Рост на 996%: угон автомобилей — самое быстрорастущее преступление в Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">riverjournalonline.com</div>
-    <div class="ptit sc-title">Рост на 996%: угон автомобилей — самое быстрорастущее преступление в Канаде</div>
-    <div class="pex">По данным нового исследования Preszler Law, угон автомобилей вырос почти в 10 раз за пять лет: с 234 случаев в 2019 году до 2,566 в 2023-м. Только за последний год прирост составил 70%. Это — самый ст</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-13-rost-na-996-ugon-avtomobiley-samoe-bystrorastuschee-prestupl/">
+  <div class="card-img"><img src="/photos/photo_744@13-07-2025_17-44-01.jpg" alt="Рост на 996%: угон автомобилей — самое быстрорастущее преступление в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">riverjournalonline.com</div>
+    <div class="card-title">Рост на 996%: угон автомобилей — самое быстрорастущее преступление в Канаде</div>
+    <div class="card-excerpt">По данным нового исследования Preszler Law, угон автомобилей вырос почти в 10 раз за пять лет: с 234 случаев в 2019 году до 2,566 в 2023-м. Только за последний год прирост составил 70%. Это — самый ст</div>
+    <div class="card-meta">
+      <span class="card-date">13 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-12-pochti-3-800-litsenzirovannyh-magazinov-kannabisa-rynok-kana/">
-  <div class="sc-img"><img src="/photos/photo_736@12-07-2025_15-51-44.jpg" alt="Почти 3 800 лицензированных магазинов каннабиса — рынок Канады стабилизировался, но продолжает расти" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">themarijuanaherald.com</div>
-    <div class="ptit sc-title">Почти 3 800 лицензированных магазинов каннабиса — рынок Канады стабилизировался, но продолжает расти</div>
-    <div class="pex">Семь лет после легализации продаж — и у Канады теперь 3 761 лицензированный магазин марихуаны. Новых точек становится меньше, зато продажи бьют рекорды: $470 млн в апреле 2025 года, максимум за всё вр</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-07-12-pochti-3-800-litsenzirovannyh-magazinov-kannabisa-rynok-kana/">
+  <div class="card-img"><img src="/photos/photo_736@12-07-2025_15-51-44.jpg" alt="Почти 3 800 лицензированных магазинов каннабиса — рынок Канады стабилизировался, но продолжает расти" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">themarijuanaherald.com</div>
+    <div class="card-title">Почти 3 800 лицензированных магазинов каннабиса — рынок Канады стабилизировался, но продолжает расти</div>
+    <div class="card-excerpt">Семь лет после легализации продаж — и у Канады теперь 3 761 лицензированный магазин марихуаны. Новых точек становится меньше, зато продажи бьют рекорды: $470 млн в апреле 2025 года, максимум за всё вр</div>
+    <div class="card-meta">
+      <span class="card-date">12 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-10-kanadtsy-boykotiruyut-ssha-menshe-poezdok-menshe-pokupok-bol/">
-  <div class="sc-img"><img src="/photos/photo_723@10-07-2025_17-33-37.jpg" alt="Канадцы бойкотируют США: меньше поездок, меньше покупок, больше “Made in Canada”" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канадцы бойкотируют США: меньше поездок, меньше покупок, больше “Made in Canada”</div>
-    <div class="pex">Спустя полгода после угроз Дональда Трампа “присоединить Канаду как 51-й штат” и ввести тарифы — бойкот американских товаров и поездок только усилился.  – Поездки канадцев в США:  • минус 24% по возду</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/sshakanada/">#США–Канада</a></div></div>
+</a><a class="card" href="/post/2025-07-10-kanadtsy-boykotiruyut-ssha-menshe-poezdok-menshe-pokupok-bol/">
+  <div class="card-img"><img src="/photos/photo_723@10-07-2025_17-33-37.jpg" alt="Канадцы бойкотируют США: меньше поездок, меньше покупок, больше “Made in Canada”" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадцы бойкотируют США: меньше поездок, меньше покупок, больше “Made in Canada”</div>
+    <div class="card-excerpt">Спустя полгода после угроз Дональда Трампа “присоединить Канаду как 51-й штат” и ввести тарифы — бойкот американских товаров и поездок только усилился.  – Поездки канадцев в США:  • минус 24% по возду</div>
+    <div class="card-meta">
+      <span class="card-date">10 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-09-hudsons-bay-razvalilas-suditsya-s-milliardershey-arenduyut-v/">
-  <div class="sc-img"><img src="/photos/photo_719@09-07-2025_17-44-01.jpg" alt="Hudson’s Bay развалилась, судится с миллиардершей, арендуют воздух" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Hudson’s Bay развалилась, судится с миллиардершей, арендуют воздух</div>
-    <div class="pex">Старая канадская история в новой упаковке: 355-летний (!) Hudson’s Bay — формально старейшая компания Канады — окончательно вылетает в трубу. Все 80 магазинов закрыты, Saks тоже распродан. Но главное</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-09-hudsons-bay-razvalilas-suditsya-s-milliardershey-arenduyut-v/">
+  <div class="card-img"><img src="/photos/photo_719@09-07-2025_17-44-01.jpg" alt="Hudson’s Bay развалилась, судится с миллиардершей, арендуют воздух" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Hudson’s Bay развалилась, судится с миллиардершей, арендуют воздух</div>
+    <div class="card-excerpt">Старая канадская история в новой упаковке: 355-летний (!) Hudson’s Bay — формально старейшая компания Канады — окончательно вылетает в трубу. Все 80 магазинов закрыты, Saks тоже распродан. Но главное</div>
+    <div class="card-meta">
+      <span class="card-date">9 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-09-posle-legalizatsii-kannabisa-prodazhi-alkogolya-v-kanade-poc/">
-  <div class="sc-img"><img src="/photos/photo_714@09-07-2025_12-06-45.jpg" alt="После легализации каннабиса продажи алкоголя в Канаде почти не изменились. Почти." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theconversation.com</div>
-    <div class="ptit sc-title">После легализации каннабиса продажи алкоголя в Канаде почти не изменились. Почти.</div>
-    <div class="pex">Исследование профессора Майкла Армстронга показывает: в целом по стране потребление алкоголя осталось стабильным после 2018 года, когда Канада легализовала рекреационный каннабис. Однако в Новой Шотла</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-09-posle-legalizatsii-kannabisa-prodazhi-alkogolya-v-kanade-poc/">
+  <div class="card-img"><img src="/photos/photo_714@09-07-2025_12-06-45.jpg" alt="После легализации каннабиса продажи алкоголя в Канаде почти не изменились. Почти." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theconversation.com</div>
+    <div class="card-title">После легализации каннабиса продажи алкоголя в Канаде почти не изменились. Почти.</div>
+    <div class="card-excerpt">Исследование профессора Майкла Армстронга показывает: в целом по стране потребление алкоголя осталось стабильным после 2018 года, когда Канада легализовала рекреационный каннабис. Однако в Новой Шотла</div>
+    <div class="card-meta">
+      <span class="card-date">9 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-09-kanada-vsyo-blizhe-k-priznaniyu-palestiny/">
-  <div class="sc-img"><img src="/photos/photo_713@09-07-2025_11-03-01.jpg" alt="Канада всё ближе к признанию Палестины" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thecanadianpressnews.ca</div>
-    <div class="ptit sc-title">Канада всё ближе к признанию Палестины</div>
-    <div class="pex">Палестинская представительница в Канаде Мона Абуамара заявила, что Оттава «очень близка» к официальному признанию палестинской государственности.  – Речь идёт о продолжении курса, начатого ещё в мае 2</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-09-kanada-vsyo-blizhe-k-priznaniyu-palestiny/">
+  <div class="card-img"><img src="/photos/photo_713@09-07-2025_11-03-01.jpg" alt="Канада всё ближе к признанию Палестины" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thecanadianpressnews.ca</div>
+    <div class="card-title">Канада всё ближе к признанию Палестины</div>
+    <div class="card-excerpt">Палестинская представительница в Канаде Мона Абуамара заявила, что Оттава «очень близка» к официальному признанию палестинской государственности.  – Речь идёт о продолжении курса, начатого ещё в мае 2</div>
+    <div class="card-meta">
+      <span class="card-date">9 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-08-alberta-planiruet-zanyatsya-yadernoy-energetikoy/">
-  <div class="sc-img"><img src="/photos/photo_710@08-07-2025_15-59-01.jpg" alt="Альберта планирует заняться ядерной энергетикой." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Альберта планирует заняться ядерной энергетикой.</div>
-    <div class="pex">Премьер Даниэль Смит анонсировала осенние публичные консультации по вопросу внедрения малых модульных реакторов (SMR) — особенно для удалённых объектов вроде нефтяных месторождений.  – «Это ново для А</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/tehnologii/">#технологии</a></div></div>
+</a><a class="card" href="/post/2025-07-08-alberta-planiruet-zanyatsya-yadernoy-energetikoy/">
+  <div class="card-img"><img src="/photos/photo_710@08-07-2025_15-59-01.jpg" alt="Альберта планирует заняться ядерной энергетикой." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Альберта планирует заняться ядерной энергетикой.</div>
+    <div class="card-excerpt">Премьер Даниэль Смит анонсировала осенние публичные консультации по вопросу внедрения малых модульных реакторов (SMR) — особенно для удалённых объектов вроде нефтяных месторождений.  – «Это ново для А</div>
+    <div class="card-meta">
+      <span class="card-date">8 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-07-kanada-nuzhdaetsya-ne-prosto-v-immigratsii-ey-nuzhen-tselena/">
-  <div class="sc-img"><img src="/photos/photo_704@07-07-2025_14-14-01.jpg" alt="Канада нуждается не просто в иммиграции. Ей нужен целенаправленный импорт талантов." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Канада нуждается не просто в иммиграции. Ей нужен целенаправленный импорт талантов.</div>
-    <div class="pex">Даниэль Бернхард, CEO Института гражданства Канады в своей статье для The Globe and Mail:  В современном мире основная ценность экономики — не нефть и не товары, а знания. И в этом смысле лучший «импо</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-07-07-kanada-nuzhdaetsya-ne-prosto-v-immigratsii-ey-nuzhen-tselena/">
+  <div class="card-img"><img src="/photos/photo_704@07-07-2025_14-14-01.jpg" alt="Канада нуждается не просто в иммиграции. Ей нужен целенаправленный импорт талантов." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канада нуждается не просто в иммиграции. Ей нужен целенаправленный импорт талантов.</div>
+    <div class="card-excerpt">Даниэль Бернхард, CEO Института гражданства Канады в своей статье для The Globe and Mail:  В современном мире основная ценность экономики — не нефть и не товары, а знания. И в этом смысле лучший «импо</div>
+    <div class="card-meta">
+      <span class="card-date">7 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-07-odin-iz-krupneyshih-neftyanyh-gigantov-kanady-canadian-natur/">
-  <div class="sc-img"><img src="/photos/photo_702@07-07-2025_11-29-01.jpg" alt="Один из крупнейших нефтяных гигантов Канады — Canadian Natural Resources Ltd. (CNRL) — нарушил соглашение с властями Британской Колумбии и не понёс за это никак" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thenarwhal.ca</div>
-    <div class="ptit sc-title">Один из крупнейших нефтяных гигантов Канады — Canadian Natural Resources Ltd. (CNRL) — нарушил соглашение с властями Британской Колумбии и не понёс за это никак</div>
-    <div class="pex">ого штрафа.  Суть:  – В 2020 году CNRL получила освобождение от экологических требований по деактивации более 4,300 неиспользуемых трубопроводов  – Компания обещала деактивировать сотни участков ежего</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-07-07-odin-iz-krupneyshih-neftyanyh-gigantov-kanady-canadian-natur/">
+  <div class="card-img"><img src="/photos/photo_702@07-07-2025_11-29-01.jpg" alt="Один из крупнейших нефтяных гигантов Канады — Canadian Natural Resources Ltd. (CNRL) — нарушил соглашение с властями Британской Колумбии и не понёс за это никак" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thenarwhal.ca</div>
+    <div class="card-title">Один из крупнейших нефтяных гигантов Канады — Canadian Natural Resources Ltd. (CNRL) — нарушил соглашение с властями Британской Колумбии и не понёс за это никак</div>
+    <div class="card-excerpt">ого штрафа.  Суть:  – В 2020 году CNRL получила освобождение от экологических требований по деактивации более 4,300 неиспользуемых трубопроводов  – Компания обещала деактивировать сотни участков ежего</div>
+    <div class="card-meta">
+      <span class="card-date">7 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-06-poka-torgovaya-voyna-mezhdu-kanadoy-i-ssha-zatyagivaetsya-bi/">
-  <div class="sc-img"><img src="/photos/photo_698@06-07-2025_14-54-01.jpg" alt="🇨🇦 Пока торговая война между Канадой и США затягивается, бизнесы в Оттаве подсчитывают прибыль — патриотичные покупатели массово переходят на “Made in Canada”." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">🇨🇦 Пока торговая война между Канадой и США затягивается, бизнесы в Оттаве подсчитывают прибыль — патриотичные покупатели массово переходят на “Made in Canada”.</div>
-    <div class="pex">Винодельня Kin Vineyards в Карпе увеличила продажи на 25%, а в LCBO — сразу на 325%. «Сначала было $9,000, теперь $23,000. Для малого бизнеса это имеет значение», — говорит управляющий Лиам Мастерсмит</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/sshakanada/">#США–Канада</a></div></div>
+</a><a class="card" href="/post/2025-07-06-poka-torgovaya-voyna-mezhdu-kanadoy-i-ssha-zatyagivaetsya-bi/">
+  <div class="card-img"><img src="/photos/photo_698@06-07-2025_14-54-01.jpg" alt="🇨🇦 Пока торговая война между Канадой и США затягивается, бизнесы в Оттаве подсчитывают прибыль — патриотичные покупатели массово переходят на “Made in Canada”." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">🇨🇦 Пока торговая война между Канадой и США затягивается, бизнесы в Оттаве подсчитывают прибыль — патриотичные покупатели массово переходят на “Made in Canada”.</div>
+    <div class="card-excerpt">Винодельня Kin Vineyards в Карпе увеличила продажи на 25%, а в LCBO — сразу на 325%. «Сначала было $9,000, теперь $23,000. Для малого бизнеса это имеет значение», — говорит управляющий Лиам Мастерсмит</div>
+    <div class="card-meta">
+      <span class="card-date">6 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/energetika/page/5/">←</a><a class="pb" href="/tag/energetika/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/energetika/page/4/">4</a><a class="pb" href="/tag/energetika/page/5/">5</a><a class="pb on" href="/tag/energetika/page/6/">6</a><a class="pb" href="/tag/energetika/page/7/">7</a><a class="pb" href="/tag/energetika/page/8/">8</a><a class="pb" href="/tag/energetika/page/9/">9</a><a class="pb" href="/tag/energetika/page/7/">→</a></div>

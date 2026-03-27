@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>Джагмит Сингх</h1>
     <p>67 материалов</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2026-03-20-indiya-i-kanada-perezapuskayut-otnosheniya-s-istoricheskim-s/">
-  <div class="sc-img"><img src="/photos/photo_2413@20-03-2026_10-04-18.jpg" alt="Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bbc.com</div>
-    <div class="ptit sc-title">Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике</div>
-    <div class="pex">Канада и Индия объявили о серии договорённостей, включая 10-летнее соглашение в сфере ядерной энергетики, после встречи Марк Карни и Нарендра Моди в Дели.  Ключевой элемент — долгосрочные поставки ура</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-20-indiya-i-kanada-perezapuskayut-otnosheniya-s-istoricheskim-s/">
+  <div class="card-img"><img src="/photos/photo_2413@20-03-2026_10-04-18.jpg" alt="Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bbc.com</div>
+    <div class="card-title">Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике</div>
+    <div class="card-excerpt">Канада и Индия объявили о серии договорённостей, включая 10-летнее соглашение в сфере ядерной энергетики, после встречи Марк Карни и Нарендра Моди в Дели.  Ключевой элемент — долгосрочные поставки ура</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-19-deportatsii-po-delam-o-vymogatelstve-vyrosli-do-35-nachaty-s/">
-  <div class="sc-img"><img src="/photos/photo_2406@19-03-2026_15-02-36.jpg" alt="Депортации по делам о вымогательстве выросли до 35, начаты сотни расследований" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Депортации по делам о вымогательстве выросли до 35, начаты сотни расследований</div>
-    <div class="pex">Канадские власти усилили давление на организованные преступные группы. Пограничная служба (CBSA) сообщает: уже 35 человек депортированы по делам, связанным с вымогательством.   Всего зафиксировано 372</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-03-19-deportatsii-po-delam-o-vymogatelstve-vyrosli-do-35-nachaty-s/">
+  <div class="card-img"><img src="/photos/photo_2406@19-03-2026_15-02-36.jpg" alt="Депортации по делам о вымогательстве выросли до 35, начаты сотни расследований" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Депортации по делам о вымогательстве выросли до 35, начаты сотни расследований</div>
+    <div class="card-excerpt">Канадские власти усилили давление на организованные преступные группы. Пограничная служба (CBSA) сообщает: уже 35 человек депортированы по делам, связанным с вымогательством.   Всего зафиксировано 372</div>
+    <div class="card-meta">
+      <span class="card-date">19 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-13-kogda-kanadskaya-tolerantnost-stalkivaetsya-s-radikalizmom-b/">
-  <div class="sc-img"><img src="/photos/photo_2356@13-03-2026_15-03-49.jpg" alt="Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vancouversun.com</div>
-    <div class="ptit sc-title">Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме</div>
-    <div class="pex">Бывший премьер Британской Колумбии Уджжал Досандж заявил, что канадские власти слишком долго игнорировали экстремистскую активность сторонников создания государства Халистан.   По его словам, политики</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2026-03-13-kogda-kanadskaya-tolerantnost-stalkivaetsya-s-radikalizmom-b/">
+  <div class="card-img"><img src="/photos/photo_2356@13-03-2026_15-03-49.jpg" alt="Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме</div>
+    <div class="card-excerpt">Бывший премьер Британской Колумбии Уджжал Досандж заявил, что канадские власти слишком долго игнорировали экстремистскую активность сторонников создания государства Халистан.   По его словам, политики</div>
+    <div class="card-meta">
+      <span class="card-date">13 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-05-vankuver-zasluzhivaet-bolshego-chem-lozh-kena-sima/">
-  <div class="sc-img"><img src="/photos/photo_2304@05-03-2026_21-03-43.jpg" alt="Ванкувер заслуживает большего, чем ложь Кена Сима" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalobserver.com</div>
-    <div class="ptit sc-title">Ванкувер заслуживает большего, чем ложь Кена Сима</div>
-    <div class="pex">Мэр Ванкувера Кен Сим извинился после того, как публично обвинил оппозиционного муниципального советника в раздаче наркотиков на Рождество — обвинение, которое оказалось полностью ложным.   Автор коло</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-03-05-vankuver-zasluzhivaet-bolshego-chem-lozh-kena-sima/">
+  <div class="card-img"><img src="/photos/photo_2304@05-03-2026_21-03-43.jpg" alt="Ванкувер заслуживает большего, чем ложь Кена Сима" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalobserver.com</div>
+    <div class="card-title">Ванкувер заслуживает большего, чем ложь Кена Сима</div>
+    <div class="card-excerpt">Мэр Ванкувера Кен Сим извинился после того, как публично обвинил оппозиционного муниципального советника в раздаче наркотиков на Рождество — обвинение, которое оказалось полностью ложным.   Автор коло</div>
+    <div class="card-meta">
+      <span class="card-date">5 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-05-molodye-kanadtsy-nazhimayut-na-tormoza-v-voprose-vladeniya-a/">
-  <div class="sc-img"><img src="/photos/photo_2303@05-03-2026_19-03-01.jpg" alt="Молодые канадцы нажимают на тормоза в вопросе владения автомобилем, показывает новый опрос" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Молодые канадцы нажимают на тормоза в вопросе владения автомобилем, показывает новый опрос</div>
-    <div class="pex">Молодые жители Канады всё чаще откладывают покупку автомобиля или полностью отказываются от владения машиной. Основная причина — высокая стоимость.   Согласно новому исследованию сервиса аренды автомо</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2026-03-05-molodye-kanadtsy-nazhimayut-na-tormoza-v-voprose-vladeniya-a/">
+  <div class="card-img"><img src="/photos/photo_2303@05-03-2026_19-03-01.jpg" alt="Молодые канадцы нажимают на тормоза в вопросе владения автомобилем, показывает новый опрос" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Молодые канадцы нажимают на тормоза в вопросе владения автомобилем, показывает новый опрос</div>
+    <div class="card-excerpt">Молодые жители Канады всё чаще откладывают покупку автомобиля или полностью отказываются от владения машиной. Основная причина — высокая стоимость.   Согласно новому исследованию сервиса аренды автомо</div>
+    <div class="card-meta">
+      <span class="card-date">5 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-02-mark-karni-i-narendra-modi-podpisali-soglasheniya-na-milliar/">
-  <div class="sc-img"><img src="/photos/photo_2285@02-03-2026_10-03-48.jpg" alt="Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов</div>
-    <div class="pex">Премьер-министр Марк Карни и глава правительства Индии Нарендра Моди объявили о «новом партнёрстве» — пакете соглашений на 5,5 млрд долларов и намерении подписать соглашение о свободной торговле до ко</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-03-02-mark-karni-i-narendra-modi-podpisali-soglasheniya-na-milliar/">
+  <div class="card-img"><img src="/photos/photo_2285@02-03-2026_10-03-48.jpg" alt="Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни и глава правительства Индии Нарендра Моди объявили о «новом партнёрстве» — пакете соглашений на 5,5 млрд долларов и намерении подписать соглашение о свободной торговле до ко</div>
+    <div class="card-meta">
+      <span class="card-date">2 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-28-ot-energetiki-do-ii-pyat-klyuchevyh-tem-missii-karni-v-indiy/">
-  <div class="sc-img"><img src="/photos/photo_2273@28-02-2026_11-04-17.jpg" alt="От энергетики до ИИ: пять ключевых тем миссии Карни в Индию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cp24.com</div>
-    <div class="ptit sc-title">От энергетики до ИИ: пять ключевых тем миссии Карни в Индию</div>
-    <div class="pex">Поездка премьер-министра Марка Карни в Индию — попытка перезапустить отношения после двух лет острого кризиса.    В 2023 и 2024 годах Оттава заявила, что агенты индийского правительства причастны к на</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/arktika/">#Арктика</a></div></div>
+</a><a class="card" href="/post/2026-02-28-ot-energetiki-do-ii-pyat-klyuchevyh-tem-missii-karni-v-indiy/">
+  <div class="card-img"><img src="/photos/photo_2273@28-02-2026_11-04-17.jpg" alt="От энергетики до ИИ: пять ключевых тем миссии Карни в Индию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cp24.com</div>
+    <div class="card-title">От энергетики до ИИ: пять ключевых тем миссии Карни в Индию</div>
+    <div class="card-excerpt">Поездка премьер-министра Марка Карни в Индию — попытка перезапустить отношения после двух лет острого кризиса.    В 2023 и 2024 годах Оттава заявила, что агенты индийского правительства причастны к на</div>
+    <div class="card-meta">
+      <span class="card-date">28 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-27-muzhchine-predyavleny-14-obvineniy-posle-tryoh-pohischeniy-z/">
-  <div class="sc-img"><img src="/photos/photo_2265@27-02-2026_12-07-14.jpg" alt="Мужчине предъявлены 14 обвинений после трёх похищений за четыре дня в Metro Vancouver" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Мужчине предъявлены 14 обвинений после трёх похищений за четыре дня в Metro Vancouver</div>
-    <div class="pex">28-летнему Амритпалу Сингху предъявлены 14 обвинений после серии похищений в Нижнем материковом районе Британской Колумбии в январе.   По данным Ridge Meadows RCMP, инциденты произошли в Питт-Медоуз,</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-02-27-muzhchine-predyavleny-14-obvineniy-posle-tryoh-pohischeniy-z/">
+  <div class="card-img"><img src="/photos/photo_2265@27-02-2026_12-07-14.jpg" alt="Мужчине предъявлены 14 обвинений после трёх похищений за четыре дня в Metro Vancouver" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Мужчине предъявлены 14 обвинений после трёх похищений за четыре дня в Metro Vancouver</div>
+    <div class="card-excerpt">28-летнему Амритпалу Сингху предъявлены 14 обвинений после серии похищений в Нижнем материковом районе Британской Колумбии в январе.   По данным Ridge Meadows RCMP, инциденты произошли в Питт-Медоуз,</div>
+    <div class="card-meta">
+      <span class="card-date">27 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-26-indiyu-bolshe-ne-schitayut-istochnikom-inostrannogo-vmeshate/">
-  <div class="sc-img"><img src="/photos/photo_2258@26-02-2026_12-02-25.jpg" alt="Индию больше не считают источником иностранного вмешательства в Канаде, заявил высокопоставленный чиновник" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Индию больше не считают источником иностранного вмешательства в Канаде, заявил высокопоставленный чиновник</div>
-    <div class="pex">Канадское правительство больше не считает, что Индия занимается вмешательством во внутренние дела страны, транснациональными репрессиями или насилием на канадской территории — об этом сообщил высокопо</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-26-indiyu-bolshe-ne-schitayut-istochnikom-inostrannogo-vmeshate/">
+  <div class="card-img"><img src="/photos/photo_2258@26-02-2026_12-02-25.jpg" alt="Индию больше не считают источником иностранного вмешательства в Канаде, заявил высокопоставленный чиновник" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Индию больше не считают источником иностранного вмешательства в Канаде, заявил высокопоставленный чиновник</div>
+    <div class="card-excerpt">Канадское правительство больше не считает, что Индия занимается вмешательством во внутренние дела страны, транснациональными репрессиями или насилием на канадской территории — об этом сообщил высокопо</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-02-kanadskie-universitety-vozvraschayutsya-v-indiyu/">
-  <div class="sc-img"><img src="/photos/photo_2090@02-02-2026_15-02-53.jpg" alt="Канадские университеты возвращаются в Индию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Канадские университеты возвращаются в Индию</div>
-    <div class="pex">Ассоциация Universities Canada отправила в Индию делегацию из более чем 20 президентов университетов. Поездка рассчитана на пять дней и подаётся как попытка перезапустить отношения между двумя странам</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-02-kanadskie-universitety-vozvraschayutsya-v-indiyu/">
+  <div class="card-img"><img src="/photos/photo_2090@02-02-2026_15-02-53.jpg" alt="Канадские университеты возвращаются в Индию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канадские университеты возвращаются в Индию</div>
+    <div class="card-excerpt">Ассоциация Universities Canada отправила в Индию делегацию из более чем 20 президентов университетов. Поездка рассчитана на пять дней и подаётся как попытка перезапустить отношения между двумя странам</div>
+    <div class="card-meta">
+      <span class="card-date">2 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-01-indiyskie-bandy-zapugivayut-kanadu/">
-  <div class="sc-img"><img src="/photos/photo_2085@01-02-2026_20-36-01.jpg" alt="Индийские банды запугивают Канаду" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">spectator.com</div>
-    <div class="ptit sc-title">Индийские банды запугивают Канаду</div>
-    <div class="pex">⁠  Южноазиатские общины по всей Канаде сталкиваются с волной вымогательств и насилия. В Суррее (Британская Колумбия) власти уже требуют от Оттавы объявить общенациональное чрезвычайное положение. Речь</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-02-01-indiyskie-bandy-zapugivayut-kanadu/">
+  <div class="card-img"><img src="/photos/photo_2085@01-02-2026_20-36-01.jpg" alt="Индийские банды запугивают Канаду" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">spectator.com</div>
+    <div class="card-title">Индийские банды запугивают Канаду</div>
+    <div class="card-excerpt">⁠  Южноазиатские общины по всей Канаде сталкиваются с волной вымогательств и насилия. В Суррее (Британская Колумбия) власти уже требуют от Оттавы объявить общенациональное чрезвычайное положение. Речь</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-28-kanada-i-indiya-dogovorilis-rasshirit-torgovlyu-neftyu-i-gaz/">
-  <div class="sc-img"><img src="/photos/photo_2054@28-01-2026_11-03-06.jpg" alt="Канада и Индия договорились расширить торговлю нефтью и газом" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">sg.news.yahoo.com</div>
-    <div class="ptit sc-title">Канада и Индия договорились расширить торговлю нефтью и газом</div>
-    <div class="pex">Оттава и Нью-Дели перезапускают энергетические отношения и планируют нарастить взаимные поставки нефти и газа. Договорённости были объявлены на India Energy Week в Гоа, где встретились министр природн</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-28-kanada-i-indiya-dogovorilis-rasshirit-torgovlyu-neftyu-i-gaz/">
+  <div class="card-img"><img src="/photos/photo_2054@28-01-2026_11-03-06.jpg" alt="Канада и Индия договорились расширить торговлю нефтью и газом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">sg.news.yahoo.com</div>
+    <div class="card-title">Канада и Индия договорились расширить торговлю нефтью и газом</div>
+    <div class="card-excerpt">Оттава и Нью-Дели перезапускают энергетические отношения и планируют нарастить взаимные поставки нефти и газа. Договорённости были объявлены на India Energy Week в Гоа, где встретились министр природн</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-05-bolee-milliona-indiytsev-v-kanade-riskuyut-poteryat-legalnyy/">
-  <div class="sc-img"><img src="/photos/photo_1873@05-01-2026_09-04-51.jpg" alt="Более миллиона индийцев в Канаде рискуют потерять легальный статус" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">observerbd.com</div>
-    <div class="ptit sc-title">Более миллиона индийцев в Канаде рискуют потерять легальный статус</div>
-    <div class="pex">Канада готовится к резкому росту числа нелегальных мигрантов. Причина — массовое истечение сроков временных рабочих разрешений. По данным Immigration, Refugees and Citizenship Canada, почти половину т</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-05-bolee-milliona-indiytsev-v-kanade-riskuyut-poteryat-legalnyy/">
+  <div class="card-img"><img src="/photos/photo_1873@05-01-2026_09-04-51.jpg" alt="Более миллиона индийцев в Канаде рискуют потерять легальный статус" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">observerbd.com</div>
+    <div class="card-title">Более миллиона индийцев в Канаде рискуют потерять легальный статус</div>
+    <div class="card-excerpt">Канада готовится к резкому росту числа нелегальных мигрантов. Причина — массовое истечение сроков временных рабочих разрешений. По данным Immigration, Refugees and Citizenship Canada, почти половину т</div>
+    <div class="card-meta">
+      <span class="card-date">5 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-24-karni-i-modi-zapuskayut-peregovory-o-novom-torgovom-soglashe/">
-  <div class="sc-img"><img src="/photos/photo_1572@24-11-2025_13-36-53.jpg" alt="Карни и Моди запускают переговоры о новом торговом соглашении между Канадой и Индией" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Карни и Моди запускают переговоры о новом торговом соглашении между Канадой и Индией</div>
-    <div class="pex">CBC сообщает: премьер Марк Карни и премьер-министр Индии Нарендра Моди договорились начать переговоры по всеобъемлющему экономическому соглашению. Индийское внешнеполитическое ведомство назвало цель —</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-11-24-karni-i-modi-zapuskayut-peregovory-o-novom-torgovom-soglashe/">
+  <div class="card-img"><img src="/photos/photo_1572@24-11-2025_13-36-53.jpg" alt="Карни и Моди запускают переговоры о новом торговом соглашении между Канадой и Индией" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Карни и Моди запускают переговоры о новом торговом соглашении между Канадой и Индией</div>
+    <div class="card-excerpt">CBC сообщает: премьер Марк Карни и премьер-министр Индии Нарендра Моди договорились начать переговоры по всеобъемлющему экономическому соглашению. Индийское внешнеполитическое ведомство назвало цель —</div>
+    <div class="card-meta">
+      <span class="card-date">24 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-20-ontario-svorachivaet-uskorennyy-put-k-pmzh-dlya-rabochih-spe/">
-  <div class="sc-img"><img src="/photos/photo_1541@20-11-2025_12-12-13.jpg" alt="Онтарио сворачивает ускоренный путь к ПМЖ для рабочих специальностей — тысячи заявителей брошены в подвешенном состоянии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Онтарио сворачивает ускоренный путь к ПМЖ для рабочих специальностей — тысячи заявителей брошены в подвешенном состоянии</div>
-    <div class="pex">Правительство Онтарио тихо приостановило ключевой поток Ontario Immigrant Nominee Program (OINP), предназначенный для привлечения квалифицированных рабочих, и аннулировало все текущие заявления. Речь</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-11-20-ontario-svorachivaet-uskorennyy-put-k-pmzh-dlya-rabochih-spe/">
+  <div class="card-img"><img src="/photos/photo_1541@20-11-2025_12-12-13.jpg" alt="Онтарио сворачивает ускоренный путь к ПМЖ для рабочих специальностей — тысячи заявителей брошены в подвешенном состоянии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Онтарио сворачивает ускоренный путь к ПМЖ для рабочих специальностей — тысячи заявителей брошены в подвешенном состоянии</div>
+    <div class="card-excerpt">Правительство Онтарио тихо приостановило ключевой поток Ontario Immigrant Nominee Program (OINP), предназначенный для привлечения квалифицированных рабочих, и аннулировало все текущие заявления. Речь</div>
+    <div class="card-meta">
+      <span class="card-date">20 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-11-domashniy-arest-dlya-vladeltsev-fiktivnyh-avtoshkol-obmanuvs/">
-  <div class="sc-img"><img src="/photos/photo_1470@11-11-2025_13-19-01.jpg" alt="Домашний арест для владельцев фиктивных автошкол, обманувших десятки индийских иммигрантов в Онтарио" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Домашний арест для владельцев фиктивных автошкол, обманувших десятки индийских иммигрантов в Онтарио</div>
-    <div class="pex">Двое выходцев из Индии получили по два года условного домашнего заключения за организацию мошеннических автошкол для подготовки водителей-дальнобойщиков в Онтарио. Суд признал Гурвиндера Сингха и Гурп</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-11-11-domashniy-arest-dlya-vladeltsev-fiktivnyh-avtoshkol-obmanuvs/">
+  <div class="card-img"><img src="/photos/photo_1470@11-11-2025_13-19-01.jpg" alt="Домашний арест для владельцев фиктивных автошкол, обманувших десятки индийских иммигрантов в Онтарио" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Домашний арест для владельцев фиктивных автошкол, обманувших десятки индийских иммигрантов в Онтарио</div>
+    <div class="card-excerpt">Двое выходцев из Индии получили по два года условного домашнего заключения за организацию мошеннических автошкол для подготовки водителей-дальнобойщиков в Онтарио. Суд признал Гурвиндера Сингха и Гурп</div>
+    <div class="card-meta">
+      <span class="card-date">11 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-11-anand-rubio-ne-govoril-o-51-m-shtate-v-razgovorah-s-kanadoy-/">
-  <div class="sc-img"><img src="/photos/photo_1469@11-11-2025_11-32-16.jpg" alt="Ананд: Рубио не говорил о «51-м штате» в разговорах с Канадой перед саммитом G7" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Ананд: Рубио не говорил о «51-м штате» в разговорах с Канадой перед саммитом G7</div>
-    <div class="pex">Министр иностранных дел Канады Анита Ананд заявила, что госсекретарь США Марко Рубио не поднимал тему возможного присоединения Канады к США, о которой ранее рассуждал Дональд Трамп.  «Он ни прямо, ни</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-11-11-anand-rubio-ne-govoril-o-51-m-shtate-v-razgovorah-s-kanadoy-/">
+  <div class="card-img"><img src="/photos/photo_1469@11-11-2025_11-32-16.jpg" alt="Ананд: Рубио не говорил о «51-м штате» в разговорах с Канадой перед саммитом G7" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Ананд: Рубио не говорил о «51-м штате» в разговорах с Канадой перед саммитом G7</div>
+    <div class="card-excerpt">Министр иностранных дел Канады Анита Ананд заявила, что госсекретарь США Марко Рубио не поднимал тему возможного присоединения Канады к США, о которой ранее рассуждал Дональд Трамп.  «Он ни прямо, ни</div>
+    <div class="card-meta">
+      <span class="card-date">11 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-04-ottava-hochet-poluchit-pravo-massovo-annulirovat-vizy-v-tom-/">
-  <div class="sc-img"><img src="/photos/photo_1417@04-11-2025_14-26-41.jpg" alt="Оттава хочет получить право массово аннулировать визы — в том числе из-за мошенничества из Индии и Бангладеш" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Оттава хочет получить право массово аннулировать визы — в том числе из-за мошенничества из Индии и Бангладеш</div>
-    <div class="pex">Федеральное правительство Канады добивается новых полномочий, позволяющих отменять группы виз сразу — на фоне растущих опасений по поводу поддельных заявлений из Индии и Бангладеш, сообщает CBC News с</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-11-04-ottava-hochet-poluchit-pravo-massovo-annulirovat-vizy-v-tom-/">
+  <div class="card-img"><img src="/photos/photo_1417@04-11-2025_14-26-41.jpg" alt="Оттава хочет получить право массово аннулировать визы — в том числе из-за мошенничества из Индии и Бангладеш" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оттава хочет получить право массово аннулировать визы — в том числе из-за мошенничества из Индии и Бангладеш</div>
+    <div class="card-excerpt">Федеральное правительство Канады добивается новых полномочий, позволяющих отменять группы виз сразу — на фоне растущих опасений по поводу поддельных заявлений из Индии и Бангладеш, сообщает CBC News с</div>
+    <div class="card-meta">
+      <span class="card-date">4 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-03-kanada-massovo-otklonyaet-vizy-indiyskim-studentam-uroven-ot/">
-  <div class="sc-img"><img src="/photos/photo_1409@03-11-2025_14-31-58.jpg" alt="Канада массово отклоняет визы индийским студентам — уровень отказов вырос до 74%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Канада массово отклоняет визы индийским студентам — уровень отказов вырос до 74%</div>
-    <div class="pex">⠀ По данным Reuters, почти три четверти заявок на студенческие визы из Индии в августе 2025 года получили отказ — рекордный показатель за последние годы. Для сравнения: в августе 2023-го отклонили 32</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-11-03-kanada-massovo-otklonyaet-vizy-indiyskim-studentam-uroven-ot/">
+  <div class="card-img"><img src="/photos/photo_1409@03-11-2025_14-31-58.jpg" alt="Канада массово отклоняет визы индийским студентам — уровень отказов вырос до 74%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Канада массово отклоняет визы индийским студентам — уровень отказов вырос до 74%</div>
+    <div class="card-excerpt">⠀ По данным Reuters, почти три четверти заявок на студенческие визы из Индии в августе 2025 года получили отказ — рекордный показатель за последние годы. Для сравнения: в августе 2023-го отклонили 32</div>
+    <div class="card-meta">
+      <span class="card-date">3 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-31-byudzhet-karni-mozhet-obernutsya-vyborami-no-poliev-i-ndp-ne/">
-  <div class="sc-img"><img src="/photos/photo_1387@31-10-2025_13-47-01.jpg" alt="Бюджет Карни может обернуться выборами — но Полиев и НДП не спешат их устраивать" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Бюджет Карни может обернуться выборами — но Полиев и НДП не спешат их устраивать</div>
-    <div class="pex">В Оттаве — предкризисная тишина. Либеральное правительство Марка Карни готовится представить свой первый бюджет 4 ноября, но в парламенте не хватает голосов, чтобы его утвердить.   Источники CBC сообщ</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-31-byudzhet-karni-mozhet-obernutsya-vyborami-no-poliev-i-ndp-ne/">
+  <div class="card-img"><img src="/photos/photo_1387@31-10-2025_13-47-01.jpg" alt="Бюджет Карни может обернуться выборами — но Полиев и НДП не спешат их устраивать" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Бюджет Карни может обернуться выборами — но Полиев и НДП не спешат их устраивать</div>
+    <div class="card-excerpt">В Оттаве — предкризисная тишина. Либеральное правительство Марка Карни готовится представить свой первый бюджет 4 ноября, но в парламенте не хватает голосов, чтобы его утвердить.   Источники CBC сообщ</div>
+    <div class="card-meta">
+      <span class="card-date">31 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-04-currier-ot-aktualnosti-k-absurdu-kak-ndp-skatilas-v-politich/">
-  <div class="sc-img"><img src="/photos/photo_874@04-08-2025_13-06-56.jpg" alt="CURRIER: От актуальности к абсурду — как NDP скатилась в политическую шутку" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">winnipegsun.com</div>
-    <div class="ptit sc-title">CURRIER: От актуальности к абсурду — как NDP скатилась в политическую шутку</div>
-    <div class="pex">После разгромных результатов на последних выборах эра Джагмита Сингха в NDP завершилась. Партия потеряла официальное признание в парламенте, осталась с жалкими семью мандатами и формально сохраняет ры</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-08-04-currier-ot-aktualnosti-k-absurdu-kak-ndp-skatilas-v-politich/">
+  <div class="card-img"><img src="/photos/photo_874@04-08-2025_13-06-56.jpg" alt="CURRIER: От актуальности к абсурду — как NDP скатилась в политическую шутку" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">winnipegsun.com</div>
+    <div class="card-title">CURRIER: От актуальности к абсурду — как NDP скатилась в политическую шутку</div>
+    <div class="card-excerpt">После разгромных результатов на последних выборах эра Джагмита Сингха в NDP завершилась. Партия потеряла официальное признание в парламенте, осталась с жалкими семью мандатами и формально сохраняет ры</div>
+    <div class="card-meta">
+      <span class="card-date">4 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-28-my-vlozhili-vsyo-i-nas-vybrosili/">
-  <div class="sc-img"><img src="/photos/photo_832@28-07-2025_09-09-01.jpg" alt="“Мы вложили всё и нас выбросили”" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">macleans.ca</div>
-    <div class="ptit sc-title">“Мы вложили всё и нас выбросили”</div>
-    <div class="pex">Канада разворачивает международных студентов назад  За последние 10 лет Канада продвигала себя как мечту для международных студентов. Учитесь здесь, работайте здесь, получите вид на жительство и стань</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-07-28-my-vlozhili-vsyo-i-nas-vybrosili/">
+  <div class="card-img"><img src="/photos/photo_832@28-07-2025_09-09-01.jpg" alt="“Мы вложили всё и нас выбросили”" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">“Мы вложили всё и нас выбросили”</div>
+    <div class="card-excerpt">Канада разворачивает международных студентов назад  За последние 10 лет Канада продвигала себя как мечту для международных студентов. Учитесь здесь, работайте здесь, получите вид на жительство и стань</div>
+    <div class="card-meta">
+      <span class="card-date">28 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-20-istoriya-indiyskogo-bezhentsa-kotoruyu-sochli-podozritelno-p/">
-  <div class="sc-img"><img src="/photos/photo_795@20-07-2025_12-53-01.jpg" alt="История индийского беженца, которую сочли “подозрительно похожей” на сотни других, получит повторное рассмотрение" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">История индийского беженца, которую сочли “подозрительно похожей” на сотни других, получит повторное рассмотрение</div>
-    <div class="pex">Парвиндер Сингх, индийский беженец, заявил, что его подставили в убийстве друга. Но его прошение отклонили: судьи сочли рассказ слишком похожим на истории других 200 заявителей, которых консультировал</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-07-20-istoriya-indiyskogo-bezhentsa-kotoruyu-sochli-podozritelno-p/">
+  <div class="card-img"><img src="/photos/photo_795@20-07-2025_12-53-01.jpg" alt="История индийского беженца, которую сочли “подозрительно похожей” на сотни других, получит повторное рассмотрение" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">История индийского беженца, которую сочли “подозрительно похожей” на сотни других, получит повторное рассмотрение</div>
+    <div class="card-excerpt">Парвиндер Сингх, индийский беженец, заявил, что его подставили в убийстве друга. Но его прошение отклонили: судьи сочли рассказ слишком похожим на истории других 200 заявителей, которых консультировал</div>
+    <div class="card-meta">
+      <span class="card-date">20 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-09-karni-vyshel-vperyod-po-vsem-frontam-poliev-teryaet-dazhe-al/">
-  <div class="sc-img"><img src="/photos/photo_715@09-07-2025_13-21-39.jpg" alt="Карни вышел вперёд по всем фронтам. Полиев теряет даже Альберту" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">biv.com</div>
-    <div class="ptit sc-title">Карни вышел вперёд по всем фронтам. Полиев теряет даже Альберту</div>
-    <div class="pex">Прошло 10 недель с выборов, и расклад становится всё яснее. Согласно новому опросу Research Co., либералы под руководством Марка Карни уверенно усиливают позиции, в то время как консерваторы Пьера Пол</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-07-09-karni-vyshel-vperyod-po-vsem-frontam-poliev-teryaet-dazhe-al/">
+  <div class="card-img"><img src="/photos/photo_715@09-07-2025_13-21-39.jpg" alt="Карни вышел вперёд по всем фронтам. Полиев теряет даже Альберту" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">biv.com</div>
+    <div class="card-title">Карни вышел вперёд по всем фронтам. Полиев теряет даже Альберту</div>
+    <div class="card-excerpt">Прошло 10 недель с выборов, и расклад становится всё яснее. Согласно новому опросу Research Co., либералы под руководством Марка Карни уверенно усиливают позиции, в то время как консерваторы Пьера Пол</div>
+    <div class="card-meta">
+      <span class="card-date">9 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-27-v-kanade-zafiksirovan-rezkiy-rost-nenavisti-k-yuzhnoaziatsko/">
-  <div class="sc-img"><img src="/photos/photo_652@27-06-2025_10-14-01.jpg" alt="В Канаде зафиксирован резкий рост ненависти к южноазиатской диаспоре — особенно в ходе предвыборной кампании" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">В Канаде зафиксирован резкий рост ненависти к южноазиатской диаспоре — особенно в ходе предвыборной кампании</div>
-    <div class="pex">По данным нового отчёта британского аналитического центра Institute for Strategic Dialogue, в Канаде на 1350% выросло количество ксенофобных постов против выходцев из Южной Азии — в основном, на платф</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-06-27-v-kanade-zafiksirovan-rezkiy-rost-nenavisti-k-yuzhnoaziatsko/">
+  <div class="card-img"><img src="/photos/photo_652@27-06-2025_10-14-01.jpg" alt="В Канаде зафиксирован резкий рост ненависти к южноазиатской диаспоре — особенно в ходе предвыборной кампании" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">В Канаде зафиксирован резкий рост ненависти к южноазиатской диаспоре — особенно в ходе предвыборной кампании</div>
+    <div class="card-excerpt">По данным нового отчёта британского аналитического центра Institute for Strategic Dialogue, в Канаде на 1350% выросло количество ксенофобных постов против выходцев из Южной Азии — в основном, на платф</div>
+    <div class="card-meta">
+      <span class="card-date">27 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-25-driver-inc-milliardnaya-shema-kotoraya-razryvaet-kanadskuyu-/">
-  <div class="sc-img"><img src="/photos/photo_639@25-06-2025_13-26-57.jpg" alt="🚛 “Driver Inc.” — миллиардная схема, которая разрывает канадскую логистику" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">🚛 “Driver Inc.” — миллиардная схема, которая разрывает канадскую логистику</div>
-    <div class="pex">Транспортная индустрия Канады бьёт тревогу: схема “Driver Inc.” стала крупнейшей проблемой отрасли. Компании массово регистрируют водителей как “независимых подрядчиков”, чтобы не платить налоги, соцв</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-06-25-driver-inc-milliardnaya-shema-kotoraya-razryvaet-kanadskuyu-/">
+  <div class="card-img"><img src="/photos/photo_639@25-06-2025_13-26-57.jpg" alt="🚛 “Driver Inc.” — миллиардная схема, которая разрывает канадскую логистику" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">🚛 “Driver Inc.” — миллиардная схема, которая разрывает канадскую логистику</div>
+    <div class="card-excerpt">Транспортная индустрия Канады бьёт тревогу: схема “Driver Inc.” стала крупнейшей проблемой отрасли. Компании массово регистрируют водителей как “независимых подрядчиков”, чтобы не платить налоги, соцв</div>
+    <div class="card-meta">
+      <span class="card-date">25 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-24-lider-ndp-alberty-naid-nenshi-vyigral-vybory-i-idyot-v-parla/">
-  <div class="sc-img"><img src="/photos/photo_632@24-06-2025_09-43-06.jpg" alt="Лидер NDP Альберты Наид Ненши выиграл выборы и идёт в парламент" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Лидер NDP Альберты Наид Ненши выиграл выборы и идёт в парламент</div>
-    <div class="pex">Наид Ненши уверенно победил на довыборах в Эдмонтон-Страткона, заняв место Рэйчел Нотли. По предварительным данным он набрал 7,952 голосов — почти в шесть раз больше, чем кандидат от UCP (1314 голосов</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-06-24-lider-ndp-alberty-naid-nenshi-vyigral-vybory-i-idyot-v-parla/">
+  <div class="card-img"><img src="/photos/photo_632@24-06-2025_09-43-06.jpg" alt="Лидер NDP Альберты Наид Ненши выиграл выборы и идёт в парламент" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Лидер NDP Альберты Наид Ненши выиграл выборы и идёт в парламент</div>
+    <div class="card-excerpt">Наид Ненши уверенно победил на довыборах в Эдмонтон-Страткона, заняв место Рэйчел Нотли. По предварительным данным он набрал 7,952 голосов — почти в шесть раз больше, чем кандидат от UCP (1314 голосов</div>
+    <div class="card-meta">
+      <span class="card-date">24 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-19-zhizn-pod-ohranoy-singh-stal-mishenyu/">
-  <div class="sc-img"><img src="/photos/photo_611@19-06-2025_10-16-24.jpg" alt="Жизнь под охраной: Сингх стал мишенью" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Жизнь под охраной: Сингх стал мишенью</div>
-    <div class="pex">Аресты, подозрения, скрытые слежки — всё это уже не шпионские романы, а повседневность канадской политики. Global News раскрывает: Джагмит Сингх, бывший лидер НДП, жил под круглосуточной охраной RCMP</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-06-19-zhizn-pod-ohranoy-singh-stal-mishenyu/">
+  <div class="card-img"><img src="/photos/photo_611@19-06-2025_10-16-24.jpg" alt="Жизнь под охраной: Сингх стал мишенью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Жизнь под охраной: Сингх стал мишенью</div>
+    <div class="card-excerpt">Аресты, подозрения, скрытые слежки — всё это уже не шпионские романы, а повседневность канадской политики. Global News раскрывает: Джагмит Сингх, бывший лидер НДП, жил под круглосуточной охраной RCMP</div>
+    <div class="card-meta">
+      <span class="card-date">19 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-16-dzhagmit-singh-na-kontserte-kendrika-dreyk-v-yarosti/">
-  <div class="sc-img"><img src="/photos/photo_602@16-06-2025_16-21-11.jpg" alt="Джагмит Сингх на концерте Кендрика? Дрейк в ярости" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Джагмит Сингх на концерте Кендрика? Дрейк в ярости</div>
-    <div class="pex">Экс-лидер НДП Джагмит Сингх извинился перед Дрейком за то, что его заметили на концерте Кендрика Ламара и SZA в Торонто. Повод — нешуточный: Кендрик исполнил трек Not Like Us, где обвиняет Дрейка в пе</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-06-16-dzhagmit-singh-na-kontserte-kendrika-dreyk-v-yarosti/">
+  <div class="card-img"><img src="/photos/photo_602@16-06-2025_16-21-11.jpg" alt="Джагмит Сингх на концерте Кендрика? Дрейк в ярости" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Джагмит Сингх на концерте Кендрика? Дрейк в ярости</div>
+    <div class="card-excerpt">Экс-лидер НДП Джагмит Сингх извинился перед Дрейком за то, что его заметили на концерте Кендрика Ламара и SZA в Торонто. Повод — нешуточный: Кендрик исполнил трек Not Like Us, где обвиняет Дрейка в пе</div>
+    <div class="card-meta">
+      <span class="card-date">16 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-15-ottava-protestuet-modi-tramp-i-oruzhie-dlya-izrailya/">
-  <div class="sc-img"><img src="/photos/photo_593@15-06-2025_09-11-30.jpg" alt="🪧 Оттава протестует: Моди, Трамп и оружие для Израиля" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ottawacitizen.com</div>
-    <div class="ptit sc-title">🪧 Оттава протестует: Моди, Трамп и оружие для Израиля</div>
-    <div class="pex">В субботу в центре Оттавы прошли сразу три массовых протеста — в преддверии саммита G7 в Альберте, куда премьер-министр Марк Карни пригласил Нарендру Моди и Дональда Трампа.  На Парламентском холме со</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-06-15-ottava-protestuet-modi-tramp-i-oruzhie-dlya-izrailya/">
+  <div class="card-img"><img src="/photos/photo_593@15-06-2025_09-11-30.jpg" alt="🪧 Оттава протестует: Моди, Трамп и оружие для Израиля" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ottawacitizen.com</div>
+    <div class="card-title">🪧 Оттава протестует: Моди, Трамп и оружие для Израиля</div>
+    <div class="card-excerpt">В субботу в центре Оттавы прошли сразу три массовых протеста — в преддверии саммита G7 в Альберте, куда премьер-министр Марк Карни пригласил Нарендру Моди и Дональда Трампа.  На Парламентском холме со</div>
+    <div class="card-meta">
+      <span class="card-date">15 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-12-indiyskiy-agent-sledil-za-dzhagmitom-singhom-rcmp-derzhala-e/">
-  <div class="sc-img"><img src="/photos/photo_581@12-06-2025_11-31-39.jpg" alt="Индийский агент следил за Джагмитом Сингхом — RCMP держала его под охраной" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Индийский агент следил за Джагмитом Сингхом — RCMP держала его под охраной</div>
-    <div class="pex">Как выяснило Global News, за бывшим лидером НДП Джагмитом Сингхом велось плотное наблюдение со стороны предполагаемого индийского агента, связанного с бандой Лоуренса Бишнои. Агент знал расписание, ма</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-06-12-indiyskiy-agent-sledil-za-dzhagmitom-singhom-rcmp-derzhala-e/">
+  <div class="card-img"><img src="/photos/photo_581@12-06-2025_11-31-39.jpg" alt="Индийский агент следил за Джагмитом Сингхом — RCMP держала его под охраной" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Индийский агент следил за Джагмитом Сингхом — RCMP держала его под охраной</div>
+    <div class="card-excerpt">Как выяснило Global News, за бывшим лидером НДП Джагмитом Сингхом велось плотное наблюдение со стороны предполагаемого индийского агента, связанного с бандой Лоуренса Бишнои. Агент знал расписание, ма</div>
+    <div class="card-meta">
+      <span class="card-date">12 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-07-skandal-vokrug-priglasheniya-modi-na-sammit-g7-v-kanade-nedo/">
-  <div class="sc-img"><img src="/photos/photo_561@07-06-2025_12-46-35.jpg" alt="🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы.</div>
-    <div class="pex">Депутат от Либералов Сукх Дхаливал (Британская Колумбия) намерен лично поднять перед Марком Карни вопрос о визите премьера Индии Нарендры Моди.  Причина — массовые протесты в его округе: люди звонят,</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-06-07-skandal-vokrug-priglasheniya-modi-na-sammit-g7-v-kanade-nedo/">
+  <div class="card-img"><img src="/photos/photo_561@07-06-2025_12-46-35.jpg" alt="🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы.</div>
+    <div class="card-excerpt">Депутат от Либералов Сукх Дхаливал (Британская Колумбия) намерен лично поднять перед Марком Карни вопрос о визите премьера Индии Нарендры Моди.  Причина — массовые протесты в его округе: люди звонят,</div>
+    <div class="card-meta">
+      <span class="card-date">7 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-30-sikhi-protiv-priglasheniya-modi-na-sammit-g7-v-kanade/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🇨🇦 Сикхи против приглашения Моди на саммит G7 в Канаде</div>
-    <div class="pex">Сикхские организации в Канаде призывают правительство не приглашать премьер-министра Индии Нарендру Моди на саммит G7, который пройдёт в июне в Кананаскисе, Альберта.  Хотя список гостей за пределами</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 май 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-05-30-sikhi-protiv-priglasheniya-modi-na-sammit-g7-v-kanade/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🇨🇦 Сикхи против приглашения Моди на саммит G7 в Канаде</div>
+    <div class="card-excerpt">Сикхские организации в Канаде призывают правительство не приглашать премьер-министра Индии Нарендру Моди на саммит G7, который пройдёт в июне в Кананаскисе, Альберта.  Хотя список гостей за пределами</div>
+    <div class="card-meta">
+      <span class="card-date">30 май 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-06-novaya-glava-dlya-ndp-partiya-vybrala-vremennogo-lidera-im-s/">
-  <div class="sc-img"><img src="/photos/photo_410@06-05-2025_11-53-01.jpg" alt="Новая глава для NDP — партия выбрала временного лидера. Им стал депутат от Британской Колумбии Дон Дэвис." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Новая глава для NDP — партия выбрала временного лидера. Им стал депутат от Британской Колумбии Дон Дэвис.</div>
-    <div class="pex">– Дэвис возглавит НДП после ухода Джагмита Сингха, который потерял своё кресло в Бернаби на выборах 28 апреля. – Решение принято Национальным советом партии вечером 5 мая. – Дэвис — не новичок: именно</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 май 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-05-06-novaya-glava-dlya-ndp-partiya-vybrala-vremennogo-lidera-im-s/">
+  <div class="card-img"><img src="/photos/photo_410@06-05-2025_11-53-01.jpg" alt="Новая глава для NDP — партия выбрала временного лидера. Им стал депутат от Британской Колумбии Дон Дэвис." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Новая глава для NDP — партия выбрала временного лидера. Им стал депутат от Британской Колумбии Дон Дэвис.</div>
+    <div class="card-excerpt">– Дэвис возглавит НДП после ухода Джагмита Сингха, который потерял своё кресло в Бернаби на выборах 28 апреля. – Решение принято Национальным советом партии вечером 5 мая. – Дэвис — не новичок: именно</div>
+    <div class="card-meta">
+      <span class="card-date">6 май 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-04-novaya-demokraticheskaya-partiya-alberty-bolshe-ne-obyazana-/">
-  <div class="sc-img"><img src="/photos/photo_385@04-05-2025_10-24-01.jpg" alt="🟠 Новая Демократическая партия Альберты больше не обязана слушаться Оттаву" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">🟠 Новая Демократическая партия Альберты больше не обязана слушаться Оттаву</div>
-    <div class="pex">Делегаты проголосовали: новые члены теперь могут вступать только в провинциальную НДП, без автоматического членства в федеральной. Лидер Наид Ненши заявил — это решение для тех, кто не хочет иметь дел</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 май 2025</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2025-05-04-novaya-demokraticheskaya-partiya-alberty-bolshe-ne-obyazana-/">
+  <div class="card-img"><img src="/photos/photo_385@04-05-2025_10-24-01.jpg" alt="🟠 Новая Демократическая партия Альберты больше не обязана слушаться Оттаву" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">🟠 Новая Демократическая партия Альберты больше не обязана слушаться Оттаву</div>
+    <div class="card-excerpt">Делегаты проголосовали: новые члены теперь могут вступать только в провинциальную НДП, без автоматического членства в федеральной. Лидер Наид Ненши заявил — это решение для тех, кто не хочет иметь дел</div>
+    <div class="card-meta">
+      <span class="card-date">4 май 2025</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-30-liberaly-teryayut-pozitsii-v-ontario-konservatory-nastupayut/">
-  <div class="sc-img"><img src="/photos/photo_352@30-04-2025_10-43-01.jpg" alt="Либералы теряют позиции в Онтарио: Консерваторы наступают в пригородах Торонто" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Либералы теряют позиции в Онтарио: Консерваторы наступают в пригородах Торонто</div>
-    <div class="pex">Федеральные выборы 2025 года принесли Либеральной партии Канаде неприятные сюрпризы в Онтарио. Особенно заметны потери в пригородах Большого Торонто (регион 905), где Консерваторы Пьера Полиева добили</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-30-liberaly-teryayut-pozitsii-v-ontario-konservatory-nastupayut/">
+  <div class="card-img"><img src="/photos/photo_352@30-04-2025_10-43-01.jpg" alt="Либералы теряют позиции в Онтарио: Консерваторы наступают в пригородах Торонто" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Либералы теряют позиции в Онтарио: Консерваторы наступают в пригородах Торонто</div>
+    <div class="card-excerpt">Федеральные выборы 2025 года принесли Либеральной партии Канаде неприятные сюрпризы в Онтарио. Особенно заметны потери в пригородах Большого Торонто (регион 905), где Консерваторы Пьера Полиева добили</div>
+    <div class="card-meta">
+      <span class="card-date">30 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-29-v-shkolnyh-vyborah-po-vsey-kanade-pobedili-konservatory/">
-  <div class="sc-img"><img src="/photos/photo_349@29-04-2025_17-35-47.jpg" alt="В школьных выборах по всей Канаде победили… Консерваторы!" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В школьных выборах по всей Канаде победили… Консерваторы!</div>
-    <div class="pex">Пока взрослые выбирали Карни и либералов, 900 000 школьников провели собственные федеральные выборы. Результат? Консервативное правительство меньшинства во главе с Пьером Полиевым.  📊 Итоги “детских в</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-04-29-v-shkolnyh-vyborah-po-vsey-kanade-pobedili-konservatory/">
+  <div class="card-img"><img src="/photos/photo_349@29-04-2025_17-35-47.jpg" alt="В школьных выборах по всей Канаде победили… Консерваторы!" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В школьных выборах по всей Канаде победили… Консерваторы!</div>
+    <div class="card-excerpt">Пока взрослые выбирали Карни и либералов, 900 000 школьников провели собственные федеральные выборы. Результат? Консервативное правительство меньшинства во главе с Пьером Полиевым.  📊 Итоги “детских в</div>
+    <div class="card-meta">
+      <span class="card-date">29 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-29-vybory-2025-kanada-vybrala-marka-karni/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🇨🇦 Выборы-2025: Канада выбрала Марка Карни</div>
-    <div class="pex">Канада проголосовала — и перемены пришли. Либералы под руководством Марка Карни выиграли федеральные выборы и сформируют правительство меньшинства. На момент окончания подсчёта партия ведёт в 167 окру</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-29-vybory-2025-kanada-vybrala-marka-karni/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🇨🇦 Выборы-2025: Канада выбрала Марка Карни</div>
+    <div class="card-excerpt">Канада проголосовала — и перемены пришли. Либералы под руководством Марка Карни выиграли федеральные выборы и сформируют правительство меньшинства. На момент окончания подсчёта партия ведёт в 167 окру</div>
+    <div class="card-meta">
+      <span class="card-date">29 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-28-tragediya-v-vankuvere-svodka/">
-  <div class="sc-img"><img src="/photos/photo_332@28-04-2025_09-28-01.jpg" alt="Трагедия в Ванкувере: сводка." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Трагедия в Ванкувере: сводка.</div>
-    <div class="pex">На фестивале Lapu-Lapu Day в Ванкувере (в честь героя антиколониального сопротивления на Филиппинах) в толпу людей врезался внедорожник. Погибли 11 человек, от 5 до 65 лет. Ещё 32 пострадавших, из них</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-04-28-tragediya-v-vankuvere-svodka/">
+  <div class="card-img"><img src="/photos/photo_332@28-04-2025_09-28-01.jpg" alt="Трагедия в Ванкувере: сводка." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Трагедия в Ванкувере: сводка.</div>
+    <div class="card-excerpt">На фестивале Lapu-Lapu Day в Ванкувере (в честь героя антиколониального сопротивления на Филиппинах) в толпу людей врезался внедорожник. Погибли 11 человек, от 5 до 65 лет. Ещё 32 пострадавших, из них</div>
+    <div class="card-meta">
+      <span class="card-date">28 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-28-segodnya-28-aprelya-kanada-golosuet-vot-kak-vyglyadyat-posle/">
-  <div class="sc-img"><img src="/photos/photo_331@28-04-2025_08-04-53.jpg" alt="Сегодня, 28 апреля, Канада голосует. Вот как выглядят последние опросы:" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Сегодня, 28 апреля, Канада голосует. Вот как выглядят последние опросы:</div>
-    <div class="pex">– Либералы (Марк Карни): от 42% до 44% – Консерваторы (Пьер Полиев): от 37% до 39% – НДП (Джагмит Сингх): около 8–9% – Блок Квебекуа: около 6% – Зелёные: около 2–3%   По данным EKOS, либералы могут по</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-04-28-segodnya-28-aprelya-kanada-golosuet-vot-kak-vyglyadyat-posle/">
+  <div class="card-img"><img src="/photos/photo_331@28-04-2025_08-04-53.jpg" alt="Сегодня, 28 апреля, Канада голосует. Вот как выглядят последние опросы:" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Сегодня, 28 апреля, Канада голосует. Вот как выглядят последние опросы:</div>
+    <div class="card-excerpt">– Либералы (Марк Карни): от 42% до 44% – Консерваторы (Пьер Полиев): от 37% до 39% – НДП (Джагмит Сингх): около 8–9% – Блок Квебекуа: около 6% – Зелёные: около 2–3%   По данным EKOS, либералы могут по</div>
+    <div class="card-meta">
+      <span class="card-date">28 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb on" href="/person/dzhagmit-singh/">1</a><a class="pb" href="/person/dzhagmit-singh/page/2/">2</a><a class="pb" href="/person/dzhagmit-singh/page/2/">→</a></div>

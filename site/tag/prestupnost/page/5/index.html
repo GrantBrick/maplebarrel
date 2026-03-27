@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,277 +180,379 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#преступность</h1>
     <p>194 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-06-12-kanadtsa-ekstradirovali-v-ssha-po-obvineniyu-v-podgotovke-te/">
-  <div class="sc-img"><img src="/photos/photo_580@12-06-2025_10-36-35.jpg" alt="Канадца экстрадировали в США по обвинению в подготовке теракта против еврейского центра в Нью-Йорке" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Канадца экстрадировали в США по обвинению в подготовке теракта против еврейского центра в Нью-Йорке</div>
-    <div class="pex">Мухаммад Шахзеб Хан, гражданин Пакистана, проживавший в Канаде, экстрадирован в США — его обвиняют в подготовке массового расстрела в еврейском центре Бруклина по мотивам, вдохновлённым ИГИЛ.  Факты д</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-06-12-kanadtsa-ekstradirovali-v-ssha-po-obvineniyu-v-podgotovke-te/">
+  <div class="card-img"><img src="/photos/photo_580@12-06-2025_10-36-35.jpg" alt="Канадца экстрадировали в США по обвинению в подготовке теракта против еврейского центра в Нью-Йорке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Канадца экстрадировали в США по обвинению в подготовке теракта против еврейского центра в Нью-Йорке</div>
+    <div class="card-excerpt">Мухаммад Шахзеб Хан, гражданин Пакистана, проживавший в Канаде, экстрадирован в США — его обвиняют в подготовке массового расстрела в еврейском центре Бруклина по мотивам, вдохновлённым ИГИЛ.  Факты д</div>
+    <div class="card-meta">
+      <span class="card-date">12 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-11-per-poliev-trebuet-zhyostkih-ogranicheniy-na-rost-naseleniya/">
-  <div class="sc-img"><img src="/photos/photo_575@11-06-2025_09-27-01.jpg" alt="Пьер Полиев требует «жёстких ограничений» на рост населения Канады." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Пьер Полиев требует «жёстких ограничений» на рост населения Канады.</div>
-    <div class="pex">На пресс-конференции во вторник лидер Консерваторов Пьер Полиев заявил:  «Население Канады растёт бесконтрольно. Граница фактически открыта. Это привело к свободному потоку наркотиков, нелегальной миг</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-06-11-per-poliev-trebuet-zhyostkih-ogranicheniy-na-rost-naseleniya/">
+  <div class="card-img"><img src="/photos/photo_575@11-06-2025_09-27-01.jpg" alt="Пьер Полиев требует «жёстких ограничений» на рост населения Канады." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Пьер Полиев требует «жёстких ограничений» на рост населения Канады.</div>
+    <div class="card-excerpt">На пресс-конференции во вторник лидер Консерваторов Пьер Полиев заявил:  «Население Канады растёт бесконтрольно. Граница фактически открыта. Это привело к свободному потоку наркотиков, нелегальной миг</div>
+    <div class="card-meta">
+      <span class="card-date">11 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-07-skandal-vokrug-priglasheniya-modi-na-sammit-g7-v-kanade-nedo/">
-  <div class="sc-img"><img src="/photos/photo_561@07-06-2025_12-46-35.jpg" alt="🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы.</div>
-    <div class="pex">Депутат от Либералов Сукх Дхаливал (Британская Колумбия) намерен лично поднять перед Марком Карни вопрос о визите премьера Индии Нарендры Моди.  Причина — массовые протесты в его округе: люди звонят,</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-06-07-skandal-vokrug-priglasheniya-modi-na-sammit-g7-v-kanade-nedo/">
+  <div class="card-img"><img src="/photos/photo_561@07-06-2025_12-46-35.jpg" alt="🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы.</div>
+    <div class="card-excerpt">Депутат от Либералов Сукх Дхаливал (Британская Колумбия) намерен лично поднять перед Марком Карни вопрос о визите премьера Индии Нарендры Моди.  Причина — массовые протесты в его округе: люди звонят,</div>
+    <div class="card-meta">
+      <span class="card-date">7 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-07-dzheymi-sarkonak-v-kolonke-dlya-national-post-pogranichnyy-z/">
-  <div class="sc-img"><img src="/photos/photo_560@07-06-2025_11-37-01.jpg" alt="Джейми Сарконак в колонке для National Post: «Пограничный закон Карни — подготовка Канады к новому раунду либерального бездействия»." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Джейми Сарконак в колонке для National Post: «Пограничный закон Карни — подготовка Канады к новому раунду либерального бездействия».</div>
-    <div class="pex">Первый крупный законопроект правительства Карни (Bill C-2) выглядит как мощный поворот к порядку. Но будет ли реальный результат — большой вопрос.  Законопроект — 140 страниц — предлагает целый ряд из</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-06-07-dzheymi-sarkonak-v-kolonke-dlya-national-post-pogranichnyy-z/">
+  <div class="card-img"><img src="/photos/photo_560@07-06-2025_11-37-01.jpg" alt="Джейми Сарконак в колонке для National Post: «Пограничный закон Карни — подготовка Канады к новому раунду либерального бездействия»." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Джейми Сарконак в колонке для National Post: «Пограничный закон Карни — подготовка Канады к новому раунду либерального бездействия».</div>
+    <div class="card-excerpt">Первый крупный законопроект правительства Карни (Bill C-2) выглядит как мощный поворот к порядку. Но будет ли реальный результат — большой вопрос.  Законопроект — 140 страниц — предлагает целый ряд из</div>
+    <div class="card-meta">
+      <span class="card-date">7 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-07-v-kanade-arestovan-biznesmen-za-nezakonnye-postavki-elektron/">
-  <div class="sc-img"><img src="/photos/photo_559@07-06-2025_09-20-43.jpg" alt="В Канаде арестован бизнесмен за незаконные поставки электроники в Россию." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В Канаде арестован бизнесмен за незаконные поставки электроники в Россию.</div>
-    <div class="pex">Полиция Онтарио (RCMP) задержала 43-летнего Антона Трофимова из Торонто. Его обвиняют в том, что он организовал закупку и отправку в Россию запрещённых электронных компонентов, нарушая канадские санкц</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-06-07-v-kanade-arestovan-biznesmen-za-nezakonnye-postavki-elektron/">
+  <div class="card-img"><img src="/photos/photo_559@07-06-2025_09-20-43.jpg" alt="В Канаде арестован бизнесмен за незаконные поставки электроники в Россию." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Канаде арестован бизнесмен за незаконные поставки электроники в Россию.</div>
+    <div class="card-excerpt">Полиция Онтарио (RCMP) задержала 43-летнего Антона Трофимова из Торонто. Его обвиняют в том, что он организовал закупку и отправку в Россию запрещённых электронных компонентов, нарушая канадские санкц</div>
+    <div class="card-meta">
+      <span class="card-date">7 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-04-massovaya-strelba-v-toronto-1-pogibshiy-5-ranenyh/">
-  <div class="sc-img"><img src="/photos/photo_545@04-06-2025_08-31-39.jpg" alt="Массовая стрельба в Торонто: 1 погибший, 5 раненых" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Массовая стрельба в Торонто: 1 погибший, 5 раненых</div>
-    <div class="pex">Во вторник вечером в районе Lawrence Heights в Торонто прогремела массовая стрельба — один мужчина погиб, пятеро (четверо мужчин и одна женщина) госпитализированы с неопасными для жизни ранениями.  –</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-06-04-massovaya-strelba-v-toronto-1-pogibshiy-5-ranenyh/">
+  <div class="card-img"><img src="/photos/photo_545@04-06-2025_08-31-39.jpg" alt="Массовая стрельба в Торонто: 1 погибший, 5 раненых" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Массовая стрельба в Торонто: 1 погибший, 5 раненых</div>
+    <div class="card-excerpt">Во вторник вечером в районе Lawrence Heights в Торонто прогремела массовая стрельба — один мужчина погиб, пятеро (четверо мужчин и одна женщина) госпитализированы с неопасными для жизни ранениями.  –</div>
+    <div class="card-meta">
+      <span class="card-date">4 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-30-sikhi-protiv-priglasheniya-modi-na-sammit-g7-v-kanade/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🇨🇦 Сикхи против приглашения Моди на саммит G7 в Канаде</div>
-    <div class="pex">Сикхские организации в Канаде призывают правительство не приглашать премьер-министра Индии Нарендру Моди на саммит G7, который пройдёт в июне в Кананаскисе, Альберта.  Хотя список гостей за пределами</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 май 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-05-30-sikhi-protiv-priglasheniya-modi-na-sammit-g7-v-kanade/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🇨🇦 Сикхи против приглашения Моди на саммит G7 в Канаде</div>
+    <div class="card-excerpt">Сикхские организации в Канаде призывают правительство не приглашать премьер-министра Индии Нарендру Моди на саммит G7, который пройдёт в июне в Кананаскисе, Альберта.  Хотя список гостей за пределами</div>
+    <div class="card-meta">
+      <span class="card-date">30 май 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-29-uilyams-leyk-hochet-vvesti-chrezvychaynoe-polozhenie-iz-za-r/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Уильямс-Лейк хочет ввести чрезвычайное положение из-за роста беспорядков</div>
-    <div class="pex">Городок с населением 20 тысяч человек борется с ростом преступности и проблемами с психическим здоровьем.  Совет города Уильямс-Лейк (Британская Колумбия) подал предложение объявить местное чрезвычайн</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 май 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-05-29-uilyams-leyk-hochet-vvesti-chrezvychaynoe-polozhenie-iz-za-r/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Уильямс-Лейк хочет ввести чрезвычайное положение из-за роста беспорядков</div>
+    <div class="card-excerpt">Городок с населением 20 тысяч человек борется с ростом преступности и проблемами с психическим здоровьем.  Совет города Уильямс-Лейк (Британская Колумбия) подал предложение объявить местное чрезвычайн</div>
+    <div class="card-meta">
+      <span class="card-date">29 май 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-29-ministr-truda-ontario-devid-pichchini-poobeschal-navesti-por/">
-  <div class="sc-img"><img src="/photos/photo_525@29-05-2025_09-38-01.jpg" alt="Министр труда Онтарио Дэвид Пиччини пообещал навести порядок с фейковыми вакансиями, которые заполонили платформы по поиску работы." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Министр труда Онтарио Дэвид Пиччини пообещал навести порядок с фейковыми вакансиями, которые заполонили платформы по поиску работы.</div>
-    <div class="pex">Согласно данным Канадского центра по борьбе с мошенничеством, в 2024 году канадцы потеряли $47 миллионов из-за обмана при трудоустройстве, из них почти треть — в Онтарио.  Что предлагает правительство</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 май 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-05-29-ministr-truda-ontario-devid-pichchini-poobeschal-navesti-por/">
+  <div class="card-img"><img src="/photos/photo_525@29-05-2025_09-38-01.jpg" alt="Министр труда Онтарио Дэвид Пиччини пообещал навести порядок с фейковыми вакансиями, которые заполонили платформы по поиску работы." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Министр труда Онтарио Дэвид Пиччини пообещал навести порядок с фейковыми вакансиями, которые заполонили платформы по поиску работы.</div>
+    <div class="card-excerpt">Согласно данным Канадского центра по борьбе с мошенничеством, в 2024 году канадцы потеряли $47 миллионов из-за обмана при трудоустройстве, из них почти треть — в Онтарио.  Что предлагает правительство</div>
+    <div class="card-meta">
+      <span class="card-date">29 май 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-26-narkotiki-dengi-15-stvolov/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Наркотики, деньги, 15 стволов</div>
-    <div class="pex">Региональная полиция Йорка изъяла арсенал оружия, а также  запрещенные вещества общей стоимостью $215 000.  В Йоркском регионе полиция устроила собственную версию культового фильма Гая Ричи, только с</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 май 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-05-26-narkotiki-dengi-15-stvolov/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Наркотики, деньги, 15 стволов</div>
+    <div class="card-excerpt">Региональная полиция Йорка изъяла арсенал оружия, а также  запрещенные вещества общей стоимостью $215 000.  В Йоркском регионе полиция устроила собственную версию культового фильма Гая Ричи, только с</div>
+    <div class="card-meta">
+      <span class="card-date">26 май 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-25-kvartal-pandory-kak-tsentr-viktorii-prevratilsya-v-zonu-beds/">
-  <div class="sc-img"><img src="/photos/photo_507@25-05-2025_10-04-01.jpg" alt="Квартал Пандоры: как центр Виктории превратился в зону бедствия" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Квартал Пандоры: как центр Виктории превратился в зону бедствия</div>
-    <div class="pex">Огромный и классный материал TheGlobeAndMail. Зацените оригинал.  ____________________  Один квартал в самом сердце столицы Британской Колумбии стал символом провала всей канадской наркополитики. Pand</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 май 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-05-25-kvartal-pandory-kak-tsentr-viktorii-prevratilsya-v-zonu-beds/">
+  <div class="card-img"><img src="/photos/photo_507@25-05-2025_10-04-01.jpg" alt="Квартал Пандоры: как центр Виктории превратился в зону бедствия" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Квартал Пандоры: как центр Виктории превратился в зону бедствия</div>
+    <div class="card-excerpt">Огромный и классный материал TheGlobeAndMail. Зацените оригинал.  ____________________  Один квартал в самом сердце столицы Британской Колумбии стал символом провала всей канадской наркополитики. Pand</div>
+    <div class="card-meta">
+      <span class="card-date">25 май 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-21-kanadskaya-marihuana-na-eksport-kak-legalizatsiya-obernulas-/">
-  <div class="sc-img"><img src="/photos/photo_496@21-05-2025_17-13-01.jpg" alt="🇨🇦 Канадская марихуана на экспорт: как легализация обернулась международным скандалом" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">🇨🇦 Канадская марихуана на экспорт: как легализация обернулась международным скандалом</div>
-    <div class="pex">Канада первой среди индустриальных стран легализовала рекреационную марихуану в 2018 году. Сегодня она стала одним из главных источников нелегального каннабиса в мире — от Европы до Карибов и Африки.</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 май 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-05-21-kanadskaya-marihuana-na-eksport-kak-legalizatsiya-obernulas-/">
+  <div class="card-img"><img src="/photos/photo_496@21-05-2025_17-13-01.jpg" alt="🇨🇦 Канадская марихуана на экспорт: как легализация обернулась международным скандалом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">🇨🇦 Канадская марихуана на экспорт: как легализация обернулась международным скандалом</div>
+    <div class="card-excerpt">Канада первой среди индустриальных стран легализовала рекреационную марихуану в 2018 году. Сегодня она стала одним из главных источников нелегального каннабиса в мире — от Европы до Карибов и Африки.</div>
+    <div class="card-meta">
+      <span class="card-date">21 май 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-21-v-ontario-predstavlen-zakonoproekt-bill-6-safer-municipaliti/">
-  <div class="sc-img"><img src="/photos/photo_495@21-05-2025_12-53-01.jpg" alt="📍 В Онтарио представлен законопроект Bill 6 (Safer Municipalities Act), который позволит властям немедленно ликвидировать палаточные лагеря бездомных и наделит " loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">📍 В Онтарио представлен законопроект Bill 6 (Safer Municipalities Act), который позволит властям немедленно ликвидировать палаточные лагеря бездомных и наделит </div>
-    <div class="pex">полицию правом ареста без ордера.  – За проживание в публичных местах бездомным может грозить до 6 месяцев тюремного заключения и штраф до $10,000. – По данным провинции, приютов — 27 138 мест, тогда</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 май 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-05-21-v-ontario-predstavlen-zakonoproekt-bill-6-safer-municipaliti/">
+  <div class="card-img"><img src="/photos/photo_495@21-05-2025_12-53-01.jpg" alt="📍 В Онтарио представлен законопроект Bill 6 (Safer Municipalities Act), который позволит властям немедленно ликвидировать палаточные лагеря бездомных и наделит " loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">📍 В Онтарио представлен законопроект Bill 6 (Safer Municipalities Act), который позволит властям немедленно ликвидировать палаточные лагеря бездомных и наделит </div>
+    <div class="card-excerpt">полицию правом ареста без ордера.  – За проживание в публичных местах бездомным может грозить до 6 месяцев тюремного заключения и штраф до $10,000. – По данным провинции, приютов — 27 138 мест, тогда</div>
+    <div class="card-meta">
+      <span class="card-date">21 май 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-20-v-novom-otchyote-upravleniya-po-borbe-s-narkotikami-ssha-dea/">
-  <div class="sc-img"><img src="/photos/photo_487@20-05-2025_11-26-40.jpg" alt="🇺🇸 В новом отчёте Управления по борьбе с наркотиками США (DEA) Канада названа “растущей угрозой” из-за подпольных фентанильных “суперлабораторий”, действующих н" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">🇺🇸 В новом отчёте Управления по борьбе с наркотиками США (DEA) Канада названа “растущей угрозой” из-за подпольных фентанильных “суперлабораторий”, действующих н</div>
-    <div class="pex">а её территории.  Американцы прямо заявляют: если поставки фентанила из Мексики будут нарушены, лаборатории в Канаде способны занять это место.   В отчёте фигурирует крупнейшая нарколаборатория, ликви</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 май 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-05-20-v-novom-otchyote-upravleniya-po-borbe-s-narkotikami-ssha-dea/">
+  <div class="card-img"><img src="/photos/photo_487@20-05-2025_11-26-40.jpg" alt="🇺🇸 В новом отчёте Управления по борьбе с наркотиками США (DEA) Канада названа “растущей угрозой” из-за подпольных фентанильных “суперлабораторий”, действующих н" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">🇺🇸 В новом отчёте Управления по борьбе с наркотиками США (DEA) Канада названа “растущей угрозой” из-за подпольных фентанильных “суперлабораторий”, действующих н</div>
+    <div class="card-excerpt">а её территории.  Американцы прямо заявляют: если поставки фентанила из Мексики будут нарушены, лаборатории в Канаде способны занять это место.   В отчёте фигурирует крупнейшая нарколаборатория, ликви</div>
+    <div class="card-meta">
+      <span class="card-date">20 май 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-06-immigranty-i-molodyozh-klyuchevye-faktory-ne-davshie-karni-v/">
-  <div class="sc-img"><img src="/photos/photo_416@06-05-2025_14-44-01.jpg" alt="Иммигранты и молодёжь — ключевые факторы, не давшие Карни взять большинство" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Иммигранты и молодёжь — ключевые факторы, не давшие Карни взять большинство</div>
-    <div class="pex">– По данным The Economist, в 31 избирательном округе Большого Торонто с долей иммигрантов выше 40% Консерваторы улучшили результат по сравнению с 2021 годом. – Напротив, прирост голосов за либералов н</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 май 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-05-06-immigranty-i-molodyozh-klyuchevye-faktory-ne-davshie-karni-v/">
+  <div class="card-img"><img src="/photos/photo_416@06-05-2025_14-44-01.jpg" alt="Иммигранты и молодёжь — ключевые факторы, не давшие Карни взять большинство" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Иммигранты и молодёжь — ключевые факторы, не давшие Карни взять большинство</div>
+    <div class="card-excerpt">– По данным The Economist, в 31 избирательном округе Большого Торонто с долей иммигрантов выше 40% Консерваторы улучшили результат по сравнению с 2021 годом. – Напротив, прирост голосов за либералов н</div>
+    <div class="card-meta">
+      <span class="card-date">6 май 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-05-domashniy-arest-vmesto-zony-kto-i-zachem-smyagchaet-kanadsko/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🔓 Домашний арест вместо зоны: кто и зачем смягчает канадское правосудие?</div>
-    <div class="pex">Пока одни аплодируют гуманному подходу, другие хватаются за голову: мол, преступникам снова всё с рук сходит. Всё дело в двух федеральных законах — Bill C-5 и Bill C-75, — из-за которых в Канаде стали</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 май 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-05-05-domashniy-arest-vmesto-zony-kto-i-zachem-smyagchaet-kanadsko/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🔓 Домашний арест вместо зоны: кто и зачем смягчает канадское правосудие?</div>
+    <div class="card-excerpt">Пока одни аплодируют гуманному подходу, другие хватаются за голову: мол, преступникам снова всё с рук сходит. Всё дело в двух федеральных законах — Bill C-5 и Bill C-75, — из-за которых в Канаде стали</div>
+    <div class="card-meta">
+      <span class="card-date">5 май 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-28-tragediya-v-vankuvere-svodka/">
-  <div class="sc-img"><img src="/photos/photo_332@28-04-2025_09-28-01.jpg" alt="Трагедия в Ванкувере: сводка." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Трагедия в Ванкувере: сводка.</div>
-    <div class="pex">На фестивале Lapu-Lapu Day в Ванкувере (в честь героя антиколониального сопротивления на Филиппинах) в толпу людей врезался внедорожник. Погибли 11 человек, от 5 до 65 лет. Ещё 32 пострадавших, из них</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-04-28-tragediya-v-vankuvere-svodka/">
+  <div class="card-img"><img src="/photos/photo_332@28-04-2025_09-28-01.jpg" alt="Трагедия в Ванкувере: сводка." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Трагедия в Ванкувере: сводка.</div>
+    <div class="card-excerpt">На фестивале Lapu-Lapu Day в Ванкувере (в честь героя антиколониального сопротивления на Филиппинах) в толпу людей врезался внедорожник. Погибли 11 человек, от 5 до 65 лет. Ещё 32 пострадавших, из них</div>
+    <div class="card-meta">
+      <span class="card-date">28 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-26-dzhagmit-singh-priznalsya-poluchil-realnuyu-ugrozu-ubiystva-/">
-  <div class="sc-img"><img src="/photos/photo_318@26-04-2025_11-46-33.jpg" alt="Джагмит Сингх признался: получил реальную угрозу убийства, связанную с иностранным вмешательством" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Джагмит Сингх признался: получил реальную угрозу убийства, связанную с иностранным вмешательством</div>
-    <div class="pex">Лидер НДП Джагмит Сингх впервые рассказал, что в конце 2023 года находился под круглосуточной охраной RCMP из-за серьёзной и достоверной угрозы его жизни. Причиной, по словам Сингха, могло быть иностр</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-04-26-dzhagmit-singh-priznalsya-poluchil-realnuyu-ugrozu-ubiystva-/">
+  <div class="card-img"><img src="/photos/photo_318@26-04-2025_11-46-33.jpg" alt="Джагмит Сингх признался: получил реальную угрозу убийства, связанную с иностранным вмешательством" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Джагмит Сингх признался: получил реальную угрозу убийства, связанную с иностранным вмешательством</div>
+    <div class="card-excerpt">Лидер НДП Джагмит Сингх впервые рассказал, что в конце 2023 года находился под круглосуточной охраной RCMP из-за серьёзной и достоверной угрозы его жизни. Причиной, по словам Сингха, могло быть иностр</div>
+    <div class="card-meta">
+      <span class="card-date">26 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-24-poteryannoe-desyatiletie-kanady-tsifry-ot-kotoryh-bolit-golo/">
-  <div class="sc-img"><img src="/photos/photo_308@24-04-2025_12-05-00.jpg" alt="🇨🇦 Потерянное десятилетие Канады: цифры, от которых болит голова - большой материал National Post" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">🇨🇦 Потерянное десятилетие Канады: цифры, от которых болит голова - большой материал National Post</div>
-    <div class="pex">Если бы страна просто держала курс 2015 года, каждый канадец был бы богаче на $4200 в год, а тысячи погибших из-за преступности, наркотиков и развала здравоохранения – остались бы живы.  Что произошло</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-04-24-poteryannoe-desyatiletie-kanady-tsifry-ot-kotoryh-bolit-golo/">
+  <div class="card-img"><img src="/photos/photo_308@24-04-2025_12-05-00.jpg" alt="🇨🇦 Потерянное десятилетие Канады: цифры, от которых болит голова - большой материал National Post" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">🇨🇦 Потерянное десятилетие Канады: цифры, от которых болит голова - большой материал National Post</div>
+    <div class="card-excerpt">Если бы страна просто держала курс 2015 года, каждый канадец был бы богаче на $4200 в год, а тысячи погибших из-за преступности, наркотиков и развала здравоохранения – остались бы живы.  Что произошло</div>
+    <div class="card-meta">
+      <span class="card-date">24 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-18-mnenie-ndp-tochno-ne-vyigraet-vybory-no-nikto-ne-ozhidal-cht/">
-  <div class="sc-img"><img src="/photos/photo_275@18-04-2025_12-51-44.jpg" alt="Мнение: NDP точно не выиграет выборы. Но никто не ожидал что так обреченно их  проиграет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Мнение: NDP точно не выиграет выборы. Но никто не ожидал что так обреченно их  проиграет</div>
-    <div class="pex">Автор: Аллан Грегг — политконсультант, бывший социолог Earnscliffe Strategies.  Лидер НДП Джагмит Сингх выглядит, мягко говоря, обречённо. Его партия теряет поддержку быстрее, чем вы успеете сказать «</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-04-18-mnenie-ndp-tochno-ne-vyigraet-vybory-no-nikto-ne-ozhidal-cht/">
+  <div class="card-img"><img src="/photos/photo_275@18-04-2025_12-51-44.jpg" alt="Мнение: NDP точно не выиграет выборы. Но никто не ожидал что так обреченно их  проиграет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Мнение: NDP точно не выиграет выборы. Но никто не ожидал что так обреченно их  проиграет</div>
+    <div class="card-excerpt">Автор: Аллан Грегг — политконсультант, бывший социолог Earnscliffe Strategies.  Лидер НДП Джагмит Сингх выглядит, мягко говоря, обречённо. Его партия теряет поддержку быстрее, чем вы успеете сказать «</div>
+    <div class="card-meta">
+      <span class="card-date">18 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-09-poliev-predlagaet-zakon-tryoh-preduprezhdeniy-10-let-tyurmy-/">
-  <div class="sc-img"><img src="/photos/photo_211@09-04-2025_14-41-34.jpg" alt="🔒 Полиев предлагает закон «трёх предупреждений» — 10 лет тюрьмы без права на выход" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🔒 Полиев предлагает закон «трёх предупреждений» — 10 лет тюрьмы без права на выход</div>
-    <div class="pex">На предвыборном мероприятии в Онтарио лидер Консерваторов Пьер Полиев представил одну из самых жёстких антикриминальных инициатив в истории страны:  – Новый закон «Three Strikes, You’re Out» предусмат</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-09-poliev-predlagaet-zakon-tryoh-preduprezhdeniy-10-let-tyurmy-/">
+  <div class="card-img"><img src="/photos/photo_211@09-04-2025_14-41-34.jpg" alt="🔒 Полиев предлагает закон «трёх предупреждений» — 10 лет тюрьмы без права на выход" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🔒 Полиев предлагает закон «трёх предупреждений» — 10 лет тюрьмы без права на выход</div>
+    <div class="card-excerpt">На предвыборном мероприятии в Онтарио лидер Консерваторов Пьер Полиев представил одну из самых жёстких антикриминальных инициатив в истории страны:  – Новый закон «Three Strikes, You’re Out» предусмат</div>
+    <div class="card-meta">
+      <span class="card-date">9 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-07-pora-zavershit-poteryannoe-liberalami-desyatiletie-poliev-vy/">
-  <div class="sc-img"><img src="/photos/photo_193@07-04-2025_14-24-16.jpg" alt="&quot;Пора завершить потерянное либералами десятилетие&quot;: Полиев выступил перед 3000 сторонников в Пентиктоне" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">pentictonherald.ca</div>
-    <div class="ptit sc-title">&quot;Пора завершить потерянное либералами десятилетие&quot;: Полиев выступил перед 3000 сторонников в Пентиктоне</div>
-    <div class="pex">На крупнейшем митинге своей кампании в Западной Канаде Пьер Полиев раскритиковал Марка Карни и Либеральную партию за экономический спад, рост цен и зависимость от США. Выступая в Пентиктоне перед толп</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-07-pora-zavershit-poteryannoe-liberalami-desyatiletie-poliev-vy/">
+  <div class="card-img"><img src="/photos/photo_193@07-04-2025_14-24-16.jpg" alt="&quot;Пора завершить потерянное либералами десятилетие&quot;: Полиев выступил перед 3000 сторонников в Пентиктоне" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">pentictonherald.ca</div>
+    <div class="card-title">&quot;Пора завершить потерянное либералами десятилетие&quot;: Полиев выступил перед 3000 сторонников в Пентиктоне</div>
+    <div class="card-excerpt">На крупнейшем митинге своей кампании в Западной Канаде Пьер Полиев раскритиковал Марка Карни и Либеральную партию за экономический спад, рост цен и зависимость от США. Выступая в Пентиктоне перед толп</div>
+    <div class="card-meta">
+      <span class="card-date">7 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-03-nam-prosto-nuzhny-eti-dengi-pochemu-vlasti-kanady-zakryvayut/">
-  <div class="sc-img"><img src="/photos/photo_165@03-04-2025_19-32-01.jpg" alt="🇨🇦💸 &quot;Нам просто нужны эти деньги&quot;: почему власти Канады закрывают глаза на отмывание миллиардов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🇨🇦💸 &quot;Нам просто нужны эти деньги&quot;: почему власти Канады закрывают глаза на отмывание миллиардов</div>
-    <div class="pex">Провокационное заявление от профессора права Университета Калгари: Канадские правительства не борются с отмыванием денег — потому что сами в нём заинтересованы.  📚 В своей главе для книги Dirty Money:</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-03-nam-prosto-nuzhny-eti-dengi-pochemu-vlasti-kanady-zakryvayut/">
+  <div class="card-img"><img src="/photos/photo_165@03-04-2025_19-32-01.jpg" alt="🇨🇦💸 &quot;Нам просто нужны эти деньги&quot;: почему власти Канады закрывают глаза на отмывание миллиардов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🇨🇦💸 &quot;Нам просто нужны эти деньги&quot;: почему власти Канады закрывают глаза на отмывание миллиардов</div>
+    <div class="card-excerpt">Провокационное заявление от профессора права Университета Калгари: Канадские правительства не борются с отмыванием денег — потому что сами в нём заинтересованы.  📚 В своей главе для книги Dirty Money:</div>
+    <div class="card-meta">
+      <span class="card-date">3 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-30-voskresnyylongrid-trukraym-kanada/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">#воскресныйлонгрид #трукрайм #канада</div>
-    <div class="pex">Можно ли стать адвокатом, если в 15 лет ты совершил убийство?  В 2003 году две сестры из канадского города Миссиссога утопили в ванне собственную мать. Эта история потрясла страну, став одной из самых</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-03-30-voskresnyylongrid-trukraym-kanada/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">#воскресныйлонгрид #трукрайм #канада</div>
+    <div class="card-excerpt">Можно ли стать адвокатом, если в 15 лет ты совершил убийство?  В 2003 году две сестры из канадского города Миссиссога утопили в ванне собственную мать. Эта история потрясла страну, став одной из самых</div>
+    <div class="card-meta">
+      <span class="card-date">30 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-29-karni-putaetsya-vo-frantsuzskom-no-kvebek-vsyo-ravno-za-nego/">
-  <div class="sc-img"><img src="/photos/photo_128@29-03-2025_10-24-11.jpg" alt="Карни путается во французском, но Квебек всё равно за него" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Карни путается во французском, но Квебек всё равно за него</div>
-    <div class="pex">Окончание первой недели предвыборной кампании Марк Карни отмечает чередой языковых ляпов на французском.  1) Перепутал Политех и Конкордию, говоря о выжившей кандидатке  2) Сказал “ça suffit” — грубо</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-03-29-karni-putaetsya-vo-frantsuzskom-no-kvebek-vsyo-ravno-za-nego/">
+  <div class="card-img"><img src="/photos/photo_128@29-03-2025_10-24-11.jpg" alt="Карни путается во французском, но Квебек всё равно за него" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Карни путается во французском, но Квебек всё равно за него</div>
+    <div class="card-excerpt">Окончание первой недели предвыборной кампании Марк Карни отмечает чередой языковых ляпов на французском.  1) Перепутал Политех и Конкордию, говоря о выжившей кандидатке  2) Сказал “ça suffit” — грубо</div>
+    <div class="card-meta">
+      <span class="card-date">29 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-25-vankuver-nakanune-chm-2026-vladeltsy-barov-trebuyut-srochnyh/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">⚽️🇨🇦 Ванкувер накануне ЧМ-2026: владельцы баров требуют срочных мер из-за резкого роста преступности</div>
-    <div class="pex">Владельцы баров и ночных клубов в развлекательном районе Ванкувера выступили с резким заявлением, требуя немедленного вмешательства властей для решения проблем общественной безопасности и порядка на у</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-03-25-vankuver-nakanune-chm-2026-vladeltsy-barov-trebuyut-srochnyh/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">⚽️🇨🇦 Ванкувер накануне ЧМ-2026: владельцы баров требуют срочных мер из-за резкого роста преступности</div>
+    <div class="card-excerpt">Владельцы баров и ночных клубов в развлекательном районе Ванкувера выступили с резким заявлением, требуя немедленного вмешательства властей для решения проблем общественной безопасности и порядка на у</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-25-ya-perevozhu-vsyo-lyudey-oruzhie-fentanil/">
-  <div class="sc-img"><img src="/photos/photo_101@25-03-2025_14-57-38.jpg" alt="&quot;Я перевожу всё: людей, оружие, фентанил&quot;" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbsnews.com</div>
-    <div class="ptit sc-title">&quot;Я перевожу всё: людей, оружие, фентанил&quot;</div>
-    <div class="pex">Журналистка 60 Minutes Сесилия Вега встретилась с человеком, который открыто называет себя контрабандистом картеля Синалоа, действующим на северной границе, между Квебеком и штатом Нью-Йорк.  Он предс</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-03-25-ya-perevozhu-vsyo-lyudey-oruzhie-fentanil/">
+  <div class="card-img"><img src="/photos/photo_101@25-03-2025_14-57-38.jpg" alt="&quot;Я перевожу всё: людей, оружие, фентанил&quot;" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbsnews.com</div>
+    <div class="card-title">&quot;Я перевожу всё: людей, оружие, фентанил&quot;</div>
+    <div class="card-excerpt">Журналистка 60 Minutes Сесилия Вега встретилась с человеком, который открыто называет себя контрабандистом картеля Синалоа, действующим на северной границе, между Квебеком и штатом Нью-Йорк.  Он предс</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-25-csis-indiya-yakoby-pomogala-polievu-na-liderskih-vyborah-202/">
-  <div class="sc-img"><img src="/photos/photo_96@25-03-2025_09-39-11.jpg" alt="CSIS: Индия якобы помогала Полиеву на лидерских выборах 2022 года — без его ведома" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">CSIS: Индия якобы помогала Полиеву на лидерских выборах 2022 года — без его ведома</div>
-    <div class="pex">🔍 По информации источника с допуском к засекреченным материалам, Канадская служба разведки и безопасности (CSIS) выявила, что агенты Индии и их прокси могли участвовать в сборе средств и мобилизации ю</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-03-25-csis-indiya-yakoby-pomogala-polievu-na-liderskih-vyborah-202/">
+  <div class="card-img"><img src="/photos/photo_96@25-03-2025_09-39-11.jpg" alt="CSIS: Индия якобы помогала Полиеву на лидерских выборах 2022 года — без его ведома" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">CSIS: Индия якобы помогала Полиеву на лидерских выборах 2022 года — без его ведома</div>
+    <div class="card-excerpt">🔍 По информации источника с допуском к засекреченным материалам, Канадская служба разведки и безопасности (CSIS) выявила, что агенты Индии и их прокси могли участвовать в сборе средств и мобилизации ю</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-24-116-funtov-kokaina-izyato-na-mostu-ambassador-voditel-iz-kan/">
-  <div class="sc-img"><img src="/photos/photo_90@24-03-2025_18-22-01.jpg" alt="116 фунтов кокаина изъято на мосту Амбассадор — водитель из Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">116 фунтов кокаина изъято на мосту Амбассадор — водитель из Канады</div>
-    <div class="pex">21 марта сотрудники U.S. Customs and Border Protection (CBP) перехватили крупную партию наркотиков на выезде из США через мост Амбассадор (между Виндзором и Детройтом).  🔹 Что произошло – Коммерческий</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-03-24-116-funtov-kokaina-izyato-na-mostu-ambassador-voditel-iz-kan/">
+  <div class="card-img"><img src="/photos/photo_90@24-03-2025_18-22-01.jpg" alt="116 фунтов кокаина изъято на мосту Амбассадор — водитель из Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">116 фунтов кокаина изъято на мосту Амбассадор — водитель из Канады</div>
+    <div class="card-excerpt">21 марта сотрудники U.S. Customs and Border Protection (CBP) перехватили крупную партию наркотиков на выезде из США через мост Амбассадор (между Виндзором и Детройтом).  🔹 Что произошло – Коммерческий</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-20-kitay-kaznil-chetyreh-kanadtsev/">
-  <div class="sc-img"><img src="/photos/photo_66@20-03-2025_09-35-44.jpg" alt="😡 Китай казнил четырех канадцев" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">😡 Китай казнил четырех канадцев</div>
-    <div class="pex">В начале этого года Китай привел в исполнение смертный приговор в отношении четырех граждан Канады, обвиненных в преступлениях, связанных с наркотиками. Все четверо имели двойное гражданство.   Минист</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-03-20-kitay-kaznil-chetyreh-kanadtsev/">
+  <div class="card-img"><img src="/photos/photo_66@20-03-2025_09-35-44.jpg" alt="😡 Китай казнил четырех канадцев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">😡 Китай казнил четырех канадцев</div>
+    <div class="card-excerpt">В начале этого года Китай привел в исполнение смертный приговор в отношении четырех граждан Канады, обвиненных в преступлениях, связанных с наркотиками. Все четверо имели двойное гражданство.   Минист</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-20-amazon-ubiraet-optsiyu-privatnosti-teper-vse-zapisi-alexa-uh/">
-  <div class="sc-img"><img src="/photos/photo_64@20-03-2025_08-10-53.jpg" alt="📢 Amazon убирает опцию приватности: теперь все записи Alexa уходят в облако" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">📢 Amazon убирает опцию приватности: теперь все записи Alexa уходят в облако</div>
-    <div class="pex">С 28 марта владельцы Amazon Echo больше не смогут хранить и обрабатывать голосовые запросы локально. Все записи будут автоматически отправляться в облако, без исключений.  🔹 Amazon разослал пользовате</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-03-20-amazon-ubiraet-optsiyu-privatnosti-teper-vse-zapisi-alexa-uh/">
+  <div class="card-img"><img src="/photos/photo_64@20-03-2025_08-10-53.jpg" alt="📢 Amazon убирает опцию приватности: теперь все записи Alexa уходят в облако" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">📢 Amazon убирает опцию приватности: теперь все записи Alexa уходят в облако</div>
+    <div class="card-excerpt">С 28 марта владельцы Amazon Echo больше не смогут хранить и обрабатывать голосовые запросы локально. Все записи будут автоматически отправляться в облако, без исключений.  🔹 Amazon разослал пользовате</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-19-vandaly-atakovali-avtosalon-tesla-v-monreale/">
-  <div class="sc-img"><img src="/photos/photo_63@19-03-2025_20-44-22.jpg" alt="Вандалы атаковали автосалон Tesla в Монреале" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Вандалы атаковали автосалон Tesla в Монреале</div>
-    <div class="pex">Активисты облили краской автосалон Tesla на бульваре Декари в Монреале. Полиция арестовала двух человек.  📌 Кто стоит за атакой?  🔹 Ответственность взяла на себя эко-группа Last Generation Canada.  🔹</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/klimat/">#климат</a></div></div>
+</a><a class="card" href="/post/2025-03-19-vandaly-atakovali-avtosalon-tesla-v-monreale/">
+  <div class="card-img"><img src="/photos/photo_63@19-03-2025_20-44-22.jpg" alt="Вандалы атаковали автосалон Tesla в Монреале" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Вандалы атаковали автосалон Tesla в Монреале</div>
+    <div class="card-excerpt">Активисты облили краской автосалон Tesla на бульваре Декари в Монреале. Полиция арестовала двух человек.  📌 Кто стоит за атакой?  🔹 Ответственность взяла на себя эко-группа Last Generation Canada.  🔹</div>
+    <div class="card-meta">
+      <span class="card-date">19 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-07-mnenie/">
-  <div class="sc-img"><img src="/photos/photo_26@07-03-2025_14-12-27.jpg" alt="МНЕНИЕ" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">МНЕНИЕ</div>
-    <div class="pex">🇨🇦💊 Фентанил, тарифы и большая политика 🇺🇸  Трамп снова грозит Канаде и Мексике тарифами, прикрываясь борьбой с фентанилом. Проблема серьёзная: этот наркотик ежегодно уносит более 70 000 жизней в США.</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-03-07-mnenie/">
+  <div class="card-img"><img src="/photos/photo_26@07-03-2025_14-12-27.jpg" alt="МНЕНИЕ" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">МНЕНИЕ</div>
+    <div class="card-excerpt">🇨🇦💊 Фентанил, тарифы и большая политика 🇺🇸  Трамп снова грозит Канаде и Мексике тарифами, прикрываясь борьбой с фентанилом. Проблема серьёзная: этот наркотик ежегодно уносит более 70 000 жизней в США.</div>
+    <div class="card-meta">
+      <span class="card-date">7 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-02-26-privet-druzya-glavnye-sobytiya-kanadskoy-politiki-za-25-fevr/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Привет, друзья! Главные события канадской политики за 25 февраля 2025 года.</div>
-    <div class="pex">1. Канада формирует коалицию против тарифов Трампа  Министр иностранных дел Канады Мелани Жоли объявила о работе над созданием коалиции с европейскими странами для противодействия возможным пошлинам с</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 фев 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-02-26-privet-druzya-glavnye-sobytiya-kanadskoy-politiki-za-25-fevr/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Привет, друзья! Главные события канадской политики за 25 февраля 2025 года.</div>
+    <div class="card-excerpt">1. Канада формирует коалицию против тарифов Трампа  Министр иностранных дел Канады Мелани Жоли объявила о работе над созданием коалиции с европейскими странами для противодействия возможным пошлинам с</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/prestupnost/page/4/">←</a><a class="pb" href="/tag/prestupnost/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/prestupnost/page/3/">3</a><a class="pb" href="/tag/prestupnost/page/4/">4</a><a class="pb on" href="/tag/prestupnost/page/5/">5</a></div>

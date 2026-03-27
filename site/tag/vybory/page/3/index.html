@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#выборы</h1>
     <p>485 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2026-01-14-kandidat-v-lidery-ndp-izvinilsya-za-otvety-napisannye-ii/">
-  <div class="sc-img"><img src="/photos/photo_1941@14-01-2026_10-33-19.jpg" alt="Кандидат в лидеры НДП извинился за ответы, написанные ИИ" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Кандидат в лидеры НДП извинился за ответы, написанные ИИ</div>
-    <div class="pex">Кандидат на пост лидера НДП и профсоюзный лидер Роб Эштон был вынужден извиниться после того, как выяснилось: часть его ответов во время онлайн-сессии AMA на Reddit была написана с помощью ИИ.   Польз</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-01-14-kandidat-v-lidery-ndp-izvinilsya-za-otvety-napisannye-ii/">
+  <div class="card-img"><img src="/photos/photo_1941@14-01-2026_10-33-19.jpg" alt="Кандидат в лидеры НДП извинился за ответы, написанные ИИ" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Кандидат в лидеры НДП извинился за ответы, написанные ИИ</div>
+    <div class="card-excerpt">Кандидат на пост лидера НДП и профсоюзный лидер Роб Эштон был вынужден извиниться после того, как выяснилось: часть его ответов во время онлайн-сессии AMA на Reddit была написана с помощью ИИ.   Польз</div>
+    <div class="card-meta">
+      <span class="card-date">14 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-13-tramp-nam-ne-nuzhny-mashiny-iz-kanady-cusma-obyavleno-bessmy/">
-  <div class="sc-img"><img src="/photos/photo_1935@13-01-2026_14-48-04.jpg" alt="Трамп: «Нам не нужны машины из Канады». CUSMA объявлено «бессмысленным»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Трамп: «Нам не нужны машины из Канады». CUSMA объявлено «бессмысленным»</div>
-    <div class="pex">Дональд Трамп во время визита на завод Ford в Дирборне заявил, что США не нуждаются ни в автомобилях, произведённых в Канаде, ни в машинах из Мексики — и заодно прошёлся по соглашению CUSMA, назвав ег</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-13-tramp-nam-ne-nuzhny-mashiny-iz-kanady-cusma-obyavleno-bessmy/">
+  <div class="card-img"><img src="/photos/photo_1935@13-01-2026_14-48-04.jpg" alt="Трамп: «Нам не нужны машины из Канады». CUSMA объявлено «бессмысленным»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Трамп: «Нам не нужны машины из Канады». CUSMA объявлено «бессмысленным»</div>
+    <div class="card-excerpt">Дональд Трамп во время визита на завод Ford в Дирборне заявил, что США не нуждаются ни в автомобилях, произведённых в Канаде, ни в машинах из Мексики — и заодно прошёлся по соглашению CUSMA, назвав ег</div>
+    <div class="card-meta">
+      <span class="card-date">13 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-08-venesuela-pokazala-tseli-trampa-karni-pora-obratit-vnimanie/">
-  <div class="sc-img"><img src="/photos/photo_1902@08-01-2026_17-35-46.jpg" alt="Венесуэла показала цели Трампа: Карни пора обратить внимание" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Венесуэла показала цели Трампа: Карни пора обратить внимание</div>
-    <div class="pex">Таша Хейриддин из National Post пишет, что история с Венесуэлой — это не просто очередной кризис, а наглядное доказательство того, чего на самом деле добивается Дональд Трамп. И Марку Карни стоит вним</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-01-08-venesuela-pokazala-tseli-trampa-karni-pora-obratit-vnimanie/">
+  <div class="card-img"><img src="/photos/photo_1902@08-01-2026_17-35-46.jpg" alt="Венесуэла показала цели Трампа: Карни пора обратить внимание" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Венесуэла показала цели Трампа: Карни пора обратить внимание</div>
+    <div class="card-excerpt">Таша Хейриддин из National Post пишет, что история с Венесуэлой — это не просто очередной кризис, а наглядное доказательство того, чего на самом деле добивается Дональд Трамп. И Марку Карни стоит вним</div>
+    <div class="card-meta">
+      <span class="card-date">8 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-07-sharan-kaur-iz-observer-pishet-chto-reaktsiya-pera-polieva-n/">
-  <div class="sc-img"><img src="/photos/photo_1895@07-01-2026_21-09-01.jpg" alt="Шаран Каур из Observer пишет, что реакция Пьера Полиева на арест Николаса Мадуро — это не просто эмоциональный жест, а опасный сигнал о том, куда может свернуть" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Шаран Каур из Observer пишет, что реакция Пьера Полиева на арест Николаса Мадуро — это не просто эмоциональный жест, а опасный сигнал о том, куда может свернуть</div>
-    <div class="pex">канадская внешняя политика.   По её словам, в эпоху популизма ценится один актив — демонстративная решительность. Дональд Трамп показал её, отправив спецназ в Каракас и доставив Мадуро в тюрьму Нью-Йо</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2026-01-07-sharan-kaur-iz-observer-pishet-chto-reaktsiya-pera-polieva-n/">
+  <div class="card-img"><img src="/photos/photo_1895@07-01-2026_21-09-01.jpg" alt="Шаран Каур из Observer пишет, что реакция Пьера Полиева на арест Николаса Мадуро — это не просто эмоциональный жест, а опасный сигнал о том, куда может свернуть" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Шаран Каур из Observer пишет, что реакция Пьера Полиева на арест Николаса Мадуро — это не просто эмоциональный жест, а опасный сигнал о том, куда может свернуть</div>
+    <div class="card-excerpt">канадская внешняя политика.   По её словам, в эпоху популизма ценится один актив — демонстративная решительность. Дональд Трамп показал её, отправив спецназ в Каракас и доставив Мадуро в тюрьму Нью-Йо</div>
+    <div class="card-meta">
+      <span class="card-date">7 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-07-mozhet-li-per-poliev-odna-politika-nol-biznesa-voobsche-stat/">
-  <div class="sc-img"><img src="/photos/photo_1892@07-01-2026_17-03-01.jpg" alt="Может ли Пьер Полиев, «одна политика — ноль бизнеса», вообще стать премьером?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Может ли Пьер Полиев, «одна политика — ноль бизнеса», вообще стать премьером?</div>
-    <div class="pex">⁠ Колумнист The Globe and Mail Джон Тёрли-Юарт ставит под сомнение главный актив лидера консерваторов Пьера Полиева — и называет его главным слабым местом отсутствие управленческого и бизнес-опыта.  ⁠</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-07-mozhet-li-per-poliev-odna-politika-nol-biznesa-voobsche-stat/">
+  <div class="card-img"><img src="/photos/photo_1892@07-01-2026_17-03-01.jpg" alt="Может ли Пьер Полиев, «одна политика — ноль бизнеса», вообще стать премьером?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Может ли Пьер Полиев, «одна политика — ноль бизнеса», вообще стать премьером?</div>
+    <div class="card-excerpt">⁠ Колумнист The Globe and Mail Джон Тёрли-Юарт ставит под сомнение главный актив лидера консерваторов Пьера Полиева — и называет его главным слабым местом отсутствие управленческого и бизнес-опыта.  ⁠</div>
+    <div class="card-meta">
+      <span class="card-date">7 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-05-v-venesuele-doktrina-donrou-trampa-uzhe-rabotaet-kanade-pora/">
-  <div class="sc-img"><img src="/photos/photo_1876@05-01-2026_13-32-54.jpg" alt="В Венесуэле «доктрина Донроу» Трампа уже работает. Канаде пора перестать отсиживаться" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">В Венесуэле «доктрина Донроу» Трампа уже работает. Канаде пора перестать отсиживаться</div>
-    <div class="pex">Джастин Линг пишет, что США официально вернулись к смене режимов в Латинской Америке — и Канада больше не может делать вид, что это её не касается.    В ночь на пятницу американские удары по военным о</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2026-01-05-v-venesuele-doktrina-donrou-trampa-uzhe-rabotaet-kanade-pora/">
+  <div class="card-img"><img src="/photos/photo_1876@05-01-2026_13-32-54.jpg" alt="В Венесуэле «доктрина Донроу» Трампа уже работает. Канаде пора перестать отсиживаться" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">В Венесуэле «доктрина Донроу» Трампа уже работает. Канаде пора перестать отсиживаться</div>
+    <div class="card-excerpt">Джастин Линг пишет, что США официально вернулись к смене режимов в Латинской Америке — и Канада больше не может делать вид, что это её не касается.    В ночь на пятницу американские удары по военным о</div>
+    <div class="card-meta">
+      <span class="card-date">5 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-05-bolee-milliona-indiytsev-v-kanade-riskuyut-poteryat-legalnyy/">
-  <div class="sc-img"><img src="/photos/photo_1873@05-01-2026_09-04-51.jpg" alt="Более миллиона индийцев в Канаде рискуют потерять легальный статус" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">observerbd.com</div>
-    <div class="ptit sc-title">Более миллиона индийцев в Канаде рискуют потерять легальный статус</div>
-    <div class="pex">Канада готовится к резкому росту числа нелегальных мигрантов. Причина — массовое истечение сроков временных рабочих разрешений. По данным Immigration, Refugees and Citizenship Canada, почти половину т</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-05-bolee-milliona-indiytsev-v-kanade-riskuyut-poteryat-legalnyy/">
+  <div class="card-img"><img src="/photos/photo_1873@05-01-2026_09-04-51.jpg" alt="Более миллиона индийцев в Канаде рискуют потерять легальный статус" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">observerbd.com</div>
+    <div class="card-title">Более миллиона индийцев в Канаде рискуют потерять легальный статус</div>
+    <div class="card-excerpt">Канада готовится к резкому росту числа нелегальных мигрантов. Причина — массовое истечение сроков временных рабочих разрешений. По данным Immigration, Refugees and Citizenship Canada, почти половину т</div>
+    <div class="card-meta">
+      <span class="card-date">5 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-04-rcanada-itogi-2025-goda-tsifry-politika-i-ustalost-moderator/">
-  <div class="sc-img"><img src="/photos/photo_1872@04-01-2026_18-02-54.jpg" alt="r/Canada — итоги 2025 года: цифры, политика и усталость модераторов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">reddit.com</div>
-    <div class="ptit sc-title">r/Canada — итоги 2025 года: цифры, политика и усталость модераторов</div>
-    <div class="pex">Модераторы сабреддита r/Canada опубликовали большой отчёт по итогам 2025 года — и он хорошо показывает, во что превратился крупнейший канадский сабреддит.    Ключевые цифры:  – 4,3 млн участников (+23</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-04-rcanada-itogi-2025-goda-tsifry-politika-i-ustalost-moderator/">
+  <div class="card-img"><img src="/photos/photo_1872@04-01-2026_18-02-54.jpg" alt="r/Canada — итоги 2025 года: цифры, политика и усталость модераторов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">reddit.com</div>
+    <div class="card-title">r/Canada — итоги 2025 года: цифры, политика и усталость модераторов</div>
+    <div class="card-excerpt">Модераторы сабреддита r/Canada опубликовали большой отчёт по итогам 2025 года — и он хорошо показывает, во что превратился крупнейший канадский сабреддит.    Ключевые цифры:  – 4,3 млн участников (+23</div>
+    <div class="card-meta">
+      <span class="card-date">4 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-04-karni-o-zahvate-maduro-kanada-privetstvuet-shans-na-svobodu-/">
-  <div class="sc-img"><img src="/photos/photo_1870@04-01-2026_12-06-38.jpg" alt="Карни о захвате Мадуро: «Канада приветствует шанс на свободу для Венесуэлы»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thecanadianpressnews.ca</div>
-    <div class="ptit sc-title">Карни о захвате Мадуро: «Канада приветствует шанс на свободу для Венесуэлы»</div>
-    <div class="pex">Премьер-министр Канады Марк Карни отреагировал на силовую операцию США в Венесуэле, в результате которой президент страны Николас Мадуро и его супруга были вывезены американскими военными в Нью-Йорк.</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2026-01-04-karni-o-zahvate-maduro-kanada-privetstvuet-shans-na-svobodu-/">
+  <div class="card-img"><img src="/photos/photo_1870@04-01-2026_12-06-38.jpg" alt="Карни о захвате Мадуро: «Канада приветствует шанс на свободу для Венесуэлы»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thecanadianpressnews.ca</div>
+    <div class="card-title">Карни о захвате Мадуро: «Канада приветствует шанс на свободу для Венесуэлы»</div>
+    <div class="card-excerpt">Премьер-министр Канады Марк Карни отреагировал на силовую операцию США в Венесуэле, в результате которой президент страны Николас Мадуро и его супруга были вывезены американскими военными в Нью-Йорк.</div>
+    <div class="card-meta">
+      <span class="card-date">4 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-30-chto-dalshe-v-kanadskoy-politike-pyat-syuzhetov-za-kotorymi-/">
-  <div class="sc-img"><img src="/photos/photo_1850@30-12-2025_15-04-57.jpg" alt="Что дальше в канадской политике: пять сюжетов, за которыми будут следить в 2026 году" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Что дальше в канадской политике: пять сюжетов, за которыми будут следить в 2026 году</div>
-    <div class="pex">⁠  2025-й закончился максимально нервно: уход Джастина Трюдо, приход Марка Карни, перебежчики из Консервативной партии и торговая война США. 2026-й обещает быть не менее насыщенным — с давлением из Ва</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-30-chto-dalshe-v-kanadskoy-politike-pyat-syuzhetov-za-kotorymi-/">
+  <div class="card-img"><img src="/photos/photo_1850@30-12-2025_15-04-57.jpg" alt="Что дальше в канадской политике: пять сюжетов, за которыми будут следить в 2026 году" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Что дальше в канадской политике: пять сюжетов, за которыми будут следить в 2026 году</div>
+    <div class="card-excerpt">⁠  2025-й закончился максимально нервно: уход Джастина Трюдо, приход Марка Карни, перебежчики из Консервативной партии и торговая война США. 2026-й обещает быть не менее насыщенным — с давлением из Ва</div>
+    <div class="card-meta">
+      <span class="card-date">30 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-29-liberaly-fakticheski-priznali-zapret-na-odnorazovyy-plastik-/">
-  <div class="sc-img"><img src="/photos/photo_1843@29-12-2025_18-02-51.jpg" alt="Либералы фактически признали: запрет на одноразовый пластик оказался дорогостоящей фикцией." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Либералы фактически признали: запрет на одноразовый пластик оказался дорогостоящей фикцией.</div>
-    <div class="pex">⁠ Извинений ждать не приходится — но 20 декабря правительство сделало почти то же самое. В проекте поправок к федеральным правилам по пластику Оттава предлагает отменить запрет на экспорт пластиковых</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-29-liberaly-fakticheski-priznali-zapret-na-odnorazovyy-plastik-/">
+  <div class="card-img"><img src="/photos/photo_1843@29-12-2025_18-02-51.jpg" alt="Либералы фактически признали: запрет на одноразовый пластик оказался дорогостоящей фикцией." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Либералы фактически признали: запрет на одноразовый пластик оказался дорогостоящей фикцией.</div>
+    <div class="card-excerpt">⁠ Извинений ждать не приходится — но 20 декабря правительство сделало почти то же самое. В проекте поправок к федеральным правилам по пластику Оттава предлагает отменить запрет на экспорт пластиковых</div>
+    <div class="card-meta">
+      <span class="card-date">29 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-29-338-canada-finalnye-oprosy-2025-pokazyvayut-treschiny-v-podd/">
-  <div class="sc-img"><img src="/photos/photo_1841@29-12-2025_15-35-53.jpg" alt="338 Canada: финальные опросы 2025 показывают трещины в поддержке либералов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">338canada.ca</div>
-    <div class="ptit sc-title">338 Canada: финальные опросы 2025 показывают трещины в поддержке либералов</div>
-    <div class="pex">Финальные федеральные опросы уходящего года рисуют для либералов Марка Карни картину куда менее комфортную, чем ещё пару месяцев назад. Под конец декабря поддержка правительства просела — и сразу неск</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-12-29-338-canada-finalnye-oprosy-2025-pokazyvayut-treschiny-v-podd/">
+  <div class="card-img"><img src="/photos/photo_1841@29-12-2025_15-35-53.jpg" alt="338 Canada: финальные опросы 2025 показывают трещины в поддержке либералов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">338canada.ca</div>
+    <div class="card-title">338 Canada: финальные опросы 2025 показывают трещины в поддержке либералов</div>
+    <div class="card-excerpt">Финальные федеральные опросы уходящего года рисуют для либералов Марка Карни картину куда менее комфортную, чем ещё пару месяцев назад. Под конец декабря поддержка правительства просела — и сразу неск</div>
+    <div class="card-meta">
+      <span class="card-date">29 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-28-ushyol-prishyol-uderzhalsya-turbulentnyy-god-dlya-tryudo-kar/">
-  <div class="sc-img"><img src="/photos/photo_1836@28-12-2025_20-49-01.jpg" alt="Ушёл, пришёл, удержался: турбулентный год для Трюдо, Карни и Полиева" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Ушёл, пришёл, удержался: турбулентный год для Трюдо, Карни и Полиева</div>
-    <div class="pex">⁠   2025 год в канадской политике оказался таким, что любые выводы устаревают быстрее новостной ленты. Смена лидеров, торговая война с США, раскол оппозиции и дрейф Либералов к большинству — всё это п</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-12-28-ushyol-prishyol-uderzhalsya-turbulentnyy-god-dlya-tryudo-kar/">
+  <div class="card-img"><img src="/photos/photo_1836@28-12-2025_20-49-01.jpg" alt="Ушёл, пришёл, удержался: турбулентный год для Трюдо, Карни и Полиева" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Ушёл, пришёл, удержался: турбулентный год для Трюдо, Карни и Полиева</div>
+    <div class="card-excerpt">⁠   2025 год в канадской политике оказался таким, что любые выводы устаревают быстрее новостной ленты. Смена лидеров, торговая война с США, раскол оппозиции и дрейф Либералов к большинству — всё это п</div>
+    <div class="card-meta">
+      <span class="card-date">28 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-26-karni-o-politike-trampe-i-zhertvah-chto-premer-skazal-v-itog/">
-  <div class="sc-img"><img src="/photos/photo_1831@26-12-2025_12-08-01.jpg" alt="Карни о политике, Трампе и «жертвах»: что премьер сказал в итоговом интервью CBC" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Карни о политике, Трампе и «жертвах»: что премьер сказал в итоговом интервью CBC</div>
-    <div class="pex">⁠ 2025 год стал для Канады годом резких поворотов. Еще год назад Джастин Трюдо раздумывал, уходить или нет. Итог — его отставка, приход Марка Карни, победа либералов на выборах и новый премьер без пар</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-26-karni-o-politike-trampe-i-zhertvah-chto-premer-skazal-v-itog/">
+  <div class="card-img"><img src="/photos/photo_1831@26-12-2025_12-08-01.jpg" alt="Карни о политике, Трампе и «жертвах»: что премьер сказал в итоговом интервью CBC" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Карни о политике, Трампе и «жертвах»: что премьер сказал в итоговом интервью CBC</div>
+    <div class="card-excerpt">⁠ 2025 год стал для Канады годом резких поворотов. Еще год назад Джастин Трюдо раздумывал, уходить или нет. Итог — его отставка, приход Марка Карни, победа либералов на выборах и новый премьер без пар</div>
+    <div class="card-meta">
+      <span class="card-date">26 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-25-liberaly-karni-zakanchivayut-2025-god-s-minimalnym-preimusch/">
-  <div class="sc-img"><img src="/photos/photo_1828@25-12-2025_15-12-01.jpg" alt="Либералы Карни заканчивают 2025 год с минимальным преимуществом над консерваторами — опрос" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Либералы Карни заканчивают 2025 год с минимальным преимуществом над консерваторами — опрос</div>
-    <div class="pex">Либеральная партия под руководством Марк Карни сохраняет узкое лидерство над консерваторами к концу 2025 года, показывают новые данные опроса Ipsos для Global News.   Если бы федеральные выборы прошли</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-12-25-liberaly-karni-zakanchivayut-2025-god-s-minimalnym-preimusch/">
+  <div class="card-img"><img src="/photos/photo_1828@25-12-2025_15-12-01.jpg" alt="Либералы Карни заканчивают 2025 год с минимальным преимуществом над консерваторами — опрос" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Либералы Карни заканчивают 2025 год с минимальным преимуществом над консерваторами — опрос</div>
+    <div class="card-excerpt">Либеральная партия под руководством Марк Карни сохраняет узкое лидерство над консерваторами к концу 2025 года, показывают новые данные опроса Ipsos для Global News.   Если бы федеральные выборы прошли</div>
+    <div class="card-meta">
+      <span class="card-date">25 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-23-v-alberte-odobrili-vopros-o-vyhode-iz-sostava-kanady/">
-  <div class="sc-img"><img src="/photos/photo_1815@23-12-2025_14-48-01.jpg" alt="В Альберте одобрили вопрос о выходе из состава Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В Альберте одобрили вопрос о выходе из состава Канады</div>
-    <div class="pex">Избирательная комиссия Альберты дала зелёный свет гражданской инициативе о возможном отделении провинции от Канады. Это означает, что группа Alberta Prosperity Project может начать сбор подписей для в</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2025-12-23-v-alberte-odobrili-vopros-o-vyhode-iz-sostava-kanady/">
+  <div class="card-img"><img src="/photos/photo_1815@23-12-2025_14-48-01.jpg" alt="В Альберте одобрили вопрос о выходе из состава Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Альберте одобрили вопрос о выходе из состава Канады</div>
+    <div class="card-excerpt">Избирательная комиссия Альберты дала зелёный свет гражданской инициативе о возможном отделении провинции от Канады. Это означает, что группа Alberta Prosperity Project может начать сбор подписей для в</div>
+    <div class="card-meta">
+      <span class="card-date">23 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-23-canada-post-i-profsoyuz-dogovorilis-zabastovok-ne-budet/">
-  <div class="sc-img"><img src="/photos/photo_1811@23-12-2025_10-47-20.jpg" alt="Canada Post и профсоюз договорились: забастовок не будет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Canada Post и профсоюз договорились: забастовок не будет</div>
-    <div class="pex">Canada Post и Канадский союз почтовых работников (CUPW) объявили о предварительных соглашениях по двум ключевым подразделениям — городским почтовым операциям и сельским и пригородным курьерам. Голосов</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-23-canada-post-i-profsoyuz-dogovorilis-zabastovok-ne-budet/">
+  <div class="card-img"><img src="/photos/photo_1811@23-12-2025_10-47-20.jpg" alt="Canada Post и профсоюз договорились: забастовок не будет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Canada Post и профсоюз договорились: забастовок не будет</div>
+    <div class="card-excerpt">Canada Post и Канадский союз почтовых работников (CUPW) объявили о предварительных соглашениях по двум ключевым подразделениям — городским почтовым операциям и сельским и пригородным курьерам. Голосов</div>
+    <div class="card-meta">
+      <span class="card-date">23 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-23-karni-naznachil-blizkogo-druga-i-eks-bankira-poslom-kanady-v/">
-  <div class="sc-img"><img src="/photos/photo_1810@23-12-2025_09-47-18.jpg" alt="Карни назначил близкого друга и экс-банкира послом Канады в США" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalnewswatch.com</div>
-    <div class="ptit sc-title">Карни назначил близкого друга и экс-банкира послом Канады в США</div>
-    <div class="pex">Премьер-министр Марк Карни назначил Марка Уайзмана новым послом Канады в Вашингтоне. Он вступит в должность 15 февраля и будет курировать переговоры с США по пересмотру континентального торгового согл</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-12-23-karni-naznachil-blizkogo-druga-i-eks-bankira-poslom-kanady-v/">
+  <div class="card-img"><img src="/photos/photo_1810@23-12-2025_09-47-18.jpg" alt="Карни назначил близкого друга и экс-банкира послом Канады в США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalnewswatch.com</div>
+    <div class="card-title">Карни назначил близкого друга и экс-банкира послом Канады в США</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни назначил Марка Уайзмана новым послом Канады в Вашингтоне. Он вступит в должность 15 февраля и будет курировать переговоры с США по пересмотру континентального торгового согл</div>
+    <div class="card-meta">
+      <span class="card-date">23 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-22-pervye-deputaty-pokoleniya-z-v-parlamente-kanady-nabirayut-v/">
-  <div class="sc-img"><img src="/photos/photo_1804@22-12-2025_13-52-20.jpg" alt="Первые депутаты поколения Z в парламенте Канады набирают влияние" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Первые депутаты поколения Z в парламенте Канады набирают влияние</div>
-    <div class="pex">Весенние федеральные выборы впервые привели в Палату общин депутатов, родившихся в 2000-х годах. Либеральные депутаты Фарес Аль Сауд, Амандип Содхи, Джейк Саватцки и Татьяна Огюст стали первыми предст</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-22-pervye-deputaty-pokoleniya-z-v-parlamente-kanady-nabirayut-v/">
+  <div class="card-img"><img src="/photos/photo_1804@22-12-2025_13-52-20.jpg" alt="Первые депутаты поколения Z в парламенте Канады набирают влияние" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Первые депутаты поколения Z в парламенте Канады набирают влияние</div>
+    <div class="card-excerpt">Весенние федеральные выборы впервые привели в Палату общин депутатов, родившихся в 2000-х годах. Либеральные депутаты Фарес Аль Сауд, Амандип Содхи, Джейк Саватцки и Татьяна Огюст стали первыми предст</div>
+    <div class="card-meta">
+      <span class="card-date">22 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-22-novoe-issledovanie-ai-chatboty-sposobny-menyat-elektoralnyy-/">
-  <div class="sc-img"><img src="/photos/photo_1803@22-12-2025_12-14-01.jpg" alt="Новое исследование: AI-чатботы способны менять электоральный выбор канадцев" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Новое исследование: AI-чатботы способны менять электоральный выбор канадцев</div>
-    <div class="pex">Разговор с AI-чатботом может убедить человека изменить свой голос — и в Канаде этот эффект заметно сильнее, чем в США. К такому выводу пришли авторы нового исследования, опубликованного в журнале Natu</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-22-novoe-issledovanie-ai-chatboty-sposobny-menyat-elektoralnyy-/">
+  <div class="card-img"><img src="/photos/photo_1803@22-12-2025_12-14-01.jpg" alt="Новое исследование: AI-чатботы способны менять электоральный выбор канадцев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Новое исследование: AI-чатботы способны менять электоральный выбор канадцев</div>
+    <div class="card-excerpt">Разговор с AI-чатботом может убедить человека изменить свой голос — и в Канаде этот эффект заметно сильнее, чем в США. К такому выводу пришли авторы нового исследования, опубликованного в журнале Natu</div>
+    <div class="card-meta">
+      <span class="card-date">22 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-19-buduschee-pera-polieva-reshit-odna-rech-na-sezde-konservator/">
-  <div class="sc-img"><img src="/photos/photo_1787@19-12-2025_18-35-04.jpg" alt="Будущее Пьера Полиева решит одна речь — на съезде консерваторов в Калгари" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">hilltimes.com</div>
-    <div class="ptit sc-title">Будущее Пьера Полиева решит одна речь — на съезде консерваторов в Калгари</div>
-    <div class="pex">Судьба лидерства Пьера Полиева в Консервативной партии будет зависеть от того, что именно он скажет делегатам на съезде партии в Калгари в конце января. Об этом The Hill Times заявил ветеран партии и</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-19-buduschee-pera-polieva-reshit-odna-rech-na-sezde-konservator/">
+  <div class="card-img"><img src="/photos/photo_1787@19-12-2025_18-35-04.jpg" alt="Будущее Пьера Полиева решит одна речь — на съезде консерваторов в Калгари" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">hilltimes.com</div>
+    <div class="card-title">Будущее Пьера Полиева решит одна речь — на съезде консерваторов в Калгари</div>
+    <div class="card-excerpt">Судьба лидерства Пьера Полиева в Консервативной партии будет зависеть от того, что именно он скажет делегатам на съезде партии в Калгари в конце января. Об этом The Hill Times заявил ветеран партии и</div>
+    <div class="card-meta">
+      <span class="card-date">19 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-19-est-li-nepravilnyy-sposob-poluchit-parlamentskoe-bolshinstvo/">
-  <div class="sc-img"><img src="/photos/photo_1785@19-12-2025_15-46-21.jpg" alt="Есть ли «неправильный» способ получить парламентское большинство?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Есть ли «неправильный» способ получить парламентское большинство?</div>
-    <div class="pex">После перехода депутата Майкла Ма к либералам Пьер Полиев обвинил премьер-министра Марка Карни в попытке «проманипулировать» большинством через закулисные сделки, а не через выборы. Карни в ответ спок</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-19-est-li-nepravilnyy-sposob-poluchit-parlamentskoe-bolshinstvo/">
+  <div class="card-img"><img src="/photos/photo_1785@19-12-2025_15-46-21.jpg" alt="Есть ли «неправильный» способ получить парламентское большинство?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Есть ли «неправильный» способ получить парламентское большинство?</div>
+    <div class="card-excerpt">После перехода депутата Майкла Ма к либералам Пьер Полиев обвинил премьер-министра Марка Карни в попытке «проманипулировать» большинством через закулисные сделки, а не через выборы. Карни в ответ спок</div>
+    <div class="card-meta">
+      <span class="card-date">19 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-18-konservatory-pytayutsya-perevernut-stranitsu-posle-katastrof/">
-  <div class="sc-img"><img src="/photos/photo_1778@18-12-2025_15-19-01.jpg" alt="Консерваторы пытаются перевернуть страницу после «катастрофы 2025 года»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Консерваторы пытаются перевернуть страницу после «катастрофы 2025 года»</div>
-    <div class="pex">Год назад Пьер Полиев выглядел почти неизбежным будущим премьер-министром. Консерваторы опережали либералов на 25 пунктов, Джастин Трюдо был на выходе, а внутри партии уже делили портфели.    Затем вс</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-12-18-konservatory-pytayutsya-perevernut-stranitsu-posle-katastrof/">
+  <div class="card-img"><img src="/photos/photo_1778@18-12-2025_15-19-01.jpg" alt="Консерваторы пытаются перевернуть страницу после «катастрофы 2025 года»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Консерваторы пытаются перевернуть страницу после «катастрофы 2025 года»</div>
+    <div class="card-excerpt">Год назад Пьер Полиев выглядел почти неизбежным будущим премьер-министром. Консерваторы опережали либералов на 25 пунктов, Джастин Трюдо был на выходе, а внутри партии уже делили портфели.    Затем вс</div>
+    <div class="card-meta">
+      <span class="card-date">18 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-18-tramp-vydvinul-usloviya-kanade-dlya-prodleniya-cusma-pivo-mo/">
-  <div class="sc-img"><img src="/photos/photo_1776@18-12-2025_13-12-14.jpg" alt="Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг</div>
-    <div class="pex">Администрация Дональда Трампа впервые публично обозначила, что именно Канада должна изменить, чтобы сохранить торговое соглашение CUSMA после пересмотра в 2026 году. Об этом в Конгрессе заявил торговы</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-18-tramp-vydvinul-usloviya-kanade-dlya-prodleniya-cusma-pivo-mo/">
+  <div class="card-img"><img src="/photos/photo_1776@18-12-2025_13-12-14.jpg" alt="Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг</div>
+    <div class="card-excerpt">Администрация Дональда Трампа впервые публично обозначила, что именно Канада должна изменить, чтобы сохранить торговое соглашение CUSMA после пересмотра в 2026 году. Об этом в Конгрессе заявил торговы</div>
+    <div class="card-meta">
+      <span class="card-date">18 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-18-sandy-white-iz-montreal-gazette-pishet-chto-politicheskaya-t/">
-  <div class="sc-img"><img src="/photos/photo_1774@18-12-2025_10-09-01.jpg" alt="Sandy White из Montreal Gazette пишет, что политическая токсичность Пьера Полиева стала для консерваторов невыносимой — и партия платит за это прямую цену." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">montrealgazette.com</div>
-    <div class="ptit sc-title">Sandy White из Montreal Gazette пишет, что политическая токсичность Пьера Полиева стала для консерваторов невыносимой — и партия платит за это прямую цену.</div>
-    <div class="pex">За месяц — два перехода депутатов от консерваторов к либералам. Сначала ветеран из Новой Шотландии Крис д’Энтремон, затем онтарийский депутат Майкл Ма. Для лидера оппозиции это уже не случайность, а с</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-18-sandy-white-iz-montreal-gazette-pishet-chto-politicheskaya-t/">
+  <div class="card-img"><img src="/photos/photo_1774@18-12-2025_10-09-01.jpg" alt="Sandy White из Montreal Gazette пишет, что политическая токсичность Пьера Полиева стала для консерваторов невыносимой — и партия платит за это прямую цену." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">montrealgazette.com</div>
+    <div class="card-title">Sandy White из Montreal Gazette пишет, что политическая токсичность Пьера Полиева стала для консерваторов невыносимой — и партия платит за это прямую цену.</div>
+    <div class="card-excerpt">За месяц — два перехода депутатов от консерваторов к либералам. Сначала ветеран из Новой Шотландии Крис д’Энтремон, затем онтарийский депутат Майкл Ма. Для лидера оппозиции это уже не случайность, а с</div>
+    <div class="card-meta">
+      <span class="card-date">18 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-17-alberta-snova-govorit-o-vyhode-iz-kanady-separatisty-podali-/">
-  <div class="sc-img"><img src="/photos/photo_1769@17-12-2025_12-37-25.jpg" alt="Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">edmonton.citynews.ca</div>
-    <div class="ptit sc-title">Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию</div>
-    <div class="pex">‎  В Альберте сделан ещё один формальный шаг к возможному референдуму о выходе из состава Канады. Сепаратистское движение подало новую гражданскую инициативу в Elections Alberta, а депутаты провинциал</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-12-17-alberta-snova-govorit-o-vyhode-iz-kanady-separatisty-podali-/">
+  <div class="card-img"><img src="/photos/photo_1769@17-12-2025_12-37-25.jpg" alt="Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">edmonton.citynews.ca</div>
+    <div class="card-title">Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию</div>
+    <div class="card-excerpt">‎  В Альберте сделан ещё один формальный шаг к возможному референдуму о выходе из состава Канады. Сепаратистское движение подало новую гражданскую инициативу в Elections Alberta, а депутаты провинциал</div>
+    <div class="card-meta">
+      <span class="card-date">17 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-16-analitik-national-post-kto-mozhet-zamenit-pera-polieva-vo-gl/">
-  <div class="sc-img"><img src="/photos/photo_1766@16-12-2025_21-37-01.jpg" alt="Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов</div>
-    <div class="pex">‌ В National Post всё громче обсуждают сценарий, который ещё год назад казался фантастикой: смена лидера Консервативной партии. Повод — серия болезненных переходов депутатов к либералам и ощущение, чт</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-16-analitik-national-post-kto-mozhet-zamenit-pera-polieva-vo-gl/">
+  <div class="card-img"><img src="/photos/photo_1766@16-12-2025_21-37-01.jpg" alt="Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов</div>
+    <div class="card-excerpt">‌ В National Post всё громче обсуждают сценарий, который ещё год назад казался фантастикой: смена лидера Консервативной партии. Повод — серия болезненных переходов депутатов к либералам и ощущение, чт</div>
+    <div class="card-meta">
+      <span class="card-date">16 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-14-konservator-ostalsya-bez-podarka-deputat-ushyol-k-liberalam-/">
-  <div class="sc-img"><img src="/photos/photo_1748@14-12-2025_15-36-24.jpg" alt="Консерватор остался без подарка: депутат ушёл к либералам вместе с Secret Santa" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Консерватор остался без подарка: депутат ушёл к либералам вместе с Secret Santa</div>
-    <div class="pex">Депутат-консерватор Джамил Дживани нашёл самый бытовой символ политического перехода Майкла Ма к либералам — исчезнувший рождественский подарок. Ма оказался его Secret Santa на обмене подарками в конс</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-14-konservator-ostalsya-bez-podarka-deputat-ushyol-k-liberalam-/">
+  <div class="card-img"><img src="/photos/photo_1748@14-12-2025_15-36-24.jpg" alt="Консерватор остался без подарка: депутат ушёл к либералам вместе с Secret Santa" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Консерватор остался без подарка: депутат ушёл к либералам вместе с Secret Santa</div>
+    <div class="card-excerpt">Депутат-консерватор Джамил Дживани нашёл самый бытовой символ политического перехода Майкла Ма к либералам — исчезнувший рождественский подарок. Ма оказался его Secret Santa на обмене подарками в конс</div>
+    <div class="card-meta">
+      <span class="card-date">14 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-13-34-aresta-i-narkotiki-na-27-mln-politsiya-razgromila-set-svy/">
-  <div class="sc-img"><img src="/photos/photo_1742@13-12-2025_11-22-15.jpg" alt="34 ареста и наркотики на $2,7 млн: полиция разгромила сеть, связанную с бандой «44»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">winnipeg.citynews.ca</div>
-    <div class="ptit sc-title">34 ареста и наркотики на $2,7 млн: полиция разгромила сеть, связанную с бандой «44»</div>
-    <div class="pex">‌﻿ Полиция нескольких регионов GTA провела масштабную операцию против уличной преступной сети, которую следователи связывают с группировкой «44». Расследование длилось девять месяцев и охватывало торг</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-12-13-34-aresta-i-narkotiki-na-27-mln-politsiya-razgromila-set-svy/">
+  <div class="card-img"><img src="/photos/photo_1742@13-12-2025_11-22-15.jpg" alt="34 ареста и наркотики на $2,7 млн: полиция разгромила сеть, связанную с бандой «44»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">winnipeg.citynews.ca</div>
+    <div class="card-title">34 ареста и наркотики на $2,7 млн: полиция разгромила сеть, связанную с бандой «44»</div>
+    <div class="card-excerpt">‌﻿ Полиция нескольких регионов GTA провела масштабную операцию против уличной преступной сети, которую следователи связывают с группировкой «44». Расследование длилось девять месяцев и охватывало торг</div>
+    <div class="card-meta">
+      <span class="card-date">13 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-12-boykot-poezdok-v-ssha-so-storony-kanadtsev-byot-po-prigranic/">
-  <div class="sc-img"><img src="/photos/photo_1736@12-12-2025_18-31-43.jpg" alt="Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса</div>
-    <div class="pex">‌﻿  Новый доклад экономического комитета Конгресса США показывает: сокращение поездок канадцев в Соединённые Штаты уже серьёзно бьёт по бизнесу в приграничных штатах. Документ подготовлен демократами</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-12-boykot-poezdok-v-ssha-so-storony-kanadtsev-byot-po-prigranic/">
+  <div class="card-img"><img src="/photos/photo_1736@12-12-2025_18-31-43.jpg" alt="Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса</div>
+    <div class="card-excerpt">‌﻿  Новый доклад экономического комитета Конгресса США показывает: сокращение поездок канадцев в Соединённые Штаты уже серьёзно бьёт по бизнесу в приграничных штатах. Документ подготовлен демократами</div>
+    <div class="card-meta">
+      <span class="card-date">12 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-12-antireyting-pera-polieva-byot-rekord-i-na-etom-fone-konserva/">
-  <div class="sc-img"><img src="/photos/photo_1728@12-12-2025_09-32-47.jpg" alt="Антирейтинг Пьера Полиева бьёт рекорд — и на этом фоне консерваторы теряют ещё одного депутата" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">angusreid.org</div>
-    <div class="ptit sc-title">Антирейтинг Пьера Полиева бьёт рекорд — и на этом фоне консерваторы теряют ещё одного депутата</div>
-    <div class="pex">‌﻿  Свежий опрос Angus Reid Institute показывает: отношение к лидеру Консервативной партии Пьеру Полиеву продолжает падать. Негативный взгляд на него у 60% опрошенных — самый высокий показатель за вес</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-12-antireyting-pera-polieva-byot-rekord-i-na-etom-fone-konserva/">
+  <div class="card-img"><img src="/photos/photo_1728@12-12-2025_09-32-47.jpg" alt="Антирейтинг Пьера Полиева бьёт рекорд — и на этом фоне консерваторы теряют ещё одного депутата" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">angusreid.org</div>
+    <div class="card-title">Антирейтинг Пьера Полиева бьёт рекорд — и на этом фоне консерваторы теряют ещё одного депутата</div>
+    <div class="card-excerpt">‌﻿  Свежий опрос Angus Reid Institute показывает: отношение к лидеру Консервативной партии Пьеру Полиеву продолжает падать. Негативный взгляд на него у 60% опрошенных — самый высокий показатель за вес</div>
+    <div class="card-meta">
+      <span class="card-date">12 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-11-eschyo-odin-konservator-perehodit-k-liberalam-karni-ostayots/">
-  <div class="sc-img"><img src="/photos/photo_1722@11-12-2025_18-59-01.jpg" alt="Ещё один консерватор переходит к либералам — Карни остаётся в одном кресле от большинства" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Ещё один консерватор переходит к либералам — Карни остаётся в одном кресле от большинства</div>
-    <div class="pex">‌﻿  Фракция Консервативной партии снова теряет депутата: онтарийский парламентарий Майкл Ма объявил, что покидает ряды КПК и присоединяется к либералам. Решение он объяснил разговорами с жителями свое</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-11-eschyo-odin-konservator-perehodit-k-liberalam-karni-ostayots/">
+  <div class="card-img"><img src="/photos/photo_1722@11-12-2025_18-59-01.jpg" alt="Ещё один консерватор переходит к либералам — Карни остаётся в одном кресле от большинства" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Ещё один консерватор переходит к либералам — Карни остаётся в одном кресле от большинства</div>
+    <div class="card-excerpt">‌﻿  Фракция Консервативной партии снова теряет депутата: онтарийский парламентарий Майкл Ма объявил, что покидает ряды КПК и присоединяется к либералам. Решение он объяснил разговорами с жителями свое</div>
+    <div class="card-meta">
+      <span class="card-date">11 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-11-v-alberte-odobrili-eschyo-odnu-initsiativu-na-otzyv-deputata/">
-  <div class="sc-img"><img src="/photos/photo_1719@11-12-2025_16-06-09.jpg" alt="В Альберте одобрили ещё одну инициативу на отзыв депутата — теперь под угрозой сама Даниэль Смит" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В Альберте одобрили ещё одну инициативу на отзыв депутата — теперь под угрозой сама Даниэль Смит</div>
-    <div class="pex">Премьер Альберты Даниэль Смит официально стала объектом кампании по отзыву депутата в своём округе Brooks–Medicine Hat. Elections Alberta в среду утвердила петиции против неё, а также против министра</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-11-v-alberte-odobrili-eschyo-odnu-initsiativu-na-otzyv-deputata/">
+  <div class="card-img"><img src="/photos/photo_1719@11-12-2025_16-06-09.jpg" alt="В Альберте одобрили ещё одну инициативу на отзыв депутата — теперь под угрозой сама Даниэль Смит" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Альберте одобрили ещё одну инициативу на отзыв депутата — теперь под угрозой сама Даниэль Смит</div>
+    <div class="card-excerpt">Премьер Альберты Даниэль Смит официально стала объектом кампании по отзыву депутата в своём округе Brooks–Medicine Hat. Elections Alberta в среду утвердила петиции против неё, а также против министра</div>
+    <div class="card-meta">
+      <span class="card-date">11 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-11-endryu-koyn-s-kanadskoy-demokratiey-chto-to-proishodit/">
-  <div class="sc-img"><img src="/photos/photo_1718@11-12-2025_14-04-01.jpg" alt="Эндрю Койн: с канадской демократией что-то происходит" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Эндрю Койн: с канадской демократией что-то происходит</div>
-    <div class="pex">Колонка Эндрю Койна в The Globe and Mail — тяжёлое чтение, но пройти мимо уже нельзя: по всей стране накапливаются признаки разложения демократических норм, и всё это начинает складываться в тревожную</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-11-endryu-koyn-s-kanadskoy-demokratiey-chto-to-proishodit/">
+  <div class="card-img"><img src="/photos/photo_1718@11-12-2025_14-04-01.jpg" alt="Эндрю Койн: с канадской демократией что-то происходит" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Эндрю Койн: с канадской демократией что-то происходит</div>
+    <div class="card-excerpt">Колонка Эндрю Койна в The Globe and Mail — тяжёлое чтение, но пройти мимо уже нельзя: по всей стране накапливаются признаки разложения демократических норм, и всё это начинает складываться в тревожную</div>
+    <div class="card-meta">
+      <span class="card-date">11 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-11-v-kvebeke-antikorruptsionnoe-byuro-nachalo-ugolovnoe-rassled/">
-  <div class="sc-img"><img src="/photos/photo_1717@11-12-2025_13-07-18.jpg" alt="В Квебеке антикоррупционное бюро начало уголовное расследование против Либеральной партии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В Квебеке антикоррупционное бюро начало уголовное расследование против Либеральной партии</div>
-    <div class="pex">UPAC, антикоррупционная служба Квебека, объявила об официальном запуске уголовного расследования в отношении Либеральной партии провинции. Это новый виток кризиса, который трясёт либералов последние н</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-12-11-v-kvebeke-antikorruptsionnoe-byuro-nachalo-ugolovnoe-rassled/">
+  <div class="card-img"><img src="/photos/photo_1717@11-12-2025_13-07-18.jpg" alt="В Квебеке антикоррупционное бюро начало уголовное расследование против Либеральной партии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Квебеке антикоррупционное бюро начало уголовное расследование против Либеральной партии</div>
+    <div class="card-excerpt">UPAC, антикоррупционная служба Квебека, объявила об официальном запуске уголовного расследования в отношении Либеральной партии провинции. Это новый виток кризиса, который трясёт либералов последние н</div>
+    <div class="card-meta">
+      <span class="card-date">11 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-09-posol-ssha-vashington-ne-stremitsya-pohoronit-cusma-no-na-st/">
-  <div class="sc-img"><img src="/photos/photo_1696@09-12-2025_09-12-08.jpg" alt="Посол США: Вашингтон не стремится похоронить CUSMA, но на столе остаются все варианты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Посол США: Вашингтон не стремится похоронить CUSMA, но на столе остаются все варианты</div>
-    <div class="pex">﻿  Американский посол Пит Хукстра в интервью National Post заявил, что не видит желания в США разорвать торговое соглашение с Канадой и Мексикой. По его словам, предстоящая трёхсторонняя проверка дого</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-12-09-posol-ssha-vashington-ne-stremitsya-pohoronit-cusma-no-na-st/">
+  <div class="card-img"><img src="/photos/photo_1696@09-12-2025_09-12-08.jpg" alt="Посол США: Вашингтон не стремится похоронить CUSMA, но на столе остаются все варианты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Посол США: Вашингтон не стремится похоронить CUSMA, но на столе остаются все варианты</div>
+    <div class="card-excerpt">﻿  Американский посол Пит Хукстра в интервью National Post заявил, что не видит желания в США разорвать торговое соглашение с Канадой и Мексикой. По его словам, предстоящая трёхсторонняя проверка дого</div>
+    <div class="card-meta">
+      <span class="card-date">9 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-08-vse-bolshe-kanadtsev-vklyuchaya-detey-okazyvayutsya-v-amerik/">
-  <div class="sc-img"><img src="/photos/photo_1692@08-12-2025_14-22-01.jpg" alt="Все больше канадцев, включая детей, оказываются в американских центрах содержания за нарушения иммиграционных правил" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Все больше канадцев, включая детей, оказываются в американских центрах содержания за нарушения иммиграционных правил</div>
-    <div class="pex">Новое расследование The Globe and Mail показывает: под жёсткую кампанию депортаций в США всё чаще попадают канадцы, причём не только взрослые без документов, но и как минимум шестеро детей.  С января</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-08-vse-bolshe-kanadtsev-vklyuchaya-detey-okazyvayutsya-v-amerik/">
+  <div class="card-img"><img src="/photos/photo_1692@08-12-2025_14-22-01.jpg" alt="Все больше канадцев, включая детей, оказываются в американских центрах содержания за нарушения иммиграционных правил" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Все больше канадцев, включая детей, оказываются в американских центрах содержания за нарушения иммиграционных правил</div>
+    <div class="card-excerpt">Новое расследование The Globe and Mail показывает: под жёсткую кампанию депортаций в США всё чаще попадают канадцы, причём не только взрослые без документов, но и как минимум шестеро детей.  С января</div>
+    <div class="card-meta">
+      <span class="card-date">8 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-07-smit-zayavlyaet-chto-sudy-ne-dolzhny-derzhat-prohod-k-refere/">
-  <div class="sc-img"><img src="/photos/photo_1686@07-12-2025_13-26-55.jpg" alt="Смит заявляет, что суды не должны «держать проход» к референдумам о независимости" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thecanadianpressnews.ca</div>
-    <div class="ptit sc-title">Смит заявляет, что суды не должны «держать проход» к референдумам о независимости</div>
-    <div class="pex">‌  Премьер Альберты Даниэль Смит вновь подогрела дискуссию вокруг провинциального законодательства о референдумах. В своём радиошоу она заявила, что те, кто добивается голосования о независимости, не</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-07-smit-zayavlyaet-chto-sudy-ne-dolzhny-derzhat-prohod-k-refere/">
+  <div class="card-img"><img src="/photos/photo_1686@07-12-2025_13-26-55.jpg" alt="Смит заявляет, что суды не должны «держать проход» к референдумам о независимости" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thecanadianpressnews.ca</div>
+    <div class="card-title">Смит заявляет, что суды не должны «держать проход» к референдумам о независимости</div>
+    <div class="card-excerpt">‌  Премьер Альберты Даниэль Смит вновь подогрела дискуссию вокруг провинциального законодательства о референдумах. В своём радиошоу она заявила, что те, кто добивается голосования о независимости, не</div>
+    <div class="card-meta">
+      <span class="card-date">7 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-06-zakulise-padeniya-dzhona-rastada-kak-bk-konservatory-svergli/">
-  <div class="sc-img"><img src="/photos/photo_1679@06-12-2025_18-11-01.jpg" alt="Закулисье падения Джона Растада: как БК-консерваторы свергли собственного лидера" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Закулисье падения Джона Растада: как БК-консерваторы свергли собственного лидера</div>
-    <div class="pex">Последние дни перед отставкой Джона Растада больше походили на политический фарс: тайные совещания, юридические выкрутасы и кульминация в виде… конкурcа по сборке пряничных домиков. Всё это закончилос</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-06-zakulise-padeniya-dzhona-rastada-kak-bk-konservatory-svergli/">
+  <div class="card-img"><img src="/photos/photo_1679@06-12-2025_18-11-01.jpg" alt="Закулисье падения Джона Растада: как БК-консерваторы свергли собственного лидера" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Закулисье падения Джона Растада: как БК-консерваторы свергли собственного лидера</div>
+    <div class="card-excerpt">Последние дни перед отставкой Джона Растада больше походили на политический фарс: тайные совещания, юридические выкрутасы и кульминация в виде… конкурcа по сборке пряничных домиков. Всё это закончилос</div>
+    <div class="card-meta">
+      <span class="card-date">6 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-04-ndp-obvinyaet-liberalov-v-nechestnosti-po-povodu-buduschego-/">
-  <div class="sc-img"><img src="/photos/photo_1645@04-12-2025_14-19-01.jpg" alt="НДП обвиняет либералов в нечестности по поводу будущего нацпрограммы лекарственного обеспечения" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">НДП обвиняет либералов в нечестности по поводу будущего нацпрограммы лекарственного обеспечения</div>
-    <div class="pex">⁠  Исполняющий обязанности лидера НДП Дон Дэвис обвинил правительство Марка Карни в том, что оно фактически отвергло рекомендации экспертной группы по созданию общенациональной системы доступа к базов</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-04-ndp-obvinyaet-liberalov-v-nechestnosti-po-povodu-buduschego-/">
+  <div class="card-img"><img src="/photos/photo_1645@04-12-2025_14-19-01.jpg" alt="НДП обвиняет либералов в нечестности по поводу будущего нацпрограммы лекарственного обеспечения" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">НДП обвиняет либералов в нечестности по поводу будущего нацпрограммы лекарственного обеспечения</div>
+    <div class="card-excerpt">⁠  Исполняющий обязанности лидера НДП Дон Дэвис обвинил правительство Марка Карни в том, что оно фактически отвергло рекомендации экспертной группы по созданию общенациональной системы доступа к базов</div>
+    <div class="card-meta">
+      <span class="card-date">4 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/vybory/page/2/">←</a><a class="pb" href="/tag/vybory/">1</a><a class="pb" href="/tag/vybory/page/2/">2</a><a class="pb on" href="/tag/vybory/page/3/">3</a><a class="pb" href="/tag/vybory/page/4/">4</a><a class="pb" href="/tag/vybory/page/5/">5</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/vybory/page/13/">13</a><a class="pb" href="/tag/vybory/page/4/">→</a></div>

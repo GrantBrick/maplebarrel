@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>Дональд Трамп</h1>
     <p>590 материалов</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2026-02-15-serzh-labbe-tramp-govorit-chto-ssha-nikogda-ne-nuzhdalis-v-n/">
-  <div class="sc-img"><img src="/photos/photo_2186@15-02-2026_17-04-11.jpg" alt="Серж Лаббе: Трамп говорит, что США «никогда не нуждались» в НАТО. Канадская кровь говорит об обратном" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Серж Лаббе: Трамп говорит, что США «никогда не нуждались» в НАТО. Канадская кровь говорит об обратном</div>
-    <div class="pex">В колонке для National Post бригадный генерал в отставке Серж Лаббе резко ответил на заявление Дональда Трампа о том, что США «никогда не нуждались» в союзниках по НАТО.   По словам Трампа, союзники л</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 фев 2026</span><div class="ptags"></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-02-15-serzh-labbe-tramp-govorit-chto-ssha-nikogda-ne-nuzhdalis-v-n/">
+  <div class="card-img"><img src="/photos/photo_2186@15-02-2026_17-04-11.jpg" alt="Серж Лаббе: Трамп говорит, что США «никогда не нуждались» в НАТО. Канадская кровь говорит об обратном" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Серж Лаббе: Трамп говорит, что США «никогда не нуждались» в НАТО. Канадская кровь говорит об обратном</div>
+    <div class="card-excerpt">В колонке для National Post бригадный генерал в отставке Серж Лаббе резко ответил на заявление Дональда Трампа о том, что США «никогда не нуждались» в союзниках по НАТО.   По словам Трампа, союзники л</div>
+    <div class="card-meta">
+      <span class="card-date">15 фев 2026</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-13-neobyavlennaya-grazhdanskaya-voyna-vnutri-konservativnoy-par/">
-  <div class="sc-img"><img src="/photos/photo_2175@13-02-2026_22-00-14.jpg" alt="Необъявленная гражданская война внутри Консервативной партии Полиева" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thewalrus.ca</div>
-    <div class="ptit sc-title">Необъявленная гражданская война внутри Консервативной партии Полиева</div>
-    <div class="pex">Обозреватель Kyla Ronellenfitsch пишет о внутреннем расколе среди сторонников лидера консерваторов Пьер Полиев — несмотря на формальные 87,4% поддержки на съезде партии.   По её словам, партия публичн</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2026-02-13-neobyavlennaya-grazhdanskaya-voyna-vnutri-konservativnoy-par/">
+  <div class="card-img"><img src="/photos/photo_2175@13-02-2026_22-00-14.jpg" alt="Необъявленная гражданская война внутри Консервативной партии Полиева" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thewalrus.ca</div>
+    <div class="card-title">Необъявленная гражданская война внутри Консервативной партии Полиева</div>
+    <div class="card-excerpt">Обозреватель Kyla Ronellenfitsch пишет о внутреннем расколе среди сторонников лидера консерваторов Пьер Полиев — несмотря на формальные 87,4% поддержки на съезде партии.   По её словам, партия публичн</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-13-mark-karni-demontiruet-nasledie-dzhastina-tryudo-15-razvorot/">
-  <div class="sc-img"><img src="/photos/photo_2173@13-02-2026_19-00-47.jpg" alt="Марк Карни демонтирует наследие Джастина Трюдо: 15 разворотов политики за первый год у власти" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">Марк Карни демонтирует наследие Джастина Трюдо: 15 разворотов политики за первый год у власти</div>
-    <div class="pex">Почти за год на посту премьер-министра Марк Карни пересмотрел ряд ключевых решений своего предшественника Джастин Трюдо.     1.  Отмена потребительского углеродного налога на бензин и отопление (при с</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-02-13-mark-karni-demontiruet-nasledie-dzhastina-tryudo-15-razvorot/">
+  <div class="card-img"><img src="/photos/photo_2173@13-02-2026_19-00-47.jpg" alt="Марк Карни демонтирует наследие Джастина Трюдо: 15 разворотов политики за первый год у власти" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Марк Карни демонтирует наследие Джастина Трюдо: 15 разворотов политики за первый год у власти</div>
+    <div class="card-excerpt">Почти за год на посту премьер-министра Марк Карни пересмотрел ряд ключевых решений своего предшественника Джастин Трюдо.     1.  Отмена потребительского углеродного налога на бензин и отопление (при с</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-13-mettyu-lau-slabye-osnovaniya-liberalov-dlya-vesennih-vyborov/">
-  <div class="sc-img"><img src="/photos/photo_2169@13-02-2026_13-05-47.jpg" alt="Мэттью Лау: Слабые основания либералов для весенних выборов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">financialpost.com</div>
-    <div class="ptit sc-title">Мэттью Лау: Слабые основания либералов для весенних выборов</div>
-    <div class="pex">Колумнист Matthew Lau пишет, что разговоры о весенних выборах усилились на фоне роста рейтингов либералов и объявления о выплатах на $12,4 млрд в рамках программы «Canada Groceries and Essentials Bene</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-13-mettyu-lau-slabye-osnovaniya-liberalov-dlya-vesennih-vyborov/">
+  <div class="card-img"><img src="/photos/photo_2169@13-02-2026_13-05-47.jpg" alt="Мэттью Лау: Слабые основания либералов для весенних выборов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">financialpost.com</div>
+    <div class="card-title">Мэттью Лау: Слабые основания либералов для весенних выборов</div>
+    <div class="card-excerpt">Колумнист Matthew Lau пишет, что разговоры о весенних выборах усилились на фоне роста рейтингов либералов и объявления о выплатах на $12,4 млрд в рамках программы «Canada Groceries and Essentials Bene</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-13-tramp-obrushilsya-na-kanadu-poka-palata-predstaviteley-ssha-/">
-  <div class="sc-img"><img src="/photos/photo_2167@13-02-2026_11-03-23.jpg" alt="Трамп обрушился на Канаду, пока Палата представителей США приняла символическое голосование против тарифов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Трамп обрушился на Канаду, пока Палата представителей США приняла символическое голосование против тарифов</div>
-    <div class="pex">Президент США Дональд Трамп назвал Канаду «одной из худших стран в мире для ведения дел» после того, как Палата представителей проголосовала против его тарифов на северного соседа.   Решение носит во</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-13-tramp-obrushilsya-na-kanadu-poka-palata-predstaviteley-ssha-/">
+  <div class="card-img"><img src="/photos/photo_2167@13-02-2026_11-03-23.jpg" alt="Трамп обрушился на Канаду, пока Палата представителей США приняла символическое голосование против тарифов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Трамп обрушился на Канаду, пока Палата представителей США приняла символическое голосование против тарифов</div>
+    <div class="card-excerpt">Президент США Дональд Трамп назвал Канаду «одной из худших стран в мире для ведения дел» после того, как Палата представителей проголосовала против его тарифов на северного соседа.   Решение носит во</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-12-palata-predstaviteley-ssha-podderzhala-rezolyutsiyu-ob-otmen/">
-  <div class="sc-img"><img src="/photos/photo_2159@12-02-2026_12-03-24.jpg" alt="Палата представителей США поддержала резолюцию об отмене тарифов Трампа против Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Палата представителей США поддержала резолюцию об отмене тарифов Трампа против Канады</div>
-    <div class="pex">Палата представителей США одобрила резолюцию, направленную на отмену тарифов Дональда Трампа против Канады. Решение носит в основном символический характер, но демонстрирует раскол среди республиканце</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-12-palata-predstaviteley-ssha-podderzhala-rezolyutsiyu-ob-otmen/">
+  <div class="card-img"><img src="/photos/photo_2159@12-02-2026_12-03-24.jpg" alt="Палата представителей США поддержала резолюцию об отмене тарифов Трампа против Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Палата представителей США поддержала резолюцию об отмене тарифов Трампа против Канады</div>
+    <div class="card-excerpt">Палата представителей США одобрила резолюцию, направленную на отмену тарифов Дональда Трампа против Канады. Решение носит в основном символический характер, но демонстрирует раскол среди республиканце</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-12-administratsiya-trampa/">
-  <div class="sc-img"><img src="/photos/photo_2158@12-02-2026_12-03-24.jpg" alt="Администрация Трампа" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nbcnews.com</div>
-    <div class="ptit sc-title">Администрация Трампа</div>
-    <div class="pex">Канадские сепаратисты заявляют об «оптимизме» после встреч с представителями США  Лидеры правого движения Alberta Prosperity Project сообщили NBC News, что за последний год трижды встречались с предст</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/sshakanada/">#США–Канада</a><a class="ptag" href="/tag/arktika/">#Арктика</a></div></div>
+</a><a class="card" href="/post/2026-02-12-administratsiya-trampa/">
+  <div class="card-img"><img src="/photos/photo_2158@12-02-2026_12-03-24.jpg" alt="Администрация Трампа" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nbcnews.com</div>
+    <div class="card-title">Администрация Трампа</div>
+    <div class="card-excerpt">Канадские сепаратисты заявляют об «оптимизме» после встреч с представителями США  Лидеры правого движения Alberta Prosperity Project сообщили NBC News, что за последний год трижды встречались с предст</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-vladelets-mosta-lobbiroval-administratsiyu-ssha-pered-tem-ka/">
-  <div class="sc-img"><img src="/photos/photo_2151@11-02-2026_15-02-06.jpg" alt="Владелец моста лоббировал администрацию США перед тем, как Трамп обрушился с критикой на конкурирующий переход в Канаду" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nytimes.com</div>
-    <div class="ptit sc-title">Владелец моста лоббировал администрацию США перед тем, как Трамп обрушился с критикой на конкурирующий переход в Канаду</div>
-    <div class="pex">Детройтский миллиардер Мэттью Морун, семья которого десятилетиями владеет мостом Ambassador Bridge между Детройтом и Виндзором, встретился в Вашингтоне с министром торговли США Ховардом Латником за не</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-02-11-vladelets-mosta-lobbiroval-administratsiyu-ssha-pered-tem-ka/">
+  <div class="card-img"><img src="/photos/photo_2151@11-02-2026_15-02-06.jpg" alt="Владелец моста лоббировал администрацию США перед тем, как Трамп обрушился с критикой на конкурирующий переход в Канаду" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">Владелец моста лоббировал администрацию США перед тем, как Трамп обрушился с критикой на конкурирующий переход в Канаду</div>
+    <div class="card-excerpt">Детройтский миллиардер Мэттью Морун, семья которого десятилетиями владеет мостом Ambassador Bridge между Детройтом и Виндзором, встретился в Вашингтоне с министром торговли США Ховардом Латником за не</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-netanyahu-snova-proletel-cherez-vozdushnoe-prostranstvo-kana/">
-  <div class="sc-img"><img src="/photos/photo_2149@11-02-2026_13-04-24.jpg" alt="Нетаньяху снова пролетел через воздушное пространство Канады по пути в Вашингтон" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Нетаньяху снова пролетел через воздушное пространство Канады по пути в Вашингтон</div>
-    <div class="pex">Самолёт премьер-министра Израиля Биньямин Нетаньяху во вторник прошёл через воздушное пространство Канады по пути на встречу с президентом США Дональд Трамп. Это уже второй подобный случай за последни</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-02-11-netanyahu-snova-proletel-cherez-vozdushnoe-prostranstvo-kana/">
+  <div class="card-img"><img src="/photos/photo_2149@11-02-2026_13-04-24.jpg" alt="Нетаньяху снова пролетел через воздушное пространство Канады по пути в Вашингтон" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Нетаньяху снова пролетел через воздушное пространство Канады по пути в Вашингтон</div>
+    <div class="card-excerpt">Самолёт премьер-министра Израиля Биньямин Нетаньяху во вторник прошёл через воздушное пространство Канады по пути на встречу с президентом США Дональд Трамп. Это уже второй подобный случай за последни</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-10-mnenie-nash-strategicheskiy-partner-finansiruet-voynu-protiv/">
-  <div class="sc-img"><img src="/photos/photo_2138@10-02-2026_15-46-16.jpg" alt="Мнение: Наш стратегический партнер финансирует войну против Украины" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ottawasun.com</div>
-    <div class="ptit sc-title">Мнение: Наш стратегический партнер финансирует войну против Украины</div>
-    <div class="pex">Похоже, две ключевые линии внешней политики федерального правительства начинают работать друг против друга — и расплачиваться за это приходится канадским налогоплательщикам.   Как выясняется, Китай, к</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/ukraina/">#Украина</a></div></div>
+</a><a class="card" href="/post/2026-02-10-mnenie-nash-strategicheskiy-partner-finansiruet-voynu-protiv/">
+  <div class="card-img"><img src="/photos/photo_2138@10-02-2026_15-46-16.jpg" alt="Мнение: Наш стратегический партнер финансирует войну против Украины" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ottawasun.com</div>
+    <div class="card-title">Мнение: Наш стратегический партнер финансирует войну против Украины</div>
+    <div class="card-excerpt">Похоже, две ключевые линии внешней политики федерального правительства начинают работать друг против друга — и расплачиваться за это приходится канадским налогоплательщикам.   Как выясняется, Китай, к</div>
+    <div class="card-meta">
+      <span class="card-date">10 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-10-tramp-ugrozhaet-zablokirovat-otkrytie-novogo-mosta-mezhdu-vi/">
-  <div class="sc-img"><img src="/photos/photo_2135@10-02-2026_11-05-51.jpg" alt="Трамп угрожает заблокировать открытие нового моста между Виндзором и Детройтом" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Трамп угрожает заблокировать открытие нового моста между Виндзором и Детройтом</div>
-    <div class="pex">Президент США Дональд Трамп заявил, что «не позволит» открыть новый мост между Виндзором (Онтарио) и Детройтом (Мичиган), если Соединённые Штаты не будут «полностью компенсированы за всё», что они яко</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2026-02-10-tramp-ugrozhaet-zablokirovat-otkrytie-novogo-mosta-mezhdu-vi/">
+  <div class="card-img"><img src="/photos/photo_2135@10-02-2026_11-05-51.jpg" alt="Трамп угрожает заблокировать открытие нового моста между Виндзором и Детройтом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Трамп угрожает заблокировать открытие нового моста между Виндзором и Детройтом</div>
+    <div class="card-excerpt">Президент США Дональд Трамп заявил, что «не позволит» открыть новый мост между Виндзором (Онтарио) и Детройтом (Мичиган), если Соединённые Штаты не будут «полностью компенсированы за всё», что они яко</div>
+    <div class="card-meta">
+      <span class="card-date">10 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-07-kak-ultrapravye-pytayutsya-vliyat-na-kanadskie-politicheskie/">
-  <div class="sc-img"><img src="/photos/photo_2123@07-02-2026_18-05-25.jpg" alt="Как ультраправые пытаются влиять на канадские политические партии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Как ультраправые пытаются влиять на канадские политические партии</div>
-    <div class="pex">‌  Аудиозапись закрытого обсуждения в X показывает, как представители ультраправых и откровенно расистских групп обсуждали стратегии давления на мейнстримные консервативные партии Канады. Цель — продв</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-07-kak-ultrapravye-pytayutsya-vliyat-na-kanadskie-politicheskie/">
+  <div class="card-img"><img src="/photos/photo_2123@07-02-2026_18-05-25.jpg" alt="Как ультраправые пытаются влиять на канадские политические партии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Как ультраправые пытаются влиять на канадские политические партии</div>
+    <div class="card-excerpt">‌  Аудиозапись закрытого обсуждения в X показывает, как представители ультраправых и откровенно расистских групп обсуждали стратегии давления на мейнстримные консервативные партии Канады. Цель — продв</div>
+    <div class="card-meta">
+      <span class="card-date">7 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-06-mnenie-argumentov-za-otmenu-sistemy-upravleniya-postavkami-s/">
-  <div class="sc-img"><img src="/photos/photo_2116@06-02-2026_12-02-28.jpg" alt="Мнение: аргументов за отмену системы управления поставками становится всё больше" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">financialpost.com</div>
-    <div class="ptit sc-title">Мнение: аргументов за отмену системы управления поставками становится всё больше</div>
-    <div class="pex">‎  Herbert Grubel из Financial Post пишет, что система управления сельхозпоставками обходится канадским потребителям слишком дорого — и момент для её демонтажа может оказаться ближе, чем кажется. ‎  С</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-02-06-mnenie-argumentov-za-otmenu-sistemy-upravleniya-postavkami-s/">
+  <div class="card-img"><img src="/photos/photo_2116@06-02-2026_12-02-28.jpg" alt="Мнение: аргументов за отмену системы управления поставками становится всё больше" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">financialpost.com</div>
+    <div class="card-title">Мнение: аргументов за отмену системы управления поставками становится всё больше</div>
+    <div class="card-excerpt">‎  Herbert Grubel из Financial Post пишет, что система управления сельхозпоставками обходится канадским потребителям слишком дорого — и момент для её демонтажа может оказаться ближе, чем кажется. ‎  С</div>
+    <div class="card-meta">
+      <span class="card-date">6 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-06-amerikanskie-avtodilery-v-panike-posle-togo-kak-kanada-otkry/">
-  <div class="sc-img"><img src="/photos/photo_2114@06-02-2026_10-07-21.jpg" alt="Американские автодилеры в панике после того, как Канада открыла рынок для китайских автомобилей" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thedrive.com</div>
-    <div class="ptit sc-title">Американские автодилеры в панике после того, как Канада открыла рынок для китайских автомобилей</div>
-    <div class="pex">‎  Американская ассоциация автодилеров (NADA) публично забила тревогу: перспектива появления китайских автопроизводителей в Северной Америке вызывает у отрасли откровенный страх. Повод — Канада, котор</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 фев 2026</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2026-02-06-amerikanskie-avtodilery-v-panike-posle-togo-kak-kanada-otkry/">
+  <div class="card-img"><img src="/photos/photo_2114@06-02-2026_10-07-21.jpg" alt="Американские автодилеры в панике после того, как Канада открыла рынок для китайских автомобилей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thedrive.com</div>
+    <div class="card-title">Американские автодилеры в панике после того, как Канада открыла рынок для китайских автомобилей</div>
+    <div class="card-excerpt">‎  Американская ассоциация автодилеров (NADA) публично забила тревогу: перспектива появления китайских автопроизводителей в Северной Америке вызывает у отрасли откровенный страх. Повод — Канада, котор</div>
+    <div class="card-meta">
+      <span class="card-date">6 фев 2026</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-05-karni-obyavil-novye-stimuly-dlya-pokupateley-elektromobiley-/">
-  <div class="sc-img"><img src="/photos/photo_2112@05-02-2026_19-00-49.jpg" alt="Карни объявил новые стимулы для покупателей электромобилей и отменил мандат на их продажу" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Карни объявил новые стимулы для покупателей электромобилей и отменил мандат на их продажу</div>
-    <div class="pex">Премьер-министр Канады Марк Карни представил новый план поддержки автопрома и снижения выбросов парниковых газов. В центре пакета — возврат субсидий на покупку электромобилей, ужесточение норм по выхл</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-05-karni-obyavil-novye-stimuly-dlya-pokupateley-elektromobiley-/">
+  <div class="card-img"><img src="/photos/photo_2112@05-02-2026_19-00-49.jpg" alt="Карни объявил новые стимулы для покупателей электромобилей и отменил мандат на их продажу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Карни объявил новые стимулы для покупателей электромобилей и отменил мандат на их продажу</div>
+    <div class="card-excerpt">Премьер-министр Канады Марк Карни представил новый план поддержки автопрома и снижения выбросов парниковых газов. В центре пакета — возврат субсидий на покупку электромобилей, ужесточение норм по выхл</div>
+    <div class="card-meta">
+      <span class="card-date">5 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-05-pochemu-dokumentalnyy-film-melaniya-pokazyvayut-v-kanade-i-c/">
-  <div class="sc-img"><img src="/photos/photo_2110@05-02-2026_15-04-33.jpg" alt="Почему документальный фильм «Мелания» показывают в Канаде и что означают его неожиданные кассовые сборы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Почему документальный фильм «Мелания» показывают в Канаде и что означают его неожиданные кассовые сборы</div>
-    <div class="pex">Документальный фильм «Мелания» — закулисный портрет первой леди США Мелании Трамп — вышел в канадский прокат, несмотря на почти пустые залы и вялый интерес со стороны зрителей. И на первый взгляд всё</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2026-02-05-pochemu-dokumentalnyy-film-melaniya-pokazyvayut-v-kanade-i-c/">
+  <div class="card-img"><img src="/photos/photo_2110@05-02-2026_15-04-33.jpg" alt="Почему документальный фильм «Мелания» показывают в Канаде и что означают его неожиданные кассовые сборы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Почему документальный фильм «Мелания» показывают в Канаде и что означают его неожиданные кассовые сборы</div>
+    <div class="card-excerpt">Документальный фильм «Мелания» — закулисный портрет первой леди США Мелании Трамп — вышел в канадский прокат, несмотря на почти пустые залы и вялый интерес со стороны зрителей. И на первый взгляд всё</div>
+    <div class="card-meta">
+      <span class="card-date">5 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-05-stiven-harper-zayavil-chto-kanada-dolzhna-srochno-sokratit-z/">
-  <div class="sc-img"><img src="/photos/photo_2109@05-02-2026_13-33-07.jpg" alt="Стивен Харпер заявил, что Канада должна срочно сократить зависимость от США" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Стивен Харпер заявил, что Канада должна срочно сократить зависимость от США</div>
-    <div class="pex">Бывший премьер-министр Канады Стивен Харпер заявил, что стране необходимо срочно пересмотреть отношения с Соединёнными Штатами и сократить экономическую зависимость от американского рынка на фоне затя</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2026-02-05-stiven-harper-zayavil-chto-kanada-dolzhna-srochno-sokratit-z/">
+  <div class="card-img"><img src="/photos/photo_2109@05-02-2026_13-33-07.jpg" alt="Стивен Харпер заявил, что Канада должна срочно сократить зависимость от США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Стивен Харпер заявил, что Канада должна срочно сократить зависимость от США</div>
+    <div class="card-excerpt">Бывший премьер-министр Канады Стивен Харпер заявил, что стране необходимо срочно пересмотреть отношения с Соединёнными Штатами и сократить экономическую зависимость от американского рынка на фоне затя</div>
+    <div class="card-meta">
+      <span class="card-date">5 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-05-anand-v-vashingtone-administratsiya-trampa-prodvigaet-torgov/">
-  <div class="sc-img"><img src="/photos/photo_2108@05-02-2026_12-06-08.jpg" alt="Ананд в Вашингтоне: администрация Трампа продвигает торговую зону по критическим минералам" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Ананд в Вашингтоне: администрация Трампа продвигает торговую зону по критическим минералам</div>
-    <div class="pex">Министр иностранных дел Канады Анита Ананд в среду находилась в Вашингтоне на фоне инициативы администрации Дональда Трампа по созданию преференциальной международной торговой зоны для критически важн</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-02-05-anand-v-vashingtone-administratsiya-trampa-prodvigaet-torgov/">
+  <div class="card-img"><img src="/photos/photo_2108@05-02-2026_12-06-08.jpg" alt="Ананд в Вашингтоне: администрация Трампа продвигает торговую зону по критическим минералам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Ананд в Вашингтоне: администрация Трампа продвигает торговую зону по критическим минералам</div>
+    <div class="card-excerpt">Министр иностранных дел Канады Анита Ананд в среду находилась в Вашингтоне на фоне инициативы администрации Дональда Трампа по созданию преференциальной международной торговой зоны для критически важн</div>
+    <div class="card-meta">
+      <span class="card-date">5 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-05-eksklyuziv-chto-kanadskiy-deputat-konservator-skazal-vensu-n/">
-  <div class="sc-img"><img src="/photos/photo_2106@05-02-2026_09-03-33.jpg" alt="Эксклюзив / Что канадский депутат-консерватор сказал Вэнсу на неофициальных торговых переговорах" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">semafor.com</div>
-    <div class="ptit sc-title">Эксклюзив / Что канадский депутат-консерватор сказал Вэнсу на неофициальных торговых переговорах</div>
-    <div class="pex">Депутат-консерватор Джамил Дживани заявил, что во время недавних неофициальных встреч в США пытался снизить напряжённость между Оттавой и Вашингтоном на фоне приближающегося летнего дедлайна по торгов</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-02-05-eksklyuziv-chto-kanadskiy-deputat-konservator-skazal-vensu-n/">
+  <div class="card-img"><img src="/photos/photo_2106@05-02-2026_09-03-33.jpg" alt="Эксклюзив / Что канадский депутат-консерватор сказал Вэнсу на неофициальных торговых переговорах" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">semafor.com</div>
+    <div class="card-title">Эксклюзив / Что канадский депутат-консерватор сказал Вэнсу на неофициальных торговых переговорах</div>
+    <div class="card-excerpt">Депутат-консерватор Джамил Дживани заявил, что во время недавних неофициальных встреч в США пытался снизить напряжённость между Оттавой и Вашингтоном на фоне приближающегося летнего дедлайна по торгов</div>
+    <div class="card-meta">
+      <span class="card-date">5 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-04-dzhastin-tryudo-vysmeivaet-vypad-donalda-trampa-pro-gubernat/">
-  <div class="sc-img"><img src="/photos/photo_2105@04-02-2026_18-01-54.jpg" alt="Джастин Трюдо высмеивает выпад Дональда Трампа про «губернатора» в трейлере хоккейного докфильма" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">hollywoodreporter.com</div>
-    <div class="ptit sc-title">Джастин Трюдо высмеивает выпад Дональда Трампа про «губернатора» в трейлере хоккейного докфильма</div>
-    <div class="pex">Бывший премьер-министр Канады Джастин Трюдо с иронией отреагировал на насмешки Дональда Трампа времён кампании 2024 года, когда тот называл Канаду «великим штатом», а Трюдо — его «губернатором». Этот</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-04-dzhastin-tryudo-vysmeivaet-vypad-donalda-trampa-pro-gubernat/">
+  <div class="card-img"><img src="/photos/photo_2105@04-02-2026_18-01-54.jpg" alt="Джастин Трюдо высмеивает выпад Дональда Трампа про «губернатора» в трейлере хоккейного докфильма" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">hollywoodreporter.com</div>
+    <div class="card-title">Джастин Трюдо высмеивает выпад Дональда Трампа про «губернатора» в трейлере хоккейного докфильма</div>
+    <div class="card-excerpt">Бывший премьер-министр Канады Джастин Трюдо с иронией отреагировал на насмешки Дональда Трампа времён кампании 2024 года, когда тот называл Канаду «великим штатом», а Трюдо — его «губернатором». Этот</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-04-kanadtsy-razdelilis-vo-mnenii-dolzhny-li-deputaty-sdavat-man/">
-  <div class="sc-img"><img src="/photos/photo_2103@04-02-2026_15-05-20.jpg" alt="Канадцы разделились во мнении: должны ли депутаты сдавать мандат при смене партии — опрос Nanos" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Канадцы разделились во мнении: должны ли депутаты сдавать мандат при смене партии — опрос Nanos</div>
-    <div class="pex">Новый опрос Nanos Research показывает почти идеальный раскол общественного мнения по вопросу так называемых «перебежчиков» в парламенте.   33% канадцев считают, что депутат, решивший сменить партию, о</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-04-kanadtsy-razdelilis-vo-mnenii-dolzhny-li-deputaty-sdavat-man/">
+  <div class="card-img"><img src="/photos/photo_2103@04-02-2026_15-05-20.jpg" alt="Канадцы разделились во мнении: должны ли депутаты сдавать мандат при смене партии — опрос Nanos" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадцы разделились во мнении: должны ли депутаты сдавать мандат при смене партии — опрос Nanos</div>
+    <div class="card-excerpt">Новый опрос Nanos Research показывает почти идеальный раскол общественного мнения по вопросу так называемых «перебежчиков» в парламенте.   33% канадцев считают, что депутат, решивший сменить партию, о</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-03-separatizm-alberty-perestal-byt-marginalnoy-politikoy-i-stal/">
-  <div class="sc-img"><img src="/photos/photo_2097@03-02-2026_15-02-12.jpg" alt="Сепаратизм Альберты перестал быть маргинальной политикой — и стал вопросом национальной безопасности Канады." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thewalrus.ca</div>
-    <div class="ptit sc-title">Сепаратизм Альберты перестал быть маргинальной политикой — и стал вопросом национальной безопасности Канады.</div>
-    <div class="pex">Стало известно, что лидеры Alberta Prosperity Project (APP) уже провели три встречи с высокопоставленными представителями администрации Дональда Трампа в Вашингтоне, четвёртая — запланирована. По слов</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2026-02-03-separatizm-alberty-perestal-byt-marginalnoy-politikoy-i-stal/">
+  <div class="card-img"><img src="/photos/photo_2097@03-02-2026_15-02-12.jpg" alt="Сепаратизм Альберты перестал быть маргинальной политикой — и стал вопросом национальной безопасности Канады." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thewalrus.ca</div>
+    <div class="card-title">Сепаратизм Альберты перестал быть маргинальной политикой — и стал вопросом национальной безопасности Канады.</div>
+    <div class="card-excerpt">Стало известно, что лидеры Alberta Prosperity Project (APP) уже провели три встречи с высокопоставленными представителями администрации Дональда Трампа в Вашингтоне, четвёртая — запланирована. По слов</div>
+    <div class="card-meta">
+      <span class="card-date">3 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-03-liberaly-marka-karni-vyryvayutsya-vperyod-novyy-opros-mainst/">
-  <div class="sc-img"><img src="/photos/photo_2096@03-02-2026_14-02-52.jpg" alt="Либералы Марка Карни вырываются вперёд: новый опрос Mainstreet Research" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">mainstreetresearch.ca</div>
-    <div class="ptit sc-title">Либералы Марка Карни вырываются вперёд: новый опрос Mainstreet Research</div>
-    <div class="pex">Свежий федеральный опрос Mainstreet Research фиксирует резкий рост поддержки либералов под руководством Марка Карни. Партия уверенно опережает консерваторов — 51% против 36% у консерваторов Пьера Поли</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 фев 2026</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2026-02-03-liberaly-marka-karni-vyryvayutsya-vperyod-novyy-opros-mainst/">
+  <div class="card-img"><img src="/photos/photo_2096@03-02-2026_14-02-52.jpg" alt="Либералы Марка Карни вырываются вперёд: новый опрос Mainstreet Research" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">mainstreetresearch.ca</div>
+    <div class="card-title">Либералы Марка Карни вырываются вперёд: новый опрос Mainstreet Research</div>
+    <div class="card-excerpt">Свежий федеральный опрос Mainstreet Research фиксирует резкий рост поддержки либералов под руководством Марка Карни. Партия уверенно опережает консерваторов — 51% против 36% у консерваторов Пьера Поли</div>
+    <div class="card-meta">
+      <span class="card-date">3 фев 2026</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-03-tramp-ugrozhaet-kanade-ochen-zhyostkim-otvetom-za-torgovuyu-/">
-  <div class="sc-img"><img src="/photos/photo_2091@03-02-2026_09-04-13.jpg" alt="Трамп угрожает Канаде «очень жёстким ответом» за торговую сделку с Китаем" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">reuters.com</div>
-    <div class="ptit sc-title">Трамп угрожает Канаде «очень жёстким ответом» за торговую сделку с Китаем</div>
-    <div class="pex">Президент США Дональд Трамп заявил, что Вашингтон даст «очень существенный ответ», если Канада реализует торговое соглашение с Китаем.   Выступая перед журналистами на борту Air Force One, Трамп сказа</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-02-03-tramp-ugrozhaet-kanade-ochen-zhyostkim-otvetom-za-torgovuyu-/">
+  <div class="card-img"><img src="/photos/photo_2091@03-02-2026_09-04-13.jpg" alt="Трамп угрожает Канаде «очень жёстким ответом» за торговую сделку с Китаем" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">reuters.com</div>
+    <div class="card-title">Трамп угрожает Канаде «очень жёстким ответом» за торговую сделку с Китаем</div>
+    <div class="card-excerpt">Президент США Дональд Трамп заявил, что Вашингтон даст «очень существенный ответ», если Канада реализует торговое соглашение с Китаем.   Выступая перед журналистами на борту Air Force One, Трамп сказа</div>
+    <div class="card-meta">
+      <span class="card-date">3 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-01-dag-ford-zayavil-chto-poydyot-na-chetvyortyy-srok-ispolzuya-/">
-  <div class="sc-img"><img src="/photos/photo_2084@01-02-2026_14-04-32.jpg" alt="Даг Форд заявил, что пойдёт на четвёртый срок, используя свою жёсткую позицию по Трампу на съезде ПК" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Даг Форд заявил, что пойдёт на четвёртый срок, используя свою жёсткую позицию по Трампу на съезде ПК</div>
-    <div class="pex">‌ ‌ Премьер Онтарио Даг Форд заявил, что намерен возглавить Прогрессивно-консервативную партию на следующих выборах и побороться за четвёртое подряд правительство большинства. Об этом он сказал, высту</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-02-01-dag-ford-zayavil-chto-poydyot-na-chetvyortyy-srok-ispolzuya-/">
+  <div class="card-img"><img src="/photos/photo_2084@01-02-2026_14-04-32.jpg" alt="Даг Форд заявил, что пойдёт на четвёртый срок, используя свою жёсткую позицию по Трампу на съезде ПК" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Даг Форд заявил, что пойдёт на четвёртый срок, используя свою жёсткую позицию по Трампу на съезде ПК</div>
+    <div class="card-excerpt">‌ ‌ Премьер Онтарио Даг Форд заявил, что намерен возглавить Прогрессивно-консервативную партию на следующих выборах и побороться за четвёртое подряд правительство большинства. Об этом он сказал, высту</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-31-poliev-prizyvaet-k-nadezhde-i-byot-po-separatizmu-v-alberte-/">
-  <div class="sc-img"><img src="/photos/photo_2078@31-01-2026_11-05-08.jpg" alt="Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке</div>
-    <div class="pex">Пьер Полиев в пятницу вечером выступил с ключевой речью на съезде консерваторов в Калгари — за несколько часов до голосования по своему лидерству. Его задача была двойной: сплотить партийную базу и од</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-01-31-poliev-prizyvaet-k-nadezhde-i-byot-po-separatizmu-v-alberte-/">
+  <div class="card-img"><img src="/photos/photo_2078@31-01-2026_11-05-08.jpg" alt="Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке</div>
+    <div class="card-excerpt">Пьер Полиев в пятницу вечером выступил с ключевой речью на съезде консерваторов в Калгари — за несколько часов до голосования по своему лидерству. Его задача была двойной: сплотить партийную базу и од</div>
+    <div class="card-meta">
+      <span class="card-date">31 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-31-per-poliev-poluchil-874-i-sohranil-liderstvo-u-konservatorov/">
-  <div class="sc-img"><img src="/photos/photo_2077@31-01-2026_09-02-53.jpg" alt="Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов</div>
-    <div class="pex">Лидер Консервативной партии Пьер Полиев уверенно прошёл проверку на съезде в Калгари. По итогам голосования 87,4% делегатов высказались за сохранение его на посту. Явка составила 95% — проголосовали 2</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-01-31-per-poliev-poluchil-874-i-sohranil-liderstvo-u-konservatorov/">
+  <div class="card-img"><img src="/photos/photo_2077@31-01-2026_09-02-53.jpg" alt="Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов</div>
+    <div class="card-excerpt">Лидер Консервативной партии Пьер Полиев уверенно прошёл проверку на съезде в Калгари. По итогам голосования 87,4% делегатов высказались за сохранение его на посту. Явка составила 95% — проголосовали 2</div>
+    <div class="card-meta">
+      <span class="card-date">31 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-30-tramp-grozit-dekertifikatsiey-kanadskih-samolyotov-no-u-nego/">
-  <div class="sc-img"><img src="/photos/photo_2073@30-01-2026_11-04-01.jpg" alt="Трамп грозит «декертификацией» канадских самолётов — но у него нет таких полномочий" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Трамп грозит «декертификацией» канадских самолётов — но у него нет таких полномочий</div>
-    <div class="pex">Президент США Дональд Трамп вновь усиливает давление на Канаду, пригрозив «декертифицировать» самолёты канадского производства и ввести 50-процентные пошлины на их продажу в США. Однако авиационные эк</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-01-30-tramp-grozit-dekertifikatsiey-kanadskih-samolyotov-no-u-nego/">
+  <div class="card-img"><img src="/photos/photo_2073@30-01-2026_11-04-01.jpg" alt="Трамп грозит «декертификацией» канадских самолётов — но у него нет таких полномочий" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Трамп грозит «декертификацией» канадских самолётов — но у него нет таких полномочий</div>
+    <div class="card-excerpt">Президент США Дональд Трамп вновь усиливает давление на Канаду, пригрозив «декертифицировать» самолёты канадского производства и ввести 50-процентные пошлины на их продажу в США. Однако авиационные эк</div>
+    <div class="card-meta">
+      <span class="card-date">30 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-29-tramp-zayavil-o-desertifikatsii-kanadskih-samolyotov-i-prigr/">
-  <div class="sc-img"><img src="/photos/photo_2068@29-01-2026_20-02-12.jpg" alt="Трамп заявил о «десертификации» канадских самолётов и пригрозил тарифом в 50%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cnn.com</div>
-    <div class="ptit sc-title">Трамп заявил о «десертификации» канадских самолётов и пригрозил тарифом в 50%</div>
-    <div class="pex">Дональд Трамп заявил, что США якобы лишают сертификации все самолёты, произведённые в Канаде, и пригрозил ввести 50-процентные тарифы на канадскую авиационную технику. Об этом он написал в Truth Socia</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2026-01-29-tramp-zayavil-o-desertifikatsii-kanadskih-samolyotov-i-prigr/">
+  <div class="card-img"><img src="/photos/photo_2068@29-01-2026_20-02-12.jpg" alt="Трамп заявил о «десертификации» канадских самолётов и пригрозил тарифом в 50%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cnn.com</div>
+    <div class="card-title">Трамп заявил о «десертификации» канадских самолётов и пригрозил тарифом в 50%</div>
+    <div class="card-excerpt">Дональд Трамп заявил, что США якобы лишают сертификации все самолёты, произведённые в Канаде, и пригрозил ввести 50-процентные тарифы на канадскую авиационную технику. Об этом он написал в Truth Socia</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-29-skott-bessent-prizval-karni-prekratit-moralnoe-pozyorstvo-pe/">
-  <div class="sc-img"><img src="/photos/photo_2065@29-01-2026_15-06-36.jpg" alt="Скотт Бессент призвал Карни прекратить «моральное позёрство» перед торговыми переговорами" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Скотт Бессент призвал Карни прекратить «моральное позёрство» перед торговыми переговорами</div>
-    <div class="pex">Администрация Дональда Трампа усиливает давление на Канаду накануне пересмотра торгового соглашения CUSMA. Министр финансов США Scott Bessent выступил с жёстким предупреждением в адрес премьер-министр</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-29-skott-bessent-prizval-karni-prekratit-moralnoe-pozyorstvo-pe/">
+  <div class="card-img"><img src="/photos/photo_2065@29-01-2026_15-06-36.jpg" alt="Скотт Бессент призвал Карни прекратить «моральное позёрство» перед торговыми переговорами" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Скотт Бессент призвал Карни прекратить «моральное позёрство» перед торговыми переговорами</div>
+    <div class="card-excerpt">Администрация Дональда Трампа усиливает давление на Канаду накануне пересмотра торгового соглашения CUSMA. Министр финансов США Scott Bessent выступил с жёстким предупреждением в адрес премьер-министр</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-29-kir-starmer-distantsirovalsya-ot-rechi-marka-karni-v-davose-/">
-  <div class="sc-img"><img src="/photos/photo_2061@29-01-2026_10-07-12.jpg" alt="Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»</div>
-    <div class="pex">Премьер-министр Великобритании Kир Стармер публично дал понять, что не разделяет подход канадского премьера Mark Carney, озвученный на Всемирном экономическом форуме в Давосе.   Выступая перед журнали</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-01-29-kir-starmer-distantsirovalsya-ot-rechi-marka-karni-v-davose-/">
+  <div class="card-img"><img src="/photos/photo_2061@29-01-2026_10-07-12.jpg" alt="Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»</div>
+    <div class="card-excerpt">Премьер-министр Великобритании Kир Стармер публично дал понять, что не разделяет подход канадского премьера Mark Carney, озвученный на Всемирном экономическом форуме в Давосе.   Выступая перед журнали</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-29-administratsiya-trampa-tayno-vstrechalas-s-kanadskimi-separa/">
-  <div class="sc-img"><img src="/photos/photo_2060@29-01-2026_09-05-11.jpg" alt="Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ft.com</div>
-    <div class="ptit sc-title">Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты</div>
-    <div class="pex">Администрация Дональда Трампа провела серию закрытых встреч с представителями движения Alberta Prosperity Project (APP), выступающего за отделение провинции Альберта от Канады. Об этом пишет Financial</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-01-29-administratsiya-trampa-tayno-vstrechalas-s-kanadskimi-separa/">
+  <div class="card-img"><img src="/photos/photo_2060@29-01-2026_09-05-11.jpg" alt="Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ft.com</div>
+    <div class="card-title">Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты</div>
+    <div class="card-excerpt">Администрация Дональда Трампа провела серию закрытых встреч с представителями движения Alberta Prosperity Project (APP), выступающего за отделение провинции Альберта от Канады. Об этом пишет Financial</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-28-liberaly-vyhodyat-na-47-posle-davosa-i-poezdki-karni-v-kitay/">
-  <div class="sc-img"><img src="/photos/photo_2057@28-01-2026_15-21-32.jpg" alt="Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger</div>
-    <div class="pex">⁠ Либеральная партия резко усилила позиции после международных поездок премьер-министра Марк Карни. Согласно опросу Postmedia–Leger, 47% канадцев готовы проголосовать за либералов, если выборы состоял</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-28-liberaly-vyhodyat-na-47-posle-davosa-i-poezdki-karni-v-kitay/">
+  <div class="card-img"><img src="/photos/photo_2057@28-01-2026_15-21-32.jpg" alt="Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger</div>
+    <div class="card-excerpt">⁠ Либеральная партия резко усилила позиции после международных поездок премьер-министра Марк Карни. Согласно опросу Postmedia–Leger, 47% канадцев готовы проголосовать за либералов, если выборы состоял</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-28-elections-alberta-petitsionnaya-kampaniya-za-referendum-o-vy/">
-  <div class="sc-img"><img src="/photos/photo_2055@28-01-2026_12-04-01.jpg" alt="Elections Alberta: петиционная кампания за референдум о выходе провинции «защищена от вмешательства»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">edmontonjournal.com</div>
-    <div class="ptit sc-title">Elections Alberta: петиционная кампания за референдум о выходе провинции «защищена от вмешательства»</div>
-    <div class="pex">Elections Alberta заявляет, что процесс сбора подписей за проведение референдума о выходе Альберты из состава Канады проходит без иностранного влияния и находится под надёжным контролем. В ведомстве у</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-28-elections-alberta-petitsionnaya-kampaniya-za-referendum-o-vy/">
+  <div class="card-img"><img src="/photos/photo_2055@28-01-2026_12-04-01.jpg" alt="Elections Alberta: петиционная кампания за референдум о выходе провинции «защищена от вмешательства»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">edmontonjournal.com</div>
+    <div class="card-title">Elections Alberta: петиционная кампания за референдум о выходе провинции «защищена от вмешательства»</div>
+    <div class="card-excerpt">Elections Alberta заявляет, что процесс сбора подписей за проведение референдума о выходе Альберты из состава Канады проходит без иностранного влияния и находится под надёжным контролем. В ведомстве у</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-28-kanada-i-indiya-dogovorilis-rasshirit-torgovlyu-neftyu-i-gaz/">
-  <div class="sc-img"><img src="/photos/photo_2054@28-01-2026_11-03-06.jpg" alt="Канада и Индия договорились расширить торговлю нефтью и газом" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">sg.news.yahoo.com</div>
-    <div class="ptit sc-title">Канада и Индия договорились расширить торговлю нефтью и газом</div>
-    <div class="pex">Оттава и Нью-Дели перезапускают энергетические отношения и планируют нарастить взаимные поставки нефти и газа. Договорённости были объявлены на India Energy Week в Гоа, где встретились министр природн</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-28-kanada-i-indiya-dogovorilis-rasshirit-torgovlyu-neftyu-i-gaz/">
+  <div class="card-img"><img src="/photos/photo_2054@28-01-2026_11-03-06.jpg" alt="Канада и Индия договорились расширить торговлю нефтью и газом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">sg.news.yahoo.com</div>
+    <div class="card-title">Канада и Индия договорились расширить торговлю нефтью и газом</div>
+    <div class="card-excerpt">Оттава и Нью-Дели перезапускают энергетические отношения и планируют нарастить взаимные поставки нефти и газа. Договорённости были объявлены на India Energy Week в Гоа, где встретились министр природн</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-28-karni-torgovye-peregovory-s-ssha-prodolzhatsya-dazhe-esli-v-/">
-  <div class="sc-img"><img src="/photos/photo_2053@28-01-2026_10-02-41.jpg" alt="Карни: торговые переговоры с США продолжатся, даже если в Америке сейчас «почти ничего не является нормальным»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Карни: торговые переговоры с США продолжатся, даже если в Америке сейчас «почти ничего не является нормальным»</div>
-    <div class="pex">⁠  ⁠ Премьер-министр Марк Карни сделал серию жёстких заявлений в адрес администрации Дональд Трамп, подтвердив: Канада продолжит переговоры о пересмотре соглашения о свободной торговле с США, несмотря</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2026-01-28-karni-torgovye-peregovory-s-ssha-prodolzhatsya-dazhe-esli-v-/">
+  <div class="card-img"><img src="/photos/photo_2053@28-01-2026_10-02-41.jpg" alt="Карни: торговые переговоры с США продолжатся, даже если в Америке сейчас «почти ничего не является нормальным»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Карни: торговые переговоры с США продолжатся, даже если в Америке сейчас «почти ничего не является нормальным»</div>
+    <div class="card-excerpt">⁠  ⁠ Премьер-министр Марк Карни сделал серию жёстких заявлений в адрес администрации Дональд Трамп, подтвердив: Канада продолжит переговоры о пересмотре соглашения о свободной торговле с США, несмотря</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-27-ssha-pridyotsya-zavodit-svoi-istrebiteli-v-vozdushnoe-prostr/">
-  <div class="sc-img"><img src="/photos/photo_2045@27-01-2026_14-03-16.jpg" alt="США придётся заводить свои истребители в воздушное пространство Канады, если Оттава не купит 88 F-35 — посол Хёкстра" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">США придётся заводить свои истребители в воздушное пространство Канады, если Оттава не купит 88 F-35 — посол Хёкстра</div>
-    <div class="pex">‌ Если Канада откажется от сделки по закупке 88 истребителей F-35, Соединённым Штатам придётся закрывать образовавшиеся дыры самостоятельно — включая регулярные полёты американских истребителей над ка</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-01-27-ssha-pridyotsya-zavodit-svoi-istrebiteli-v-vozdushnoe-prostr/">
+  <div class="card-img"><img src="/photos/photo_2045@27-01-2026_14-03-16.jpg" alt="США придётся заводить свои истребители в воздушное пространство Канады, если Оттава не купит 88 F-35 — посол Хёкстра" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">США придётся заводить свои истребители в воздушное пространство Канады, если Оттава не купит 88 F-35 — посол Хёкстра</div>
+    <div class="card-excerpt">‌ Если Канада откажется от сделки по закупке 88 истребителей F-35, Соединённым Штатам придётся закрывать образовавшиеся дыры самостоятельно — включая регулярные полёты американских истребителей над ка</div>
+    <div class="card-meta">
+      <span class="card-date">27 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-27-amerika-trampa-prishla-za-albertoy/">
-  <div class="sc-img"><img src="/photos/photo_2042@27-01-2026_10-06-24.jpg" alt="Америка Трампа пришла за Альбертой" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Америка Трампа пришла за Альбертой</div>
-    <div class="pex">⁠  Администрация Дональда Трампа всё менее стесняется вмешательства во внутренние дела Канады. Очередная красная линия была пересечена, когда министр финансов США публично заговорил о симпатиях к идее</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 янв 2026</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2026-01-27-amerika-trampa-prishla-za-albertoy/">
+  <div class="card-img"><img src="/photos/photo_2042@27-01-2026_10-06-24.jpg" alt="Америка Трампа пришла за Альбертой" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Америка Трампа пришла за Альбертой</div>
+    <div class="card-excerpt">⁠  Администрация Дональда Трампа всё менее стесняется вмешательства во внутренние дела Канады. Очередная красная линия была пересечена, когда министр финансов США публично заговорил о симпатиях к идее</div>
+    <div class="card-meta">
+      <span class="card-date">27 янв 2026</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-26-vozvraschenie-parlamenta-diagnoz-postavlen-lecheniya-poka-ne/">
-  <div class="sc-img"><img src="/photos/photo_2040@26-01-2026_15-06-11.jpg" alt="Возвращение парламента: диагноз поставлен, лечения пока нет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">archive.ph</div>
-    <div class="ptit sc-title">Возвращение парламента: диагноз поставлен, лечения пока нет</div>
-    <div class="pex">⁠  Парламент Канады возвращается к работе — и это момент, когда политике пора переходить от разговоров к решениям.  ⁠  На этой неделе прозвучали программные речи премьер-министра Марка Карни и лидера</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-26-vozvraschenie-parlamenta-diagnoz-postavlen-lecheniya-poka-ne/">
+  <div class="card-img"><img src="/photos/photo_2040@26-01-2026_15-06-11.jpg" alt="Возвращение парламента: диагноз поставлен, лечения пока нет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">archive.ph</div>
+    <div class="card-title">Возвращение парламента: диагноз поставлен, лечения пока нет</div>
+    <div class="card-excerpt">⁠  Парламент Канады возвращается к работе — и это момент, когда политике пора переходить от разговоров к решениям.  ⁠  На этой неделе прозвучали программные речи премьер-министра Марка Карни и лидера</div>
+    <div class="card-meta">
+      <span class="card-date">26 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-25-kanade-srochno-nuzhna-sobstvennaya-kultura-no-ona-pochti-uni/">
-  <div class="sc-img"><img src="/photos/photo_2035@25-01-2026_21-03-39.jpg" alt="Канаде срочно нужна собственная культура — но она почти уничтожена" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Канаде срочно нужна собственная культура — но она почти уничтожена</div>
-    <div class="pex">На фоне заявлений Дональда Трампа о том, что «Канада существует благодаря США», у канадцев внезапно появился острый запрос на собственную историю и самоощущение. Проблема в том, что обратиться за этим</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2026-01-25-kanade-srochno-nuzhna-sobstvennaya-kultura-no-ona-pochti-uni/">
+  <div class="card-img"><img src="/photos/photo_2035@25-01-2026_21-03-39.jpg" alt="Канаде срочно нужна собственная культура — но она почти уничтожена" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Канаде срочно нужна собственная культура — но она почти уничтожена</div>
+    <div class="card-excerpt">На фоне заявлений Дональда Трампа о том, что «Канада существует благодаря США», у канадцев внезапно появился острый запрос на собственную историю и самоощущение. Проблема в том, что обратиться за этим</div>
+    <div class="card-meta">
+      <span class="card-date">25 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/person/donald-tramp/">←</a><a class="pb" href="/person/donald-tramp/">1</a><a class="pb on" href="/person/donald-tramp/page/2/">2</a><a class="pb" href="/person/donald-tramp/page/3/">3</a><a class="pb" href="/person/donald-tramp/page/4/">4</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/person/donald-tramp/page/15/">15</a><a class="pb" href="/person/donald-tramp/page/3/">→</a></div>

@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#здоровье</h1>
     <p>230 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-10-29-icbc-zamorozila-tarify-na-avtostrahovanie-do-vesny-2027-goda/">
-  <div class="sc-img"><img src="/photos/photo_1368@29-10-2025_15-26-46.jpg" alt="ICBC заморозила тарифы на автострахование до весны 2027 года" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vancouver.citynews.ca</div>
-    <div class="ptit sc-title">ICBC заморозила тарифы на автострахование до весны 2027 года</div>
-    <div class="pex">Insurance Corporation of British Columbia (ICBC) объявила, что ставки на автострахование в Британской Колумбии не будут повышаться как минимум до 2027 года.   Генеральный прокурор и министр, курирующи</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-10-29-icbc-zamorozila-tarify-na-avtostrahovanie-do-vesny-2027-goda/">
+  <div class="card-img"><img src="/photos/photo_1368@29-10-2025_15-26-46.jpg" alt="ICBC заморозила тарифы на автострахование до весны 2027 года" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouver.citynews.ca</div>
+    <div class="card-title">ICBC заморозила тарифы на автострахование до весны 2027 года</div>
+    <div class="card-excerpt">Insurance Corporation of British Columbia (ICBC) объявила, что ставки на автострахование в Британской Колумбии не будут повышаться как минимум до 2027 года.   Генеральный прокурор и министр, курирующи</div>
+    <div class="card-meta">
+      <span class="card-date">29 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-29-kak-kanada-pobedila-kor-v-1998-godu-i-pochemu-teper-riskuet-/">
-  <div class="sc-img"><img src="/photos/photo_1365@29-10-2025_12-56-57.jpg" alt="Как Канада победила корь в 1998 году — и почему теперь рискует всё потерять" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Как Канада победила корь в 1998 году — и почему теперь рискует всё потерять</div>
-    <div class="pex">В 1960-х маленькая Арлин Кинг из Британской Колумбии болела корью — настолько тяжело, что не могла надеть обувь. Её младший брат перенёс судороги от жара. Шестьдесят лет спустя доктор Кинг, ставшая од</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-29-kak-kanada-pobedila-kor-v-1998-godu-i-pochemu-teper-riskuet-/">
+  <div class="card-img"><img src="/photos/photo_1365@29-10-2025_12-56-57.jpg" alt="Как Канада победила корь в 1998 году — и почему теперь рискует всё потерять" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Как Канада победила корь в 1998 году — и почему теперь рискует всё потерять</div>
+    <div class="card-excerpt">В 1960-х маленькая Арлин Кинг из Британской Колумбии болела корью — настолько тяжело, что не могла надеть обувь. Её младший брат перенёс судороги от жара. Шестьдесят лет спустя доктор Кинг, ставшая од</div>
+    <div class="card-meta">
+      <span class="card-date">29 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-29-vse-bolshe-roditeley-v-alberte-otkazyvayutsya-ot-ukola-vitam/">
-  <div class="sc-img"><img src="/photos/photo_1362@29-10-2025_09-48-01.jpg" alt="Все больше родителей в Альберте отказываются от укола витамина К новорождённым — врачи бьют тревогу" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Все больше родителей в Альберте отказываются от укола витамина К новорождённым — врачи бьют тревогу</div>
-    <div class="pex">Врачи Альберты сообщают о тревожной тенденции: растёт число родителей, которые отказываются от укола витамина К новорождённым — процедуры, которая десятилетиями спасала детей от смертельно опасных кро</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-29-vse-bolshe-roditeley-v-alberte-otkazyvayutsya-ot-ukola-vitam/">
+  <div class="card-img"><img src="/photos/photo_1362@29-10-2025_09-48-01.jpg" alt="Все больше родителей в Альберте отказываются от укола витамина К новорождённым — врачи бьют тревогу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Все больше родителей в Альберте отказываются от укола витамина К новорождённым — врачи бьют тревогу</div>
+    <div class="card-excerpt">Врачи Альберты сообщают о тревожной тенденции: растёт число родителей, которые отказываются от укола витамина К новорождённым — процедуры, которая десятилетиями спасала детей от смертельно опасных кро</div>
+    <div class="card-meta">
+      <span class="card-date">29 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-24-kanadskaya-meditsina-tretya-po-stoimosti-v-mire-no-lish-27-y/">
-  <div class="sc-img"><img src="/photos/photo_1332@24-10-2025_13-52-01.jpg" alt="Канадская медицина — третья по стоимости в мире, но лишь 27-я по доступности врачей" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">Канадская медицина — третья по стоимости в мире, но лишь 27-я по доступности врачей</div>
-    <div class="pex">Новый отчёт Института Фрейзера показал: Канада тратит на здравоохранение колоссальные суммы, но получает весьма скромные результаты. Среди 31 развитой страны с универсальной системой Канада занимает т</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-10-24-kanadskaya-meditsina-tretya-po-stoimosti-v-mire-no-lish-27-y/">
+  <div class="card-img"><img src="/photos/photo_1332@24-10-2025_13-52-01.jpg" alt="Канадская медицина — третья по стоимости в мире, но лишь 27-я по доступности врачей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Канадская медицина — третья по стоимости в мире, но лишь 27-я по доступности врачей</div>
+    <div class="card-excerpt">Новый отчёт Института Фрейзера показал: Канада тратит на здравоохранение колоссальные суммы, но получает весьма скромные результаты. Среди 31 развитой страны с универсальной системой Канада занимает т</div>
+    <div class="card-meta">
+      <span class="card-date">24 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-23-britanskaya-kolumbiya-muzhchina-otbilsya-ot-grizli-ispolzuya/">
-  <div class="sc-img"><img src="/photos/photo_1326@23-10-2025_15-11-52.jpg" alt="Британская Колумбия: мужчина отбился от гризли, используя боксерские приёмы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Британская Колумбия: мужчина отбился от гризли, используя боксерские приёмы</div>
-    <div class="pex">63-летний житель Британской Колумбии Джо Пендри выжил после нападения медведицы гризли, применив навыки боксёра и охотника. Инцидент произошёл 2 октября недалеко от города Форт-Стийл, в Восточных Куте</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-23-britanskaya-kolumbiya-muzhchina-otbilsya-ot-grizli-ispolzuya/">
+  <div class="card-img"><img src="/photos/photo_1326@23-10-2025_15-11-52.jpg" alt="Британская Колумбия: мужчина отбился от гризли, используя боксерские приёмы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Британская Колумбия: мужчина отбился от гризли, используя боксерские приёмы</div>
+    <div class="card-excerpt">63-летний житель Британской Колумбии Джо Пендри выжил после нападения медведицы гризли, применив навыки боксёра и охотника. Инцидент произошёл 2 октября недалеко от города Форт-Стийл, в Восточных Куте</div>
+    <div class="card-meta">
+      <span class="card-date">23 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-22-4-iz-5-podrostkov-v-kanade-ne-poluchayut-dostatochnoy-fizich/">
-  <div class="sc-img"><img src="/photos/photo_1317@22-10-2025_18-07-01.jpg" alt="4 из 5 подростков в Канаде не получают достаточной физической активности — Статкан" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">4 из 5 подростков в Канаде не получают достаточной физической активности — Статкан</div>
-    <div class="pex">Новые данные Statistics Canada показывают тревожную тенденцию: лишь 21% канадских подростков (в возрасте от 12 до 17 лет) выполняют минимальные рекомендации по физической активности. Для сравнения, в</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-22-4-iz-5-podrostkov-v-kanade-ne-poluchayut-dostatochnoy-fizich/">
+  <div class="card-img"><img src="/photos/photo_1317@22-10-2025_18-07-01.jpg" alt="4 из 5 подростков в Канаде не получают достаточной физической активности — Статкан" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">4 из 5 подростков в Канаде не получают достаточной физической активности — Статкан</div>
+    <div class="card-excerpt">Новые данные Statistics Canada показывают тревожную тенденцию: лишь 21% канадских подростков (в возрасте от 12 до 17 лет) выполняют минимальные рекомендации по физической активности. Для сравнения, в</div>
+    <div class="card-meta">
+      <span class="card-date">22 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-22-kanada-tratit-na-meditsinu-bolshe-drugih-no-poluchaet-menshe/">
-  <div class="sc-img"><img src="/photos/photo_1316@22-10-2025_17-31-01.jpg" alt="Канада тратит на медицину больше других, но получает меньше: исследование Fraser Institute" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Канада тратит на медицину больше других, но получает меньше: исследование Fraser Institute</div>
-    <div class="pex">Новый отчёт Fraser Institute показал: несмотря на одни из самых высоких расходов на здравоохранение среди стран с универсальной системой, Канада серьёзно отстаёт по доступу к врачам, больничным койкам</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-22-kanada-tratit-na-meditsinu-bolshe-drugih-no-poluchaet-menshe/">
+  <div class="card-img"><img src="/photos/photo_1316@22-10-2025_17-31-01.jpg" alt="Канада тратит на медицину больше других, но получает меньше: исследование Fraser Institute" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канада тратит на медицину больше других, но получает меньше: исследование Fraser Institute</div>
+    <div class="card-excerpt">Новый отчёт Fraser Institute показал: несмотря на одни из самых высоких расходов на здравоохранение среди стран с универсальной системой, Канада серьёзно отстаёт по доступу к врачам, больничным койкам</div>
+    <div class="card-meta">
+      <span class="card-date">22 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-21-eschyo-odin-udar-po-konservatoram-britanskoy-kolumbii-ameliy/">
-  <div class="sc-img"><img src="/photos/photo_1307@21-10-2025_12-14-01.jpg" alt="Ещё один удар по консерваторам Британской Колумбии: Амелия Бултби уходит, обвинив Джона Растада в «развале партии»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Ещё один удар по консерваторам Британской Колумбии: Амелия Бултби уходит, обвинив Джона Растада в «развале партии»</div>
-    <div class="pex">Консервативная партия Британской Колумбии продолжает терять своих депутатов. Амелия Бултби, представительница округа Пентиктон–Саммерленд, объявила, что покидает фракцию и будет работать как независим</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-21-eschyo-odin-udar-po-konservatoram-britanskoy-kolumbii-ameliy/">
+  <div class="card-img"><img src="/photos/photo_1307@21-10-2025_12-14-01.jpg" alt="Ещё один удар по консерваторам Британской Колумбии: Амелия Бултби уходит, обвинив Джона Растада в «развале партии»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Ещё один удар по консерваторам Британской Колумбии: Амелия Бултби уходит, обвинив Джона Растада в «развале партии»</div>
+    <div class="card-excerpt">Консервативная партия Британской Колумбии продолжает терять своих депутатов. Амелия Бултби, представительница округа Пентиктон–Саммерленд, объявила, что покидает фракцию и будет работать как независим</div>
+    <div class="card-meta">
+      <span class="card-date">21 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-19-kanadtsy-gotovyat-svoy-ozempik/">
-  <div class="sc-img"><img src="/photos/photo_1298@19-10-2025_19-54-01.jpg" alt="Канадцы готовят свой Оземпик" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bnnbloomberg.ca</div>
-    <div class="ptit sc-title">Канадцы готовят свой Оземпик</div>
-    <div class="pex">Канадская компания Vimy Pharma планирует начать производство собственного, «домашнего» аналога знаменитого препарата Ozempic — того самого, что покорил мир как средство от диабета и «чудо-лекарство» д</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-19-kanadtsy-gotovyat-svoy-ozempik/">
+  <div class="card-img"><img src="/photos/photo_1298@19-10-2025_19-54-01.jpg" alt="Канадцы готовят свой Оземпик" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bnnbloomberg.ca</div>
+    <div class="card-title">Канадцы готовят свой Оземпик</div>
+    <div class="card-excerpt">Канадская компания Vimy Pharma планирует начать производство собственного, «домашнего» аналога знаменитого препарата Ozempic — того самого, что покорил мир как средство от диабета и «чудо-лекарство» д</div>
+    <div class="card-meta">
+      <span class="card-date">19 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-16-ottava-vydelit-52-mln-na-uluchshenie-dostupa-k-meditsinskim-/">
-  <div class="sc-img"><img src="/photos/photo_1272@16-10-2025_12-17-14.jpg" alt="Оттава выделит $52 млн на улучшение доступа к медицинским услугам на английском языке в Квебеке" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">montrealgazette.com</div>
-    <div class="ptit sc-title">Оттава выделит $52 млн на улучшение доступа к медицинским услугам на английском языке в Квебеке</div>
-    <div class="pex">⠀ Федеральное правительство Канады объявило о новом пятилетнем вложении $52 миллионов для поддержки англоязычных сообществ Квебека, которым всё сложнее получать медицинскую помощь на родном языке посл</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-16-ottava-vydelit-52-mln-na-uluchshenie-dostupa-k-meditsinskim-/">
+  <div class="card-img"><img src="/photos/photo_1272@16-10-2025_12-17-14.jpg" alt="Оттава выделит $52 млн на улучшение доступа к медицинским услугам на английском языке в Квебеке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">montrealgazette.com</div>
+    <div class="card-title">Оттава выделит $52 млн на улучшение доступа к медицинским услугам на английском языке в Квебеке</div>
+    <div class="card-excerpt">⠀ Федеральное правительство Канады объявило о новом пятилетнем вложении $52 миллионов для поддержки англоязычных сообществ Квебека, которым всё сложнее получать медицинскую помощь на родном языке посл</div>
+    <div class="card-meta">
+      <span class="card-date">16 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-14-ih-nuzhno-vyvezti-ottuda-uvolennaya-trener-belug-rasskazala-/">
-  <div class="sc-img"><img src="/photos/photo_1259@14-10-2025_17-02-01.jpg" alt="«Их нужно вывезти оттуда»: уволенная тренер белуг рассказала о кризисе в Marineland" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">«Их нужно вывезти оттуда»: уволенная тренер белуг рассказала о кризисе в Marineland</div>
-    <div class="pex">⠀  Бывшая тренер белуг в Marineland, Кристи Бёрджесс, заявила, что условия содержания животных в парке у Ниагарского водопада угрожают их жизни и что «всех белуг нужно немедленно вывезти».  ⠀ По её сл</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-14-ih-nuzhno-vyvezti-ottuda-uvolennaya-trener-belug-rasskazala-/">
+  <div class="card-img"><img src="/photos/photo_1259@14-10-2025_17-02-01.jpg" alt="«Их нужно вывезти оттуда»: уволенная тренер белуг рассказала о кризисе в Marineland" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">«Их нужно вывезти оттуда»: уволенная тренер белуг рассказала о кризисе в Marineland</div>
+    <div class="card-excerpt">⠀  Бывшая тренер белуг в Marineland, Кристи Бёрджесс, заявила, что условия содержания животных в парке у Ниагарского водопада угрожают их жизни и что «всех белуг нужно немедленно вывезти».  ⠀ По её сл</div>
+    <div class="card-meta">
+      <span class="card-date">14 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-14-dva-turista-postradali-pri-atake-grizli-na-severe-britanskoy/">
-  <div class="sc-img"><img src="/photos/photo_1255@14-10-2025_08-58-01.jpg" alt="Два туриста пострадали при атаке гризли на севере Британской Колумбии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Два туриста пострадали при атаке гризли на севере Британской Колумбии</div>
-    <div class="pex">⠀ Инцидент произошёл в районе гор Макгрегор, к северо-востоку от Принс-Джорджа. По данным Службы охраны природы Британской Колумбии, двое туристов были атакованы гризли во время похода в воскресенье д</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-14-dva-turista-postradali-pri-atake-grizli-na-severe-britanskoy/">
+  <div class="card-img"><img src="/photos/photo_1255@14-10-2025_08-58-01.jpg" alt="Два туриста пострадали при атаке гризли на севере Британской Колумбии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Два туриста пострадали при атаке гризли на севере Британской Колумбии</div>
+    <div class="card-excerpt">⠀ Инцидент произошёл в районе гор Макгрегор, к северо-востоку от Принс-Джорджа. По данным Службы охраны природы Британской Колумбии, двое туристов были атакованы гризли во время похода в воскресенье д</div>
+    <div class="card-meta">
+      <span class="card-date">14 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-13-kaliforniya-zapreschaet-skovorodki-s-antiprigarnym-pokrytiem/">
-  <div class="sc-img"><img src="/photos/photo_1250@13-10-2025_11-38-01.jpg" alt="Калифорния запрещает сковородки с антипригарным покрытием. Эксперты советуют Британской Колумбии сделать то же самое" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Калифорния запрещает сковородки с антипригарным покрытием. Эксперты советуют Британской Колумбии сделать то же самое</div>
-    <div class="pex">Пока калифорнийские законодатели готовятся полностью запретить посуду с антипригарным покрытием, повара и эксперты в Канаде предупреждают: BC стоит задуматься о смене кухонного арсенала.   Причина — х</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-13-kaliforniya-zapreschaet-skovorodki-s-antiprigarnym-pokrytiem/">
+  <div class="card-img"><img src="/photos/photo_1250@13-10-2025_11-38-01.jpg" alt="Калифорния запрещает сковородки с антипригарным покрытием. Эксперты советуют Британской Колумбии сделать то же самое" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Калифорния запрещает сковородки с антипригарным покрытием. Эксперты советуют Британской Колумбии сделать то же самое</div>
+    <div class="card-excerpt">Пока калифорнийские законодатели готовятся полностью запретить посуду с антипригарным покрытием, повара и эксперты в Канаде предупреждают: BC стоит задуматься о смене кухонного арсенала.   Причина — х</div>
+    <div class="card-meta">
+      <span class="card-date">13 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-12-diskriminatsiya-i-udar-po-immigrantam-ontario-vvodit-novoe-p/">
-  <div class="sc-img"><img src="/photos/photo_1248@12-10-2025_17-12-01.jpg" alt="«Дискриминация и удар по иммигрантам»: Онтарио вводит новое правило для врачей-иностранцев" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">«Дискриминация и удар по иммигрантам»: Онтарио вводит новое правило для врачей-иностранцев</div>
-    <div class="pex">Министерство здравоохранения Онтарио тихо изменило правила допуска к медицинской резидентуре — и вызвало бурю возмущения. Теперь, чтобы участвовать в первом туре распределения мест, иностранный выпуск</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-12-diskriminatsiya-i-udar-po-immigrantam-ontario-vvodit-novoe-p/">
+  <div class="card-img"><img src="/photos/photo_1248@12-10-2025_17-12-01.jpg" alt="«Дискриминация и удар по иммигрантам»: Онтарио вводит новое правило для врачей-иностранцев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">«Дискриминация и удар по иммигрантам»: Онтарио вводит новое правило для врачей-иностранцев</div>
+    <div class="card-excerpt">Министерство здравоохранения Онтарио тихо изменило правила допуска к медицинской резидентуре — и вызвало бурю возмущения. Теперь, чтобы участвовать в первом туре распределения мест, иностранный выпуск</div>
+    <div class="card-meta">
+      <span class="card-date">12 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-11-proverki-rabotodateley-vremennyh-inostrannyh-rabotnikov-v-ka/">
-  <div class="sc-img"><img src="/photos/photo_1241@11-10-2025_14-41-24.jpg" alt="Проверки работодателей временных иностранных работников в Канаде рухнули — при том что самих рабочих стало в разы больше" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Проверки работодателей временных иностранных работников в Канаде рухнули — при том что самих рабочих стало в разы больше</div>
-    <div class="pex">Как выяснила Toronto Star, за последние пять лет число инспекций компаний, нанимающих временных иностранных работников, упало на 57% — с 3365 в 2020 году до 1435 в 2024-м.    И даже из этих проверок т</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-11-proverki-rabotodateley-vremennyh-inostrannyh-rabotnikov-v-ka/">
+  <div class="card-img"><img src="/photos/photo_1241@11-10-2025_14-41-24.jpg" alt="Проверки работодателей временных иностранных работников в Канаде рухнули — при том что самих рабочих стало в разы больше" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Проверки работодателей временных иностранных работников в Канаде рухнули — при том что самих рабочих стало в разы больше</div>
+    <div class="card-excerpt">Как выяснила Toronto Star, за последние пять лет число инспекций компаний, нанимающих временных иностранных работников, упало на 57% — с 3365 в 2020 году до 1435 в 2024-м.    И даже из этих проверок т</div>
+    <div class="card-meta">
+      <span class="card-date">11 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-07-rush-vozvraschayutsya-legendarnaya-kanadskaya-gruppa-obyavil/">
-  <div class="sc-img"><img src="/photos/photo_1216@07-10-2025_09-51-43.jpg" alt="Rush возвращаются: легендарная канадская группа объявила о первом туре за десять лет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">washingtonpost.com</div>
-    <div class="ptit sc-title">Rush возвращаются: легендарная канадская группа объявила о первом туре за десять лет</div>
-    <div class="pex">После десятилетнего перерыва и пяти лет после смерти барабанщика Нила Пирта участники Rush Гедди Ли и Алекс Лайфсон объявили о воссоединении и летнем туре 2026 года. Новость прозвучала в воскресенье в</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-07-rush-vozvraschayutsya-legendarnaya-kanadskaya-gruppa-obyavil/">
+  <div class="card-img"><img src="/photos/photo_1216@07-10-2025_09-51-43.jpg" alt="Rush возвращаются: легендарная канадская группа объявила о первом туре за десять лет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">washingtonpost.com</div>
+    <div class="card-title">Rush возвращаются: легендарная канадская группа объявила о первом туре за десять лет</div>
+    <div class="card-excerpt">После десятилетнего перерыва и пяти лет после смерти барабанщика Нила Пирта участники Rush Гедди Ли и Алекс Лайфсон объявили о воссоединении и летнем туре 2026 года. Новость прозвучала в воскресенье в</div>
+    <div class="card-meta">
+      <span class="card-date">7 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-04-bolshinstvo-kanadtsev-imeyut-izbytochnyy-ves-ili-stradayut-o/">
-  <div class="sc-img"><img src="/photos/photo_1198@04-10-2025_10-01-43.jpg" alt="Большинство канадцев имеют избыточный вес или страдают ожирением — новые данные StatCan" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">www150.statcan.gc.ca</div>
-    <div class="ptit sc-title">Большинство канадцев имеют избыточный вес или страдают ожирением — новые данные StatCan</div>
-    <div class="pex">StatCan опубликовала свежие данные: почти 70 % взрослых жителей страны теперь классифицируются как имеющие избыточный вес или ожирение. До пандемии таких было 60 %.   Особенно заметен рост среди молод</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-04-bolshinstvo-kanadtsev-imeyut-izbytochnyy-ves-ili-stradayut-o/">
+  <div class="card-img"><img src="/photos/photo_1198@04-10-2025_10-01-43.jpg" alt="Большинство канадцев имеют избыточный вес или страдают ожирением — новые данные StatCan" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">www150.statcan.gc.ca</div>
+    <div class="card-title">Большинство канадцев имеют избыточный вес или страдают ожирением — новые данные StatCan</div>
+    <div class="card-excerpt">StatCan опубликовала свежие данные: почти 70 % взрослых жителей страны теперь классифицируются как имеющие избыточный вес или ожирение. До пандемии таких было 60 %.   Особенно заметен рост среди молод</div>
+    <div class="card-meta">
+      <span class="card-date">4 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-03-v-alberte-zafiksirovana-pervaya-smert-ot-kori-s-nachala-nyne/">
-  <div class="sc-img"><img src="/photos/photo_1194@03-10-2025_12-51-49.jpg" alt="В Альберте зафиксирована первая смерть от кори с начала нынешней вспышки заболевания — умер новорождённый, родившийся преждевременно и заразившийся вирусом от м" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В Альберте зафиксирована первая смерть от кори с начала нынешней вспышки заболевания — умер новорождённый, родившийся преждевременно и заразившийся вирусом от м</div>
-    <div class="pex">атери.   Министр здравоохранения провинции Адриана ЛаГранж заявила, что это «разрушительная потеря», подчеркнув особую уязвимость младенцев, беременных женщин и людей с ослабленным иммунитетом.   С ма</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-10-03-v-alberte-zafiksirovana-pervaya-smert-ot-kori-s-nachala-nyne/">
+  <div class="card-img"><img src="/photos/photo_1194@03-10-2025_12-51-49.jpg" alt="В Альберте зафиксирована первая смерть от кори с начала нынешней вспышки заболевания — умер новорождённый, родившийся преждевременно и заразившийся вирусом от м" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Альберте зафиксирована первая смерть от кори с начала нынешней вспышки заболевания — умер новорождённый, родившийся преждевременно и заразившийся вирусом от м</div>
+    <div class="card-excerpt">атери.   Министр здравоохранения провинции Адриана ЛаГранж заявила, что это «разрушительная потеря», подчеркнув особую уязвимость младенцев, беременных женщин и людей с ослабленным иммунитетом.   С ма</div>
+    <div class="card-meta">
+      <span class="card-date">3 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-30-saskachevan-prines-izvineniya-i-vyplatit-40-mln-zhertvam-shk/">
-  <div class="sc-img"><img src="/photos/photo_1178@30-09-2025_11-09-01.jpg" alt="Саскачеван принес извинения и выплатит $40 млн жертвам школы-интерната в Île-à-la-Crosse" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Саскачеван принес извинения и выплатит $40 млн жертвам школы-интерната в Île-à-la-Crosse</div>
-    <div class="pex">﻿ Премьер Скотт Мо публично извинился перед бывшими учениками школы-интерната Île-à-la-Crosse и их семьями, назвав резидентские школы «позорным пятном в истории Канады». Провинция договорилась о компе</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-30-saskachevan-prines-izvineniya-i-vyplatit-40-mln-zhertvam-shk/">
+  <div class="card-img"><img src="/photos/photo_1178@30-09-2025_11-09-01.jpg" alt="Саскачеван принес извинения и выплатит $40 млн жертвам школы-интерната в Île-à-la-Crosse" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Саскачеван принес извинения и выплатит $40 млн жертвам школы-интерната в Île-à-la-Crosse</div>
+    <div class="card-excerpt">﻿ Премьер Скотт Мо публично извинился перед бывшими учениками школы-интерната Île-à-la-Crosse и их семьями, назвав резидентские школы «позорным пятном в истории Канады». Провинция договорилась о компе</div>
+    <div class="card-meta">
+      <span class="card-date">30 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-29-pochemu-na-zapade-kanady-rastsvetaet-rynok-nelegalnyh-sigare/">
-  <div class="sc-img"><img src="/photos/photo_1176@29-09-2025_17-41-01.jpg" alt="Почему на Западе Канады расцветает рынок нелегальных сигарет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Почему на Западе Канады расцветает рынок нелегальных сигарет</div>
-    <div class="pex">Пока власти повышают налоги на табак, а пачка легальных сигарет обходится в среднем в $150 за блок, чёрный рынок предлагает ту же коробку за $40. Итог закономерен: по оценкам National Coalition Agains</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-09-29-pochemu-na-zapade-kanady-rastsvetaet-rynok-nelegalnyh-sigare/">
+  <div class="card-img"><img src="/photos/photo_1176@29-09-2025_17-41-01.jpg" alt="Почему на Западе Канады расцветает рынок нелегальных сигарет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Почему на Западе Канады расцветает рынок нелегальных сигарет</div>
+    <div class="card-excerpt">Пока власти повышают налоги на табак, а пачка легальных сигарет обходится в среднем в $150 за блок, чёрный рынок предлагает ту же коробку за $40. Итог закономерен: по оценкам National Coalition Agains</div>
+    <div class="card-meta">
+      <span class="card-date">29 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-29-kogda-kanada-perevodit-chasy-nazad/">
-  <div class="sc-img"><img src="/photos/photo_1173@29-09-2025_13-48-01.jpg" alt="Когда Канада переводит часы назад" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Когда Канада переводит часы назад</div>
-    <div class="pex">В ночь на воскресенье, 2 ноября, в Канаде снова переводят часы: в 2:00 стрелки отмотают на час назад, и страна вернётся на стандартное время. Один бонус — лишний час сна, но дальше начнутся короткие д</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-29-kogda-kanada-perevodit-chasy-nazad/">
+  <div class="card-img"><img src="/photos/photo_1173@29-09-2025_13-48-01.jpg" alt="Когда Канада переводит часы назад" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Когда Канада переводит часы назад</div>
+    <div class="card-excerpt">В ночь на воскресенье, 2 ноября, в Канаде снова переводят часы: в 2:00 стрелки отмотают на час назад, и страна вернётся на стандартное время. Один бонус — лишний час сна, но дальше начнутся короткие д</div>
+    <div class="card-meta">
+      <span class="card-date">29 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-29-v-britanskoy-kolumbii-poyavyatsya-novye-tsentry-prinuditelno/">
-  <div class="sc-img"><img src="/photos/photo_1171@29-09-2025_11-42-15.jpg" alt="В Британской Колумбии появятся новые центры принудительного лечения" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">В Британской Колумбии появятся новые центры принудительного лечения</div>
-    <div class="pex">Премьер Дэвид Эби на съезде муниципальных лидеров в Виктории объявил о строительстве новых учреждений для людей с тяжёлыми психическими расстройствами и зависимостями. В Суррее и Принс-Джордже появитс</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-29-v-britanskoy-kolumbii-poyavyatsya-novye-tsentry-prinuditelno/">
+  <div class="card-img"><img src="/photos/photo_1171@29-09-2025_11-42-15.jpg" alt="В Британской Колумбии появятся новые центры принудительного лечения" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">В Британской Колумбии появятся новые центры принудительного лечения</div>
+    <div class="card-excerpt">Премьер Дэвид Эби на съезде муниципальных лидеров в Виктории объявил о строительстве новых учреждений для людей с тяжёлыми психическими расстройствами и зависимостями. В Суррее и Принс-Джордже появитс</div>
+    <div class="card-meta">
+      <span class="card-date">29 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-27-kanada-rezhet-razresheniya-na-rabotu-dlya-inostrannyh-vypusk/">
-  <div class="sc-img"><img src="/photos/photo_1161@27-09-2025_13-47-07.jpg" alt="Канада режет разрешения на работу для иностранных выпускников" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Канада режет разрешения на работу для иностранных выпускников</div>
-    <div class="pex">В 2025 году выпускники канадских вузов получат на 30% меньше постдипломных разрешений на работу (PGWP), чем годом ранее: всего около 143 тысяч против 205 тысяч в 2024-м. По данным ApplyBoard, если пад</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-27-kanada-rezhet-razresheniya-na-rabotu-dlya-inostrannyh-vypusk/">
+  <div class="card-img"><img src="/photos/photo_1161@27-09-2025_13-47-07.jpg" alt="Канада режет разрешения на работу для иностранных выпускников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Канада режет разрешения на работу для иностранных выпускников</div>
+    <div class="card-excerpt">В 2025 году выпускники канадских вузов получат на 30% меньше постдипломных разрешений на работу (PGWP), чем годом ранее: всего около 143 тысяч против 205 тысяч в 2024-м. По данным ApplyBoard, если пад</div>
+    <div class="card-meta">
+      <span class="card-date">27 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-25-health-canada-prishlos-oprovergat-ocherednuyu-meditsinskuyu-/">
-  <div class="sc-img"><img src="/photos/photo_1146@25-09-2025_14-17-10.jpg" alt="Health Canada пришлось опровергать очередную «медицинскую» сенсацию Дональда Трампа." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ici.radio-canada.ca</div>
-    <div class="ptit sc-title">Health Canada пришлось опровергать очередную «медицинскую» сенсацию Дональда Трампа.</div>
-    <div class="pex">Президент США заявил, что приём парацетамола (Tylenol) во время беременности «значительно повышает риск аутизма» у детей. «Не принимайте Tylenol. Боритесь как черт, но не принимайте», — сказал он прям</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-25-health-canada-prishlos-oprovergat-ocherednuyu-meditsinskuyu-/">
+  <div class="card-img"><img src="/photos/photo_1146@25-09-2025_14-17-10.jpg" alt="Health Canada пришлось опровергать очередную «медицинскую» сенсацию Дональда Трампа." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ici.radio-canada.ca</div>
+    <div class="card-title">Health Canada пришлось опровергать очередную «медицинскую» сенсацию Дональда Трампа.</div>
+    <div class="card-excerpt">Президент США заявил, что приём парацетамола (Tylenol) во время беременности «значительно повышает риск аутизма» у детей. «Не принимайте Tylenol. Боритесь как черт, но не принимайте», — сказал он прям</div>
+    <div class="card-meta">
+      <span class="card-date">25 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-25-kvebek-obyavil-voynu-genderno-inklyuzivnomu-frantsuzskomu/">
-  <div class="sc-img"><img src="/photos/photo_1145@25-09-2025_13-03-01.jpg" alt="Квебек объявил войну «гендерно-инклюзивному» французскому." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Квебек объявил войну «гендерно-инклюзивному» французскому.</div>
-    <div class="pex">Министр Жан-Франсуа Роберж заявил: все госструктуры, муниципалитеты, а в перспективе и школы с больницами должны перестать использовать новые слова вроде iel (аналог английского they), toustes, celleu</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-25-kvebek-obyavil-voynu-genderno-inklyuzivnomu-frantsuzskomu/">
+  <div class="card-img"><img src="/photos/photo_1145@25-09-2025_13-03-01.jpg" alt="Квебек объявил войну «гендерно-инклюзивному» французскому." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Квебек объявил войну «гендерно-инклюзивному» французскому.</div>
+    <div class="card-excerpt">Министр Жан-Франсуа Роберж заявил: все госструктуры, муниципалитеты, а в перспективе и школы с больницами должны перестать использовать новые слова вроде iel (аналог английского they), toustes, celleu</div>
+    <div class="card-meta">
+      <span class="card-date">25 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-24-soevogo-sousa-ne-dam-hot-tysyachu-predlozhi-sushi-shef-iz-bc/">
-  <div class="sc-img"><img src="/photos/photo_1142@24-09-2025_18-17-01.jpg" alt="«Соевого соуса не дам, хоть тысячу предложи» — суши-шеф из B.C. против клиентов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">«Соевого соуса не дам, хоть тысячу предложи» — суши-шеф из B.C. против клиентов</div>
-    <div class="pex">﻿ В Китимате (север Британской Колумбии) ресторан Sushi J прославился табличкой на двери: «Мы никогда не обслуживаем хамов, пьяных и тех, кто просит лишний соевый соус».  ﻿ Хозяин и шеф Филип Ким объя</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-24-soevogo-sousa-ne-dam-hot-tysyachu-predlozhi-sushi-shef-iz-bc/">
+  <div class="card-img"><img src="/photos/photo_1142@24-09-2025_18-17-01.jpg" alt="«Соевого соуса не дам, хоть тысячу предложи» — суши-шеф из B.C. против клиентов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">«Соевого соуса не дам, хоть тысячу предложи» — суши-шеф из B.C. против клиентов</div>
+    <div class="card-excerpt">﻿ В Китимате (север Британской Колумбии) ресторан Sushi J прославился табличкой на двери: «Мы никогда не обслуживаем хамов, пьяных и тех, кто просит лишний соевый соус».  ﻿ Хозяин и шеф Филип Ким объя</div>
+    <div class="card-meta">
+      <span class="card-date">24 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-21-kor-vernulas-globe-and-mail-prosledila-kak-odna-vspyshka-obo/">
-  <div class="sc-img"><img src="/photos/photo_1126@21-09-2025_20-31-01.jpg" alt="Корь вернулась: «Globe and Mail» проследила, как одна вспышка обошла полмира" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Корь вернулась: «Globe and Mail» проследила, как одна вспышка обошла полмира</div>
-    <div class="pex">Оригинал статьи стоит того, чтобы на него глянуть   Канада рискует потерять статус страны, где корь была ликвидирована: число заболевших растёт, а очаги тянутся через провинции и штаты Северной Америк</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-21-kor-vernulas-globe-and-mail-prosledila-kak-odna-vspyshka-obo/">
+  <div class="card-img"><img src="/photos/photo_1126@21-09-2025_20-31-01.jpg" alt="Корь вернулась: «Globe and Mail» проследила, как одна вспышка обошла полмира" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Корь вернулась: «Globe and Mail» проследила, как одна вспышка обошла полмира</div>
+    <div class="card-excerpt">Оригинал статьи стоит того, чтобы на него глянуть   Канада рискует потерять статус страны, где корь была ликвидирована: число заболевших растёт, а очаги тянутся через провинции и штаты Северной Америк</div>
+    <div class="card-meta">
+      <span class="card-date">21 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-19-per-poliev-utverzhdaet-chto-programma-vremennyh-inostrannyh-/">
-  <div class="sc-img"><img src="/photos/photo_1106@19-09-2025_11-52-03.jpg" alt="Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты</div>
-    <div class="pex">Лидер Консерваторов Пьер Полиев снова требует закрыть программу временных иностранных рабочих (TFW), заявляя, что она «ворует рабочие места у канадцев». На фоне роста безработицы такие слова звучат эф</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-09-19-per-poliev-utverzhdaet-chto-programma-vremennyh-inostrannyh-/">
+  <div class="card-img"><img src="/photos/photo_1106@19-09-2025_11-52-03.jpg" alt="Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты</div>
+    <div class="card-excerpt">Лидер Консерваторов Пьер Полиев снова требует закрыть программу временных иностранных рабочих (TFW), заявляя, что она «ворует рабочие места у канадцев». На фоне роста безработицы такие слова звучат эф</div>
+    <div class="card-meta">
+      <span class="card-date">19 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-18-kanada-teryaet-talant-immigrantov-sprosite-u-svoego-voditely/">
-  <div class="sc-img"><img src="/photos/photo_1102@18-09-2025_18-46-04.jpg" alt="Канада теряет талант иммигрантов. Спросите у своего водителя Uber" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thewalrus.ca</div>
-    <div class="ptit sc-title">Канада теряет талант иммигрантов. Спросите у своего водителя Uber</div>
-    <div class="pex">В Торонто семья добивается приёма у ЛОР-врача для ребёнка и месяцами стоит в очереди. Такси подъезжает — за рулём иммигрант из Афганистана. «Кем работали на родине?» — «ЛОР-специалистом». Символ эпохи</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-18-kanada-teryaet-talant-immigrantov-sprosite-u-svoego-voditely/">
+  <div class="card-img"><img src="/photos/photo_1102@18-09-2025_18-46-04.jpg" alt="Канада теряет талант иммигрантов. Спросите у своего водителя Uber" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thewalrus.ca</div>
+    <div class="card-title">Канада теряет талант иммигрантов. Спросите у своего водителя Uber</div>
+    <div class="card-excerpt">В Торонто семья добивается приёма у ЛОР-врача для ребёнка и месяцами стоит в очереди. Такси подъезжает — за рулём иммигрант из Афганистана. «Кем работали на родине?» — «ЛОР-специалистом». Символ эпохи</div>
+    <div class="card-meta">
+      <span class="card-date">18 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-18-ottava-vrachi-ischut-serdechnye-bolezni-do-togo-kak-oni-ubyu/">
-  <div class="sc-img"><img src="/photos/photo_1100@18-09-2025_14-24-04.jpg" alt="Оттава: врачи ищут сердечные болезни до того, как они убьют" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Оттава: врачи ищут сердечные болезни до того, как они убьют</div>
-    <div class="pex">﻿  Университетский кардиологический институт Оттавы проводит мобильные скрининги по всему восточному Онтарио, пытаясь выявить сердечные патологии у пожилых людей на ранней стадии. За полтора года рабо</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-18-ottava-vrachi-ischut-serdechnye-bolezni-do-togo-kak-oni-ubyu/">
+  <div class="card-img"><img src="/photos/photo_1100@18-09-2025_14-24-04.jpg" alt="Оттава: врачи ищут сердечные болезни до того, как они убьют" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оттава: врачи ищут сердечные болезни до того, как они убьют</div>
+    <div class="card-excerpt">﻿  Университетский кардиологический институт Оттавы проводит мобильные скрининги по всему восточному Онтарио, пытаясь выявить сердечные патологии у пожилых людей на ранней стадии. За полтора года рабо</div>
+    <div class="card-meta">
+      <span class="card-date">18 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-18-ii-psihoz-kogda-chat-boty-lomayut-realnost/">
-  <div class="sc-img"><img src="/photos/photo_1098@18-09-2025_12-23-04.jpg" alt="ИИ-«психоз»: когда чат-боты ломают реальность" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ici.radio-canada.ca</div>
-    <div class="ptit sc-title">ИИ-«психоз»: когда чат-боты ломают реальность</div>
-    <div class="pex">26-летний Энтони Тан из Торонто попал в психиатрическую больницу после того, как был убежден: он живет в компьютерной симуляции. Причиной он называет месяцы разговоров с ChatGPT. Тан перестал есть и с</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/tehnologii/">#технологии</a></div></div>
+</a><a class="card" href="/post/2025-09-18-ii-psihoz-kogda-chat-boty-lomayut-realnost/">
+  <div class="card-img"><img src="/photos/photo_1098@18-09-2025_12-23-04.jpg" alt="ИИ-«психоз»: когда чат-боты ломают реальность" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ici.radio-canada.ca</div>
+    <div class="card-title">ИИ-«психоз»: когда чат-боты ломают реальность</div>
+    <div class="card-excerpt">26-летний Энтони Тан из Торонто попал в психиатрическую больницу после того, как был убежден: он живет в компьютерной симуляции. Причиной он называет месяцы разговоров с ChatGPT. Тан перестал есть и с</div>
+    <div class="card-meta">
+      <span class="card-date">18 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-17-uroven-vaktsinatsii-detey-v-ssha-stremitelno-padaet/">
-  <div class="sc-img"><img src="/photos/photo_1089@17-09-2025_08-00-14.jpg" alt="💉👶 Уровень вакцинации детей в США стремительно падает" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nbcnews.com</div>
-    <div class="ptit sc-title">💉👶 Уровень вакцинации детей в США стремительно падает</div>
-    <div class="pex">Исследование NBC News и Стэнфордского университета показало: в 77% округов США стремительно снизилось количество детей, которые получили прививки от кори, полиомиелита, коклюша и дифтерии.   Они полго</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-17-uroven-vaktsinatsii-detey-v-ssha-stremitelno-padaet/">
+  <div class="card-img"><img src="/photos/photo_1089@17-09-2025_08-00-14.jpg" alt="💉👶 Уровень вакцинации детей в США стремительно падает" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nbcnews.com</div>
+    <div class="card-title">💉👶 Уровень вакцинации детей в США стремительно падает</div>
+    <div class="card-excerpt">Исследование NBC News и Стэнфордского университета показало: в 77% округов США стремительно снизилось количество детей, которые получили прививки от кори, полиомиелита, коклюша и дифтерии.   Они полго</div>
+    <div class="card-meta">
+      <span class="card-date">17 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-16-chto-dalshe-s-immigratsiey-kurs-karni-na-uzhestochenie/">
-  <div class="sc-img"><img src="/photos/photo_1088@16-09-2025_15-38-01.jpg" alt="Что дальше с иммиграцией: курс Карни на ужесточение" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Что дальше с иммиграцией: курс Карни на ужесточение</div>
-    <div class="pex">﻿ При том, что в Канаде остаётся почти 3 млн временных жителей (7% населения), правительство Марка Карни обещает сократить эту долю к 2027-му. Эксперты предупреждают: выполнить цель можно только через</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-09-16-chto-dalshe-s-immigratsiey-kurs-karni-na-uzhestochenie/">
+  <div class="card-img"><img src="/photos/photo_1088@16-09-2025_15-38-01.jpg" alt="Что дальше с иммиграцией: курс Карни на ужесточение" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Что дальше с иммиграцией: курс Карни на ужесточение</div>
+    <div class="card-excerpt">﻿ При том, что в Канаде остаётся почти 3 млн временных жителей (7% населения), правительство Марка Карни обещает сократить эту долю к 2027-му. Эксперты предупреждают: выполнить цель можно только через</div>
+    <div class="card-meta">
+      <span class="card-date">16 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-16-robert-mansh-vybral-uhod-cherez-maid/">
-  <div class="sc-img"><img src="/photos/photo_1084@16-09-2025_12-32-29.jpg" alt="Роберт Манш выбрал уход через MAID" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Роберт Манш выбрал уход через MAID</div>
-    <div class="pex">﻿ Канадская легенда детской литературы Роберт Манш, автор «Принцессы в бумажном пакете» и «Люблю тебя навсегда», принял решение воспользоваться программой медицинской помощи при смерти (MAID).  ﻿ Манш</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-09-16-robert-mansh-vybral-uhod-cherez-maid/">
+  <div class="card-img"><img src="/photos/photo_1084@16-09-2025_12-32-29.jpg" alt="Роберт Манш выбрал уход через MAID" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Роберт Манш выбрал уход через MAID</div>
+    <div class="card-excerpt">﻿ Канадская легенда детской литературы Роберт Манш, автор «Принцессы в бумажном пакете» и «Люблю тебя навсегда», принял решение воспользоваться программой медицинской помощи при смерти (MAID).  ﻿ Манш</div>
+    <div class="card-meta">
+      <span class="card-date">16 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-12-pochemu-vsyo-bolshe-kanadskih-pensionerov-okazyvayutsya-bezd/">
-  <div class="sc-img"><img src="/photos/photo_1064@12-09-2025_10-23-01.jpg" alt="Почему всё больше канадских пенсионеров оказываются бездомными" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Почему всё больше канадских пенсионеров оказываются бездомными</div>
-    <div class="pex">﻿  27% канадцев, потерявших жильё, старше 50 лет. 4% — старше 65. Эти цифры взяты не из воздуха: это официальные подсчёты по стране за 2020–2022 годы. И, как отмечают в приютах, доля пожилых растёт бы</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2025-09-12-pochemu-vsyo-bolshe-kanadskih-pensionerov-okazyvayutsya-bezd/">
+  <div class="card-img"><img src="/photos/photo_1064@12-09-2025_10-23-01.jpg" alt="Почему всё больше канадских пенсионеров оказываются бездомными" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Почему всё больше канадских пенсионеров оказываются бездомными</div>
+    <div class="card-excerpt">﻿  27% канадцев, потерявших жильё, старше 50 лет. 4% — старше 65. Эти цифры взяты не из воздуха: это официальные подсчёты по стране за 2020–2022 годы. И, как отмечают в приютах, доля пожилых растёт бы</div>
+    <div class="card-meta">
+      <span class="card-date">12 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-11-kanadskie-vuzy-nachali-novyy-uchebnyy-god-v-usloviyah-krizis/">
-  <div class="sc-img"><img src="/photos/photo_1061@11-09-2025_15-44-01.jpg" alt="Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки.</div>
-    <div class="pex">⠀ CBC пишет, что студенты по всей стране сталкиваются с урезанными программами, очередями на обязательные предметы и ростом платы за обучение. Международные студенты жалуются на то, что их образование</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-11-kanadskie-vuzy-nachali-novyy-uchebnyy-god-v-usloviyah-krizis/">
+  <div class="card-img"><img src="/photos/photo_1061@11-09-2025_15-44-01.jpg" alt="Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки.</div>
+    <div class="card-excerpt">⠀ CBC пишет, что студенты по всей стране сталкиваются с урезанными программами, очередями на обязательные предметы и ростом платы за обучение. Международные студенты жалуются на то, что их образование</div>
+    <div class="card-meta">
+      <span class="card-date">11 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-10-vrachi-byut-trevogu-lavina-reklamy-stavok-vtyagivaet-podrost/">
-  <div class="sc-img"><img src="/photos/photo_1055@10-09-2025_17-04-01.jpg" alt="Врачи бьют тревогу: лавина рекламы ставок втягивает подростков в азартные игры" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Врачи бьют тревогу: лавина рекламы ставок втягивает подростков в азартные игры</div>
-    <div class="pex">Редакционная статья в Canadian Medical Association Journal предупреждает: поток рекламы спортивных ставок во время трансляций угрожает здоровью молодёжи и требует ограничений.    Что говорят врачи – «</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-10-vrachi-byut-trevogu-lavina-reklamy-stavok-vtyagivaet-podrost/">
+  <div class="card-img"><img src="/photos/photo_1055@10-09-2025_17-04-01.jpg" alt="Врачи бьют тревогу: лавина рекламы ставок втягивает подростков в азартные игры" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Врачи бьют тревогу: лавина рекламы ставок втягивает подростков в азартные игры</div>
+    <div class="card-excerpt">Редакционная статья в Canadian Medical Association Journal предупреждает: поток рекламы спортивных ставок во время трансляций угрожает здоровью молодёжи и требует ограничений.    Что говорят врачи – «</div>
+    <div class="card-meta">
+      <span class="card-date">10 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-09-ispoved-byvshego-antivaksera-kak-lomaetsya-doverie-i-kak-ego/">
-  <div class="sc-img"><img src="/photos/photo_1047@09-09-2025_11-29-01.jpg" alt="Исповедь бывшего антиваксера: как ломается доверие — и как его вернуть" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">macleans.ca</div>
-    <div class="ptit sc-title">Исповедь бывшего антиваксера: как ломается доверие — и как его вернуть</div>
-    <div class="pex">В Альберте вспыхнула корь: по словам автора, в провинции уже около 1 400 случаев — больше, чем во всём США. На этом фоне медсестра из северной Альберты под псевдонимом рассказывает, как сама когда-то</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-09-09-ispoved-byvshego-antivaksera-kak-lomaetsya-doverie-i-kak-ego/">
+  <div class="card-img"><img src="/photos/photo_1047@09-09-2025_11-29-01.jpg" alt="Исповедь бывшего антиваксера: как ломается доверие — и как его вернуть" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">Исповедь бывшего антиваксера: как ломается доверие — и как его вернуть</div>
+    <div class="card-excerpt">В Альберте вспыхнула корь: по словам автора, в провинции уже около 1 400 случаев — больше, чем во всём США. На этом фоне медсестра из северной Альберты под псевдонимом рассказывает, как сама когда-то</div>
+    <div class="card-meta">
+      <span class="card-date">9 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-05-pochemu-molodye-kanadtsy-platyat-bolshe-za-medobsluzhivanie-/">
-  <div class="sc-img"><img src="/photos/photo_1031@05-09-2025_20-33-16.jpg" alt="Почему молодые канадцы платят больше за медобслуживание бэби-бумеров" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Почему молодые канадцы платят больше за медобслуживание бэби-бумеров</div>
-    <div class="pex">⠀ Пол Кершоу в The Globe and Mail пишет, что миллениалы и поколение Z фактически «призваны на службу» своим старшим — только без формы. Через налоги они финансируют растущие медицинские расходы, котор</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-05-pochemu-molodye-kanadtsy-platyat-bolshe-za-medobsluzhivanie-/">
+  <div class="card-img"><img src="/photos/photo_1031@05-09-2025_20-33-16.jpg" alt="Почему молодые канадцы платят больше за медобслуживание бэби-бумеров" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Почему молодые канадцы платят больше за медобслуживание бэби-бумеров</div>
+    <div class="card-excerpt">⠀ Пол Кершоу в The Globe and Mail пишет, что миллениалы и поколение Z фактически «призваны на службу» своим старшим — только без формы. Через налоги они финансируют растущие медицинские расходы, котор</div>
+    <div class="card-meta">
+      <span class="card-date">5 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-05-v-kalgari-osuzhdyonnyy-za-ubiystvo-2010-goda-neonatsist-polu/">
-  <div class="sc-img"><img src="/photos/photo_1027@05-09-2025_09-36-46.jpg" alt="В Калгари осуждённый за убийство 2010 года неонацист получил дневное освобождение" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">В Калгари осуждённый за убийство 2010 года неонацист получил дневное освобождение</div>
-    <div class="pex">Виктимизация, идеология ненависти и спорные решения канадской системы условно-досрочного освобождения снова оказались в центре внимания.  Роберт Райтмайер, бывший калгарийский неонацист, осуждённый за</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-05-v-kalgari-osuzhdyonnyy-za-ubiystvo-2010-goda-neonatsist-polu/">
+  <div class="card-img"><img src="/photos/photo_1027@05-09-2025_09-36-46.jpg" alt="В Калгари осуждённый за убийство 2010 года неонацист получил дневное освобождение" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">В Калгари осуждённый за убийство 2010 года неонацист получил дневное освобождение</div>
+    <div class="card-excerpt">Виктимизация, идеология ненависти и спорные решения канадской системы условно-досрочного освобождения снова оказались в центре внимания.  Роберт Райтмайер, бывший калгарийский неонацист, осуждённый за</div>
+    <div class="card-meta">
+      <span class="card-date">5 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/zdorove/page/3/">←</a><a class="pb" href="/tag/zdorove/">1</a><a class="pb" href="/tag/zdorove/page/2/">2</a><a class="pb" href="/tag/zdorove/page/3/">3</a><a class="pb on" href="/tag/zdorove/page/4/">4</a><a class="pb" href="/tag/zdorove/page/5/">5</a><a class="pb" href="/tag/zdorove/page/6/">6</a><a class="pb" href="/tag/zdorove/page/5/">→</a></div>

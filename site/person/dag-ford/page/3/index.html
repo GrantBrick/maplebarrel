@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>Даг Форд</h1>
     <p>168 материалов</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-09-18-robin-urbek-idealnyy-lider-dlya-liberalov-ontario-dag-ford/">
-  <div class="sc-img"><img src="/photos/photo_1101@18-09-2025_15-28-04.jpg" alt="Робин Урбек: Идеальный лидер для либералов Онтарио — Даг Форд" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Робин Урбек: Идеальный лидер для либералов Онтарио — Даг Форд</div>
-    <div class="pex">﻿  Воскресенье стало финалом для Бонни Кромби: формально 57% делегатов съезда проголосовали против проверки её лидерства, но этого оказалось мало, чтобы удержаться. Она уходит, а либералы Онтарио оста</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-09-18-robin-urbek-idealnyy-lider-dlya-liberalov-ontario-dag-ford/">
+  <div class="card-img"><img src="/photos/photo_1101@18-09-2025_15-28-04.jpg" alt="Робин Урбек: Идеальный лидер для либералов Онтарио — Даг Форд" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Робин Урбек: Идеальный лидер для либералов Онтарио — Даг Форд</div>
+    <div class="card-excerpt">﻿  Воскресенье стало финалом для Бонни Кромби: формально 57% делегатов съезда проголосовали против проверки её лидерства, но этого оказалось мало, чтобы удержаться. Она уходит, а либералы Онтарио оста</div>
+    <div class="card-meta">
+      <span class="card-date">18 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-18-kanada-i-meksika-podpishut-strategicheskoe-partnyorstvo-na-f/">
-  <div class="sc-img"><img src="/photos/photo_1099@18-09-2025_13-27-02.jpg" alt="Канада и Мексика подпишут стратегическое партнёрство на фоне торговых войн с США" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Канада и Мексика подпишут стратегическое партнёрство на фоне торговых войн с США</div>
-    <div class="pex">﻿  Премьер-министр Марк Карни в четверг отправляется в Мексику, где вместе с президентом Клаудией Шейнбаум подпишет «всеобъемлющее стратегическое партнёрство» в сфере торговли и безопасности. Речь идё</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-18-kanada-i-meksika-podpishut-strategicheskoe-partnyorstvo-na-f/">
+  <div class="card-img"><img src="/photos/photo_1099@18-09-2025_13-27-02.jpg" alt="Канада и Мексика подпишут стратегическое партнёрство на фоне торговых войн с США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канада и Мексика подпишут стратегическое партнёрство на фоне торговых войн с США</div>
+    <div class="card-excerpt">﻿  Премьер-министр Марк Карни в четверг отправляется в Мексику, где вместе с президентом Клаудией Шейнбаум подпишет «всеобъемлющее стратегическое партнёрство» в сфере торговли и безопасности. Речь идё</div>
+    <div class="card-meta">
+      <span class="card-date">18 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-17-uroven-vaktsinatsii-detey-v-ssha-stremitelno-padaet/">
-  <div class="sc-img"><img src="/photos/photo_1089@17-09-2025_08-00-14.jpg" alt="💉👶 Уровень вакцинации детей в США стремительно падает" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nbcnews.com</div>
-    <div class="ptit sc-title">💉👶 Уровень вакцинации детей в США стремительно падает</div>
-    <div class="pex">Исследование NBC News и Стэнфордского университета показало: в 77% округов США стремительно снизилось количество детей, которые получили прививки от кори, полиомиелита, коклюша и дифтерии.   Они полго</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-09-17-uroven-vaktsinatsii-detey-v-ssha-stremitelno-padaet/">
+  <div class="card-img"><img src="/photos/photo_1089@17-09-2025_08-00-14.jpg" alt="💉👶 Уровень вакцинации детей в США стремительно падает" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nbcnews.com</div>
+    <div class="card-title">💉👶 Уровень вакцинации детей в США стремительно падает</div>
+    <div class="card-excerpt">Исследование NBC News и Стэнфордского университета показало: в 77% округов США стремительно снизилось количество детей, которые получили прививки от кори, полиомиелита, коклюша и дифтерии.   Они полго</div>
+    <div class="card-meta">
+      <span class="card-date">17 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-15-bonni-krombi-uhodit-s-posta-lidera-liberalov-ontario/">
-  <div class="sc-img"><img src="/photos/photo_1076@15-09-2025_09-17-01.jpg" alt="Бонни Кромби уходит с поста лидера либералов Онтарио" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">toronto.citynews.ca</div>
-    <div class="ptit sc-title">Бонни Кромби уходит с поста лидера либералов Онтарио</div>
-    <div class="pex">Всего через несколько часов после заявления о намерении остаться во главе партии Бонни Кромби объявила о своей отставке с поста лидера Либеральной партии Онтарио.   На выходных делегаты съезда голосов</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-09-15-bonni-krombi-uhodit-s-posta-lidera-liberalov-ontario/">
+  <div class="card-img"><img src="/photos/photo_1076@15-09-2025_09-17-01.jpg" alt="Бонни Кромби уходит с поста лидера либералов Онтарио" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">toronto.citynews.ca</div>
+    <div class="card-title">Бонни Кромби уходит с поста лидера либералов Онтарио</div>
+    <div class="card-excerpt">Всего через несколько часов после заявления о намерении остаться во главе партии Бонни Кромби объявила о своей отставке с поста лидера Либеральной партии Онтарио.   На выходных делегаты съезда голосов</div>
+    <div class="card-meta">
+      <span class="card-date">15 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-11-auditor-ontario-proverit-25-mlrd-fond-razvitiya-navykov-vspl/">
-  <div class="sc-img"><img src="/photos/photo_1058@11-09-2025_10-41-57.jpg" alt="Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»</div>
-    <div class="pex">⠀ Офис аудитора Онтарио во главе с Шелли Спенс начал проверку Skills Development Fund — гигантской программы на $2,5 млрд, которая должна помогать работникам получать новые навыки. Но уже год депутаты</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-09-11-auditor-ontario-proverit-25-mlrd-fond-razvitiya-navykov-vspl/">
+  <div class="card-img"><img src="/photos/photo_1058@11-09-2025_10-41-57.jpg" alt="Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»</div>
+    <div class="card-excerpt">⠀ Офис аудитора Онтарио во главе с Шелли Спенс начал проверку Skills Development Fund — гигантской программы на $2,5 млрд, которая должна помогать работникам получать новые навыки. Но уже год депутаты</div>
+    <div class="card-meta">
+      <span class="card-date">11 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-10-ford-k-molodyozhi-bez-raboty-staraytes-iskat-userdnee/">
-  <div class="sc-img"><img src="/photos/photo_1051@10-09-2025_11-03-20.jpg" alt="Форд к молодёжи без работы: «Старайтесь искать усерднее»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">archive.ph</div>
-    <div class="ptit sc-title">Форд к молодёжи без работы: «Старайтесь искать усерднее»</div>
-    <div class="pex">Премьер Онтарио Даг Форд вызвал волну критики после того, как заявил, что молодые люди, жалующиеся на отсутствие работы, «просто ищут недостаточно усердно». Это прозвучало меньше чем через неделю посл</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-10-ford-k-molodyozhi-bez-raboty-staraytes-iskat-userdnee/">
+  <div class="card-img"><img src="/photos/photo_1051@10-09-2025_11-03-20.jpg" alt="Форд к молодёжи без работы: «Старайтесь искать усерднее»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">archive.ph</div>
+    <div class="card-title">Форд к молодёжи без работы: «Старайтесь искать усерднее»</div>
+    <div class="card-excerpt">Премьер Онтарио Даг Форд вызвал волну критики после того, как заявил, что молодые люди, жалующиеся на отсутствие работы, «просто ищут недостаточно усердно». Это прозвучало меньше чем через неделю посл</div>
+    <div class="card-meta">
+      <span class="card-date">10 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-01-opros-abacus-data-progressivnye-konservatory-duga-forda-nabr/">
-  <div class="sc-img"><img src="/photos/photo_1012@01-09-2025_15-34-01.jpg" alt="Опрос Abacus Data: Прогрессивные консерваторы Дуга Форда набрали 53% и обогнали либералов на 26 пунктов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">abacusdata.ca</div>
-    <div class="ptit sc-title">Опрос Abacus Data: Прогрессивные консерваторы Дуга Форда набрали 53% и обогнали либералов на 26 пунктов</div>
-    <div class="pex">Последний опрос Abacus Data показывает: позиции премьера Онтарио Дуга Форда и его ПК только усиливаются. Если бы выборы прошли сегодня, за прогрессивных консерваторов проголосовали бы 53% избирателей</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-09-01-opros-abacus-data-progressivnye-konservatory-duga-forda-nabr/">
+  <div class="card-img"><img src="/photos/photo_1012@01-09-2025_15-34-01.jpg" alt="Опрос Abacus Data: Прогрессивные консерваторы Дуга Форда набрали 53% и обогнали либералов на 26 пунктов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Опрос Abacus Data: Прогрессивные консерваторы Дуга Форда набрали 53% и обогнали либералов на 26 пунктов</div>
+    <div class="card-excerpt">Последний опрос Abacus Data показывает: позиции премьера Онтарио Дуга Форда и его ПК только усиливаются. Если бы выборы прошли сегодня, за прогрессивных консерваторов проголосовали бы 53% избирателей</div>
+    <div class="card-meta">
+      <span class="card-date">1 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-28-vozvraschenie-v-ofis-po-fordovski-zachem-i-komu-eto-nuzhno/">
-  <div class="sc-img"><img src="/photos/photo_995@28-08-2025_13-44-01.jpg" alt="Возвращение в офис по-фордовски: зачем и кому это нужно?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalobserver.com</div>
-    <div class="ptit sc-title">Возвращение в офис по-фордовски: зачем и кому это нужно?</div>
-    <div class="pex">Даг Форд объявил: к январю все 60 тысяч провинциальных служащих Онтарио должны вернуться в офис на полный рабочий день. Сначала — минимум четыре дня в неделю уже этой осенью. Мотивы премьера просты: я</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-08-28-vozvraschenie-v-ofis-po-fordovski-zachem-i-komu-eto-nuzhno/">
+  <div class="card-img"><img src="/photos/photo_995@28-08-2025_13-44-01.jpg" alt="Возвращение в офис по-фордовски: зачем и кому это нужно?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalobserver.com</div>
+    <div class="card-title">Возвращение в офис по-фордовски: зачем и кому это нужно?</div>
+    <div class="card-excerpt">Даг Форд объявил: к январю все 60 тысяч провинциальных служащих Онтарио должны вернуться в офис на полный рабочий день. Сначала — минимум четыре дня в неделю уже этой осенью. Мотивы премьера просты: я</div>
+    <div class="card-meta">
+      <span class="card-date">28 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-26-ontario-zapretit-opyty-nad-sobakami-i-koshkami/">
-  <div class="sc-img"><img src="/photos/photo_979@26-08-2025_12-46-50.jpg" alt="Онтарио запретит опыты над собаками и кошками" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thecanadianpressnews.ca</div>
-    <div class="ptit sc-title">Онтарио запретит опыты над собаками и кошками</div>
-    <div class="pex">Премьер Даг Форд заявил, что в провинции больше не будут использовать собак и кошек для научных исследований. «Вы больше не будете ставить опыты на питомцах. Ни на собаках, ни на кошках. Всё просто: э</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-08-26-ontario-zapretit-opyty-nad-sobakami-i-koshkami/">
+  <div class="card-img"><img src="/photos/photo_979@26-08-2025_12-46-50.jpg" alt="Онтарио запретит опыты над собаками и кошками" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thecanadianpressnews.ca</div>
+    <div class="card-title">Онтарио запретит опыты над собаками и кошками</div>
+    <div class="card-excerpt">Премьер Даг Форд заявил, что в провинции больше не будут использовать собак и кошек для научных исследований. «Вы больше не будете ставить опыты на питомцах. Ни на собаках, ни на кошках. Всё просто: э</div>
+    <div class="card-meta">
+      <span class="card-date">26 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-23-karni-snimaet-chast-otvetnyh-tarifov-na-ssha-vremya-loktey-p/">
-  <div class="sc-img"><img src="/photos/photo_965@23-08-2025_11-39-01.jpg" alt="Карни снимает часть ответных тарифов на США: «Время локтей прошло»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Карни снимает часть ответных тарифов на США: «Время локтей прошло»</div>
-    <div class="pex">Премьер-министр Марк Карни объявил о снятии примерно половины контр-тарифов на американские товары, введённых в начале года. Исключение составляют сталь, алюминий и автомобили — пошлины на них остаютс</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-08-23-karni-snimaet-chast-otvetnyh-tarifov-na-ssha-vremya-loktey-p/">
+  <div class="card-img"><img src="/photos/photo_965@23-08-2025_11-39-01.jpg" alt="Карни снимает часть ответных тарифов на США: «Время локтей прошло»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Карни снимает часть ответных тарифов на США: «Время локтей прошло»</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни объявил о снятии примерно половины контр-тарифов на американские товары, введённых в начале года. Исключение составляют сталь, алюминий и автомобили — пошлины на них остаютс</div>
+    <div class="card-meta">
+      <span class="card-date">23 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-23-kanada-snimet-otvetnye-tarify-na-tovary-iz-ssha-podpadayusch/">
-  <div class="sc-img"><img src="/photos/photo_964@23-08-2025_08-43-01.jpg" alt="Канада снимет ответные тарифы на товары из США, подпадающие под CUSMA. Пошлины на сталь, алюминий и автомобили пока сохраняются." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канада снимет ответные тарифы на товары из США, подпадающие под CUSMA. Пошлины на сталь, алюминий и автомобили пока сохраняются.</div>
-    <div class="pex">Премьер-министр Марк Карни заявил, что к 1 сентября все контр-тарифы на американские товары в рамках CUSMA будут отменены. Решение последовало после его телефонного разговора с Дональдом Трампом.  – К</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-08-23-kanada-snimet-otvetnye-tarify-na-tovary-iz-ssha-podpadayusch/">
+  <div class="card-img"><img src="/photos/photo_964@23-08-2025_08-43-01.jpg" alt="Канада снимет ответные тарифы на товары из США, подпадающие под CUSMA. Пошлины на сталь, алюминий и автомобили пока сохраняются." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канада снимет ответные тарифы на товары из США, подпадающие под CUSMA. Пошлины на сталь, алюминий и автомобили пока сохраняются.</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни заявил, что к 1 сентября все контр-тарифы на американские товары в рамках CUSMA будут отменены. Решение последовало после его телефонного разговора с Дональдом Трампом.  – К</div>
+    <div class="card-meta">
+      <span class="card-date">23 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-22-ontario-poteryalo-38-000-rabochih-mest-iz-za-tarifov-ssha-na/">
-  <div class="sc-img"><img src="/photos/photo_959@22-08-2025_11-24-01.jpg" alt="Онтарио потеряло 38 000 рабочих мест из-за тарифов США на импорт из Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Онтарио потеряло 38 000 рабочих мест из-за тарифов США на импорт из Канады</div>
-    <div class="pex">Финансовый контрольный орган Онтарио сообщил, что во втором квартале 2025 года в провинции исчезло 38 000 рабочих мест. Уровень безработицы вырос до 7,8% — максимума с 2012 года (если не считать панде</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-08-22-ontario-poteryalo-38-000-rabochih-mest-iz-za-tarifov-ssha-na/">
+  <div class="card-img"><img src="/photos/photo_959@22-08-2025_11-24-01.jpg" alt="Онтарио потеряло 38 000 рабочих мест из-за тарифов США на импорт из Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Онтарио потеряло 38 000 рабочих мест из-за тарифов США на импорт из Канады</div>
+    <div class="card-excerpt">Финансовый контрольный орган Онтарио сообщил, что во втором квартале 2025 года в провинции исчезло 38 000 рабочих мест. Уровень безработицы вырос до 7,8% — максимума с 2012 года (если не считать панде</div>
+    <div class="card-meta">
+      <span class="card-date">22 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-21-advokat-v-kanade-pravo-na-samozaschitu-est-no-ne-bezgranichn/">
-  <div class="sc-img"><img src="/photos/photo_952@21-08-2025_10-51-38.jpg" alt="Адвокат: в Канаде право на самозащиту есть, но не безграничное" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Адвокат: в Канаде право на самозащиту есть, но не безграничное</div>
-    <div class="pex">История в Линдси (Онтарио), где хозяина квартиры обвинили в тяжком нападении после того, как он ранил взломщика, вызвала бурю возмущения. Премьер Даг Форд заявил, что «система сломана», а жители город</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-08-21-advokat-v-kanade-pravo-na-samozaschitu-est-no-ne-bezgranichn/">
+  <div class="card-img"><img src="/photos/photo_952@21-08-2025_10-51-38.jpg" alt="Адвокат: в Канаде право на самозащиту есть, но не безграничное" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Адвокат: в Канаде право на самозащиту есть, но не безграничное</div>
+    <div class="card-excerpt">История в Линдси (Онтарио), где хозяина квартиры обвинили в тяжком нападении после того, как он ранил взломщика, вызвала бурю возмущения. Премьер Даг Форд заявил, что «система сломана», а жители город</div>
+    <div class="card-meta">
+      <span class="card-date">21 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-20-spyaschiy-hozyain-kvartiry-zaschitilsya-ot-grabitelya-i-sam-/">
-  <div class="sc-img"><img src="/photos/photo_948@20-08-2025_11-59-01.jpg" alt="Спящий хозяин квартиры защитился от грабителя – и сам оказался под обвинением" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Спящий хозяин квартиры защитился от грабителя – и сам оказался под обвинением</div>
-    <div class="pex">История из Линдси (Онтарио) взбудоражила всю Канаду. Ранним утром в понедельник мужчина проснулся у себя дома и обнаружил незваного гостя. Завязалась драка, в результате которой предполагаемый взломщи</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-20-spyaschiy-hozyain-kvartiry-zaschitilsya-ot-grabitelya-i-sam-/">
+  <div class="card-img"><img src="/photos/photo_948@20-08-2025_11-59-01.jpg" alt="Спящий хозяин квартиры защитился от грабителя – и сам оказался под обвинением" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Спящий хозяин квартиры защитился от грабителя – и сам оказался под обвинением</div>
+    <div class="card-excerpt">История из Линдси (Онтарио) взбудоражила всю Канаду. Ранним утром в понедельник мужчина проснулся у себя дома и обнаружил незваного гостя. Завязалась драка, в результате которой предполагаемый взломщи</div>
+    <div class="card-meta">
+      <span class="card-date">20 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-16-verhovnyy-sud-britanskoy-kolumbii-vynes-pervyy-v-kanade-prik/">
-  <div class="sc-img"><img src="/photos/photo_933@16-08-2025_13-32-01.jpg" alt="Верховный суд Британской Колумбии вынес первый в Канаде приказ о «необъяснённом богатстве» (unexplained wealth order)." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Верховный суд Британской Колумбии вынес первый в Канаде приказ о «необъяснённом богатстве» (unexplained wealth order).</div>
-    <div class="pex">Решение связано с делом о двойной перестрелке в Ванкувере в сентябре 2023 года, после которой полиция вышла на подпольное производство каннабиса.  Два домовладельца — Цзяньсинь Хуан и Сяо Чжэнь Жан Ли</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 авг 2025</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2025-08-16-verhovnyy-sud-britanskoy-kolumbii-vynes-pervyy-v-kanade-prik/">
+  <div class="card-img"><img src="/photos/photo_933@16-08-2025_13-32-01.jpg" alt="Верховный суд Британской Колумбии вынес первый в Канаде приказ о «необъяснённом богатстве» (unexplained wealth order)." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Верховный суд Британской Колумбии вынес первый в Канаде приказ о «необъяснённом богатстве» (unexplained wealth order).</div>
+    <div class="card-excerpt">Решение связано с делом о двойной перестрелке в Ванкувере в сентябре 2023 года, после которой полиция вышла на подпольное производство каннабиса.  Два домовладельца — Цзяньсинь Хуан и Сяо Чжэнь Жан Ли</div>
+    <div class="card-meta">
+      <span class="card-date">16 авг 2025</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-16-znachitelnyy-krizis-kolichestvo-sluchaev-nasiliya-v-shkolah-/">
-  <div class="sc-img"><img src="/photos/photo_932@16-08-2025_11-31-37.jpg" alt="«Значительный кризис»: количество случаев насилия в школах Онтарио продолжает расти" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">«Значительный кризис»: количество случаев насилия в школах Онтарио продолжает расти</div>
-    <div class="pex">Global News опубликовал данные, полученные через запросы по свободе информации: за последние годы число зарегистрированных случаев насилия в школах Онтарио выросло на 77% по сравнению с 2018/19 учебны</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-08-16-znachitelnyy-krizis-kolichestvo-sluchaev-nasiliya-v-shkolah-/">
+  <div class="card-img"><img src="/photos/photo_932@16-08-2025_11-31-37.jpg" alt="«Значительный кризис»: количество случаев насилия в школах Онтарио продолжает расти" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">«Значительный кризис»: количество случаев насилия в школах Онтарио продолжает расти</div>
+    <div class="card-excerpt">Global News опубликовал данные, полученные через запросы по свободе информации: за последние годы число зарегистрированных случаев насилия в школах Онтарио выросло на 77% по сравнению с 2018/19 учебны</div>
+    <div class="card-meta">
+      <span class="card-date">16 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-15-tiff-v-tsentre-skandala-festival-otmenil-pokaz-filma-ob-okty/">
-  <div class="sc-img"><img src="/photos/photo_927@15-08-2025_14-42-01.jpg" alt="TIFF в центре скандала: фестиваль отменил показ фильма об Октябре 7 из-за «отсутствия разрешения от ХАМАС»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">TIFF в центре скандала: фестиваль отменил показ фильма об Октябре 7 из-за «отсутствия разрешения от ХАМАС»</div>
-    <div class="pex">Торонто International Film Festival (TIFF) оказался в эпицентре громкой цензурной истории.   Канадский режиссёр Барри Аврич снял документальный фильм The Road Between Us: The Ultimate Rescue о генерал</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-08-15-tiff-v-tsentre-skandala-festival-otmenil-pokaz-filma-ob-okty/">
+  <div class="card-img"><img src="/photos/photo_927@15-08-2025_14-42-01.jpg" alt="TIFF в центре скандала: фестиваль отменил показ фильма об Октябре 7 из-за «отсутствия разрешения от ХАМАС»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">TIFF в центре скандала: фестиваль отменил показ фильма об Октябре 7 из-за «отсутствия разрешения от ХАМАС»</div>
+    <div class="card-excerpt">Торонто International Film Festival (TIFF) оказался в эпицентре громкой цензурной истории.   Канадский режиссёр Барри Аврич снял документальный фильм The Road Between Us: The Ultimate Rescue о генерал</div>
+    <div class="card-meta">
+      <span class="card-date">15 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-15-posol-ssha-kanada-vybila-pochvu-iz-pod-cusma-svoimi-otvetnym/">
-  <div class="sc-img"><img src="/photos/photo_923@15-08-2025_09-34-01.jpg" alt="Посол США: Канада «выбила почву из-под» CUSMA своими ответными тарифами" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Посол США: Канада «выбила почву из-под» CUSMA своими ответными тарифами</div>
-    <div class="pex">Американский посол в Канаде Пит Хукстра в интервью Global News обвинил Оттаву в том, что она подрывает будущее соглашения о свободной торговле CUSMA (USMCA), введя ответные тарифы на американские това</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-08-15-posol-ssha-kanada-vybila-pochvu-iz-pod-cusma-svoimi-otvetnym/">
+  <div class="card-img"><img src="/photos/photo_923@15-08-2025_09-34-01.jpg" alt="Посол США: Канада «выбила почву из-под» CUSMA своими ответными тарифами" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Посол США: Канада «выбила почву из-под» CUSMA своими ответными тарифами</div>
+    <div class="card-excerpt">Американский посол в Канаде Пит Хукстра в интервью Global News обвинил Оттаву в том, что она подрывает будущее соглашения о свободной торговле CUSMA (USMCA), введя ответные тарифы на американские това</div>
+    <div class="card-meta">
+      <span class="card-date">15 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-14-ontario-vozvraschaet-gossluzhaschih-v-ofis-na-polnyy-rabochi/">
-  <div class="sc-img"><span style="font-size:26px">📻</span></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Онтарио возвращает госслужащих в офис на полный рабочий день</div>
-    <div class="pex">Правительство Дага Форда объявило: уже этой осенью сотрудники провинциальной службы Онтарио будут обязаны проводить в офисе 4 дня в неделю, а с 5 января 2026 года — работать там полный рабочий день.</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-08-14-ontario-vozvraschaet-gossluzhaschih-v-ofis-na-polnyy-rabochi/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📻</span></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Онтарио возвращает госслужащих в офис на полный рабочий день</div>
+    <div class="card-excerpt">Правительство Дага Форда объявило: уже этой осенью сотрудники провинциальной службы Онтарио будут обязаны проводить в офисе 4 дня в неделю, а с 5 января 2026 года — работать там полный рабочий день.</div>
+    <div class="card-meta">
+      <span class="card-date">14 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-11-premer-karni-snizil-gradus-v-tarifnoy-voyne-s-trampom-poka/">
-  <div class="sc-img"><img src="/photos/photo_911@11-08-2025_14-38-01.jpg" alt="Премьер Карни снизил градус в тарифной войне с Трампом — пока" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Премьер Карни снизил градус в тарифной войне с Трампом — пока</div>
-    <div class="pex">Марк Карни пришёл в политику с образом хладнокровного оксфордского экономиста, способного сдержать хаотичность Дональда Трампа жёсткими «локтями» и быстрой дипломатией.   Весной он пообещал добиться т</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-08-11-premer-karni-snizil-gradus-v-tarifnoy-voyne-s-trampom-poka/">
+  <div class="card-img"><img src="/photos/photo_911@11-08-2025_14-38-01.jpg" alt="Премьер Карни снизил градус в тарифной войне с Трампом — пока" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Премьер Карни снизил градус в тарифной войне с Трампом — пока</div>
+    <div class="card-excerpt">Марк Карни пришёл в политику с образом хладнокровного оксфордского экономиста, способного сдержать хаотичность Дональда Трампа жёсткими «локтями» и быстрой дипломатией.   Весной он пообещал добиться т</div>
+    <div class="card-meta">
+      <span class="card-date">11 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-09-chernokozhemu-muzhchine-v-kvebeke-sokratili-srok-iz-za-rasov/">
-  <div class="sc-img"><img src="/photos/photo_902@09-08-2025_13-08-01.jpg" alt="Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации</div>
-    <div class="pex">52-летний Фрэнк Парис признал себя виновным в торговле каннабисом и гашишем. Корона требовала четыре года тюрьмы, но судья Магали Лепаж назначила два года, признав влияние системного расизма и историч</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-08-09-chernokozhemu-muzhchine-v-kvebeke-sokratili-srok-iz-za-rasov/">
+  <div class="card-img"><img src="/photos/photo_902@09-08-2025_13-08-01.jpg" alt="Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации</div>
+    <div class="card-excerpt">52-летний Фрэнк Парис признал себя виновным в торговле каннабисом и гашишем. Корона требовала четыре года тюрьмы, но судья Магали Лепаж назначила два года, признав влияние системного расизма и историч</div>
+    <div class="card-meta">
+      <span class="card-date">9 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-09-pravitelstvo-marka-karni-aktivno-vosstanavlivaet-otnosheniya/">
-  <div class="sc-img"><img src="/photos/photo_901@09-08-2025_11-07-01.jpg" alt="Правительство Марка Карни активно восстанавливает отношения с Мексикой на фоне тарифных угроз Дональда Трампа и предстоящего пересмотра североамериканского торг" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bloomberg.com</div>
-    <div class="ptit sc-title">Правительство Марка Карни активно восстанавливает отношения с Мексикой на фоне тарифных угроз Дональда Трампа и предстоящего пересмотра североамериканского торг</div>
-    <div class="pex">ового соглашения USMCA.  – На этой неделе министр иностранных дел Анита Ананд и министр финансов Франсуа-Филипп Шампань посетили Мехико, встретившись с президентом Клаудией Шейнбаум, её министрами и п</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-09-pravitelstvo-marka-karni-aktivno-vosstanavlivaet-otnosheniya/">
+  <div class="card-img"><img src="/photos/photo_901@09-08-2025_11-07-01.jpg" alt="Правительство Марка Карни активно восстанавливает отношения с Мексикой на фоне тарифных угроз Дональда Трампа и предстоящего пересмотра североамериканского торг" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bloomberg.com</div>
+    <div class="card-title">Правительство Марка Карни активно восстанавливает отношения с Мексикой на фоне тарифных угроз Дональда Трампа и предстоящего пересмотра североамериканского торг</div>
+    <div class="card-excerpt">ового соглашения USMCA.  – На этой неделе министр иностранных дел Анита Ананд и министр финансов Франсуа-Филипп Шампань посетили Мехико, встретившись с президентом Клаудией Шейнбаум, её министрами и п</div>
+    <div class="card-meta">
+      <span class="card-date">9 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-03-ottok-molodyozhi-ukazyvaet-na-to-chto-ontario-stanovitsya-vs/">
-  <div class="sc-img"><img src="/photos/photo_869@03-08-2025_14-26-49.jpg" alt="Отток молодёжи указывает на то, что Онтарио становится всё менее привлекательным местом для жизни" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">fraserinstitute.org</div>
-    <div class="ptit sc-title">Отток молодёжи указывает на то, что Онтарио становится всё менее привлекательным местом для жизни</div>
-    <div class="pex">За последние четыре года Онтарио в чистом выражении потеряла 104,426 человек, уехавших в другие провинции Канады. По данным Статистического управления, в период с 2020/21 по 2023/24 в Онтарио приехали</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-08-03-ottok-molodyozhi-ukazyvaet-na-to-chto-ontario-stanovitsya-vs/">
+  <div class="card-img"><img src="/photos/photo_869@03-08-2025_14-26-49.jpg" alt="Отток молодёжи указывает на то, что Онтарио становится всё менее привлекательным местом для жизни" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">fraserinstitute.org</div>
+    <div class="card-title">Отток молодёжи указывает на то, что Онтарио становится всё менее привлекательным местом для жизни</div>
+    <div class="card-excerpt">За последние четыре года Онтарио в чистом выражении потеряла 104,426 человек, уехавших в другие провинции Канады. По данным Статистического управления, в период с 2020/21 по 2023/24 в Онтарио приехали</div>
+    <div class="card-meta">
+      <span class="card-date">3 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-26-toronto-voyna-za-ulitsy-mezhdu-velosipedistami-i-avtomobilis/">
-  <div class="sc-img"><img src="/photos/photo_828@26-07-2025_14-16-45.jpg" alt="Торонто: Война за улицы между велосипедистами и автомобилистами" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nytimes.com</div>
-    <div class="ptit sc-title">Торонто: Война за улицы между велосипедистами и автомобилистами</div>
-    <div class="pex">В центре Торонто разгорается политический конфликт — правительство Дага Форда решило снести 22 км велодорожек на ключевых улицах города. Местные активисты, мэр Оливия Чоу и даже суд пытаются этому пом</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-07-26-toronto-voyna-za-ulitsy-mezhdu-velosipedistami-i-avtomobilis/">
+  <div class="card-img"><img src="/photos/photo_828@26-07-2025_14-16-45.jpg" alt="Торонто: Война за улицы между велосипедистами и автомобилистами" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">Торонто: Война за улицы между велосипедистами и автомобилистами</div>
+    <div class="card-excerpt">В центре Торонто разгорается политический конфликт — правительство Дага Форда решило снести 22 км велодорожек на ключевых улицах города. Местные активисты, мэр Оливия Чоу и даже суд пытаются этому пом</div>
+    <div class="card-meta">
+      <span class="card-date">26 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-25-abakus-progressivnye-konservatory-duga-forda-nabrali-50-v-on/">
-  <div class="sc-img"><img src="/photos/photo_824@25-07-2025_14-36-51.jpg" alt="Абакус: Прогрессивные консерваторы Дуга Форда набрали 50% в Онтарио — +22 очка к либералам" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">abacusdata.ca</div>
-    <div class="ptit sc-title">Абакус: Прогрессивные консерваторы Дуга Форда набрали 50% в Онтарио — +22 очка к либералам</div>
-    <div class="pex">– PC: 50% – Либералы: 28% – NDP: 13% – Зелёные: 6%  Спустя несколько месяцев после переизбрания правительство Форда сохраняет стабильную поддержку — и лидирует с отрывом более чем в 20 пунктов. Одновр</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-07-25-abakus-progressivnye-konservatory-duga-forda-nabrali-50-v-on/">
+  <div class="card-img"><img src="/photos/photo_824@25-07-2025_14-36-51.jpg" alt="Абакус: Прогрессивные консерваторы Дуга Форда набрали 50% в Онтарио — +22 очка к либералам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Абакус: Прогрессивные консерваторы Дуга Форда набрали 50% в Онтарио — +22 очка к либералам</div>
+    <div class="card-excerpt">– PC: 50% – Либералы: 28% – NDP: 13% – Зелёные: 6%  Спустя несколько месяцев после переизбрания правительство Форда сохраняет стабильную поддержку — и лидирует с отрывом более чем в 20 пунктов. Одновр</div>
+    <div class="card-meta">
+      <span class="card-date">25 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-24-shellin-dreyks-tall-iz-toronto-star-vspominaet-kak-v-1999-go/">
-  <div class="sc-img"><img src="/photos/photo_817@24-07-2025_12-51-54.jpg" alt="Шеллин Дрейкс-Талл из Toronto Star вспоминает, как в 1999 году с сестрой легко взяла ипотеку на двухкомнатную квартиру в Скарборо:" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Шеллин Дрейкс-Талл из Toronto Star вспоминает, как в 1999 году с сестрой легко взяла ипотеку на двухкомнатную квартиру в Скарборо:</div>
-    <div class="pex">– без помощи родителей – без двух-трёх работ – и всё равно оставались деньги на отдых и жизнь  Теперь, по её словам, всё наоборот. Молодые в Торонто даже не в 20, а в 30+  не могут войти на рынок вооб</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-07-24-shellin-dreyks-tall-iz-toronto-star-vspominaet-kak-v-1999-go/">
+  <div class="card-img"><img src="/photos/photo_817@24-07-2025_12-51-54.jpg" alt="Шеллин Дрейкс-Талл из Toronto Star вспоминает, как в 1999 году с сестрой легко взяла ипотеку на двухкомнатную квартиру в Скарборо:" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Шеллин Дрейкс-Талл из Toronto Star вспоминает, как в 1999 году с сестрой легко взяла ипотеку на двухкомнатную квартиру в Скарборо:</div>
+    <div class="card-excerpt">– без помощи родителей – без двух-трёх работ – и всё равно оставались деньги на отдых и жизнь  Теперь, по её словам, всё наоборот. Молодые в Торонто даже не в 20, а в 30+  не могут войти на рынок вооб</div>
+    <div class="card-meta">
+      <span class="card-date">24 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-10-tri-ubitye-zhenschiny-za-odnu-nedelyu-v-britanskoy-kolumbii-/">
-  <div class="sc-img"><img src="/photos/photo_722@10-07-2025_14-28-01.jpg" alt="Три убитые женщины за одну неделю в Британской Колумбии. Правозащитники: “Это не кризис — это коллапс”" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vicnews.com</div>
-    <div class="ptit sc-title">Три убитые женщины за одну неделю в Британской Колумбии. Правозащитники: “Это не кризис — это коллапс”</div>
-    <div class="pex">В Абботсфорде, Келоуне и Суррее за последние 7 дней были убиты три женщины — во всех случаях полиция говорит об интимном насилии со смертельным исходом.  – 30 июня: убийство и самоубийство среди пары</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-07-10-tri-ubitye-zhenschiny-za-odnu-nedelyu-v-britanskoy-kolumbii-/">
+  <div class="card-img"><img src="/photos/photo_722@10-07-2025_14-28-01.jpg" alt="Три убитые женщины за одну неделю в Британской Колумбии. Правозащитники: “Это не кризис — это коллапс”" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vicnews.com</div>
+    <div class="card-title">Три убитые женщины за одну неделю в Британской Колумбии. Правозащитники: “Это не кризис — это коллапс”</div>
+    <div class="card-excerpt">В Абботсфорде, Келоуне и Суррее за последние 7 дней были убиты три женщины — во всех случаях полиция говорит об интимном насилии со смертельным исходом.  – 30 июня: убийство и самоубийство среди пары</div>
+    <div class="card-meta">
+      <span class="card-date">10 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-03-bolshinstvo-zhiteley-ontario-vystupayut-protiv-spornogo-zako/">
-  <div class="sc-img"><img src="/photos/photo_681@03-07-2025_19-37-58.jpg" alt="Большинство жителей Онтарио выступают против спорного закона Дага Форда Bill 5 о «специальных экономических зонах», но при этом готовы изменить мнение — если бу" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontotoday.ca</div>
-    <div class="ptit sc-title">Большинство жителей Онтарио выступают против спорного закона Дага Форда Bill 5 о «специальных экономических зонах», но при этом готовы изменить мнение — если бу</div>
-    <div class="pex">дет прогресс.  Согласно новому опросу Pallas Data: – 58% против закона – 22% поддерживают – 20% не определились  Закон даёт кабинету Форда право назначать зоны, где можно игнорировать местные и провин</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-07-03-bolshinstvo-zhiteley-ontario-vystupayut-protiv-spornogo-zako/">
+  <div class="card-img"><img src="/photos/photo_681@03-07-2025_19-37-58.jpg" alt="Большинство жителей Онтарио выступают против спорного закона Дага Форда Bill 5 о «специальных экономических зонах», но при этом готовы изменить мнение — если бу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontotoday.ca</div>
+    <div class="card-title">Большинство жителей Онтарио выступают против спорного закона Дага Форда Bill 5 о «специальных экономических зонах», но при этом готовы изменить мнение — если бу</div>
+    <div class="card-excerpt">дет прогресс.  Согласно новому опросу Pallas Data: – 58% против закона – 22% поддерживают – 20% не определились  Закон даёт кабинету Форда право назначать зоны, где можно игнорировать местные и провин</div>
+    <div class="card-meta">
+      <span class="card-date">3 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-02-molchanie-pera-polieva-luchshee-chto-sluchilos-s-etim-letom-/">
-  <div class="sc-img"><img src="/photos/photo_671@02-07-2025_13-05-18.jpg" alt="Молчание Пьера Полиева — лучшее, что случилось с этим летом. Так считает ветеран канадской журналистики Джим Койл:" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Молчание Пьера Полиева — лучшее, что случилось с этим летом. Так считает ветеран канадской журналистики Джим Койл:</div>
-    <div class="pex">“Его голос звучал как дрель на тротуаре. Скулёж, жалобы, вечно сломанная страна — и всё это с интонацией на грани истерики.”  В колонке Койл подводит итоги: – Полиев провёл неплохую кампанию по цифрам</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-07-02-molchanie-pera-polieva-luchshee-chto-sluchilos-s-etim-letom-/">
+  <div class="card-img"><img src="/photos/photo_671@02-07-2025_13-05-18.jpg" alt="Молчание Пьера Полиева — лучшее, что случилось с этим летом. Так считает ветеран канадской журналистики Джим Койл:" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Молчание Пьера Полиева — лучшее, что случилось с этим летом. Так считает ветеран канадской журналистики Джим Койл:</div>
+    <div class="card-excerpt">“Его голос звучал как дрель на тротуаре. Скулёж, жалобы, вечно сломанная страна — и всё это с интонацией на грани истерики.”  В колонке Койл подводит итоги: – Полиев провёл неплохую кампанию по цифрам</div>
+    <div class="card-meta">
+      <span class="card-date">2 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-25-skolko-gradusov-nuzhno-chtoby-pravitelstvo-forda-chto-to-sde/">
-  <div class="sc-img"><img src="/photos/photo_644@25-06-2025_20-42-05.jpg" alt="🌡 “Сколько градусов нужно, чтобы правительство Форда что-то сделало?”" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">🌡 “Сколько градусов нужно, чтобы правительство Форда что-то сделало?”</div>
-    <div class="pex">В Онтарио жара доходит до +46°C по ощущению, но десятки тысяч школьников проводят последние дни учебного года в раскалённых, душных зданиях — 70% школ в Торонто без кондиционеров.  В Гамильтоне кондиц</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-06-25-skolko-gradusov-nuzhno-chtoby-pravitelstvo-forda-chto-to-sde/">
+  <div class="card-img"><img src="/photos/photo_644@25-06-2025_20-42-05.jpg" alt="🌡 “Сколько градусов нужно, чтобы правительство Форда что-то сделало?”" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">🌡 “Сколько градусов нужно, чтобы правительство Форда что-то сделало?”</div>
+    <div class="card-excerpt">В Онтарио жара доходит до +46°C по ощущению, но десятки тысяч школьников проводят последние дни учебного года в раскалённых, душных зданиях — 70% школ в Торонто без кондиционеров.  В Гамильтоне кондиц</div>
+    <div class="card-meta">
+      <span class="card-date">25 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-23-kanada-postroena-na-ukradennoy-zemle-eto-krasivaya-fraza-no-/">
-  <div class="sc-img"><img src="/photos/photo_630@23-06-2025_14-56-45.jpg" alt="«Канада построена на украденной земле» — это красивая фраза. Но исторически и юридически — она ложная." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">«Канада построена на украденной земле» — это красивая фраза. Но исторически и юридически — она ложная.</div>
-    <div class="pex">Так утверждает Найджел Биггар, оксфордский профессор морали, в колонке для National Post. И у него — железная аргументация, особенно против тех, кто хочет «отдать всю землю обратно».  – Право собствен</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-06-23-kanada-postroena-na-ukradennoy-zemle-eto-krasivaya-fraza-no-/">
+  <div class="card-img"><img src="/photos/photo_630@23-06-2025_14-56-45.jpg" alt="«Канада построена на украденной земле» — это красивая фраза. Но исторически и юридически — она ложная." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">«Канада построена на украденной земле» — это красивая фраза. Но исторически и юридически — она ложная.</div>
+    <div class="card-excerpt">Так утверждает Найджел Биггар, оксфордский профессор морали, в колонке для National Post. И у него — железная аргументация, особенно против тех, кто хочет «отдать всю землю обратно».  – Право собствен</div>
+    <div class="card-meta">
+      <span class="card-date">23 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-20-dag-ford-snova-otlichilsya-i-vynuzhden-byl-publichno-izvinya/">
-  <div class="sc-img"><img src="/photos/photo_616@20-06-2025_11-14-06.jpg" alt="🇨🇦 Даг Форд снова отличился — и вынужден был публично извиняться." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">🇨🇦 Даг Форд снова отличился — и вынужден был публично извиняться.</div>
-    <div class="pex">Всё из-за скандальной фразы о том, что “пора перестать ходить с протянутой рукой” к правительству, адресованной коренным народам Канады.  – Во время обсуждения разработок полезных ископаемых на севере</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-06-20-dag-ford-snova-otlichilsya-i-vynuzhden-byl-publichno-izvinya/">
+  <div class="card-img"><img src="/photos/photo_616@20-06-2025_11-14-06.jpg" alt="🇨🇦 Даг Форд снова отличился — и вынужден был публично извиняться." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">🇨🇦 Даг Форд снова отличился — и вынужден был публично извиняться.</div>
+    <div class="card-excerpt">Всё из-за скандальной фразы о том, что “пора перестать ходить с протянутой рукой” к правительству, адресованной коренным народам Канады.  – Во время обсуждения разработок полезных ископаемых на севере</div>
+    <div class="card-meta">
+      <span class="card-date">20 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-18-karni-uderzhal-g7-na-hodu/">
-  <div class="sc-img"><img src="/photos/photo_608@18-06-2025_10-51-29.jpg" alt="Карни удержал G7 на ходу" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Карни удержал G7 на ходу</div>
-    <div class="pex">Итоги саммита G7 в Кананакисе — не только дипломатия, но и стресс-тест на выносливость. Премьер-министр Марк Карни, впервые выступая в роли хозяина «большой семёрки», справился на отлично, несмотря на</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ukraina/">#Украина</a></div></div>
+</a><a class="card" href="/post/2025-06-18-karni-uderzhal-g7-na-hodu/">
+  <div class="card-img"><img src="/photos/photo_608@18-06-2025_10-51-29.jpg" alt="Карни удержал G7 на ходу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Карни удержал G7 на ходу</div>
+    <div class="card-excerpt">Итоги саммита G7 в Кананакисе — не только дипломатия, но и стресс-тест на выносливость. Премьер-министр Марк Карни, впервые выступая в роли хозяина «большой семёрки», справился на отлично, несмотря на</div>
+    <div class="card-meta">
+      <span class="card-date">18 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-16-ontario-bolnoy-chelovek-kanady/">
-  <div class="sc-img"><img src="/photos/photo_600@16-06-2025_11-54-06.jpg" alt="Онтарио — «больной человек» Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">Онтарио — «больной человек» Канады</div>
-    <div class="pex">Эрик Ломбарди в The Hub пишет жёстко и точно: самая большая и богатая провинция Канады превратилась в тормоз для всей страны.  У Онтарио — всё, чтобы быть локомотивом: ресурсы, почти безуглеродная эне</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-06-16-ontario-bolnoy-chelovek-kanady/">
+  <div class="card-img"><img src="/photos/photo_600@16-06-2025_11-54-06.jpg" alt="Онтарио — «больной человек» Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Онтарио — «больной человек» Канады</div>
+    <div class="card-excerpt">Эрик Ломбарди в The Hub пишет жёстко и точно: самая большая и богатая провинция Канады превратилась в тормоз для всей страны.  У Онтарио — всё, чтобы быть локомотивом: ресурсы, почти безуглеродная эне</div>
+    <div class="card-meta">
+      <span class="card-date">16 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-10-samyy-populyarnyy-konservator-kanady-seychas-vovse-ne-per-po/">
-  <div class="sc-img"><img src="/photos/photo_573@10-06-2025_10-44-01.jpg" alt="Самый популярный консерватор Канады сейчас — вовсе не Пьер Полиев. Это Даг Форд." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thewalrus.ca</div>
-    <div class="ptit sc-title">Самый популярный консерватор Канады сейчас — вовсе не Пьер Полиев. Это Даг Форд.</div>
-    <div class="pex">Свежий опрос Pollara показывает: премьер Онтарио Даг Форд неожиданно стал лидером по популярности среди всех глав провинций и вообще — среди канадских консерваторов.  – По стране у Форда 47% положител</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-06-10-samyy-populyarnyy-konservator-kanady-seychas-vovse-ne-per-po/">
+  <div class="card-img"><img src="/photos/photo_573@10-06-2025_10-44-01.jpg" alt="Самый популярный консерватор Канады сейчас — вовсе не Пьер Полиев. Это Даг Форд." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thewalrus.ca</div>
+    <div class="card-title">Самый популярный консерватор Канады сейчас — вовсе не Пьер Полиев. Это Даг Форд.</div>
+    <div class="card-excerpt">Свежий опрос Pollara показывает: премьер Онтарио Даг Форд неожиданно стал лидером по популярности среди всех глав провинций и вообще — среди канадских консерваторов.  – По стране у Форда 47% положител</div>
+    <div class="card-meta">
+      <span class="card-date">10 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-10-ford-i-hyuston-vino-iz-ssha-na-polki-ne-vernyom-poka-tramp-d/">
-  <div class="sc-img"><img src="/photos/photo_572@10-06-2025_09-59-01.jpg" alt="Форд и Хьюстон: вино из США на полки не вернём, пока Трамп держит пошлины" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Форд и Хьюстон: вино из США на полки не вернём, пока Трамп держит пошлины</div>
-    <div class="pex">Пока Альберта решила снова пустить американский алкоголь в продажу, другие премьеры остались при жёсткой позиции.  Даг Форд вчера заявил: Онтарио не будет возвращать продукцию из США в магазины LCBO,</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-06-10-ford-i-hyuston-vino-iz-ssha-na-polki-ne-vernyom-poka-tramp-d/">
+  <div class="card-img"><img src="/photos/photo_572@10-06-2025_09-59-01.jpg" alt="Форд и Хьюстон: вино из США на полки не вернём, пока Трамп держит пошлины" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Форд и Хьюстон: вино из США на полки не вернём, пока Трамп держит пошлины</div>
+    <div class="card-excerpt">Пока Альберта решила снова пустить американский алкоголь в продажу, другие премьеры остались при жёсткой позиции.  Даг Форд вчера заявил: Онтарио не будет возвращать продукцию из США в магазины LCBO,</div>
+    <div class="card-meta">
+      <span class="card-date">10 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-06-08-v-ontario-teper-deystvuet-novyy-zakon-kotoryy-dayot-pravitel/">
-  <div class="sc-img"><img src="/photos/photo_564@08-06-2025_13-59-01.jpg" alt="В Онтарио теперь действует новый закон, который даёт правительству Форда право временно отменять любые провинциальные законы в так называемых “специальных эконо" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">В Онтарио теперь действует новый закон, который даёт правительству Форда право временно отменять любые провинциальные законы в так называемых “специальных эконо</div>
-    <div class="pex">мических зонах” (СЭЗ).  Bill 5 (Protecting Ontario by Unleashing Our Economy Act) получил королевскую санкцию. Даг Форд уже заявил, что намерен немедленно воспользоваться новыми полномочиями.  Что это</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-06-08-v-ontario-teper-deystvuet-novyy-zakon-kotoryy-dayot-pravitel/">
+  <div class="card-img"><img src="/photos/photo_564@08-06-2025_13-59-01.jpg" alt="В Онтарио теперь действует новый закон, который даёт правительству Форда право временно отменять любые провинциальные законы в так называемых “специальных эконо" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">В Онтарио теперь действует новый закон, который даёт правительству Форда право временно отменять любые провинциальные законы в так называемых “специальных эконо</div>
+    <div class="card-excerpt">мических зонах” (СЭЗ).  Bill 5 (Protecting Ontario by Unleashing Our Economy Act) получил королевскую санкцию. Даг Форд уже заявил, что намерен немедленно воспользоваться новыми полномочиями.  Что это</div>
+    <div class="card-meta">
+      <span class="card-date">8 июн 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-30-premery-predstavlyayut-karni-svoi-natsionalnye-proekty-trubo/">
-  <div class="sc-img"><img src="/photos/photo_531@30-05-2025_18-49-01.jpg" alt="Премьеры представляют Карни свои «национальные проекты»: трубопроводы, ветряки, шахты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Премьеры представляют Карни свои «национальные проекты»: трубопроводы, ветряки, шахты</div>
-    <div class="pex">В понедельник в Саскатуне Марк Карни встретится с главами всех провинций и территорий, чтобы обсудить, какие инфраструктурные проекты получат статус «в национальных интересах» и, соответственно, ускор</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 май 2025</span><div class="ptags"><a class="ptag" href="/tag/arktika/">#Арктика</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-05-30-premery-predstavlyayut-karni-svoi-natsionalnye-proekty-trubo/">
+  <div class="card-img"><img src="/photos/photo_531@30-05-2025_18-49-01.jpg" alt="Премьеры представляют Карни свои «национальные проекты»: трубопроводы, ветряки, шахты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Премьеры представляют Карни свои «национальные проекты»: трубопроводы, ветряки, шахты</div>
+    <div class="card-excerpt">В понедельник в Саскатуне Марк Карни встретится с главами всех провинций и территорий, чтобы обсудить, какие инфраструктурные проекты получат статус «в национальных интересах» и, соответственно, ускор</div>
+    <div class="card-meta">
+      <span class="card-date">30 май 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-29-ministr-truda-ontario-devid-pichchini-poobeschal-navesti-por/">
-  <div class="sc-img"><img src="/photos/photo_525@29-05-2025_09-38-01.jpg" alt="Министр труда Онтарио Дэвид Пиччини пообещал навести порядок с фейковыми вакансиями, которые заполонили платформы по поиску работы." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Министр труда Онтарио Дэвид Пиччини пообещал навести порядок с фейковыми вакансиями, которые заполонили платформы по поиску работы.</div>
-    <div class="pex">Согласно данным Канадского центра по борьбе с мошенничеством, в 2024 году канадцы потеряли $47 миллионов из-за обмана при трудоустройстве, из них почти треть — в Онтарио.  Что предлагает правительство</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 май 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-05-29-ministr-truda-ontario-devid-pichchini-poobeschal-navesti-por/">
+  <div class="card-img"><img src="/photos/photo_525@29-05-2025_09-38-01.jpg" alt="Министр труда Онтарио Дэвид Пиччини пообещал навести порядок с фейковыми вакансиями, которые заполонили платформы по поиску работы." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Министр труда Онтарио Дэвид Пиччини пообещал навести порядок с фейковыми вакансиями, которые заполонили платформы по поиску работы.</div>
+    <div class="card-excerpt">Согласно данным Канадского центра по борьбе с мошенничеством, в 2024 году канадцы потеряли $47 миллионов из-за обмана при трудоустройстве, из них почти треть — в Онтарио.  Что предлагает правительство</div>
+    <div class="card-meta">
+      <span class="card-date">29 май 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-05-25-uchitelya-ontario-vyshli-na-ulitsy-30-milliardov-ne-reshenie/">
-  <div class="sc-img"><img src="/photos/photo_511@25-05-2025_14-21-37.jpg" alt="Учителя Онтарио вышли на улицы: «30 миллиардов — не решение, а издевка»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Учителя Онтарио вышли на улицы: «30 миллиардов — не решение, а издевка»</div>
-    <div class="pex">В субботу у здания законодательного собрания Онтарио (Queen’s Park) прошёл масштабный митинг учителей, родителей и студентов. Причина — «хроническое недофинансирование» школ, несмотря на заявления про</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 май 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-05-25-uchitelya-ontario-vyshli-na-ulitsy-30-milliardov-ne-reshenie/">
+  <div class="card-img"><img src="/photos/photo_511@25-05-2025_14-21-37.jpg" alt="Учителя Онтарио вышли на улицы: «30 миллиардов — не решение, а издевка»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Учителя Онтарио вышли на улицы: «30 миллиардов — не решение, а издевка»</div>
+    <div class="card-excerpt">В субботу у здания законодательного собрания Онтарио (Queen’s Park) прошёл масштабный митинг учителей, родителей и студентов. Причина — «хроническое недофинансирование» школ, несмотря на заявления про</div>
+    <div class="card-meta">
+      <span class="card-date">25 май 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/person/dag-ford/page/2/">←</a><a class="pb" href="/person/dag-ford/">1</a><a class="pb" href="/person/dag-ford/page/2/">2</a><a class="pb on" href="/person/dag-ford/page/3/">3</a><a class="pb" href="/person/dag-ford/page/4/">4</a><a class="pb" href="/person/dag-ford/page/5/">5</a><a class="pb" href="/person/dag-ford/page/4/">→</a></div>

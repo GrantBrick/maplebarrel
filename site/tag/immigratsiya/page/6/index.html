@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#иммиграция</h1>
     <p>336 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-09-12-restorany-protiv-ebi-kto-ne-vidit-realnosti-v-spore-o-vremen/">
-  <div class="sc-img"><img src="/photos/photo_1065@12-09-2025_12-24-01.jpg" alt="Рестораны против Эби: кто «не видит реальности» в споре о временных иностранных работниках" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Рестораны против Эби: кто «не видит реальности» в споре о временных иностранных работниках</div>
-    <div class="pex">﻿  Премьер Британской Колумбии Дэвид Эби решил пойти в лобовую атаку: заявил, что сети вроде Starbucks и Boston Pizza «не могут убедить его», будто в провинции нет своих людей, которых можно поставить</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-09-12-restorany-protiv-ebi-kto-ne-vidit-realnosti-v-spore-o-vremen/">
+  <div class="card-img"><img src="/photos/photo_1065@12-09-2025_12-24-01.jpg" alt="Рестораны против Эби: кто «не видит реальности» в споре о временных иностранных работниках" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Рестораны против Эби: кто «не видит реальности» в споре о временных иностранных работниках</div>
+    <div class="card-excerpt">﻿  Премьер Британской Колумбии Дэвид Эби решил пойти в лобовую атаку: заявил, что сети вроде Starbucks и Boston Pizza «не могут убедить его», будто в провинции нет своих людей, которых можно поставить</div>
+    <div class="card-meta">
+      <span class="card-date">12 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-11-kanadskie-vuzy-nachali-novyy-uchebnyy-god-v-usloviyah-krizis/">
-  <div class="sc-img"><img src="/photos/photo_1061@11-09-2025_15-44-01.jpg" alt="Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки.</div>
-    <div class="pex">⠀ CBC пишет, что студенты по всей стране сталкиваются с урезанными программами, очередями на обязательные предметы и ростом платы за обучение. Международные студенты жалуются на то, что их образование</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-11-kanadskie-vuzy-nachali-novyy-uchebnyy-god-v-usloviyah-krizis/">
+  <div class="card-img"><img src="/photos/photo_1061@11-09-2025_15-44-01.jpg" alt="Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки.</div>
+    <div class="card-excerpt">⠀ CBC пишет, что студенты по всей стране сталкиваются с урезанными программами, очередями на обязательные предметы и ростом платы за обучение. Международные студенты жалуются на то, что их образование</div>
+    <div class="card-meta">
+      <span class="card-date">11 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-11-auditor-ontario-proverit-25-mlrd-fond-razvitiya-navykov-vspl/">
-  <div class="sc-img"><img src="/photos/photo_1058@11-09-2025_10-41-57.jpg" alt="Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»</div>
-    <div class="pex">⠀ Офис аудитора Онтарио во главе с Шелли Спенс начал проверку Skills Development Fund — гигантской программы на $2,5 млрд, которая должна помогать работникам получать новые навыки. Но уже год депутаты</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-09-11-auditor-ontario-proverit-25-mlrd-fond-razvitiya-navykov-vspl/">
+  <div class="card-img"><img src="/photos/photo_1058@11-09-2025_10-41-57.jpg" alt="Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»</div>
+    <div class="card-excerpt">⠀ Офис аудитора Онтарио во главе с Шелли Спенс начал проверку Skills Development Fund — гигантской программы на $2,5 млрд, которая должна помогать работникам получать новые навыки. Но уже год депутаты</div>
+    <div class="card-meta">
+      <span class="card-date">11 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-10-haydu-otvechaet-polievu-obvinyat-immigratsiyu-v-roste-bezrab/">
-  <div class="sc-img"><img src="/photos/photo_1054@10-09-2025_14-33-01.jpg" alt="Хайду отвечает Полиеву: обвинять иммиграцию в росте безработицы — значит стравливать людей" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">snnewswatch.com</div>
-    <div class="ptit sc-title">Хайду отвечает Полиеву: обвинять иммиграцию в росте безработицы — значит стравливать людей</div>
-    <div class="pex">Министр занятости и семейных дел Канады Пэтти Хайду резко раскритиковала Пьера Полиева за его заявления о том, что рост числа временных иностранных работников якобы приводит к росту безработицы среди</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-10-haydu-otvechaet-polievu-obvinyat-immigratsiyu-v-roste-bezrab/">
+  <div class="card-img"><img src="/photos/photo_1054@10-09-2025_14-33-01.jpg" alt="Хайду отвечает Полиеву: обвинять иммиграцию в росте безработицы — значит стравливать людей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">snnewswatch.com</div>
+    <div class="card-title">Хайду отвечает Полиеву: обвинять иммиграцию в росте безработицы — значит стравливать людей</div>
+    <div class="card-excerpt">Министр занятости и семейных дел Канады Пэтти Хайду резко раскритиковала Пьера Полиева за его заявления о том, что рост числа временных иностранных работников якобы приводит к росту безработицы среди</div>
+    <div class="card-meta">
+      <span class="card-date">10 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-10-eks-ministr-britanskoy-kolumbii-katrin-chen-obrushilas-na-eb/">
-  <div class="sc-img"><img src="/photos/photo_1050@10-09-2025_08-58-01.jpg" alt="Экс-министр Британской Колумбии Катрин Чен обрушилась на Эби из-за слов о временных иностранных рабочих" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vancouver.citynews.ca</div>
-    <div class="ptit sc-title">Экс-министр Британской Колумбии Катрин Чен обрушилась на Эби из-за слов о временных иностранных рабочих</div>
-    <div class="pex">Бывшая министр и экс-депутат от НДП Катрин Чен заявила, что «в ярости» после того, как премьер Дэвид Эби призвал отменить или радикально реформировать федеральную программу временных иностранных работ</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-09-10-eks-ministr-britanskoy-kolumbii-katrin-chen-obrushilas-na-eb/">
+  <div class="card-img"><img src="/photos/photo_1050@10-09-2025_08-58-01.jpg" alt="Экс-министр Британской Колумбии Катрин Чен обрушилась на Эби из-за слов о временных иностранных рабочих" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouver.citynews.ca</div>
+    <div class="card-title">Экс-министр Британской Колумбии Катрин Чен обрушилась на Эби из-за слов о временных иностранных рабочих</div>
+    <div class="card-excerpt">Бывшая министр и экс-депутат от НДП Катрин Чен заявила, что «в ярости» после того, как премьер Дэвид Эби призвал отменить или радикально реформировать федеральную программу временных иностранных работ</div>
+    <div class="card-meta">
+      <span class="card-date">10 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-08-opros-abacus-data-liberaly-karni-snova-vperedi-na-fone-ekono/">
-  <div class="sc-img"><img src="/photos/photo_1041@08-09-2025_08-24-24.jpg" alt="Опрос Abacus Data: либералы Карни снова впереди на фоне экономического спада" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">abacusdata.ca</div>
-    <div class="ptit sc-title">Опрос Abacus Data: либералы Карни снова впереди на фоне экономического спада</div>
-    <div class="pex">Abacus Data опубликовала свежий опрос (28 августа – 2 сентября, 1500 респондентов), который совпал с новостями о первом за два года падении канадского ВВП. На этом фоне либералы Марка Карни вернули се</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-09-08-opros-abacus-data-liberaly-karni-snova-vperedi-na-fone-ekono/">
+  <div class="card-img"><img src="/photos/photo_1041@08-09-2025_08-24-24.jpg" alt="Опрос Abacus Data: либералы Карни снова впереди на фоне экономического спада" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Опрос Abacus Data: либералы Карни снова впереди на фоне экономического спада</div>
+    <div class="card-excerpt">Abacus Data опубликовала свежий опрос (28 августа – 2 сентября, 1500 респондентов), который совпал с новостями о первом за два года падении канадского ВВП. На этом фоне либералы Марка Карни вернули се</div>
+    <div class="card-meta">
+      <span class="card-date">8 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-03-70-kanadtsev-trebuyut-ot-karni-zaschitit-tsifrovoy-suverenit/">
-  <div class="sc-img"><img src="/photos/photo_1019@03-09-2025_10-29-01.jpg" alt="70 канадцев требуют от Карни защитить «цифровой суверенитет»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">70 канадцев требуют от Карни защитить «цифровой суверенитет»</div>
-    <div class="pex">Премьер-министр Марк Карни получил громкий сигнал: более 70 известных канадцев, включая Маргарет Этвуд, Джона Ралстона Сола, Атома Эгояна и бывшего генерал-губернатора Адриен Кларксон, подписали откры</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-09-03-70-kanadtsev-trebuyut-ot-karni-zaschitit-tsifrovoy-suverenit/">
+  <div class="card-img"><img src="/photos/photo_1019@03-09-2025_10-29-01.jpg" alt="70 канадцев требуют от Карни защитить «цифровой суверенитет»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">70 канадцев требуют от Карни защитить «цифровой суверенитет»</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни получил громкий сигнал: более 70 известных канадцев, включая Маргарет Этвуд, Джона Ралстона Сола, Атома Эгояна и бывшего генерал-губернатора Адриен Кларксон, подписали откры</div>
+    <div class="card-meta">
+      <span class="card-date">3 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-03-navalnaya-yashin-i-kara-murza-prizvali-kanadu-prinyat-rossiy/">
-  <div class="sc-img"><img src="/photos/photo_1018@03-09-2025_09-36-41.jpg" alt="Навальная, Яшин и Кара-Мурза призвали Канаду принять россиян, которых депортируют из США" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Навальная, Яшин и Кара-Мурза призвали Канаду принять россиян, которых депортируют из США</div>
-    <div class="pex">GLOBE AND MAIL Спрятали открытое письмо под Paywall 😂😂  Юлия Навальная, Илья Яшин и Владимир Кара-Мурза обратились к премьер-министру Канады Марку Карни с просьбой предоставить убежище россиянам с ант</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-09-03-navalnaya-yashin-i-kara-murza-prizvali-kanadu-prinyat-rossiy/">
+  <div class="card-img"><img src="/photos/photo_1018@03-09-2025_09-36-41.jpg" alt="Навальная, Яшин и Кара-Мурза призвали Канаду принять россиян, которых депортируют из США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Навальная, Яшин и Кара-Мурза призвали Канаду принять россиян, которых депортируют из США</div>
+    <div class="card-excerpt">GLOBE AND MAIL Спрятали открытое письмо под Paywall 😂😂  Юлия Навальная, Илья Яшин и Владимир Кара-Мурза обратились к премьер-министру Канады Марку Карни с просьбой предоставить убежище россиянам с ант</div>
+    <div class="card-meta">
+      <span class="card-date">3 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-02-inostrannye-studenty-vybirayut-drugie-strany-kolledzhi-i-uni/">
-  <div class="sc-img"><img src="/photos/photo_1017@02-09-2025_15-57-01.jpg" alt="Иностранные студенты выбирают другие страны: колледжи и университеты Британской Колумбии не добирают набор" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Иностранные студенты выбирают другие страны: колледжи и университеты Британской Колумбии не добирают набор</div>
-    <div class="pex">Осенью 2025-го в кампусах Британской Колумбии будет заметно пустее: почти половина вузов провинции не смогла заполнить квоты на иностранных студентов. Причина — радикальные изменения федеральной полит</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-02-inostrannye-studenty-vybirayut-drugie-strany-kolledzhi-i-uni/">
+  <div class="card-img"><img src="/photos/photo_1017@02-09-2025_15-57-01.jpg" alt="Иностранные студенты выбирают другие страны: колледжи и университеты Британской Колумбии не добирают набор" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Иностранные студенты выбирают другие страны: колледжи и университеты Британской Колумбии не добирают набор</div>
+    <div class="card-excerpt">Осенью 2025-го в кампусах Британской Колумбии будет заметно пустее: почти половина вузов провинции не смогла заполнить квоты на иностранных студентов. Причина — радикальные изменения федеральной полит</div>
+    <div class="card-meta">
+      <span class="card-date">2 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-02-karni-pod-pritselom-eksperty-trebuyut-tsifrovogo-suverenitet/">
-  <div class="sc-img"><img src="/photos/photo_1016@02-09-2025_13-57-03.jpg" alt="Карни под прицелом: эксперты требуют цифрового суверенитета и отказа от «закона о сильных границах»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Карни под прицелом: эксперты требуют цифрового суверенитета и отказа от «закона о сильных границах»</div>
-    <div class="pex">Почти 70 общественных деятелей, учёных и организаций подписали открытое письмо премьер-министру Марку Карни. Они требуют срочно заняться защитой цифрового суверенитета Канады и выбросить в корзину зак</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-09-02-karni-pod-pritselom-eksperty-trebuyut-tsifrovogo-suverenitet/">
+  <div class="card-img"><img src="/photos/photo_1016@02-09-2025_13-57-03.jpg" alt="Карни под прицелом: эксперты требуют цифрового суверенитета и отказа от «закона о сильных границах»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Карни под прицелом: эксперты требуют цифрового суверенитета и отказа от «закона о сильных границах»</div>
+    <div class="card-excerpt">Почти 70 общественных деятелей, учёных и организаций подписали открытое письмо премьер-министру Марку Карни. Они требуют срочно заняться защитой цифрового суверенитета Канады и выбросить в корзину зак</div>
+    <div class="card-meta">
+      <span class="card-date">2 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-02-navodneniya-migrantov-bolshe-net-gospodin-poliev/">
-  <div class="sc-img"><img src="/photos/photo_1014@02-09-2025_11-18-01.jpg" alt="“Наводнения мигрантов” больше нет, господин Полиев" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">“Наводнения мигрантов” больше нет, господин Полиев</div>
-    <div class="pex">Колумнист The Globe and Mail Кэмпбелл Кларк напоминает: канадское население перестало расти. По данным Statistics Canada, в первом квартале 2025 года рост составил ровно 0,0%.   Да, в 2022–2023 годах</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ircc/">#IRCC</a></div></div>
+</a><a class="card" href="/post/2025-09-02-navodneniya-migrantov-bolshe-net-gospodin-poliev/">
+  <div class="card-img"><img src="/photos/photo_1014@02-09-2025_11-18-01.jpg" alt="“Наводнения мигрантов” больше нет, господин Полиев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">“Наводнения мигрантов” больше нет, господин Полиев</div>
+    <div class="card-excerpt">Колумнист The Globe and Mail Кэмпбелл Кларк напоминает: канадское население перестало расти. По данным Statistics Canada, в первом квартале 2025 года рост составил ровно 0,0%.   Да, в 2022–2023 годах</div>
+    <div class="card-meta">
+      <span class="card-date">2 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-01-v-britanskoy-kolumbii-massovye-uvolneniya-v-kolledzhah-i-uni/">
-  <div class="sc-img"><img src="/photos/photo_1011@01-09-2025_13-32-01.jpg" alt="В Британской Колумбии массовые увольнения в колледжах и университетах: «самый серьёзный кризис в истории послешкольного образования»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В Британской Колумбии массовые увольнения в колледжах и университетах: «самый серьёзный кризис в истории послешкольного образования»</div>
-    <div class="pex">Сокращения в Langara College, Kwantlen Polytechnic University (KPU) и других вузах Британской Колумбии приобретают лавинообразный характер. Причина — политика Оттавы и Виктории по сокращению междунаро</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ircc/">#IRCC</a></div></div>
+</a><a class="card" href="/post/2025-09-01-v-britanskoy-kolumbii-massovye-uvolneniya-v-kolledzhah-i-uni/">
+  <div class="card-img"><img src="/photos/photo_1011@01-09-2025_13-32-01.jpg" alt="В Британской Колумбии массовые увольнения в колледжах и университетах: «самый серьёзный кризис в истории послешкольного образования»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Британской Колумбии массовые увольнения в колледжах и университетах: «самый серьёзный кризис в истории послешкольного образования»</div>
+    <div class="card-excerpt">Сокращения в Langara College, Kwantlen Polytechnic University (KPU) и других вузах Британской Колумбии приобретают лавинообразный характер. Причина — политика Оттавы и Виктории по сокращению междунаро</div>
+    <div class="card-meta">
+      <span class="card-date">1 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-01-dve-nedeli-chtoby-sobrat-veschi-semyu-iz-kvebeka-posle-15-le/">
-  <div class="sc-img"><img src="/photos/photo_1010@01-09-2025_11-29-01.jpg" alt="«Две недели, чтобы собрать вещи»: семью из Квебека после 15 лет жизни высылают в США" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">«Две недели, чтобы собрать вещи»: семью из Квебека после 15 лет жизни высылают в США</div>
-    <div class="pex">Семья Фигг из Восточных канадских канто́нов получила ультиматум: к 8 сентября они должны покинуть Канаду, где прожили последние 15 лет.   Для 15-летней Стеллы Фигг воскресный матч по футболу мог стать</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-09-01-dve-nedeli-chtoby-sobrat-veschi-semyu-iz-kvebeka-posle-15-le/">
+  <div class="card-img"><img src="/photos/photo_1010@01-09-2025_11-29-01.jpg" alt="«Две недели, чтобы собрать вещи»: семью из Квебека после 15 лет жизни высылают в США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">«Две недели, чтобы собрать вещи»: семью из Квебека после 15 лет жизни высылают в США</div>
+    <div class="card-excerpt">Семья Фигг из Восточных канадских канто́нов получила ультиматум: к 8 сентября они должны покинуть Канаду, где прожили последние 15 лет.   Для 15-летней Стеллы Фигг воскресный матч по футболу мог стать</div>
+    <div class="card-meta">
+      <span class="card-date">1 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-31-v-kanadu-priezzhaet-menshe-studentov-i-inostrannyh-rabotniko/">
-  <div class="sc-img"><img src="/photos/photo_1007@31-08-2025_15-52-01.jpg" alt="В Канаду приезжает меньше студентов и иностранных работников" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">В Канаду приезжает меньше студентов и иностранных работников</div>
-    <div class="pex">Правительство Канады опубликовало свежие данные: в первом полугодии 2025 года в страну прибыло на 214 520 меньше студентов и работников, чем за тот же период 2024-го.   Из них: – минус 88 617 новых ст</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-31-v-kanadu-priezzhaet-menshe-studentov-i-inostrannyh-rabotniko/">
+  <div class="card-img"><img src="/photos/photo_1007@31-08-2025_15-52-01.jpg" alt="В Канаду приезжает меньше студентов и иностранных работников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">В Канаду приезжает меньше студентов и иностранных работников</div>
+    <div class="card-excerpt">Правительство Канады опубликовало свежие данные: в первом полугодии 2025 года в страну прибыло на 214 520 меньше студентов и работников, чем за тот же период 2024-го.   Из них: – минус 88 617 новых ст</div>
+    <div class="card-meta">
+      <span class="card-date">31 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-29-beyond-the-ballot-medovyy-mesyats-karni-zakonchilsya/">
-  <div class="sc-img"><img src="/photos/photo_999@29-08-2025_13-48-38.jpg" alt="Beyond the Ballot: «медовый месяц» Карни закончился" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">kamloopsbcnow.com</div>
-    <div class="ptit sc-title">Beyond the Ballot: «медовый месяц» Карни закончился</div>
-    <div class="pex">В эфире KelownaNow бывшая депутатка Британской Колумбии Рене Меррифилд разнесла Марка Карни и его первые месяцы в кресле премьера.   Главный удар — по энергетике. Меррифилд назвала европейское турне К</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-29-beyond-the-ballot-medovyy-mesyats-karni-zakonchilsya/">
+  <div class="card-img"><img src="/photos/photo_999@29-08-2025_13-48-38.jpg" alt="Beyond the Ballot: «медовый месяц» Карни закончился" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">kamloopsbcnow.com</div>
+    <div class="card-title">Beyond the Ballot: «медовый месяц» Карни закончился</div>
+    <div class="card-excerpt">В эфире KelownaNow бывшая депутатка Британской Колумбии Рене Меррифилд разнесла Марка Карни и его первые месяцы в кресле премьера.   Главный удар — по энергетике. Меррифилд назвала европейское турне К</div>
+    <div class="card-meta">
+      <span class="card-date">29 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-29-kanadtsy-pod-davleniem-obyski-telefonov-na-granitse-ssha-ras/">
-  <div class="sc-img"><img src="/photos/photo_998@29-08-2025_11-11-57.jpg" alt="Канадцы под давлением: обыски телефонов на границе США растут" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канадцы под давлением: обыски телефонов на границе США растут</div>
-    <div class="pex">По данным U.S. Customs and Border Protection, число проверок электронных устройств на границе достигло рекорда: только с апреля по июнь обыскали почти 15 тысяч гаджетов — на 21% больше, чем в прошлом</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-29-kanadtsy-pod-davleniem-obyski-telefonov-na-granitse-ssha-ras/">
+  <div class="card-img"><img src="/photos/photo_998@29-08-2025_11-11-57.jpg" alt="Канадцы под давлением: обыски телефонов на границе США растут" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадцы под давлением: обыски телефонов на границе США растут</div>
+    <div class="card-excerpt">По данным U.S. Customs and Border Protection, число проверок электронных устройств на границе достигло рекорда: только с апреля по июнь обыскали почти 15 тысяч гаджетов — на 21% больше, чем в прошлом</div>
+    <div class="card-meta">
+      <span class="card-date">29 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-28-poliev-vremennye-inostrannye-rabochie-otbirayut-mesta-u-kana/">
-  <div class="sc-img"><img src="/photos/photo_993@28-08-2025_09-48-01.jpg" alt="Полиев: временные иностранные рабочие «отбирают» места у канадской молодежи" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Полиев: временные иностранные рабочие «отбирают» места у канадской молодежи</div>
-    <div class="pex">Пьер Полиев снова бьет по иммиграционной политике либералов. На пресс-конференции в Принс-Эдварде он обвинил правительство Марка Карни в том, что оно позволяет временным иностранным рабочим занимать р</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-08-28-poliev-vremennye-inostrannye-rabochie-otbirayut-mesta-u-kana/">
+  <div class="card-img"><img src="/photos/photo_993@28-08-2025_09-48-01.jpg" alt="Полиев: временные иностранные рабочие «отбирают» места у канадской молодежи" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Полиев: временные иностранные рабочие «отбирают» места у канадской молодежи</div>
+    <div class="card-excerpt">Пьер Полиев снова бьет по иммиграционной политике либералов. На пресс-конференции в Принс-Эдварде он обвинил правительство Марка Карни в том, что оно позволяет временным иностранным рабочим занимать р</div>
+    <div class="card-meta">
+      <span class="card-date">28 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-27-liberaly-snova-promahnulis-s-obeschaniyami-po-immigratsii/">
-  <div class="sc-img"><span style="font-size:26px">📋</span></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Либералы снова промахнулись с обещаниями по иммиграции</div>
-    <div class="pex">﻿ Несмотря на громкие заявления о снижении иммиграционных потоков, правительство Лены Метледж Диаб уже идёт к новым рекордам.  ﻿ По данным IRCC, за первые семь месяцев 2025 года Канада приняла 246 300</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-27-liberaly-snova-promahnulis-s-obeschaniyami-po-immigratsii/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📋</span></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Либералы снова промахнулись с обещаниями по иммиграции</div>
+    <div class="card-excerpt">﻿ Несмотря на громкие заявления о снижении иммиграционных потоков, правительство Лены Метледж Диаб уже идёт к новым рекордам.  ﻿ По данным IRCC, за первые семь месяцев 2025 года Канада приняла 246 300</div>
+    <div class="card-meta">
+      <span class="card-date">27 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-26-liberaly-karni-obeschali-menshe-vremennyh-rabochih-vyshlo-na/">
-  <div class="sc-img"><img src="/photos/photo_978@26-08-2025_11-26-50.jpg" alt="Либералы Карни обещали меньше временных рабочих. Вышло наоборот" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Либералы Карни обещали меньше временных рабочих. Вышло наоборот</div>
-    <div class="pex">Правительство Марка Карни заявляло, что сократит поток временных иностранных работников. Но свежие данные показывают обратное: вместо обещанных лимитов в страну зашло рекордное число людей по этим про</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-26-liberaly-karni-obeschali-menshe-vremennyh-rabochih-vyshlo-na/">
+  <div class="card-img"><img src="/photos/photo_978@26-08-2025_11-26-50.jpg" alt="Либералы Карни обещали меньше временных рабочих. Вышло наоборот" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Либералы Карни обещали меньше временных рабочих. Вышло наоборот</div>
+    <div class="card-excerpt">Правительство Марка Карни заявляло, что сократит поток временных иностранных работников. Но свежие данные показывают обратное: вместо обещанных лимитов в страну зашло рекордное число людей по этим про</div>
+    <div class="card-meta">
+      <span class="card-date">26 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-26-startap-viza-ochered-na-4-goda-i-shkval-otkazov/">
-  <div class="sc-img"><img src="/photos/photo_977@26-08-2025_09-21-46.jpg" alt="Стартап-виза: очередь на 4 года и шквал отказов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Стартап-виза: очередь на 4 года и шквал отказов</div>
-    <div class="pex">Когда в 2013 году Канада запустила программу Start-up Visa (SUV), её представляли как магнит для инноваторов: приезжайте с идеей, стройте бизнес, создавайте рабочие места — получите ПМЖ. В реальности</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-26-startap-viza-ochered-na-4-goda-i-shkval-otkazov/">
+  <div class="card-img"><img src="/photos/photo_977@26-08-2025_09-21-46.jpg" alt="Стартап-виза: очередь на 4 года и шквал отказов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Стартап-виза: очередь на 4 года и шквал отказов</div>
+    <div class="card-excerpt">Когда в 2013 году Канада запустила программу Start-up Visa (SUV), её представляли как магнит для инноваторов: приезжайте с идеей, стройте бизнес, создавайте рабочие места — получите ПМЖ. В реальности</div>
+    <div class="card-meta">
+      <span class="card-date">26 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-24-konservatory-vyryvayutsya-vperyod-opros-abacus-data/">
-  <div class="sc-img"><img src="/photos/photo_972@24-08-2025_14-36-47.jpg" alt="Консерваторы вырываются вперёд: опрос Abacus Data" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">abacusdata.ca</div>
-    <div class="ptit sc-title">Консерваторы вырываются вперёд: опрос Abacus Data</div>
-    <div class="pex">Свежее исследование Abacus Data (15–19 августа, выборка 1915 человек) показывает, что у либералов Марка Карни начали появляться проблемы. Впервые за несколько месяцев Консервативная партия выходит впе</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-08-24-konservatory-vyryvayutsya-vperyod-opros-abacus-data/">
+  <div class="card-img"><img src="/photos/photo_972@24-08-2025_14-36-47.jpg" alt="Консерваторы вырываются вперёд: опрос Abacus Data" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Консерваторы вырываются вперёд: опрос Abacus Data</div>
+    <div class="card-excerpt">Свежее исследование Abacus Data (15–19 августа, выборка 1915 человек) показывает, что у либералов Марка Карни начали появляться проблемы. Впервые за несколько месяцев Консервативная партия выходит впе</div>
+    <div class="card-meta">
+      <span class="card-date">24 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-24-novye-dannye-ob-immigratsii-v-kanade-menshe-studentov-i-rabo/">
-  <div class="sc-img"><img src="/photos/photo_971@24-08-2025_13-07-01.jpg" alt="Новые данные об иммиграции в Канаде: меньше студентов и рабочих, но очереди растут" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Новые данные об иммиграции в Канаде: меньше студентов и рабочих, но очереди растут</div>
-    <div class="pex">﻿ После недель критики со стороны консерваторов правительство Марка Карни наконец опубликовало свежую статистику по иммиграции. Цифры показывают: поток временных резидентов — студентов, иностранных ра</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-08-24-novye-dannye-ob-immigratsii-v-kanade-menshe-studentov-i-rabo/">
+  <div class="card-img"><img src="/photos/photo_971@24-08-2025_13-07-01.jpg" alt="Новые данные об иммиграции в Канаде: меньше студентов и рабочих, но очереди растут" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Новые данные об иммиграции в Канаде: меньше студентов и рабочих, но очереди растут</div>
+    <div class="card-excerpt">﻿ После недель критики со стороны консерваторов правительство Марка Карни наконец опубликовало свежую статистику по иммиграции. Цифры показывают: поток временных резидентов — студентов, иностранных ра</div>
+    <div class="card-meta">
+      <span class="card-date">24 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-24-kto-vladeet-trudovymi-dannymi-kanady-podskazka-ne-kanada/">
-  <div class="sc-img"><img src="/photos/photo_970@24-08-2025_11-06-45.jpg" alt="Кто владеет трудовыми данными Канады? (Подсказка: не Канада) ﻿" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thewalrus.ca</div>
-    <div class="ptit sc-title">Кто владеет трудовыми данными Канады? (Подсказка: не Канада) ﻿</div>
-    <div class="pex">Если Оттаве нужно узнать, сколько токарей понадобится Саскатуну следующей весной, чиновники ждут свежего отчёта Статистического управления. А у Microsoft-овского LinkedIn ответ уже есть — потому что р</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-24-kto-vladeet-trudovymi-dannymi-kanady-podskazka-ne-kanada/">
+  <div class="card-img"><img src="/photos/photo_970@24-08-2025_11-06-45.jpg" alt="Кто владеет трудовыми данными Канады? (Подсказка: не Канада) ﻿" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thewalrus.ca</div>
+    <div class="card-title">Кто владеет трудовыми данными Канады? (Подсказка: не Канада) ﻿</div>
+    <div class="card-excerpt">Если Оттаве нужно узнать, сколько токарей понадобится Саскатуну следующей весной, чиновники ждут свежего отчёта Статистического управления. А у Microsoft-овского LinkedIn ответ уже есть — потому что р</div>
+    <div class="card-meta">
+      <span class="card-date">24 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-23-medovyy-mesyats-zakonchitsya-eksperty-zhdut-tyazhyolyy-start/">
-  <div class="sc-img"><img src="/photos/photo_966@23-08-2025_13-46-43.jpg" alt="«Медовый месяц закончится»: эксперты ждут тяжёлый старт для первого бюджета Карни" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">«Медовый месяц закончится»: эксперты ждут тяжёлый старт для первого бюджета Карни</div>
-    <div class="pex">Осенью Марк Карни представит свой первый федеральный бюджет — и политологи прогнозируют для него крайне высокий уровень ожиданий.  – Карни обещал сбалансировать операционный бюджет в течение трёх лет,</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-08-23-medovyy-mesyats-zakonchitsya-eksperty-zhdut-tyazhyolyy-start/">
+  <div class="card-img"><img src="/photos/photo_966@23-08-2025_13-46-43.jpg" alt="«Медовый месяц закончится»: эксперты ждут тяжёлый старт для первого бюджета Карни" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">«Медовый месяц закончится»: эксперты ждут тяжёлый старт для первого бюджета Карни</div>
+    <div class="card-excerpt">Осенью Марк Карни представит свой первый федеральный бюджет — и политологи прогнозируют для него крайне высокий уровень ожиданий.  – Карни обещал сбалансировать операционный бюджет в течение трёх лет,</div>
+    <div class="card-meta">
+      <span class="card-date">23 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-21-ministr-alberty-trebuet-uchityvat-nelegalnyh-immigrantov-v-f/">
-  <div class="sc-img"><img src="/photos/photo_953@21-08-2025_11-51-53.jpg" alt="Министр Альберты требует учитывать «нелегальных иммигрантов» в федеральных квотах" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Министр Альберты требует учитывать «нелегальных иммигрантов» в федеральных квотах</div>
-    <div class="pex">Министр иммиграции Альберты Джозеф Шоу заявил в Оттаве, что федеральное правительство «закрывает глаза» на проблему нелегальной иммиграции и тем самым усугубляет давление на инфраструктуру и соцсистем</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-21-ministr-alberty-trebuet-uchityvat-nelegalnyh-immigrantov-v-f/">
+  <div class="card-img"><img src="/photos/photo_953@21-08-2025_11-51-53.jpg" alt="Министр Альберты требует учитывать «нелегальных иммигрантов» в федеральных квотах" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Министр Альберты требует учитывать «нелегальных иммигрантов» в федеральных квотах</div>
+    <div class="card-excerpt">Министр иммиграции Альберты Джозеф Шоу заявил в Оттаве, что федеральное правительство «закрывает глаза» на проблему нелегальной иммиграции и тем самым усугубляет давление на инфраструктуру и соцсистем</div>
+    <div class="card-meta">
+      <span class="card-date">21 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-19-per-poliev-ofitsialno-vozvraschaetsya-v-parlament-na-etot-ra/">
-  <div class="sc-img"><img src="/photos/photo_941@19-08-2025_10-19-01.jpg" alt="Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте.</div>
-    <div class="pex">Итог допвыборов был предсказуем: это один из самых консервативных округов страны, и поражение там выглядело бы катастрофой для партии.  Полиев фактически перезапустил свою карьеру после весеннего пров</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-08-19-per-poliev-ofitsialno-vozvraschaetsya-v-parlament-na-etot-ra/">
+  <div class="card-img"><img src="/photos/photo_941@19-08-2025_10-19-01.jpg" alt="Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте.</div>
+    <div class="card-excerpt">Итог допвыборов был предсказуем: это один из самых консервативных округов страны, и поражение там выглядело бы катастрофой для партии.  Полиев фактически перезапустил свою карьеру после весеннего пров</div>
+    <div class="card-meta">
+      <span class="card-date">19 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-14-pochti-150-kanadtsev-vklyuchaya-dvuh-malyshey-okazalis-v-tse/">
-  <div class="sc-img"><img src="/photos/photo_920@14-08-2025_09-23-01.jpg" alt="Почти 150 канадцев, включая двух малышей, оказались в центрах ICE в США в 2025 году" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Почти 150 канадцев, включая двух малышей, оказались в центрах ICE в США в 2025 году</div>
-    <div class="pex">Анализ The Globe and Mail показал, что как минимум два ребёнка из Канады младше четырёх лет были задержаны в американских центрах иммиграционного и таможенного контроля (ICE) в этом году. Один из них</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-08-14-pochti-150-kanadtsev-vklyuchaya-dvuh-malyshey-okazalis-v-tse/">
+  <div class="card-img"><img src="/photos/photo_920@14-08-2025_09-23-01.jpg" alt="Почти 150 канадцев, включая двух малышей, оказались в центрах ICE в США в 2025 году" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Почти 150 канадцев, включая двух малышей, оказались в центрах ICE в США в 2025 году</div>
+    <div class="card-excerpt">Анализ The Globe and Mail показал, что как минимум два ребёнка из Канады младше четырёх лет были задержаны в американских центрах иммиграционного и таможенного контроля (ICE) в этом году. Один из них</div>
+    <div class="card-meta">
+      <span class="card-date">14 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-09-chernokozhemu-muzhchine-v-kvebeke-sokratili-srok-iz-za-rasov/">
-  <div class="sc-img"><img src="/photos/photo_902@09-08-2025_13-08-01.jpg" alt="Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации</div>
-    <div class="pex">52-летний Фрэнк Парис признал себя виновным в торговле каннабисом и гашишем. Корона требовала четыре года тюрьмы, но судья Магали Лепаж назначила два года, признав влияние системного расизма и историч</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-08-09-chernokozhemu-muzhchine-v-kvebeke-sokratili-srok-iz-za-rasov/">
+  <div class="card-img"><img src="/photos/photo_902@09-08-2025_13-08-01.jpg" alt="Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации</div>
+    <div class="card-excerpt">52-летний Фрэнк Парис признал себя виновным в торговле каннабисом и гашишем. Корона требовала четыре года тюрьмы, но судья Магали Лепаж назначила два года, признав влияние системного расизма и историч</div>
+    <div class="card-meta">
+      <span class="card-date">9 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-08-kanadtsy-massovo-otkazyvayutsya-ot-poezdok-v-ssha-rost-popul/">
-  <div class="sc-img"><img src="/photos/photo_898@08-08-2025_17-54-01.jpg" alt="Канадцы массово отказываются от поездок в США: рост популярности других стран" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канадцы массово отказываются от поездок в США: рост популярности других стран</div>
-    <div class="pex">Канадские туристы всё чаще игнорируют США и выбирают другие страны для отдыха. Причины — от пошлин и иммиграционных рисков до общей политической обстановки и ощущения недружелюбия.  Что происходит:  —</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-08-kanadtsy-massovo-otkazyvayutsya-ot-poezdok-v-ssha-rost-popul/">
+  <div class="card-img"><img src="/photos/photo_898@08-08-2025_17-54-01.jpg" alt="Канадцы массово отказываются от поездок в США: рост популярности других стран" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадцы массово отказываются от поездок в США: рост популярности других стран</div>
+    <div class="card-excerpt">Канадские туристы всё чаще игнорируют США и выбирают другие страны для отдыха. Причины — от пошлин и иммиграционных рисков до общей политической обстановки и ощущения недружелюбия.  Что происходит:  —</div>
+    <div class="card-meta">
+      <span class="card-date">8 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-06-ssha-vvodyat-zalog-do-15000-dlya-vezda-kogo-eto-kosnyotsya-i/">
-  <div class="sc-img"><img src="/photos/photo_885@06-08-2025_13-33-25.jpg" alt="США вводят залог до $15,000 для въезда: кого это коснётся и зачем вообще всё это нужно" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cnbc.com</div>
-    <div class="ptit sc-title">США вводят залог до $15,000 для въезда: кого это коснётся и зачем вообще всё это нужно</div>
-    <div class="pex">С 20 августа 2025 года в США стартует пилотная программа, по которой некоторым иностранцам придётся вносить залог до $15,000 при получении визы. Речь идёт о категории туристических и бизнес-виз (B-1 и</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-06-ssha-vvodyat-zalog-do-15000-dlya-vezda-kogo-eto-kosnyotsya-i/">
+  <div class="card-img"><img src="/photos/photo_885@06-08-2025_13-33-25.jpg" alt="США вводят залог до $15,000 для въезда: кого это коснётся и зачем вообще всё это нужно" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cnbc.com</div>
+    <div class="card-title">США вводят залог до $15,000 для въезда: кого это коснётся и зачем вообще всё это нужно</div>
+    <div class="card-excerpt">С 20 августа 2025 года в США стартует пилотная программа, по которой некоторым иностранцам придётся вносить залог до $15,000 при получении визы. Речь идёт о категории туристических и бизнес-виз (B-1 и</div>
+    <div class="card-meta">
+      <span class="card-date">6 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-05-v-kvebeke-zaderzhan-gruzovik-s-44-nelegalnymi-migrantami/">
-  <div class="sc-img"><img src="/photos/photo_881@05-08-2025_13-52-01.jpg" alt="В Квебеке задержан грузовик с 44 нелегальными мигрантами" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В Квебеке задержан грузовик с 44 нелегальными мигрантами</div>
-    <div class="pex">44 мигранта, включая беременную женщину и детей от 4 лет, были обнаружены в «ужасных условиях» внутри грузовика неподалёку от города Станстед (Квебек) — прямо на границе с США. Машину перехватили в но</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-08-05-v-kvebeke-zaderzhan-gruzovik-s-44-nelegalnymi-migrantami/">
+  <div class="card-img"><img src="/photos/photo_881@05-08-2025_13-52-01.jpg" alt="В Квебеке задержан грузовик с 44 нелегальными мигрантами" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Квебеке задержан грузовик с 44 нелегальными мигрантами</div>
+    <div class="card-excerpt">44 мигранта, включая беременную женщину и детей от 4 лет, были обнаружены в «ужасных условиях» внутри грузовика неподалёку от города Станстед (Квебек) — прямо на границе с США. Машину перехватили в но</div>
+    <div class="card-meta">
+      <span class="card-date">5 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-03-senator-kanada-dolzhna-proveryat-vseh-inostrannyh-studentov-/">
-  <div class="sc-img"><img src="/photos/photo_867@03-08-2025_10-21-33.jpg" alt="Сенатор: Канада должна проверять всех иностранных студентов на криминальное прошлое" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">sencanada.ca</div>
-    <div class="ptit sc-title">Сенатор: Канада должна проверять всех иностранных студентов на криминальное прошлое</div>
-    <div class="pex">Сенатор Перси Дауни (Принс Эдвард Айленд) заявил, что федеральное правительство подвергает канадцев риску, не требуя обязательных проверок безопасности от иностранных студентов. После того как в этом</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-08-03-senator-kanada-dolzhna-proveryat-vseh-inostrannyh-studentov-/">
+  <div class="card-img"><img src="/photos/photo_867@03-08-2025_10-21-33.jpg" alt="Сенатор: Канада должна проверять всех иностранных студентов на криминальное прошлое" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">sencanada.ca</div>
+    <div class="card-title">Сенатор: Канада должна проверять всех иностранных студентов на криминальное прошлое</div>
+    <div class="card-excerpt">Сенатор Перси Дауни (Принс Эдвард Айленд) заявил, что федеральное правительство подвергает канадцев риску, не требуя обязательных проверок безопасности от иностранных студентов. После того как в этом</div>
+    <div class="card-meta">
+      <span class="card-date">3 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-02-naselenie-kvebeka-nachnyot-sokraschatsya-vinovaty-immigratsi/">
-  <div class="sc-img"><img src="/photos/photo_865@02-08-2025_15-17-01.jpg" alt="Население Квебека начнёт сокращаться. Виноваты иммиграционные ограничения и низкая рождаемость" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Население Квебека начнёт сокращаться. Виноваты иммиграционные ограничения и низкая рождаемость</div>
-    <div class="pex">Институт статистики Квебека опубликовал прогноз: к 2030 году население провинции сократится примерно на 80 тысяч человек. Это первый негативный демографический сценарий за последние годы, и связан он</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-08-02-naselenie-kvebeka-nachnyot-sokraschatsya-vinovaty-immigratsi/">
+  <div class="card-img"><img src="/photos/photo_865@02-08-2025_15-17-01.jpg" alt="Население Квебека начнёт сокращаться. Виноваты иммиграционные ограничения и низкая рождаемость" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Население Квебека начнёт сокращаться. Виноваты иммиграционные ограничения и низкая рождаемость</div>
+    <div class="card-excerpt">Институт статистики Квебека опубликовал прогноз: к 2030 году население провинции сократится примерно на 80 тысяч человек. Это первый негативный демографический сценарий за последние годы, и связан он</div>
+    <div class="card-meta">
+      <span class="card-date">2 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-01-v-kanade-skryvayutsya-sotni-inostrantsev-s-ugolovnym-proshly/">
-  <div class="sc-img"><img src="/photos/photo_860@01-08-2025_11-22-01.jpg" alt="В Канаде скрываются сотни иностранцев с уголовным прошлым — и пограничники их не могут выдворить" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В Канаде скрываются сотни иностранцев с уголовным прошлым — и пограничники их не могут выдворить</div>
-    <div class="pex">CBSA официально признало: почти 600 иностранцев с судимостями получили приказ о депортации, но пропали без следа и годами уклоняются от выдворения. Из них 315 человек скрываются уже более трёх лет. Бо</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-08-01-v-kanade-skryvayutsya-sotni-inostrantsev-s-ugolovnym-proshly/">
+  <div class="card-img"><img src="/photos/photo_860@01-08-2025_11-22-01.jpg" alt="В Канаде скрываются сотни иностранцев с уголовным прошлым — и пограничники их не могут выдворить" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Канаде скрываются сотни иностранцев с уголовным прошлым — и пограничники их не могут выдворить</div>
+    <div class="card-excerpt">CBSA официально признало: почти 600 иностранцев с судимостями получили приказ о депортации, но пропали без следа и годами уклоняются от выдворения. Из них 315 человек скрываются уже более трёх лет. Бо</div>
+    <div class="card-meta">
+      <span class="card-date">1 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-31-na-fone-snizheniya-obschego-chisla-bezhentsev-po-vsey-strane/">
-  <div class="sc-img"><img src="/photos/photo_855@31-07-2025_13-26-58.jpg" alt="На фоне снижения общего числа беженцев по всей стране, на границе в Квебеке — резкий скачок." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">На фоне снижения общего числа беженцев по всей стране, на границе в Квебеке — резкий скачок.</div>
-    <div class="pex">По данным Канадского агентства пограничной службы, на контрольно-пропускном пункте Сен-Бернар-де-Лаколь к 27 июля зарегистрировано 10 724 запроса на убежище. В прошлом году за этот же период было в дв</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-07-31-na-fone-snizheniya-obschego-chisla-bezhentsev-po-vsey-strane/">
+  <div class="card-img"><img src="/photos/photo_855@31-07-2025_13-26-58.jpg" alt="На фоне снижения общего числа беженцев по всей стране, на границе в Квебеке — резкий скачок." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">На фоне снижения общего числа беженцев по всей стране, на границе в Квебеке — резкий скачок.</div>
+    <div class="card-excerpt">По данным Канадского агентства пограничной службы, на контрольно-пропускном пункте Сен-Бернар-де-Лаколь к 27 июля зарегистрировано 10 724 запроса на убежище. В прошлом году за этот же период было в дв</div>
+    <div class="card-meta">
+      <span class="card-date">31 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-31-indiyskie-studenty-massovo-pokidayut-kanadu-padenie-na-41/">
-  <div class="sc-img"><img src="/photos/photo_852@31-07-2025_10-35-48.jpg" alt="Индийские студенты массово покидают Канаду — падение на 41%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Индийские студенты массово покидают Канаду — падение на 41%</div>
-    <div class="pex">Общее число индийских студентов, обучающихся за рубежом, сократилось на 15% в 2024 году. Но сильнее всего просела именно Канада: минус 41% за один год. По данным правительства Индии, количество студен</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-07-31-indiyskie-studenty-massovo-pokidayut-kanadu-padenie-na-41/">
+  <div class="card-img"><img src="/photos/photo_852@31-07-2025_10-35-48.jpg" alt="Индийские студенты массово покидают Канаду — падение на 41%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Индийские студенты массово покидают Канаду — падение на 41%</div>
+    <div class="card-excerpt">Общее число индийских студентов, обучающихся за рубежом, сократилось на 15% в 2024 году. Но сильнее всего просела именно Канада: минус 41% за один год. По данным правительства Индии, количество студен</div>
+    <div class="card-meta">
+      <span class="card-date">31 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-30-toronto-podali-v-sud-na-50-millionov-za-otkaz-v-priyute-bezh/">
-  <div class="sc-img"><img src="/photos/photo_847@30-07-2025_13-37-01.jpg" alt="Торонто подали в суд на $50 миллионов за отказ в приюте беженцам" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cp24.com</div>
-    <div class="ptit sc-title">Торонто подали в суд на $50 миллионов за отказ в приюте беженцам</div>
-    <div class="pex">Против города Торонто подан коллективный иск на $50 млн от имени беженцев, которым в 2022–2023 годах отказали в доступе к койкам в муниципальных приютах.   Инициаторы — Black Legal Action Centre и две</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-07-30-toronto-podali-v-sud-na-50-millionov-za-otkaz-v-priyute-bezh/">
+  <div class="card-img"><img src="/photos/photo_847@30-07-2025_13-37-01.jpg" alt="Торонто подали в суд на $50 миллионов за отказ в приюте беженцам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cp24.com</div>
+    <div class="card-title">Торонто подали в суд на $50 миллионов за отказ в приюте беженцам</div>
+    <div class="card-excerpt">Против города Торонто подан коллективный иск на $50 млн от имени беженцев, которым в 2022–2023 годах отказали в доступе к койкам в муниципальных приютах.   Инициаторы — Black Legal Action Centre и две</div>
+    <div class="card-meta">
+      <span class="card-date">30 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-30-per-poliev-debatiruet-s-9-kandidatami-v-alberte-na-fone-reko/">
-  <div class="sc-img"><img src="/photos/photo_846@30-07-2025_11-36-42.jpg" alt="Пьер Полиев дебатирует с 9 кандидатами в Альберте — на фоне рекордных 210 соперников в бюллетене" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Пьер Полиев дебатирует с 9 кандидатами в Альберте — на фоне рекордных 210 соперников в бюллетене</div>
-    <div class="pex">Во вторник в Камроуз, Альберта, лидер Консерваторов Пьер Полиев выступил на дебатах в рамках довыборов в округе Battle River–Crowfoot.   Его основная идея — «принести местные проблемы на национальный</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-07-30-per-poliev-debatiruet-s-9-kandidatami-v-alberte-na-fone-reko/">
+  <div class="card-img"><img src="/photos/photo_846@30-07-2025_11-36-42.jpg" alt="Пьер Полиев дебатирует с 9 кандидатами в Альберте — на фоне рекордных 210 соперников в бюллетене" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Пьер Полиев дебатирует с 9 кандидатами в Альберте — на фоне рекордных 210 соперников в бюллетене</div>
+    <div class="card-excerpt">Во вторник в Камроуз, Альберта, лидер Консерваторов Пьер Полиев выступил на дебатах в рамках довыборов в округе Battle River–Crowfoot.   Его основная идея — «принести местные проблемы на национальный</div>
+    <div class="card-meta">
+      <span class="card-date">30 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-29-tysyachi-immigrantov-priehavshih-stroit-biznes-v-kanade-po-p/">
-  <div class="sc-img"><img src="/photos/photo_840@29-07-2025_11-43-01.jpg" alt="Тысячи иммигрантов, приехавших строить бизнес в Канаде по программе стартап-визы, застряли в бюрократическом аду." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Тысячи иммигрантов, приехавших строить бизнес в Канаде по программе стартап-визы, застряли в бюрократическом аду.</div>
-    <div class="pex">Их обещали быстро перевести на ПМЖ. На деле лишь многолетнее ожидание и полная неопределённость.  42 тысячи заявок в системе, из них 16 тысяч висят уже больше двух лет. Официальный срок обработки — 51</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-07-29-tysyachi-immigrantov-priehavshih-stroit-biznes-v-kanade-po-p/">
+  <div class="card-img"><img src="/photos/photo_840@29-07-2025_11-43-01.jpg" alt="Тысячи иммигрантов, приехавших строить бизнес в Канаде по программе стартап-визы, застряли в бюрократическом аду." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Тысячи иммигрантов, приехавших строить бизнес в Канаде по программе стартап-визы, застряли в бюрократическом аду.</div>
+    <div class="card-excerpt">Их обещали быстро перевести на ПМЖ. На деле лишь многолетнее ожидание и полная неопределённость.  42 тысячи заявок в системе, из них 16 тысяч висят уже больше двух лет. Официальный срок обработки — 51</div>
+    <div class="card-meta">
+      <span class="card-date">29 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-07-28-kanadtsy-vsyo-chasche-stalkivayutsya-s-otkazami-na-granitse-/">
-  <div class="sc-img"><img src="/photos/photo_837@28-07-2025_17-58-01.jpg" alt="Канадцы всё чаще сталкиваются с отказами на границе США — под предлогом «недостаточного обоснования цели визита»." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetravel.com</div>
-    <div class="ptit sc-title">Канадцы всё чаще сталкиваются с отказами на границе США — под предлогом «недостаточного обоснования цели визита».</div>
-    <div class="pex">Один из таких случаев привлёк особое внимание: жителю Онтарио Девину Хейдену отказали во въезде в США всего за несколько дней до его собственной свадьбы.  Пограничники заявили, что у него «слишком кре</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-07-28-kanadtsy-vsyo-chasche-stalkivayutsya-s-otkazami-na-granitse-/">
+  <div class="card-img"><img src="/photos/photo_837@28-07-2025_17-58-01.jpg" alt="Канадцы всё чаще сталкиваются с отказами на границе США — под предлогом «недостаточного обоснования цели визита»." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetravel.com</div>
+    <div class="card-title">Канадцы всё чаще сталкиваются с отказами на границе США — под предлогом «недостаточного обоснования цели визита».</div>
+    <div class="card-excerpt">Один из таких случаев привлёк особое внимание: жителю Онтарио Девину Хейдену отказали во въезде в США всего за несколько дней до его собственной свадьбы.  Пограничники заявили, что у него «слишком кре</div>
+    <div class="card-meta">
+      <span class="card-date">28 июл 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/immigratsiya/page/5/">←</a><a class="pb" href="/tag/immigratsiya/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/immigratsiya/page/4/">4</a><a class="pb" href="/tag/immigratsiya/page/5/">5</a><a class="pb on" href="/tag/immigratsiya/page/6/">6</a><a class="pb" href="/tag/immigratsiya/page/7/">7</a><a class="pb" href="/tag/immigratsiya/page/8/">8</a><a class="pb" href="/tag/immigratsiya/page/9/">9</a><a class="pb" href="/tag/immigratsiya/page/7/">→</a></div>

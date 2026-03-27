@@ -90,6 +90,28 @@ def clean_body(text):
 def get_emoji(src):
     return SOURCE_EMOJI.get(src, '📰')
 
+TAG_CATEGORIES = {
+    'тарифы': 'eco', 'экономика': 'eco', 'жильё': 'eco', 'энергетика': 'eco',
+    'иммиграция': 'imm', 'IRCC': 'imm',
+    'выборы': 'pol', 'преступность': 'pol', 'США–Канада': 'pol', 'Украина': 'pol',
+    'Онтарио': 'reg', 'Квебек': 'reg', 'Торонто': 'reg', 'Альберта': 'reg', 'Арктика': 'reg',
+    'в глубину': 'deep',
+}
+
+def tag_html(t, href=True):
+    """Render a single tag with category color."""
+    label = t
+    cat = TAG_CATEGORIES.get(t, 'def')
+    cls = f'tag tag-{cat}'
+    if href:
+        slug = slugify(t)
+        return f'<a class="{cls}" data-t="{esc(t)}" href="/tag/{slug}/">#{label}</a>'
+    return f'<span class="{cls}" data-t="{esc(t)}">#{label}</span>'
+
+def tags_row(tags, limit=3, skip_deep=True):
+    filtered = [t for t in (tags or []) if not (skip_deep and t == 'в глубину')][:limit]
+    return ''.join(tag_html(t) for t in filtered)
+
 def post_slug(p):
     return f"{p['date']}-{slugify(p['title'])}"
 
@@ -226,72 +248,145 @@ def parse_telegram_export(json_path):
 # ── CSS / JS ОБЩИЕ ────────────────────────────────────
 
 COMMON_CSS = """
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 """
 
 FONTS_LINK = '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">'
@@ -377,60 +472,69 @@ def page_shell(title, desc, url, content, active='news', og_img='', css_extra=''
 
 # ── КАРТОЧКИ ──────────────────────────────────────────
 
+def _card_img(p, loading='lazy', size=32):
+    img = post_img_src(p)
+    if img:
+        return f'<div class="card-img"><img src="{img}" alt="{esc(p["title"])}" loading="{loading}"></div>'
+    return f'<div class="card-img"><span class="emoji-fallback" style="font-size:{size}px">{get_emoji(p.get("source",""))}</span></div>'
+
 def hero_card(p):
-    img = post_img_src(p)
-    img_html = f'<img src="{img}" alt="{esc(p["title"])}" loading="eager">' if img else f'<span style="font-size:60px">{get_emoji(p.get("source",""))}</span>'
-    tags_html = ''.join(f'<a class="ptag" href="/tag/{slugify(t)}/">#{t}</a>' for t in (p.get('tags') or [])[:3] if t != 'в глубину')
-    deep = '<span class="deep-badge">В глубину</span>' if 'в глубину' in (p.get('tags') or []) else ''
-    return f"""<a class="hero-card" href="{post_url(p)}">
-  <div class="hc-img">{img_html}</div>
-  <div class="hc-body">
-    <div class="psrc">{esc(p.get('source',''))} {deep}</div>
-    <div class="ptit hc-title">{esc(p['title'])}</div>
-    <div class="pex hc-ex">{esc(p.get('excerpt',''))}</div>
-    <div class="pmeta hc-meta"><span class="pdate">{fmt_date(p['date'])}</span><div class="ptags">{tags_html}</div></div>
+    """Big hero card — left column main story."""
+    deep_badge = tag_html('в глубину', href=False) if 'в глубину' in (p.get('tags') or []) else ''
+    return f"""<a class="hero-card card" href="{post_url(p)}">
+  <div class="card-img hc-img"><img src="{post_img_src(p) or ''}" alt="{esc(p['title'])}" loading="eager" onerror="this.parentNode.innerHTML='<span class=emoji-fallback style=font-size:56px>{get_emoji(p.get("source",""))}</span>'"></div>
+  <div class="card-body hc-body">
+    <div class="card-src">{esc(p.get('source',''))} {deep_badge}</div>
+    <div class="card-title hc-title">{esc(p['title'])}</div>
+    <div class="card-excerpt hc-ex">{esc(p.get('excerpt',''))}</div>
+    <div class="card-meta hc-meta">
+      <span class="card-date">{fmt_date(p['date'])}</span>
+      <div class="card-tags">{tags_row(p.get('tags'), 3)}</div>
+    </div>
   </div>
 </a>"""
 
-
-def small_card(p):
-    img = post_img_src(p)
-    img_html = f'<img src="{img}" alt="{esc(p["title"])}" loading="lazy">' if img else f'<span style="font-size:26px">{get_emoji(p.get("source",""))}</span>'
-    tags_html = ''.join(f'<a class="ptag" href="/tag/{slugify(t)}/">#{t}</a>' for t in (p.get('tags') or [])[:2] if t != 'в глубину')
-    return f"""<a class="small-card" href="{post_url(p)}">
-  <div class="sc-img">{img_html}</div>
-  <div class="sc-body">
-    <div class="psrc">{esc(p.get('source',''))}</div>
-    <div class="ptit sc-title">{esc(p['title'])}</div>
-    <div class="pex">{esc(p.get('excerpt',''))}</div>
-    <div class="pmeta sc-meta"><span class="pdate">{fmt_date(p['date'])}</span><div class="ptags">{tags_html}</div></div>
+def small_card(p, loading='lazy'):
+    """Standard grid card."""
+    return f"""<a class="card" href="{post_url(p)}">
+  {_card_img(p, loading)}
+  <div class="card-body">
+    <div class="card-src">{esc(p.get('source',''))}</div>
+    <div class="card-title">{esc(p['title'])}</div>
+    <div class="card-excerpt">{esc(p.get('excerpt',''))}</div>
+    <div class="card-meta">
+      <span class="card-date">{fmt_date(p['date'])}</span>
+      <div class="card-tags">{tags_row(p.get('tags'), 2)}</div>
+    </div>
   </div>
 </a>"""
-
 
 def compact_item(p, num):
-    tags_html = ''.join(f'<a class="ptag" href="/tag/{slugify(t)}/">#{t}</a>' for t in (p.get('tags') or [])[:1] if t != 'в глубину')
+    """Numbered compact list item — no image."""
     return f"""<a class="compact-item" href="{post_url(p)}">
   <div class="ci-num">{num:02d}</div>
   <div class="ci-body">
-    <div class="psrc">{esc(p.get('source',''))}</div>
-    <div class="ptit ci-title">{esc(p['title'])}</div>
-    <div class="pmeta"><span class="pdate">{fmt_date(p['date'])}</span><div class="ptags">{tags_html}</div></div>
+    <div class="card-src">{esc(p.get('source',''))}</div>
+    <div class="card-title ci-title">{esc(p['title'])}</div>
+    <div class="card-meta">
+      <span class="card-date">{fmt_date(p['date'])}</span>
+      <div class="card-tags">{tags_row(p.get('tags'), 1)}</div>
+    </div>
   </div>
 </a>"""
 
-
 def lr_card(p):
-    img = post_img_src(p)
-    img_html = f'<img src="{img}" alt="{esc(p["title"])}" loading="lazy">' if img else f'<span style="font-size:28px">{get_emoji(p.get("source",""))}</span>'
-    tags_html = ''.join(f'<a class="ptag" href="/tag/{slugify(t)}/">#{t}</a>' for t in (p.get('tags') or [])[:3] if t != 'в глубину')
-    return f"""<a class="lr-card" href="{post_url(p)}">
-  <div class="lrc-img">{img_html}</div>
-  <div class="lrc-body">
-    <div class="psrc">{esc(p.get('source',''))}</div>
-    <div class="ptit lrc-title">{esc(p['title'])}</div>
-    <div class="pex lrc-ex">{esc(p.get('excerpt',''))}</div>
-    <div class="pmeta"><span class="pdate">{fmt_date(p['date'])}</span><div class="ptags">{tags_html}</div></div>
+    """Longread horizontal card."""
+    return f"""<a class="lr-card card" href="{post_url(p)}">
+  {_card_img(p, 'lazy', 28)}
+  <div class="card-body lrc-body">
+    <div class="card-src">{esc(p.get('source',''))}{' ' + tag_html('в глубину', href=False) if 'в глубину' in (p.get('tags') or []) else ''}</div>
+    <div class="card-title lrc-title">{esc(p['title'])}</div>
+    <div class="card-excerpt lrc-ex">{esc(p.get('excerpt',''))}</div>
+    <div class="card-meta">
+      <span class="card-date">{fmt_date(p['date'])}</span>
+      <div class="card-tags">{tags_row(p.get('tags'), 3)}</div>
+    </div>
   </div>
 </a>"""
 
@@ -464,11 +568,16 @@ def build_post_page(p, related):
     if p.get('source_url'):
         src_link = f'<a class="src-link" href="{esc(p["source_url"])}" target="_blank" rel="noopener">Читать оригинал на {esc(p.get("source",""))} →</a>'
 
+    # Related by tag — smarter matching
+    post_tags = set(p.get('tags') or [])
+    related_by_tag = [r for r in related if set(r.get('tags') or []) & post_tags and r['id'] != p['id']]
+    related_final = (related_by_tag + [r for r in related if r not in related_by_tag])[:6]
+
     related_html = ''.join(f"""<a class="rel-item" href="{post_url(r)}">
-      <div class="psrc">{esc(r.get('source',''))}</div>
-      <div class="ptit" style="font-size:14px">{esc(r['title'])}</div>
-      <div class="pdate">{fmt_date(r['date'])}</div>
-    </a>""" for r in related[:6])
+      <div class="rel-src">{esc(r.get('source',''))}</div>
+      <div class="rel-title">{esc(r['title'])}</div>
+      <div class="rel-date">{fmt_date(r['date'])}</div>
+    </a>""" for r in related_final)
 
     json_ld = json.dumps({
         "@context": "https://schema.org",
@@ -485,27 +594,32 @@ def build_post_page(p, related):
     }, ensure_ascii=False)
 
     css = """
-.art-layout{display:grid;grid-template-columns:1fr 280px;gap:52px}
-.art-src-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
-.art-src{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
+.art-layout{display:grid;grid-template-columns:1fr 300px;gap:52px}
+.art-src-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.art-src{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
 .art-pers{display:flex;gap:6px;flex-wrap:wrap}
-.art-per{font-size:11px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 8px;border-radius:8px}
-.art-title{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1.2;margin-bottom:16px}
-.art-hero{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);margin-bottom:18px;border-radius:5px}
+.art-per{font-size:11px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 9px;border-radius:8px}
+.art-title{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1.2;margin-bottom:16px;color:var(--cream)}
+.art-hero{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);margin-bottom:20px;border-radius:8px;box-shadow:var(--shadow)}
 .art-hero-emoji{display:flex;align-items:center;justify-content:center;font-size:64px;color:var(--t4)}
-.art-metabar{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--br);border-bottom:1px solid var(--br);padding:10px 0;margin-bottom:28px;gap:10px;flex-wrap:wrap}
+.art-metabar{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--br);border-bottom:1px solid var(--br);padding:11px 0;margin-bottom:28px;gap:10px;flex-wrap:wrap}
 .art-date{font-size:13px;color:var(--t3)}
 .art-tags{display:flex;gap:5px;flex-wrap:wrap}
-.art-body{font-family:var(--bserif);font-size:18px;line-height:1.85;color:var(--t)}
-.art-body p{margin-bottom:1.15em}
-.src-link{display:inline-flex;font-size:13px;color:var(--t3);border:1px solid var(--br);padding:7px 13px;border-radius:4px;margin-top:20px;background:var(--bg3);transition:all .15s}
-.src-link:hover{color:var(--t);border-color:var(--br2)}
-.art-sb .sbt{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t3);padding-bottom:9px;border-bottom:1px solid var(--br);margin-bottom:12px}
-.rel-item{display:block;padding:10px 0;border-bottom:1px solid var(--br);transition:opacity .12s}
+/* Article body — the readable cream area */
+.art-body-wrap{background:var(--card);border-radius:8px;padding:28px 32px;box-shadow:var(--shadow-sm)}
+.art-body{font-family:var(--bserif);font-size:18px;line-height:1.85;color:var(--cream2)}
+.art-body p{margin-bottom:1.2em}
+.src-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--t3);border:1px solid var(--br);padding:7px 14px;border-radius:5px;margin-top:24px;background:var(--bg3);transition:all .15s}
+.src-link:hover{color:var(--cream);border-color:var(--br2)}
+.art-sb .sbt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);padding-bottom:10px;border-bottom:1px solid var(--br);margin-bottom:14px}
+.rel-item{display:flex;flex-direction:column;gap:4px;padding:11px 0;border-bottom:1px solid var(--br);transition:opacity .12s}
 .rel-item:hover{opacity:.7}
+.rel-src{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
+.rel-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--cream)}
+.rel-date{font-size:10px;color:var(--t3)}
 .bk{display:inline-flex;align-items:center;gap:5px;color:var(--t3);font-size:13px;margin-bottom:24px;transition:color .15s}
-.bk:hover{color:var(--t)}
-@media(max-width:900px){.art-layout{grid-template-columns:1fr}.art-sb{display:none}.art-title{font-size:22px}}
+.bk:hover{color:var(--cream)}
+@media(max-width:900px){.art-layout{grid-template-columns:1fr}.art-sb{display:none}.art-title{font-size:22px}.art-body-wrap{padding:20px 18px}}
 """
     content = f"""<div class="wrap">
   <a class="bk" href="javascript:history.back()">← Назад</a>
@@ -521,7 +635,9 @@ def build_post_page(p, related):
         <span class="art-date">{fmt_date_full_short(p['date'])}</span>
         <div class="art-tags">{tags_html}</div>
       </div>
-      <div class="art-body">{body_html}</div>
+      <div class="art-body-wrap">
+        <div class="art-body">{body_html}</div>
+      </div>
       {src_link}
       <div class="tgcta">
         {TG_SVG}
@@ -558,147 +674,109 @@ def build_post_page(p, related):
 
 def build_news_index(posts_by_date):
     css = """
-.day-hdr{display:flex;align-items:baseline;gap:12px;padding:16px 0 12px;border-bottom:1px solid var(--br);margin-bottom:1px}
-.day-label{font-family:var(--serif);font-size:20px;font-weight:700}
-.day-count{font-size:12px;color:var(--t3)}
+/* ── TODAY LAYOUT ── */
+.day-hdr{display:flex;align-items:baseline;gap:12px;padding:18px 0 14px;border-bottom:2px solid var(--br);margin-bottom:16px}
+.day-label{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--cream)}
+.day-sub{font-size:12px;color:var(--t3)}
 
-.hero-card{
-    display:grid;
-    grid-template-columns:1.3fr 1fr;
-    background:var(--bg2);
-    margin-bottom:1px;
-    transition:background .12s;
-    align-items:stretch;
-}
-.hero-card:hover{background:var(--bg3)}
+/* Hero — full-width split: large image left, text right */
+.hero-card{display:grid;grid-template-columns:1.5fr 1fr;margin-bottom:16px;border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.hc-img{overflow:hidden;background:var(--bg4);min-height:280px;position:relative;display:flex;align-items:center;justify-content:center}
+.hc-img img{width:100%;height:100%;object-fit:cover}
+.hc-img .emoji-fallback{font-size:64px;color:var(--t4)}
+.hc-body{background:var(--card);padding:28px 26px 24px;display:flex;flex-direction:column;gap:10px}
+.hc-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.25;color:var(--cream);flex:1}
+.hc-ex{font-size:14px;color:var(--t2);line-height:1.6;-webkit-line-clamp:4;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+.hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
 
-.hc-img{
-    width:100%;
-    height:100%;
-    min-height:260px;
-    overflow:hidden;
-    background:var(--bg4);
-}
+/* Secondary 3-grid */
+.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
 
-.hc-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
+/* Compact numbered list */
+.compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);border-radius:8px;overflow:hidden;margin-bottom:24px}
+.compact-item{background:var(--card);display:flex;gap:12px;padding:13px 15px;align-items:flex-start;transition:background .12s}
+.compact-item:hover{background:var(--card-hover)}
+.ci-num{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--bg5);flex-shrink:0;line-height:1;min-width:28px;text-align:right}
+.ci-body{flex:1;display:flex;flex-direction:column;gap:4px}
+.ci-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--cream)}
 
-.hc-body{
-    padding:22px;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
+/* Yesterday — 4-grid */
+.yesterday-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
 
-.hc-title{
-    font-size:22px;
-    line-height:1.25;
-}
+/* Previous days — collapsible */
+.prev-section{margin-top:8px}
+.prev-day{margin-bottom:12px}
+.prev-day-btn{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
+.prev-day-btn:hover .pd-label{color:var(--cream)}
+.pd-label{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--t2);transition:color .15s}
+.pd-count{font-size:12px;color:var(--t3)}
+.pd-tog{font-size:12px;color:var(--t4);margin-left:auto}
+.prev-posts{display:none;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px 0}
+.prev-posts.open{display:grid}
+.pp-card{background:var(--card);border-radius:7px;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;gap:5px;transition:background .12s}
+.pp-card:hover{background:var(--card-hover)}
+.pp-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--cream);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
-.hc-ex{
-    font-size:14px;
-    color:var(--t2);
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-}
-
-.hc-meta{
-    margin-top:auto;
-    padding-top:10px;
-}
-
-.sec-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:var(--br);
-    margin-bottom:1px;
-}
-
-.small-card{
-    background:var(--bg2);
-    display:flex;
-    flex-direction:column;
-}
-
-.sc-img{
-    width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-}
-
-.sc-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.sc-body{
-    padding:14px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-}
-
-.sc-title{
-    font-size:15px;
-    line-height:1.3;
-}
-
-@media(max-width:900px){
-    .hero-card{grid-template-columns:1fr}
-}
+@media(max-width:1000px){.yesterday-grid{grid-template-columns:repeat(3,1fr)}.prev-posts{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.hero-card{grid-template-columns:1fr}.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.sec-grid{grid-template-columns:1fr}.yesterday-grid{grid-template-columns:1fr}}
 """
     dates = sorted(posts_by_date.keys(), reverse=True)
     html = '<div class="wrap">'
 
-    for di, date in enumerate(dates[:8]):
+    for di, date in enumerate(dates[:9]):
         posts = posts_by_date[date]
-        label = 'Сегодня' if di == 0 else ('Вчера' if di == 1 else fmt_date_full_short(date))
-
-        html += f'<div class="day-hdr"><div class="day-label">{label}</div><div class="day-count">{len(posts)} материалов</div></div>'
+        if di == 0:
+            label = 'Сегодня'
+        elif di == 1:
+            label = 'Вчера'
+        else:
+            label = fmt_date_full_short(date)
 
         if di == 0:
-            # Hero layout for today
+            # TODAY: hero + 3-grid + compact list
+            html += f'<div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(posts)} материалов · {fmt_date_full_short(date)}</div></div>'
             if posts:
                 html += hero_card(posts[0])
             if len(posts) > 1:
-                html += f'<div class="sec-grid">{"".join(small_card(p) for p in posts[1:4])}</div>'
+                sec = posts[1:4]
+                html += f'<div class="sec-grid">{"".join(small_card(p) for p in sec)}</div>'
             if len(posts) > 4:
-                html += f'<div class="compact-grid">{"".join(compact_item(p, i+5) for i, p in enumerate(posts[4:]))}</div>'
+                rest = posts[4:]
+                html += f'<div class="compact-grid">{"".join(compact_item(p, i+5) for i, p in enumerate(rest))}</div>'
+
         elif di == 1:
-            # Yesterday — sec grid
-            html += f'<div class="sec-grid">{"".join(small_card(p) for p in posts[:6])}</div>'
-            if len(posts) > 6:
-                html += f'<div class="compact-grid">{"".join(compact_item(p, i+7) for i, p in enumerate(posts[6:]))}</div>'
+            # YESTERDAY: 4-card grid
+            html += f'<div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(posts)} материалов</div></div>'
+            html += f'<div class="yesterday-grid">{"".join(small_card(p) for p in posts[:8])}</div>'
+            if len(posts) > 8:
+                extra = posts[8:]
+                html += f'<div class="compact-grid" style="margin-top:-10px;margin-bottom:24px">{"".join(compact_item(p, i+9) for i, p in enumerate(extra))}</div>'
+
         else:
-            # Previous days — collapsible
+            # PREVIOUS DAYS: collapsible
             if di == 2:
                 html += '<div class="prev-section">'
             posts_html = ''.join(f'''<a class="pp-card" href="{post_url(p)}">
-              <div class="psrc">{esc(p.get("source",""))}</div>
+              <div class="card-src">{esc(p.get("source",""))}</div>
               <div class="pp-title">{esc(p["title"])}</div>
-              <div class="pdate">{fmt_date(p["date"])}</div>
+              <div class="card-date" style="font-size:10px">{fmt_date(p["date"])}</div>
             </a>''' for p in posts)
+            idx_str = str(di)
             html += f'''<div class="prev-day">
-              <button class="prev-day-btn" onclick="toggleDay(this)">
-                <span class="pd-label">{fmt_date_full_short(date)}</span>
+              <button class="prev-day-btn" onclick="toggleDay('{idx_str}')">
+                <span class="pd-label">{label}</span>
                 <span class="pd-count">{len(posts)} материалов</span>
-                <span class="pd-tog">+ показать</span>
+                <span class="pd-tog" id="pt{idx_str}">+ показать</span>
               </button>
-              <div class="prev-posts">{posts_html}</div>
+              <div class="prev-posts" id="pd{idx_str}">{posts_html}</div>
             </div>'''
 
     if len(dates) > 2:
         html += '</div>'  # close prev-section
 
     html += '</div>'
-    html += '<script>function toggleDay(btn){const pp=btn.nextElementSibling;const open=pp.classList.toggle("open");btn.querySelector(".pd-tog").textContent=open?"− скрыть":"+ показать"}</script>'
+    html += '<script>function toggleDay(id){const el=document.getElementById("pd"+id);const tog=document.getElementById("pt"+id);const open=el.classList.toggle("open");tog.textContent=open?"− скрыть":"+ показать"}</script>'
 
     return page_shell(
         title="Maple Barrel — Новости Канады на русском",
@@ -714,15 +792,9 @@ def build_news_index(posts_by_date):
 
 def build_materials_page(posts, page=1, tag=''):
     css = """
-.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:13px 15px;flex:1;display:flex;flex-direction:column;gap:5px}
-.sc-title{font-size:15px;flex:1}
-.sc-meta{margin-top:auto;padding-top:6px}
-.page-intro{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:20px}
-.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px}
+.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
+.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--cream)}
 .page-intro p{font-size:14px;color:var(--t2)}
 @media(max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.mat-grid{grid-template-columns:1fr}}
@@ -762,18 +834,17 @@ def build_materials_page(posts, page=1, tag=''):
 
 def build_longreads_page(posts, page=1, tag=''):
     css = """
-.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br)}
-.lr-card{background:var(--bg2);display:grid;grid-template-columns:160px 1fr;min-height:150px;transition:background .12s}
-.lr-card:hover{background:var(--bg3)}
-.lrc-img{overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.lrc-body{padding:16px 18px;display:flex;flex-direction:column;gap:6px}
-.lrc-title{font-size:15px;flex:1}
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lr-card{display:grid!important;grid-template-columns:200px 1fr;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.lr-card .card-img{border-radius:0!important}
+.lrc-body{padding:18px 20px;display:flex;flex-direction:column;gap:7px}
+.lrc-title{font-family:var(--serif);font-size:16px;font-weight:700;line-height:1.3;color:var(--cream);flex:1}
 .lrc-ex{-webkit-line-clamp:3}
-.page-intro{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:20px}
-.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px}
+.page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
+.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--cream)}
 .page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.lr-grid{grid-template-columns:1fr}.lr-card{grid-template-columns:120px 1fr}}
-@media(max-width:640px){.lr-card{grid-template-columns:1fr}.lrc-img{display:none}}
+@media(max-width:900px){.lr-grid{grid-template-columns:1fr}.lr-card{grid-template-columns:140px 1fr}}
+@media(max-width:640px){.lr-card{grid-template-columns:1fr}.lr-card .card-img{display:none}}
 """
     per = POSTS_PER_PAGE
     total = len(posts)
@@ -815,18 +886,13 @@ def build_tag_page(tag, posts, page=1):
     page_posts = posts[(page-1)*per:page*per]
     pgn = _pagination(page, pages, f'/tag/{slugify(tag)}/')
     css = """
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 """
     content = f"""<div class="wrap">
   <div class="tag-hdr">
@@ -853,18 +919,13 @@ def build_person_page(person, posts, page=1):
     page_posts = posts[(page-1)*per:page*per]
     pgn = _pagination(page, pages, f'/person/{slugify(person)}/')
     css = """
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 """
     content = f"""<div class="wrap">
   <div class="tag-hdr">

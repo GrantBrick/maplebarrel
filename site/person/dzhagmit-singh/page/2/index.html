@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,221 +180,302 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>Джагмит Сингх</h1>
     <p>67 материалов</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-04-27-svezhie-i-poslednie-tsifry-ot-mainstreet-research-po-federal/">
-  <div class="sc-img"><img src="/photos/photo_330@27-04-2025_14-31-52.jpg" alt="🇨🇦 Свежие и последние цифры от Mainstreet Research по федеральной гонке" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cdn.prod.website-files.com</div>
-    <div class="ptit sc-title">🇨🇦 Свежие и последние цифры от Mainstreet Research по федеральной гонке</div>
-    <div class="pex">🟥 Либералы (Марк Карни) – 44% 🟦 Консерваторы (Пьер Полиев) – 42,8% 🟧 НДП (Джагмит Сингх) – 5,2% 🔵 Блок (Ив-Франсуа Бланше) – 5,4% 🟢 Зелёные (Элизабет Мэй) – 0,6% 🟣 Народная партия (Макс Бернье) – 0,9%</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-04-27-svezhie-i-poslednie-tsifry-ot-mainstreet-research-po-federal/">
+  <div class="card-img"><img src="/photos/photo_330@27-04-2025_14-31-52.jpg" alt="🇨🇦 Свежие и последние цифры от Mainstreet Research по федеральной гонке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cdn.prod.website-files.com</div>
+    <div class="card-title">🇨🇦 Свежие и последние цифры от Mainstreet Research по федеральной гонке</div>
+    <div class="card-excerpt">🟥 Либералы (Марк Карни) – 44% 🟦 Консерваторы (Пьер Полиев) – 42,8% 🟧 НДП (Джагмит Сингх) – 5,2% 🔵 Блок (Ив-Франсуа Бланше) – 5,4% 🟢 Зелёные (Элизабет Мэй) – 0,6% 🟣 Народная партия (Макс Бернье) – 0,9%</div>
+    <div class="card-meta">
+      <span class="card-date">27 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-27-finalnyy-opros-nanos-liberaly-lidiruyut-na-4-pered-vyborami/">
-  <div class="sc-img"><img src="/photos/photo_328@27-04-2025_09-39-01.jpg" alt="🔴 Финальный опрос Nanos: Либералы лидируют на 4% перед выборами" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">🔴 Финальный опрос Nanos: Либералы лидируют на 4% перед выборами</div>
-    <div class="pex">В последний день федеральной кампании (27 апреля) Либералы опережают Консерваторов на четыре процентных пункта, следует из трёхдневного замера Nanos Research для CTV News и The Globe and Mail.  📊 Рейт</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-27-finalnyy-opros-nanos-liberaly-lidiruyut-na-4-pered-vyborami/">
+  <div class="card-img"><img src="/photos/photo_328@27-04-2025_09-39-01.jpg" alt="🔴 Финальный опрос Nanos: Либералы лидируют на 4% перед выборами" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">🔴 Финальный опрос Nanos: Либералы лидируют на 4% перед выборами</div>
+    <div class="card-excerpt">В последний день федеральной кампании (27 апреля) Либералы опережают Консерваторов на четыре процентных пункта, следует из трёхдневного замера Nanos Research для CTV News и The Globe and Mail.  📊 Рейт</div>
+    <div class="card-meta">
+      <span class="card-date">27 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-27-tragediya-v-vankuvere-utrenniy-apdeyt-9-chelovek-pogibli/">
-  <div class="sc-img"><img src="/photos/photo_327@27-04-2025_09-02-22.jpg" alt="Трагедия в Ванкувере, утренний апдейт: 9 человек погибли" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Трагедия в Ванкувере, утренний апдейт: 9 человек погибли</div>
-    <div class="pex">В Ванкувере внедорожник протаранил толпу людей на Филиппинском фестивале Lapu Lapu Day Block Party, когда праздник уже подходил к концу. Погибли девять человек, десятки получили ранения. Водитель заде</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-04-27-tragediya-v-vankuvere-utrenniy-apdeyt-9-chelovek-pogibli/">
+  <div class="card-img"><img src="/photos/photo_327@27-04-2025_09-02-22.jpg" alt="Трагедия в Ванкувере, утренний апдейт: 9 человек погибли" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Трагедия в Ванкувере, утренний апдейт: 9 человек погибли</div>
+    <div class="card-excerpt">В Ванкувере внедорожник протаранил толпу людей на Филиппинском фестивале Lapu Lapu Day Block Party, когда праздник уже подходил к концу. Погибли девять человек, десятки получили ранения. Водитель заде</div>
+    <div class="card-meta">
+      <span class="card-date">27 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-26-dzhagmit-singh-priznalsya-poluchil-realnuyu-ugrozu-ubiystva-/">
-  <div class="sc-img"><img src="/photos/photo_318@26-04-2025_11-46-33.jpg" alt="Джагмит Сингх признался: получил реальную угрозу убийства, связанную с иностранным вмешательством" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Джагмит Сингх признался: получил реальную угрозу убийства, связанную с иностранным вмешательством</div>
-    <div class="pex">Лидер НДП Джагмит Сингх впервые рассказал, что в конце 2023 года находился под круглосуточной охраной RCMP из-за серьёзной и достоверной угрозы его жизни. Причиной, по словам Сингха, могло быть иностр</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-04-26-dzhagmit-singh-priznalsya-poluchil-realnuyu-ugrozu-ubiystva-/">
+  <div class="card-img"><img src="/photos/photo_318@26-04-2025_11-46-33.jpg" alt="Джагмит Сингх признался: получил реальную угрозу убийства, связанную с иностранным вмешательством" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Джагмит Сингх признался: получил реальную угрозу убийства, связанную с иностранным вмешательством</div>
+    <div class="card-excerpt">Лидер НДП Джагмит Сингх впервые рассказал, что в конце 2023 года находился под круглосуточной охраной RCMP из-за серьёзной и достоверной угрозы его жизни. Причиной, по словам Сингха, могло быть иностр</div>
+    <div class="card-meta">
+      <span class="card-date">26 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-26-finalnyy-opros-pered-vyborami-liberaly-operezhayut-konservat/">
-  <div class="sc-img"><img src="/photos/photo_316@26-04-2025_08-44-01.jpg" alt="Финальный опрос перед выборами: Либералы опережают Консерваторов на 4 пункта" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Финальный опрос перед выборами: Либералы опережают Консерваторов на 4 пункта</div>
-    <div class="pex">(Данные Postmedia–Leger, опубликованы 26 апреля)  Основные цифры – Либералы: 43% – Консерваторы: 39% – НДП: 7% – Блок Квебекуа: 5%  Рейтинг лидеров (лучший кандидат на пост премьера) – Марк Карни: 40%</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-04-26-finalnyy-opros-pered-vyborami-liberaly-operezhayut-konservat/">
+  <div class="card-img"><img src="/photos/photo_316@26-04-2025_08-44-01.jpg" alt="Финальный опрос перед выборами: Либералы опережают Консерваторов на 4 пункта" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Финальный опрос перед выборами: Либералы опережают Консерваторов на 4 пункта</div>
+    <div class="card-excerpt">(Данные Postmedia–Leger, опубликованы 26 апреля)  Основные цифры – Либералы: 43% – Консерваторы: 39% – НДП: 7% – Блок Квебекуа: 5%  Рейтинг лидеров (лучший кандидат на пост премьера) – Марк Карни: 40%</div>
+    <div class="card-meta">
+      <span class="card-date">26 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-25-finishnaya-pryamaya-liberaly-derzhat-5-protsentnoe-preimusch/">
-  <div class="sc-img"><img src="/photos/photo_314@25-04-2025_09-28-24.jpg" alt="Финишная прямая: Либералы держат 5-процентное преимущество над Консерваторами за два дня до выборов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Финишная прямая: Либералы держат 5-процентное преимущество над Консерваторами за два дня до выборов</div>
-    <div class="pex">(Свежие данные Nanos Research, 22–24 апреля, опубликовано CTV News и The Globe and Mail)  Общенациональные рейтинги: – Либералы: 43% – Консерваторы: 38% – НДП: 8% – Блок Квебекуа: 6% – Зелёные: 3% – Н</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-04-25-finishnaya-pryamaya-liberaly-derzhat-5-protsentnoe-preimusch/">
+  <div class="card-img"><img src="/photos/photo_314@25-04-2025_09-28-24.jpg" alt="Финишная прямая: Либералы держат 5-процентное преимущество над Консерваторами за два дня до выборов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Финишная прямая: Либералы держат 5-процентное преимущество над Консерваторами за два дня до выборов</div>
+    <div class="card-excerpt">(Свежие данные Nanos Research, 22–24 апреля, опубликовано CTV News и The Globe and Mail)  Общенациональные рейтинги: – Либералы: 43% – Консерваторы: 38% – НДП: 8% – Блок Квебекуа: 6% – Зелёные: 3% – Н</div>
+    <div class="card-meta">
+      <span class="card-date">25 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-24-opros-nanos-den-33-iz-36/">
-  <div class="sc-img"><img src="/photos/photo_304@24-04-2025_08-43-01.jpg" alt="Опрос Nanos (день 33 из 36)" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Опрос Nanos (день 33 из 36)</div>
-    <div class="pex">Либералы ведут на 4%, но разрыв сокращается, включая рейтинг &quot;лучший премьер&quot;.  Актуальные данные трёхдневного трекинга (21–23 апреля) от Nanos Research для CTV News и The Globe and Mail.  – Либералы</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-24-opros-nanos-den-33-iz-36/">
+  <div class="card-img"><img src="/photos/photo_304@24-04-2025_08-43-01.jpg" alt="Опрос Nanos (день 33 из 36)" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Опрос Nanos (день 33 из 36)</div>
+    <div class="card-excerpt">Либералы ведут на 4%, но разрыв сокращается, включая рейтинг &quot;лучший премьер&quot;.  Актуальные данные трёхдневного трекинга (21–23 апреля) от Nanos Research для CTV News и The Globe and Mail.  – Либералы</div>
+    <div class="card-meta">
+      <span class="card-date">24 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-23-opros-nanos-den-32-iz-36-liberaly-operezhayut-konservatorov-/">
-  <div class="sc-img"><img src="/photos/photo_300@23-04-2025_09-21-32.jpg" alt="Опрос Nanos (день 32 из 36): Либералы опережают Консерваторов на 5%, НДП теряет эффект от дебатов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Опрос Nanos (день 32 из 36): Либералы опережают Консерваторов на 5%, НДП теряет эффект от дебатов</div>
-    <div class="pex">Актуальные данные трёхдневного опроса (20–22 апреля) от Nanos Research для CTV News и The Globe and Mail:  – Либералы — 44% – Консерваторы — 39% – НДП — 8% (просадка после дебатного “скачка”) – Блок К</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-04-23-opros-nanos-den-32-iz-36-liberaly-operezhayut-konservatorov-/">
+  <div class="card-img"><img src="/photos/photo_300@23-04-2025_09-21-32.jpg" alt="Опрос Nanos (день 32 из 36): Либералы опережают Консерваторов на 5%, НДП теряет эффект от дебатов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Опрос Nanos (день 32 из 36): Либералы опережают Консерваторов на 5%, НДП теряет эффект от дебатов</div>
+    <div class="card-excerpt">Актуальные данные трёхдневного опроса (20–22 апреля) от Nanos Research для CTV News и The Globe and Mail:  – Либералы — 44% – Консерваторы — 39% – НДП — 8% (просадка после дебатного “скачка”) – Блок К</div>
+    <div class="card-meta">
+      <span class="card-date">23 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-22-liberaly-operezhayut-konservatorov-na-6-dve-klyuchevye-grupp/">
-  <div class="sc-img"><img src="/photos/photo_292@22-04-2025_09-16-33.jpg" alt="Либералы опережают Консерваторов на 6% — две ключевые группы пока &quot;чистая лотерея&quot;" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Либералы опережают Консерваторов на 6% — две ключевые группы пока &quot;чистая лотерея&quot;</div>
-    <div class="pex">Новый трёхдневный опрос Nanos (19–21 апреля): – Либералы: 43% – Консерваторы: 37% – NDP: 10%, Блок: 6%, Зелёные: 3%, PPC: 1%  ⚡️ Две группы, где пока полный разброд (ключевые для исхода выборов): – Во</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-04-22-liberaly-operezhayut-konservatorov-na-6-dve-klyuchevye-grupp/">
+  <div class="card-img"><img src="/photos/photo_292@22-04-2025_09-16-33.jpg" alt="Либералы опережают Консерваторов на 6% — две ключевые группы пока &quot;чистая лотерея&quot;" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Либералы опережают Консерваторов на 6% — две ключевые группы пока &quot;чистая лотерея&quot;</div>
+    <div class="card-excerpt">Новый трёхдневный опрос Nanos (19–21 апреля): – Либералы: 43% – Консерваторы: 37% – NDP: 10%, Блок: 6%, Зелёные: 3%, PPC: 1%  ⚡️ Две группы, где пока полный разброд (ключевые для исхода выборов): – Во</div>
+    <div class="card-meta">
+      <span class="card-date">22 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-21-mainstreet-nichya-41-na-41-u-karni-i-polieva-paritet/">
-  <div class="sc-img"><img src="/photos/photo_288@21-04-2025_09-49-01.jpg" alt="Mainstreet: ничья 41 на 41 — у Карни и Полиева паритет." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cdn.prod.website-files.com</div>
-    <div class="ptit sc-title">Mainstreet: ничья 41 на 41 — у Карни и Полиева паритет.</div>
-    <div class="pex">В опросе Mainstreet (18–20 апреля, n=1295) среди определившихся и склоняющихся избирателей:  – Либералы (Карни): 41% – Консерваторы (Полиев): 41% – НДП (Сингх): 6% – Блок: 6%, Зелёные: 2%, Народники:</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 апр 2025</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2025-04-21-mainstreet-nichya-41-na-41-u-karni-i-polieva-paritet/">
+  <div class="card-img"><img src="/photos/photo_288@21-04-2025_09-49-01.jpg" alt="Mainstreet: ничья 41 на 41 — у Карни и Полиева паритет." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cdn.prod.website-files.com</div>
+    <div class="card-title">Mainstreet: ничья 41 на 41 — у Карни и Полиева паритет.</div>
+    <div class="card-excerpt">В опросе Mainstreet (18–20 апреля, n=1295) среди определившихся и склоняющихся избирателей:  – Либералы (Карни): 41% – Консерваторы (Полиев): 41% – НДП (Сингх): 6% – Блок: 6%, Зелёные: 2%, Народники:</div>
+    <div class="card-meta">
+      <span class="card-date">21 апр 2025</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-21-vybory-2025-liberaly-na-7-punktov-vperedi-za-7-dney-do-golos/">
-  <div class="sc-img"><img src="/photos/photo_287@21-04-2025_08-31-31.jpg" alt="Выборы-2025: Либералы на 7 пунктов впереди — за 7 дней до голосования." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Выборы-2025: Либералы на 7 пунктов впереди — за 7 дней до голосования.</div>
-    <div class="pex">📊 Трекер Nanos от 17, 19 и 20 апреля показывает: – Либералы — 44% – Консерваторы — 36% – НДП — 11% – Блок — 6%, Зелёные — 3%, Народники — 1%  📌 Прямо сейчас у Либералов уверенное преимущество почти во</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-21-vybory-2025-liberaly-na-7-punktov-vperedi-za-7-dney-do-golos/">
+  <div class="card-img"><img src="/photos/photo_287@21-04-2025_08-31-31.jpg" alt="Выборы-2025: Либералы на 7 пунктов впереди — за 7 дней до голосования." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Выборы-2025: Либералы на 7 пунктов впереди — за 7 дней до голосования.</div>
+    <div class="card-excerpt">📊 Трекер Nanos от 17, 19 и 20 апреля показывает: – Либералы — 44% – Консерваторы — 36% – НДП — 11% – Блок — 6%, Зелёные — 3%, Народники — 1%  📌 Прямо сейчас у Либералов уверенное преимущество почти во</div>
+    <div class="card-meta">
+      <span class="card-date">21 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-20-posledniy-treking-nanos-19-aprelya/">
-  <div class="sc-img"><img src="/photos/photo_284@20-04-2025_12-57-01.jpg" alt="📊 Последний трекинг Nanos (19 апреля):" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">📊 Последний трекинг Nanos (19 апреля):</div>
-    <div class="pex">– Либералы: 43.2% – Консерваторы (Полиев): 37.0% – НДП (Сингх): 10.5% – Блок: 5.8% – Зелёные: 2.7% – Народная партия: 0.8%  Разрыв между Либералами и Консерваторами — 6 пунктов. Но интересно, как меня</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-04-20-posledniy-treking-nanos-19-aprelya/">
+  <div class="card-img"><img src="/photos/photo_284@20-04-2025_12-57-01.jpg" alt="📊 Последний трекинг Nanos (19 апреля):" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">📊 Последний трекинг Nanos (19 апреля):</div>
+    <div class="card-excerpt">– Либералы: 43.2% – Консерваторы (Полиев): 37.0% – НДП (Сингх): 10.5% – Блок: 5.8% – Зелёные: 2.7% – Народная партия: 0.8%  Разрыв между Либералами и Консерваторами — 6 пунктов. Но интересно, как меня</div>
+    <div class="card-meta">
+      <span class="card-date">20 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-18-kto-pobedil-na-angliyskih-debatah-poliev-bez-voprosov/">
-  <div class="sc-img"><img src="/photos/photo_274@18-04-2025_11-37-01.jpg" alt="Кто победил на английских дебатах? Полиев. Без вопросов." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Кто победил на английских дебатах? Полиев. Без вопросов.</div>
-    <div class="pex">По мнению обозревателя National Post Джейми Сарконак, ответ очевиден: Пьер Полиев не просто справился с дебатами — он разнёс соперников.   Полиев вёл  наступление в своём стиле:  – Внятное послание об</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-04-18-kto-pobedil-na-angliyskih-debatah-poliev-bez-voprosov/">
+  <div class="card-img"><img src="/photos/photo_274@18-04-2025_11-37-01.jpg" alt="Кто победил на английских дебатах? Полиев. Без вопросов." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Кто победил на английских дебатах? Полиев. Без вопросов.</div>
+    <div class="card-excerpt">По мнению обозревателя National Post Джейми Сарконак, ответ очевиден: Пьер Полиев не просто справился с дебатами — он разнёс соперников.   Полиев вёл  наступление в своём стиле:  – Внятное послание об</div>
+    <div class="card-meta">
+      <span class="card-date">18 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-18-liberaly-derzhat-8-nad-konservatorami-nanos-27-y-den-kampani/">
-  <div class="sc-img"><img src="/photos/photo_272@18-04-2025_10-34-01.jpg" alt="📊 Либералы держат +8 над консерваторами — Nanos, 27-й день кампании" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">📊 Либералы держат +8 над консерваторами — Nanos, 27-й день кампании</div>
-    <div class="pex">Новая трёхдневная выборка от Nanos (по 17 апреля) показывает:  – Либералы — 45% – Консерваторы — 37% (без изменений) – НДП — 8% – Блок — 6% – Зелёные — 3% – Народная партия — 1%  🎯 Кто лидирует где: –</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-18-liberaly-derzhat-8-nad-konservatorami-nanos-27-y-den-kampani/">
+  <div class="card-img"><img src="/photos/photo_272@18-04-2025_10-34-01.jpg" alt="📊 Либералы держат +8 над консерваторами — Nanos, 27-й день кампании" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">📊 Либералы держат +8 над консерваторами — Nanos, 27-й день кампании</div>
+    <div class="card-excerpt">Новая трёхдневная выборка от Nanos (по 17 апреля) показывает:  – Либералы — 45% – Консерваторы — 37% (без изменений) – НДП — 8% – Блок — 6% – Зелёные — 3% – Народная партия — 1%  🎯 Кто лидирует где: –</div>
+    <div class="card-meta">
+      <span class="card-date">18 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-18-pervyy-opros-po-itogam-debatov/">
-  <div class="sc-img"><img src="/photos/photo_270@18-04-2025_08-13-01.jpg" alt="Первый опрос по итогам дебатов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">abacusdata.ca</div>
-    <div class="ptit sc-title">Первый опрос по итогам дебатов</div>
-    <div class="pex">Согласно экспресс-опросу Abacus Data, проведенному сразу после эфира:  – 59% зрителей остались с положительным впечатлением от Марка Карни – 53% – от Пьера Полиева – 41% – от Джагмита Сингха – 25% – о</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 апр 2025</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2025-04-18-pervyy-opros-po-itogam-debatov/">
+  <div class="card-img"><img src="/photos/photo_270@18-04-2025_08-13-01.jpg" alt="Первый опрос по итогам дебатов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Первый опрос по итогам дебатов</div>
+    <div class="card-excerpt">Согласно экспресс-опросу Abacus Data, проведенному сразу после эфира:  – 59% зрителей остались с положительным впечатлением от Марка Карни – 53% – от Пьера Полиева – 41% – от Джагмита Сингха – 25% – о</div>
+    <div class="card-meta">
+      <span class="card-date">18 апр 2025</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-17-frantsuzskie-debaty-bez-feylov-bez-feyerverkov-bez-pobeditel/">
-  <div class="sc-img"><img src="/photos/photo_264@17-04-2025_09-43-01.jpg" alt="Французские дебаты: без фейлов, без фейерверков, без победителя" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Французские дебаты: без фейлов, без фейерверков, без победителя</div>
-    <div class="pex">Первые национальные дебаты позади. Карни, Полиев, Сингх, Бланше — на сцене в Монреале. Формат позволял перебивать, но никто не кричал. Личных атак не было. Даже клубнику обсудили без оскорблений.  🔥 И</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-17-frantsuzskie-debaty-bez-feylov-bez-feyerverkov-bez-pobeditel/">
+  <div class="card-img"><img src="/photos/photo_264@17-04-2025_09-43-01.jpg" alt="Французские дебаты: без фейлов, без фейерверков, без победителя" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Французские дебаты: без фейлов, без фейерверков, без победителя</div>
+    <div class="card-excerpt">Первые национальные дебаты позади. Карни, Полиев, Сингх, Бланше — на сцене в Монреале. Формат позволял перебивать, но никто не кричал. Личных атак не было. Даже клубнику обсудили без оскорблений.  🔥 И</div>
+    <div class="card-meta">
+      <span class="card-date">17 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-15-poliev-obeschaet-oboyti-hartiyu-prav-vpervye-v-istorii-kanad/">
-  <div class="sc-img"><img src="/photos/photo_250@15-04-2025_10-35-50.jpg" alt="Полиев обещает обойти Хартию прав — впервые в истории Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Полиев обещает обойти Хартию прав — впервые в истории Канады</div>
-    <div class="pex">Пьер Полиев пообещал, что в случае победы на выборах воспользуется статьёй 33 Конституции — notwithstanding clause — чтобы ввести пожизненные сроки без права на освобождение для многократных убийц.  В</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-15-poliev-obeschaet-oboyti-hartiyu-prav-vpervye-v-istorii-kanad/">
+  <div class="card-img"><img src="/photos/photo_250@15-04-2025_10-35-50.jpg" alt="Полиев обещает обойти Хартию прав — впервые в истории Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиев обещает обойти Хартию прав — впервые в истории Канады</div>
+    <div class="card-excerpt">Пьер Полиев пообещал, что в случае победы на выборах воспользуется статьёй 33 Конституции — notwithstanding clause — чтобы ввести пожизненные сроки без права на освобождение для многократных убийц.  В</div>
+    <div class="card-meta">
+      <span class="card-date">15 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-14-federalnyy-opros-aprelskaya-duel-poliev-vs-karni/">
-  <div class="sc-img"><img src="/photos/photo_245@14-04-2025_14-43-01.jpg" alt="🔴 Федеральный опрос: апрельская дуэль – Полиев vs. Карни" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cdn.prod.website-files.com</div>
-    <div class="ptit sc-title">🔴 Федеральный опрос: апрельская дуэль – Полиев vs. Карни</div>
-    <div class="pex">Mainstreet Research опубликовали свежий трекер. Что было бы, если бы выборы состоялись сегодня.  Консерваторы (Пьер Полиев) — 44% Либералы (Марк Карни) — 42% НДП (Джагмит Сингх) — 6% Квебекский Блок —</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-04-14-federalnyy-opros-aprelskaya-duel-poliev-vs-karni/">
+  <div class="card-img"><img src="/photos/photo_245@14-04-2025_14-43-01.jpg" alt="🔴 Федеральный опрос: апрельская дуэль – Полиев vs. Карни" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cdn.prod.website-files.com</div>
+    <div class="card-title">🔴 Федеральный опрос: апрельская дуэль – Полиев vs. Карни</div>
+    <div class="card-excerpt">Mainstreet Research опубликовали свежий трекер. Что было бы, если бы выборы состоялись сегодня.  Консерваторы (Пьер Полиев) — 44% Либералы (Марк Карни) — 42% НДП (Джагмит Сингх) — 6% Квебекский Блок —</div>
+    <div class="card-meta">
+      <span class="card-date">14 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-13-krinzh/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Кринж!</div>
-    <div class="pex">Джагмит Сингх устроил прыжки на митинге, пока женщина в инвалидном кресле смотрела в тишине.  На встрече с избирателями в Саскатуне 9 апреля лидер NDP призвал всех “прыгать в унисон под музыку” — в то</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-13-krinzh/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Кринж!</div>
+    <div class="card-excerpt">Джагмит Сингх устроил прыжки на митинге, пока женщина в инвалидном кресле смотрела в тишине.  На встрече с избирателями в Саскатуне 9 апреля лидер NDP призвал всех “прыгать в унисон под музыку” — в то</div>
+    <div class="card-meta">
+      <span class="card-date">13 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-10-51-y-shtat-i-genotsid-karni-zasypali-krikami-v-saskatune/">
-  <div class="sc-img"><img src="/photos/photo_224@10-04-2025_18-53-01.jpg" alt="«51-й штат» и «геноцид»: Карни засыпали криками в Саскатуне" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">«51-й штат» и «геноцид»: Карни засыпали криками в Саскатуне</div>
-    <div class="pex">Во время митинга в Саскатуне, на котором собралось около 800 человек, Марка Карни прервали сразу с двух флангов — справа выкрикивали лозунги о присоединении Канады к США, слева обвиняли в молчании по</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-04-10-51-y-shtat-i-genotsid-karni-zasypali-krikami-v-saskatune/">
+  <div class="card-img"><img src="/photos/photo_224@10-04-2025_18-53-01.jpg" alt="«51-й штат» и «геноцид»: Карни засыпали криками в Саскатуне" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">«51-й штат» и «геноцид»: Карни засыпали криками в Саскатуне</div>
+    <div class="card-excerpt">Во время митинга в Саскатуне, на котором собралось около 800 человек, Марка Карни прервали сразу с двух флангов — справа выкрикивали лозунги о присоединении Канады к США, слева обвиняли в молчании по</div>
+    <div class="card-meta">
+      <span class="card-date">10 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-08-i-esche-opros/">
-  <div class="sc-img"><img src="/photos/photo_199@08-04-2025_14-18-56.jpg" alt="И еще опрос!" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">И еще опрос!</div>
-    <div class="pex">Новый трек Nanos (5–7 апреля, n=1 285):   Либералы — 43%, консерваторы — 38%, НДП — исторический провал   – Либералы сохраняют 5-процентное лидерство – НДП — только 8%, это анти-рекорд с 2000 года – Б</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-08-i-esche-opros/">
+  <div class="card-img"><img src="/photos/photo_199@08-04-2025_14-18-56.jpg" alt="И еще опрос!" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">И еще опрос!</div>
+    <div class="card-excerpt">Новый трек Nanos (5–7 апреля, n=1 285):   Либералы — 43%, консерваторы — 38%, НДП — исторический провал   – Либералы сохраняют 5-процентное лидерство – НДП — только 8%, это анти-рекорд с 2000 года – Б</div>
+    <div class="card-meta">
+      <span class="card-date">8 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-06-ndp-na-grani-kraha-partiya-mozhet-poteryat-ofitsialnyy-statu/">
-  <div class="sc-img"><img src="/photos/photo_186@06-04-2025_11-27-23.jpg" alt="🟠 НДП на грани краха: партия может потерять  официальный статус в парламенте" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">🟠 НДП на грани краха: партия может потерять  официальный статус в парламенте</div>
-    <div class="pex">Кампания Джагмита Сингха в 2025 году рискует стать самой провальной для Новой демократической партии (NDP) за последние десятилетия.   Согласно последней модели Global News, основанной на агрегированн</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-06-ndp-na-grani-kraha-partiya-mozhet-poteryat-ofitsialnyy-statu/">
+  <div class="card-img"><img src="/photos/photo_186@06-04-2025_11-27-23.jpg" alt="🟠 НДП на грани краха: партия может потерять  официальный статус в парламенте" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">🟠 НДП на грани краха: партия может потерять  официальный статус в парламенте</div>
+    <div class="card-excerpt">Кампания Джагмита Сингха в 2025 году рискует стать самой провальной для Новой демократической партии (NDP) за последние десятилетия.   Согласно последней модели Global News, основанной на агрегированн</div>
+    <div class="card-meta">
+      <span class="card-date">6 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-05-singh-obeschaet-u-kazhdogo-kanadtsa-budet-semeynyy-vrach-k-2/">
-  <div class="sc-img"><img src="/photos/photo_181@05-04-2025_15-26-24.jpg" alt="🩺 Сингх обещает: у каждого канадца будет семейный врач к 2030 году" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🩺 Сингх обещает: у каждого канадца будет семейный врач к 2030 году</div>
-    <div class="pex">Выступая в Сент-Джонсе в субботу, лидер НДП Джагмит Сингх заявил, что партия гарантирует доступ к семейному врачу для всех канадцев к 2030 году. Сейчас более 6,5 млн человек не имеют семейного врача.</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-04-05-singh-obeschaet-u-kazhdogo-kanadtsa-budet-semeynyy-vrach-k-2/">
+  <div class="card-img"><img src="/photos/photo_181@05-04-2025_15-26-24.jpg" alt="🩺 Сингх обещает: у каждого канадца будет семейный врач к 2030 году" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🩺 Сингх обещает: у каждого канадца будет семейный врач к 2030 году</div>
+    <div class="card-excerpt">Выступая в Сент-Джонсе в субботу, лидер НДП Джагмит Сингх заявил, что партия гарантирует доступ к семейному врачу для всех канадцев к 2030 году. Сейчас более 6,5 млн человек не имеют семейного врача.</div>
+    <div class="card-meta">
+      <span class="card-date">5 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-02-dzhagmit-singh-vchera-zhestko-proshyolsya-po-polievu/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🔥 Джагмит Сингх вчера жестко  прошёлся по Полиеву</div>
-    <div class="pex">🗣 &quot;Не думаю, что хоть одна женщина хочет слышать, как Пьер Полиев рассуждает о её теле. Точка&quot;.</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 апр 2025</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2025-04-02-dzhagmit-singh-vchera-zhestko-proshyolsya-po-polievu/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🔥 Джагмит Сингх вчера жестко  прошёлся по Полиеву</div>
+    <div class="card-excerpt">🗣 &quot;Не думаю, что хоть одна женщина хочет слышать, как Пьер Полиев рассуждает о её теле. Точка&quot;.</div>
+    <div class="card-meta">
+      <span class="card-date">2 апр 2025</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-02-minus-tri-u-konservatorov-za-den-vyleteli-srazu-tri-kandidat/">
-  <div class="sc-img"><img src="/photos/photo_149@02-04-2025_07-19-06.jpg" alt="🚫 Минус три: у Консерваторов за день вылетели сразу три кандидата" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🚫 Минус три: у Консерваторов за день вылетели сразу три кандидата</div>
-    <div class="pex">Во вторник вечером партия Консерваторов подтвердила, что Лоуренс Сингх, кандидат по округу Нью-Уэстминстер–Бернаби–Майярдвиль (Британская Колумбия), больше не участвует в выборах.  Причина ухода не ра</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-04-02-minus-tri-u-konservatorov-za-den-vyleteli-srazu-tri-kandidat/">
+  <div class="card-img"><img src="/photos/photo_149@02-04-2025_07-19-06.jpg" alt="🚫 Минус три: у Консерваторов за день вылетели сразу три кандидата" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🚫 Минус три: у Консерваторов за день вылетели сразу три кандидата</div>
+    <div class="card-excerpt">Во вторник вечером партия Консерваторов подтвердила, что Лоуренс Сингх, кандидат по округу Нью-Уэстминстер–Бернаби–Майярдвиль (Британская Колумбия), больше не участвует в выборах.  Причина ухода не ра</div>
+    <div class="card-meta">
+      <span class="card-date">2 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-03-25-csis-indiya-yakoby-pomogala-polievu-na-liderskih-vyborah-202/">
-  <div class="sc-img"><img src="/photos/photo_96@25-03-2025_09-39-11.jpg" alt="CSIS: Индия якобы помогала Полиеву на лидерских выборах 2022 года — без его ведома" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">CSIS: Индия якобы помогала Полиеву на лидерских выборах 2022 года — без его ведома</div>
-    <div class="pex">🔍 По информации источника с допуском к засекреченным материалам, Канадская служба разведки и безопасности (CSIS) выявила, что агенты Индии и их прокси могли участвовать в сборе средств и мобилизации ю</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 мар 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-03-25-csis-indiya-yakoby-pomogala-polievu-na-liderskih-vyborah-202/">
+  <div class="card-img"><img src="/photos/photo_96@25-03-2025_09-39-11.jpg" alt="CSIS: Индия якобы помогала Полиеву на лидерских выборах 2022 года — без его ведома" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">CSIS: Индия якобы помогала Полиеву на лидерских выборах 2022 года — без его ведома</div>
+    <div class="card-excerpt">🔍 По информации источника с допуском к засекреченным материалам, Канадская служба разведки и безопасности (CSIS) выявила, что агенты Индии и их прокси могли участвовать в сборе средств и мобилизации ю</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-02-27-dzhagmit-singh-trebuet-zapretit-trampu-vezd-na-g7-v-kanade/">
-  <div class="sc-img"><img src="/photos/photo_3@27-02-2025_09-07-49.jpg" alt="🏛 Джагмит Сингх требует запретить Трампу въезд на G7 в Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🏛 Джагмит Сингх требует запретить Трампу въезд на G7 в Канаде</div>
-    <div class="pex">Лидер NDP Джагмит Сингх призвал исключить Дональда Трампа из списка участников саммита G7, который пройдет в Альберте в июне. Он стал первым канадским политиком, открыто выступившим с таким требование</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 фев 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-02-27-dzhagmit-singh-trebuet-zapretit-trampu-vezd-na-g7-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_3@27-02-2025_09-07-49.jpg" alt="🏛 Джагмит Сингх требует запретить Трампу въезд на G7 в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🏛 Джагмит Сингх требует запретить Трампу въезд на G7 в Канаде</div>
+    <div class="card-excerpt">Лидер NDP Джагмит Сингх призвал исключить Дональда Трампа из списка участников саммита G7, который пройдет в Альберте в июне. Он стал первым канадским политиком, открыто выступившим с таким требование</div>
+    <div class="card-meta">
+      <span class="card-date">27 фев 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/person/dzhagmit-singh/">←</a><a class="pb" href="/person/dzhagmit-singh/">1</a><a class="pb on" href="/person/dzhagmit-singh/page/2/">2</a></div>

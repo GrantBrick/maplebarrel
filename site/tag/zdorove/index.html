@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#здоровье</h1>
     <p>230 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2026-03-26-meta-i-youtube-priznany-vinovnymi-v-sozdanii-zavisimyh-produ/">
-  <div class="sc-img"><img src="/photos/photo_2459@26-03-2026_12-06-47.jpg" alt="Meta и YouTube признаны виновными в создании «зависимых» продуктов, вредящих детям" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theguardian.com</div>
-    <div class="ptit sc-title">Meta и YouTube признаны виновными в создании «зависимых» продуктов, вредящих детям</div>
-    <div class="pex">Суд присяжных в Лос-Анджелесе признал Meta и YouTube ответственными за создание продуктов, вызывающих зависимость у несовершеннолетних и наносящих вред их психическому здоровью.   Присяжные пришли к в</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-26-meta-i-youtube-priznany-vinovnymi-v-sozdanii-zavisimyh-produ/">
+  <div class="card-img"><img src="/photos/photo_2459@26-03-2026_12-06-47.jpg" alt="Meta и YouTube признаны виновными в создании «зависимых» продуктов, вредящих детям" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theguardian.com</div>
+    <div class="card-title">Meta и YouTube признаны виновными в создании «зависимых» продуктов, вредящих детям</div>
+    <div class="card-excerpt">Суд присяжных в Лос-Анджелесе признал Meta и YouTube ответственными за создание продуктов, вызывающих зависимость у несовершеннолетних и наносящих вред их психическому здоровью.   Присяжные пришли к в</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-25-vezhlivyy-pogrom-v-kanade/">
-  <div class="sc-img"><img src="/photos/photo_2450@25-03-2026_17-34-39.jpg" alt="«Вежливый погром» в Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theatlantic.com</div>
-    <div class="ptit sc-title">«Вежливый погром» в Канаде</div>
-    <div class="pex">Джесси Браун пишет о том, что после событий 7 октября в Канаде изменилась атмосфера вокруг еврейского сообщества — и не только через насилие, но и через поведение институтов.  Он начинает с истории вр</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-03-25-vezhlivyy-pogrom-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_2450@25-03-2026_17-34-39.jpg" alt="«Вежливый погром» в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theatlantic.com</div>
+    <div class="card-title">«Вежливый погром» в Канаде</div>
+    <div class="card-excerpt">Джесси Браун пишет о том, что после событий 7 октября в Канаде изменилась атмосфера вокруг еврейского сообщества — и не только через насилие, но и через поведение институтов.  Он начинает с истории вр</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-25-poliev-trebuet-ot-karni-uvolit-ministrov-iz-za-otchyota-audi/">
-  <div class="sc-img"><img src="/photos/photo_2447@25-03-2026_12-06-01.jpg" alt="Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">westernstandard.news</div>
-    <div class="ptit sc-title">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам</div>
-    <div class="pex">Лидер консерваторов Пьер Полиев призвал премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.   Речь идёт о дей</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-03-25-poliev-trebuet-ot-karni-uvolit-ministrov-iz-za-otchyota-audi/">
+  <div class="card-img"><img src="/photos/photo_2447@25-03-2026_12-06-01.jpg" alt="Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">westernstandard.news</div>
+    <div class="card-title">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев призвал премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.   Речь идёт о дей</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-23-aviadispetcher-krichal-stop-za-sekundy-do-smertelnoy-katastr/">
-  <div class="sc-img"><img src="/photos/photo_2425@23-03-2026_10-11-24.jpg" alt="Авиадиспетчер кричал «стоп» за секунды до смертельной катастрофы Air Canada в Нью-Йорке" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Авиадиспетчер кричал «стоп» за секунды до смертельной катастрофы Air Canada в Нью-Йорке</div>
-    <div class="pex">За мгновения до столкновения самолёта Air Canada с пожарной машиной в аэропорту Ла-Гуардия диспетчер в панике повторял «стоп» — как минимум десять раз, пытаясь остановить технику, выехавшую на взлётно</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a><a class="ptag" href="/tag/klimat/">#климат</a></div></div>
+</a><a class="card" href="/post/2026-03-23-aviadispetcher-krichal-stop-za-sekundy-do-smertelnoy-katastr/">
+  <div class="card-img"><img src="/photos/photo_2425@23-03-2026_10-11-24.jpg" alt="Авиадиспетчер кричал «стоп» за секунды до смертельной катастрофы Air Canada в Нью-Йорке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Авиадиспетчер кричал «стоп» за секунды до смертельной катастрофы Air Canada в Нью-Йорке</div>
+    <div class="card-excerpt">За мгновения до столкновения самолёта Air Canada с пожарной машиной в аэропорту Ла-Гуардия диспетчер в панике повторял «стоп» — как минимум десять раз, пытаясь остановить технику, выехавшую на взлётно</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-20-ekrannoe-vremya-byot-po-molodyozhi-kanady-novye-dannye/">
-  <div class="sc-img"><img src="/photos/photo_2414@20-03-2026_11-03-29.jpg" alt="Экранное время бьёт по молодёжи Канады — новые данные" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Экранное время бьёт по молодёжи Канады — новые данные</div>
-    <div class="pex">Новое исследование Statistics Canada показывает: канадские подростки всё глубже уходят в экраны — и платят за это психическим состоянием.  В долгосрочном исследовании (2019–2023) отслеживали подростко</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-03-20-ekrannoe-vremya-byot-po-molodyozhi-kanady-novye-dannye/">
+  <div class="card-img"><img src="/photos/photo_2414@20-03-2026_11-03-29.jpg" alt="Экранное время бьёт по молодёжи Канады — новые данные" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Экранное время бьёт по молодёжи Канады — новые данные</div>
+    <div class="card-excerpt">Новое исследование Statistics Canada показывает: канадские подростки всё глубже уходят в экраны — и платят за это психическим состоянием.  В долгосрочном исследовании (2019–2023) отслеживали подростко</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-18-zdorove-kanadtsev-uhudshaetsya-silnee-vsego-u-molodyh-do-35-/">
-  <div class="sc-img"><img src="/photos/photo_2396@18-03-2026_19-03-47.jpg" alt="«Здоровье канадцев ухудшается — сильнее всего у молодых до 35 лет»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">«Здоровье канадцев ухудшается — сильнее всего у молодых до 35 лет»</div>
-    <div class="pex">Новый отчёт Statistics Canada показывает заметное ухудшение состояния здоровья канадцев за последнее десятилетие.   Доля взрослых, оценивающих своё здоровье как «очень хорошее» или «идеальное», снизил</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-03-18-zdorove-kanadtsev-uhudshaetsya-silnee-vsego-u-molodyh-do-35-/">
+  <div class="card-img"><img src="/photos/photo_2396@18-03-2026_19-03-47.jpg" alt="«Здоровье канадцев ухудшается — сильнее всего у молодых до 35 лет»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">«Здоровье канадцев ухудшается — сильнее всего у молодых до 35 лет»</div>
+    <div class="card-excerpt">Новый отчёт Statistics Canada показывает заметное ухудшение состояния здоровья канадцев за последнее десятилетие.   Доля взрослых, оценивающих своё здоровье как «очень хорошее» или «идеальное», снизил</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-18-kanadskie-muzhchiny-perezhivayut-postoyannyy-krizis-v-obsche/">
-  <div class="sc-img"><img src="/photos/photo_2395@18-03-2026_17-04-57.jpg" alt="Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье</div>
-    <div class="pex">Профессор Нииган Синклер из University of Manitoba заявил, что в Канаде сформировался устойчивый кризис, связанный со здоровьем мужчин.   По его словам, мужчины в стране живут меньше, чаще страдают от</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2026-03-18-kanadskie-muzhchiny-perezhivayut-postoyannyy-krizis-v-obsche/">
+  <div class="card-img"><img src="/photos/photo_2395@18-03-2026_17-04-57.jpg" alt="Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье</div>
+    <div class="card-excerpt">Профессор Нииган Синклер из University of Manitoba заявил, что в Канаде сформировался устойчивый кризис, связанный со здоровьем мужчин.   По его словам, мужчины в стране живут меньше, чаще страдают от</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-18-samopovrezhdenie-sredi-molodyh-kanadtsev-rastyot-osobenno-sr/">
-  <div class="sc-img"><img src="/photos/photo_2394@18-03-2026_15-04-59.jpg" alt="Самоповреждение среди молодых канадцев растёт — особенно среди девушек" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Самоповреждение среди молодых канадцев растёт — особенно среди девушек</div>
-    <div class="pex">Новое исследование показало тревожную тенденцию: случаи самоповреждения среди канадской молодёжи стабильно растут — и сильнее всего это затрагивает девушек.   Согласно анализу, опубликованному в Journ</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-03-18-samopovrezhdenie-sredi-molodyh-kanadtsev-rastyot-osobenno-sr/">
+  <div class="card-img"><img src="/photos/photo_2394@18-03-2026_15-04-59.jpg" alt="Самоповреждение среди молодых канадцев растёт — особенно среди девушек" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Самоповреждение среди молодых канадцев растёт — особенно среди девушек</div>
+    <div class="card-excerpt">Новое исследование показало тревожную тенденцию: случаи самоповреждения среди канадской молодёжи стабильно растут — и сильнее всего это затрагивает девушек.   Согласно анализу, опубликованному в Journ</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-14-video-s-ii-rasprostranyayut-meditsinskuyu-dezinformatsiyu-sr/">
-  <div class="sc-img"><img src="/photos/photo_2363@14-03-2026_18-05-19.jpg" alt="«Видео с ИИ распространяют медицинскую дезинформацию среди канадцев»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">tvo.org</div>
-    <div class="ptit sc-title">«Видео с ИИ распространяют медицинскую дезинформацию среди канадцев»</div>
-    <div class="pex">Аналитик Офиса науки и общества Университета Макгилла Джонатан Джарри предупреждает о быстро растущей волне роликов на YouTube, где якобы «врачи» дают советы по здоровью. На самом деле многие из этих</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/tehnologii/">#технологии</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-03-14-video-s-ii-rasprostranyayut-meditsinskuyu-dezinformatsiyu-sr/">
+  <div class="card-img"><img src="/photos/photo_2363@14-03-2026_18-05-19.jpg" alt="«Видео с ИИ распространяют медицинскую дезинформацию среди канадцев»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">tvo.org</div>
+    <div class="card-title">«Видео с ИИ распространяют медицинскую дезинформацию среди канадцев»</div>
+    <div class="card-excerpt">Аналитик Офиса науки и общества Университета Макгилла Джонатан Джарри предупреждает о быстро растущей волне роликов на YouTube, где якобы «врачи» дают советы по здоровью. На самом деле многие из этих</div>
+    <div class="card-meta">
+      <span class="card-date">14 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-12-opros-leger-kanadtsy-podderzhivayut-uzhestochenie-immigratsi/">
-  <div class="sc-img"><img src="/photos/photo_2348@12-03-2026_17-01-29.jpg" alt="Опрос Leger: канадцы поддерживают ужесточение иммиграции и сокращение госрасходов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">leger360.com</div>
-    <div class="ptit sc-title">Опрос Leger: канадцы поддерживают ужесточение иммиграции и сокращение госрасходов</div>
-    <div class="pex">Большинство канадцев выступают за более жёсткие правила иммиграции, сокращение государственных расходов и более строгие требования к работе федеральных госслужащих. Об этом говорится в новом националь</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-03-12-opros-leger-kanadtsy-podderzhivayut-uzhestochenie-immigratsi/">
+  <div class="card-img"><img src="/photos/photo_2348@12-03-2026_17-01-29.jpg" alt="Опрос Leger: канадцы поддерживают ужесточение иммиграции и сокращение госрасходов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">leger360.com</div>
+    <div class="card-title">Опрос Leger: канадцы поддерживают ужесточение иммиграции и сокращение госрасходов</div>
+    <div class="card-excerpt">Большинство канадцев выступают за более жёсткие правила иммиграции, сокращение государственных расходов и более строгие требования к работе федеральных госслужащих. Об этом говорится в новом националь</div>
+    <div class="card-meta">
+      <span class="card-date">12 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-10-nalog-kak-papin-nalog-kak-nalogi-menyayut-povedenie-k-luchsh/">
-  <div class="sc-img"><img src="/photos/photo_2328@10-03-2026_15-03-24.jpg" alt="Налог как «папин налог»: как налоги меняют поведение — к лучшему и к худшему" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Налог как «папин налог»: как налоги меняют поведение — к лучшему и к худшему</div>
-    <div class="pex">Ким Муди в Financial Post пишет, что налоги почти всегда меняют поведение людей — иногда ожидаемо, иногда с довольно странными последствиями.   Он вспоминает семейную шутку: когда дети заказывали еду</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-03-10-nalog-kak-papin-nalog-kak-nalogi-menyayut-povedenie-k-luchsh/">
+  <div class="card-img"><img src="/photos/photo_2328@10-03-2026_15-03-24.jpg" alt="Налог как «папин налог»: как налоги меняют поведение — к лучшему и к худшему" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Налог как «папин налог»: как налоги меняют поведение — к лучшему и к худшему</div>
+    <div class="card-excerpt">Ким Муди в Financial Post пишет, что налоги почти всегда меняют поведение людей — иногда ожидаемо, иногда с довольно странными последствиями.   Он вспоминает семейную шутку: когда дети заказывали еду</div>
+    <div class="card-meta">
+      <span class="card-date">10 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-10-seriynyy-ubiytsa-iz-nyu-bransuika-allan-lezher-umer-v-tyurme/">
-  <div class="sc-img"><img src="/photos/photo_2326@10-03-2026_12-06-24.jpg" alt="Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме</div>
-    <div class="pex">Серийный убийца Аллан Лежер, известный как «убийца из Мирамиши», умер в возрасте 78 лет. Об этом сообщила Служба исправительных учреждений Канады, передаёт CBC News.   Лежер умер в понедельник в федер</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-03-10-seriynyy-ubiytsa-iz-nyu-bransuika-allan-lezher-umer-v-tyurme/">
+  <div class="card-img"><img src="/photos/photo_2326@10-03-2026_12-06-24.jpg" alt="Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме</div>
+    <div class="card-excerpt">Серийный убийца Аллан Лежер, известный как «убийца из Мирамиши», умер в возрасте 78 лет. Об этом сообщила Служба исправительных учреждений Канады, передаёт CBC News.   Лежер умер в понедельник в федер</div>
+    <div class="card-meta">
+      <span class="card-date">10 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-06-uchyonye-schitayut-chto-snizhenie-dopustimogo-urovnya-radona/">
-  <div class="sc-img"><img src="/photos/photo_2311@06-03-2026_19-01-31.jpg" alt="Учёные считают, что снижение допустимого уровня радона в Канаде может предотвратить больше случаев рака лёгких" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Учёные считают, что снижение допустимого уровня радона в Канаде может предотвратить больше случаев рака лёгких</div>
-    <div class="pex">Исследователи и специалисты по общественному здоровью призывают Канаду пересмотреть допустимый уровень радона в жилых домах. По их словам, снижение действующего порога может спасти сотни жизней ежегод</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-03-06-uchyonye-schitayut-chto-snizhenie-dopustimogo-urovnya-radona/">
+  <div class="card-img"><img src="/photos/photo_2311@06-03-2026_19-01-31.jpg" alt="Учёные считают, что снижение допустимого уровня радона в Канаде может предотвратить больше случаев рака лёгких" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Учёные считают, что снижение допустимого уровня радона в Канаде может предотвратить больше случаев рака лёгких</div>
+    <div class="card-excerpt">Исследователи и специалисты по общественному здоровью призывают Канаду пересмотреть допустимый уровень радона в жилых домах. По их словам, снижение действующего порога может спасти сотни жизней ежегод</div>
+    <div class="card-meta">
+      <span class="card-date">6 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-03-goldsteyn-kritika-provalnoy-immigratsionnoy-i-bezhenskoy-pol/">
-  <div class="sc-img"><img src="/photos/photo_2293@03-03-2026_17-04-04.jpg" alt="ГОЛДСТЕЙН: Критика провальной иммиграционной и беженской политики — это не расизм" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">ГОЛДСТЕЙН: Критика провальной иммиграционной и беженской политики — это не расизм</div>
-    <div class="pex">Колумнистка Лорри Голдстейн утверждает: когда правительство премьер-министра Марк Карни отвечает на критику иммиграционной политики обвинениями в расизме, оно фактически называет расистами большинство</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-03-03-goldsteyn-kritika-provalnoy-immigratsionnoy-i-bezhenskoy-pol/">
+  <div class="card-img"><img src="/photos/photo_2293@03-03-2026_17-04-04.jpg" alt="ГОЛДСТЕЙН: Критика провальной иммиграционной и беженской политики — это не расизм" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">ГОЛДСТЕЙН: Критика провальной иммиграционной и беженской политики — это не расизм</div>
+    <div class="card-excerpt">Колумнистка Лорри Голдстейн утверждает: когда правительство премьер-министра Марк Карни отвечает на критику иммиграционной политики обвинениями в расизме, оно фактически называет расистами большинство</div>
+    <div class="card-meta">
+      <span class="card-date">3 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-28-redaktsionnaya-kolonka-toronto-sun-hvatit-krichat-o-rasizme-/">
-  <div class="sc-img"><img src="/photos/photo_2276@28-02-2026_18-01-28.jpg" alt="Редакционная колонка Toronto Sun: хватит кричать о «расизме», чтобы блокировать реформу системы беженцев" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Редакционная колонка Toronto Sun: хватит кричать о «расизме», чтобы блокировать реформу системы беженцев</div>
-    <div class="pex">Иммиграционная и система убежища в Канаде давно даёт сбои, и попытки объявлять любую критику «расизмом» выглядят попыткой уйти от разговора по существу. Такую позицию высказывает редакция Postmedia.</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-02-28-redaktsionnaya-kolonka-toronto-sun-hvatit-krichat-o-rasizme-/">
+  <div class="card-img"><img src="/photos/photo_2276@28-02-2026_18-01-28.jpg" alt="Редакционная колонка Toronto Sun: хватит кричать о «расизме», чтобы блокировать реформу системы беженцев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Редакционная колонка Toronto Sun: хватит кричать о «расизме», чтобы блокировать реформу системы беженцев</div>
+    <div class="card-excerpt">Иммиграционная и система убежища в Канаде давно даёт сбои, и попытки объявлять любую критику «расизмом» выглядят попыткой уйти от разговора по существу. Такую позицию высказывает редакция Postmedia.</div>
+    <div class="card-meta">
+      <span class="card-date">28 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-27-ottava-zapuskaet-pervuyu-v-istorii-kanady-strategiyu-po-zdor/">
-  <div class="sc-img"><img src="/photos/photo_2270@27-02-2026_22-03-27.jpg" alt="Оттава запускает первую в истории Канады стратегию по здоровью мужчин и мальчиков" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Оттава запускает первую в истории Канады стратегию по здоровью мужчин и мальчиков</div>
-    <div class="pex">Федеральное правительство начинает общенациональное обсуждение, которое ляжет в основу первой в стране стратегии по физическому и психическому здоровью мужчин и мальчиков. Документ планируют представи</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-27-ottava-zapuskaet-pervuyu-v-istorii-kanady-strategiyu-po-zdor/">
+  <div class="card-img"><img src="/photos/photo_2270@27-02-2026_22-03-27.jpg" alt="Оттава запускает первую в истории Канады стратегию по здоровью мужчин и мальчиков" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Оттава запускает первую в истории Канады стратегию по здоровью мужчин и мальчиков</div>
+    <div class="card-excerpt">Федеральное правительство начинает общенациональное обсуждение, которое ляжет в основу первой в стране стратегии по физическому и психическому здоровью мужчин и мальчиков. Документ планируют представи</div>
+    <div class="card-meta">
+      <span class="card-date">27 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-26-konets-lichnoy-privatnosti-spryatatsya-bolshe-negde/">
-  <div class="sc-img"><img src="/photos/photo_2262@26-02-2026_21-03-53.jpg" alt="Конец личной приватности. «Спрятаться больше негде»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Конец личной приватности. «Спрятаться больше негде»</div>
-    <div class="pex">Каждый день появляются сообщения о новых утечках персональных данных. Но, несмотря на это, многие канадцы всё ещё не готовы смириться с мыслью, что их личная информация фактически находится под контро</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-26-konets-lichnoy-privatnosti-spryatatsya-bolshe-negde/">
+  <div class="card-img"><img src="/photos/photo_2262@26-02-2026_21-03-53.jpg" alt="Конец личной приватности. «Спрятаться больше негде»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Конец личной приватности. «Спрятаться больше негде»</div>
+    <div class="card-excerpt">Каждый день появляются сообщения о новых утечках персональных данных. Но, несмотря на это, многие канадцы всё ещё не готовы смириться с мыслью, что их личная информация фактически находится под контро</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-26-doktoru-predyavleny-43-obvineniya-v-seksualnyh-prestupleniya/">
-  <div class="sc-img"><img src="/photos/photo_2260@26-02-2026_14-05-35.jpg" alt="Доктору предъявлены 43 обвинения в сексуальных преступлениях, включая вуайеризм, сексуальное насилие и изготовление детской порнографии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Доктору предъявлены 43 обвинения в сексуальных преступлениях, включая вуайеризм, сексуальное насилие и изготовление детской порнографии</div>
-    <div class="pex">Канадскому врачу Дэвиду Эдварду-Ои Пуну предъявлены 43 уголовных обвинения, охватывающих период с 2014 по 2025 год. Речь идёт о сексуальном насилии, тайной съёмке для сексуальных целей и преступлениях</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-02-26-doktoru-predyavleny-43-obvineniya-v-seksualnyh-prestupleniya/">
+  <div class="card-img"><img src="/photos/photo_2260@26-02-2026_14-05-35.jpg" alt="Доктору предъявлены 43 обвинения в сексуальных преступлениях, включая вуайеризм, сексуальное насилие и изготовление детской порнографии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Доктору предъявлены 43 обвинения в сексуальных преступлениях, включая вуайеризм, сексуальное насилие и изготовление детской порнографии</div>
+    <div class="card-excerpt">Канадскому врачу Дэвиду Эдварду-Ои Пуну предъявлены 43 уголовных обвинения, охватывающих период с 2014 по 2025 год. Речь идёт о сексуальном насилии, тайной съёмке для сексуальных целей и преступлениях</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-26-popytka-konservatorov-peresmotret-dostup-prositeley-ubezhisc/">
-  <div class="sc-img"><img src="/photos/photo_2259@26-02-2026_13-07-08.jpg" alt="Попытка консерваторов пересмотреть доступ просителей убежища к медицине провалилась" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Попытка консерваторов пересмотреть доступ просителей убежища к медицине провалилась</div>
-    <div class="pex">Палата общин отклонила инициативу консерваторов о пересмотре медицинских льгот для просителей убежища. За предложение проголосовали 134 депутата, против — 198. Поддержали его только консерваторы; либе</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-26-popytka-konservatorov-peresmotret-dostup-prositeley-ubezhisc/">
+  <div class="card-img"><img src="/photos/photo_2259@26-02-2026_13-07-08.jpg" alt="Попытка консерваторов пересмотреть доступ просителей убежища к медицине провалилась" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Попытка консерваторов пересмотреть доступ просителей убежища к медицине провалилась</div>
+    <div class="card-excerpt">Палата общин отклонила инициативу консерваторов о пересмотре медицинских льгот для просителей убежища. За предложение проголосовали 134 депутата, против — 198. Поддержали его только консерваторы; либе</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-25-bolnitsa-toronto-zanyala-vtoroe-mesto-v-mire-v-reytinge-news/">
-  <div class="sc-img"><img src="/photos/photo_2253@25-02-2026_18-02-04.jpg" alt="Больница Торонто заняла второе место в мире в рейтинге Newsweek" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Больница Торонто заняла второе место в мире в рейтинге Newsweek</div>
-    <div class="pex">Больница Toronto General Hospital, входящая в сеть University Health Network, заняла второе место в мире в ежегодном рейтинге журнала Newsweek «World’s Best Hospitals 2026».   Канадское учреждение под</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-25-bolnitsa-toronto-zanyala-vtoroe-mesto-v-mire-v-reytinge-news/">
+  <div class="card-img"><img src="/photos/photo_2253@25-02-2026_18-02-04.jpg" alt="Больница Торонто заняла второе место в мире в рейтинге Newsweek" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Больница Торонто заняла второе место в мире в рейтинге Newsweek</div>
+    <div class="card-excerpt">Больница Toronto General Hospital, входящая в сеть University Health Network, заняла второе место в мире в ежегодном рейтинге журнала Newsweek «World’s Best Hospitals 2026».   Канадское учреждение под</div>
+    <div class="card-meta">
+      <span class="card-date">25 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-24-baranyai-vremya-universalnogo-bazovogo-dohoda-prishlo/">
-  <div class="sc-img"><img src="/photos/photo_2245@24-02-2026_19-03-07.jpg" alt="Бараньяи: время универсального базового дохода пришло" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">lfpress.com</div>
-    <div class="ptit sc-title">Бараньяи: время универсального базового дохода пришло</div>
-    <div class="pex">Робин Бараньяи в колонке для Postmedia утверждает: Канаде пора всерьёз вернуться к идее гарантированного базового дохода (UBI), особенно на фоне возможных масштабных потрясений на рынке труда.    Авто</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2026-02-24-baranyai-vremya-universalnogo-bazovogo-dohoda-prishlo/">
+  <div class="card-img"><img src="/photos/photo_2245@24-02-2026_19-03-07.jpg" alt="Бараньяи: время универсального базового дохода пришло" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">lfpress.com</div>
+    <div class="card-title">Бараньяи: время универсального базового дохода пришло</div>
+    <div class="card-excerpt">Робин Бараньяи в колонке для Postmedia утверждает: Канаде пора всерьёз вернуться к идее гарантированного базового дохода (UBI), особенно на фоне возможных масштабных потрясений на рынке труда.    Авто</div>
+    <div class="card-meta">
+      <span class="card-date">24 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-24-bolee-1-iz-5-kanadtsev-teper-rabotaet-v-gossektore-i-eta-dol/">
-  <div class="sc-img"><img src="/photos/photo_2244@24-02-2026_17-03-07.jpg" alt="Более 1 из 5 канадцев теперь работает в госсекторе — и эта доля растёт" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">Более 1 из 5 канадцев теперь работает в госсекторе — и эта доля растёт</div>
-    <div class="pex">Согласно данным Statistics Canada, в январе 2026 года в государственном секторе Канады работали 4,597 млн человек. Это 21,8% от всех занятых в стране.    Речь идёт о сотрудниках федеральных, провинциа</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-24-bolee-1-iz-5-kanadtsev-teper-rabotaet-v-gossektore-i-eta-dol/">
+  <div class="card-img"><img src="/photos/photo_2244@24-02-2026_17-03-07.jpg" alt="Более 1 из 5 канадцев теперь работает в госсекторе — и эта доля растёт" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Более 1 из 5 канадцев теперь работает в госсекторе — и эта доля растёт</div>
+    <div class="card-excerpt">Согласно данным Statistics Canada, в январе 2026 года в государственном секторе Канады работали 4,597 млн человек. Это 21,8% от всех занятых в стране.    Речь идёт о сотрудниках федеральных, провинциа</div>
+    <div class="card-meta">
+      <span class="card-date">24 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-23-esli-eda-eto-lekarstvo-pochemu-by-ne-vypisat-retsept-na-cher/">
-  <div class="sc-img"><img src="/photos/photo_2236@23-02-2026_18-02-38.jpg" alt="«Если еда — это лекарство, почему бы не выписать рецепт на чернику?» В Новой Шотландии тестируют новый подход" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">«Если еда — это лекарство, почему бы не выписать рецепт на чернику?» В Новой Шотландии тестируют новый подход</div>
-    <div class="pex">Исследователи из Dalhousie University в Галифаксе запустили клиническое исследование, в рамках которого пожилым участникам буквально «прописывают» чернику.  Проект под названием STRONG возглавляет дие</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-23-esli-eda-eto-lekarstvo-pochemu-by-ne-vypisat-retsept-na-cher/">
+  <div class="card-img"><img src="/photos/photo_2236@23-02-2026_18-02-38.jpg" alt="«Если еда — это лекарство, почему бы не выписать рецепт на чернику?» В Новой Шотландии тестируют новый подход" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">«Если еда — это лекарство, почему бы не выписать рецепт на чернику?» В Новой Шотландии тестируют новый подход</div>
+    <div class="card-excerpt">Исследователи из Dalhousie University в Галифаксе запустили клиническое исследование, в рамках которого пожилым участникам буквально «прописывают» чернику.  Проект под названием STRONG возглавляет дие</div>
+    <div class="card-meta">
+      <span class="card-date">23 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-21-kak-tramp-nameren-prodolzhat-torgovuyu-voynu-s-kanadoy-bez-i/">
-  <div class="sc-img"><img src="/photos/photo_2226@21-02-2026_12-04-36.jpg" alt="Как Трамп намерен продолжать торговую войну с Канадой без IEEPA" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Как Трамп намерен продолжать торговую войну с Канадой без IEEPA</div>
-    <div class="pex">После того как Верховный суд США ограничил использование чрезвычайных полномочий для введения тарифов, Дональд Трамп пообещал усилить другие инструменты давления — прежде всего секторальные пошлины. Д</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-21-kak-tramp-nameren-prodolzhat-torgovuyu-voynu-s-kanadoy-bez-i/">
+  <div class="card-img"><img src="/photos/photo_2226@21-02-2026_12-04-36.jpg" alt="Как Трамп намерен продолжать торговую войну с Канадой без IEEPA" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Как Трамп намерен продолжать торговую войну с Канадой без IEEPA</div>
+    <div class="card-excerpt">После того как Верховный суд США ограничил использование чрезвычайных полномочий для введения тарифов, Дональд Трамп пообещал усилить другие инструменты давления — прежде всего секторальные пошлины. Д</div>
+    <div class="card-meta">
+      <span class="card-date">21 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-19-paramediki-britanskoy-kolumbii-97-golosov-podderzhali-zabast/">
-  <div class="sc-img"><img src="/photos/photo_2214@19-02-2026_14-03-47.jpg" alt="Парамедики Британской Колумбии 97% голосов поддержали забастовочные действия" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Парамедики Британской Колумбии 97% голосов поддержали забастовочные действия</div>
-    <div class="pex">Парамедики и диспетчеры экстренной службы в Британской Колумбии сделали ещё один шаг к трудовым акциям: более 6 000 членов профсоюза CUPE Local 873 проголосовали 97% «за» мандат на забастовочные дейст</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-19-paramediki-britanskoy-kolumbii-97-golosov-podderzhali-zabast/">
+  <div class="card-img"><img src="/photos/photo_2214@19-02-2026_14-03-47.jpg" alt="Парамедики Британской Колумбии 97% голосов поддержали забастовочные действия" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Парамедики Британской Колумбии 97% голосов поддержали забастовочные действия</div>
+    <div class="card-excerpt">Парамедики и диспетчеры экстренной службы в Британской Колумбии сделали ещё один шаг к трудовым акциям: более 6 000 членов профсоюза CUPE Local 873 проголосовали 97% «за» мандат на забастовочные дейст</div>
+    <div class="card-meta">
+      <span class="card-date">19 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-15-chto-izvestno-i-chego-poka-net-o-oruzhii-ispolzovannom-pri-s/">
-  <div class="sc-img"><img src="/photos/photo_2185@15-02-2026_14-04-15.jpg" alt="Что известно — и чего пока нет — о оружии, использованном при стрельбе в Тамблэ Ридж" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Что известно — и чего пока нет — о оружии, использованном при стрельбе в Тамблэ Ридж</div>
-    <div class="pex">Спустя три дня после одного из самых смертоносных шутингов в современной истории Канады остаётся главный вопрос: откуда у 18-летней Джесси Ван Рутселаар появилось оружие.   RCMP сообщили, что расследу</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-15-chto-izvestno-i-chego-poka-net-o-oruzhii-ispolzovannom-pri-s/">
+  <div class="card-img"><img src="/photos/photo_2185@15-02-2026_14-04-15.jpg" alt="Что известно — и чего пока нет — о оружии, использованном при стрельбе в Тамблэ Ридж" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Что известно — и чего пока нет — о оружии, использованном при стрельбе в Тамблэ Ридж</div>
+    <div class="card-excerpt">Спустя три дня после одного из самых смертоносных шутингов в современной истории Канады остаётся главный вопрос: откуда у 18-летней Джесси Ван Рутселаар появилось оружие.   RCMP сообщили, что расследу</div>
+    <div class="card-meta">
+      <span class="card-date">15 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-14-premer-karni-i-per-poliev-vzyalis-za-ruki-na-traurnoy-tserem/">
-  <div class="sc-img"><img src="/photos/photo_2179@14-02-2026_13-11-59.jpg" alt="Премьер Карни и Пьер Полиев взялись за руки на траурной церемонии в Тамблэ Ридж" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apnews.com</div>
-    <div class="ptit sc-title">Премьер Карни и Пьер Полиев взялись за руки на траурной церемонии в Тамблэ Ридж</div>
-    <div class="pex">Премьер-министр Марк Карни и лидер консерваторов Пьер Полиев вместе почтили память жертв массовой стрельбы в Тамблэ Ридж (Британская Колумбия). Во время молитвы, которую исполнял представитель коренны</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-02-14-premer-karni-i-per-poliev-vzyalis-za-ruki-na-traurnoy-tserem/">
+  <div class="card-img"><img src="/photos/photo_2179@14-02-2026_13-11-59.jpg" alt="Премьер Карни и Пьер Полиев взялись за руки на траурной церемонии в Тамблэ Ридж" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apnews.com</div>
+    <div class="card-title">Премьер Карни и Пьер Полиев взялись за руки на траурной церемонии в Тамблэ Ридж</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни и лидер консерваторов Пьер Полиев вместе почтили память жертв массовой стрельбы в Тамблэ Ридж (Британская Колумбия). Во время молитвы, которую исполнял представитель коренны</div>
+    <div class="card-meta">
+      <span class="card-date">14 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-13-do-massovogo-ubiystva-sryvy-psihiki-i-onlayn-radikalizatsiya/">
-  <div class="sc-img"><img src="/photos/photo_2170@13-02-2026_14-05-40.jpg" alt="До массового убийства — срывы психики и онлайн-радикализация" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nytimes.com</div>
-    <div class="ptit sc-title">До массового убийства — срывы психики и онлайн-радикализация</div>
-    <div class="pex">Расследование The New York Times описывает постепенное погружение 18-летней Джесси Ван Рутселар в кризис психического здоровья и интернет-среды с экстремальным насилием перед трагедией в Тамблер-Ридж,</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-02-13-do-massovogo-ubiystva-sryvy-psihiki-i-onlayn-radikalizatsiya/">
+  <div class="card-img"><img src="/photos/photo_2170@13-02-2026_14-05-40.jpg" alt="До массового убийства — срывы психики и онлайн-радикализация" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">До массового убийства — срывы психики и онлайн-радикализация</div>
+    <div class="card-excerpt">Расследование The New York Times описывает постепенное погружение 18-летней Джесси Ван Рутселар в кризис психического здоровья и интернет-среды с экстремальным насилием перед трагедией в Тамблер-Ридж,</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-12-lyubovnoe-pismo-tamble-ridzh/">
-  <div class="sc-img"><img src="/photos/photo_2160@12-02-2026_13-06-02.jpg" alt="Любовное письмо Тамблэ Ридж" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Любовное письмо Тамблэ Ридж</div>
-    <div class="pex">The Tyee публикует личную колонку Аманды Фоллетт Хосгуд — о городе Тамблэ Ридж, который переживает одни из самых тяжёлых дней в своей истории.   Автор описывает центр города как «почти слишком идеальн</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-02-12-lyubovnoe-pismo-tamble-ridzh/">
+  <div class="card-img"><img src="/photos/photo_2160@12-02-2026_13-06-02.jpg" alt="Любовное письмо Тамблэ Ридж" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Любовное письмо Тамблэ Ридж</div>
+    <div class="card-excerpt">The Tyee публикует личную колонку Аманды Фоллетт Хосгуд — о городе Тамблэ Ридж, который переживает одни из самых тяжёлых дней в своей истории.   Автор описывает центр города как «почти слишком идеальн</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-12-chto-izvestno-o-strelke-iz-tumbler-ridzh-dzhessi-van-rutsela/">
-  <div class="sc-img"><img src="/photos/photo_2157@12-02-2026_10-34-51.jpg" alt="Что известно о стрелке из Тумблер-Ридж Джесси Ван Рутселар" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vancouversun.com</div>
-    <div class="ptit sc-title">Что известно о стрелке из Тумблер-Ридж Джесси Ван Рутселар</div>
-    <div class="pex">В удалённом шесть месяцев назад видео на YouTube Джесси Ван Рутселар написала: «Я была, эм… без цели».   В описании канала говорилось: «В этом нет никакого смысла». На аватаре — аниме-персонаж с винто</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-12-chto-izvestno-o-strelke-iz-tumbler-ridzh-dzhessi-van-rutsela/">
+  <div class="card-img"><img src="/photos/photo_2157@12-02-2026_10-34-51.jpg" alt="Что известно о стрелке из Тумблер-Ридж Джесси Ван Рутселар" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Что известно о стрелке из Тумблер-Ридж Джесси Ван Рутселар</div>
+    <div class="card-excerpt">В удалённом шесть месяцев назад видео на YouTube Джесси Ван Рутселар написала: «Я была, эм… без цели».   В описании канала говорилось: «В этом нет никакого смысла». На аватаре — аниме-персонаж с винто</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-chto-kanadskie-bumery-mogut-sdelat-dlya-molodyh-pokoleniy/">
-  <div class="sc-img"><img src="/photos/photo_2154@11-02-2026_21-02-52.jpg" alt="Что канадские бумеры могут сделать для молодых поколений?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vancouversun.com</div>
-    <div class="ptit sc-title">Что канадские бумеры могут сделать для молодых поколений?</div>
-    <div class="pex">Колумнист Vancouver Sun Дуглас Тодд пишет: канадские пенсионеры способны реально облегчить положение миллениалов — если согласятся на пересмотр налоговой, пенсионной и миграционной политики. Некоторые</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-02-11-chto-kanadskie-bumery-mogut-sdelat-dlya-molodyh-pokoleniy/">
+  <div class="card-img"><img src="/photos/photo_2154@11-02-2026_21-02-52.jpg" alt="Что канадские бумеры могут сделать для молодых поколений?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Что канадские бумеры могут сделать для молодых поколений?</div>
+    <div class="card-excerpt">Колумнист Vancouver Sun Дуглас Тодд пишет: канадские пенсионеры способны реально облегчить положение миллениалов — если согласятся на пересмотр налоговой, пенсионной и миграционной политики. Некоторые</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-chto-izvestno-na-dannyy-moment-o-strelbe-v-shkole-britanskoy/">
-  <div class="sc-img"><img src="/photos/photo_2153@11-02-2026_19-03-44.jpg" alt="Что известно на данный момент о стрельбе в школе Британской Колумбии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Что известно на данный момент о стрельбе в школе Британской Колумбии</div>
-    <div class="pex">Во вторник в городе Тамблэ Ридж (B.C.) произошла массовая стрельба. Погибли девять человек, включая подозреваемого, ещё 27 получили ранения. Изначально сообщалось о 10 погибших, но полиция уточнила да</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-11-chto-izvestno-na-dannyy-moment-o-strelbe-v-shkole-britanskoy/">
+  <div class="card-img"><img src="/photos/photo_2153@11-02-2026_19-03-44.jpg" alt="Что известно на данный момент о стрельбе в школе Британской Колумбии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Что известно на данный момент о стрельбе в школе Британской Колумбии</div>
+    <div class="card-excerpt">Во вторник в городе Тамблэ Ридж (B.C.) произошла массовая стрельба. Погибли девять человек, включая подозреваемого, ещё 27 получили ранения. Изначально сообщалось о 10 погибших, но полиция уточнила да</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-drugie-sluchai-strelby-v-kanadskih-shkolah-do-tragedii-v-tam/">
-  <div class="sc-img"><img src="/photos/photo_2150@11-02-2026_14-03-24.jpg" alt="Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже</div>
-    <div class="pex">Стрельба в Тамблэ-Ридже стала самым смертоносным нападением, связанным со школой в Канаде, почти за 40 лет. До этого в стране уже происходили трагедии, которые оставили глубокий след в общественной па</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2026-02-11-drugie-sluchai-strelby-v-kanadskih-shkolah-do-tragedii-v-tam/">
+  <div class="card-img"><img src="/photos/photo_2150@11-02-2026_14-03-24.jpg" alt="Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже</div>
+    <div class="card-excerpt">Стрельба в Тамблэ-Ридже стала самым смертоносным нападением, связанным со школой в Канаде, почти за 40 лет. До этого в стране уже происходили трагедии, которые оставили глубокий след в общественной па</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-tumbler-ridge-ucheniki-rasskazali-o-cheloveke-s-oruzhiem-v-p/">
-  <div class="sc-img"><img src="/photos/photo_2143@11-02-2026_08-48-21.jpg" alt="Tumbler Ridge: ученики рассказали о «человеке с оружием в платье», устроившем самую смертоносную школьную стрельбу в Канаде за 40 лет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nypost.com</div>
-    <div class="ptit sc-title">Tumbler Ridge: ученики рассказали о «человеке с оружием в платье», устроившем самую смертоносную школьную стрельбу в Канаде за 40 лет</div>
-    <div class="pex">Старшеклассники в Тумблер-Ридж забаррикадировали двери партами и столами и провели в классе более двух часов, пока по школе передвигался стрелок, которого первоначально описали как «женщину в платье»,</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-11-tumbler-ridge-ucheniki-rasskazali-o-cheloveke-s-oruzhiem-v-p/">
+  <div class="card-img"><img src="/photos/photo_2143@11-02-2026_08-48-21.jpg" alt="Tumbler Ridge: ученики рассказали о «человеке с оружием в платье», устроившем самую смертоносную школьную стрельбу в Канаде за 40 лет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nypost.com</div>
+    <div class="card-title">Tumbler Ridge: ученики рассказали о «человеке с оружием в платье», устроившем самую смертоносную школьную стрельбу в Канаде за 40 лет</div>
+    <div class="card-excerpt">Старшеклассники в Тумблер-Ридж забаррикадировали двери партами и столами и провели в классе более двух часов, пока по школе передвигался стрелок, которого первоначально описали как «женщину в платье»,</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-massovaya-strelba-v-tambler-ridzh-britanskaya-kolumbiya-10-p/">
-  <div class="sc-img"><img src="/photos/photo_2142@11-02-2026_06-19-09.jpg" alt="Массовая стрельба в Тамблер-Ридж, Британская Колумбия: 10 погибших, включая подозреваемого, не менее 25 раненых" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Массовая стрельба в Тамблер-Ридж, Британская Колумбия: 10 погибших, включая подозреваемого, не менее 25 раненых</div>
-    <div class="pex">Девять человек погибли и не менее 25 получили ранения во вторник в результате стрельбы в школе в городе Тумблер-Ридже, провинция Британская Колумбия. Позже полиция подтвердила смерть предполагаемого с</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-11-massovaya-strelba-v-tambler-ridzh-britanskaya-kolumbiya-10-p/">
+  <div class="card-img"><img src="/photos/photo_2142@11-02-2026_06-19-09.jpg" alt="Массовая стрельба в Тамблер-Ридж, Британская Колумбия: 10 погибших, включая подозреваемого, не менее 25 раненых" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Массовая стрельба в Тамблер-Ридж, Британская Колумбия: 10 погибших, включая подозреваемого, не менее 25 раненых</div>
+    <div class="card-excerpt">Девять человек погибли и не менее 25 получили ранения во вторник в результате стрельбы в школе в городе Тумблер-Ридже, провинция Британская Колумбия. Позже полиция подтвердила смерть предполагаемого с</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-10-pochemu-kanade-nuzhno-vseryoz-zanyatsya-bedstviem-sportivnyh/">
-  <div class="sc-img"><img src="/photos/photo_2141@10-02-2026_21-03-51.jpg" alt="Почему Канаде нужно всерьёз заняться бедствием спортивных ставок" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Почему Канаде нужно всерьёз заняться бедствием спортивных ставок</div>
-    <div class="pex">Авторы статьи Джон Макфарлейн и Брюс Кидд утверждают: Канада столкнулась с проблемой, которую предпочитает не замечать — агрессивным проникновением индустрии спортивных ставок в массовый спорт и медиа</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-10-pochemu-kanade-nuzhno-vseryoz-zanyatsya-bedstviem-sportivnyh/">
+  <div class="card-img"><img src="/photos/photo_2141@10-02-2026_21-03-51.jpg" alt="Почему Канаде нужно всерьёз заняться бедствием спортивных ставок" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Почему Канаде нужно всерьёз заняться бедствием спортивных ставок</div>
+    <div class="card-excerpt">Авторы статьи Джон Макфарлейн и Брюс Кидд утверждают: Канада столкнулась с проблемой, которую предпочитает не замечать — агрессивным проникновением индустрии спортивных ставок в массовый спорт и медиа</div>
+    <div class="card-meta">
+      <span class="card-date">10 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-10-chto-menyaetsya-v-immigratsionnoy-sisteme-kvebeka-i-pochemu-/">
-  <div class="sc-img"><img src="/photos/photo_2137@10-02-2026_13-04-35.jpg" alt="Что меняется в иммиграционной системе Квебека — и почему это вызывает протесты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ici.radio-canada.ca</div>
-    <div class="ptit sc-title">Что меняется в иммиграционной системе Квебека — и почему это вызывает протесты</div>
-    <div class="pex">Решение правительства Квебека отменить программу PEQ и заменить её новой, более жёсткой системой отбора продолжает вызывать растущее недовольство — от иммиграционных юристов и бизнеса до муниципалитет</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-02-10-chto-menyaetsya-v-immigratsionnoy-sisteme-kvebeka-i-pochemu-/">
+  <div class="card-img"><img src="/photos/photo_2137@10-02-2026_13-04-35.jpg" alt="Что меняется в иммиграционной системе Квебека — и почему это вызывает протесты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ici.radio-canada.ca</div>
+    <div class="card-title">Что меняется в иммиграционной системе Квебека — и почему это вызывает протесты</div>
+    <div class="card-excerpt">Решение правительства Квебека отменить программу PEQ и заменить её новой, более жёсткой системой отбора продолжает вызывать растущее недовольство — от иммиграционных юристов и бизнеса до муниципалитет</div>
+    <div class="card-meta">
+      <span class="card-date">10 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-09-nalogoplatelschiki-zhaluyutsya-na-dolgie-ozhidaniya-cra-mesy/">
-  <div class="sc-img"><img src="/photos/photo_2130@09-02-2026_13-05-39.jpg" alt="Налогоплательщики жалуются на долгие ожидания: CRA месяцами исправляет свои ошибки и задерживает возвраты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Налогоплательщики жалуются на долгие ожидания: CRA месяцами исправляет свои ошибки и задерживает возвраты</div>
-    <div class="pex">По мере приближения налогового сезона 2025 года всё больше канадцев застревают в «налоговом подвешенном состоянии», ожидая, пока Canada Revenue Agency исправит собственные ошибки. При этом, как отмеча</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-09-nalogoplatelschiki-zhaluyutsya-na-dolgie-ozhidaniya-cra-mesy/">
+  <div class="card-img"><img src="/photos/photo_2130@09-02-2026_13-05-39.jpg" alt="Налогоплательщики жалуются на долгие ожидания: CRA месяцами исправляет свои ошибки и задерживает возвраты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Налогоплательщики жалуются на долгие ожидания: CRA месяцами исправляет свои ошибки и задерживает возвраты</div>
+    <div class="card-excerpt">По мере приближения налогового сезона 2025 года всё больше канадцев застревают в «налоговом подвешенном состоянии», ожидая, пока Canada Revenue Agency исправит собственные ошибки. При этом, как отмеча</div>
+    <div class="card-meta">
+      <span class="card-date">9 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-07-polovina-kanadtsev-ne-imeet-semeynogo-vracha-ili-ne-mozhet-p/">
-  <div class="sc-img"><img src="/photos/photo_2121@07-02-2026_12-06-27.jpg" alt="Половина канадцев не имеет семейного врача или не может попасть к нему на приём" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Половина канадцев не имеет семейного врача или не может попасть к нему на приём</div>
-    <div class="pex">‌  Новый опрос Angus Reid рисует мрачную картину состояния канадской медицины. Половина жителей страны либо вообще не имеет семейного врача, либо сталкивается с серьёзными трудностями при попытке запи</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2026-02-07-polovina-kanadtsev-ne-imeet-semeynogo-vracha-ili-ne-mozhet-p/">
+  <div class="card-img"><img src="/photos/photo_2121@07-02-2026_12-06-27.jpg" alt="Половина канадцев не имеет семейного врача или не может попасть к нему на приём" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Половина канадцев не имеет семейного врача или не может попасть к нему на приём</div>
+    <div class="card-excerpt">‌  Новый опрос Angus Reid рисует мрачную картину состояния канадской медицины. Половина жителей страны либо вообще не имеет семейного врача, либо сталкивается с серьёзными трудностями при попытке запи</div>
+    <div class="card-meta">
+      <span class="card-date">7 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-05-kak-deshyovye-analogi-ozempic-izmenyat-rasklad/">
-  <div class="sc-img"><img src="/photos/photo_2113@05-02-2026_22-02-18.jpg" alt="Как дешёвые аналоги Ozempic изменят расклад?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Как дешёвые аналоги Ozempic изменят расклад?</div>
-    <div class="pex">Огромный материал The Globe and Mail  Канада может первой среди западных стран получить дженерики семаглутида — препарата от диабета 2-го типа, который стал массовым средством для снижения веса под бр</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2026-02-05-kak-deshyovye-analogi-ozempic-izmenyat-rasklad/">
+  <div class="card-img"><img src="/photos/photo_2113@05-02-2026_22-02-18.jpg" alt="Как дешёвые аналоги Ozempic изменят расклад?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Как дешёвые аналоги Ozempic изменят расклад?</div>
+    <div class="card-excerpt">Огромный материал The Globe and Mail  Канада может первой среди западных стран получить дженерики семаглутида — препарата от диабета 2-го типа, который стал массовым средством для снижения веса под бр</div>
+    <div class="card-meta">
+      <span class="card-date">5 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb on" href="/tag/zdorove/">1</a><a class="pb" href="/tag/zdorove/page/2/">2</a><a class="pb" href="/tag/zdorove/page/3/">3</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/zdorove/page/6/">6</a><a class="pb" href="/tag/zdorove/page/2/">→</a></div>

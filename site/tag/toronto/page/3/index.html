@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#Торонто</h1>
     <p>274 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-11-30-kanadtsy-uhodyat-domoy-ranshe-klubnaya-stsena-szhimaetsya/">
-  <div class="sc-img"><img src="/photos/photo_1613@30-11-2025_17-41-01.jpg" alt="Канадцы уходят домой раньше — клубная сцена сжимается" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канадцы уходят домой раньше — клубная сцена сжимается</div>
-    <div class="pex">‌﻿  CBC фиксирует очевидный спад ночной активности: бары и клубы по стране всё чаще простаивают в часы, которые раньше считались самыми прибыльными.  ‌﻿  Что происходит в индустрии: – Торонтский клуб</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-11-30-kanadtsy-uhodyat-domoy-ranshe-klubnaya-stsena-szhimaetsya/">
+  <div class="card-img"><img src="/photos/photo_1613@30-11-2025_17-41-01.jpg" alt="Канадцы уходят домой раньше — клубная сцена сжимается" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадцы уходят домой раньше — клубная сцена сжимается</div>
+    <div class="card-excerpt">‌﻿  CBC фиксирует очевидный спад ночной активности: бары и клубы по стране всё чаще простаивают в часы, которые раньше считались самыми прибыльными.  ‌﻿  Что происходит в индустрии: – Торонтский клуб</div>
+    <div class="card-meta">
+      <span class="card-date">30 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-28-v-kanade-fiksiruyut-vsplesk-torgovli-lyudmi-istoriya-timei-n/">
-  <div class="sc-img"><img src="/photos/photo_1600@28-11-2025_11-27-28.jpg" alt="В Канаде фиксируют всплеск торговли людьми: история Тимеи Надь" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В Канаде фиксируют всплеск торговли людьми: история Тимеи Надь</div>
-    <div class="pex">‌﻿  Горячая линия по торговле людьми сообщает о рекордных обращениях. Бывшая жертва Тимея Надь говорит, что страну охватила настоящая эпидемия.  ‌﻿  В 1998 году она приехала в Торонто из Будапешта на</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-11-28-v-kanade-fiksiruyut-vsplesk-torgovli-lyudmi-istoriya-timei-n/">
+  <div class="card-img"><img src="/photos/photo_1600@28-11-2025_11-27-28.jpg" alt="В Канаде фиксируют всплеск торговли людьми: история Тимеи Надь" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Канаде фиксируют всплеск торговли людьми: история Тимеи Надь</div>
+    <div class="card-excerpt">‌﻿  Горячая линия по торговле людьми сообщает о рекордных обращениях. Бывшая жертва Тимея Надь говорит, что страну охватила настоящая эпидемия.  ‌﻿  В 1998 году она приехала в Торонто из Будапешта на</div>
+    <div class="card-meta">
+      <span class="card-date">28 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-26-kanadskie-uchyonye-pokazyvayut-redkiy-progress-v-lechenii-gl/">
-  <div class="sc-img"><img src="/photos/photo_1586@26-11-2025_11-29-01.jpg" alt="Канадские учёные показывают редкий прогресс в лечении глиобластомы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Канадские учёные показывают редкий прогресс в лечении глиобластомы</div>
-    <div class="pex">Глиобластома ежегодно диагностируется примерно у тысячи канадцев и обычно оставляет пациентам считанные месяцы. Но новое клиническое исследование, частично проведённое в Sunnybrook (Торонто), показыва</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-26-kanadskie-uchyonye-pokazyvayut-redkiy-progress-v-lechenii-gl/">
+  <div class="card-img"><img src="/photos/photo_1586@26-11-2025_11-29-01.jpg" alt="Канадские учёные показывают редкий прогресс в лечении глиобластомы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадские учёные показывают редкий прогресс в лечении глиобластомы</div>
+    <div class="card-excerpt">Глиобластома ежегодно диагностируется примерно у тысячи канадцев и обычно оставляет пациентам считанные месяцы. Но новое клиническое исследование, частично проведённое в Sunnybrook (Торонто), показыва</div>
+    <div class="card-meta">
+      <span class="card-date">26 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-26-prodazhi-novostroek-v-toronto-upali-do-urovnya-blizkogo-k-os/">
-  <div class="sc-img"><img src="/photos/photo_1584@26-11-2025_09-17-01.jpg" alt="Продажи новостроек в Торонто упали до уровня, близкого к остановке: за месяц продано всего 54 кондо" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Продажи новостроек в Торонто упали до уровня, близкого к остановке: за месяц продано всего 54 кондо</div>
-    <div class="pex">Рынок новых домов в GTA проваливается всё глубже. По данным Altus Group для ассоциации BILD, в октябре по всему региону продали только 248 новых кондо — на два процента меньше прошлогоднего рекордно с</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-26-prodazhi-novostroek-v-toronto-upali-do-urovnya-blizkogo-k-os/">
+  <div class="card-img"><img src="/photos/photo_1584@26-11-2025_09-17-01.jpg" alt="Продажи новостроек в Торонто упали до уровня, близкого к остановке: за месяц продано всего 54 кондо" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Продажи новостроек в Торонто упали до уровня, близкого к остановке: за месяц продано всего 54 кондо</div>
+    <div class="card-excerpt">Рынок новых домов в GTA проваливается всё глубже. По данным Altus Group для ассоциации BILD, в октябре по всему региону продали только 248 новых кондо — на два процента меньше прошлогоднего рекордно с</div>
+    <div class="card-meta">
+      <span class="card-date">26 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-25-pol-makkartni-v-hamiltone-83-letnyaya-legenda-proshlas-po-sa/">
-  <div class="sc-img"><img src="/photos/photo_1574@25-11-2025_09-22-05.jpg" alt="Пол Маккартни в Хамильтоне: 83-летняя легенда прошлась по самому длинному списку хитов, который вообще есть у кого-либо" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Пол Маккартни в Хамильтоне: 83-летняя легенда прошлась по самому длинному списку хитов, который вообще есть у кого-либо</div>
-    <div class="pex">TD Coliseum открылся после двухлетней реконструкции за 300 млн долларов — и первым на обновлённую сцену вышел человек, которому представлений не нужно. Пол Маккартни собрал полный зал и выдал программ</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-25-pol-makkartni-v-hamiltone-83-letnyaya-legenda-proshlas-po-sa/">
+  <div class="card-img"><img src="/photos/photo_1574@25-11-2025_09-22-05.jpg" alt="Пол Маккартни в Хамильтоне: 83-летняя легенда прошлась по самому длинному списку хитов, который вообще есть у кого-либо" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Пол Маккартни в Хамильтоне: 83-летняя легенда прошлась по самому длинному списку хитов, который вообще есть у кого-либо</div>
+    <div class="card-excerpt">TD Coliseum открылся после двухлетней реконструкции за 300 млн долларов — и первым на обновлённую сцену вышел человек, которому представлений не нужно. Пол Маккартни собрал полный зал и выдал программ</div>
+    <div class="card-meta">
+      <span class="card-date">25 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-22-cmhc-startov-stroitelstva-domov-dlya-pokupateley-minimum-za-/">
-  <div class="sc-img"><img src="/photos/photo_1565@22-11-2025_19-01-21.jpg" alt="CMHC: Стартов строительства домов для покупателей — минимум за 30 лет, аренда бьёт рекорды" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">CMHC: Стартов строительства домов для покупателей — минимум за 30 лет, аренда бьёт рекорды</div>
-    <div class="pex">‌﻿   Данные CMHC показывают: 2025-й идёт к самому слабому году для индивидуального жилья с середины 90-х. За первые десять месяцев начато всего чуть больше 41 тысячи объектов для будущих владельцев. Е</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-11-22-cmhc-startov-stroitelstva-domov-dlya-pokupateley-minimum-za-/">
+  <div class="card-img"><img src="/photos/photo_1565@22-11-2025_19-01-21.jpg" alt="CMHC: Стартов строительства домов для покупателей — минимум за 30 лет, аренда бьёт рекорды" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">CMHC: Стартов строительства домов для покупателей — минимум за 30 лет, аренда бьёт рекорды</div>
+    <div class="card-excerpt">‌﻿   Данные CMHC показывают: 2025-й идёт к самому слабому году для индивидуального жилья с середины 90-х. За первые десять месяцев начато всего чуть больше 41 тысячи объектов для будущих владельцев. Е</div>
+    <div class="card-meta">
+      <span class="card-date">22 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-22-liberaly-hotyat-uskorit-stroitelstvo-vysokoskorostnoy-magist/">
-  <div class="sc-img"><img src="/photos/photo_1562@22-11-2025_13-26-45.jpg" alt="Либералы хотят ускорить строительство высокоскоростной магистрали Торонто–Квебек: законопроект даёт правительству почти неограниченные полномочия" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Либералы хотят ускорить строительство высокоскоростной магистрали Торонто–Квебек: законопроект даёт правительству почти неограниченные полномочия</div>
-    <div class="pex">‌﻿   В закон о реализации бюджета Карни спрятали новый High-Speed Rail Network Act. Он фактически выводит проект Торонто–Квебек Сити из-под транспортного регулирования и сразу считает его одобренным.</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-11-22-liberaly-hotyat-uskorit-stroitelstvo-vysokoskorostnoy-magist/">
+  <div class="card-img"><img src="/photos/photo_1562@22-11-2025_13-26-45.jpg" alt="Либералы хотят ускорить строительство высокоскоростной магистрали Торонто–Квебек: законопроект даёт правительству почти неограниченные полномочия" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Либералы хотят ускорить строительство высокоскоростной магистрали Торонто–Квебек: законопроект даёт правительству почти неограниченные полномочия</div>
+    <div class="card-excerpt">‌﻿   В закон о реализации бюджета Карни спрятали новый High-Speed Rail Network Act. Он фактически выводит проект Торонто–Квебек Сити из-под транспортного регулирования и сразу считает его одобренным.</div>
+    <div class="card-meta">
+      <span class="card-date">22 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-21-v-ontario-bunt-sredi-rabochih-sotni-zayavok-na-immigratsiyu-/">
-  <div class="sc-img"><img src="/photos/photo_1547@21-11-2025_12-57-05.jpg" alt="В Онтарио — бунт среди рабочих: сотни заявок на иммиграцию отменили за ночь, людей назвали мошенниками без объяснений" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В Онтарио — бунт среди рабочих: сотни заявок на иммиграцию отменили за ночь, людей назвали мошенниками без объяснений</div>
-    <div class="pex">‌  CBC News сообщает: у здания парламента в Торонто уже третий день стоят более сотни людей из сферы рабочих профессий. Причина — резкая отмена 2600 заявок в рамках потока OINP для квалифицированных с</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-11-21-v-ontario-bunt-sredi-rabochih-sotni-zayavok-na-immigratsiyu-/">
+  <div class="card-img"><img src="/photos/photo_1547@21-11-2025_12-57-05.jpg" alt="В Онтарио — бунт среди рабочих: сотни заявок на иммиграцию отменили за ночь, людей назвали мошенниками без объяснений" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Онтарио — бунт среди рабочих: сотни заявок на иммиграцию отменили за ночь, людей назвали мошенниками без объяснений</div>
+    <div class="card-excerpt">‌  CBC News сообщает: у здания парламента в Торонто уже третий день стоят более сотни людей из сферы рабочих профессий. Причина — резкая отмена 2600 заявок в рамках потока OINP для квалифицированных с</div>
+    <div class="card-meta">
+      <span class="card-date">21 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-18-kanadskie-snowbirds-svorachivayut-v-meksiku-politika-trampa-/">
-  <div class="sc-img"><img src="/photos/photo_1522@18-11-2025_14-54-01.jpg" alt="Канадские snowbirds сворачивают в Мексику: политика Трампа бьёт по Флориде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канадские snowbirds сворачивают в Мексику: политика Трампа бьёт по Флориде</div>
-    <div class="pex">‌﻿  Канадские snowbirds, много лет зимовавшие во Флориде, всё чаще выбирают другие направления. CBC пообщалось с туристами и местными бизнесами — и там явно нервничают: постоянный поток гостей с север</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/sshakanada/">#США–Канада</a></div></div>
+</a><a class="card" href="/post/2025-11-18-kanadskie-snowbirds-svorachivayut-v-meksiku-politika-trampa-/">
+  <div class="card-img"><img src="/photos/photo_1522@18-11-2025_14-54-01.jpg" alt="Канадские snowbirds сворачивают в Мексику: политика Трампа бьёт по Флориде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадские snowbirds сворачивают в Мексику: политика Трампа бьёт по Флориде</div>
+    <div class="card-excerpt">‌﻿  Канадские snowbirds, много лет зимовавшие во Флориде, всё чаще выбирают другие направления. CBC пообщалось с туристами и местными бизнесами — и там явно нервничают: постоянный поток гостей с север</div>
+    <div class="card-meta">
+      <span class="card-date">18 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-18-strahovka-dlya-molodyh-voditeley-v-toronto-byot-novye-rekord/">
-  <div class="sc-img"><img src="/photos/photo_1520@18-11-2025_12-52-06.jpg" alt="Страховка для молодых водителей в Торонто бьёт новые рекорды" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Страховка для молодых водителей в Торонто бьёт новые рекорды</div>
-    <div class="pex">﻿  Молодые мужчины-водители в Торонто могут столкнуться с автостраховкой дороже 13 тысяч долларов в год — такие данные приводит  в комментарии для CTV News. Речь идёт о 20-летнем новичке без претензий</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-18-strahovka-dlya-molodyh-voditeley-v-toronto-byot-novye-rekord/">
+  <div class="card-img"><img src="/photos/photo_1520@18-11-2025_12-52-06.jpg" alt="Страховка для молодых водителей в Торонто бьёт новые рекорды" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Страховка для молодых водителей в Торонто бьёт новые рекорды</div>
+    <div class="card-excerpt">﻿  Молодые мужчины-водители в Торонто могут столкнуться с автостраховкой дороже 13 тысяч долларов в год — такие данные приводит  в комментарии для CTV News. Речь идёт о 20-летнем новичке без претензий</div>
+    <div class="card-meta">
+      <span class="card-date">18 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-18-politsiya-nakryla-podpolnye-plantatsii-na-territorii-tayndin/">
-  <div class="sc-img"><img src="/photos/photo_1519@18-11-2025_11-47-01.jpg" alt="Полиция накрыла подпольные плантации на территории Тайндинага: изъято конопли на $200 млн" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Полиция накрыла подпольные плантации на территории Тайндинага: изъято конопли на $200 млн</div>
-    <div class="pex">Провинциальная полиция Онтарио сообщает о крупнейших за последние годы рейдах на территории Тайнднага: за два месяца силовики нашли и уничтожили более 118 тысяч нелегальных растений каннабиса. По оцен</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-18-politsiya-nakryla-podpolnye-plantatsii-na-territorii-tayndin/">
+  <div class="card-img"><img src="/photos/photo_1519@18-11-2025_11-47-01.jpg" alt="Полиция накрыла подпольные плантации на территории Тайндинага: изъято конопли на $200 млн" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиция накрыла подпольные плантации на территории Тайндинага: изъято конопли на $200 млн</div>
+    <div class="card-excerpt">Провинциальная полиция Онтарио сообщает о крупнейших за последние годы рейдах на территории Тайнднага: за два месяца силовики нашли и уничтожили более 118 тысяч нелегальных растений каннабиса. По оцен</div>
+    <div class="card-meta">
+      <span class="card-date">18 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-17-toronto-podnimaet-palestinskiy-flag-reshenie-kotoroe-uzhe-pr/">
-  <div class="sc-img"><img src="/photos/photo_1513@17-11-2025_14-06-50.jpg" alt="Торонто поднимает палестинский флаг — решение, которое уже привело город в суд" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thecanadianpressnews.ca</div>
-    <div class="ptit sc-title">Торонто поднимает палестинский флаг — решение, которое уже привело город в суд</div>
-    <div class="pex">Ровно в 10 утра в понедельник у мэрии Торонто подняли палестинский флаг — в честь 37-й годовщины Палестинской декларации независимости. Повод возник после обращения Международного центра справедливост</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-17-toronto-podnimaet-palestinskiy-flag-reshenie-kotoroe-uzhe-pr/">
+  <div class="card-img"><img src="/photos/photo_1513@17-11-2025_14-06-50.jpg" alt="Торонто поднимает палестинский флаг — решение, которое уже привело город в суд" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thecanadianpressnews.ca</div>
+    <div class="card-title">Торонто поднимает палестинский флаг — решение, которое уже привело город в суд</div>
+    <div class="card-excerpt">Ровно в 10 утра в понедельник у мэрии Торонто подняли палестинский флаг — в честь 37-й годовщины Палестинской декларации независимости. Повод возник после обращения Международного центра справедливост</div>
+    <div class="card-meta">
+      <span class="card-date">17 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-17-u-berega-toronto-nashli-redchayshiy-korabl-xix-veka/">
-  <div class="sc-img"><img src="/photos/photo_1510@17-11-2025_13-26-59.jpg" alt="У берега Торонто нашли редчайший корабль XIX века" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">У берега Торонто нашли редчайший корабль XIX века</div>
-    <div class="pex">Группа канадских дайверов, которая шла по следу затонувшего Rapid City, наткнулась на куда более древнее судно. Объект впервые заметили ещё в 2017 году во время прокладки волоконно-оптического кабеля,</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-17-u-berega-toronto-nashli-redchayshiy-korabl-xix-veka/">
+  <div class="card-img"><img src="/photos/photo_1510@17-11-2025_13-26-59.jpg" alt="У берега Торонто нашли редчайший корабль XIX века" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">У берега Торонто нашли редчайший корабль XIX века</div>
+    <div class="card-excerpt">Группа канадских дайверов, которая шла по следу затонувшего Rapid City, наткнулась на куда более древнее судно. Объект впервые заметили ещё в 2017 году во время прокладки волоконно-оптического кабеля,</div>
+    <div class="card-meta">
+      <span class="card-date">17 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-16-ottava-vkladyvaet-do-545-mln-v-razvitie-zhenskoy-professiona/">
-  <div class="sc-img"><img src="/photos/photo_1505@16-11-2025_17-38-01.jpg" alt="Оттава вкладывает до $5,45 млн в развитие женской профессиональной лиги Northern Super League" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Оттава вкладывает до $5,45 млн в развитие женской профессиональной лиги Northern Super League</div>
-    <div class="pex">Федеральное правительство объявило о намерении выделить до 5,45 млн долларов на поддержку Northern Super League (NSL) — первой женской профессиональной футбольной лиги страны. Заявление прозвучало на</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-16-ottava-vkladyvaet-do-545-mln-v-razvitie-zhenskoy-professiona/">
+  <div class="card-img"><img src="/photos/photo_1505@16-11-2025_17-38-01.jpg" alt="Оттава вкладывает до $5,45 млн в развитие женской профессиональной лиги Northern Super League" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оттава вкладывает до $5,45 млн в развитие женской профессиональной лиги Northern Super League</div>
+    <div class="card-excerpt">Федеральное правительство объявило о намерении выделить до 5,45 млн долларов на поддержку Northern Super League (NSL) — первой женской профессиональной футбольной лиги страны. Заявление прозвучало на</div>
+    <div class="card-meta">
+      <span class="card-date">16 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-16-toronto-preduprezhdaet-iz-za-zapreta-kamer-fiksatsii-skorost/">
-  <div class="sc-img"><img src="/photos/photo_1504@16-11-2025_15-36-25.jpg" alt="Торонто предупреждает: из-за запрета камер фиксации скорости город может уволить около тысячи человек" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Торонто предупреждает: из-за запрета камер фиксации скорости город может уволить около тысячи человек</div>
-    <div class="pex">Мэр Торонто Оливия Чау заявила, что решение правительства Онтарио убрать камеры фиксации скорости по всей провинции приведёт к серьёзным потерям для города. Доходы от системы автоматического контроля</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-16-toronto-preduprezhdaet-iz-za-zapreta-kamer-fiksatsii-skorost/">
+  <div class="card-img"><img src="/photos/photo_1504@16-11-2025_15-36-25.jpg" alt="Торонто предупреждает: из-за запрета камер фиксации скорости город может уволить около тысячи человек" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Торонто предупреждает: из-за запрета камер фиксации скорости город может уволить около тысячи человек</div>
+    <div class="card-excerpt">Мэр Торонто Оливия Чау заявила, что решение правительства Онтарио убрать камеры фиксации скорости по всей провинции приведёт к серьёзным потерям для города. Доходы от системы автоматического контроля</div>
+    <div class="card-meta">
+      <span class="card-date">16 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-15-zhizn-bez-avtomobilya-chto-rasskazali-zhiteli-kanady/">
-  <div class="sc-img"><img src="/photos/photo_1501@15-11-2025_20-21-01.jpg" alt="Жизнь без автомобиля: что рассказали жители Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Жизнь без автомобиля: что рассказали жители Канады</div>
-    <div class="pex">CBC собрала истории канадцев, которые отказались от личных машин — в больших городах, малых сообществах и сельских районах. Картина получилась удивительно разной, но есть общие мотивы.   Главный факто</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-15-zhizn-bez-avtomobilya-chto-rasskazali-zhiteli-kanady/">
+  <div class="card-img"><img src="/photos/photo_1501@15-11-2025_20-21-01.jpg" alt="Жизнь без автомобиля: что рассказали жители Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Жизнь без автомобиля: что рассказали жители Канады</div>
+    <div class="card-excerpt">CBC собрала истории канадцев, которые отказались от личных машин — в больших городах, малых сообществах и сельских районах. Картина получилась удивительно разной, но есть общие мотивы.   Главный факто</div>
+    <div class="card-meta">
+      <span class="card-date">15 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-13-bilety-na-vstrechu-s-kamaloy-harris-v-toronto-vzleteli-do-ne/">
-  <div class="sc-img"><img src="/photos/photo_1487@13-11-2025_15-39-01.jpg" alt="Билеты на встречу с Камалой Харрис в Торонто взлетели до нескольких тысяч долларов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Билеты на встречу с Камалой Харрис в Торонто взлетели до нескольких тысяч долларов</div>
-    <div class="pex">﻿  Бывшая вице-президент США Камала Харрис приедет в Торонто 16 ноября в рамках североамериканского тура с новой книгой 107 Days. Твёрдая обложка стоит $42, но попасть на мероприятие в Meridian Hall о</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-11-13-bilety-na-vstrechu-s-kamaloy-harris-v-toronto-vzleteli-do-ne/">
+  <div class="card-img"><img src="/photos/photo_1487@13-11-2025_15-39-01.jpg" alt="Билеты на встречу с Камалой Харрис в Торонто взлетели до нескольких тысяч долларов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Билеты на встречу с Камалой Харрис в Торонто взлетели до нескольких тысяч долларов</div>
+    <div class="card-excerpt">﻿  Бывшая вице-президент США Камала Харрис приедет в Торонто 16 ноября в рамках североамериканского тура с новой книгой 107 Days. Твёрдая обложка стоит $42, но попасть на мероприятие в Meridian Hall о</div>
+    <div class="card-meta">
+      <span class="card-date">13 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-10-bukvalno-obuvnaya-korobka-pochemu-arendatory-toronto-izbegay/">
-  <div class="sc-img"><img src="/photos/photo_1464@10-11-2025_15-12-01.jpg" alt="«Буквально обувная коробка»: почему арендаторы Торонто избегают новостроек" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">«Буквально обувная коробка»: почему арендаторы Торонто избегают новостроек</div>
-    <div class="pex">Всего 53 новых кондо-продажи в сентябре — настолько рухнул рынок новостроек в Торонто, по данным Building Industry and Land Development Association (BILD). И на фоне застоя всё больше арендаторов откр</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-11-10-bukvalno-obuvnaya-korobka-pochemu-arendatory-toronto-izbegay/">
+  <div class="card-img"><img src="/photos/photo_1464@10-11-2025_15-12-01.jpg" alt="«Буквально обувная коробка»: почему арендаторы Торонто избегают новостроек" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">«Буквально обувная коробка»: почему арендаторы Торонто избегают новостроек</div>
+    <div class="card-excerpt">Всего 53 новых кондо-продажи в сентябре — настолько рухнул рынок новостроек в Торонто, по данным Building Industry and Land Development Association (BILD). И на фоне застоя всё больше арендаторов откр</div>
+    <div class="card-meta">
+      <span class="card-date">10 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-10-toronto-zavalilo-snegom-rekordno-ranniy-noyabrskiy-snegopad-/">
-  <div class="sc-img"><img src="/photos/photo_1461@10-11-2025_10-37-01.jpg" alt="Торонто завалило снегом: рекордно ранний ноябрьский снегопад за полвека" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">toronto.citynews.ca</div>
-    <div class="ptit sc-title">Торонто завалило снегом: рекордно ранний ноябрьский снегопад за полвека</div>
-    <div class="pex">Южный Онтарио встретил зиму раньше обычного: 9 ноября на Торонто обрушился снегопад, который стал самым ранним случаем накопления более 5 сантиметров снега с 1969 года.   По данным метеослужбы, утром</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-10-toronto-zavalilo-snegom-rekordno-ranniy-noyabrskiy-snegopad-/">
+  <div class="card-img"><img src="/photos/photo_1461@10-11-2025_10-37-01.jpg" alt="Торонто завалило снегом: рекордно ранний ноябрьский снегопад за полвека" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">toronto.citynews.ca</div>
+    <div class="card-title">Торонто завалило снегом: рекордно ранний ноябрьский снегопад за полвека</div>
+    <div class="card-excerpt">Южный Онтарио встретил зиму раньше обычного: 9 ноября на Торонто обрушился снегопад, который стал самым ранним случаем накопления более 5 сантиметров снега с 1969 года.   По данным метеослужбы, утром</div>
+    <div class="card-meta">
+      <span class="card-date">10 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-09-byudzhetnaya-nedelya-obernulas-koshmarom-dlya-konservatorov/">
-  <div class="sc-img"><img src="/photos/photo_1457@09-11-2025_14-06-48.jpg" alt="Бюджетная неделя обернулась кошмаром для Консерваторов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Бюджетная неделя обернулась кошмаром для Консерваторов</div>
-    <div class="pex">Неделя, которая должна была стать идеальной возможностью для оппозиции атаковать либеральное правительство, обернулась для Пьера Полиева политическим фиаско.   Вместо того чтобы громко критиковать бюд</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-11-09-byudzhetnaya-nedelya-obernulas-koshmarom-dlya-konservatorov/">
+  <div class="card-img"><img src="/photos/photo_1457@09-11-2025_14-06-48.jpg" alt="Бюджетная неделя обернулась кошмаром для Консерваторов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Бюджетная неделя обернулась кошмаром для Консерваторов</div>
+    <div class="card-excerpt">Неделя, которая должна была стать идеальной возможностью для оппозиции атаковать либеральное правительство, обернулась для Пьера Полиева политическим фиаско.   Вместо того чтобы громко критиковать бюд</div>
+    <div class="card-meta">
+      <span class="card-date">9 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-09-kanada-mozhet-stolknutsya-s-hudshim-variantom-grippoznogo-se/">
-  <div class="sc-img"><img src="/photos/photo_1456@09-11-2025_11-56-36.jpg" alt="Канада может столкнуться с «худшим вариантом» гриппозного сезона: вирус H3N2 мутирует и, возможно, не совпадает с вакциной" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канада может столкнуться с «худшим вариантом» гриппозного сезона: вирус H3N2 мутирует и, возможно, не совпадает с вакциной</div>
-    <div class="pex">Врачи по всей Канаде готовятся к тяжелому сезону гриппа: новая разновидность штамма H3N2, распространившаяся по миру, может оказаться плохо совместимой с нынешней вакциной.   По данным федерального аг</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-11-09-kanada-mozhet-stolknutsya-s-hudshim-variantom-grippoznogo-se/">
+  <div class="card-img"><img src="/photos/photo_1456@09-11-2025_11-56-36.jpg" alt="Канада может столкнуться с «худшим вариантом» гриппозного сезона: вирус H3N2 мутирует и, возможно, не совпадает с вакциной" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канада может столкнуться с «худшим вариантом» гриппозного сезона: вирус H3N2 мутирует и, возможно, не совпадает с вакциной</div>
+    <div class="card-excerpt">Врачи по всей Канаде готовятся к тяжелому сезону гриппа: новая разновидность штамма H3N2, распространившаяся по миру, может оказаться плохо совместимой с нынешней вакциной.   По данным федерального аг</div>
+    <div class="card-meta">
+      <span class="card-date">9 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-09-pokolenie-z-vozvraschaetsya-k-vere-kanadskie-tserkvi-otmecha/">
-  <div class="sc-img"><img src="/photos/photo_1455@09-11-2025_10-53-01.jpg" alt="Поколение Z возвращается к вере — канадские церкви отмечают рост прихожан среди молодежи" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Поколение Z возвращается к вере — канадские церкви отмечают рост прихожан среди молодежи</div>
-    <div class="pex">Канадские священники замечают неожиданный сдвиг: впервые за десятилетия число молодых людей, приходящих на службы, растет. И, по их словам, ведет этот процесс именно поколение Z.   В англиканской церк</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-09-pokolenie-z-vozvraschaetsya-k-vere-kanadskie-tserkvi-otmecha/">
+  <div class="card-img"><img src="/photos/photo_1455@09-11-2025_10-53-01.jpg" alt="Поколение Z возвращается к вере — канадские церкви отмечают рост прихожан среди молодежи" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Поколение Z возвращается к вере — канадские церкви отмечают рост прихожан среди молодежи</div>
+    <div class="card-excerpt">Канадские священники замечают неожиданный сдвиг: впервые за десятилетия число молодых людей, приходящих на службы, растет. И, по их словам, ведет этот процесс именно поколение Z.   В англиканской церк</div>
+    <div class="card-meta">
+      <span class="card-date">9 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-07-bezrabotitsa-v-kanade-snizilas-do-69/">
-  <div class="sc-img"><img src="/photos/photo_1445@07-11-2025_17-16-01.jpg" alt="Безработица в Канаде снизилась до 6,9%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Безработица в Канаде снизилась до 6,9%</div>
-    <div class="pex">Канадская экономика в октябре неожиданно прибавила 67 000 рабочих мест, сообщает CBC News со ссылкой на данные Статистического управления. Экономисты ожидали куда более скромных показателей.    Рост п</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-07-bezrabotitsa-v-kanade-snizilas-do-69/">
+  <div class="card-img"><img src="/photos/photo_1445@07-11-2025_17-16-01.jpg" alt="Безработица в Канаде снизилась до 6,9%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Безработица в Канаде снизилась до 6,9%</div>
+    <div class="card-excerpt">Канадская экономика в октябре неожиданно прибавила 67 000 рабочих мест, сообщает CBC News со ссылкой на данные Статистического управления. Экономисты ожидали куда более скромных показателей.    Рост п</div>
+    <div class="card-meta">
+      <span class="card-date">7 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-06-nebolshoe-nablyudenie-3-dnya-v-kanade-ne-obsuzhdayut-nichego/">
-  <div class="sc-img"><img src="/photos/photo_1437@06-11-2025_20-55-13.jpg" alt="Небольшое наблюдение: 3 дня в Канаде не обсуждают ничего, кроме бюджета. Высказались все, от мусульманских общин Торонто до профсоюза работников заповедников." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Небольшое наблюдение: 3 дня в Канаде не обсуждают ничего, кроме бюджета. Высказались все, от мусульманских общин Торонто до профсоюза работников заповедников.</div>
-    <div class="pex">400 страниц разобраны по косточкам, эфиры ТВ ломятся от экспертов с учеными степенями и бывших министров.   Партии готовятся к чтениям, Пьер разминается, каждый пытается выбить получше условия. В обще</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-06-nebolshoe-nablyudenie-3-dnya-v-kanade-ne-obsuzhdayut-nichego/">
+  <div class="card-img"><img src="/photos/photo_1437@06-11-2025_20-55-13.jpg" alt="Небольшое наблюдение: 3 дня в Канаде не обсуждают ничего, кроме бюджета. Высказались все, от мусульманских общин Торонто до профсоюза работников заповедников." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Небольшое наблюдение: 3 дня в Канаде не обсуждают ничего, кроме бюджета. Высказались все, от мусульманских общин Торонто до профсоюза работников заповедников.</div>
+    <div class="card-excerpt">400 страниц разобраны по косточкам, эфиры ТВ ломятся от экспертов с учеными степенями и бывших министров.   Партии готовятся к чтениям, Пьер разминается, каждый пытается выбить получше условия. В обще</div>
+    <div class="card-meta">
+      <span class="card-date">6 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-06-prints-garri-izvinyaetsya-pered-kanadoy-za-beysbolku-dodgers/">
-  <div class="sc-img"><img src="/photos/photo_1436@06-11-2025_19-21-01.jpg" alt="🧢 Принц Гарри извиняется перед Канадой за бейсболку Dodgers" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">🧢 Принц Гарри извиняется перед Канадой за бейсболку Dodgers</div>
-    <div class="pex">⠀ «Я был под давлением», — заявил принц Гарри, объясняя, почему во время четвёртой игры Мировой серии между «Лос-Анджелес Доджерс» и «Торонто Блю Джейс» оказался в кепке американской команды.  ⠀ Фотог</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-06-prints-garri-izvinyaetsya-pered-kanadoy-za-beysbolku-dodgers/">
+  <div class="card-img"><img src="/photos/photo_1436@06-11-2025_19-21-01.jpg" alt="🧢 Принц Гарри извиняется перед Канадой за бейсболку Dodgers" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">🧢 Принц Гарри извиняется перед Канадой за бейсболку Dodgers</div>
+    <div class="card-excerpt">⠀ «Я был под давлением», — заявил принц Гарри, объясняя, почему во время четвёртой игры Мировой серии между «Лос-Анджелес Доджерс» и «Торонто Блю Джейс» оказался в кепке американской команды.  ⠀ Фотог</div>
+    <div class="card-meta">
+      <span class="card-date">6 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-06-skandal-v-ontario-dengi-iz-fonda-podgotovki-kadrov-okazalis-/">
-  <div class="sc-img"><img src="/photos/photo_1432@06-11-2025_11-39-01.jpg" alt="Скандал в Онтарио: деньги из фонда подготовки кадров оказались у компании, связанной со стрип-клубом" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Скандал в Онтарио: деньги из фонда подготовки кадров оказались у компании, связанной со стрип-клубом</div>
-    <div class="pex">В Онтарио — новый удар по правительству Дага Форда. Оппозиция требует объяснить, как почти 10 миллионов долларов из провинциального Skills Development Fund, созданного для переобучения работников, мог</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-11-06-skandal-v-ontario-dengi-iz-fonda-podgotovki-kadrov-okazalis-/">
+  <div class="card-img"><img src="/photos/photo_1432@06-11-2025_11-39-01.jpg" alt="Скандал в Онтарио: деньги из фонда подготовки кадров оказались у компании, связанной со стрип-клубом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Скандал в Онтарио: деньги из фонда подготовки кадров оказались у компании, связанной со стрип-клубом</div>
+    <div class="card-excerpt">В Онтарио — новый удар по правительству Дага Форда. Оппозиция требует объяснить, как почти 10 миллионов долларов из провинциального Skills Development Fund, созданного для переобучения работников, мог</div>
+    <div class="card-meta">
+      <span class="card-date">6 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-06-oliviya-chau-proigrala-pari-meru-los-andzhelesa-i-proehalas-/">
-  <div class="sc-img"><img src="/photos/photo_1429@06-11-2025_08-39-01.jpg" alt="Оливия Чау проиграла пари мэру Лос-Анджелеса и проехалась по Торонто в форме Dodgers" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Оливия Чау проиграла пари мэру Лос-Анджелеса и проехалась по Торонто в форме Dodgers</div>
-    <div class="pex">Мэр Торонто Оливия Чау сдержала слово — и теперь её видели катающейся на велосипеде в синей форме L.A. Dodgers. Пари она заключила с мэром Лос-Анджелеса Карен Басс ещё до финала Мировой серии: проигра</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-06-oliviya-chau-proigrala-pari-meru-los-andzhelesa-i-proehalas-/">
+  <div class="card-img"><img src="/photos/photo_1429@06-11-2025_08-39-01.jpg" alt="Оливия Чау проиграла пари мэру Лос-Анджелеса и проехалась по Торонто в форме Dodgers" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Оливия Чау проиграла пари мэру Лос-Анджелеса и проехалась по Торонто в форме Dodgers</div>
+    <div class="card-excerpt">Мэр Торонто Оливия Чау сдержала слово — и теперь её видели катающейся на велосипеде в синей форме L.A. Dodgers. Пари она заключила с мэром Лос-Анджелеса Карен Басс ещё до финала Мировой серии: проигра</div>
+    <div class="card-meta">
+      <span class="card-date">6 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-04-pochti-polovina-kanady-smotrela-sedmuyu-igru-mirovoy-serii/">
-  <div class="sc-img"><img src="/photos/photo_1414@04-11-2025_09-18-01.jpg" alt="Почти половина Канады смотрела седьмую игру Мировой серии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">sportsnet.ca</div>
-    <div class="ptit sc-title">Почти половина Канады смотрела седьмую игру Мировой серии</div>
-    <div class="pex">Финал Мировой серии превратился в национальное событие: почти половина страны — 18,5 миллиона человек — включила телевизор, чтобы увидеть, как «Торонто Блю Джейс» пытаются взять первый титул за более</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-04-pochti-polovina-kanady-smotrela-sedmuyu-igru-mirovoy-serii/">
+  <div class="card-img"><img src="/photos/photo_1414@04-11-2025_09-18-01.jpg" alt="Почти половина Канады смотрела седьмую игру Мировой серии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">sportsnet.ca</div>
+    <div class="card-title">Почти половина Канады смотрела седьмую игру Мировой серии</div>
+    <div class="card-excerpt">Финал Мировой серии превратился в национальное событие: почти половина страны — 18,5 миллиона человек — включила телевизор, чтобы увидеть, как «Торонто Блю Джейс» пытаются взять первый титул за более</div>
+    <div class="card-meta">
+      <span class="card-date">4 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-02-ya-nedootsenil-masshtaby-krizisa-kanadskiy-tsar-po-fentanilu/">
-  <div class="sc-img"><img src="/photos/photo_1403@02-11-2025_15-04-01.jpg" alt="«Я недооценил масштабы кризиса»: канадский «царь по фентанилу» о борьбе с эпидемией синтетических опиоидов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">«Я недооценил масштабы кризиса»: канадский «царь по фентанилу» о борьбе с эпидемией синтетических опиоидов</div>
-    <div class="pex">Комиссар по борьбе с фентанилом Кевин Броссо признался, что, вступая в должность, не осознавал реального масштаба кризиса, охватившего Канаду и Северную Америку.   Бывший замкомиссар Королевской конно</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-11-02-ya-nedootsenil-masshtaby-krizisa-kanadskiy-tsar-po-fentanilu/">
+  <div class="card-img"><img src="/photos/photo_1403@02-11-2025_15-04-01.jpg" alt="«Я недооценил масштабы кризиса»: канадский «царь по фентанилу» о борьбе с эпидемией синтетических опиоидов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">«Я недооценил масштабы кризиса»: канадский «царь по фентанилу» о борьбе с эпидемией синтетических опиоидов</div>
+    <div class="card-excerpt">Комиссар по борьбе с фентанилом Кевин Броссо признался, что, вступая в должность, не осознавал реального масштаба кризиса, охватившего Канаду и Северную Америку.   Бывший замкомиссар Королевской конно</div>
+    <div class="card-meta">
+      <span class="card-date">2 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-02-my-otdali-vsyo-chto-mogli-blue-jays-ne-uderzhali-pobedu-v-se/">
-  <div class="sc-img"><img src="/photos/photo_1399@02-11-2025_07-54-01.jpg" alt="💔 «Мы отдали всё, что могли»: Blue Jays не удержали победу в седьмом матче и проиграли Dodgers" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">💔 «Мы отдали всё, что могли»: Blue Jays не удержали победу в седьмом матче и проиграли Dodgers</div>
-    <div class="pex">Сказка закончилась на одиннадцатом иннинге. Toronto Blue Jays вели в счёте, были в двух аутах от чемпионства — но Los Angeles Dodgers снова доказали, почему они действующие чемпионы. Домашний ран Миге</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-02-my-otdali-vsyo-chto-mogli-blue-jays-ne-uderzhali-pobedu-v-se/">
+  <div class="card-img"><img src="/photos/photo_1399@02-11-2025_07-54-01.jpg" alt="💔 «Мы отдали всё, что могли»: Blue Jays не удержали победу в седьмом матче и проиграли Dodgers" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">💔 «Мы отдали всё, что могли»: Blue Jays не удержали победу в седьмом матче и проиграли Dodgers</div>
+    <div class="card-excerpt">Сказка закончилась на одиннадцатом иннинге. Toronto Blue Jays вели в счёте, были в двух аутах от чемпионства — но Los Angeles Dodgers снова доказали, почему они действующие чемпионы. Домашний ран Миге</div>
+    <div class="card-meta">
+      <span class="card-date">2 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-01-rossiyskiy-gruzovoy-antonov-zastryal-v-toronto-ottava-pytaet/">
-  <div class="sc-img"><img src="/photos/photo_1398@01-11-2025_15-02-04.jpg" alt="Российский грузовой «Антонов» застрял в Торонто: Оттава пытается «распутать» собственников" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Российский грузовой «Антонов» застрял в Торонто: Оттава пытается «распутать» собственников</div>
-    <div class="pex">Российский самолёт Ан-124 «Руслан», стоящий на взлётной полосе аэропорта Пирсон с февраля 2022 года, до сих пор не может быть передан Украине — федеральное правительство оказалось вынуждено «распутыва</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a><a class="ptag" href="/tag/ukraina/">#Украина</a></div></div>
+</a><a class="card" href="/post/2025-11-01-rossiyskiy-gruzovoy-antonov-zastryal-v-toronto-ottava-pytaet/">
+  <div class="card-img"><img src="/photos/photo_1398@01-11-2025_15-02-04.jpg" alt="Российский грузовой «Антонов» застрял в Торонто: Оттава пытается «распутать» собственников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Российский грузовой «Антонов» застрял в Торонто: Оттава пытается «распутать» собственников</div>
+    <div class="card-excerpt">Российский самолёт Ан-124 «Руслан», стоящий на взлётной полосе аэропорта Пирсон с февраля 2022 года, до сих пор не может быть передан Украине — федеральное правительство оказалось вынуждено «распутыва</div>
+    <div class="card-meta">
+      <span class="card-date">1 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-01-dodzhers-vyrvali-pobedu-i-doveli-mirovuyu-seriyu-do-sedmogo-/">
-  <div class="sc-img"><img src="/photos/photo_1395@01-11-2025_08-38-01.jpg" alt="«Доджерс» вырвали победу и довели Мировую серию до седьмого матча" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">«Доджерс» вырвали победу и довели Мировую серию до седьмого матча</div>
-    <div class="pex">Мечта Торонто о чемпионстве снова откладывается: Blue Jays проиграли Los Angeles Dodgers 1:3 в шестой игре Мировой серии на Rogers Centre.   Решающим стал третий иннинг, когда «Доджерс» оформили три р</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-11-01-dodzhers-vyrvali-pobedu-i-doveli-mirovuyu-seriyu-do-sedmogo-/">
+  <div class="card-img"><img src="/photos/photo_1395@01-11-2025_08-38-01.jpg" alt="«Доджерс» вырвали победу и довели Мировую серию до седьмого матча" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">«Доджерс» вырвали победу и довели Мировую серию до седьмого матча</div>
+    <div class="card-excerpt">Мечта Торонто о чемпионстве снова откладывается: Blue Jays проиграли Los Angeles Dodgers 1:3 в шестой игре Мировой серии на Rogers Centre.   Решающим стал третий иннинг, когда «Доджерс» оформили три р</div>
+    <div class="card-meta">
+      <span class="card-date">1 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-30-microsoft-podpisala-10-letniy-kontrakt-s-kanadskoy-arca-clim/">
-  <div class="sc-img"><img src="/photos/photo_1378@30-10-2025_14-18-01.jpg" alt="Microsoft подписала 10-летний контракт с канадской Arca Climate Technologies, которая превращает CO₂ в камень" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">calgaryherald.com</div>
-    <div class="ptit sc-title">Microsoft подписала 10-летний контракт с канадской Arca Climate Technologies, которая превращает CO₂ в камень</div>
-    <div class="pex">Microsoft закупит почти 300 000 тонн подтверждённых «перманентных» кредитов удаления углерода у ванкуверской Arca Climate Technologies — это один из крупнейших коммерческих договоров в канадском секто</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-10-30-microsoft-podpisala-10-letniy-kontrakt-s-kanadskoy-arca-clim/">
+  <div class="card-img"><img src="/photos/photo_1378@30-10-2025_14-18-01.jpg" alt="Microsoft подписала 10-летний контракт с канадской Arca Climate Technologies, которая превращает CO₂ в камень" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">calgaryherald.com</div>
+    <div class="card-title">Microsoft подписала 10-летний контракт с канадской Arca Climate Technologies, которая превращает CO₂ в камень</div>
+    <div class="card-excerpt">Microsoft закупит почти 300 000 тонн подтверждённых «перманентных» кредитов удаления углерода у ванкуверской Arca Climate Technologies — это один из крупнейших коммерческих договоров в канадском секто</div>
+    <div class="card-meta">
+      <span class="card-date">30 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-30-milliardnye-soglasheniya-pravitelstva-s-stellantis-i-nextsta/">
-  <div class="sc-img"><img src="/photos/photo_1377@30-10-2025_13-14-01.jpg" alt="Миллиардные соглашения правительства с Stellantis и NextStar по строительству завода батарей раскрыты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Миллиардные соглашения правительства с Stellantis и NextStar по строительству завода батарей раскрыты</div>
-    <div class="pex">CBC получила копии конфиденциальных контрактов федерального правительства с компанией NextStar Energy — совместным предприятием Stellantis и южнокорейской LG Energy Solution, строящей завод по произво</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-30-milliardnye-soglasheniya-pravitelstva-s-stellantis-i-nextsta/">
+  <div class="card-img"><img src="/photos/photo_1377@30-10-2025_13-14-01.jpg" alt="Миллиардные соглашения правительства с Stellantis и NextStar по строительству завода батарей раскрыты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Миллиардные соглашения правительства с Stellantis и NextStar по строительству завода батарей раскрыты</div>
+    <div class="card-excerpt">CBC получила копии конфиденциальных контрактов федерального правительства с компанией NextStar Energy — совместным предприятием Stellantis и южнокорейской LG Energy Solution, строящей завод по произво</div>
+    <div class="card-meta">
+      <span class="card-date">30 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-30-ostalas-odna-pobeda-blue-jays-v-shage-ot-pervogo-titula-za-3/">
-  <div class="sc-img"><img src="/photos/photo_1372@30-10-2025_08-36-46.jpg" alt="«Осталась одна победа»: Blue Jays в шаге от первого титула за 32 года" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">«Осталась одна победа»: Blue Jays в шаге от первого титула за 32 года</div>
-    <div class="pex">Торонто Blue Jays — всего в одной игре от своей первой победы в Мировой серии с 1993 года. Вчерашняя победа над Los Angeles Dodgers со счётом 6:1 принесла канадцам преимущество 3–2 в серии и поставила</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-10-30-ostalas-odna-pobeda-blue-jays-v-shage-ot-pervogo-titula-za-3/">
+  <div class="card-img"><img src="/photos/photo_1372@30-10-2025_08-36-46.jpg" alt="«Осталась одна победа»: Blue Jays в шаге от первого титула за 32 года" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">«Осталась одна победа»: Blue Jays в шаге от первого титула за 32 года</div>
+    <div class="card-excerpt">Торонто Blue Jays — всего в одной игре от своей первой победы в Мировой серии с 1993 года. Вчерашняя победа над Los Angeles Dodgers со счётом 6:1 принесла канадцам преимущество 3–2 в серии и поставила</div>
+    <div class="card-meta">
+      <span class="card-date">30 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-29-ot-dyma-i-zhary-1400-smertey-v-god-v-kanade-svyazany-s-lesny/">
-  <div class="sc-img"><img src="/photos/photo_1370@29-10-2025_18-47-01.jpg" alt="От дыма и жары: 1400 смертей в год в Канаде связаны с лесными пожарами — доклад The Lancet" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">От дыма и жары: 1400 смертей в год в Канаде связаны с лесными пожарами — доклад The Lancet</div>
-    <div class="pex">Каждый год с 2020 по 2024-й в Канаде около 1400 человек умирали из-за загрязнения воздуха дымом от лесных пожаров, говорится в новом глобальном отчёте The Lancet Countdown on Health and Climate Change</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-10-29-ot-dyma-i-zhary-1400-smertey-v-god-v-kanade-svyazany-s-lesny/">
+  <div class="card-img"><img src="/photos/photo_1370@29-10-2025_18-47-01.jpg" alt="От дыма и жары: 1400 смертей в год в Канаде связаны с лесными пожарами — доклад The Lancet" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">От дыма и жары: 1400 смертей в год в Канаде связаны с лесными пожарами — доклад The Lancet</div>
+    <div class="card-excerpt">Каждый год с 2020 по 2024-й в Канаде около 1400 человек умирали из-за загрязнения воздуха дымом от лесных пожаров, говорится в новом глобальном отчёте The Lancet Countdown on Health and Climate Change</div>
+    <div class="card-meta">
+      <span class="card-date">29 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-29-blue-jays-sravnyali-schyot-v-mirovoy-serii-obygrav-dodzhers-/">
-  <div class="sc-img"><img src="/photos/photo_1361@29-10-2025_08-54-01.jpg" alt="Blue Jays сравняли счёт в Мировой серии, обыграв “Доджерс” 6:2" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Blue Jays сравняли счёт в Мировой серии, обыграв “Доджерс” 6:2</div>
-    <div class="pex">После двух подряд поражений Toronto Blue Jays снова нашли свой ритм — и сделали это на чужом поле. В четвёртой игре Мировой серии в Лос-Анджелесе канадская команда обыграла Dodgers со счётом 6:2, срав</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-10-29-blue-jays-sravnyali-schyot-v-mirovoy-serii-obygrav-dodzhers-/">
+  <div class="card-img"><img src="/photos/photo_1361@29-10-2025_08-54-01.jpg" alt="Blue Jays сравняли счёт в Мировой серии, обыграв “Доджерс” 6:2" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Blue Jays сравняли счёт в Мировой серии, обыграв “Доджерс” 6:2</div>
+    <div class="card-excerpt">После двух подряд поражений Toronto Blue Jays снова нашли свой ритм — и сделали это на чужом поле. В четвёртой игре Мировой серии в Лос-Анджелесе канадская команда обыграла Dodgers со счётом 6:2, срав</div>
+    <div class="card-meta">
+      <span class="card-date">29 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-28-v-toronto-snova-rekord-po-ispolzovaniyu-produktovyh-bankov-4/">
-  <div class="sc-img"><img src="/photos/photo_1360@28-10-2025_18-33-01.jpg" alt="В Торонто снова рекорд по использованию продуктовых банков — 4,1 миллиона визитов за год" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В Торонто снова рекорд по использованию продуктовых банков — 4,1 миллиона визитов за год</div>
-    <div class="pex">С марта 2024 по апрель 2025 жители Торонто обратились в продуктовые банки более 4,1 миллиона раз, говорится в свежем отчёте Who’s Hungry от Daily Bread Food Bank и North York Harvest Food Bank. Это на</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-28-v-toronto-snova-rekord-po-ispolzovaniyu-produktovyh-bankov-4/">
+  <div class="card-img"><img src="/photos/photo_1360@28-10-2025_18-33-01.jpg" alt="В Торонто снова рекорд по использованию продуктовых банков — 4,1 миллиона визитов за год" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Торонто снова рекорд по использованию продуктовых банков — 4,1 миллиона визитов за год</div>
+    <div class="card-excerpt">С марта 2024 по апрель 2025 жители Торонто обратились в продуктовые банки более 4,1 миллиона раз, говорится в свежем отчёте Who’s Hungry от Daily Bread Food Bank и North York Harvest Food Bank. Это на</div>
+    <div class="card-meta">
+      <span class="card-date">28 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-28-mirovaya-seriya-dodzhers-poveli-21-posle-istoricheskogo-matc/">
-  <div class="sc-img"><img src="/photos/photo_1354@28-10-2025_08-36-49.jpg" alt="Мировая серия: «Доджерс» повели 2–1 после исторического матча против «Блю Джейс»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Мировая серия: «Доджерс» повели 2–1 после исторического матча против «Блю Джейс»</div>
-    <div class="pex">Лос-Анджелес «Доджерс» вырвали победу у «Торонто Блю Джейс» в третьем матче Мировой серии, завершившемся после 18 иннингов — это рекордное по продолжительности противостояние в истории финалов MLB.</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-10-28-mirovaya-seriya-dodzhers-poveli-21-posle-istoricheskogo-matc/">
+  <div class="card-img"><img src="/photos/photo_1354@28-10-2025_08-36-49.jpg" alt="Мировая серия: «Доджерс» повели 2–1 после исторического матча против «Блю Джейс»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Мировая серия: «Доджерс» повели 2–1 после исторического матча против «Блю Джейс»</div>
+    <div class="card-excerpt">Лос-Анджелес «Доджерс» вырвали победу у «Торонто Блю Джейс» в третьем матче Мировой серии, завершившемся после 18 иннингов — это рекордное по продолжительности противостояние в истории финалов MLB.</div>
+    <div class="card-meta">
+      <span class="card-date">28 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-27-pravitelstvo-forda-otkazalos-ot-planov-peresmotret-pravo-are/">
-  <div class="sc-img"><img src="/photos/photo_1349@27-10-2025_14-41-34.jpg" alt="Правительство Форда отказалось от планов пересмотреть право арендаторов на «гарантию проживания»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Правительство Форда отказалось от планов пересмотреть право арендаторов на «гарантию проживания»</div>
-    <div class="pex">После волны критики правительство Онтарио заявило, что не будет вносить изменения в закон, защищающий право арендаторов оставаться в своих домах, если они соблюдают условия договора и нормы жилищного</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-27-pravitelstvo-forda-otkazalos-ot-planov-peresmotret-pravo-are/">
+  <div class="card-img"><img src="/photos/photo_1349@27-10-2025_14-41-34.jpg" alt="Правительство Форда отказалось от планов пересмотреть право арендаторов на «гарантию проживания»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Правительство Форда отказалось от планов пересмотреть право арендаторов на «гарантию проживания»</div>
+    <div class="card-excerpt">После волны критики правительство Онтарио заявило, что не будет вносить изменения в закон, защищающий право арендаторов оставаться в своих домах, если они соблюдают условия договора и нормы жилищного</div>
+    <div class="card-meta">
+      <span class="card-date">27 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/toronto/page/2/">←</a><a class="pb" href="/tag/toronto/">1</a><a class="pb" href="/tag/toronto/page/2/">2</a><a class="pb on" href="/tag/toronto/page/3/">3</a><a class="pb" href="/tag/toronto/page/4/">4</a><a class="pb" href="/tag/toronto/page/5/">5</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/toronto/page/7/">7</a><a class="pb" href="/tag/toronto/page/4/">→</a></div>

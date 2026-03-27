@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#иммиграция</h1>
     <p>336 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2026-02-13-ontario-otmenyaet-zamorozku-platy-za-obuchenie-dlya-mestnyh-/">
-  <div class="sc-img"><img src="/photos/photo_2171@13-02-2026_17-01-39.jpg" alt="Онтарио отменяет заморозку платы за обучение для местных студентов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Онтарио отменяет заморозку платы за обучение для местных студентов</div>
-    <div class="pex">Правительство Онтарио снимает многолетнюю заморозку платы за обучение для канадских студентов государственных университетов и колледжей и одновременно пообещало вложить более 6 млрд долларов в систему</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-02-13-ontario-otmenyaet-zamorozku-platy-za-obuchenie-dlya-mestnyh-/">
+  <div class="card-img"><img src="/photos/photo_2171@13-02-2026_17-01-39.jpg" alt="Онтарио отменяет заморозку платы за обучение для местных студентов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Онтарио отменяет заморозку платы за обучение для местных студентов</div>
+    <div class="card-excerpt">Правительство Онтарио снимает многолетнюю заморозку платы за обучение для канадских студентов государственных университетов и колледжей и одновременно пообещало вложить более 6 млрд долларов в систему</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-12-liberaly-ontario-razreshili-vremennym-rezidentam-golosovat-v/">
-  <div class="sc-img"><img src="/photos/photo_2164@12-02-2026_17-03-06.jpg" alt="Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ipolitics.ca</div>
-    <div class="ptit sc-title">Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии</div>
-    <div class="pex">Провинциальная Либеральная партия Онтарио не изменила правила участия в выборах нового лидера. Согласно уставу партии, голосовать могут все её члены, проживающие в Онтарио, включая неграждан, иностран</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-12-liberaly-ontario-razreshili-vremennym-rezidentam-golosovat-v/">
+  <div class="card-img"><img src="/photos/photo_2164@12-02-2026_17-03-06.jpg" alt="Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ipolitics.ca</div>
+    <div class="card-title">Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии</div>
+    <div class="card-excerpt">Провинциальная Либеральная партия Онтарио не изменила правила участия в выборах нового лидера. Согласно уставу партии, голосовать могут все её члены, проживающие в Онтарио, включая неграждан, иностран</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-chto-kanadskie-bumery-mogut-sdelat-dlya-molodyh-pokoleniy/">
-  <div class="sc-img"><img src="/photos/photo_2154@11-02-2026_21-02-52.jpg" alt="Что канадские бумеры могут сделать для молодых поколений?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vancouversun.com</div>
-    <div class="ptit sc-title">Что канадские бумеры могут сделать для молодых поколений?</div>
-    <div class="pex">Колумнист Vancouver Sun Дуглас Тодд пишет: канадские пенсионеры способны реально облегчить положение миллениалов — если согласятся на пересмотр налоговой, пенсионной и миграционной политики. Некоторые</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-02-11-chto-kanadskie-bumery-mogut-sdelat-dlya-molodyh-pokoleniy/">
+  <div class="card-img"><img src="/photos/photo_2154@11-02-2026_21-02-52.jpg" alt="Что канадские бумеры могут сделать для молодых поколений?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Что канадские бумеры могут сделать для молодых поколений?</div>
+    <div class="card-excerpt">Колумнист Vancouver Sun Дуглас Тодд пишет: канадские пенсионеры способны реально облегчить положение миллениалов — если согласятся на пересмотр налоговой, пенсионной и миграционной политики. Некоторые</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-10-chto-menyaetsya-v-immigratsionnoy-sisteme-kvebeka-i-pochemu-/">
-  <div class="sc-img"><img src="/photos/photo_2137@10-02-2026_13-04-35.jpg" alt="Что меняется в иммиграционной системе Квебека — и почему это вызывает протесты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ici.radio-canada.ca</div>
-    <div class="ptit sc-title">Что меняется в иммиграционной системе Квебека — и почему это вызывает протесты</div>
-    <div class="pex">Решение правительства Квебека отменить программу PEQ и заменить её новой, более жёсткой системой отбора продолжает вызывать растущее недовольство — от иммиграционных юристов и бизнеса до муниципалитет</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-02-10-chto-menyaetsya-v-immigratsionnoy-sisteme-kvebeka-i-pochemu-/">
+  <div class="card-img"><img src="/photos/photo_2137@10-02-2026_13-04-35.jpg" alt="Что меняется в иммиграционной системе Квебека — и почему это вызывает протесты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ici.radio-canada.ca</div>
+    <div class="card-title">Что меняется в иммиграционной системе Квебека — и почему это вызывает протесты</div>
+    <div class="card-excerpt">Решение правительства Квебека отменить программу PEQ и заменить её новой, более жёсткой системой отбора продолжает вызывать растущее недовольство — от иммиграционных юристов и бизнеса до муниципалитет</div>
+    <div class="card-meta">
+      <span class="card-date">10 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-10-konservatory-predlagayut-zapretit-inostrantsam-osuzhdennym-z/">
-  <div class="sc-img"><img src="/photos/photo_2136@10-02-2026_12-02-40.jpg" alt="Консерваторы предлагают запретить иностранцам, осужденным за преступления, подавать на убежище" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Консерваторы предлагают запретить иностранцам, осужденным за преступления, подавать на убежище</div>
-    <div class="pex">Консервативная партия планирует сегодня внести в парламент предложение, запрещающее лицам без канадского гражданства, осужденным за серьезные преступления, подавать заявления на получение статуса беже</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-02-10-konservatory-predlagayut-zapretit-inostrantsam-osuzhdennym-z/">
+  <div class="card-img"><img src="/photos/photo_2136@10-02-2026_12-02-40.jpg" alt="Консерваторы предлагают запретить иностранцам, осужденным за преступления, подавать на убежище" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Консерваторы предлагают запретить иностранцам, осужденным за преступления, подавать на убежище</div>
+    <div class="card-excerpt">Консервативная партия планирует сегодня внести в парламент предложение, запрещающее лицам без канадского гражданства, осужденным за серьезные преступления, подавать заявления на получение статуса беже</div>
+    <div class="card-meta">
+      <span class="card-date">10 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-07-prizyvy-sozdat-spetsialnyy-put-dlya-postoyannogo-prozhivaniy/">
-  <div class="sc-img"><img src="/photos/photo_2124@07-02-2026_19-03-40.jpg" alt="Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде</div>
-    <div class="pex">‌  Тысячи украинцев, бежавших от войны и начавших новую жизнь в Канаде, сейчас сталкиваются с неопределённым будущим. Об этом предупреждают общественные организации, призывая федеральные власти срочно</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-07-prizyvy-sozdat-spetsialnyy-put-dlya-postoyannogo-prozhivaniy/">
+  <div class="card-img"><img src="/photos/photo_2124@07-02-2026_19-03-40.jpg" alt="Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде</div>
+    <div class="card-excerpt">‌  Тысячи украинцев, бежавших от войны и начавших новую жизнь в Канаде, сейчас сталкиваются с неопределённым будущим. Об этом предупреждают общественные организации, призывая федеральные власти срочно</div>
+    <div class="card-meta">
+      <span class="card-date">7 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-07-kak-ultrapravye-pytayutsya-vliyat-na-kanadskie-politicheskie/">
-  <div class="sc-img"><img src="/photos/photo_2123@07-02-2026_18-05-25.jpg" alt="Как ультраправые пытаются влиять на канадские политические партии" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Как ультраправые пытаются влиять на канадские политические партии</div>
-    <div class="pex">‌  Аудиозапись закрытого обсуждения в X показывает, как представители ультраправых и откровенно расистских групп обсуждали стратегии давления на мейнстримные консервативные партии Канады. Цель — продв</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-02-07-kak-ultrapravye-pytayutsya-vliyat-na-kanadskie-politicheskie/">
+  <div class="card-img"><img src="/photos/photo_2123@07-02-2026_18-05-25.jpg" alt="Как ультраправые пытаются влиять на канадские политические партии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Как ультраправые пытаются влиять на канадские политические партии</div>
+    <div class="card-excerpt">‌  Аудиозапись закрытого обсуждения в X показывает, как представители ультраправых и откровенно расистских групп обсуждали стратегии давления на мейнстримные консервативные партии Канады. Цель — продв</div>
+    <div class="card-meta">
+      <span class="card-date">7 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-03-rezhim-v-irane-ugroza-kanade-i-ego-predstaviteli-uzhe-zdes/">
-  <div class="sc-img"><img src="/photos/photo_2095@03-02-2026_14-02-52.jpg" alt="Режим в Иране — угроза Канаде. И его представители уже здесь" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Режим в Иране — угроза Канаде. И его представители уже здесь</div>
-    <div class="pex">Майкл Боннер в National Post пишет прямо: исламская республика Иран — это не просто проблема Ближнего Востока. Это активная и долгосрочная угроза безопасности Канады.   Автор исходит из простого тезис</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-02-03-rezhim-v-irane-ugroza-kanade-i-ego-predstaviteli-uzhe-zdes/">
+  <div class="card-img"><img src="/photos/photo_2095@03-02-2026_14-02-52.jpg" alt="Режим в Иране — угроза Канаде. И его представители уже здесь" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Режим в Иране — угроза Канаде. И его представители уже здесь</div>
+    <div class="card-excerpt">Майкл Боннер в National Post пишет прямо: исламская республика Иран — это не просто проблема Ближнего Востока. Это активная и долгосрочная угроза безопасности Канады.   Автор исходит из простого тезис</div>
+    <div class="card-meta">
+      <span class="card-date">3 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-02-kanadskie-universitety-vozvraschayutsya-v-indiyu/">
-  <div class="sc-img"><img src="/photos/photo_2090@02-02-2026_15-02-53.jpg" alt="Канадские университеты возвращаются в Индию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Канадские университеты возвращаются в Индию</div>
-    <div class="pex">Ассоциация Universities Canada отправила в Индию делегацию из более чем 20 президентов университетов. Поездка рассчитана на пять дней и подаётся как попытка перезапустить отношения между двумя странам</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-02-kanadskie-universitety-vozvraschayutsya-v-indiyu/">
+  <div class="card-img"><img src="/photos/photo_2090@02-02-2026_15-02-53.jpg" alt="Канадские университеты возвращаются в Индию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канадские университеты возвращаются в Индию</div>
+    <div class="card-excerpt">Ассоциация Universities Canada отправила в Индию делегацию из более чем 20 президентов университетов. Поездка рассчитана на пять дней и подаётся как попытка перезапустить отношения между двумя странам</div>
+    <div class="card-meta">
+      <span class="card-date">2 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-02-vrach-v-toronto-vedyot-2-000-patsientov-i-vsyo-eschyo-bez-pm/">
-  <div class="sc-img"><img src="/photos/photo_2089@02-02-2026_14-05-31.jpg" alt="Врач в Торонто ведёт 2 000 пациентов — и всё ещё без ПМЖ" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Врач в Торонто ведёт 2 000 пациентов — и всё ещё без ПМЖ</div>
-    <div class="pex">Канада годами говорит о катастрофической нехватке врачей. В Онтарио без семейного доктора живут более 2,5 млн человек, по стране — почти 6 млн.   На этом фоне история доктора Майкла Антила выглядит по</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-02-vrach-v-toronto-vedyot-2-000-patsientov-i-vsyo-eschyo-bez-pm/">
+  <div class="card-img"><img src="/photos/photo_2089@02-02-2026_14-05-31.jpg" alt="Врач в Торонто ведёт 2 000 пациентов — и всё ещё без ПМЖ" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Врач в Торонто ведёт 2 000 пациентов — и всё ещё без ПМЖ</div>
+    <div class="card-excerpt">Канада годами говорит о катастрофической нехватке врачей. В Онтарио без семейного доктора живут более 2,5 млн человек, по стране — почти 6 млн.   На этом фоне история доктора Майкла Антила выглядит по</div>
+    <div class="card-meta">
+      <span class="card-date">2 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-01-indiyskie-bandy-zapugivayut-kanadu/">
-  <div class="sc-img"><img src="/photos/photo_2085@01-02-2026_20-36-01.jpg" alt="Индийские банды запугивают Канаду" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">spectator.com</div>
-    <div class="ptit sc-title">Индийские банды запугивают Канаду</div>
-    <div class="pex">⁠  Южноазиатские общины по всей Канаде сталкиваются с волной вымогательств и насилия. В Суррее (Британская Колумбия) власти уже требуют от Оттавы объявить общенациональное чрезвычайное положение. Речь</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-02-01-indiyskie-bandy-zapugivayut-kanadu/">
+  <div class="card-img"><img src="/photos/photo_2085@01-02-2026_20-36-01.jpg" alt="Индийские банды запугивают Канаду" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">spectator.com</div>
+    <div class="card-title">Индийские банды запугивают Канаду</div>
+    <div class="card-excerpt">⁠  Южноазиатские общины по всей Канаде сталкиваются с волной вымогательств и насилия. В Суррее (Британская Колумбия) власти уже требуют от Оттавы объявить общенациональное чрезвычайное положение. Речь</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-01-ministr-immigratsii-kanady-lena-diab-zayavila-chto-eyo-vedom/">
-  <div class="sc-img"><img src="/photos/photo_2082@01-02-2026_11-02-24.jpg" alt="Министр иммиграции Канады Лена Диаб заявила, что её ведомство должно получить техническую возможность отслеживать выезд временных резидентов из страны." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">toronto.citynews.ca</div>
-    <div class="ptit sc-title">Министр иммиграции Канады Лена Диаб заявила, что её ведомство должно получить техническую возможность отслеживать выезд временных резидентов из страны.</div>
-    <div class="pex">Речь идёт о людях с рабочими, учебными и другими временными визами. ‌ ‌ По данным Министерства иммиграции, беженцев и гражданства, в 2026 году истекает срок действия почти 1,9 млн временных виз. В 202</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ircc/">#IRCC</a></div></div>
+</a><a class="card" href="/post/2026-02-01-ministr-immigratsii-kanady-lena-diab-zayavila-chto-eyo-vedom/">
+  <div class="card-img"><img src="/photos/photo_2082@01-02-2026_11-02-24.jpg" alt="Министр иммиграции Канады Лена Диаб заявила, что её ведомство должно получить техническую возможность отслеживать выезд временных резидентов из страны." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">toronto.citynews.ca</div>
+    <div class="card-title">Министр иммиграции Канады Лена Диаб заявила, что её ведомство должно получить техническую возможность отслеживать выезд временных резидентов из страны.</div>
+    <div class="card-excerpt">Речь идёт о людях с рабочими, учебными и другими временными визами. ‌ ‌ По данным Министерства иммиграции, беженцев и гражданства, в 2026 году истекает срок действия почти 1,9 млн временных виз. В 202</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-31-abort-maid-immigratsiya-i-cbc-o-chyom-sporyat-konservatory-v/">
-  <div class="sc-img"><img src="/photos/photo_2079@31-01-2026_13-04-01.jpg" alt="Аборт, MAID, иммиграция и CBC: о чём спорят консерваторы в Калгари" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalnewswatch.com</div>
-    <div class="ptit sc-title">Аборт, MAID, иммиграция и CBC: о чём спорят консерваторы в Калгари</div>
-    <div class="pex">На национальном съезде Консервативной партии в Калгари делегаты обсуждают серию резонансных политических предложений — от абортов и эвтаназии до иммиграции и будущего CBC. Формально эти инициативы не</div>
-    <div class="pmeta sc-meta"><span class="pdate">31 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-01-31-abort-maid-immigratsiya-i-cbc-o-chyom-sporyat-konservatory-v/">
+  <div class="card-img"><img src="/photos/photo_2079@31-01-2026_13-04-01.jpg" alt="Аборт, MAID, иммиграция и CBC: о чём спорят консерваторы в Калгари" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalnewswatch.com</div>
+    <div class="card-title">Аборт, MAID, иммиграция и CBC: о чём спорят консерваторы в Калгари</div>
+    <div class="card-excerpt">На национальном съезде Консервативной партии в Калгари делегаты обсуждают серию резонансных политических предложений — от абортов и эвтаназии до иммиграции и будущего CBC. Формально эти инициативы не</div>
+    <div class="card-meta">
+      <span class="card-date">31 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-30-per-poliev-vyhodit-na-reshayuschee-golosovanie-za-liderstvo/">
-  <div class="sc-img"><img src="/photos/photo_2074@30-01-2026_12-03-16.jpg" alt="Пьер Полиев выходит на решающее голосование за лидерство" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Пьер Полиев выходит на решающее голосование за лидерство</div>
-    <div class="pex">Сегодня вечером в Калгари Пьер Полиев выступит с речью, которая фактически станет отчётом за его лидерство и прологом к голосованию о будущем главы Консервативной партии. Сразу после выступления делег</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-30-per-poliev-vyhodit-na-reshayuschee-golosovanie-za-liderstvo/">
+  <div class="card-img"><img src="/photos/photo_2074@30-01-2026_12-03-16.jpg" alt="Пьер Полиев выходит на решающее голосование за лидерство" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Пьер Полиев выходит на решающее голосование за лидерство</div>
+    <div class="card-excerpt">Сегодня вечером в Калгари Пьер Полиев выступит с речью, которая фактически станет отчётом за его лидерство и прологом к голосованию о будущем главы Консервативной партии. Сразу после выступления делег</div>
+    <div class="card-meta">
+      <span class="card-date">30 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-30-vizovye-tsentry-kanady-v-rossii-prekratili-priem-dokumentov/">
-  <div class="sc-img"><img src="/photos/photo_2071@30-01-2026_08-08-02.jpg" alt="Визовые центры Канады в России прекратили прием документов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">international.gc.ca</div>
-    <div class="ptit sc-title">Визовые центры Канады в России прекратили прием документов</div>
-    <div class="pex">⁠  С 28 января 2026 года визовые центры Канады на территории России перестали принимать документы для оформления виз. Информация об этом размещена на официальных страницах посольства Канады в Москве и</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-30-vizovye-tsentry-kanady-v-rossii-prekratili-priem-dokumentov/">
+  <div class="card-img"><img src="/photos/photo_2071@30-01-2026_08-08-02.jpg" alt="Визовые центры Канады в России прекратили прием документов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">international.gc.ca</div>
+    <div class="card-title">Визовые центры Канады в России прекратили прием документов</div>
+    <div class="card-excerpt">⁠  С 28 января 2026 года визовые центры Канады на территории России перестали принимать документы для оформления виз. Информация об этом размещена на официальных страницах посольства Канады в Москве и</div>
+    <div class="card-meta">
+      <span class="card-date">30 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-29-feykovye-video-v-sotssetyah-zamanivayut-turistov-v-kanadu-po/">
-  <div class="sc-img"><img src="/photos/photo_2069@29-01-2026_21-09-01.jpg" alt="Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»</div>
-    <div class="pex">В преддверии чемпионата мира по футболу 2026 года в TikTok и Instagram массово распространяются видео с ложной информацией об иммиграционных правилах Канады. Как выяснило CBC News, такие ролики нацеле</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-29-feykovye-video-v-sotssetyah-zamanivayut-turistov-v-kanadu-po/">
+  <div class="card-img"><img src="/photos/photo_2069@29-01-2026_21-09-01.jpg" alt="Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»</div>
+    <div class="card-excerpt">В преддверии чемпионата мира по футболу 2026 года в TikTok и Instagram массово распространяются видео с ложной информацией об иммиграционных правилах Канады. Как выяснило CBC News, такие ролики нацеле</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-28-polovina-bezdetnyh-zhenschin-v-kanade-ne-hotyat-detey-kazhda/">
-  <div class="sc-img"><img src="/photos/photo_2059@28-01-2026_20-01-32.jpg" alt="Половина бездетных женщин в Канаде не хотят детей — каждая четвёртая в 40 лет так и не стала матерью" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">Половина бездетных женщин в Канаде не хотят детей — каждая четвёртая в 40 лет так и не стала матерью</div>
-    <div class="pex">Новые данные Statistics Canada показывают резкий сдвиг в репродуктивных установках канадок. В 2024 году 23,6% женщин в возрасте от 40 до 49 лет не имели ни биологических, ни усыновлённых детей. Среди</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-28-polovina-bezdetnyh-zhenschin-v-kanade-ne-hotyat-detey-kazhda/">
+  <div class="card-img"><img src="/photos/photo_2059@28-01-2026_20-01-32.jpg" alt="Половина бездетных женщин в Канаде не хотят детей — каждая четвёртая в 40 лет так и не стала матерью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Половина бездетных женщин в Канаде не хотят детей — каждая четвёртая в 40 лет так и не стала матерью</div>
+    <div class="card-excerpt">Новые данные Statistics Canada показывают резкий сдвиг в репродуктивных установках канадок. В 2024 году 23,6% женщин в возрасте от 40 до 49 лет не имели ни биологических, ни усыновлённых детей. Среди</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-28-kanada-vvodit-doplaty-za-meditsinu-dlya-bezhentsev-i-prosite/">
-  <div class="sc-img"><img src="/photos/photo_2052@28-01-2026_08-59-01.jpg" alt="Канада вводит доплаты за медицину для беженцев и просителей убежища" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Канада вводит доплаты за медицину для беженцев и просителей убежища</div>
-    <div class="pex">С 1 мая федеральное правительство начнёт взимать со спонсируемых беженцев и просителей убежища доплату за часть медицинских услуг. Речь идёт о первом годе их пребывания в стране и обо всех, кто подаёт</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-01-28-kanada-vvodit-doplaty-za-meditsinu-dlya-bezhentsev-i-prosite/">
+  <div class="card-img"><img src="/photos/photo_2052@28-01-2026_08-59-01.jpg" alt="Канада вводит доплаты за медицину для беженцев и просителей убежища" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Канада вводит доплаты за медицину для беженцев и просителей убежища</div>
+    <div class="card-excerpt">С 1 мая федеральное правительство начнёт взимать со спонсируемых беженцев и просителей убежища доплату за часть медицинских услуг. Речь идёт о первом годе их пребывания в стране и обо всех, кто подаёт</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-27-gotova-li-kanada-k-amerikanskoy-grazhdanskoy-voyne/">
-  <div class="sc-img"><img src="/photos/photo_2048@27-01-2026_19-00-11.jpg" alt="Готова ли Канада к американской гражданской войне?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thewalrus.ca</div>
-    <div class="ptit sc-title">Готова ли Канада к американской гражданской войне?</div>
-    <div class="pex">⁠  События в Миннеаполисе заставляют Оттаву задавать вопросы, которые ещё недавно казались немыслимыми. Масштабное развёртывание федеральных сил США, столкновения с властями штата и фактическая милита</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2026-01-27-gotova-li-kanada-k-amerikanskoy-grazhdanskoy-voyne/">
+  <div class="card-img"><img src="/photos/photo_2048@27-01-2026_19-00-11.jpg" alt="Готова ли Канада к американской гражданской войне?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thewalrus.ca</div>
+    <div class="card-title">Готова ли Канада к американской гражданской войне?</div>
+    <div class="card-excerpt">⁠  События в Миннеаполисе заставляют Оттаву задавать вопросы, которые ещё недавно казались немыслимыми. Масштабное развёртывание федеральных сил США, столкновения с властями штата и фактическая милита</div>
+    <div class="card-meta">
+      <span class="card-date">27 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-25-ssha-pytayutsya-sygrat-na-albertskom-separatizme-chtoby-rask/">
-  <div class="sc-img"><img src="/photos/photo_2030@25-01-2026_12-02-41.jpg" alt="США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">lemonde.fr</div>
-    <div class="ptit sc-title">США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре.</div>
-    <div class="pex">После ослабления риторики вокруг Гренландии администрация Дональда Трампа сместила фокус внимания на Канаду — точнее, на Альберту. Нефтедобывающая провинция, обеспечивающая около 90% канадской нефти,</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-01-25-ssha-pytayutsya-sygrat-na-albertskom-separatizme-chtoby-rask/">
+  <div class="card-img"><img src="/photos/photo_2030@25-01-2026_12-02-41.jpg" alt="США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">lemonde.fr</div>
+    <div class="card-title">США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре.</div>
+    <div class="card-excerpt">После ослабления риторики вокруг Гренландии администрация Дональда Трампа сместила фокус внимания на Канаду — точнее, на Альберту. Нефтедобывающая провинция, обеспечивающая около 90% канадской нефти,</div>
+    <div class="card-meta">
+      <span class="card-date">25 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-24-esli-by-golosovala-tolko-molodyozh-konservatory-razgromili-b/">
-  <div class="sc-img"><img src="/photos/photo_2028@24-01-2026_17-05-21.jpg" alt="Если бы голосовала только молодёжь, консерваторы разгромили бы выборы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Если бы голосовала только молодёжь, консерваторы разгромили бы выборы</div>
-    <div class="pex">‎  Новый опрос показывает беспрецедентный для Канады раскол по возрасту: молодые избиратели массово уходят к консерваторам, тогда как старшие поколения столь же уверенно поддерживают премьер-министра</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-24-esli-by-golosovala-tolko-molodyozh-konservatory-razgromili-b/">
+  <div class="card-img"><img src="/photos/photo_2028@24-01-2026_17-05-21.jpg" alt="Если бы голосовала только молодёжь, консерваторы разгромили бы выборы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Если бы голосовала только молодёжь, консерваторы разгромили бы выборы</div>
+    <div class="card-excerpt">‎  Новый опрос показывает беспрецедентный для Канады раскол по возрасту: молодые избиратели массово уходят к консерваторам, тогда как старшие поколения столь же уверенно поддерживают премьер-министра</div>
+    <div class="card-meta">
+      <span class="card-date">24 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-22-zhyostkaya-immigratsionnaya-politika-ssha-podtalkivaet-migra/">
-  <div class="sc-img"><img src="/photos/photo_2008@22-01-2026_12-02-38.jpg" alt="Жёсткая иммиграционная политика США подталкивает мигрантов к Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Жёсткая иммиграционная политика США подталкивает мигрантов к Канаде</div>
-    <div class="pex">⁠  Усиление иммиграционных рейдов в США уже даёт эффект: интерес к Канаде со стороны потенциальных беженцев заметно растёт, а число заявлений на убежище увеличивается.  ⁠  Кадры из Миннеаполиса и друг</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-22-zhyostkaya-immigratsionnaya-politika-ssha-podtalkivaet-migra/">
+  <div class="card-img"><img src="/photos/photo_2008@22-01-2026_12-02-38.jpg" alt="Жёсткая иммиграционная политика США подталкивает мигрантов к Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Жёсткая иммиграционная политика США подталкивает мигрантов к Канаде</div>
+    <div class="card-excerpt">⁠  Усиление иммиграционных рейдов в США уже даёт эффект: интерес к Канаде со стороны потенциальных беженцев заметно растёт, а число заявлений на убежище увеличивается.  ⁠  Кадры из Миннеаполиса и друг</div>
+    <div class="card-meta">
+      <span class="card-date">22 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-22-posle-rechi-karni-v-davose-konservatory-dumayut-kak-per-poli/">
-  <div class="sc-img"><img src="/photos/photo_2007@22-01-2026_11-04-30.jpg" alt="После речи Карни в Давосе консерваторы думают, как Пьер Полиеву соответствовать моменту во внешней политике" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">После речи Карни в Давосе консерваторы думают, как Пьер Полиеву соответствовать моменту во внешней политике</div>
-    <div class="pex">⁠  Речь Марка Карни в Давосе неожиданно поставила перед консерваторами неудобный вопрос: что делать Пьеру Полиеву с внешней политикой, если Дональд Трамп никуда не исчезает и снова определяет повестку</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2026-01-22-posle-rechi-karni-v-davose-konservatory-dumayut-kak-per-poli/">
+  <div class="card-img"><img src="/photos/photo_2007@22-01-2026_11-04-30.jpg" alt="После речи Карни в Давосе консерваторы думают, как Пьер Полиеву соответствовать моменту во внешней политике" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">После речи Карни в Давосе консерваторы думают, как Пьер Полиеву соответствовать моменту во внешней политике</div>
+    <div class="card-excerpt">⁠  Речь Марка Карни в Давосе неожиданно поставила перед консерваторами неудобный вопрос: что делать Пьеру Полиеву с внешней политикой, если Дональд Трамп никуда не исчезает и снова определяет повестку</div>
+    <div class="card-meta">
+      <span class="card-date">22 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-22-universitety-ontario-trebuyut-eschyo-12-mlrd-mest-i-uslug-dl/">
-  <div class="sc-img"><img src="/photos/photo_2006@22-01-2026_10-05-41.jpg" alt="Университеты Онтарио требуют ещё $1,2 млрд: «мест и услуг для студентов не хватает»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Университеты Онтарио требуют ещё $1,2 млрд: «мест и услуг для студентов не хватает»</div>
-    <div class="pex">⁠  Университеты провинции Онтарио просят срочно добавить $1,2 млрд к базовому финансированию уже в следующем году, а к 2028-му — довести ежегодную прибавку до $1,6 млрд. По их словам, без этого систем</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-22-universitety-ontario-trebuyut-eschyo-12-mlrd-mest-i-uslug-dl/">
+  <div class="card-img"><img src="/photos/photo_2006@22-01-2026_10-05-41.jpg" alt="Университеты Онтарио требуют ещё $1,2 млрд: «мест и услуг для студентов не хватает»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Университеты Онтарио требуют ещё $1,2 млрд: «мест и услуг для студентов не хватает»</div>
+    <div class="card-excerpt">⁠  Университеты провинции Онтарио просят срочно добавить $1,2 млрд к базовому финансированию уже в следующем году, а к 2028-му — довести ежегодную прибавку до $1,6 млрд. По их словам, без этого систем</div>
+    <div class="card-meta">
+      <span class="card-date">22 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-21-kanadskaya-hootsuite-rabotaet-s-ice-nad-ukrepleniem-doveriya/">
-  <div class="sc-img"><img src="/photos/photo_2004@21-01-2026_19-00-47.jpg" alt="Канадская Hootsuite работает с ICE над «укреплением доверия»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Канадская Hootsuite работает с ICE над «укреплением доверия»</div>
-    <div class="pex">Ванкуверская соцмедийная компания Hootsuite заключила пилотный контракт с Иммиграционной и таможенной службой США (ICE) на 95 тысяч долларов. Проект связан с мониторингом обсуждений и настроений в соц</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-01-21-kanadskaya-hootsuite-rabotaet-s-ice-nad-ukrepleniem-doveriya/">
+  <div class="card-img"><img src="/photos/photo_2004@21-01-2026_19-00-47.jpg" alt="Канадская Hootsuite работает с ICE над «укреплением доверия»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канадская Hootsuite работает с ICE над «укреплением доверия»</div>
+    <div class="card-excerpt">Ванкуверская соцмедийная компания Hootsuite заключила пилотный контракт с Иммиграционной и таможенной службой США (ICE) на 95 тысяч долларов. Проект связан с мониторингом обсуждений и настроений в соц</div>
+    <div class="card-meta">
+      <span class="card-date">21 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-20-universitety-kanady-vhodyat-v-polosu-sistemnogo-krizisa-i-et/">
-  <div class="sc-img"><img src="/photos/photo_1985@20-01-2026_11-36-28.jpg" alt="Университеты Канады входят в полосу системного кризиса — и это уже не абстрактная тревога ректоров." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Университеты Канады входят в полосу системного кризиса — и это уже не абстрактная тревога ректоров.</div>
-    <div class="pex">⁠  Одна из ключевых особенностей канадского высшего образования — равенство. Где ты учился, обычно не имеет значения: почти все университеты государственные, уровень сопоставим, стигмы «второсортного</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-20-universitety-kanady-vhodyat-v-polosu-sistemnogo-krizisa-i-et/">
+  <div class="card-img"><img src="/photos/photo_1985@20-01-2026_11-36-28.jpg" alt="Университеты Канады входят в полосу системного кризиса — и это уже не абстрактная тревога ректоров." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Университеты Канады входят в полосу системного кризиса — и это уже не абстрактная тревога ректоров.</div>
+    <div class="card-excerpt">⁠  Одна из ключевых особенностей канадского высшего образования — равенство. Где ты учился, обычно не имеет значения: почти все университеты государственные, уровень сопоставим, стигмы «второсортного</div>
+    <div class="card-meta">
+      <span class="card-date">20 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-19-kraftovoe-pivo-v-kanade-vydyhaetsya-prodazhi-padayut-pivovar/">
-  <div class="sc-img"><img src="/photos/photo_1980@19-01-2026_19-01-01.jpg" alt="Крафтовое пиво в Канаде выдыхается: продажи падают, пивоварни закрываются" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Крафтовое пиво в Канаде выдыхается: продажи падают, пивоварни закрываются</div>
-    <div class="pex">Период бурного роста крафтового пива в Канаде, похоже, остался в прошлом. Продажи сокращаются, а число пивоварен впервые за десятилетие начало уменьшаться — под давлением расходов, изменения вкусов и</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-01-19-kraftovoe-pivo-v-kanade-vydyhaetsya-prodazhi-padayut-pivovar/">
+  <div class="card-img"><img src="/photos/photo_1980@19-01-2026_19-01-01.jpg" alt="Крафтовое пиво в Канаде выдыхается: продажи падают, пивоварни закрываются" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Крафтовое пиво в Канаде выдыхается: продажи падают, пивоварни закрываются</div>
+    <div class="card-excerpt">Период бурного роста крафтового пива в Канаде, похоже, остался в прошлом. Продажи сокращаются, а число пивоварен впервые за десятилетие начало уменьшаться — под давлением расходов, изменения вкусов и</div>
+    <div class="card-meta">
+      <span class="card-date">19 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-19-feykovye-fanaty-chm-2026-pytayutsya-oboyti-vizovye-pravila-k/">
-  <div class="sc-img"><img src="/photos/photo_1976@19-01-2026_12-03-34.jpg" alt="Фейковые фанаты ЧМ-2026 пытаются обойти визовые правила Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Фейковые фанаты ЧМ-2026 пытаются обойти визовые правила Канады</div>
-    <div class="pex">По мере приближения чемпионата мира по футболу в Канаде появляется всё больше схем, где под видом «футбольного туризма» людям продают иллюзии лёгкого въезда и даже работы без разрешения.   В соцсетях</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-19-feykovye-fanaty-chm-2026-pytayutsya-oboyti-vizovye-pravila-k/">
+  <div class="card-img"><img src="/photos/photo_1976@19-01-2026_12-03-34.jpg" alt="Фейковые фанаты ЧМ-2026 пытаются обойти визовые правила Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Фейковые фанаты ЧМ-2026 пытаются обойти визовые правила Канады</div>
+    <div class="card-excerpt">По мере приближения чемпионата мира по футболу в Канаде появляется всё больше схем, где под видом «футбольного туризма» людям продают иллюзии лёгкого въезда и даже работы без разрешения.   В соцсетях</div>
+    <div class="card-meta">
+      <span class="card-date">19 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-18-kanadtsam-poobeschali-bezvizovyy-vezd-v-kitay/">
-  <div class="sc-img"><img src="/photos/photo_1971@18-01-2026_14-04-24.jpg" alt="Канадцам пообещали безвизовый въезд в Китай" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">visasnews.com</div>
-    <div class="ptit sc-title">Канадцам пообещали безвизовый въезд в Китай</div>
-    <div class="pex">Во время официального визита в Пекин премьер-министр Канады Марк Карни объявил о договорённости с китайским руководством: граждане Канады смогут ездить в Китай без визы.   По словам Карни, председател</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-18-kanadtsam-poobeschali-bezvizovyy-vezd-v-kitay/">
+  <div class="card-img"><img src="/photos/photo_1971@18-01-2026_14-04-24.jpg" alt="Канадцам пообещали безвизовый въезд в Китай" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">visasnews.com</div>
+    <div class="card-title">Канадцам пообещали безвизовый въезд в Китай</div>
+    <div class="card-excerpt">Во время официального визита в Пекин премьер-министр Канады Марк Карни объявил о договорённости с китайским руководством: граждане Канады смогут ездить в Китай без визы.   По словам Карни, председател</div>
+    <div class="card-meta">
+      <span class="card-date">18 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-18-kanadskiy-pasport-vosmoy-v-mire-no-reyting-ne-govorit-vsego/">
-  <div class="sc-img"><img src="/photos/photo_1969@18-01-2026_11-03-12.jpg" alt="Канадский паспорт — восьмой в мире. Но рейтинг не говорит всего" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Канадский паспорт — восьмой в мире. Но рейтинг не говорит всего</div>
-    <div class="pex">Канада заняла 8-е место в рейтинге самых «сильных» паспортов мира на 2026 год по версии Henley Passport Index. Канадцы могут въезжать без визы или с визой по прибытии в 181 страну — формально это боль</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-18-kanadskiy-pasport-vosmoy-v-mire-no-reyting-ne-govorit-vsego/">
+  <div class="card-img"><img src="/photos/photo_1969@18-01-2026_11-03-12.jpg" alt="Канадский паспорт — восьмой в мире. Но рейтинг не говорит всего" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадский паспорт — восьмой в мире. Но рейтинг не говорит всего</div>
+    <div class="card-excerpt">Канада заняла 8-е место в рейтинге самых «сильных» паспортов мира на 2026 год по версии Henley Passport Index. Канадцы могут въезжать без визы или с визой по прибытии в 181 страну — формально это боль</div>
+    <div class="card-meta">
+      <span class="card-date">18 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-16-v-2025-godu-kanada-prinyala-okolo-393-500-postoyannyh-zhitel/">
-  <div class="sc-img"><img src="/photos/photo_1962@16-01-2026_18-02-18.jpg" alt="В 2025 году Канада приняла около 393 500 постоянных жителей — данные опубликовало Immigration, Refugees and Citizenship Canada." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В 2025 году Канада приняла около 393 500 постоянных жителей — данные опубликовало Immigration, Refugees and Citizenship Canada.</div>
-    <div class="pex">Фактический результат почти совпал с целевым показателем и оказался всего на 2 000 человек ниже планки в 395 000.  Эти цифры укладываются в федеральный Levels Plan — курс на сдерживание краткосрочного</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-16-v-2025-godu-kanada-prinyala-okolo-393-500-postoyannyh-zhitel/">
+  <div class="card-img"><img src="/photos/photo_1962@16-01-2026_18-02-18.jpg" alt="В 2025 году Канада приняла около 393 500 постоянных жителей — данные опубликовало Immigration, Refugees and Citizenship Canada." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В 2025 году Канада приняла около 393 500 постоянных жителей — данные опубликовало Immigration, Refugees and Citizenship Canada.</div>
+    <div class="card-excerpt">Фактический результат почти совпал с целевым показателем и оказался всего на 2 000 человек ниже планки в 395 000.  Эти цифры укладываются в федеральный Levels Plan — курс на сдерживание краткосрочного</div>
+    <div class="card-meta">
+      <span class="card-date">16 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-13-21-mln-vremennyh-rezidentov-teryayut-status-v-2026-godu-uedu/">
-  <div class="sc-img"><img src="/photos/photo_1940@13-01-2026_21-50-15.jpg" alt="2,1 млн временных резидентов теряют статус в 2026 году. Уедут ли они из Канады?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">2,1 млн временных резидентов теряют статус в 2026 году. Уедут ли они из Канады?</div>
-    <div class="pex">В этом году у Канады истекают или уже истекут разрешения на проживание у 2,1 млн временных резидентов. Правительство исходит из того, что большинство из них просто уедут. Эксперты называют это опасной</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-13-21-mln-vremennyh-rezidentov-teryayut-status-v-2026-godu-uedu/">
+  <div class="card-img"><img src="/photos/photo_1940@13-01-2026_21-50-15.jpg" alt="2,1 млн временных резидентов теряют статус в 2026 году. Уедут ли они из Канады?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">2,1 млн временных резидентов теряют статус в 2026 году. Уедут ли они из Канады?</div>
+    <div class="card-excerpt">В этом году у Канады истекают или уже истекут разрешения на проживание у 2,1 млн временных резидентов. Правительство исходит из того, что большинство из них просто уедут. Эксперты называют это опасной</div>
+    <div class="card-meta">
+      <span class="card-date">13 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-13-otsekaya-startaperov-ottava-rezhet-buduschee-kanady/">
-  <div class="sc-img"><img src="/photos/photo_1939@13-01-2026_19-34-01.jpg" alt="Отсекая стартаперов, Оттава режет будущее Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Отсекая стартаперов, Оттава режет будущее Канады</div>
-    <div class="pex">Юнг Ву, серийный предприниматель и бывший глава MaRS Discovery District, жёстко критикует решение федерального правительства закрыть приём новых заявок по Start-up Visa Program — ключевому иммиграцион</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-13-otsekaya-startaperov-ottava-rezhet-buduschee-kanady/">
+  <div class="card-img"><img src="/photos/photo_1939@13-01-2026_19-34-01.jpg" alt="Отсекая стартаперов, Оттава режет будущее Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Отсекая стартаперов, Оттава режет будущее Канады</div>
+    <div class="card-excerpt">Юнг Ву, серийный предприниматель и бывший глава MaRS Discovery District, жёстко критикует решение федерального правительства закрыть приём новых заявок по Start-up Visa Program — ключевому иммиграцион</div>
+    <div class="card-meta">
+      <span class="card-date">13 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-12-otchayanie-predatelstvo-shok-ukraintsy-v-kanade-mogut-zhdat-/">
-  <div class="sc-img"><img src="/photos/photo_1929@12-01-2026_18-00-27.jpg" alt="«Отчаяние, предательство, шок»: украинцы в Канаде могут ждать ПМЖ десятилетиями" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">«Отчаяние, предательство, шок»: украинцы в Канаде могут ждать ПМЖ десятилетиями</div>
-    <div class="pex">Тысячи украинцев, бежавших от войны в Канаду, столкнулись с жёсткой реальностью: ожидание постоянного статуса может растянуться более чем на полвека. Эти цифры подтвердило само Министерство иммиграции</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-01-12-otchayanie-predatelstvo-shok-ukraintsy-v-kanade-mogut-zhdat-/">
+  <div class="card-img"><img src="/photos/photo_1929@12-01-2026_18-00-27.jpg" alt="«Отчаяние, предательство, шок»: украинцы в Канаде могут ждать ПМЖ десятилетиями" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">«Отчаяние, предательство, шок»: украинцы в Канаде могут ждать ПМЖ десятилетиями</div>
+    <div class="card-excerpt">Тысячи украинцев, бежавших от войны в Канаду, столкнулись с жёсткой реальностью: ожидание постоянного статуса может растянуться более чем на полвека. Эти цифры подтвердило само Министерство иммиграции</div>
+    <div class="card-meta">
+      <span class="card-date">12 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-12-stolknoveniya-na-mitingah-v-tsentre-toronto-8-arestov-29-obv/">
-  <div class="sc-img"><img src="/photos/photo_1926@12-01-2026_11-05-24.jpg" alt="Столкновения на митингах в центре Торонто: 8 арестов, 29 обвинений" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Столкновения на митингах в центре Торонто: 8 арестов, 29 обвинений</div>
-    <div class="pex">Полиция Торонто сообщила об аресте восьми человек и предъявлении 29 обвинений после массовых акций в центре города в субботу. Демонстрации прошли на площади Нэйтан Филлипс у пересечения Queen Street W</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-01-12-stolknoveniya-na-mitingah-v-tsentre-toronto-8-arestov-29-obv/">
+  <div class="card-img"><img src="/photos/photo_1926@12-01-2026_11-05-24.jpg" alt="Столкновения на митингах в центре Торонто: 8 арестов, 29 обвинений" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Столкновения на митингах в центре Торонто: 8 арестов, 29 обвинений</div>
+    <div class="card-excerpt">Полиция Торонто сообщила об аресте восьми человек и предъявлении 29 обвинений после массовых акций в центре города в субботу. Демонстрации прошли на площади Нэйтан Филлипс у пересечения Queen Street W</div>
+    <div class="card-meta">
+      <span class="card-date">12 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-10-immigratsiya-uhudshila-dostupnost-zhizni-i-liberaly-godami-d/">
-  <div class="sc-img"><img src="/photos/photo_1918@10-01-2026_21-02-12.jpg" alt="Иммиграция ухудшила доступность жизни — и либералы годами делали вид, что ничего не происходит." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Иммиграция ухудшила доступность жизни — и либералы годами делали вид, что ничего не происходит.</div>
-    <div class="pex">Колонка Джеффа Рассa в National Post. ⁠  Ключевой вопрос звучит жёстко: правительство лгало канадцам о последствиях массовой иммиграции или просто не понимало, что делает? Автор считает — и то и друго</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-10-immigratsiya-uhudshila-dostupnost-zhizni-i-liberaly-godami-d/">
+  <div class="card-img"><img src="/photos/photo_1918@10-01-2026_21-02-12.jpg" alt="Иммиграция ухудшила доступность жизни — и либералы годами делали вид, что ничего не происходит." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Иммиграция ухудшила доступность жизни — и либералы годами делали вид, что ничего не происходит.</div>
+    <div class="card-excerpt">Колонка Джеффа Рассa в National Post. ⁠  Ключевой вопрос звучит жёстко: правительство лгало канадцам о последствиях массовой иммиграции или просто не понимало, что делает? Автор считает — и то и друго</div>
+    <div class="card-meta">
+      <span class="card-date">10 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-10-budet-tolko-huzhe-chto-po-mneniyu-ekspertov-zhdyot-rynok-zhi/">
-  <div class="sc-img"><img src="/photos/photo_1916@10-01-2026_17-31-17.jpg" alt="«Будет только хуже»: что, по мнению экспертов, ждёт рынок жилья  Онтарио в 2026 году" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">«Будет только хуже»: что, по мнению экспертов, ждёт рынок жилья  Онтарио в 2026 году</div>
-    <div class="pex">⁠  Цены на жильё в Онтарио падают уже два года подряд, и часть экспертов уверена: в 2026-м ситуация продолжит ухудшаться. Потенциальным покупателям советуют не спешить и наблюдать за рынком. ⁠  За про</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2026-01-10-budet-tolko-huzhe-chto-po-mneniyu-ekspertov-zhdyot-rynok-zhi/">
+  <div class="card-img"><img src="/photos/photo_1916@10-01-2026_17-31-17.jpg" alt="«Будет только хуже»: что, по мнению экспертов, ждёт рынок жилья  Онтарио в 2026 году" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">«Будет только хуже»: что, по мнению экспертов, ждёт рынок жилья  Онтарио в 2026 году</div>
+    <div class="card-excerpt">⁠  Цены на жильё в Онтарио падают уже два года подряд, и часть экспертов уверена: в 2026-м ситуация продолжит ухудшаться. Потенциальным покупателям советуют не спешить и наблюдать за рынком. ⁠  За про</div>
+    <div class="card-meta">
+      <span class="card-date">10 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-10-vzglyady-kanadtsev-na-immigratsiyu-menyayutsya-kak-eto-povli/">
-  <div class="sc-img"><img src="/photos/photo_1915@10-01-2026_14-05-29.jpg" alt="Взгляды канадцев на иммиграцию меняются. Как это повлияет на экономику" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Взгляды канадцев на иммиграцию меняются. Как это повлияет на экономику</div>
-    <div class="pex">⁠  Перелом в общественном отношении к иммиграции стал заметен в конце 2025 года — в тот момент, когда население Канады достигло пика и впервые за десятилетия начало сокращаться. За три месяца численно</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-01-10-vzglyady-kanadtsev-na-immigratsiyu-menyayutsya-kak-eto-povli/">
+  <div class="card-img"><img src="/photos/photo_1915@10-01-2026_14-05-29.jpg" alt="Взгляды канадцев на иммиграцию меняются. Как это повлияет на экономику" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Взгляды канадцев на иммиграцию меняются. Как это повлияет на экономику</div>
+    <div class="card-excerpt">⁠  Перелом в общественном отношении к иммиграции стал заметен в конце 2025 года — в тот момент, когда население Канады достигло пика и впервые за десятилетия начало сокращаться. За три месяца численно</div>
+    <div class="card-meta">
+      <span class="card-date">10 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-10-hotite-immigrirovat-v-kanadu-uchite-frantsuzskiy/">
-  <div class="sc-img"><img src="/photos/photo_1914@10-01-2026_12-06-47.jpg" alt="Хотите иммигрировать в Канаду? Учите французский" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Хотите иммигрировать в Канаду? Учите французский</div>
-    <div class="pex">⁠  В момент, когда Канада ужесточает иммиграционную политику, вырисовывается чёткий путь к постоянному статусу: знание французского языка. ⁠  В 2025 году федеральное правительство направило 48 тысяч п</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-10-hotite-immigrirovat-v-kanadu-uchite-frantsuzskiy/">
+  <div class="card-img"><img src="/photos/photo_1914@10-01-2026_12-06-47.jpg" alt="Хотите иммигрировать в Канаду? Учите французский" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Хотите иммигрировать в Канаду? Учите французский</div>
+    <div class="card-excerpt">⁠  В момент, когда Канада ужесточает иммиграционную политику, вырисовывается чёткий путь к постоянному статусу: знание французского языка. ⁠  В 2025 году федеральное правительство направило 48 тысяч п</div>
+    <div class="card-meta">
+      <span class="card-date">10 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-08-canada-reads-2026-opublikovan-longlist/">
-  <div class="sc-img"><img src="/photos/photo_1905@08-01-2026_22-01-05.jpg" alt="Canada Reads 2026: опубликован лонглист" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Canada Reads 2026: опубликован лонглист</div>
-    <div class="pex">CBC представила лонглист Canada Reads 2026 года — 15 книг самых разных жанров, от мемуаров и исторической прозы до хоррора и романтических историй. В этом году проект отмечает 25-летие, а общий лейтмо</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-01-08-canada-reads-2026-opublikovan-longlist/">
+  <div class="card-img"><img src="/photos/photo_1905@08-01-2026_22-01-05.jpg" alt="Canada Reads 2026: опубликован лонглист" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Canada Reads 2026: опубликован лонглист</div>
+    <div class="card-excerpt">CBC представила лонглист Canada Reads 2026 года — 15 книг самых разных жанров, от мемуаров и исторической прозы до хоррора и романтических историй. В этом году проект отмечает 25-летие, а общий лейтмо</div>
+    <div class="card-meta">
+      <span class="card-date">8 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/immigratsiya/">←</a><a class="pb" href="/tag/immigratsiya/">1</a><a class="pb on" href="/tag/immigratsiya/page/2/">2</a><a class="pb" href="/tag/immigratsiya/page/3/">3</a><a class="pb" href="/tag/immigratsiya/page/4/">4</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/immigratsiya/page/9/">9</a><a class="pb" href="/tag/immigratsiya/page/3/">→</a></div>

@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#экономика</h1>
     <p>669 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-12-16-analitik-national-post-kto-mozhet-zamenit-pera-polieva-vo-gl/">
-  <div class="sc-img"><img src="/photos/photo_1766@16-12-2025_21-37-01.jpg" alt="Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов</div>
-    <div class="pex">‌ В National Post всё громче обсуждают сценарий, который ещё год назад казался фантастикой: смена лидера Консервативной партии. Повод — серия болезненных переходов депутатов к либералам и ощущение, чт</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-12-16-analitik-national-post-kto-mozhet-zamenit-pera-polieva-vo-gl/">
+  <div class="card-img"><img src="/photos/photo_1766@16-12-2025_21-37-01.jpg" alt="Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов</div>
+    <div class="card-excerpt">‌ В National Post всё громче обсуждают сценарий, который ещё год назад казался фантастикой: смена лидера Консервативной партии. Повод — серия болезненных переходов депутатов к либералам и ощущение, чт</div>
+    <div class="card-meta">
+      <span class="card-date">16 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-16-my-hotim-bolshe-kazino-dag-ford-predstavil-plan-prevrascheni/">
-  <div class="sc-img"><img src="/photos/photo_1764@16-12-2025_14-56-21.jpg" alt="«Мы хотим больше казино»: Даг Форд представил план превращения Ниагара-Фолс в «Лас-Вегас Севера»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">«Мы хотим больше казино»: Даг Форд представил план превращения Ниагара-Фолс в «Лас-Вегас Севера»</div>
-    <div class="pex">Премьер Онтарио Даг Форд объявил о стратегии Destination Niagara, цель которой — резко нарастить туризм и поддержать экономику провинции на фоне торговой войны с США. Ключевая идея — превратить Ниагар</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-16-my-hotim-bolshe-kazino-dag-ford-predstavil-plan-prevrascheni/">
+  <div class="card-img"><img src="/photos/photo_1764@16-12-2025_14-56-21.jpg" alt="«Мы хотим больше казино»: Даг Форд представил план превращения Ниагара-Фолс в «Лас-Вегас Севера»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">«Мы хотим больше казино»: Даг Форд представил план превращения Ниагара-Фолс в «Лас-Вегас Севера»</div>
+    <div class="card-excerpt">Премьер Онтарио Даг Форд объявил о стратегии Destination Niagara, цель которой — резко нарастить туризм и поддержать экономику провинции на фоне торговой войны с США. Ключевая идея — превратить Ниагар</div>
+    <div class="card-meta">
+      <span class="card-date">16 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-15-kanadtsy-do-35-let-tonut-v-dolgah-i-kupi-seychas-plati-potom/">
-  <div class="sc-img"><img src="/photos/photo_1756@15-12-2025_16-46-01.jpg" alt="Канадцы до 35 лет тонут в долгах — и «купи сейчас, плати потом» только усугубляет ситуацию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Канадцы до 35 лет тонут в долгах — и «купи сейчас, плати потом» только усугубляет ситуацию</div>
-    <div class="pex">Молодые канадцы сталкиваются с рекордным уровнем долгового стресса. Некоммерческая Credit Counselling Society сообщила, что в 2025 году к ним обратилось больше людей в возрасте от 18 до 34 лет, чем ко</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-15-kanadtsy-do-35-let-tonut-v-dolgah-i-kupi-seychas-plati-potom/">
+  <div class="card-img"><img src="/photos/photo_1756@15-12-2025_16-46-01.jpg" alt="Канадцы до 35 лет тонут в долгах — и «купи сейчас, плати потом» только усугубляет ситуацию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадцы до 35 лет тонут в долгах — и «купи сейчас, плати потом» только усугубляет ситуацию</div>
+    <div class="card-excerpt">Молодые канадцы сталкиваются с рекордным уровнем долгового стресса. Некоммерческая Credit Counselling Society сообщила, что в 2025 году к ним обратилось больше людей в возрасте от 18 до 34 лет, чем ко</div>
+    <div class="card-meta">
+      <span class="card-date">15 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-15-conestoga-college-okazalsya-v-chisle-glavnyh-zhertv-rezkogo-/">
-  <div class="sc-img"><img src="/photos/photo_1754@15-12-2025_13-20-00.jpg" alt="Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой.</div>
-    <div class="pex">Ещё в конце 2023 года колледж из Китченера переживал настоящий бум: число иностранных студентов выросло до 32,5 тыс., что на 145% больше всего за два года. Доходы Conestoga почти утроились и достигли</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-12-15-conestoga-college-okazalsya-v-chisle-glavnyh-zhertv-rezkogo-/">
+  <div class="card-img"><img src="/photos/photo_1754@15-12-2025_13-20-00.jpg" alt="Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой.</div>
+    <div class="card-excerpt">Ещё в конце 2023 года колледж из Китченера переживал настоящий бум: число иностранных студентов выросло до 32,5 тыс., что на 145% больше всего за два года. Доходы Conestoga почти утроились и достигли</div>
+    <div class="card-meta">
+      <span class="card-date">15 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-15-kanadskiy-angliyskiy-protiv-britanskogo-lingvisty-prizyvayut/">
-  <div class="sc-img"><img src="/photos/photo_1752@15-12-2025_11-42-17.jpg" alt="Канадский английский против британского: лингвисты призывают Карни не менять орфографию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Канадский английский против британского: лингвисты призывают Карни не менять орфографию</div>
-    <div class="pex">Сторонники канадского английского обеспокоены тем, что федеральное правительство начало использовать британскую орфографию в официальных документах — и считают это ошибочным сигналом миру.   Пять изве</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-15-kanadskiy-angliyskiy-protiv-britanskogo-lingvisty-prizyvayut/">
+  <div class="card-img"><img src="/photos/photo_1752@15-12-2025_11-42-17.jpg" alt="Канадский английский против британского: лингвисты призывают Карни не менять орфографию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадский английский против британского: лингвисты призывают Карни не менять орфографию</div>
+    <div class="card-excerpt">Сторонники канадского английского обеспокоены тем, что федеральное правительство начало использовать британскую орфографию в официальных документах — и считают это ошибочным сигналом миру.   Пять изве</div>
+    <div class="card-meta">
+      <span class="card-date">15 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-15-toronto-muzhchina-obognal-novyy-finch-lrt-na-18-minut/">
-  <div class="sc-img"><img src="/photos/photo_1750@15-12-2025_09-42-28.jpg" alt="Торонто: мужчина обогнал новый Finch LRT на 18 минут" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Торонто: мужчина обогнал новый Finch LRT на 18 минут</div>
-    <div class="pex">Житель Торонто Мак Бауэр, известный в соцсетях как 514runner, устроил забег против недавно открытой линии Finch West LRT — и уверенно победил.   Бауэр давно соревнуется с общественным транспортом TTC.</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-12-15-toronto-muzhchina-obognal-novyy-finch-lrt-na-18-minut/">
+  <div class="card-img"><img src="/photos/photo_1750@15-12-2025_09-42-28.jpg" alt="Торонто: мужчина обогнал новый Finch LRT на 18 минут" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Торонто: мужчина обогнал новый Finch LRT на 18 минут</div>
+    <div class="card-excerpt">Житель Торонто Мак Бауэр, известный в соцсетях как 514runner, устроил забег против недавно открытой линии Finch West LRT — и уверенно победил.   Бауэр давно соревнуется с общественным транспортом TTC.</div>
+    <div class="card-meta">
+      <span class="card-date">15 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-14-kelouna-lider-kanady-po-urovnyu-pustuyuschih-arendnyh-kvarti/">
-  <div class="sc-img"><img src="/photos/photo_1747@14-12-2025_14-14-01.jpg" alt="Келоуна — лидер Канады по уровню пустующих арендных квартир" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Келоуна — лидер Канады по уровню пустующих арендных квартир</div>
-    <div class="pex">Келоуна неожиданно вышла на первое место среди всех канадских агломераций по уровню вакантности арендного жилья. По данным ежегодного отчёта CMHC, показатель достиг 6,4% — резкий рост по сравнению с 3</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-12-14-kelouna-lider-kanady-po-urovnyu-pustuyuschih-arendnyh-kvarti/">
+  <div class="card-img"><img src="/photos/photo_1747@14-12-2025_14-14-01.jpg" alt="Келоуна — лидер Канады по уровню пустующих арендных квартир" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Келоуна — лидер Канады по уровню пустующих арендных квартир</div>
+    <div class="card-excerpt">Келоуна неожиданно вышла на первое место среди всех канадских агломераций по уровню вакантности арендного жилья. По данным ежегодного отчёта CMHC, показатель достиг 6,4% — резкий рост по сравнению с 3</div>
+    <div class="card-meta">
+      <span class="card-date">14 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-13-ministr-energetiki-pomog-peremanit-konservativnogo-deputata-/">
-  <div class="sc-img"><img src="/photos/photo_1743@13-12-2025_13-12-18.jpg" alt="Министр энергетики помог переманить консервативного депутата в Либеральную партию — источники" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Министр энергетики помог переманить консервативного депутата в Либеральную партию — источники</div>
-    <div class="pex">‌﻿  Источники в Оттаве сообщают, что министр энергетики и природных ресурсов Тим Ходжсон сыграл ключевую роль в переходе депутата Майкла Ма из Консервативной партии в Либеральную.  ‌﻿  По данным CTV N</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-12-13-ministr-energetiki-pomog-peremanit-konservativnogo-deputata-/">
+  <div class="card-img"><img src="/photos/photo_1743@13-12-2025_13-12-18.jpg" alt="Министр энергетики помог переманить консервативного депутата в Либеральную партию — источники" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Министр энергетики помог переманить консервативного депутата в Либеральную партию — источники</div>
+    <div class="card-excerpt">‌﻿  Источники в Оттаве сообщают, что министр энергетики и природных ресурсов Тим Ходжсон сыграл ключевую роль в переходе депутата Майкла Ма из Консервативной партии в Либеральную.  ‌﻿  По данным CTV N</div>
+    <div class="card-meta">
+      <span class="card-date">13 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-13-vpervye-v-istorii-kanady-pozhilye-muzhchiny-zarabatyvayut-bo/">
-  <div class="sc-img"><img src="/photos/photo_1741@13-12-2025_10-19-01.jpg" alt="Впервые в истории Канады пожилые мужчины зарабатывают больше молодых" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">Впервые в истории Канады пожилые мужчины зарабатывают больше молодых</div>
-    <div class="pex">‌﻿  Новые данные, представленные экономистом Майком Моффаттом из проекта Missing Middle, фиксируют резкий и символический перелом: средний мужчина в возрасте 65 лет теперь зарабатывает больше, чем муж</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-13-vpervye-v-istorii-kanady-pozhilye-muzhchiny-zarabatyvayut-bo/">
+  <div class="card-img"><img src="/photos/photo_1741@13-12-2025_10-19-01.jpg" alt="Впервые в истории Канады пожилые мужчины зарабатывают больше молодых" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Впервые в истории Канады пожилые мужчины зарабатывают больше молодых</div>
+    <div class="card-excerpt">‌﻿  Новые данные, представленные экономистом Майком Моффаттом из проекта Missing Middle, фиксируют резкий и символический перелом: средний мужчина в возрасте 65 лет теперь зарабатывает больше, чем муж</div>
+    <div class="card-meta">
+      <span class="card-date">13 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-12-boykot-poezdok-v-ssha-so-storony-kanadtsev-byot-po-prigranic/">
-  <div class="sc-img"><img src="/photos/photo_1736@12-12-2025_18-31-43.jpg" alt="Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса</div>
-    <div class="pex">‌﻿  Новый доклад экономического комитета Конгресса США показывает: сокращение поездок канадцев в Соединённые Штаты уже серьёзно бьёт по бизнесу в приграничных штатах. Документ подготовлен демократами</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-12-boykot-poezdok-v-ssha-so-storony-kanadtsev-byot-po-prigranic/">
+  <div class="card-img"><img src="/photos/photo_1736@12-12-2025_18-31-43.jpg" alt="Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса</div>
+    <div class="card-excerpt">‌﻿  Новый доклад экономического комитета Конгресса США показывает: сокращение поездок канадцев в Соединённые Штаты уже серьёзно бьёт по бизнесу в приграничных штатах. Документ подготовлен демократами</div>
+    <div class="card-meta">
+      <span class="card-date">12 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-12-kvebek-reshil-zanyatsya-svetskostyu-cherez-menyu-bill-9-puga/">
-  <div class="sc-img"><img src="/photos/photo_1735@12-12-2025_17-41-01.jpg" alt="Квебек решил заняться светскостью через меню: Bill 9 пугает детсады и больницы с халялем и кошером" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Квебек решил заняться светскостью через меню: Bill 9 пугает детсады и больницы с халялем и кошером</div>
-    <div class="pex">‌﻿ В Квебеке обсуждают Bill 9 — новый законопроект CAQ «об укреплении светскости». Среди прочего он запрещает госучреждениям «предлагать исключительно рацион, основанный на религиозном предписании или</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-12-12-kvebek-reshil-zanyatsya-svetskostyu-cherez-menyu-bill-9-puga/">
+  <div class="card-img"><img src="/photos/photo_1735@12-12-2025_17-41-01.jpg" alt="Квебек решил заняться светскостью через меню: Bill 9 пугает детсады и больницы с халялем и кошером" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Квебек решил заняться светскостью через меню: Bill 9 пугает детсады и больницы с халялем и кошером</div>
+    <div class="card-excerpt">‌﻿ В Квебеке обсуждают Bill 9 — новый законопроект CAQ «об укреплении светскости». Среди прочего он запрещает госучреждениям «предлагать исключительно рацион, основанный на религиозном предписании или</div>
+    <div class="card-meta">
+      <span class="card-date">12 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-12-kanada-vpervye-s-nachala-torgovoy-voyny-vyshla-v-plyus-po-to/">
-  <div class="sc-img"><img src="/photos/photo_1733@12-12-2025_14-11-57.jpg" alt="Канада впервые с начала торговой войны вышла в плюс по торговле" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Канада впервые с начала торговой войны вышла в плюс по торговле</div>
-    <div class="pex">‌﻿  Впервые с момента начала торговой войны с США Канада экспортировала больше, чем импортировала. По данным Statistics Canada, в сентябре экономика страны показала небольшой торговый профицит — $153</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-12-kanada-vpervye-s-nachala-torgovoy-voyny-vyshla-v-plyus-po-to/">
+  <div class="card-img"><img src="/photos/photo_1733@12-12-2025_14-11-57.jpg" alt="Канада впервые с начала торговой войны вышла в плюс по торговле" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Канада впервые с начала торговой войны вышла в плюс по торговле</div>
+    <div class="card-excerpt">‌﻿  Впервые с момента начала торговой войны с США Канада экспортировала больше, чем импортировала. По данным Statistics Canada, в сентябре экономика страны показала небольшой торговый профицит — $153</div>
+    <div class="card-meta">
+      <span class="card-date">12 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-11-kanada-reagiruet-na-novuyu-strategiyu-natsbezopasnosti-ssha-/">
-  <div class="sc-img"><img src="/photos/photo_1721@11-12-2025_17-09-01.jpg" alt="Канада реагирует на новую стратегию нацбезопасности США: эксперты предупреждают о давлении на суверенитет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Канада реагирует на новую стратегию нацбезопасности США: эксперты предупреждают о давлении на суверенитет</div>
-    <div class="pex">В новой Стратегии нацбезопасности США Дональд Трамп формализовал курс на экономическое доминирование и прямое использование торговли для усиления американского влияния. В предисловии он пишет, что США</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-11-kanada-reagiruet-na-novuyu-strategiyu-natsbezopasnosti-ssha-/">
+  <div class="card-img"><img src="/photos/photo_1721@11-12-2025_17-09-01.jpg" alt="Канада реагирует на новую стратегию нацбезопасности США: эксперты предупреждают о давлении на суверенитет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канада реагирует на новую стратегию нацбезопасности США: эксперты предупреждают о давлении на суверенитет</div>
+    <div class="card-excerpt">В новой Стратегии нацбезопасности США Дональд Трамп формализовал курс на экономическое доминирование и прямое использование торговли для усиления американского влияния. В предисловии он пишет, что США</div>
+    <div class="card-meta">
+      <span class="card-date">11 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-11-pokolenie-x-podminaet-pod-sebya-bogatstvo-kanady-bumery-tery/">
-  <div class="sc-img"><img src="/photos/photo_1720@11-12-2025_17-02-01.jpg" alt="Поколение X подминает под себя богатство Канады: бумеры теряют монополию на деньги" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">financialpost.com</div>
-    <div class="ptit sc-title">Поколение X подминает под себя богатство Канады: бумеры теряют монополию на деньги</div>
-    <div class="pex">Общая стоимость активов канадских домохозяйств во втором квартале 2025 года достигла рекордных $17,87 трлн, но распределены эти деньги очень неравномерно. Финансовый отчёт Financial Post показывает: «</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-12-11-pokolenie-x-podminaet-pod-sebya-bogatstvo-kanady-bumery-tery/">
+  <div class="card-img"><img src="/photos/photo_1720@11-12-2025_17-02-01.jpg" alt="Поколение X подминает под себя богатство Канады: бумеры теряют монополию на деньги" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">financialpost.com</div>
+    <div class="card-title">Поколение X подминает под себя богатство Канады: бумеры теряют монополию на деньги</div>
+    <div class="card-excerpt">Общая стоимость активов канадских домохозяйств во втором квартале 2025 года достигла рекордных $17,87 трлн, но распределены эти деньги очень неравномерно. Финансовый отчёт Financial Post показывает: «</div>
+    <div class="card-meta">
+      <span class="card-date">11 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-11-tarify-trampa-byut-po-prigranichnym-shtatam-eksport-v-kanadu/">
-  <div class="sc-img"><img src="/photos/photo_1714@11-12-2025_09-33-21.jpg" alt="Тарифы Трампа бьют по приграничным штатам: экспорт в Канаду рухнул на 18%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">wmtw.com</div>
-    <div class="ptit sc-title">Тарифы Трампа бьют по приграничным штатам: экспорт в Канаду рухнул на 18%</div>
-    <div class="pex">Новый отчёт федерального Совместного экономического комитета США фиксирует: штаты, граничащие с Канадой, теряют деньги из-за тарифов. Экспорт в Канаду просел на 18%, а число пересечений границы со сто</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-11-tarify-trampa-byut-po-prigranichnym-shtatam-eksport-v-kanadu/">
+  <div class="card-img"><img src="/photos/photo_1714@11-12-2025_09-33-21.jpg" alt="Тарифы Трампа бьют по приграничным штатам: экспорт в Канаду рухнул на 18%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">wmtw.com</div>
+    <div class="card-title">Тарифы Трампа бьют по приграничным штатам: экспорт в Канаду рухнул на 18%</div>
+    <div class="card-excerpt">Новый отчёт федерального Совместного экономического комитета США фиксирует: штаты, граничащие с Канадой, теряют деньги из-за тарифов. Экспорт в Канаду просел на 18%, а число пересечений границы со сто</div>
+    <div class="card-meta">
+      <span class="card-date">11 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-10-novye-avto-prevraschayutsya-v-velikiy-kanadskiy-pylesos-dlya/">
-  <div class="sc-img"><img src="/photos/photo_1713@10-12-2025_19-32-54.jpg" alt="Новые авто превращаются в «Великий канадский пылесос для денег»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Новые авто превращаются в «Великий канадский пылесос для денег»</div>
-    <div class="pex">⁠  В The Globe and Mail Роб Кэррик пишет, что канадцы постепенно приходят к очевидному: новые автомобили стали одной из самых разрушительных статей расходов, сопоставимой по давлению на бюджет с жильё</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-10-novye-avto-prevraschayutsya-v-velikiy-kanadskiy-pylesos-dlya/">
+  <div class="card-img"><img src="/photos/photo_1713@10-12-2025_19-32-54.jpg" alt="Новые авто превращаются в «Великий канадский пылесос для денег»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Новые авто превращаются в «Великий канадский пылесос для денег»</div>
+    <div class="card-excerpt">⁠  В The Globe and Mail Роб Кэррик пишет, что канадцы постепенно приходят к очевидному: новые автомобили стали одной из самых разрушительных статей расходов, сопоставимой по давлению на бюджет с жильё</div>
+    <div class="card-meta">
+      <span class="card-date">10 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-10-ford-davit-na-gossluzhaschih-ontario-nuzhno-vozvraschatsya-v/">
-  <div class="sc-img"><img src="/photos/photo_1710@10-12-2025_13-47-54.jpg" alt="Форд давит на госслужащих Онтарио: «Нужно возвращаться в офис»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Форд давит на госслужащих Онтарио: «Нужно возвращаться в офис»</div>
-    <div class="pex">‌﻿   Премьер Даг Форд вновь потребовал от сотрудников провинциального правительства работать очно пять дней в неделю. Поводом стали данные Toronto Star: почти 11 тысяч из примерно 60 тысяч работников</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-10-ford-davit-na-gossluzhaschih-ontario-nuzhno-vozvraschatsya-v/">
+  <div class="card-img"><img src="/photos/photo_1710@10-12-2025_13-47-54.jpg" alt="Форд давит на госслужащих Онтарио: «Нужно возвращаться в офис»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Форд давит на госслужащих Онтарио: «Нужно возвращаться в офис»</div>
+    <div class="card-excerpt">‌﻿   Премьер Даг Форд вновь потребовал от сотрудников провинциального правительства работать очно пять дней в неделю. Поводом стали данные Toronto Star: почти 11 тысяч из примерно 60 тысяч работников</div>
+    <div class="card-meta">
+      <span class="card-date">10 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-10-kanadskie-vuzy-aktiviziruyut-ohotu-za-veduschimi-mirovymi-uc/">
-  <div class="sc-img"><img src="/photos/photo_1708@10-12-2025_12-29-54.jpg" alt="Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">reuters.com</div>
-    <div class="ptit sc-title">Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования</div>
-    <div class="pex">‌﻿   Оттава запускает масштабную программу привлечения исследовательских звёзд из-за рубежа, рассчитывая воспользоваться ситуацией в США, где университеты сталкиваются с сокращениями бюджета и политич</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-10-kanadskie-vuzy-aktiviziruyut-ohotu-za-veduschimi-mirovymi-uc/">
+  <div class="card-img"><img src="/photos/photo_1708@10-12-2025_12-29-54.jpg" alt="Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">reuters.com</div>
+    <div class="card-title">Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования</div>
+    <div class="card-excerpt">‌﻿   Оттава запускает масштабную программу привлечения исследовательских звёзд из-за рубежа, рассчитывая воспользоваться ситуацией в США, где университеты сталкиваются с сокращениями бюджета и политич</div>
+    <div class="card-meta">
+      <span class="card-date">10 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-09-issledovanie-za-desyatiletie-v-kanade-poyavilos-950-tysyach-/">
-  <div class="sc-img"><img src="/photos/photo_1698@09-12-2025_11-26-48.jpg" alt="Исследование: за десятилетие в Канаде появилось 950 тысяч новых государственных рабочих мест — рост обгоняет частный сектор" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">Исследование: за десятилетие в Канаде появилось 950 тысяч новых государственных рабочих мест — рост обгоняет частный сектор</div>
-    <div class="pex">﻿  Фрейзер институт подсчитал: с 2015 по 2024 годы канадские власти наняли почти миллион новых сотрудников. Это около трети всех рабочих мест, созданных в стране за этот период. Доля работников госуда</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-09-issledovanie-za-desyatiletie-v-kanade-poyavilos-950-tysyach-/">
+  <div class="card-img"><img src="/photos/photo_1698@09-12-2025_11-26-48.jpg" alt="Исследование: за десятилетие в Канаде появилось 950 тысяч новых государственных рабочих мест — рост обгоняет частный сектор" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Исследование: за десятилетие в Канаде появилось 950 тысяч новых государственных рабочих мест — рост обгоняет частный сектор</div>
+    <div class="card-excerpt">﻿  Фрейзер институт подсчитал: с 2015 по 2024 годы канадские власти наняли почти миллион новых сотрудников. Это около трети всех рабочих мест, созданных в стране за этот период. Доля работников госуда</div>
+    <div class="card-meta">
+      <span class="card-date">9 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-09-nanos-liberaly-39-konservatory-38-ndp-10-trevoga-iz-za-ekono/">
-  <div class="sc-img"><img src="/photos/photo_1697@09-12-2025_10-12-01.jpg" alt="Нанос: Либералы 39%, Консерваторы 38%, НДП 10% — тревога из-за экономики растёт" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nanos.co</div>
-    <div class="ptit sc-title">Нанос: Либералы 39%, Консерваторы 38%, НДП 10% — тревога из-за экономики растёт</div>
-    <div class="pex">﻿  Свежие данные Nanos показывают: после краткого подъёма либералов сразу после бюджета гонка снова вернулась к состоянию монетки — разрыв между либералами и консерваторами фактически исчез. На фоне э</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-09-nanos-liberaly-39-konservatory-38-ndp-10-trevoga-iz-za-ekono/">
+  <div class="card-img"><img src="/photos/photo_1697@09-12-2025_10-12-01.jpg" alt="Нанос: Либералы 39%, Консерваторы 38%, НДП 10% — тревога из-за экономики растёт" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nanos.co</div>
+    <div class="card-title">Нанос: Либералы 39%, Консерваторы 38%, НДП 10% — тревога из-за экономики растёт</div>
+    <div class="card-excerpt">﻿  Свежие данные Nanos показывают: после краткого подъёма либералов сразу после бюджета гонка снова вернулась к состоянию монетки — разрыв между либералами и консерваторами фактически исчез. На фоне э</div>
+    <div class="card-meta">
+      <span class="card-date">9 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-08-rabotaet-li-programma-vremennyh-inostrannyh-rabotnikov-da-go/">
-  <div class="sc-img"><img src="/photos/photo_1695@08-12-2025_21-42-01.jpg" alt="Работает ли программа временных иностранных работников? “Да”, говорят владельцы Tims — особенно те, кто платит копейки" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thebeaverton.com</div>
-    <div class="ptit sc-title">Работает ли программа временных иностранных работников? “Да”, говорят владельцы Tims — особенно те, кто платит копейки</div>
-    <div class="pex">﻿   Редакция Beaverton решила проверить, насколько эффективно устроена федеральная программа привлечения временных иностранных работников. Для этого мы обратились к людям, которые знают тему лучше все</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-08-rabotaet-li-programma-vremennyh-inostrannyh-rabotnikov-da-go/">
+  <div class="card-img"><img src="/photos/photo_1695@08-12-2025_21-42-01.jpg" alt="Работает ли программа временных иностранных работников? “Да”, говорят владельцы Tims — особенно те, кто платит копейки" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thebeaverton.com</div>
+    <div class="card-title">Работает ли программа временных иностранных работников? “Да”, говорят владельцы Tims — особенно те, кто платит копейки</div>
+    <div class="card-excerpt">﻿   Редакция Beaverton решила проверить, насколько эффективно устроена федеральная программа привлечения временных иностранных работников. Для этого мы обратились к людям, которые знают тему лучше все</div>
+    <div class="card-meta">
+      <span class="card-date">8 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-08-molodyozh-kanady-vsyo-chasche-otkazyvaetsya-ot-pomoschi-v-sf/">
-  <div class="sc-img"><img src="/photos/photo_1690@08-12-2025_11-57-35.jpg" alt="Молодёжь Канады всё чаще отказывается от помощи в сфере ментального здоровья: бюджеты трещат, работы мало" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ca.finance.yahoo.com</div>
-    <div class="ptit sc-title">Молодёжь Канады всё чаще отказывается от помощи в сфере ментального здоровья: бюджеты трещат, работы мало</div>
-    <div class="pex">Новый опрос GreenShield и Mental Health Research Canada показывает: более 80% молодых канадцев испытывают тревогу из-за будущего. Рост цен, нестабильные заработки и отсутствие уверенности в трудовых п</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-12-08-molodyozh-kanady-vsyo-chasche-otkazyvaetsya-ot-pomoschi-v-sf/">
+  <div class="card-img"><img src="/photos/photo_1690@08-12-2025_11-57-35.jpg" alt="Молодёжь Канады всё чаще отказывается от помощи в сфере ментального здоровья: бюджеты трещат, работы мало" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ca.finance.yahoo.com</div>
+    <div class="card-title">Молодёжь Канады всё чаще отказывается от помощи в сфере ментального здоровья: бюджеты трещат, работы мало</div>
+    <div class="card-excerpt">Новый опрос GreenShield и Mental Health Research Canada показывает: более 80% молодых канадцев испытывают тревогу из-за будущего. Рост цен, нестабильные заработки и отсутствие уверенности в трудовых п</div>
+    <div class="card-meta">
+      <span class="card-date">8 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-07-novaya-zhilischnaya-struktura-karni-bolshe-byurokratii-chem-/">
-  <div class="sc-img"><img src="/photos/photo_1687@07-12-2025_15-27-01.jpg" alt="Новая жилищная структура Карни: больше бюрократии, чем домов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Новая жилищная структура Карни: больше бюрократии, чем домов</div>
-    <div class="pex">‌  Премьер Марк Карни представил Build Canada Homes (BCH) как федеральный инструмент для ускорения стройки доступного жилья. Агентство стартует с $13 млрд и большими обещаниями: строить быстрее, сохра</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-12-07-novaya-zhilischnaya-struktura-karni-bolshe-byurokratii-chem-/">
+  <div class="card-img"><img src="/photos/photo_1687@07-12-2025_15-27-01.jpg" alt="Новая жилищная структура Карни: больше бюрократии, чем домов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Новая жилищная структура Карни: больше бюрократии, чем домов</div>
+    <div class="card-excerpt">‌  Премьер Марк Карни представил Build Canada Homes (BCH) как федеральный инструмент для ускорения стройки доступного жилья. Агентство стартует с $13 млрд и большими обещаниями: строить быстрее, сохра</div>
+    <div class="card-meta">
+      <span class="card-date">7 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-07-kontrabandnye-sigarety-prinosyat-prestupnym-gruppam-milliony/">
-  <div class="sc-img"><img src="/photos/photo_1685@07-12-2025_11-23-01.jpg" alt="Контрабандные сигареты приносят преступным группам миллионы. В Саскатуне пачка стоит $5" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Контрабандные сигареты приносят преступным группам миллионы. В Саскатуне пачка стоит $5</div>
-    <div class="pex">‌  По Канаде растёт вал изъятий нелегальных сигарет, и цифры уже перестали выглядеть как мелкая статистика. Как говорит бывший замкомиссара полиции Онтарио Рик Барнум, торговля табаком без акцизных ма</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-12-07-kontrabandnye-sigarety-prinosyat-prestupnym-gruppam-milliony/">
+  <div class="card-img"><img src="/photos/photo_1685@07-12-2025_11-23-01.jpg" alt="Контрабандные сигареты приносят преступным группам миллионы. В Саскатуне пачка стоит $5" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Контрабандные сигареты приносят преступным группам миллионы. В Саскатуне пачка стоит $5</div>
+    <div class="card-excerpt">‌  По Канаде растёт вал изъятий нелегальных сигарет, и цифры уже перестали выглядеть как мелкая статистика. Как говорит бывший замкомиссара полиции Онтарио Рик Барнум, торговля табаком без акцизных ма</div>
+    <div class="card-meta">
+      <span class="card-date">7 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-06-kanadskiy-dollar-probil-otmetku-v-72-tsenta-ssha-na-fone-neo/">
-  <div class="sc-img"><img src="/photos/photo_1674@06-12-2025_12-09-01.jpg" alt="Канадский доллар пробил отметку в 72 цента США на фоне неожиданно сильной статистики по занятости" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">financialpost.com</div>
-    <div class="ptit sc-title">Канадский доллар пробил отметку в 72 цента США на фоне неожиданно сильной статистики по занятости</div>
-    <div class="pex">Луни в пятницу поднялся выше 72 центов — впервые с конца сентября. Толчком стал свежий отчёт Статкан, который перечеркнул прогнозы: вместо ожидаемого снижения занятости на 2,5 тыс. экономика добавила</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-06-kanadskiy-dollar-probil-otmetku-v-72-tsenta-ssha-na-fone-neo/">
+  <div class="card-img"><img src="/photos/photo_1674@06-12-2025_12-09-01.jpg" alt="Канадский доллар пробил отметку в 72 цента США на фоне неожиданно сильной статистики по занятости" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">financialpost.com</div>
+    <div class="card-title">Канадский доллар пробил отметку в 72 цента США на фоне неожиданно сильной статистики по занятости</div>
+    <div class="card-excerpt">Луни в пятницу поднялся выше 72 центов — впервые с конца сентября. Толчком стал свежий отчёт Статкан, который перечеркнул прогнозы: вместо ожидаемого снижения занятости на 2,5 тыс. экономика добавила</div>
+    <div class="card-meta">
+      <span class="card-date">6 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-05-glavnaya-energeticheskaya-istoriya-kanady-o-kotoroy-pochti-n/">
-  <div class="sc-img"><img src="/photos/photo_1671@05-12-2025_20-32-01.jpg" alt="Главная энергетическая история Канады, о которой почти никто не говорит" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehub.ca</div>
-    <div class="ptit sc-title">Главная энергетическая история Канады, о которой почти никто не говорит</div>
-    <div class="pex">Аналитики уже неделю обсуждают новое энергетическое соглашение между Оттавой и Альбертой — но едва ли не самый важный его пункт остался в тени. Речь не о нефти, газе или танкерах, а об электричестве.</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-12-05-glavnaya-energeticheskaya-istoriya-kanady-o-kotoroy-pochti-n/">
+  <div class="card-img"><img src="/photos/photo_1671@05-12-2025_20-32-01.jpg" alt="Главная энергетическая история Канады, о которой почти никто не говорит" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Главная энергетическая история Канады, о которой почти никто не говорит</div>
+    <div class="card-excerpt">Аналитики уже неделю обсуждают новое энергетическое соглашение между Оттавой и Альбертой — но едва ли не самый важный его пункт остался в тени. Речь не о нефти, газе или танкерах, а об электричестве.</div>
+    <div class="card-meta">
+      <span class="card-date">5 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-05-v-federalnoy-sluzhbe-bolee-27-tysyach-sotrudnikov-poluchili-/">
-  <div class="sc-img"><img src="/photos/photo_1663@05-12-2025_10-07-01.jpg" alt="В федеральной службе более 27 тысяч сотрудников получили от $150 тысяч и выше за прошлый год" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В федеральной службе более 27 тысяч сотрудников получили от $150 тысяч и выше за прошлый год</div>
-    <div class="pex">Документ, представленный в парламенте, показал масштабы зарплат федеральных служащих: за 2024–25 год свыше 27 000 человек получили компенсацию (оклады, бонусы, льготы и переработки) на уровне от $150</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-05-v-federalnoy-sluzhbe-bolee-27-tysyach-sotrudnikov-poluchili-/">
+  <div class="card-img"><img src="/photos/photo_1663@05-12-2025_10-07-01.jpg" alt="В федеральной службе более 27 тысяч сотрудников получили от $150 тысяч и выше за прошлый год" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В федеральной службе более 27 тысяч сотрудников получили от $150 тысяч и выше за прошлый год</div>
+    <div class="card-excerpt">Документ, представленный в парламенте, показал масштабы зарплат федеральных служащих: за 2024–25 год свыше 27 000 человек получили компенсацию (оклады, бонусы, льготы и переработки) на уровне от $150</div>
+    <div class="card-meta">
+      <span class="card-date">5 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-04-provintsii-vsyo-chasche-prikryvayutsya-ogovorkoy-o-neprimene/">
-  <div class="sc-img"><img src="/photos/photo_1648@04-12-2025_17-23-01.jpg" alt="Провинции всё чаще прикрываются оговоркой о неприменении. В Квебеке это уже стало нормой" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Провинции всё чаще прикрываются оговоркой о неприменении. В Квебеке это уже стало нормой</div>
-    <div class="pex">⁠  Квебекские власти продолжают продавливать политику жёсткой секуляризации, используя самый тяжёлый инструмент в Канадской хартии — оговорку о неприменении. Очередной пример — законопроект 9. Он запр</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-12-04-provintsii-vsyo-chasche-prikryvayutsya-ogovorkoy-o-neprimene/">
+  <div class="card-img"><img src="/photos/photo_1648@04-12-2025_17-23-01.jpg" alt="Провинции всё чаще прикрываются оговоркой о неприменении. В Квебеке это уже стало нормой" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Провинции всё чаще прикрываются оговоркой о неприменении. В Квебеке это уже стало нормой</div>
+    <div class="card-excerpt">⁠  Квебекские власти продолжают продавливать политику жёсткой секуляризации, используя самый тяжёлый инструмент в Канадской хартии — оговорку о неприменении. Очередной пример — законопроект 9. Он запр</div>
+    <div class="card-meta">
+      <span class="card-date">4 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-04-ndp-obvinyaet-liberalov-v-nechestnosti-po-povodu-buduschego-/">
-  <div class="sc-img"><img src="/photos/photo_1645@04-12-2025_14-19-01.jpg" alt="НДП обвиняет либералов в нечестности по поводу будущего нацпрограммы лекарственного обеспечения" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">НДП обвиняет либералов в нечестности по поводу будущего нацпрограммы лекарственного обеспечения</div>
-    <div class="pex">⁠  Исполняющий обязанности лидера НДП Дон Дэвис обвинил правительство Марка Карни в том, что оно фактически отвергло рекомендации экспертной группы по созданию общенациональной системы доступа к базов</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-12-04-ndp-obvinyaet-liberalov-v-nechestnosti-po-povodu-buduschego-/">
+  <div class="card-img"><img src="/photos/photo_1645@04-12-2025_14-19-01.jpg" alt="НДП обвиняет либералов в нечестности по поводу будущего нацпрограммы лекарственного обеспечения" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">НДП обвиняет либералов в нечестности по поводу будущего нацпрограммы лекарственного обеспечения</div>
+    <div class="card-excerpt">⁠  Исполняющий обязанности лидера НДП Дон Дэвис обвинил правительство Марка Карни в том, что оно фактически отвергло рекомендации экспертной группы по созданию общенациональной системы доступа к базов</div>
+    <div class="card-meta">
+      <span class="card-date">4 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-04-tim-hortons-aktivno-lobbiruet-rasshirenie-kvot-na-vremennyh-/">
-  <div class="sc-img"><img src="/photos/photo_1644@04-12-2025_13-17-13.jpg" alt="Tim Hortons активно лоббирует расширение квот на временных иностранцев" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Tim Hortons активно лоббирует расширение квот на временных иностранцев</div>
-    <div class="pex">⁠  CBC News выяснил, что сеть Tim Hortons более полутора лет давит на Оттаву с просьбой поднять потолок на найм временных иностранных работников. Эти просьбы звучали и письменно, и на личных встречах</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-04-tim-hortons-aktivno-lobbiruet-rasshirenie-kvot-na-vremennyh-/">
+  <div class="card-img"><img src="/photos/photo_1644@04-12-2025_13-17-13.jpg" alt="Tim Hortons активно лоббирует расширение квот на временных иностранцев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Tim Hortons активно лоббирует расширение квот на временных иностранцев</div>
+    <div class="card-excerpt">⁠  CBC News выяснил, что сеть Tim Hortons более полутора лет давит на Оттаву с просьбой поднять потолок на найм временных иностранных работников. Эти просьбы звучали и письменно, и на личных встречах</div>
+    <div class="card-meta">
+      <span class="card-date">4 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-04-ministr-immigratsii-preduprezhdaet-inostrantsev-ne-zloupotre/">
-  <div class="sc-img"><img src="/photos/photo_1642@04-12-2025_11-12-08.jpg" alt="Министр иммиграции предупреждает иностранцев: не злоупотребляйте Канадской системой убежища, пока США и Великобритания закручивают гайки" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Министр иммиграции предупреждает иностранцев: не злоупотребляйте Канадской системой убежища, пока США и Великобритания закручивают гайки</div>
-    <div class="pex">⁠  Лена Диаб дала понять: Канада не станет запасным аэродромом для тех, кто пытается обойти ужесточённые правила в других странах G7. На фоне того, что Вашингтон фактически остановил приём заявлений н</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-12-04-ministr-immigratsii-preduprezhdaet-inostrantsev-ne-zloupotre/">
+  <div class="card-img"><img src="/photos/photo_1642@04-12-2025_11-12-08.jpg" alt="Министр иммиграции предупреждает иностранцев: не злоупотребляйте Канадской системой убежища, пока США и Великобритания закручивают гайки" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Министр иммиграции предупреждает иностранцев: не злоупотребляйте Канадской системой убежища, пока США и Великобритания закручивают гайки</div>
+    <div class="card-excerpt">⁠  Лена Диаб дала понять: Канада не станет запасным аэродромом для тех, кто пытается обойти ужесточённые правила в других странах G7. На фоне того, что Вашингтон фактически остановил приём заявлений н</div>
+    <div class="card-meta">
+      <span class="card-date">4 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-03-kak-zakonoproekt-s-209-menyaet-internet-v-kanade/">
-  <div class="sc-img"><img src="/photos/photo_1637@03-12-2025_16-11-12.jpg" alt="Как законопроект S-209 меняет интернет в Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Как законопроект S-209 меняет интернет в Канаде</div>
-    <div class="pex">Канада продвигает S-209, который требует обязательной проверки возраста на сайтах с порнографией. Формально речь о защите несовершеннолетних. На деле это шаг к системе, где доступ к сайтам зависит от</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-12-03-kak-zakonoproekt-s-209-menyaet-internet-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_1637@03-12-2025_16-11-12.jpg" alt="Как законопроект S-209 меняет интернет в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Как законопроект S-209 меняет интернет в Канаде</div>
+    <div class="card-excerpt">Канада продвигает S-209, который требует обязательной проверки возраста на сайтах с порнографией. Формально речь о защите несовершеннолетних. На деле это шаг к системе, где доступ к сайтам зависит от</div>
+    <div class="card-meta">
+      <span class="card-date">3 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-03-karni-obeschaet-vstretitsya-s-pribrezhnymi-natsiyami-posle-e/">
-  <div class="sc-img"><img src="/photos/photo_1634@03-12-2025_12-08-01.jpg" alt="Карни обещает встретиться с прибрежными нациями после единогласного голосования против трубопровода в Британскую Колумбию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Карни обещает встретиться с прибрежными нациями после единогласного голосования против трубопровода в Британскую Колумбию</div>
-    <div class="pex">Премьер-министр Марк Карни получил жёсткий сигнал от вождей прибрежных наций: никаких послаблений для танкерного запрета и никакого продвижения нового трубопровода к северному побережью Британской Кол</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-03-karni-obeschaet-vstretitsya-s-pribrezhnymi-natsiyami-posle-e/">
+  <div class="card-img"><img src="/photos/photo_1634@03-12-2025_12-08-01.jpg" alt="Карни обещает встретиться с прибрежными нациями после единогласного голосования против трубопровода в Британскую Колумбию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Карни обещает встретиться с прибрежными нациями после единогласного голосования против трубопровода в Британскую Колумбию</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни получил жёсткий сигнал от вождей прибрежных наций: никаких послаблений для танкерного запрета и никакого продвижения нового трубопровода к северному побережью Британской Кол</div>
+    <div class="card-meta">
+      <span class="card-date">3 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-03-chou-hochet-podnyat-sbory-s-dorogih-sdelok-na-rynke-zhilya-t/">
-  <div class="sc-img"><img src="/photos/photo_1633@03-12-2025_11-07-39.jpg" alt="Чоу хочет поднять сборы с дорогих сделок на рынке жилья Торонто" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Чоу хочет поднять сборы с дорогих сделок на рынке жилья Торонто</div>
-    <div class="pex">Мэр Оливия Чоу предлагает увеличить налог на покупку недвижимости дороже трёх миллионов долларов. Речь идёт о повышении муниципального сбора на передачу прав собственности — меры, которую город утверд</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-12-03-chou-hochet-podnyat-sbory-s-dorogih-sdelok-na-rynke-zhilya-t/">
+  <div class="card-img"><img src="/photos/photo_1633@03-12-2025_11-07-39.jpg" alt="Чоу хочет поднять сборы с дорогих сделок на рынке жилья Торонто" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Чоу хочет поднять сборы с дорогих сделок на рынке жилья Торонто</div>
+    <div class="card-excerpt">Мэр Оливия Чоу предлагает увеличить налог на покупку недвижимости дороже трёх миллионов долларов. Речь идёт о повышении муниципального сбора на передачу прав собственности — меры, которую город утверд</div>
+    <div class="card-meta">
+      <span class="card-date">3 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-02-skolko-zaplatim-nalogov-v-2026-godu-novye-tsifry-ot-cra/">
-  <div class="sc-img"><img src="/photos/photo_1628@02-12-2025_17-04-16.jpg" alt="Сколько заплатим налогов в 2026 году: новые цифры от CRA" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Сколько заплатим налогов в 2026 году: новые цифры от CRA</div>
-    <div class="pex">‌  Канадское налоговое ведомство опубликовало обновлённые ставки и пороги, которые начнут работать с 1 января. Индексация в этот раз минимальная — всего 2 процента, что автоматически сдвигает границы</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-02-skolko-zaplatim-nalogov-v-2026-godu-novye-tsifry-ot-cra/">
+  <div class="card-img"><img src="/photos/photo_1628@02-12-2025_17-04-16.jpg" alt="Сколько заплатим налогов в 2026 году: новые цифры от CRA" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Сколько заплатим налогов в 2026 году: новые цифры от CRA</div>
+    <div class="card-excerpt">‌  Канадское налоговое ведомство опубликовало обновлённые ставки и пороги, которые начнут работать с 1 января. Индексация в этот раз минимальная — всего 2 процента, что автоматически сдвигает границы</div>
+    <div class="card-meta">
+      <span class="card-date">2 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-02-priyuty-ottavy-zabity-uzhe-v-nachale-zimy-lyudi-spyat-na-pol/">
-  <div class="sc-img"><img src="/photos/photo_1623@02-12-2025_09-57-27.jpg" alt="Приюты Оттавы забиты уже в начале зимы, люди спят на полу и в стульях" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Приюты Оттавы забиты уже в начале зимы, люди спят на полу и в стульях</div>
-    <div class="pex">В Оттаве зима только началась, а система приютов уже не справляется. Руководители крупнейших учреждений говорят, что работают на пределе, причём без городских ночных центров обогрева, которые мэрия та</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-02-priyuty-ottavy-zabity-uzhe-v-nachale-zimy-lyudi-spyat-na-pol/">
+  <div class="card-img"><img src="/photos/photo_1623@02-12-2025_09-57-27.jpg" alt="Приюты Оттавы забиты уже в начале зимы, люди спят на полу и в стульях" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Приюты Оттавы забиты уже в начале зимы, люди спят на полу и в стульях</div>
+    <div class="card-excerpt">В Оттаве зима только началась, а система приютов уже не справляется. Руководители крупнейших учреждений говорят, что работают на пределе, причём без городских ночных центров обогрева, которые мэрия та</div>
+    <div class="card-meta">
+      <span class="card-date">2 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-01-molodye-kanadtsy-vytesnennye-s-rynka-zhilya-uhodyat-v-invest/">
-  <div class="sc-img"><img src="/photos/photo_1619@01-12-2025_15-27-01.jpg" alt="Молодые канадцы, вытесненные с рынка жилья, уходят в инвестиции" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Молодые канадцы, вытесненные с рынка жилья, уходят в инвестиции</div>
-    <div class="pex">﻿  Из-за недоступных цен на жильё канадская молодёжь всё чаще выбирает фондовый рынок. Онлайн-платформы упростили торговлю, комиссии исчезли — и доля инвесторов младше 35 лет среди клиентов брокеров у</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-01-molodye-kanadtsy-vytesnennye-s-rynka-zhilya-uhodyat-v-invest/">
+  <div class="card-img"><img src="/photos/photo_1619@01-12-2025_15-27-01.jpg" alt="Молодые канадцы, вытесненные с рынка жилья, уходят в инвестиции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Молодые канадцы, вытесненные с рынка жилья, уходят в инвестиции</div>
+    <div class="card-excerpt">﻿  Из-за недоступных цен на жильё канадская молодёжь всё чаще выбирает фондовый рынок. Онлайн-платформы упростили торговлю, комиссии исчезли — и доля инвесторов младше 35 лет среди клиентов брокеров у</div>
+    <div class="card-meta">
+      <span class="card-date">1 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-01-glava-shopify-raskritikoval-liberalov-za-schedrye-vyplaty-in/">
-  <div class="sc-img"><img src="/photos/photo_1617@01-12-2025_12-23-01.jpg" alt="Глава Shopify раскритиковал либералов за щедрые выплаты иностранным технокорпорациям" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Глава Shopify раскритиковал либералов за щедрые выплаты иностранным технокорпорациям</div>
-    <div class="pex">﻿  Тобиас Лютке снова напомнил Оттаве о том, что происходит, когда государство раздаёт субсидии зарубежным гигантам. Поводом стало сообщение Мелани Жоли, которая представила новый кампус Nokia в Оттав</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-01-glava-shopify-raskritikoval-liberalov-za-schedrye-vyplaty-in/">
+  <div class="card-img"><img src="/photos/photo_1617@01-12-2025_12-23-01.jpg" alt="Глава Shopify раскритиковал либералов за щедрые выплаты иностранным технокорпорациям" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Глава Shopify раскритиковал либералов за щедрые выплаты иностранным технокорпорациям</div>
+    <div class="card-excerpt">﻿  Тобиас Лютке снова напомнил Оттаве о том, что происходит, когда государство раздаёт субсидии зарубежным гигантам. Поводом стало сообщение Мелани Жоли, которая представила новый кампус Nokia в Оттав</div>
+    <div class="card-meta">
+      <span class="card-date">1 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-01-opros-abacus-lyogkiy-otskok-liberalov-no-po-strane-vsyo-tot-/">
-  <div class="sc-img"><img src="/photos/photo_1616@01-12-2025_11-27-19.jpg" alt="Опрос Abacus: лёгкий отскок либералов, но по стране всё тот же клинч" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">abacusdata.ca</div>
-    <div class="ptit sc-title">Опрос Abacus: лёгкий отскок либералов, но по стране всё тот же клинч</div>
-    <div class="pex">Свежий опрос Abacus Data после бюджета Карни показывает: либералы выходят вперёд всего на один пункт — 41% против 40% у консерваторов. По сути, та же ничья, что и после выборов.   Настроения избирател</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-01-opros-abacus-lyogkiy-otskok-liberalov-no-po-strane-vsyo-tot-/">
+  <div class="card-img"><img src="/photos/photo_1616@01-12-2025_11-27-19.jpg" alt="Опрос Abacus: лёгкий отскок либералов, но по стране всё тот же клинч" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Опрос Abacus: лёгкий отскок либералов, но по стране всё тот же клинч</div>
+    <div class="card-excerpt">Свежий опрос Abacus Data после бюджета Карни показывает: либералы выходят вперёд всего на один пункт — 41% против 40% у консерваторов. По сути, та же ничья, что и после выборов.   Настроения избирател</div>
+    <div class="card-meta">
+      <span class="card-date">1 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-30-ottava-zapustila-pervyy-obschedostupnyy-reestr-ii-uzhe-bolee/">
-  <div class="sc-img"><img src="/photos/photo_1612@30-11-2025_13-39-01.jpg" alt="Оттава запустила первый общедоступный реестр ИИ — уже более 400 систем в федеральных ведомствах" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Оттава запустила первый общедоступный реестр ИИ — уже более 400 систем в федеральных ведомствах</div>
-    <div class="pex">‌﻿  Правительство представило новый инструмент прозрачности: публичный реестр, где перечислены все проекты, связанные с искусственным интеллектом, которые используются или тестируются в федеральных ст</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-11-30-ottava-zapustila-pervyy-obschedostupnyy-reestr-ii-uzhe-bolee/">
+  <div class="card-img"><img src="/photos/photo_1612@30-11-2025_13-39-01.jpg" alt="Оттава запустила первый общедоступный реестр ИИ — уже более 400 систем в федеральных ведомствах" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оттава запустила первый общедоступный реестр ИИ — уже более 400 систем в федеральных ведомствах</div>
+    <div class="card-excerpt">‌﻿  Правительство представило новый инструмент прозрачности: публичный реестр, где перечислены все проекты, связанные с искусственным интеллектом, которые используются или тестируются в федеральных ст</div>
+    <div class="card-meta">
+      <span class="card-date">30 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/ekonomika/page/4/">←</a><a class="pb" href="/tag/ekonomika/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/ekonomika/page/3/">3</a><a class="pb" href="/tag/ekonomika/page/4/">4</a><a class="pb on" href="/tag/ekonomika/page/5/">5</a><a class="pb" href="/tag/ekonomika/page/6/">6</a><a class="pb" href="/tag/ekonomika/page/7/">7</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/ekonomika/page/17/">17</a><a class="pb" href="/tag/ekonomika/page/6/">→</a></div>

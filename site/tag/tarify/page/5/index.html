@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#тарифы</h1>
     <p>489 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-10-28-antireklamnyy-shedevr-rolik-ontario-s-reyganom-snyalo-agents/">
-  <div class="sc-img"><img src="/photos/photo_1356@28-10-2025_10-36-55.jpg" alt="Антирекламный шедевр: ролик Онтарио с Рейганом сняло агентство, связанное с партией Дуга Форда" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Антирекламный шедевр: ролик Онтарио с Рейганом сняло агентство, связанное с партией Дуга Форда</div>
-    <div class="pex">Скандальный  ролик правительства Онтарио, который сорвал переговоры между Канадой и США, оказался делом рук агентства, тесно связанного с Прогрессивно-консервативной партией Дуга Форда.   Реклама с ар</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-10-28-antireklamnyy-shedevr-rolik-ontario-s-reyganom-snyalo-agents/">
+  <div class="card-img"><img src="/photos/photo_1356@28-10-2025_10-36-55.jpg" alt="Антирекламный шедевр: ролик Онтарио с Рейганом сняло агентство, связанное с партией Дуга Форда" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Антирекламный шедевр: ролик Онтарио с Рейганом сняло агентство, связанное с партией Дуга Форда</div>
+    <div class="card-excerpt">Скандальный  ролик правительства Онтарио, который сорвал переговоры между Канадой и США, оказался делом рук агентства, тесно связанного с Прогрессивно-консервативной партией Дуга Форда.   Реклама с ар</div>
+    <div class="card-meta">
+      <span class="card-date">28 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-27-kanada-sozhgla-mosty-posol-ssha-ne-verit-v-torgovoe-soglashe/">
-  <div class="sc-img"><img src="/photos/photo_1353@27-10-2025_20-57-01.jpg" alt="«Канада сожгла мосты»: посол США не верит в торговое соглашение до нового года" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">«Канада сожгла мосты»: посол США не верит в торговое соглашение до нового года</div>
-    <div class="pex">Американский посол в Канаде Пит Хукстра заявил, что переговоры между Оттавой и Вашингтоном по тарифам официально заморожены — и ждать нового соглашения не стоит как минимум до 2026 года.   «Мы останов</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-27-kanada-sozhgla-mosty-posol-ssha-ne-verit-v-torgovoe-soglashe/">
+  <div class="card-img"><img src="/photos/photo_1353@27-10-2025_20-57-01.jpg" alt="«Канада сожгла мосты»: посол США не верит в торговое соглашение до нового года" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">«Канада сожгла мосты»: посол США не верит в торговое соглашение до нового года</div>
+    <div class="card-excerpt">Американский посол в Канаде Пит Хукстра заявил, что переговоры между Оттавой и Вашингтоном по тарифам официально заморожены — и ждать нового соглашения не стоит как минимум до 2026 года.   «Мы останов</div>
+    <div class="card-meta">
+      <span class="card-date">27 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-27-nesmotrya-na-gnev-trampa-kanadskie-politiki-ne-schitayut-rek/">
-  <div class="sc-img"><img src="/photos/photo_1351@27-10-2025_17-43-01.jpg" alt="Несмотря на гнев Трампа, канадские политики не считают рекламу Онтарио ошибкой" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Несмотря на гнев Трампа, канадские политики не считают рекламу Онтарио ошибкой</div>
-    <div class="pex">После того как Дональд Трамп сорвал торговые переговоры с Канадой из-за антирекламного ролика правительства Онтарио, ни один крупный политик в Канаде — от муниципального до федерального уровня — не ос</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-27-nesmotrya-na-gnev-trampa-kanadskie-politiki-ne-schitayut-rek/">
+  <div class="card-img"><img src="/photos/photo_1351@27-10-2025_17-43-01.jpg" alt="Несмотря на гнев Трампа, канадские политики не считают рекламу Онтарио ошибкой" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Несмотря на гнев Трампа, канадские политики не считают рекламу Онтарио ошибкой</div>
+    <div class="card-excerpt">После того как Дональд Трамп сорвал торговые переговоры с Канадой из-за антирекламного ролика правительства Онтарио, ни один крупный политик в Канаде — от муниципального до федерального уровня — не ос</div>
+    <div class="card-meta">
+      <span class="card-date">27 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-27-amerikanskiy-senator-demokrat-nazval-reaktsiyu-trampa-na-kan/">
-  <div class="sc-img"><img src="/photos/photo_1343@27-10-2025_09-36-38.jpg" alt="Американский сенатор-демократ назвал реакцию Трампа на Канаду «детским припадком»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Американский сенатор-демократ назвал реакцию Трампа на Канаду «детским припадком»</div>
-    <div class="pex">Сенатор от Вирджинии Тим Кейн заявил, что вспышка гнева Дональда Трампа из-за антирекламного ролика правительства Онтарио — это «супердетское поведение» и «приступ ярости», который вскоре пройдёт.  «Э</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-10-27-amerikanskiy-senator-demokrat-nazval-reaktsiyu-trampa-na-kan/">
+  <div class="card-img"><img src="/photos/photo_1343@27-10-2025_09-36-38.jpg" alt="Американский сенатор-демократ назвал реакцию Трампа на Канаду «детским припадком»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Американский сенатор-демократ назвал реакцию Трампа на Канаду «детским припадком»</div>
+    <div class="card-excerpt">Сенатор от Вирджинии Тим Кейн заявил, что вспышка гнева Дональда Трампа из-за антирекламного ролика правительства Онтарио — это «супердетское поведение» и «приступ ярости», который вскоре пройдёт.  «Э</div>
+    <div class="card-meta">
+      <span class="card-date">27 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-26-karni-pytaetsya-uspokoit-kanadtsev-posle-ugroz-trampa-povysi/">
-  <div class="sc-img"><img src="/photos/photo_1341@26-10-2025_13-12-05.jpg" alt="Карни пытается успокоить канадцев после угроз Трампа повысить тарифы на 10%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Карни пытается успокоить канадцев после угроз Трампа повысить тарифы на 10%</div>
-    <div class="pex">Премьер-министр Канады Марк Карни заявил, что готов возобновить торговые переговоры с США и уверяет канадцев: его правительство предпринимает шаги для защиты экономики после того, как Дональд Трамп по</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-10-26-karni-pytaetsya-uspokoit-kanadtsev-posle-ugroz-trampa-povysi/">
+  <div class="card-img"><img src="/photos/photo_1341@26-10-2025_13-12-05.jpg" alt="Карни пытается успокоить канадцев после угроз Трампа повысить тарифы на 10%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Карни пытается успокоить канадцев после угроз Трампа повысить тарифы на 10%</div>
+    <div class="card-excerpt">Премьер-министр Канады Марк Карни заявил, что готов возобновить торговые переговоры с США и уверяет канадцев: его правительство предпринимает шаги для защиты экономики после того, как Дональд Трамп по</div>
+    <div class="card-meta">
+      <span class="card-date">26 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-26-britanskaya-kolumbiya-zapuskaet-antireklamnuyu-kampaniyu-pro/">
-  <div class="sc-img"><img src="/photos/photo_1340@26-10-2025_11-00-09.jpg" alt="Британская Колумбия запускает антирекламную кампанию против тарифов, пока Онтарио ставит свою на паузу" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vancouversun.com</div>
-    <div class="ptit sc-title">Британская Колумбия запускает антирекламную кампанию против тарифов, пока Онтарио ставит свою на паузу</div>
-    <div class="pex">Премьер Британской Колумбии Дэвид Эби объявил, что его провинция начнёт собственную рекламную кампанию в США, направленную против тарифов Дональда Трампа. Объявления будут «объяснять, кто выигрывает и</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-26-britanskaya-kolumbiya-zapuskaet-antireklamnuyu-kampaniyu-pro/">
+  <div class="card-img"><img src="/photos/photo_1340@26-10-2025_11-00-09.jpg" alt="Британская Колумбия запускает антирекламную кампанию против тарифов, пока Онтарио ставит свою на паузу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Британская Колумбия запускает антирекламную кампанию против тарифов, пока Онтарио ставит свою на паузу</div>
+    <div class="card-excerpt">Премьер Британской Колумбии Дэвид Эби объявил, что его провинция начнёт собственную рекламную кампанию в США, направленную против тарифов Дональда Трампа. Объявления будут «объяснять, кто выигрывает и</div>
+    <div class="card-meta">
+      <span class="card-date">26 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-25-tramp-ugrozhaet-kanade-ya-mogu-igrat-gryaznee/">
-  <div class="sc-img"><img src="/photos/photo_1337@25-10-2025_17-46-58.jpg" alt="Трамп угрожает Канаде: «Я могу играть грязнее»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">newsweek.com</div>
-    <div class="ptit sc-title">Трамп угрожает Канаде: «Я могу играть грязнее»</div>
-    <div class="pex">⠀ Дональд Трамп заявил, что «может играть грязнее», комментируя рекламный ролик правительства Онтарио, в котором использовался голос Рональда Рейгана для критики тарифов США.  ⠀ По данным Newsweek, ро</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-25-tramp-ugrozhaet-kanade-ya-mogu-igrat-gryaznee/">
+  <div class="card-img"><img src="/photos/photo_1337@25-10-2025_17-46-58.jpg" alt="Трамп угрожает Канаде: «Я могу играть грязнее»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">newsweek.com</div>
+    <div class="card-title">Трамп угрожает Канаде: «Я могу играть грязнее»</div>
+    <div class="card-excerpt">⠀ Дональд Трамп заявил, что «может играть грязнее», комментируя рекламный ролик правительства Онтарио, в котором использовался голос Рональда Рейгана для критики тарифов США.  ⠀ По данным Newsweek, ро</div>
+    <div class="card-meta">
+      <span class="card-date">25 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-24-ontario-svorachivaet-anti-tarifnuyu-kampaniyu-posle-togo-kak/">
-  <div class="sc-img"><img src="/photos/photo_1333@24-10-2025_16-20-48.jpg" alt="Онтарио сворачивает «анти-тарифную» кампанию после того, как Трамп оборвал переговоры с Канадой" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Онтарио сворачивает «анти-тарифную» кампанию после того, как Трамп оборвал переговоры с Канадой</div>
-    <div class="pex">Провал за 75 миллионов. Рекламная кампания Дага Форда против американских тарифов, где звучал голос Рональда Рейгана, закончилась так же громко, как и началась: Дональд Трамп объявил о «прекращении вс</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-24-ontario-svorachivaet-anti-tarifnuyu-kampaniyu-posle-togo-kak/">
+  <div class="card-img"><img src="/photos/photo_1333@24-10-2025_16-20-48.jpg" alt="Онтарио сворачивает «анти-тарифную» кампанию после того, как Трамп оборвал переговоры с Канадой" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Онтарио сворачивает «анти-тарифную» кампанию после того, как Трамп оборвал переговоры с Канадой</div>
+    <div class="card-excerpt">Провал за 75 миллионов. Рекламная кампания Дага Форда против американских тарифов, где звучал голос Рональда Рейгана, закончилась так же громко, как и началась: Дональд Трамп объявил о «прекращении вс</div>
+    <div class="card-meta">
+      <span class="card-date">24 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-24-reklama-s-reyganom-razozlivshaya-trampa-vyydet-v-efir-vo-vre/">
-  <div class="sc-img"><span style="font-size:26px">📋</span></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Реклама с Рейганом, разозлившая Трампа, выйдет в эфир во время Мировой серии</div>
-    <div class="pex">Пока Дональд Трамп громогласно объявил о «прекращении торговых переговоров с Канадой», Онтарио не собирается извиняться — антиизоляционистская реклама с Рональдом Рейганом всё равно выйдет в эфир на а</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-24-reklama-s-reyganom-razozlivshaya-trampa-vyydet-v-efir-vo-vre/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📋</span></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Реклама с Рейганом, разозлившая Трампа, выйдет в эфир во время Мировой серии</div>
+    <div class="card-excerpt">Пока Дональд Трамп громогласно объявил о «прекращении торговых переговоров с Канадой», Онтарио не собирается извиняться — антиизоляционистская реклама с Рональдом Рейганом всё равно выйдет в эфир на а</div>
+    <div class="card-meta">
+      <span class="card-date">24 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-24-tramp-razorval-torgovye-peregovory-s-kanadoy-iz-za-reklamy-s/">
-  <div class="sc-img"><img src="/photos/photo_1328@24-10-2025_08-46-48.jpg" alt="🇨🇦 Трамп разорвал торговые переговоры с Канадой из-за рекламы с голосом Рональда Рейгана" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">truthsocial.com</div>
-    <div class="ptit sc-title">🇨🇦 Трамп разорвал торговые переговоры с Канадой из-за рекламы с голосом Рональда Рейгана</div>
-    <div class="pex">Президент США Дональд Трамп заявил, что прекращает торговые переговоры с Канадой после выхода политической рекламы, в которой использовалась запись речи покойного Рональда Рейгана о вреде тарифов.</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-24-tramp-razorval-torgovye-peregovory-s-kanadoy-iz-za-reklamy-s/">
+  <div class="card-img"><img src="/photos/photo_1328@24-10-2025_08-46-48.jpg" alt="🇨🇦 Трамп разорвал торговые переговоры с Канадой из-за рекламы с голосом Рональда Рейгана" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">truthsocial.com</div>
+    <div class="card-title">🇨🇦 Трамп разорвал торговые переговоры с Канадой из-за рекламы с голосом Рональда Рейгана</div>
+    <div class="card-excerpt">Президент США Дональд Трамп заявил, что прекращает торговые переговоры с Канадой после выхода политической рекламы, в которой использовалась запись речи покойного Рональда Рейгана о вреде тарифов.</div>
+    <div class="card-meta">
+      <span class="card-date">24 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-23-v-kvebeke-profsoyuz-trebuet-deystviy-posle-uvolneniya-300-ra/">
-  <div class="sc-img"><img src="/photos/photo_1323@23-10-2025_11-21-45.jpg" alt="В Квебеке профсоюз требует действий после увольнения 300 рабочих на фоне тарифной войны с США" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">В Квебеке профсоюз требует действий после увольнения 300 рабочих на фоне тарифной войны с США</div>
-    <div class="pex">Компания PACCAR, производитель грузовиков в городе Сент-Терез (к северу от Лаваля), уволила около 300 работников — ещё один удар по промышленности Квебека, вызванный торговым конфликтом между Канадой</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-10-23-v-kvebeke-profsoyuz-trebuet-deystviy-posle-uvolneniya-300-ra/">
+  <div class="card-img"><img src="/photos/photo_1323@23-10-2025_11-21-45.jpg" alt="В Квебеке профсоюз требует действий после увольнения 300 рабочих на фоне тарифной войны с США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Квебеке профсоюз требует действий после увольнения 300 рабочих на фоне тарифной войны с США</div>
+    <div class="card-excerpt">Компания PACCAR, производитель грузовиков в городе Сент-Терез (к северу от Лаваля), уволила около 300 работников — ещё один удар по промышленности Квебека, вызванный торговым конфликтом между Канадой</div>
+    <div class="card-meta">
+      <span class="card-date">23 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-22-gm-zakryvaet-proizvodstvo-elektrofurgonov-v-ontario-minus-12/">
-  <div class="sc-img"><img src="/photos/photo_1310@22-10-2025_09-38-01.jpg" alt="GM закрывает производство электрофургонов в Онтарио — минус 1200 рабочих мест" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">GM закрывает производство электрофургонов в Онтарио — минус 1200 рабочих мест</div>
-    <div class="pex">Ещё один удар по автопрому Канады: General Motors объявила, что прекращает выпуск своих электрофургонов BrightDrop в городе Ингерсолл, Онтарио. Решение приведёт к потере около 1200 рабочих мест и стал</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-22-gm-zakryvaet-proizvodstvo-elektrofurgonov-v-ontario-minus-12/">
+  <div class="card-img"><img src="/photos/photo_1310@22-10-2025_09-38-01.jpg" alt="GM закрывает производство электрофургонов в Онтарио — минус 1200 рабочих мест" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">GM закрывает производство электрофургонов в Онтарио — минус 1200 рабочих мест</div>
+    <div class="card-excerpt">Ещё один удар по автопрому Канады: General Motors объявила, что прекращает выпуск своих электрофургонов BrightDrop в городе Ингерсолл, Онтарио. Решение приведёт к потере около 1200 рабочих мест и стал</div>
+    <div class="card-meta">
+      <span class="card-date">22 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-18-tramp-byot-po-gruzovikam/">
-  <div class="sc-img"><img src="/photos/photo_1289@18-10-2025_14-17-01.jpg" alt="Трамп бьёт по грузовикам" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Трамп бьёт по грузовикам</div>
-    <div class="pex">С 1 ноября Дональд Трамп вводит 25-процентную пошлину на импорт средних и тяжёлых грузовиков. Исключение — машины, собранные в рамках североамериканского соглашения CUSMA (бывшее NAFTA): их будут обла</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-18-tramp-byot-po-gruzovikam/">
+  <div class="card-img"><img src="/photos/photo_1289@18-10-2025_14-17-01.jpg" alt="Трамп бьёт по грузовикам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Трамп бьёт по грузовикам</div>
+    <div class="card-excerpt">С 1 ноября Дональд Трамп вводит 25-процентную пошлину на импорт средних и тяжёлых грузовиков. Исключение — машины, собранные в рамках североамериканского соглашения CUSMA (бывшее NAFTA): их будут обла</div>
+    <div class="card-meta">
+      <span class="card-date">18 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-18-glava-bmo-america-first-ne-problema-esli-kanada-idyot-vtoroy/">
-  <div class="sc-img"><img src="/photos/photo_1286@18-10-2025_09-34-01.jpg" alt="Глава BMO: «America First» — не проблема, если Канада идёт второй" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ca.finance.yahoo.com</div>
-    <div class="ptit sc-title">Глава BMO: «America First» — не проблема, если Канада идёт второй</div>
-    <div class="pex">Генеральный директор Bank of Montreal Дэррил Уайт считает, что политика Дональда Трампа «Америка прежде всего» может обернуться выгодой для Канады.  «Это может быть “Америка прежде всего”, но не “Амер</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-10-18-glava-bmo-america-first-ne-problema-esli-kanada-idyot-vtoroy/">
+  <div class="card-img"><img src="/photos/photo_1286@18-10-2025_09-34-01.jpg" alt="Глава BMO: «America First» — не проблема, если Канада идёт второй" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ca.finance.yahoo.com</div>
+    <div class="card-title">Глава BMO: «America First» — не проблема, если Канада идёт второй</div>
+    <div class="card-excerpt">Генеральный директор Bank of Montreal Дэррил Уайт считает, что политика Дональда Трампа «Америка прежде всего» может обернуться выгодой для Канады.  «Это может быть “Америка прежде всего”, но не “Амер</div>
+    <div class="card-meta">
+      <span class="card-date">18 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-17-karni-mnogomu-nauchilsya-u-trampa-glavnoe-iz-bolshogo-interv/">
-  <div class="sc-img"><img src="/photos/photo_1283@17-10-2025_17-05-59.jpg" alt="Карни: «Многому научился у Трампа» — главное из большого интервью Bloomberg" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bloomberg.com</div>
-    <div class="ptit sc-title">Карни: «Многому научился у Трампа» — главное из большого интервью Bloomberg</div>
-    <div class="pex">Канадский премьер Марк Карни дал откровенное интервью Мишаль Хусейн (Bloomberg) на фоне торговой войны Вашингтона с партнёрами и надвигающегося пересмотра USMCA в 2026 году. Ниже — ключевые тезисы без</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-17-karni-mnogomu-nauchilsya-u-trampa-glavnoe-iz-bolshogo-interv/">
+  <div class="card-img"><img src="/photos/photo_1283@17-10-2025_17-05-59.jpg" alt="Карни: «Многому научился у Трампа» — главное из большого интервью Bloomberg" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bloomberg.com</div>
+    <div class="card-title">Карни: «Многому научился у Трампа» — главное из большого интервью Bloomberg</div>
+    <div class="card-excerpt">Канадский премьер Марк Карни дал откровенное интервью Мишаль Хусейн (Bloomberg) на фоне торговой войны Вашингтона с партнёрами и надвигающегося пересмотра USMCA в 2026 году. Ниже — ключевые тезисы без</div>
+    <div class="card-meta">
+      <span class="card-date">17 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-16-poshliny-ssha-na-pilomaterialy-iz-britanskoy-kolumbii-teper-/">
-  <div class="sc-img"><img src="/photos/photo_1271@16-10-2025_11-14-01.jpg" alt="Пошлины США на пиломатериалы из Британской Колумбии теперь выше, чем на российские" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Пошлины США на пиломатериалы из Британской Колумбии теперь выше, чем на российские</div>
-    <div class="pex">⠀ Премьер Британской Колумбии Дэвид Эби заявил, что лесная промышленность провинции оказалась на “лезвии выживания” после введения Вашингтоном новых тарифов на канадскую древесину.  ⠀ С 15 октября экс</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ukraina/">#Украина</a></div></div>
+</a><a class="card" href="/post/2025-10-16-poshliny-ssha-na-pilomaterialy-iz-britanskoy-kolumbii-teper-/">
+  <div class="card-img"><img src="/photos/photo_1271@16-10-2025_11-14-01.jpg" alt="Пошлины США на пиломатериалы из Британской Колумбии теперь выше, чем на российские" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Пошлины США на пиломатериалы из Британской Колумбии теперь выше, чем на российские</div>
+    <div class="card-excerpt">⠀ Премьер Британской Колумбии Дэвид Эби заявил, что лесная промышленность провинции оказалась на “лезвии выживания” после введения Вашингтоном новых тарифов на канадскую древесину.  ⠀ С 15 октября экс</div>
+    <div class="card-meta">
+      <span class="card-date">16 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-15-ford-zapuskaet-reklamu-dlya-amerikantsev-protiv-tarifov-tram/">
-  <div class="sc-img"><img src="/photos/photo_1262@15-10-2025_11-12-00.jpg" alt="Форд запускает рекламу для американцев — против тарифов Трампа" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Форд запускает рекламу для американцев — против тарифов Трампа</div>
-    <div class="pex">⠀ Премьер Онтарио Даг Форд объявил о новой 75-миллионной рекламной кампании, нацеленной на американскую аудиторию и направленной против торговых тарифов Дональда Трампа. Ролики будут выходить на телек</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-15-ford-zapuskaet-reklamu-dlya-amerikantsev-protiv-tarifov-tram/">
+  <div class="card-img"><img src="/photos/photo_1262@15-10-2025_11-12-00.jpg" alt="Форд запускает рекламу для американцев — против тарифов Трампа" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Форд запускает рекламу для американцев — против тарифов Трампа</div>
+    <div class="card-excerpt">⠀ Премьер Онтарио Даг Форд объявил о новой 75-миллионной рекламной кампании, нацеленной на американскую аудиторию и направленной против торговых тарифов Дональда Трампа. Ролики будут выходить на телек</div>
+    <div class="card-meta">
+      <span class="card-date">15 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-14-progressivnye-konservatory-daga-forda-potratili-na-vybory-na/">
-  <div class="sc-img"><img src="/photos/photo_1258@14-10-2025_14-58-02.jpg" alt="Прогрессивные консерваторы Дага Форда потратили на выборы на миллионы больше соперников" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Прогрессивные консерваторы Дага Форда потратили на выборы на миллионы больше соперников</div>
-    <div class="pex">⠀ На досрочных выборах в Онтарио партия Дага Форда потратила $15,3 млн — больше, чем либералы ($8,9 млн), NDP ($8,5 млн) и зелёные ($1,4 млн). При этом оппозиция утверждает: Форду помог не только парт</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-14-progressivnye-konservatory-daga-forda-potratili-na-vybory-na/">
+  <div class="card-img"><img src="/photos/photo_1258@14-10-2025_14-58-02.jpg" alt="Прогрессивные консерваторы Дага Форда потратили на выборы на миллионы больше соперников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Прогрессивные консерваторы Дага Форда потратили на выборы на миллионы больше соперников</div>
+    <div class="card-excerpt">⠀ На досрочных выборах в Онтарио партия Дага Форда потратила $15,3 млн — больше, чем либералы ($8,9 млн), NDP ($8,5 млн) и зелёные ($1,4 млн). При этом оппозиция утверждает: Форду помог не только парт</div>
+    <div class="card-meta">
+      <span class="card-date">14 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-13-pokupay-kanadskoe-obernulos-poteryami-po-obe-storony-granits/">
-  <div class="sc-img"><img src="/photos/photo_1253@13-10-2025_15-47-01.jpg" alt="«Покупай канадское» обернулось потерями по обе стороны границы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cnn.com</div>
-    <div class="ptit sc-title">«Покупай канадское» обернулось потерями по обе стороны границы</div>
-    <div class="pex">Кампания бойкота американских товаров, развернувшаяся в Канаде на фоне торговой войны с США, начинает бить не только по Вашингтону, но и по самым обычным людям — и по канадцам, и по американцам.   Вин</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-13-pokupay-kanadskoe-obernulos-poteryami-po-obe-storony-granits/">
+  <div class="card-img"><img src="/photos/photo_1253@13-10-2025_15-47-01.jpg" alt="«Покупай канадское» обернулось потерями по обе стороны границы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cnn.com</div>
+    <div class="card-title">«Покупай канадское» обернулось потерями по обе стороны границы</div>
+    <div class="card-excerpt">Кампания бойкота американских товаров, развернувшаяся в Канаде на фоне торговой войны с США, начинает бить не только по Вашингтону, но и по самым обычным людям — и по канадцам, и по американцам.   Вин</div>
+    <div class="card-meta">
+      <span class="card-date">13 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-11-pekin-predlagaet-sdelku-snimite-poshliny-s-kitayskih-elektro/">
-  <div class="sc-img"><img src="/photos/photo_1242@11-10-2025_15-46-41.jpg" alt="Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы</div>
-    <div class="pex">Китай готов отменить пошлины на канадскую агропродукцию, включая канолу, если Оттава откажется от 100% тарифов на электромобили из КНР, заявил посол Ван Ди в интервью CTV. По его словам, «если Канада</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-10-11-pekin-predlagaet-sdelku-snimite-poshliny-s-kitayskih-elektro/">
+  <div class="card-img"><img src="/photos/photo_1242@11-10-2025_15-46-41.jpg" alt="Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы</div>
+    <div class="card-excerpt">Китай готов отменить пошлины на канадскую агропродукцию, включая канолу, если Оттава откажется от 100% тарифов на электромобили из КНР, заявил посол Ван Ди в интервью CTV. По его словам, «если Канада</div>
+    <div class="card-meta">
+      <span class="card-date">11 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-10-melani-zholi-predstavila-novuyu-promyshlennuyu-strategiyu-na/">
-  <div class="sc-img"><img src="/photos/photo_1234@10-10-2025_10-23-01.jpg" alt="Мелани Жоли представила новую промышленную стратегию: «Нам нужны крупные канадские компании»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Мелани Жоли представила новую промышленную стратегию: «Нам нужны крупные канадские компании»</div>
-    <div class="pex">Федеральное правительство запускает «трёхступенчатую» промышленную стратегию, направленную на защиту рабочих мест, создание новых и привлечение инвестиций, заявила министр промышленности Мелани Жоли,</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-10-melani-zholi-predstavila-novuyu-promyshlennuyu-strategiyu-na/">
+  <div class="card-img"><img src="/photos/photo_1234@10-10-2025_10-23-01.jpg" alt="Мелани Жоли представила новую промышленную стратегию: «Нам нужны крупные канадские компании»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Мелани Жоли представила новую промышленную стратегию: «Нам нужны крупные канадские компании»</div>
+    <div class="card-excerpt">Федеральное правительство запускает «трёхступенчатую» промышленную стратегию, направленную на защиту рабочих мест, создание новых и привлечение инвестиций, заявила министр промышленности Мелани Жоли,</div>
+    <div class="card-meta">
+      <span class="card-date">10 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-09-karni-vernulsya-iz-vashingtona-bez-sdelki-po-poshlinam-no-s-/">
-  <div class="sc-img"><img src="/photos/photo_1229@09-10-2025_10-42-04.jpg" alt="Карни вернулся из Вашингтона без сделки по пошлинам, но с поддержкой из Альберты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Карни вернулся из Вашингтона без сделки по пошлинам, но с поддержкой из Альберты</div>
-    <div class="pex">Премьер-министр Марк Карни завершил визит в Вашингтон, не добившись отмены американских тарифов на канадские товары. Несмотря на улыбки в Овальном кабинете и заверения Дональда Трампа, что «Канада уйд</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-10-09-karni-vernulsya-iz-vashingtona-bez-sdelki-po-poshlinam-no-s-/">
+  <div class="card-img"><img src="/photos/photo_1229@09-10-2025_10-42-04.jpg" alt="Карни вернулся из Вашингтона без сделки по пошлинам, но с поддержкой из Альберты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Карни вернулся из Вашингтона без сделки по пошлинам, но с поддержкой из Альберты</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни завершил визит в Вашингтон, не добившись отмены американских тарифов на канадские товары. Несмотря на улыбки в Овальном кабинете и заверения Дональда Трампа, что «Канада уйд</div>
+    <div class="card-meta">
+      <span class="card-date">9 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-08-mark-karni-ochen-trebovatelnyy-boss/">
-  <div class="sc-img"><img src="/photos/photo_1227@08-10-2025_18-36-01.jpg" alt="Марк Карни — очень требовательный босс" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">macleans.ca</div>
-    <div class="ptit sc-title">Марк Карни — очень требовательный босс</div>
-    <div class="pex">очень большой и интересный материал про Карни от Macleans's  Его «локти наружу» и энтузиазм принесли победу на выборах. Теперь он управляет страной как топ-менеджер с Бей-стрит.  Марк Карни любит гово</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-08-mark-karni-ochen-trebovatelnyy-boss/">
+  <div class="card-img"><img src="/photos/photo_1227@08-10-2025_18-36-01.jpg" alt="Марк Карни — очень требовательный босс" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">Марк Карни — очень требовательный босс</div>
+    <div class="card-excerpt">очень большой и интересный материал про Карни от Macleans's  Его «локти наружу» и энтузиазм принесли победу на выборах. Теперь он управляет страной как топ-менеджер с Бей-стрит.  Марк Карни любит гово</div>
+    <div class="card-meta">
+      <span class="card-date">8 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-08-eksport-amerikanskogo-alkogolya-v-kanadu-ruhnul-na-85/">
-  <div class="sc-img"><img src="/photos/photo_1224@08-10-2025_10-31-49.jpg" alt="Экспорт американского алкоголя в Канаду рухнул на 85%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thehill.com</div>
-    <div class="ptit sc-title">Экспорт американского алкоголя в Канаду рухнул на 85%</div>
-    <div class="pex">Продажи американских крепких напитков в Канаду упали на 85% во втором квартале 2025 года, свидетельствуют новые данные Distilled Spirits Council of the United States (DISCUS). Экспорт снизился с 63,1</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/sshakanada/">#США–Канада</a></div></div>
+</a><a class="card" href="/post/2025-10-08-eksport-amerikanskogo-alkogolya-v-kanadu-ruhnul-na-85/">
+  <div class="card-img"><img src="/photos/photo_1224@08-10-2025_10-31-49.jpg" alt="Экспорт американского алкоголя в Канаду рухнул на 85%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehill.com</div>
+    <div class="card-title">Экспорт американского алкоголя в Канаду рухнул на 85%</div>
+    <div class="card-excerpt">Продажи американских крепких напитков в Канаду упали на 85% во втором квартале 2025 года, свидетельствуют новые данные Distilled Spirits Council of the United States (DISCUS). Экспорт снизился с 63,1</div>
+    <div class="card-meta">
+      <span class="card-date">8 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-08-kanada-snova-nas-polyubit-tramp-vstretilsya-s-karni-no-dogov/">
-  <div class="sc-img"><img src="/photos/photo_1223@08-10-2025_09-31-58.jpg" alt="«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет</div>
-    <div class="pex">Дональд Трамп заявил, что работает с премьер-министром Марком Карни над торговым соглашением, которое «канадцам понравится». Однако после их встречи в Белом доме никаких конкретных договорённостей по</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-08-kanada-snova-nas-polyubit-tramp-vstretilsya-s-karni-no-dogov/">
+  <div class="card-img"><img src="/photos/photo_1223@08-10-2025_09-31-58.jpg" alt="«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет</div>
+    <div class="card-excerpt">Дональд Трамп заявил, что работает с премьер-министром Марком Карни над торговым соглашением, которое «канадцам понравится». Однако после их встречи в Белом доме никаких конкретных договорённостей по</div>
+    <div class="card-meta">
+      <span class="card-date">8 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-07-tramp-vvodit-25-poshliny-na-gruzoviki-iz-kanady-i-meksiki/">
-  <div class="sc-img"><img src="/photos/photo_1220@07-10-2025_14-57-12.jpg" alt="Трамп вводит 25% пошлины на грузовики из Канады и Мексики" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Трамп вводит 25% пошлины на грузовики из Канады и Мексики</div>
-    <div class="pex">С 1 ноября все средне- и тяжёлые грузовики, импортируемые в США, будут облагаться 25-процентной пошлиной, объявил Дональд Трамп. Решение стало очередным шагом в его кампании «защитного протекционизма»</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-07-tramp-vvodit-25-poshliny-na-gruzoviki-iz-kanady-i-meksiki/">
+  <div class="card-img"><img src="/photos/photo_1220@07-10-2025_14-57-12.jpg" alt="Трамп вводит 25% пошлины на грузовики из Канады и Мексики" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Трамп вводит 25% пошлины на грузовики из Канады и Мексики</div>
+    <div class="card-excerpt">С 1 ноября все средне- и тяжёлые грузовики, импортируемые в США, будут облагаться 25-процентной пошлиной, объявил Дональд Трамп. Решение стало очередным шагом в его кампании «защитного протекционизма»</div>
+    <div class="card-meta">
+      <span class="card-date">7 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-06-poslednyaya-hokkeynaya-fabrika-kanady-derzhitsya-iz-posledni/">
-  <div class="sc-img"><img src="/photos/photo_1214@06-10-2025_17-36-01.jpg" alt="Последняя хоккейная фабрика Канады держится из последних сил — вопреки тарифам, глобализации и упадку промышленности." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Последняя хоккейная фабрика Канады держится из последних сил — вопреки тарифам, глобализации и упадку промышленности.</div>
-    <div class="pex">Roustan Hockey в Брантфорде, Онтарио, — единственный оставшийся крупный производитель деревянных клюшек в стране. Завод работает с XIX века и выпускает около 400 тысяч клюшек в год под брендами Christ</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-10-06-poslednyaya-hokkeynaya-fabrika-kanady-derzhitsya-iz-posledni/">
+  <div class="card-img"><img src="/photos/photo_1214@06-10-2025_17-36-01.jpg" alt="Последняя хоккейная фабрика Канады держится из последних сил — вопреки тарифам, глобализации и упадку промышленности." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Последняя хоккейная фабрика Канады держится из последних сил — вопреки тарифам, глобализации и упадку промышленности.</div>
+    <div class="card-excerpt">Roustan Hockey в Брантфорде, Онтарио, — единственный оставшийся крупный производитель деревянных клюшек в стране. Завод работает с XIX века и выпускает около 400 тысяч клюшек в год под брендами Christ</div>
+    <div class="card-meta">
+      <span class="card-date">6 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-06-ocheredi-na-yarmarkah-vakansiy-podal-50-zayavok-ni-odnogo-in/">
-  <div class="sc-img"><img src="/photos/photo_1211@06-10-2025_12-17-01.jpg" alt="Очереди на ярмарках вакансий: «Подал 50 заявок — ни одного интервью»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cp24.com</div>
-    <div class="ptit sc-title">Очереди на ярмарках вакансий: «Подал 50 заявок — ни одного интервью»</div>
-    <div class="pex">В торговом центре Markville Mall под Торонто сотни людей стоят в очереди не за айфоном — за шансом найти работу. Безработица в Канаде на десятилетнем максимуме, и на каждое место приходят десятки прет</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-10-06-ocheredi-na-yarmarkah-vakansiy-podal-50-zayavok-ni-odnogo-in/">
+  <div class="card-img"><img src="/photos/photo_1211@06-10-2025_12-17-01.jpg" alt="Очереди на ярмарках вакансий: «Подал 50 заявок — ни одного интервью»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cp24.com</div>
+    <div class="card-title">Очереди на ярмарках вакансий: «Подал 50 заявок — ни одного интервью»</div>
+    <div class="card-excerpt">В торговом центре Markville Mall под Торонто сотни людей стоят в очереди не за айфоном — за шансом найти работу. Безработица в Канаде на десятилетнем максимуме, и на каждое место приходят десятки прет</div>
+    <div class="card-meta">
+      <span class="card-date">6 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-06-tim-hortons-povyshaet-tseny-na-kofe-vsego-na-tri-tsenta-za-c/">
-  <div class="sc-img"><img src="/photos/photo_1208@06-10-2025_10-02-05.jpg" alt="Tim Hortons повышает цены на кофе — «всего на три цента за чашку»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">financialpost.com</div>
-    <div class="ptit sc-title">Tim Hortons повышает цены на кофе — «всего на три цента за чашку»</div>
-    <div class="pex">Впервые за три года сеть Tim Hortons поднимает цену на кофе — на 1,5%, или примерно на три цента за чашку. Компания уверяет, что это «более чем разумно», учитывая, что за то же время стоимость кофейны</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-06-tim-hortons-povyshaet-tseny-na-kofe-vsego-na-tri-tsenta-za-c/">
+  <div class="card-img"><img src="/photos/photo_1208@06-10-2025_10-02-05.jpg" alt="Tim Hortons повышает цены на кофе — «всего на три цента за чашку»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">financialpost.com</div>
+    <div class="card-title">Tim Hortons повышает цены на кофе — «всего на три цента за чашку»</div>
+    <div class="card-excerpt">Впервые за три года сеть Tim Hortons поднимает цену на кофе — на 1,5%, или примерно на три цента за чашку. Компания уверяет, что это «более чем разумно», учитывая, что за то же время стоимость кофейны</div>
+    <div class="card-meta">
+      <span class="card-date">6 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-05-poliev-o-karni-porazhenie-za-porazheniem/">
-  <div class="sc-img"><img src="/photos/photo_1204@05-10-2025_13-02-11.jpg" alt="Полиев о Карни: «Поражение за поражением»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">chch.com</div>
-    <div class="ptit sc-title">Полиев о Карни: «Поражение за поражением»</div>
-    <div class="pex">Пьер Полиев продолжает давить на премьера перед его встречей с Дональдом Трампом в Вашингтоне. Выступая в Гамильтоне, лидер консерваторов заявил, что Марк Карни «потерпел одно поражение за другим» и т</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-05-poliev-o-karni-porazhenie-za-porazheniem/">
+  <div class="card-img"><img src="/photos/photo_1204@05-10-2025_13-02-11.jpg" alt="Полиев о Карни: «Поражение за поражением»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">chch.com</div>
+    <div class="card-title">Полиев о Карни: «Поражение за поражением»</div>
+    <div class="card-excerpt">Пьер Полиев продолжает давить на премьера перед его встречей с Дональдом Трампом в Вашингтоне. Выступая в Гамильтоне, лидер консерваторов заявил, что Марк Карни «потерпел одно поражение за другим» и т</div>
+    <div class="card-meta">
+      <span class="card-date">5 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-05-ford-k-karni-luchshe-by-ty-tam-bilsya-kak-chert/">
-  <div class="sc-img"><img src="/photos/photo_1203@05-10-2025_12-04-56.jpg" alt="Форд к Карни: «Лучше бы ты там бился, как черт»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bnnbloomberg.ca</div>
-    <div class="ptit sc-title">Форд к Карни: «Лучше бы ты там бился, как черт»</div>
-    <div class="pex">Премьер Онтарио Даг Форд публично потребовал от Марка Карни «драться как черт» на встрече с Дональдом Трампом в Вашингтоне. «Не смей сдаваться. Канада никогда не станет 51-м штатом», — заявил Форд на</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-05-ford-k-karni-luchshe-by-ty-tam-bilsya-kak-chert/">
+  <div class="card-img"><img src="/photos/photo_1203@05-10-2025_12-04-56.jpg" alt="Форд к Карни: «Лучше бы ты там бился, как черт»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bnnbloomberg.ca</div>
+    <div class="card-title">Форд к Карни: «Лучше бы ты там бился, как черт»</div>
+    <div class="card-excerpt">Премьер Онтарио Даг Форд публично потребовал от Марка Карни «драться как черт» на встрече с Дональдом Трампом в Вашингтоне. «Не смей сдаваться. Канада никогда не станет 51-м штатом», — заявил Форд на</div>
+    <div class="card-meta">
+      <span class="card-date">5 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-03-zhiteli-britanskoy-kolumbii-vsyo-menshe-ezdyat-v-ssha-i-eto-/">
-  <div class="sc-img"><img src="/photos/photo_1195@03-10-2025_13-49-01.jpg" alt="Жители Британской Колумбии всё меньше ездят в США — и это уже восьмой месяц подряд." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Жители Британской Колумбии всё меньше ездят в США — и это уже восьмой месяц подряд.</div>
-    <div class="pex">По данным Cascade Gateway Border Data Warehouse, в сентябре через четыре основные границы с Вашингтоном (Peace Arch, Pacific Highway, Sumas и Lynden) проехало всего 124 тыс. машин с B.C.-номерами. Это</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-03-zhiteli-britanskoy-kolumbii-vsyo-menshe-ezdyat-v-ssha-i-eto-/">
+  <div class="card-img"><img src="/photos/photo_1195@03-10-2025_13-49-01.jpg" alt="Жители Британской Колумбии всё меньше ездят в США — и это уже восьмой месяц подряд." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Жители Британской Колумбии всё меньше ездят в США — и это уже восьмой месяц подряд.</div>
+    <div class="card-excerpt">По данным Cascade Gateway Border Data Warehouse, в сентябре через четыре основные границы с Вашингтоном (Peace Arch, Pacific Highway, Sumas и Lynden) проехало всего 124 тыс. машин с B.C.-номерами. Это</div>
+    <div class="card-meta">
+      <span class="card-date">3 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-01-tramp-snova-pro-51-y-shtat-teper-pered-voennymi/">
-  <div class="sc-img"><img src="/photos/photo_1182@01-10-2025_09-36-00.jpg" alt="Трамп снова про «51-й штат» — теперь перед военными" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ca.finance.yahoo.com</div>
-    <div class="ptit sc-title">Трамп снова про «51-й штат» — теперь перед военными</div>
-    <div class="pex">﻿ Дональд Трамп вернулся к своей любимой риторике об аннексии Канады. Выступая перед высшим командным составом армии США в Квантико, президент заявил, что обсуждал с Оттавой участие в своей ПРО-програ</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/sshakanada/">#США–Канада</a></div></div>
+</a><a class="card" href="/post/2025-10-01-tramp-snova-pro-51-y-shtat-teper-pered-voennymi/">
+  <div class="card-img"><img src="/photos/photo_1182@01-10-2025_09-36-00.jpg" alt="Трамп снова про «51-й штат» — теперь перед военными" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ca.finance.yahoo.com</div>
+    <div class="card-title">Трамп снова про «51-й штат» — теперь перед военными</div>
+    <div class="card-excerpt">﻿ Дональд Трамп вернулся к своей любимой риторике об аннексии Канады. Выступая перед высшим командным составом армии США в Квантико, президент заявил, что обсуждал с Оттавой участие в своей ПРО-програ</div>
+    <div class="card-meta">
+      <span class="card-date">1 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-27-s-1-oktyabrya-srazu-pyat-provintsiy-povyshayut-minimalnuyu-z/">
-  <div class="sc-img"><img src="/photos/photo_1160@27-09-2025_12-14-01.jpg" alt="С 1 октября сразу пять провинций повышают минимальную зарплату." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">С 1 октября сразу пять провинций повышают минимальную зарплату.</div>
-    <div class="pex">– Онтарио: $17,60 (+40 центов) – Остров Принца Эдуарда: $16,50 (+50 центов) – Новая Шотландия: $16,50 (+$1,30 за год; второе повышение с апреля) – Манитоба: $16 (+20 центов) – Саскачеван: $15,35 (+35</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-09-27-s-1-oktyabrya-srazu-pyat-provintsiy-povyshayut-minimalnuyu-z/">
+  <div class="card-img"><img src="/photos/photo_1160@27-09-2025_12-14-01.jpg" alt="С 1 октября сразу пять провинций повышают минимальную зарплату." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">С 1 октября сразу пять провинций повышают минимальную зарплату.</div>
+    <div class="card-excerpt">– Онтарио: $17,60 (+40 центов) – Остров Принца Эдуарда: $16,50 (+50 центов) – Новая Шотландия: $16,50 (+$1,30 за год; второе повышение с апреля) – Манитоба: $16 (+20 центов) – Саскачеван: $15,35 (+35</div>
+    <div class="card-meta">
+      <span class="card-date">27 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-25-leytenant-gubernator-luiziany-billi-nangesser-neozhidanno-po/">
-  <div class="sc-img"><span style="font-size:26px">📋</span></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Лейтенант-губернатор Луизианы Билли Нангессер неожиданно попросил Дональда Трампа извиниться перед Канадой за его заявления о «51-м штате».</div>
-    <div class="pex">«Я только тут понял, насколько эти слова и тарифы испортили отношение канадцев. Было бы здорово, если бы президент извинился», — сказал Нангессер во время визита по продвижению туризма. Для Луизианы,</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-09-25-leytenant-gubernator-luiziany-billi-nangesser-neozhidanno-po/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📋</span></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Лейтенант-губернатор Луизианы Билли Нангессер неожиданно попросил Дональда Трампа извиниться перед Канадой за его заявления о «51-м штате».</div>
+    <div class="card-excerpt">«Я только тут понял, насколько эти слова и тарифы испортили отношение канадцев. Было бы здорово, если бы президент извинился», — сказал Нангессер во время визита по продвижению туризма. Для Луизианы,</div>
+    <div class="card-meta">
+      <span class="card-date">25 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-24-karni-perevodit-peregovory-s-ssha-v-ramki-peresmotra-usmca/">
-  <div class="sc-img"><img src="/photos/photo_1141@24-09-2025_13-22-11.jpg" alt="Карни переводит переговоры с США в рамки пересмотра USMCA" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">reuters.com</div>
-    <div class="ptit sc-title">Карни переводит переговоры с США в рамки пересмотра USMCA</div>
-    <div class="pex">﻿ Премьер-министр Марк Карни заявил в Нью-Йорке, что канадско-американские торговые переговоры переходят в формат грядущего пересмотра соглашения USMCA (или CUSMA, как его называют в Канаде).  ﻿ Карни</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/sshakanada/">#США–Канада</a></div></div>
+</a><a class="card" href="/post/2025-09-24-karni-perevodit-peregovory-s-ssha-v-ramki-peresmotra-usmca/">
+  <div class="card-img"><img src="/photos/photo_1141@24-09-2025_13-22-11.jpg" alt="Карни переводит переговоры с США в рамки пересмотра USMCA" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">reuters.com</div>
+    <div class="card-title">Карни переводит переговоры с США в рамки пересмотра USMCA</div>
+    <div class="card-excerpt">﻿ Премьер-министр Марк Карни заявил в Нью-Йорке, что канадско-американские торговые переговоры переходят в формат грядущего пересмотра соглашения USMCA (или CUSMA, как его называют в Канаде).  ﻿ Карни</div>
+    <div class="card-meta">
+      <span class="card-date">24 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-24-glava-banka-kanady-my-slishkom-dolgo-sideli-na-amerikanskoy-/">
-  <div class="sc-img"><img src="/photos/photo_1140@24-09-2025_12-19-01.jpg" alt="Глава Банка Канады: мы слишком долго сидели на американской игле" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Глава Банка Канады: мы слишком долго сидели на американской игле</div>
-    <div class="pex">﻿ Тифф Маклем, управляющий Банка Канады, выступил в Саскатуне с речью о глобальных торговых потрясениях — и признал: страна запоздала с диверсификацией торговли от США и теперь расплачивается за это.</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-24-glava-banka-kanady-my-slishkom-dolgo-sideli-na-amerikanskoy-/">
+  <div class="card-img"><img src="/photos/photo_1140@24-09-2025_12-19-01.jpg" alt="Глава Банка Канады: мы слишком долго сидели на американской игле" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Глава Банка Канады: мы слишком долго сидели на американской игле</div>
+    <div class="card-excerpt">﻿ Тифф Маклем, управляющий Банка Канады, выступил в Саскатуне с речью о глобальных торговых потрясениях — и признал: страна запоздала с диверсификацией торговли от США и теперь расплачивается за это.</div>
+    <div class="card-meta">
+      <span class="card-date">24 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-24-karni-priznal-palestinu-i-ne-boitsya-ugroz-trampa/">
-  <div class="sc-img"><img src="/photos/photo_1139@24-09-2025_11-22-10.jpg" alt="Карни признал Палестину — и не боится угроз Трампа" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Карни признал Палестину — и не боится угроз Трампа</div>
-    <div class="pex">﻿ Премьер-министр Марк Карни заявил в Нью-Йорке, что решение Канады признать Палестину принято независимо от давления Вашингтона. Дональд Трамп ранее грозил: такой шаг «очень усложнит» торговые перего</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-09-24-karni-priznal-palestinu-i-ne-boitsya-ugroz-trampa/">
+  <div class="card-img"><img src="/photos/photo_1139@24-09-2025_11-22-10.jpg" alt="Карни признал Палестину — и не боится угроз Трампа" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Карни признал Палестину — и не боится угроз Трампа</div>
+    <div class="card-excerpt">﻿ Премьер-министр Марк Карни заявил в Нью-Йорке, что решение Канады признать Палестину принято независимо от давления Вашингтона. Дональд Трамп ранее грозил: такой шаг «очень усложнит» торговые перего</div>
+    <div class="card-meta">
+      <span class="card-date">24 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-21-zhiteli-dildo-nyufaundlend-i-labrador-podderzhali-pochyotnog/">
-  <div class="sc-img"><img src="/photos/photo_1119@21-09-2025_14-31-53.jpg" alt="Жители Дилдо (Ньюфаундленд и Лабрадор) поддержали «почётного мэра» Джимми Киммела" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thecanadianpressnews.ca</div>
-    <div class="ptit sc-title">Жители Дилдо (Ньюфаундленд и Лабрадор) поддержали «почётного мэра» Джимми Киммела</div>
-    <div class="pex">В 2019 году американский ведущий Джимми Киммел влюбился в деревушку с вызывающим названием Дилдо и даже получил там статус «почётного мэра». Теперь, после приостановки его шоу ABC, жители снова встали</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2025-09-21-zhiteli-dildo-nyufaundlend-i-labrador-podderzhali-pochyotnog/">
+  <div class="card-img"><img src="/photos/photo_1119@21-09-2025_14-31-53.jpg" alt="Жители Дилдо (Ньюфаундленд и Лабрадор) поддержали «почётного мэра» Джимми Киммела" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thecanadianpressnews.ca</div>
+    <div class="card-title">Жители Дилдо (Ньюфаундленд и Лабрадор) поддержали «почётного мэра» Джимми Киммела</div>
+    <div class="card-excerpt">В 2019 году американский ведущий Джимми Киммел влюбился в деревушку с вызывающим названием Дилдо и даже получил там статус «почётного мэра». Теперь, после приостановки его шоу ABC, жители снова встали</div>
+    <div class="card-meta">
+      <span class="card-date">21 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-20-shest-iz-desyati-kanadtsev-zayavili-chto-bolshe-nikogda-ne-b/">
-  <div class="sc-img"><img src="/photos/photo_1109@20-09-2025_10-21-43.jpg" alt="Шесть из десяти канадцев заявили, что больше никогда не будут доверять американцам так же, как раньше" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Шесть из десяти канадцев заявили, что больше никогда не будут доверять американцам так же, как раньше</div>
-    <div class="pex">Новый опрос Ipsos для Global News показал: 60% канадцев считают, что доверие к США разрушено окончательно. Причина — тарифная война Дональда Трампа против Канады и его регулярные заявления об «аннекси</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-09-20-shest-iz-desyati-kanadtsev-zayavili-chto-bolshe-nikogda-ne-b/">
+  <div class="card-img"><img src="/photos/photo_1109@20-09-2025_10-21-43.jpg" alt="Шесть из десяти канадцев заявили, что больше никогда не будут доверять американцам так же, как раньше" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Шесть из десяти канадцев заявили, что больше никогда не будут доверять американцам так же, как раньше</div>
+    <div class="card-excerpt">Новый опрос Ipsos для Global News показал: 60% канадцев считают, что доверие к США разрушено окончательно. Причина — тарифная война Дональда Трампа против Канады и его регулярные заявления об «аннекси</div>
+    <div class="card-meta">
+      <span class="card-date">20 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/tarify/page/4/">←</a><a class="pb" href="/tag/tarify/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/tarify/page/3/">3</a><a class="pb" href="/tag/tarify/page/4/">4</a><a class="pb on" href="/tag/tarify/page/5/">5</a><a class="pb" href="/tag/tarify/page/6/">6</a><a class="pb" href="/tag/tarify/page/7/">7</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/tarify/page/13/">13</a><a class="pb" href="/tag/tarify/page/6/">→</a></div>

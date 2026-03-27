@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#экономика</h1>
     <p>669 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-04-20-glavnoe-po-oprosam-za-19-aprelya-mainstreet-research/">
-  <div class="sc-img"><img src="/photos/photo_282@20-04-2025_08-32-01.jpg" alt="Главное по опросам за 19 апреля (Mainstreet Research):" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">mainstreetresearch.ca</div>
-    <div class="ptit sc-title">Главное по опросам за 19 апреля (Mainstreet Research):</div>
-    <div class="pex">Консерваторы Пьера Полиева впервые опережают либералов Марка Карни среди решивших и колеблющихся избирателей:  – Консерваторы: 43% – Либералы: 41% – НДП: 5% – Блок: 5% – Зелёные: 2% – Народная партия:</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-04-20-glavnoe-po-oprosam-za-19-aprelya-mainstreet-research/">
+  <div class="card-img"><img src="/photos/photo_282@20-04-2025_08-32-01.jpg" alt="Главное по опросам за 19 апреля (Mainstreet Research):" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">mainstreetresearch.ca</div>
+    <div class="card-title">Главное по опросам за 19 апреля (Mainstreet Research):</div>
+    <div class="card-excerpt">Консерваторы Пьера Полиева впервые опережают либералов Марка Карни среди решивших и колеблющихся избирателей:  – Консерваторы: 43% – Либералы: 41% – НДП: 5% – Блок: 5% – Зелёные: 2% – Народная партия:</div>
+    <div class="card-meta">
+      <span class="card-date">20 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-19-odin-proekt-odin-protsess-ontario-na-uskorennoy-dobyche/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🛠️ &quot;Один проект — один процесс&quot;: Онтарио на ускоренной добыче</div>
-    <div class="pex">Даг Форд бросает бюрократию под экскаватор ради стратегических ресурсов.  Руда, редкоземельные и решимость Провинция Онтарио решила не отставать от глобальной гонки за критически важными минералами (л</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-04-19-odin-proekt-odin-protsess-ontario-na-uskorennoy-dobyche/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🛠️ &quot;Один проект — один процесс&quot;: Онтарио на ускоренной добыче</div>
+    <div class="card-excerpt">Даг Форд бросает бюрократию под экскаватор ради стратегических ресурсов.  Руда, редкоземельные и решимость Провинция Онтарио решила не отставать от глобальной гонки за критически важными минералами (л</div>
+    <div class="card-meta">
+      <span class="card-date">19 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-19-hvatit-polumer-kanade-nuzhno-odno-bolshinstvo-v-parlamente/">
-  <div class="sc-img"><img src="/photos/photo_278@19-04-2025_09-52-01.jpg" alt="🇨🇦 Хватит полумер: Канаде нужно одно — большинство в парламенте" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">🇨🇦 Хватит полумер: Канаде нужно одно — большинство в парламенте</div>
-    <div class="pex">По мнению обозревателя Toronto Star Эндрю Филлипса, меньшинства хороши для мирного времени. Но не сейчас. Сейчас — не нормальные времена.  ⚠️ Что на кону – Трамп угрожает экономике и суверенитету Кана</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-19-hvatit-polumer-kanade-nuzhno-odno-bolshinstvo-v-parlamente/">
+  <div class="card-img"><img src="/photos/photo_278@19-04-2025_09-52-01.jpg" alt="🇨🇦 Хватит полумер: Канаде нужно одно — большинство в парламенте" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">🇨🇦 Хватит полумер: Канаде нужно одно — большинство в парламенте</div>
+    <div class="card-excerpt">По мнению обозревателя Toronto Star Эндрю Филлипса, меньшинства хороши для мирного времени. Но не сейчас. Сейчас — не нормальные времена.  ⚠️ Что на кону – Трамп угрожает экономике и суверенитету Кана</div>
+    <div class="card-meta">
+      <span class="card-date">19 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-18-kto-pobedil-na-angliyskih-debatah-poliev-bez-voprosov/">
-  <div class="sc-img"><img src="/photos/photo_274@18-04-2025_11-37-01.jpg" alt="Кто победил на английских дебатах? Полиев. Без вопросов." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Кто победил на английских дебатах? Полиев. Без вопросов.</div>
-    <div class="pex">По мнению обозревателя National Post Джейми Сарконак, ответ очевиден: Пьер Полиев не просто справился с дебатами — он разнёс соперников.   Полиев вёл  наступление в своём стиле:  – Внятное послание об</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-04-18-kto-pobedil-na-angliyskih-debatah-poliev-bez-voprosov/">
+  <div class="card-img"><img src="/photos/photo_274@18-04-2025_11-37-01.jpg" alt="Кто победил на английских дебатах? Полиев. Без вопросов." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Кто победил на английских дебатах? Полиев. Без вопросов.</div>
+    <div class="card-excerpt">По мнению обозревателя National Post Джейми Сарконак, ответ очевиден: Пьер Полиев не просто справился с дебатами — он разнёс соперников.   Полиев вёл  наступление в своём стиле:  – Внятное послание об</div>
+    <div class="card-meta">
+      <span class="card-date">18 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-18-kto-vyigral-debaty/">
-  <div class="sc-img"><img src="/photos/photo_273@18-04-2025_11-21-46.jpg" alt="Кто выиграл дебаты?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ottawacitizen.com</div>
-    <div class="ptit sc-title">Кто выиграл дебаты?</div>
-    <div class="pex">По мнению обозревателя Mohammed Adam, Полиев был эффективен. Он сразу пошёл в наступление с обвинениями в адрес либералов, раз за разом повторяя фразу о «потерянном либеральном десятилетии». Ему удало</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-04-18-kto-vyigral-debaty/">
+  <div class="card-img"><img src="/photos/photo_273@18-04-2025_11-21-46.jpg" alt="Кто выиграл дебаты?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ottawacitizen.com</div>
+    <div class="card-title">Кто выиграл дебаты?</div>
+    <div class="card-excerpt">По мнению обозревателя Mohammed Adam, Полиев был эффективен. Он сразу пошёл в наступление с обвинениями в адрес либералов, раз за разом повторяя фразу о «потерянном либеральном десятилетии». Ему удало</div>
+    <div class="card-meta">
+      <span class="card-date">18 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-18-faktcheking-ot-lapress-kto-peregnul-kto-zaputal-kto-prosto-s/">
-  <div class="sc-img"><img src="/photos/photo_271@18-04-2025_09-41-23.jpg" alt="Фактчекинг от LaPress: кто перегнул, кто запутал, кто просто солгал" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">lapresse.ca</div>
-    <div class="ptit sc-title">Фактчекинг от LaPress: кто перегнул, кто запутал, кто просто солгал</div>
-    <div class="pex">На фоне громких заявлений, эмоций и попыток перетянуть электорат — La Presse разобрала факты. Ниже — ключевые цитаты и что на самом деле за ними стоит.  Марк Карни (Либералы)  – Заявил: «Мы увеличим д</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-04-18-faktcheking-ot-lapress-kto-peregnul-kto-zaputal-kto-prosto-s/">
+  <div class="card-img"><img src="/photos/photo_271@18-04-2025_09-41-23.jpg" alt="Фактчекинг от LaPress: кто перегнул, кто запутал, кто просто солгал" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">lapresse.ca</div>
+    <div class="card-title">Фактчекинг от LaPress: кто перегнул, кто запутал, кто просто солгал</div>
+    <div class="card-excerpt">На фоне громких заявлений, эмоций и попыток перетянуть электорат — La Presse разобрала факты. Ниже — ключевые цитаты и что на самом деле за ними стоит.  Марк Карни (Либералы)  – Заявил: «Мы увеличим д</div>
+    <div class="card-meta">
+      <span class="card-date">18 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-17-molodyozh-kanady-massovo-uhodit-k-konservatoram/">
-  <div class="sc-img"><img src="/photos/photo_268@17-04-2025_15-57-01.jpg" alt="Молодёжь Канады массово уходит к консерваторам" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Молодёжь Канады массово уходит к консерваторам</div>
-    <div class="pex">Bloomberg выпустил статью о тренде, который и вы наверняка заметили, если следите за опросами и видите, что молодежь стабильно выбирает консерваторов.   Это настоящий электоральный переворот. Историче</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-04-17-molodyozh-kanady-massovo-uhodit-k-konservatoram/">
+  <div class="card-img"><img src="/photos/photo_268@17-04-2025_15-57-01.jpg" alt="Молодёжь Канады массово уходит к консерваторам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Молодёжь Канады массово уходит к консерваторам</div>
+    <div class="card-excerpt">Bloomberg выпустил статью о тренде, который и вы наверняка заметили, если следите за опросами и видите, что молодежь стабильно выбирает консерваторов.   Это настоящий электоральный переворот. Историче</div>
+    <div class="card-meta">
+      <span class="card-date">17 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-17-dag-ford-poshyol-v-nastuplenie-barery-mezhdu-provintsiyami-p/">
-  <div class="sc-img"><img src="/photos/photo_266@17-04-2025_11-46-28.jpg" alt="Даг Форд пошёл в наступление: барьеры между провинциями — под нож" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Даг Форд пошёл в наступление: барьеры между провинциями — под нож</div>
-    <div class="pex">Пока Трамп душит Канаду тарифами, Онтарио решает навести порядок у себя — и открывает двери для торговли и рабочих рук со всей страны. Сегодня Форд внёс в парламент закон, который снимает все исключен</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-17-dag-ford-poshyol-v-nastuplenie-barery-mezhdu-provintsiyami-p/">
+  <div class="card-img"><img src="/photos/photo_266@17-04-2025_11-46-28.jpg" alt="Даг Форд пошёл в наступление: барьеры между провинциями — под нож" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Даг Форд пошёл в наступление: барьеры между провинциями — под нож</div>
+    <div class="card-excerpt">Пока Трамп душит Канаду тарифами, Онтарио решает навести порядок у себя — и открывает двери для торговли и рабочих рук со всей страны. Сегодня Форд внёс в парламент закон, который снимает все исключен</div>
+    <div class="card-meta">
+      <span class="card-date">17 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-17-frantsuzskie-debaty-bez-feylov-bez-feyerverkov-bez-pobeditel/">
-  <div class="sc-img"><img src="/photos/photo_264@17-04-2025_09-43-01.jpg" alt="Французские дебаты: без фейлов, без фейерверков, без победителя" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Французские дебаты: без фейлов, без фейерверков, без победителя</div>
-    <div class="pex">Первые национальные дебаты позади. Карни, Полиев, Сингх, Бланше — на сцене в Монреале. Формат позволял перебивать, но никто не кричал. Личных атак не было. Даже клубнику обсудили без оскорблений.  🔥 И</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-17-frantsuzskie-debaty-bez-feylov-bez-feyerverkov-bez-pobeditel/">
+  <div class="card-img"><img src="/photos/photo_264@17-04-2025_09-43-01.jpg" alt="Французские дебаты: без фейлов, без фейерверков, без победителя" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Французские дебаты: без фейлов, без фейерверков, без победителя</div>
+    <div class="card-excerpt">Первые национальные дебаты позади. Карни, Полиев, Сингх, Бланше — на сцене в Монреале. Формат позволял перебивать, но никто не кричал. Личных атак не было. Даже клубнику обсудили без оскорблений.  🔥 И</div>
+    <div class="card-meta">
+      <span class="card-date">17 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-16-katastrofa-v-realnom-vremeni-konservatory-teryayut-vsyo-tram/">
-  <div class="sc-img"><img src="/photos/photo_262@16-04-2025_17-41-01.jpg" alt="«Катастрофа в реальном времени»: консерваторы теряют всё — Трамп, тарифы и провал Полиева" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theguardian.com</div>
-    <div class="ptit sc-title">«Катастрофа в реальном времени»: консерваторы теряют всё — Трамп, тарифы и провал Полиева</div>
-    <div class="pex">Жесткая статья в TheGuardian  Когда Пьер Полиев выходил к публике в Брамптоне, в зале кричали от восторга. Люди в майках “Save Canada” хлопали, тянули руки. А ведь ещё в феврале Полиев вёл с отрывом в</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-16-katastrofa-v-realnom-vremeni-konservatory-teryayut-vsyo-tram/">
+  <div class="card-img"><img src="/photos/photo_262@16-04-2025_17-41-01.jpg" alt="«Катастрофа в реальном времени»: консерваторы теряют всё — Трамп, тарифы и провал Полиева" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theguardian.com</div>
+    <div class="card-title">«Катастрофа в реальном времени»: консерваторы теряют всё — Трамп, тарифы и провал Полиева</div>
+    <div class="card-excerpt">Жесткая статья в TheGuardian  Когда Пьер Полиев выходил к публике в Брамптоне, в зале кричали от восторга. Люди в майках “Save Canada” хлопали, тянули руки. А ведь ещё в феврале Полиев вёл с отрывом в</div>
+    <div class="card-meta">
+      <span class="card-date">16 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-16-novye-tsifry-ot-lger-liberaly-karni-sohranyayut-liderstvo-no/">
-  <div class="sc-img"><img src="/photos/photo_261@16-04-2025_14-29-01.jpg" alt="🔥 Новые цифры от Léger: либералы Карни сохраняют лидерство, но гонка становится всё более нервной." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🔥 Новые цифры от Léger: либералы Карни сохраняют лидерство, но гонка становится всё более нервной.</div>
-    <div class="pex">📊 Национальный расклад: – Либералы — 43% – Консерваторы — 38% – НДП — 8% – Блок — 6% (в Квебеке) – Зелёные — 3% – Партия народа — 2%  🗳 Кто твёрдо определился: – 68% избирателей уже приняли решение, о</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-16-novye-tsifry-ot-lger-liberaly-karni-sohranyayut-liderstvo-no/">
+  <div class="card-img"><img src="/photos/photo_261@16-04-2025_14-29-01.jpg" alt="🔥 Новые цифры от Léger: либералы Карни сохраняют лидерство, но гонка становится всё более нервной." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🔥 Новые цифры от Léger: либералы Карни сохраняют лидерство, но гонка становится всё более нервной.</div>
+    <div class="card-excerpt">📊 Национальный расклад: – Либералы — 43% – Консерваторы — 38% – НДП — 8% – Блок — 6% (в Квебеке) – Зелёные — 3% – Партия народа — 2%  🗳 Кто твёрдо определился: – 68% избирателей уже приняли решение, о</div>
+    <div class="card-meta">
+      <span class="card-date">16 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-16-kvebek-trebuet-sokratit-immigratsiyu-biznes-v-shoke-tak-my-v/">
-  <div class="sc-img"><img src="/photos/photo_256@16-04-2025_10-44-01.jpg" alt="Квебек требует сократить иммиграцию. Бизнес в шоке: «Так мы всё потеряем»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Квебек требует сократить иммиграцию. Бизнес в шоке: «Так мы всё потеряем»</div>
-    <div class="pex">Пока премьер Франсуа Лего публично требует от Оттавы урезать количество временных мигрантов, крупнейшие работодатели Квебека бьют тревогу:  «Это разрушит экономику провинции», — говорят они. «Без мигр</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-04-16-kvebek-trebuet-sokratit-immigratsiyu-biznes-v-shoke-tak-my-v/">
+  <div class="card-img"><img src="/photos/photo_256@16-04-2025_10-44-01.jpg" alt="Квебек требует сократить иммиграцию. Бизнес в шоке: «Так мы всё потеряем»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Квебек требует сократить иммиграцию. Бизнес в шоке: «Так мы всё потеряем»</div>
+    <div class="card-excerpt">Пока премьер Франсуа Лего публично требует от Оттавы урезать количество временных мигрантов, крупнейшие работодатели Квебека бьют тревогу:  «Это разрушит экономику провинции», — говорят они. «Без мигр</div>
+    <div class="card-meta">
+      <span class="card-date">16 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-16-belyy-dom-tramp-vsyo-eschyo-hochet-sdelat-kanadu-51-m-shtato/">
-  <div class="sc-img"><img src="/photos/photo_254@16-04-2025_07-45-21.jpg" alt="Белый дом: Трамп всё ещё хочет сделать Канаду 51-м штатом" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Белый дом: Трамп всё ещё хочет сделать Канаду 51-м штатом</div>
-    <div class="pex">Да, вы правильно прочитали.  Пресс-секретарь Белого дома Каролин Левитт официально подтвердила, что Дональд Трамп не отказывался от идеи включить Канаду в состав США:  «Президент по-прежнему считает,</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-16-belyy-dom-tramp-vsyo-eschyo-hochet-sdelat-kanadu-51-m-shtato/">
+  <div class="card-img"><img src="/photos/photo_254@16-04-2025_07-45-21.jpg" alt="Белый дом: Трамп всё ещё хочет сделать Канаду 51-м штатом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Белый дом: Трамп всё ещё хочет сделать Канаду 51-м штатом</div>
+    <div class="card-excerpt">Да, вы правильно прочитали.  Пресс-секретарь Белого дома Каролин Левитт официально подтвердила, что Дональд Трамп не отказывался от идеи включить Канаду в состав США:  «Президент по-прежнему считает,</div>
+    <div class="card-meta">
+      <span class="card-date">16 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-15-karni-obeschaet-15-000-na-pereobuchenie-stavka-na-silnuyu-ka/">
-  <div class="sc-img"><img src="/photos/photo_253@15-04-2025_15-23-01.jpg" alt="Карни обещает $15 000 на переобучение — ставка на «сильную Канаду»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">liberal.ca</div>
-    <div class="ptit sc-title">Карни обещает $15 000 на переобучение — ставка на «сильную Канаду»</div>
-    <div class="pex">В ответ на тарифы Трампа и экономическую турбулентность Марк Карни представил новую федеральную выплату: до $15 000 на переобучение для работников в приоритетных отраслях — здравоохранение, производст</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-15-karni-obeschaet-15-000-na-pereobuchenie-stavka-na-silnuyu-ka/">
+  <div class="card-img"><img src="/photos/photo_253@15-04-2025_15-23-01.jpg" alt="Карни обещает $15 000 на переобучение — ставка на «сильную Канаду»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">liberal.ca</div>
+    <div class="card-title">Карни обещает $15 000 на переобучение — ставка на «сильную Канаду»</div>
+    <div class="card-excerpt">В ответ на тарифы Трампа и экономическую турбулентность Марк Карни представил новую федеральную выплату: до $15 000 на переобучение для работников в приоритетных отраслях — здравоохранение, производст</div>
+    <div class="card-meta">
+      <span class="card-date">15 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-15-inflyatsiya-v-kanade-neozhidanno-sbavila-oboroty-do-23/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">😲 Инфляция в Канаде неожиданно сбавила обороты до 2,3%</div>
-    <div class="pex">В марте инфляция в Канаде удивила аналитиков, снизившись до 2,3% в годовом выражении. Это ниже не только февральских 2,6%, но и прогнозов большинства экономистов.  Причины — вполне приятные: упали цен</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-15-inflyatsiya-v-kanade-neozhidanno-sbavila-oboroty-do-23/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">😲 Инфляция в Канаде неожиданно сбавила обороты до 2,3%</div>
+    <div class="card-excerpt">В марте инфляция в Канаде удивила аналитиков, снизившись до 2,3% в годовом выражении. Это ниже не только февральских 2,6%, но и прогнозов большинства экономистов.  Причины — вполне приятные: упали цен</div>
+    <div class="card-meta">
+      <span class="card-date">15 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-15-tarify-dlya-chuzhakov/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🇨🇦 Тарифы — для чужаков</div>
-    <div class="pex">Канада смягчает ограничения для своих автопроизводителей. Автогиганты могут выдохнуть, но только если не забудут, где их дом.  На фоне обострения торговой войны с США Канада сделала тактический шаг: ч</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-15-tarify-dlya-chuzhakov/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🇨🇦 Тарифы — для чужаков</div>
+    <div class="card-excerpt">Канада смягчает ограничения для своих автопроизводителей. Автогиганты могут выдохнуть, но только если не забудут, где их дом.  На фоне обострения торговой войны с США Канада сделала тактический шаг: ч</div>
+    <div class="card-meta">
+      <span class="card-date">15 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-15-freyzer-pravitelstvo-tryudo-samo-sozdalo-krizis-zhilya-v-kan/">
-  <div class="sc-img"><img src="/photos/photo_248@15-04-2025_08-28-01.jpg" alt="Фрейзер: правительство Трюдо само создало кризис жилья в Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Фрейзер: правительство Трюдо само создало кризис жилья в Канаде</div>
-    <div class="pex">Согласно новому исследованию Института Фрейзера, острейший жилищный кризис в Канаде — прямой результат агрессивной иммиграционной политики либералов.  В 2023 году население Канады выросло на рекордные</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-04-15-freyzer-pravitelstvo-tryudo-samo-sozdalo-krizis-zhilya-v-kan/">
+  <div class="card-img"><img src="/photos/photo_248@15-04-2025_08-28-01.jpg" alt="Фрейзер: правительство Трюдо само создало кризис жилья в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Фрейзер: правительство Трюдо само создало кризис жилья в Канаде</div>
+    <div class="card-excerpt">Согласно новому исследованию Института Фрейзера, острейший жилищный кризис в Канаде — прямой результат агрессивной иммиграционной политики либералов.  В 2023 году население Канады выросло на рекордные</div>
+    <div class="card-meta">
+      <span class="card-date">15 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-14-tsena-pobedy/">
-  <div class="sc-img"><img src="/photos/photo_247@14-04-2025_16-01-22.jpg" alt="Цена победы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">hilltimes.com</div>
-    <div class="ptit sc-title">Цена победы</div>
-    <div class="pex">Да, у консерваторов спад в опросах. Но победа для Полиева всё ещё возможна — при одном условии. Версия HillTimes   📊 Cвежие данные – Либералы: 43–46% – Консерваторы: 34–38% – НДП и Зеленые — почти вне</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-14-tsena-pobedy/">
+  <div class="card-img"><img src="/photos/photo_247@14-04-2025_16-01-22.jpg" alt="Цена победы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">hilltimes.com</div>
+    <div class="card-title">Цена победы</div>
+    <div class="card-excerpt">Да, у консерваторов спад в опросах. Но победа для Полиева всё ещё возможна — при одном условии. Версия HillTimes   📊 Cвежие данные – Либералы: 43–46% – Консерваторы: 34–38% – НДП и Зеленые — почти вне</div>
+    <div class="card-meta">
+      <span class="card-date">14 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-14-poslednyaya-stavka-konservatorov-unichtozhit-karni/">
-  <div class="sc-img"><img src="/photos/photo_241@14-04-2025_10-54-01.jpg" alt="Последняя ставка консерваторов: уничтожить Карни." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Последняя ставка консерваторов: уничтожить Карни.</div>
-    <div class="pex">Мнение Майкла Харриса  После двух лет лидерства в опросах Консерваторы просели на 5–7 пунктов, Карни обогнал Полиева как по доверию, так и по показателю “предпочтительный премьер” (50% против 28%). Чт</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-14-poslednyaya-stavka-konservatorov-unichtozhit-karni/">
+  <div class="card-img"><img src="/photos/photo_241@14-04-2025_10-54-01.jpg" alt="Последняя ставка консерваторов: уничтожить Карни." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Последняя ставка консерваторов: уничтожить Карни.</div>
+    <div class="card-excerpt">Мнение Майкла Харриса  После двух лет лидерства в опросах Консерваторы просели на 5–7 пунктов, Карни обогнал Полиева как по доверию, так и по показателю “предпочтительный премьер” (50% против 28%). Чт</div>
+    <div class="card-meta">
+      <span class="card-date">14 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-13-canada-strong-pass-karni-razdayot-detyam-bilety-na-kanadu/">
-  <div class="sc-img"><img src="/photos/photo_239@13-04-2025_13-02-06.jpg" alt="“Canada Strong Pass” — Карни раздаёт детям билеты на Канаду." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">liberal.ca</div>
-    <div class="ptit sc-title">“Canada Strong Pass” — Карни раздаёт детям билеты на Канаду.</div>
-    <div class="pex">На фоне тарифов Трампа и массового отказа от поездок в США, Либералы предложили ответ не в духе войны, а в духе “внутреннего туризма”.  📣 Новый план от Карни: Canada Strong Pass — бесплатный летний аб</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-13-canada-strong-pass-karni-razdayot-detyam-bilety-na-kanadu/">
+  <div class="card-img"><img src="/photos/photo_239@13-04-2025_13-02-06.jpg" alt="“Canada Strong Pass” — Карни раздаёт детям билеты на Канаду." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">liberal.ca</div>
+    <div class="card-title">“Canada Strong Pass” — Карни раздаёт детям билеты на Канаду.</div>
+    <div class="card-excerpt">На фоне тарифов Трампа и массового отказа от поездок в США, Либералы предложили ответ не в духе войны, а в духе “внутреннего туризма”.  📣 Новый план от Карни: Canada Strong Pass — бесплатный летний аб</div>
+    <div class="card-meta">
+      <span class="card-date">13 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-12-pokolenie-z-rvyotsya-v-raznye-storony-zhenschiny-nalevo-muzh/">
-  <div class="sc-img"><span style="font-size:26px">📻</span></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Поколение Z рвётся в разные стороны. Женщины — налево. Мужчины — направо.</div>
-    <div class="pex">Новый материал CBC News показывает, как молодые мужчины в Канаде меняют само лицо консерватизма. Речь не просто о голосах. Речь — о целой культурной перестройке.  📊 Abacus Data: среди мужчин до 30 лет</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-12-pokolenie-z-rvyotsya-v-raznye-storony-zhenschiny-nalevo-muzh/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📻</span></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Поколение Z рвётся в разные стороны. Женщины — налево. Мужчины — направо.</div>
+    <div class="card-excerpt">Новый материал CBC News показывает, как молодые мужчины в Канаде меняют само лицо консерватизма. Речь не просто о голосах. Речь — о целой культурной перестройке.  📊 Abacus Data: среди мужчин до 30 лет</div>
+    <div class="card-meta">
+      <span class="card-date">12 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-11-dyra-za-16-millionov-burnaby-heights-prodayot-nedostroennyy-/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🏗️ Дыра за 16 миллионов: Burnaby Heights продаёт недостроенный проект</div>
-    <div class="pex">В самом сердце уютного района Burnaby Heights (Бернаби, БК) теперь зияет огромная яма, которую можно приобрести всего за 16 миллионов долларов. Речь о недостроенном проекте Siena at the Heights по адр</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-11-dyra-za-16-millionov-burnaby-heights-prodayot-nedostroennyy-/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🏗️ Дыра за 16 миллионов: Burnaby Heights продаёт недостроенный проект</div>
+    <div class="card-excerpt">В самом сердце уютного района Burnaby Heights (Бернаби, БК) теперь зияет огромная яма, которую можно приобрести всего за 16 миллионов долларов. Речь о недостроенном проекте Siena at the Heights по адр</div>
+    <div class="card-meta">
+      <span class="card-date">11 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-11-kompaniya-marka-karni-zaregistrirovala-fond-v-ofshore-kotory/">
-  <div class="sc-img"><img src="/photos/photo_226@11-04-2025_09-44-01.jpg" alt="Компания Марка Карни зарегистрировала фонд в офшоре, который критиковал Обама" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Компания Марка Карни зарегистрировала фонд в офшоре, который критиковал Обама</div>
-    <div class="pex">Пока Либеральная партия обещает «налоговую справедливость», выясняется, что бывшая компания Марка Карни, Brookfield, активно использует те самые офшоры, от которых “страдает бюджет Канады”.  📌 CTV New</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-04-11-kompaniya-marka-karni-zaregistrirovala-fond-v-ofshore-kotory/">
+  <div class="card-img"><img src="/photos/photo_226@11-04-2025_09-44-01.jpg" alt="Компания Марка Карни зарегистрировала фонд в офшоре, который критиковал Обама" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Компания Марка Карни зарегистрировала фонд в офшоре, который критиковал Обама</div>
+    <div class="card-excerpt">Пока Либеральная партия обещает «налоговую справедливость», выясняется, что бывшая компания Марка Карни, Brookfield, активно использует те самые офшоры, от которых “страдает бюджет Канады”.  📌 CTV New</div>
+    <div class="card-meta">
+      <span class="card-date">11 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-10-tseny-na-konservy-mogut-vyrasti-na-40-tsentov-za-banku-iz-za/">
-  <div class="sc-img"><img src="/photos/photo_222@10-04-2025_14-36-32.jpg" alt="🥫 Цены на консервы могут вырасти на 40 центов за банку из-за тарифов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">🥫 Цены на консервы могут вырасти на 40 центов за банку из-за тарифов</div>
-    <div class="pex">🇨🇦 Канадская компания Sun-Brite Foods Inc. (владеет брендами Unico и Primo) предупредила: из-за тарифной войны с США цены на консервированные продукты могут вырасти на 25-40 центов за банку.  🔩 Причин</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-10-tseny-na-konservy-mogut-vyrasti-na-40-tsentov-za-banku-iz-za/">
+  <div class="card-img"><img src="/photos/photo_222@10-04-2025_14-36-32.jpg" alt="🥫 Цены на консервы могут вырасти на 40 центов за банку из-за тарифов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">🥫 Цены на консервы могут вырасти на 40 центов за банку из-за тарифов</div>
+    <div class="card-excerpt">🇨🇦 Канадская компания Sun-Brite Foods Inc. (владеет брендами Unico и Primo) предупредила: из-за тарифной войны с США цены на консервированные продукты могут вырасти на 25-40 центов за банку.  🔩 Причин</div>
+    <div class="card-meta">
+      <span class="card-date">10 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-10-sluchay-na-poroge-kak-dva-roba-ustroili-mini-debaty-pod-dver/">
-  <div class="sc-img"><img src="/photos/photo_218@10-04-2025_12-04-01.jpg" alt="🏡 Случай на пороге: как два Роба устроили мини-дебаты под дверью избирателя в Торонто" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">🏡 Случай на пороге: как два Роба устроили мини-дебаты под дверью избирателя в Торонто</div>
-    <div class="pex">В округе Don Valley West, который с 90-х почти без перерыва голосует за Либералов, произошла сцена, достойная телешоу: к дому подошёл кандидат от Консерваторов Роб Пирс с листовками и речью про рост у</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-04-10-sluchay-na-poroge-kak-dva-roba-ustroili-mini-debaty-pod-dver/">
+  <div class="card-img"><img src="/photos/photo_218@10-04-2025_12-04-01.jpg" alt="🏡 Случай на пороге: как два Роба устроили мини-дебаты под дверью избирателя в Торонто" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">🏡 Случай на пороге: как два Роба устроили мини-дебаты под дверью избирателя в Торонто</div>
+    <div class="card-excerpt">В округе Don Valley West, который с 90-х почти без перерыва голосует за Либералов, произошла сцена, достойная телешоу: к дому подошёл кандидат от Консерваторов Роб Пирс с листовками и речью про рост у</div>
+    <div class="card-meta">
+      <span class="card-date">10 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-09-tramp-udaril-po-kitayu-no-priostanovil-globalnuyu-torgovuyu-/">
-  <div class="sc-img"><img src="/photos/photo_210@09-04-2025_13-48-14.jpg" alt="Трамп ударил по Китаю, но приостановил глобальную торговую эскалацию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Трамп ударил по Китаю, но приостановил глобальную торговую эскалацию</div>
-    <div class="pex">Бывший (но всё ещё действующий де-факто) торговый диктатор мира Дональд Трамп снова встряхнул рынки. Вот его новый ультиматум.  – США вводят тариф 125% на весь импорт из Китая — «за неуважение к миров</div>
-    <div class="pmeta sc-meta"><span class="pdate">9 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-09-tramp-udaril-po-kitayu-no-priostanovil-globalnuyu-torgovuyu-/">
+  <div class="card-img"><img src="/photos/photo_210@09-04-2025_13-48-14.jpg" alt="Трамп ударил по Китаю, но приостановил глобальную торговую эскалацию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Трамп ударил по Китаю, но приостановил глобальную торговую эскалацию</div>
+    <div class="card-excerpt">Бывший (но всё ещё действующий де-факто) торговый диктатор мира Дональд Трамп снова встряхнул рынки. Вот его новый ультиматум.  – США вводят тариф 125% на весь импорт из Китая — «за неуважение к миров</div>
+    <div class="card-meta">
+      <span class="card-date">9 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-08-kitay-snova-vmeshivaetsya-v-vybory-kanady-v-podderzhku-liber/">
-  <div class="sc-img"><img src="/photos/photo_200@08-04-2025_15-27-26.jpg" alt="🧧 Китай снова вмешивается в выборы Канады — в поддержку либералов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">🧧 Китай снова вмешивается в выборы Канады — в поддержку либералов</div>
-    <div class="pex">Федеральные чиновники официально подтвердили: на WeChat действует китайская кампания, продвигающая Марка Карни в китайскоязычном сообществе Канады.  – Операция ведётся через самый популярный WeChat-ак</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-08-kitay-snova-vmeshivaetsya-v-vybory-kanady-v-podderzhku-liber/">
+  <div class="card-img"><img src="/photos/photo_200@08-04-2025_15-27-26.jpg" alt="🧧 Китай снова вмешивается в выборы Канады — в поддержку либералов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">🧧 Китай снова вмешивается в выборы Канады — в поддержку либералов</div>
+    <div class="card-excerpt">Федеральные чиновники официально подтвердили: на WeChat действует китайская кампания, продвигающая Марка Карни в китайскоязычном сообществе Канады.  – Операция ведётся через самый популярный WeChat-ак</div>
+    <div class="card-meta">
+      <span class="card-date">8 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-08-rost-prezhde-vsego-glava-scotiabank-prizyvaet-kanadu-k-perez/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">📉 &quot;Рост прежде всего&quot;: глава Scotiabank призывает Канаду к перезагрузке экономики</div>
-    <div class="pex">Банкиры забили тревогу, и это уже не просто про ипотеку. Их совет: хватит латать — пора строить.  Брайан Портер — генеральный директор одного из крупнейших банков Канады (Scotiabank) — выступил с гром</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-08-rost-prezhde-vsego-glava-scotiabank-prizyvaet-kanadu-k-perez/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">📉 &quot;Рост прежде всего&quot;: глава Scotiabank призывает Канаду к перезагрузке экономики</div>
+    <div class="card-excerpt">Банкиры забили тревогу, и это уже не просто про ипотеку. Их совет: хватит латать — пора строить.  Брайан Портер — генеральный директор одного из крупнейших банков Канады (Scotiabank) — выступил с гром</div>
+    <div class="card-meta">
+      <span class="card-date">8 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-08-dag-ford-spasaet-biznes-11-milliardov-protiv-tramponomiki/">
-  <div class="sc-img"><span style="font-size:26px">📰</span></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Даг Форд спасает бизнес: $11 миллиардов против трампономики</div>
-    <div class="pex">Премьер Онтарио бросает налоговый круг спасения компаниям, пострадавшим от американских тарифов.  Пока Трамп упражняется во взаимных тарифах, рынки падают третий день подряд, а бизнес задыхается, прем</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-08-dag-ford-spasaet-biznes-11-milliardov-protiv-tramponomiki/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Даг Форд спасает бизнес: $11 миллиардов против трампономики</div>
+    <div class="card-excerpt">Премьер Онтарио бросает налоговый круг спасения компаниям, пострадавшим от американских тарифов.  Пока Трамп упражняется во взаимных тарифах, рынки падают третий день подряд, а бизнес задыхается, прем</div>
+    <div class="card-meta">
+      <span class="card-date">8 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-07-karni-nachal-zapadnyy-tur-s-kolkosti-v-adres-daniel-smit/">
-  <div class="sc-img"><img src="/photos/photo_192@07-04-2025_13-21-47.jpg" alt="🌊 Карни начал западный тур — с колкости в адрес Даниэль Смит" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">🌊 Карни начал западный тур — с колкости в адрес Даниэль Смит</div>
-    <div class="pex">Столица Британской Колумбии Виктория стала первой остановкой Марка Карни в его кампании по западной части страны. И начал он с явного сигнала: либералы не будут молчать, пока премьеры вроде Даниэль См</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-07-karni-nachal-zapadnyy-tur-s-kolkosti-v-adres-daniel-smit/">
+  <div class="card-img"><img src="/photos/photo_192@07-04-2025_13-21-47.jpg" alt="🌊 Карни начал западный тур — с колкости в адрес Даниэль Смит" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">🌊 Карни начал западный тур — с колкости в адрес Даниэль Смит</div>
+    <div class="card-excerpt">Столица Британской Колумбии Виктория стала первой остановкой Марка Карни в его кампании по западной части страны. И начал он с явного сигнала: либералы не будут молчать, пока премьеры вроде Даниэль См</div>
+    <div class="card-meta">
+      <span class="card-date">7 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-07-redaktsiya-toronto-sun-platforma-karni-eto-dokazatelstvo-cht/">
-  <div class="sc-img"><img src="/photos/photo_190@07-04-2025_09-39-20.jpg" alt="🗞 Редакция Toronto Sun: Платформа Карни — это доказательство, что Полиев был прав" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">🗞 Редакция Toronto Sun: Платформа Карни — это доказательство, что Полиев был прав</div>
-    <div class="pex">В свежей редакционной статье Toronto Sun утверждается: Марк Карни заимствует ключевые идеи из платформы консерваторов, тем самым признавая правоту Пьера Полиева по ряду принципиальных вопросов.  Приме</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-04-07-redaktsiya-toronto-sun-platforma-karni-eto-dokazatelstvo-cht/">
+  <div class="card-img"><img src="/photos/photo_190@07-04-2025_09-39-20.jpg" alt="🗞 Редакция Toronto Sun: Платформа Карни — это доказательство, что Полиев был прав" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">🗞 Редакция Toronto Sun: Платформа Карни — это доказательство, что Полиев был прав</div>
+    <div class="card-excerpt">В свежей редакционной статье Toronto Sun утверждается: Марк Карни заимствует ключевые идеи из платформы консерваторов, тем самым признавая правоту Пьера Полиева по ряду принципиальных вопросов.  Приме</div>
+    <div class="card-meta">
+      <span class="card-date">7 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-06-mark-karni-predstavitel-globalnoy-elity-kanadtsev-eto-ne-smu/">
-  <div class="sc-img"><img src="/photos/photo_187@06-04-2025_14-03-26.jpg" alt="Марк Карни — представитель глобальной элиты. Канадцев это не смущает." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">tvo.org</div>
-    <div class="ptit sc-title">Марк Карни — представитель глобальной элиты. Канадцев это не смущает.</div>
-    <div class="pex">Классная статья на TVO здесь, мы подготовили краткую версию.   Когда в марте Карни стал лидером Либеральной партии, поздравления посыпались со всего мира — от европейских институтов, американских колл</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-06-mark-karni-predstavitel-globalnoy-elity-kanadtsev-eto-ne-smu/">
+  <div class="card-img"><img src="/photos/photo_187@06-04-2025_14-03-26.jpg" alt="Марк Карни — представитель глобальной элиты. Канадцев это не смущает." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">tvo.org</div>
+    <div class="card-title">Марк Карни — представитель глобальной элиты. Канадцев это не смущает.</div>
+    <div class="card-excerpt">Классная статья на TVO здесь, мы подготовили краткую версию.   Когда в марте Карни стал лидером Либеральной партии, поздравления посыпались со всего мира — от европейских институтов, американских колл</div>
+    <div class="card-meta">
+      <span class="card-date">6 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-06-ndp-na-grani-kraha-partiya-mozhet-poteryat-ofitsialnyy-statu/">
-  <div class="sc-img"><img src="/photos/photo_186@06-04-2025_11-27-23.jpg" alt="🟠 НДП на грани краха: партия может потерять  официальный статус в парламенте" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">🟠 НДП на грани краха: партия может потерять  официальный статус в парламенте</div>
-    <div class="pex">Кампания Джагмита Сингха в 2025 году рискует стать самой провальной для Новой демократической партии (NDP) за последние десятилетия.   Согласно последней модели Global News, основанной на агрегированн</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-04-06-ndp-na-grani-kraha-partiya-mozhet-poteryat-ofitsialnyy-statu/">
+  <div class="card-img"><img src="/photos/photo_186@06-04-2025_11-27-23.jpg" alt="🟠 НДП на грани краха: партия может потерять  официальный статус в парламенте" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">🟠 НДП на грани краха: партия может потерять  официальный статус в парламенте</div>
+    <div class="card-excerpt">Кампания Джагмита Сингха в 2025 году рискует стать самой провальной для Новой демократической партии (NDP) за последние десятилетия.   Согласно последней модели Global News, основанной на агрегированн</div>
+    <div class="card-meta">
+      <span class="card-date">6 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-05-i-esche-odin-opros-na-temu-frantsuzskogo-u-karni/">
-  <div class="sc-img"><img src="/photos/photo_183@05-04-2025_17-23-01.jpg" alt="И еще один опрос, на тему французского у Карни" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">И еще один опрос, на тему французского у Карни</div>
-    <div class="pex">Новый опрос Abacus Data показал: 36% франкоязычных канадцев считают, что французский Марка Карни — недостаточно хорош для премьер-министра. Это особенно чувствительно в разгар предвыборной кампании, г</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-05-i-esche-odin-opros-na-temu-frantsuzskogo-u-karni/">
+  <div class="card-img"><img src="/photos/photo_183@05-04-2025_17-23-01.jpg" alt="И еще один опрос, на тему французского у Карни" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">И еще один опрос, на тему французского у Карни</div>
+    <div class="card-excerpt">Новый опрос Abacus Data показал: 36% франкоязычных канадцев считают, что французский Марка Карни — недостаточно хорош для премьер-министра. Это особенно чувствительно в разгар предвыборной кампании, г</div>
+    <div class="card-meta">
+      <span class="card-date">5 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-05-bank-kanady-gotovitsya-k-bolee-rezkim-snizheniem-stavki-ekon/">
-  <div class="sc-img"><img src="/photos/photo_180@05-04-2025_14-45-10.jpg" alt="📉 Банк Канады готовится к более резким снижением ставки — экономика трещит под тарифами Трампа" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">📉 Банк Канады готовится к более резким снижением ставки — экономика трещит под тарифами Трампа</div>
-    <div class="pex">На фоне крупнейшего с 2020 года биржевого обвала и потери 62 тыс. рабочих мест только за март, рынки теперь ждут, что Банк Канады снизит ключевую ставку сразу на 0,75% — до 2% в течение 2025 года. Сей</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-05-bank-kanady-gotovitsya-k-bolee-rezkim-snizheniem-stavki-ekon/">
+  <div class="card-img"><img src="/photos/photo_180@05-04-2025_14-45-10.jpg" alt="📉 Банк Канады готовится к более резким снижением ставки — экономика трещит под тарифами Трампа" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">📉 Банк Канады готовится к более резким снижением ставки — экономика трещит под тарифами Трампа</div>
+    <div class="card-excerpt">На фоне крупнейшего с 2020 года биржевого обвала и потери 62 тыс. рабочих мест только за март, рынки теперь ждут, что Банк Канады снизит ключевую ставку сразу на 0,75% — до 2% в течение 2025 года. Сей</div>
+    <div class="card-meta">
+      <span class="card-date">5 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-05-brookfield-sekonomila-53-mlrd-na-nalogah-pri-uchastii-marka-/">
-  <div class="sc-img"><img src="/photos/photo_178@05-04-2025_08-34-01.jpg" alt="💸 Brookfield &quot;сэкономила&quot; $5,3 млрд на налогах – при участии Марка Карни" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ndp.ca</div>
-    <div class="ptit sc-title">💸 Brookfield &quot;сэкономила&quot; $5,3 млрд на налогах – при участии Марка Карни</div>
-    <div class="pex">Инфа с сайта NDP  С 2021 года компания Brookfield Asset Management недоплатила канадскому бюджету около 5,3 млрд канадских долларов. И всё это — в годы, когда в совете директоров компании сидел бывший</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-04-05-brookfield-sekonomila-53-mlrd-na-nalogah-pri-uchastii-marka-/">
+  <div class="card-img"><img src="/photos/photo_178@05-04-2025_08-34-01.jpg" alt="💸 Brookfield &quot;сэкономила&quot; $5,3 млрд на налогах – при участии Марка Карни" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ndp.ca</div>
+    <div class="card-title">💸 Brookfield &quot;сэкономила&quot; $5,3 млрд на налогах – при участии Марка Карни</div>
+    <div class="card-excerpt">Инфа с сайта NDP  С 2021 года компания Brookfield Asset Management недоплатила канадскому бюджету около 5,3 млрд канадских долларов. И всё это — в годы, когда в совете директоров компании сидел бывший</div>
+    <div class="card-meta">
+      <span class="card-date">5 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-04-smit-slozhno-radovatsya-no-u-nas-poyavilos-okno-dlya-peregov/">
-  <div class="sc-img"><img src="/photos/photo_176@04-04-2025_19-42-01.jpg" alt="🇺🇸 Смит: &quot;Сложно радоваться, но у нас появилось окно для переговоров&quot;" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">🇺🇸 Смит: &quot;Сложно радоваться, но у нас появилось окно для переговоров&quot;</div>
-    <div class="pex">Премьер Альберты Даниэль Смит осторожно прокомментировала новые тарифы от Трампа.  «Трудно быть в восторге от того, что мы чуть-чуть не попали под каток». По её словам, это может отсрочить пересмотр C</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-04-smit-slozhno-radovatsya-no-u-nas-poyavilos-okno-dlya-peregov/">
+  <div class="card-img"><img src="/photos/photo_176@04-04-2025_19-42-01.jpg" alt="🇺🇸 Смит: &quot;Сложно радоваться, но у нас появилось окно для переговоров&quot;" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">🇺🇸 Смит: &quot;Сложно радоваться, но у нас появилось окно для переговоров&quot;</div>
+    <div class="card-excerpt">Премьер Альберты Даниэль Смит осторожно прокомментировала новые тарифы от Трампа.  «Трудно быть в восторге от того, что мы чуть-чуть не попали под каток». По её словам, это может отсрочить пересмотр C</div>
+    <div class="card-meta">
+      <span class="card-date">4 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-04-kanada-mart-2025-tseny-v-costco-vzleteli-do-59-za-dva-goda/">
-  <div class="sc-img"><img src="/photos/photo_175@04-04-2025_17-57-03.jpg" alt="💸 Канада, март 2025: цены в Costco взлетели до +59% за два года" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">💸 Канада, март 2025: цены в Costco взлетели до +59% за два года</div>
-    <div class="pex">Если вам показалось, что привычные продукты в Costco стали стоить ощутимо дороже — вы не ошиблись. Сразу 22 популярных товара подорожали на 5–59% всего за два года, в том числе бренд Kirkland, который</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-04-kanada-mart-2025-tseny-v-costco-vzleteli-do-59-za-dva-goda/">
+  <div class="card-img"><img src="/photos/photo_175@04-04-2025_17-57-03.jpg" alt="💸 Канада, март 2025: цены в Costco взлетели до +59% за два года" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">💸 Канада, март 2025: цены в Costco взлетели до +59% за два года</div>
+    <div class="card-excerpt">Если вам показалось, что привычные продукты в Costco стали стоить ощутимо дороже — вы не ошиблись. Сразу 22 популярных товара подорожали на 5–59% всего за два года, в том числе бренд Kirkland, который</div>
+    <div class="card-meta">
+      <span class="card-date">4 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-04-v-kolledzhah-ontario-massovye-uvolneniya-zakrytie-kampusov-s/">
-  <div class="sc-img"><img src="/photos/photo_174@04-04-2025_15-37-26.jpg" alt="💸 В колледжах Онтарио — массовые увольнения, закрытие кампусов, сокращения программ. Но у топ-менеджеров всё прекрасно." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">💸 В колледжах Онтарио — массовые увольнения, закрытие кампусов, сокращения программ. Но у топ-менеджеров всё прекрасно.</div>
-    <div class="pex">На фоне жесточайшего кризиса в системе общественных колледжей провинции — рекордные зарплаты у руководства.  🔻 Что происходит:  – В 2024 году колледжи Онтарио потеряли ключевой источник дохода — между</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-04-04-v-kolledzhah-ontario-massovye-uvolneniya-zakrytie-kampusov-s/">
+  <div class="card-img"><img src="/photos/photo_174@04-04-2025_15-37-26.jpg" alt="💸 В колледжах Онтарио — массовые увольнения, закрытие кампусов, сокращения программ. Но у топ-менеджеров всё прекрасно." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">💸 В колледжах Онтарио — массовые увольнения, закрытие кампусов, сокращения программ. Но у топ-менеджеров всё прекрасно.</div>
+    <div class="card-excerpt">На фоне жесточайшего кризиса в системе общественных колледжей провинции — рекордные зарплаты у руководства.  🔻 Что происходит:  – В 2024 году колледжи Онтарио потеряли ключевой источник дохода — между</div>
+    <div class="card-meta">
+      <span class="card-date">4 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-04-04-karni-eto-tryudo-20-tolko-s-mba-rezkaya-kolonka-protiv-preme/">
-  <div class="sc-img"><img src="/photos/photo_173@04-04-2025_12-59-29.jpg" alt="📉 “Карни — это Трюдо 2.0, только с MBA”: резкая колонка против премьера" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">📉 “Карни — это Трюдо 2.0, только с MBA”: резкая колонка против премьера</div>
-    <div class="pex">Джим Балсилли, миллиардер, сооснователь BlackBerry и эксперт по инновационной экономике, в пух и прах раскритиковал экономические взгляды Марка Карни в колонке для Globe and Mail.  💬 Основные тезисы:</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-04-04-karni-eto-tryudo-20-tolko-s-mba-rezkaya-kolonka-protiv-preme/">
+  <div class="card-img"><img src="/photos/photo_173@04-04-2025_12-59-29.jpg" alt="📉 “Карни — это Трюдо 2.0, только с MBA”: резкая колонка против премьера" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">📉 “Карни — это Трюдо 2.0, только с MBA”: резкая колонка против премьера</div>
+    <div class="card-excerpt">Джим Балсилли, миллиардер, сооснователь BlackBerry и эксперт по инновационной экономике, в пух и прах раскритиковал экономические взгляды Марка Карни в колонке для Globe and Mail.  💬 Основные тезисы:</div>
+    <div class="card-meta">
+      <span class="card-date">4 апр 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/tag/ekonomika/page/14/">←</a><a class="pb" href="/tag/ekonomika/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/ekonomika/page/13/">13</a><a class="pb" href="/tag/ekonomika/page/14/">14</a><a class="pb on" href="/tag/ekonomika/page/15/">15</a><a class="pb" href="/tag/ekonomika/page/16/">16</a><a class="pb" href="/tag/ekonomika/page/17/">17</a><a class="pb" href="/tag/ekonomika/page/16/">→</a></div>

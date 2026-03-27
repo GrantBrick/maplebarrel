@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>Пьер Полиев</h1>
     <p>398 материалов</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2025-10-23-poliev-otkazyvaetsya-izvinyatsya-i-otritsaet-chto-prizyval-p/">
-  <div class="sc-img"><img src="/photos/photo_1322@23-10-2025_10-23-01.jpg" alt="Полиев отказывается извиняться и отрицает, что призывал посадить Трюдо" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Полиев отказывается извиняться и отрицает, что призывал посадить Трюдо</div>
-    <div class="pex">Лидер Консервативной партии Пьер Полиев попытался уточнить свои слова, вызвавшие бурю критики, и заявил, что не говорил, будто бывший премьер Джастин Трюдо должен сесть в тюрьму.   «Это не то, что я с</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-10-23-poliev-otkazyvaetsya-izvinyatsya-i-otritsaet-chto-prizyval-p/">
+  <div class="card-img"><img src="/photos/photo_1322@23-10-2025_10-23-01.jpg" alt="Полиев отказывается извиняться и отрицает, что призывал посадить Трюдо" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Полиев отказывается извиняться и отрицает, что призывал посадить Трюдо</div>
+    <div class="card-excerpt">Лидер Консервативной партии Пьер Полиев попытался уточнить свои слова, вызвавшие бурю критики, и заявил, что не говорил, будто бывший премьер Джастин Трюдо должен сесть в тюрьму.   «Это не то, что я с</div>
+    <div class="card-meta">
+      <span class="card-date">23 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-23-karni-preduprezhdaet-o-zhertvah-radi-ekonomicheskih-reform-i/">
-  <div class="sc-img"><img src="/photos/photo_1321@23-10-2025_09-01-53.jpg" alt="Карни предупреждает о «жертвах» ради экономических реформ и готовит «поколенческий» бюджет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Карни предупреждает о «жертвах» ради экономических реформ и готовит «поколенческий» бюджет</div>
-    <div class="pex">Премьер-министр Марк Карни выступил в Оттаве с речью, обозначив основные приоритеты предстоящего федерального бюджета и предупредив канадцев: «путь к сильной экономике потребует времени и жертв».   «Е</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-10-23-karni-preduprezhdaet-o-zhertvah-radi-ekonomicheskih-reform-i/">
+  <div class="card-img"><img src="/photos/photo_1321@23-10-2025_09-01-53.jpg" alt="Карни предупреждает о «жертвах» ради экономических реформ и готовит «поколенческий» бюджет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Карни предупреждает о «жертвах» ради экономических реформ и готовит «поколенческий» бюджет</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни выступил в Оттаве с речью, обозначив основные приоритеты предстоящего федерального бюджета и предупредив канадцев: «путь к сильной экономике потребует времени и жертв».   «Е</div>
+    <div class="card-meta">
+      <span class="card-date">23 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-22-v-konservativnoy-partii-narastaet-nedovolstvo-polievom-posle/">
-  <div class="sc-img"><img src="/photos/photo_1315@22-10-2025_16-24-01.jpg" alt="В Консервативной партии нарастает недовольство Полиевом после его нападок на RCMP" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В Консервативной партии нарастает недовольство Полиевом после его нападок на RCMP</div>
-    <div class="pex">После того как лидер консерваторов Пьер Полиев в подкасте назвал руководство Королевской конной полиции «отвратительным» и заявил, что Джастин Трюдо должен был быть «уголовно наказан», в партии начали</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-22-v-konservativnoy-partii-narastaet-nedovolstvo-polievom-posle/">
+  <div class="card-img"><img src="/photos/photo_1315@22-10-2025_16-24-01.jpg" alt="В Консервативной партии нарастает недовольство Полиевом после его нападок на RCMP" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Консервативной партии нарастает недовольство Полиевом после его нападок на RCMP</div>
+    <div class="card-excerpt">После того как лидер консерваторов Пьер Полиев в подкасте назвал руководство Королевской конной полиции «отвратительным» и заявил, что Джастин Трюдо должен был быть «уголовно наказан», в партии начали</div>
+    <div class="card-meta">
+      <span class="card-date">22 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-21-robin-urbek-s-perom-polievom-vsyo-v-poryadke/">
-  <div class="sc-img"><img src="/photos/photo_1309@21-10-2025_15-28-01.jpg" alt="Робин Урбэк: с Пьером Полиевом всё в порядке?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Робин Урбэк: с Пьером Полиевом всё в порядке?</div>
-    <div class="pex">Похоже, лидер канадских консерваторов постепенно теряет связь с реальностью. Пьер Полиев в последние недели выглядит не как «премьер в ожидании», а как человек, которому срочно нужен отпуск — или хотя</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-21-robin-urbek-s-perom-polievom-vsyo-v-poryadke/">
+  <div class="card-img"><img src="/photos/photo_1309@21-10-2025_15-28-01.jpg" alt="Робин Урбэк: с Пьером Полиевом всё в порядке?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Робин Урбэк: с Пьером Полиевом всё в порядке?</div>
+    <div class="card-excerpt">Похоже, лидер канадских консерваторов постепенно теряет связь с реальностью. Пьер Полиев в последние недели выглядит не как «премьер в ожидании», а как человек, которому срочно нужен отпуск — или хотя</div>
+    <div class="card-meta">
+      <span class="card-date">21 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-17-karni-mnogomu-nauchilsya-u-trampa-glavnoe-iz-bolshogo-interv/">
-  <div class="sc-img"><img src="/photos/photo_1283@17-10-2025_17-05-59.jpg" alt="Карни: «Многому научился у Трампа» — главное из большого интервью Bloomberg" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bloomberg.com</div>
-    <div class="ptit sc-title">Карни: «Многому научился у Трампа» — главное из большого интервью Bloomberg</div>
-    <div class="pex">Канадский премьер Марк Карни дал откровенное интервью Мишаль Хусейн (Bloomberg) на фоне торговой войны Вашингтона с партнёрами и надвигающегося пересмотра USMCA в 2026 году. Ниже — ключевые тезисы без</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-17-karni-mnogomu-nauchilsya-u-trampa-glavnoe-iz-bolshogo-interv/">
+  <div class="card-img"><img src="/photos/photo_1283@17-10-2025_17-05-59.jpg" alt="Карни: «Многому научился у Трампа» — главное из большого интервью Bloomberg" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bloomberg.com</div>
+    <div class="card-title">Карни: «Многому научился у Трампа» — главное из большого интервью Bloomberg</div>
+    <div class="card-excerpt">Канадский премьер Марк Карни дал откровенное интервью Мишаль Хусейн (Bloomberg) на фоне торговой войны Вашингтона с партнёрами и надвигающегося пересмотра USMCA в 2026 году. Ниже — ключевые тезисы без</div>
+    <div class="card-meta">
+      <span class="card-date">17 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-17-poliev-obrushilsya-na-rukovodstvo-rcmp-obviniv-maunti-v-prik/">
-  <div class="sc-img"><img src="/photos/photo_1282@17-10-2025_15-11-49.jpg" alt="Полиев обрушился на руководство RCMP, обвинив маунти в «прикрытии» Джастина Трюдо" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Полиев обрушился на руководство RCMP, обвинив маунти в «прикрытии» Джастина Трюдо</div>
-    <div class="pex">Лидер консерваторов Пьер Полиев снова атакует федеральные структуры — на этот раз Королевскую конную полицию Канады (RCMP). В интервью YouTube-каналу Northern Perspective он назвал руководство ведомст</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-10-17-poliev-obrushilsya-na-rukovodstvo-rcmp-obviniv-maunti-v-prik/">
+  <div class="card-img"><img src="/photos/photo_1282@17-10-2025_15-11-49.jpg" alt="Полиев обрушился на руководство RCMP, обвинив маунти в «прикрытии» Джастина Трюдо" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиев обрушился на руководство RCMP, обвинив маунти в «прикрытии» Джастина Трюдо</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев снова атакует федеральные структуры — на этот раз Королевскую конную полицию Канады (RCMP). В интервью YouTube-каналу Northern Perspective он назвал руководство ведомст</div>
+    <div class="card-meta">
+      <span class="card-date">17 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-16-ottava-predstavila-katalog-tipovyh-proektov-zhilya-50-gotovy/">
-  <div class="sc-img"><img src="/photos/photo_1274@16-10-2025_14-48-01.jpg" alt="Оттава представила каталог типовых проектов жилья — 50 готовых планов для ускорения застройки" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cmhc-schl.gc.ca</div>
-    <div class="ptit sc-title">Оттава представила каталог типовых проектов жилья — 50 готовых планов для ускорения застройки</div>
-    <div class="pex">Федеральное правительство и CMHC выпустили каталог из 50 типовых проектов — от лейнхаусов и таунхаусов до мультиплексов — чтобы срезать сроки согласований и запустить больше стройки в существующих ква</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-10-16-ottava-predstavila-katalog-tipovyh-proektov-zhilya-50-gotovy/">
+  <div class="card-img"><img src="/photos/photo_1274@16-10-2025_14-48-01.jpg" alt="Оттава представила каталог типовых проектов жилья — 50 готовых планов для ускорения застройки" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cmhc-schl.gc.ca</div>
+    <div class="card-title">Оттава представила каталог типовых проектов жилья — 50 готовых планов для ускорения застройки</div>
+    <div class="card-excerpt">Федеральное правительство и CMHC выпустили каталог из 50 типовых проектов — от лейнхаусов и таунхаусов до мультиплексов — чтобы срезать сроки согласований и запустить больше стройки в существующих ква</div>
+    <div class="card-meta">
+      <span class="card-date">16 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-15-smit-priznalas-vo-vstreche-s-amerikanskim-heritage-foundatio/">
-  <div class="sc-img"><img src="/photos/photo_1267@15-10-2025_13-58-01.jpg" alt="Смит призналась во встрече с американским Heritage Foundation после победы Трампа" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Смит призналась во встрече с американским Heritage Foundation после победы Трампа</div>
-    <div class="pex">⠀ Премьер Альберты Даниэль Смит сообщила, что вскоре после победы Дональда Трампа на выборах 2024 года встретилась с представителями ультраконсервативного американского аналитического центра Heritage</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-15-smit-priznalas-vo-vstreche-s-amerikanskim-heritage-foundatio/">
+  <div class="card-img"><img src="/photos/photo_1267@15-10-2025_13-58-01.jpg" alt="Смит призналась во встрече с американским Heritage Foundation после победы Трампа" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Смит призналась во встрече с американским Heritage Foundation после победы Трампа</div>
+    <div class="card-excerpt">⠀ Премьер Альберты Даниэль Смит сообщила, что вскоре после победы Дональда Трампа на выборах 2024 года встретилась с представителями ультраконсервативного американского аналитического центра Heritage</div>
+    <div class="card-meta">
+      <span class="card-date">15 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-11-pekin-predlagaet-sdelku-snimite-poshliny-s-kitayskih-elektro/">
-  <div class="sc-img"><img src="/photos/photo_1242@11-10-2025_15-46-41.jpg" alt="Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы</div>
-    <div class="pex">Китай готов отменить пошлины на канадскую агропродукцию, включая канолу, если Оттава откажется от 100% тарифов на электромобили из КНР, заявил посол Ван Ди в интервью CTV. По его словам, «если Канада</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-10-11-pekin-predlagaet-sdelku-snimite-poshliny-s-kitayskih-elektro/">
+  <div class="card-img"><img src="/photos/photo_1242@11-10-2025_15-46-41.jpg" alt="Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы</div>
+    <div class="card-excerpt">Китай готов отменить пошлины на канадскую агропродукцию, включая канолу, если Оттава откажется от 100% тарифов на электромобили из КНР, заявил посол Ван Ди в интервью CTV. По его словам, «если Канада</div>
+    <div class="card-meta">
+      <span class="card-date">11 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-08-mark-karni-ochen-trebovatelnyy-boss/">
-  <div class="sc-img"><img src="/photos/photo_1227@08-10-2025_18-36-01.jpg" alt="Марк Карни — очень требовательный босс" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">macleans.ca</div>
-    <div class="ptit sc-title">Марк Карни — очень требовательный босс</div>
-    <div class="pex">очень большой и интересный материал про Карни от Macleans's  Его «локти наружу» и энтузиазм принесли победу на выборах. Теперь он управляет страной как топ-менеджер с Бей-стрит.  Марк Карни любит гово</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-08-mark-karni-ochen-trebovatelnyy-boss/">
+  <div class="card-img"><img src="/photos/photo_1227@08-10-2025_18-36-01.jpg" alt="Марк Карни — очень требовательный босс" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">Марк Карни — очень требовательный босс</div>
+    <div class="card-excerpt">очень большой и интересный материал про Карни от Macleans's  Его «локти наружу» и энтузиазм принесли победу на выборах. Теперь он управляет страной как топ-менеджер с Бей-стрит.  Марк Карни любит гово</div>
+    <div class="card-meta">
+      <span class="card-date">8 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-08-kanada-snova-nas-polyubit-tramp-vstretilsya-s-karni-no-dogov/">
-  <div class="sc-img"><img src="/photos/photo_1223@08-10-2025_09-31-58.jpg" alt="«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет</div>
-    <div class="pex">Дональд Трамп заявил, что работает с премьер-министром Марком Карни над торговым соглашением, которое «канадцам понравится». Однако после их встречи в Белом доме никаких конкретных договорённостей по</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-10-08-kanada-snova-nas-polyubit-tramp-vstretilsya-s-karni-no-dogov/">
+  <div class="card-img"><img src="/photos/photo_1223@08-10-2025_09-31-58.jpg" alt="«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет</div>
+    <div class="card-excerpt">Дональд Трамп заявил, что работает с премьер-министром Марком Карни над торговым соглашением, которое «канадцам понравится». Однако после их встречи в Белом доме никаких конкретных договорённостей по</div>
+    <div class="card-meta">
+      <span class="card-date">8 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-05-poliev-zakon-o-granitse-narushaet-svobody-kanadtsev/">
-  <div class="sc-img"><img src="/photos/photo_1206@05-10-2025_15-36-34.jpg" alt="Полиев: закон о границе нарушает свободы канадцев" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Полиев: закон о границе нарушает свободы канадцев</div>
-    <div class="pex">Пьер Полиев заявил, что Консервативная партия не поддержит либеральный законопроект C-2 — «Акт о сильных границах» — без радикальных правок. По его словам, документ «атакует свободы и частную жизнь ка</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-10-05-poliev-zakon-o-granitse-narushaet-svobody-kanadtsev/">
+  <div class="card-img"><img src="/photos/photo_1206@05-10-2025_15-36-34.jpg" alt="Полиев: закон о границе нарушает свободы канадцев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиев: закон о границе нарушает свободы канадцев</div>
+    <div class="card-excerpt">Пьер Полиев заявил, что Консервативная партия не поддержит либеральный законопроект C-2 — «Акт о сильных границах» — без радикальных правок. По его словам, документ «атакует свободы и частную жизнь ка</div>
+    <div class="card-meta">
+      <span class="card-date">5 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-05-opros-abacus-liberaly-i-konservatory-idut-nozdrya-v-nozdryu-/">
-  <div class="sc-img"><img src="/photos/photo_1205@05-10-2025_14-28-14.jpg" alt="Опрос Abacus: Либералы и консерваторы идут ноздря в ноздрю — недовольство ростом цен растёт" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">abacusdata.ca</div>
-    <div class="ptit sc-title">Опрос Abacus: Либералы и консерваторы идут ноздря в ноздрю — недовольство ростом цен растёт</div>
-    <div class="pex">Новый опрос Abacus Data показывает: борьба между Марком Карни и Пьером Полиевом становится всё плотнее. Если бы выборы прошли сейчас, консерваторы набрали бы 41%, либералы — 40%. Ошибка измерения — ±2</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-10-05-opros-abacus-liberaly-i-konservatory-idut-nozdrya-v-nozdryu-/">
+  <div class="card-img"><img src="/photos/photo_1205@05-10-2025_14-28-14.jpg" alt="Опрос Abacus: Либералы и консерваторы идут ноздря в ноздрю — недовольство ростом цен растёт" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Опрос Abacus: Либералы и консерваторы идут ноздря в ноздрю — недовольство ростом цен растёт</div>
+    <div class="card-excerpt">Новый опрос Abacus Data показывает: борьба между Марком Карни и Пьером Полиевом становится всё плотнее. Если бы выборы прошли сейчас, консерваторы набрали бы 41%, либералы — 40%. Ошибка измерения — ±2</div>
+    <div class="card-meta">
+      <span class="card-date">5 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-10-05-poliev-o-karni-porazhenie-za-porazheniem/">
-  <div class="sc-img"><img src="/photos/photo_1204@05-10-2025_13-02-11.jpg" alt="Полиев о Карни: «Поражение за поражением»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">chch.com</div>
-    <div class="ptit sc-title">Полиев о Карни: «Поражение за поражением»</div>
-    <div class="pex">Пьер Полиев продолжает давить на премьера перед его встречей с Дональдом Трампом в Вашингтоне. Выступая в Гамильтоне, лидер консерваторов заявил, что Марк Карни «потерпел одно поражение за другим» и т</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-10-05-poliev-o-karni-porazhenie-za-porazheniem/">
+  <div class="card-img"><img src="/photos/photo_1204@05-10-2025_13-02-11.jpg" alt="Полиев о Карни: «Поражение за поражением»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">chch.com</div>
+    <div class="card-title">Полиев о Карни: «Поражение за поражением»</div>
+    <div class="card-excerpt">Пьер Полиев продолжает давить на премьера перед его встречей с Дональдом Трампом в Вашингтоне. Выступая в Гамильтоне, лидер консерваторов заявил, что Марк Карни «потерпел одно поражение за другим» и т</div>
+    <div class="card-meta">
+      <span class="card-date">5 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-30-poliev-hristiane-mogut-byt-zhertvoy-1-vopreki-statistike/">
-  <div class="sc-img"><img src="/photos/photo_1180@30-09-2025_16-13-01.jpg" alt="Полиев: «Христиане могут быть жертвой №1» — вопреки статистике" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Полиев: «Христиане могут быть жертвой №1» — вопреки статистике</div>
-    <div class="pex">﻿ Пьер Полиев снова бросил громкую фразу. В понедельник он заявил, что именно христиане «могут быть главной жертвой преступлений на почве ненависти» в Канаде. В пример он привёл десятки случаев поджог</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 сен 2025</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2025-09-30-poliev-hristiane-mogut-byt-zhertvoy-1-vopreki-statistike/">
+  <div class="card-img"><img src="/photos/photo_1180@30-09-2025_16-13-01.jpg" alt="Полиев: «Христиане могут быть жертвой №1» — вопреки статистике" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиев: «Христиане могут быть жертвой №1» — вопреки статистике</div>
+    <div class="card-excerpt">﻿ Пьер Полиев снова бросил громкую фразу. В понедельник он заявил, что именно христиане «могут быть главной жертвой преступлений на почве ненависти» в Канаде. В пример он привёл десятки случаев поджог</div>
+    <div class="card-meta">
+      <span class="card-date">30 сен 2025</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-29-hizer-makferson-vstupila-v-gonku-za-liderstvo-ndp/">
-  <div class="sc-img"><img src="/photos/photo_1170@29-09-2025_10-34-01.jpg" alt="Хизер Макферсон вступила в гонку за лидерство НДП" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Хизер Макферсон вступила в гонку за лидерство НДП</div>
-    <div class="pex">Депутат от Эдмонтона Хизер Макферсон официально объявила о своём участии в выборах лидера федеральной НДП. Она стала вторым крупным кандидатом после Ави Льюиса, а её особое преимущество в том, что она</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-09-29-hizer-makferson-vstupila-v-gonku-za-liderstvo-ndp/">
+  <div class="card-img"><img src="/photos/photo_1170@29-09-2025_10-34-01.jpg" alt="Хизер Макферсон вступила в гонку за лидерство НДП" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Хизер Макферсон вступила в гонку за лидерство НДП</div>
+    <div class="card-excerpt">Депутат от Эдмонтона Хизер Макферсон официально объявила о своём участии в выборах лидера федеральной НДП. Она стала вторым крупным кандидатом после Ави Льюиса, а её особое преимущество в том, что она</div>
+    <div class="card-meta">
+      <span class="card-date">29 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-25-leytenant-gubernator-luiziany-billi-nangesser-neozhidanno-po/">
-  <div class="sc-img"><span style="font-size:26px">📋</span></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Лейтенант-губернатор Луизианы Билли Нангессер неожиданно попросил Дональда Трампа извиниться перед Канадой за его заявления о «51-м штате».</div>
-    <div class="pex">«Я только тут понял, насколько эти слова и тарифы испортили отношение канадцев. Было бы здорово, если бы президент извинился», — сказал Нангессер во время визита по продвижению туризма. Для Луизианы,</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-09-25-leytenant-gubernator-luiziany-billi-nangesser-neozhidanno-po/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📋</span></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Лейтенант-губернатор Луизианы Билли Нангессер неожиданно попросил Дональда Трампа извиниться перед Канадой за его заявления о «51-м штате».</div>
+    <div class="card-excerpt">«Я только тут понял, насколько эти слова и тарифы испортили отношение канадцев. Было бы здорово, если бы президент извинился», — сказал Нангессер во время визита по продвижению туризма. Для Луизианы,</div>
+    <div class="card-meta">
+      <span class="card-date">25 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-23-skandal-s-otkupom-oruzhiya-ministr-priznalsya-v-provale-no-k/">
-  <div class="sc-img"><img src="/photos/photo_1136@23-09-2025_13-52-10.jpg" alt="Скандал с “откупом оружия”: министр признался в провале, но Карни не отступает ради Квебека" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Скандал с “откупом оружия”: министр признался в провале, но Карни не отступает ради Квебека</div>
-    <div class="pex">В сеть утекла аудиозапись, где министр общественной безопасности Гэри Анандасангари признаётся: у полиции просто нет ресурсов, чтобы заставить владельцев сдавать запрещённое оружие в рамках либерально</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-23-skandal-s-otkupom-oruzhiya-ministr-priznalsya-v-provale-no-k/">
+  <div class="card-img"><img src="/photos/photo_1136@23-09-2025_13-52-10.jpg" alt="Скандал с “откупом оружия”: министр признался в провале, но Карни не отступает ради Квебека" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Скандал с “откупом оружия”: министр признался в провале, но Карни не отступает ради Квебека</div>
+    <div class="card-excerpt">В сеть утекла аудиозапись, где министр общественной безопасности Гэри Анандасангари признаётся: у полиции просто нет ресурсов, чтобы заставить владельцев сдавать запрещённое оружие в рамках либерально</div>
+    <div class="card-meta">
+      <span class="card-date">23 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-22-v-kanade-snova-spor-o-programme-vremennyh-inostrannyh-rabotn/">
-  <div class="sc-img"><img src="/photos/photo_1129@22-09-2025_10-06-51.jpg" alt="В Канаде снова спор о Программе временных иностранных работников (Temporary Foreign Worker Program, TFWP)." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">В Канаде снова спор о Программе временных иностранных работников (Temporary Foreign Worker Program, TFWP).</div>
-    <div class="pex">Премьер Марк Карни уверяет: «Мы должны сохранить эту программу». Но на деле она давно превратилась из исключения в правило. То, что задумывалось как инструмент для редких случаев нехватки рабочей силы</div>
-    <div class="pmeta sc-meta"><span class="pdate">22 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-22-v-kanade-snova-spor-o-programme-vremennyh-inostrannyh-rabotn/">
+  <div class="card-img"><img src="/photos/photo_1129@22-09-2025_10-06-51.jpg" alt="В Канаде снова спор о Программе временных иностранных работников (Temporary Foreign Worker Program, TFWP)." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">В Канаде снова спор о Программе временных иностранных работников (Temporary Foreign Worker Program, TFWP).</div>
+    <div class="card-excerpt">Премьер Марк Карни уверяет: «Мы должны сохранить эту программу». Но на деле она давно превратилась из исключения в правило. То, что задумывалось как инструмент для редких случаев нехватки рабочей силы</div>
+    <div class="card-meta">
+      <span class="card-date">22 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-21-sokratit-na-milliardy-per-poliev-trebuet-urezat-federalnuyu-/">
-  <div class="sc-img"><img src="/photos/photo_1117@21-09-2025_10-28-01.jpg" alt="Сократить «на миллиарды»: Пьер Полиев требует урезать федеральную бюрократию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Сократить «на миллиарды»: Пьер Полиев требует урезать федеральную бюрократию</div>
-    <div class="pex">Лидер консерваторов Пьер Полиев в эфире CTV заявил, что в Оттаве нужны «миллиарды долларов» сокращений — и минимум минус $12 млрд на консультантах. Цель — откатить расходы аппарата к «доковидному» уро</div>
-    <div class="pmeta sc-meta"><span class="pdate">21 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-21-sokratit-na-milliardy-per-poliev-trebuet-urezat-federalnuyu-/">
+  <div class="card-img"><img src="/photos/photo_1117@21-09-2025_10-28-01.jpg" alt="Сократить «на миллиарды»: Пьер Полиев требует урезать федеральную бюрократию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Сократить «на миллиарды»: Пьер Полиев требует урезать федеральную бюрократию</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев в эфире CTV заявил, что в Оттаве нужны «миллиарды долларов» сокращений — и минимум минус $12 млрд на консультантах. Цель — откатить расходы аппарата к «доковидному» уро</div>
+    <div class="card-meta">
+      <span class="card-date">21 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-19-per-poliev-utverzhdaet-chto-programma-vremennyh-inostrannyh-/">
-  <div class="sc-img"><img src="/photos/photo_1106@19-09-2025_11-52-03.jpg" alt="Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thestar.com</div>
-    <div class="ptit sc-title">Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты</div>
-    <div class="pex">Лидер Консерваторов Пьер Полиев снова требует закрыть программу временных иностранных рабочих (TFW), заявляя, что она «ворует рабочие места у канадцев». На фоне роста безработицы такие слова звучат эф</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-09-19-per-poliev-utverzhdaet-chto-programma-vremennyh-inostrannyh-/">
+  <div class="card-img"><img src="/photos/photo_1106@19-09-2025_11-52-03.jpg" alt="Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты</div>
+    <div class="card-excerpt">Лидер Консерваторов Пьер Полиев снова требует закрыть программу временных иностранных рабочих (TFW), заявляя, что она «ворует рабочие места у канадцев». На фоне роста безработицы такие слова звучат эф</div>
+    <div class="card-meta">
+      <span class="card-date">19 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-16-elbows-up-protiv-elbows-down-karni-buksuet-na-pochve-trampa/">
-  <div class="sc-img"><img src="/photos/photo_1083@16-09-2025_10-36-45.jpg" alt="«Elbows Up» против «Elbows Down»: Карни буксует на почве Трампа" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nytimes.com</div>
-    <div class="ptit sc-title">«Elbows Up» против «Elbows Down»: Карни буксует на почве Трампа</div>
-    <div class="pex">﻿ New York Times пишет, что премьер-министр Марк Карни, победивший на волне лозунга «локти вверх» — обещаний жёстко отстаивать Канаду перед Дональдом Трампом, — теперь вынужден играть осторожнее.  ﻿ П</div>
-    <div class="pmeta sc-meta"><span class="pdate">16 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-09-16-elbows-up-protiv-elbows-down-karni-buksuet-na-pochve-trampa/">
+  <div class="card-img"><img src="/photos/photo_1083@16-09-2025_10-36-45.jpg" alt="«Elbows Up» против «Elbows Down»: Карни буксует на почве Трампа" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">«Elbows Up» против «Elbows Down»: Карни буксует на почве Трампа</div>
+    <div class="card-excerpt">﻿ New York Times пишет, что премьер-министр Марк Карни, победивший на волне лозунга «локти вверх» — обещаний жёстко отстаивать Канаду перед Дональдом Трампом, — теперь вынужден играть осторожнее.  ﻿ П</div>
+    <div class="card-meta">
+      <span class="card-date">16 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-15-poliev-obeschaet-zhyostkie-mery-protiv-prestupnosti-nekotory/">
-  <div class="sc-img"><img src="/photos/photo_1078@15-09-2025_12-19-01.jpg" alt="Полиев обещает жёсткие меры против преступности: «некоторые районы превратились в зоны боевых действий»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Полиев обещает жёсткие меры против преступности: «некоторые районы превратились в зоны боевых действий»</div>
-    <div class="pex">Лидер консерваторов Пьер Полиев представил законопроект о реформе залога под громким названием Jail Not Bail Act. Он утверждает, что «преступность выходит из-под контроля» и требует оставить больше об</div>
-    <div class="pmeta sc-meta"><span class="pdate">15 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+</a><a class="card" href="/post/2025-09-15-poliev-obeschaet-zhyostkie-mery-protiv-prestupnosti-nekotory/">
+  <div class="card-img"><img src="/photos/photo_1078@15-09-2025_12-19-01.jpg" alt="Полиев обещает жёсткие меры против преступности: «некоторые районы превратились в зоны боевых действий»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиев обещает жёсткие меры против преступности: «некоторые районы превратились в зоны боевых действий»</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев представил законопроект о реформе залога под громким названием Jail Not Bail Act. Он утверждает, что «преступность выходит из-под контроля» и требует оставить больше об</div>
+    <div class="card-meta">
+      <span class="card-date">15 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-14-opros-ipsos-pravitelstvo-karni-nachinaet-osennyuyu-sessiyu-s/">
-  <div class="sc-img"><img src="/photos/photo_1075@14-09-2025_14-27-01.jpg" alt="Опрос Ipsos: правительство Карни начинает осеннюю сессию с рекордным рейтингом" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Опрос Ipsos: правительство Карни начинает осеннюю сессию с рекордным рейтингом</div>
-    <div class="pex">﻿ Перед возвращением парламента кабинет Марка Карни получил уровень одобрения, которого Канада не видела почти десять лет. По данным Ipsos, проведённым для Global News, рейтинг правительства вырос на</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-09-14-opros-ipsos-pravitelstvo-karni-nachinaet-osennyuyu-sessiyu-s/">
+  <div class="card-img"><img src="/photos/photo_1075@14-09-2025_14-27-01.jpg" alt="Опрос Ipsos: правительство Карни начинает осеннюю сессию с рекордным рейтингом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Опрос Ipsos: правительство Карни начинает осеннюю сессию с рекордным рейтингом</div>
+    <div class="card-excerpt">﻿ Перед возвращением парламента кабинет Марка Карни получил уровень одобрения, которого Канада не видела почти десять лет. По данным Ipsos, проведённым для Global News, рейтинг правительства вырос на</div>
+    <div class="card-meta">
+      <span class="card-date">14 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-13-poliev-o-politicheskom-nasilii-i-bezopasnosti-semi/">
-  <div class="sc-img"><img src="/photos/photo_1069@13-09-2025_13-49-01.jpg" alt="Полиев о политическом насилии и безопасности семьи" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Полиев о политическом насилии и безопасности семьи</div>
-    <div class="pex">﻿ После убийства в США консервативного активиста Чарли Кирка, лидер канадских консерваторов Пьер Полиев в интервью CBC признался: он переживает за безопасность своей семьи. По его словам, угрозы были</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-13-poliev-o-politicheskom-nasilii-i-bezopasnosti-semi/">
+  <div class="card-img"><img src="/photos/photo_1069@13-09-2025_13-49-01.jpg" alt="Полиев о политическом насилии и безопасности семьи" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиев о политическом насилии и безопасности семьи</div>
+    <div class="card-excerpt">﻿ После убийства в США консервативного активиста Чарли Кирка, лидер канадских консерваторов Пьер Полиев в интервью CBC признался: он переживает за безопасность своей семьи. По его словам, угрозы были</div>
+    <div class="card-meta">
+      <span class="card-date">13 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-11-kto-takoy-mark-karni-i-pochemu-on-voobsche-okazalsya-v-kresl/">
-  <div class="sc-img"><img src="/photos/photo_1062@11-09-2025_18-59-01.jpg" alt="Кто такой Марк Карни — и почему он вообще оказался в кресле премьера?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thewalrus.ca</div>
-    <div class="ptit sc-title">Кто такой Марк Карни — и почему он вообще оказался в кресле премьера?</div>
-    <div class="pex">Журналист Mark Bourrie в The Walrus пишет, что мы «наняли парня с лучшим резюме». Бывший глава двух центробанков G7, выпускник Гарварда и Оксфорда, топ-менеджер Goldman Sachs и Brookfield, автор 528-с</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-09-11-kto-takoy-mark-karni-i-pochemu-on-voobsche-okazalsya-v-kresl/">
+  <div class="card-img"><img src="/photos/photo_1062@11-09-2025_18-59-01.jpg" alt="Кто такой Марк Карни — и почему он вообще оказался в кресле премьера?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thewalrus.ca</div>
+    <div class="card-title">Кто такой Марк Карни — и почему он вообще оказался в кресле премьера?</div>
+    <div class="card-excerpt">Журналист Mark Bourrie в The Walrus пишет, что мы «наняли парня с лучшим резюме». Бывший глава двух центробанков G7, выпускник Гарварда и Оксфорда, топ-менеджер Goldman Sachs и Brookfield, автор 528-с</div>
+    <div class="card-meta">
+      <span class="card-date">11 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-11-medovyy-mesyats-karni-taet-a-polovina-kanadtsev-schitaet-sha/">
-  <div class="sc-img"><img src="/photos/photo_1057@11-09-2025_09-38-01.jpg" alt="Медовый месяц Карни тает, а половина канадцев считает шансы Полиева слабыми" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Медовый месяц Карни тает, а половина канадцев считает шансы Полиева слабыми</div>
-    <div class="pex">⠀ По свежему опросу Leger, 50% канадцев уверены: у Пьера Полиева мало шансов победить Марка Карни. Даже среди консерваторов почти пятая часть сторонников сомневается в успехе своего лидера. При этом 3</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 сен 2025</span><div class="ptags"></div></div>
+</a><a class="card" href="/post/2025-09-11-medovyy-mesyats-karni-taet-a-polovina-kanadtsev-schitaet-sha/">
+  <div class="card-img"><img src="/photos/photo_1057@11-09-2025_09-38-01.jpg" alt="Медовый месяц Карни тает, а половина канадцев считает шансы Полиева слабыми" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Медовый месяц Карни тает, а половина канадцев считает шансы Полиева слабыми</div>
+    <div class="card-excerpt">⠀ По свежему опросу Leger, 50% канадцев уверены: у Пьера Полиева мало шансов победить Марка Карни. Даже среди консерваторов почти пятая часть сторонников сомневается в успехе своего лидера. При этом 3</div>
+    <div class="card-meta">
+      <span class="card-date">11 сен 2025</span>
+      <div class="card-tags"></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-10-haydu-otvechaet-polievu-obvinyat-immigratsiyu-v-roste-bezrab/">
-  <div class="sc-img"><img src="/photos/photo_1054@10-09-2025_14-33-01.jpg" alt="Хайду отвечает Полиеву: обвинять иммиграцию в росте безработицы — значит стравливать людей" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">snnewswatch.com</div>
-    <div class="ptit sc-title">Хайду отвечает Полиеву: обвинять иммиграцию в росте безработицы — значит стравливать людей</div>
-    <div class="pex">Министр занятости и семейных дел Канады Пэтти Хайду резко раскритиковала Пьера Полиева за его заявления о том, что рост числа временных иностранных работников якобы приводит к росту безработицы среди</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-10-haydu-otvechaet-polievu-obvinyat-immigratsiyu-v-roste-bezrab/">
+  <div class="card-img"><img src="/photos/photo_1054@10-09-2025_14-33-01.jpg" alt="Хайду отвечает Полиеву: обвинять иммиграцию в росте безработицы — значит стравливать людей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">snnewswatch.com</div>
+    <div class="card-title">Хайду отвечает Полиеву: обвинять иммиграцию в росте безработицы — значит стравливать людей</div>
+    <div class="card-excerpt">Министр занятости и семейных дел Канады Пэтти Хайду резко раскритиковала Пьера Полиева за его заявления о том, что рост числа временных иностранных работников якобы приводит к росту безработицы среди</div>
+    <div class="card-meta">
+      <span class="card-date">10 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-10-poliev-trebuet-rasshirit-nalogovye-lgoty-dlya-pokupateley-zh/">
-  <div class="sc-img"><img src="/photos/photo_1052@10-09-2025_12-02-10.jpg" alt="Полиев требует расширить налоговые льготы для покупателей жилья" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Полиев требует расширить налоговые льготы для покупателей жилья</div>
-    <div class="pex">Лидер консерваторов Пьер Полиев выступил с новым предложением в Брэмптоне: отменить федеральный налог на товары и услуги (GST) для всех покупателей жилья, а не только для тех, кто берёт дома дешевле $</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-09-10-poliev-trebuet-rasshirit-nalogovye-lgoty-dlya-pokupateley-zh/">
+  <div class="card-img"><img src="/photos/photo_1052@10-09-2025_12-02-10.jpg" alt="Полиев требует расширить налоговые льготы для покупателей жилья" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Полиев требует расширить налоговые льготы для покупателей жилья</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев выступил с новым предложением в Брэмптоне: отменить федеральный налог на товары и услуги (GST) для всех покупателей жилья, а не только для тех, кто берёт дома дешевле $</div>
+    <div class="card-meta">
+      <span class="card-date">10 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-10-eks-ministr-britanskoy-kolumbii-katrin-chen-obrushilas-na-eb/">
-  <div class="sc-img"><img src="/photos/photo_1050@10-09-2025_08-58-01.jpg" alt="Экс-министр Британской Колумбии Катрин Чен обрушилась на Эби из-за слов о временных иностранных рабочих" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">vancouver.citynews.ca</div>
-    <div class="ptit sc-title">Экс-министр Британской Колумбии Катрин Чен обрушилась на Эби из-за слов о временных иностранных рабочих</div>
-    <div class="pex">Бывшая министр и экс-депутат от НДП Катрин Чен заявила, что «в ярости» после того, как премьер Дэвид Эби призвал отменить или радикально реформировать федеральную программу временных иностранных работ</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-09-10-eks-ministr-britanskoy-kolumbii-katrin-chen-obrushilas-na-eb/">
+  <div class="card-img"><img src="/photos/photo_1050@10-09-2025_08-58-01.jpg" alt="Экс-министр Британской Колумбии Катрин Чен обрушилась на Эби из-за слов о временных иностранных рабочих" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouver.citynews.ca</div>
+    <div class="card-title">Экс-министр Британской Колумбии Катрин Чен обрушилась на Эби из-за слов о временных иностранных рабочих</div>
+    <div class="card-excerpt">Бывшая министр и экс-депутат от НДП Катрин Чен заявила, что «в ярости» после того, как премьер Дэвид Эби призвал отменить или радикально реформировать федеральную программу временных иностранных работ</div>
+    <div class="card-meta">
+      <span class="card-date">10 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-08-opros-abacus-data-liberaly-karni-snova-vperedi-na-fone-ekono/">
-  <div class="sc-img"><img src="/photos/photo_1041@08-09-2025_08-24-24.jpg" alt="Опрос Abacus Data: либералы Карни снова впереди на фоне экономического спада" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">abacusdata.ca</div>
-    <div class="ptit sc-title">Опрос Abacus Data: либералы Карни снова впереди на фоне экономического спада</div>
-    <div class="pex">Abacus Data опубликовала свежий опрос (28 августа – 2 сентября, 1500 респондентов), который совпал с новостями о первом за два года падении канадского ВВП. На этом фоне либералы Марка Карни вернули се</div>
-    <div class="pmeta sc-meta"><span class="pdate">8 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-09-08-opros-abacus-data-liberaly-karni-snova-vperedi-na-fone-ekono/">
+  <div class="card-img"><img src="/photos/photo_1041@08-09-2025_08-24-24.jpg" alt="Опрос Abacus Data: либералы Карни снова впереди на фоне экономического спада" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Опрос Abacus Data: либералы Карни снова впереди на фоне экономического спада</div>
+    <div class="card-excerpt">Abacus Data опубликовала свежий опрос (28 августа – 2 сентября, 1500 респондентов), который совпал с новостями о первом за два года падении канадского ВВП. На этом фоне либералы Марка Карни вернули се</div>
+    <div class="card-meta">
+      <span class="card-date">8 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-07-konservatory-edinoglasno-protiv-antisemitizma-liberaly-vrazn/">
-  <div class="sc-img"><img src="/photos/photo_1038@07-09-2025_12-31-44.jpg" alt="Консерваторы единогласно против антисемитизма, либералы — вразнобой" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Консерваторы единогласно против антисемитизма, либералы — вразнобой</div>
-    <div class="pex">Все 144 депутата-консерватора подписали открытое письмо в поддержку еврейской общины Канады и против антисемитизма. Поводом стало нападение 27 августа в кошерном магазине в Оттаве, где пожилая женщина</div>
-    <div class="pmeta sc-meta"><span class="pdate">7 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-09-07-konservatory-edinoglasno-protiv-antisemitizma-liberaly-vrazn/">
+  <div class="card-img"><img src="/photos/photo_1038@07-09-2025_12-31-44.jpg" alt="Консерваторы единогласно против антисемитизма, либералы — вразнобой" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Консерваторы единогласно против антисемитизма, либералы — вразнобой</div>
+    <div class="card-excerpt">Все 144 депутата-консерватора подписали открытое письмо в поддержку еврейской общины Канады и против антисемитизма. Поводом стало нападение 27 августа в кошерном магазине в Оттаве, где пожилая женщина</div>
+    <div class="card-meta">
+      <span class="card-date">7 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-05-osen-nachinaetsya-dlya-liberalov-na-mazhornoy-note/">
-  <div class="sc-img"><img src="/photos/photo_1029@05-09-2025_12-39-01.jpg" alt="Осень начинается для либералов на мажорной ноте" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">338canada.ca</div>
-    <div class="ptit sc-title">Осень начинается для либералов на мажорной ноте</div>
-    <div class="pex">Сразу два новых телефонных опроса (IVR) — от Mainstreet Research и Liaison Strategies — показали: партия Марка Карни входит в осеннюю сессию с уверенными позициями.  Mainstreet Research даёт либералам</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-09-05-osen-nachinaetsya-dlya-liberalov-na-mazhornoy-note/">
+  <div class="card-img"><img src="/photos/photo_1029@05-09-2025_12-39-01.jpg" alt="Осень начинается для либералов на мажорной ноте" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">338canada.ca</div>
+    <div class="card-title">Осень начинается для либералов на мажорной ноте</div>
+    <div class="card-excerpt">Сразу два новых телефонных опроса (IVR) — от Mainstreet Research и Liaison Strategies — показали: партия Марка Карни входит в осеннюю сессию с уверенными позициями.  Mainstreet Research даёт либералам</div>
+    <div class="card-meta">
+      <span class="card-date">5 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-04-poliev-karni-obeschal-silu-a-prines-kapitulyatsiyu/">
-  <div class="sc-img"><img src="/photos/photo_1025@04-09-2025_12-39-01.jpg" alt="Полиев: «Карни обещал силу, а принес капитуляцию»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Полиев: «Карни обещал силу, а принес капитуляцию»</div>
-    <div class="pex">﻿ Пьер Полиев опубликовал колонку в National Post, где подвел итоги первых шести месяцев Марка Карни на посту премьера. Вердикт лидера консерваторов звучит безжалостно: «Он нарушил все ключевые обещан</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+</a><a class="card" href="/post/2025-09-04-poliev-karni-obeschal-silu-a-prines-kapitulyatsiyu/">
+  <div class="card-img"><img src="/photos/photo_1025@04-09-2025_12-39-01.jpg" alt="Полиев: «Карни обещал силу, а принес капитуляцию»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Полиев: «Карни обещал силу, а принес капитуляцию»</div>
+    <div class="card-excerpt">﻿ Пьер Полиев опубликовал колонку в National Post, где подвел итоги первых шести месяцев Марка Карни на посту премьера. Вердикт лидера консерваторов звучит безжалостно: «Он нарушил все ключевые обещан</div>
+    <div class="card-meta">
+      <span class="card-date">4 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-02-professor-politologii-nelson-uayzmen-v-kolonke-dlya-hill-tim/">
-  <div class="sc-img"><img src="/photos/photo_1015@02-09-2025_12-26-47.jpg" alt="Профессор политологии Нельсон Уайзмен в колонке для Hill Times пишет, что путь Пьера Полиева к посту премьер-министра лежит через дисциплину и умеренность." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">hilltimes.com</div>
-    <div class="ptit sc-title">Профессор политологии Нельсон Уайзмен в колонке для Hill Times пишет, что путь Пьера Полиева к посту премьер-министра лежит через дисциплину и умеренность.</div>
-    <div class="pex">Сначала лидеру консерваторов предстоит укрепить позиции внутри собственной партии — январский съезд в Калгари должен пройти для него успешно, тем более что провинция и большинство депутатов на его сто</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-09-02-professor-politologii-nelson-uayzmen-v-kolonke-dlya-hill-tim/">
+  <div class="card-img"><img src="/photos/photo_1015@02-09-2025_12-26-47.jpg" alt="Профессор политологии Нельсон Уайзмен в колонке для Hill Times пишет, что путь Пьера Полиева к посту премьер-министра лежит через дисциплину и умеренность." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">hilltimes.com</div>
+    <div class="card-title">Профессор политологии Нельсон Уайзмен в колонке для Hill Times пишет, что путь Пьера Полиева к посту премьер-министра лежит через дисциплину и умеренность.</div>
+    <div class="card-excerpt">Сначала лидеру консерваторов предстоит укрепить позиции внутри собственной партии — январский съезд в Калгари должен пройти для него успешно, тем более что провинция и большинство депутатов на его сто</div>
+    <div class="card-meta">
+      <span class="card-date">2 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-02-navodneniya-migrantov-bolshe-net-gospodin-poliev/">
-  <div class="sc-img"><img src="/photos/photo_1014@02-09-2025_11-18-01.jpg" alt="“Наводнения мигрантов” больше нет, господин Полиев" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">“Наводнения мигрантов” больше нет, господин Полиев</div>
-    <div class="pex">Колумнист The Globe and Mail Кэмпбелл Кларк напоминает: канадское население перестало расти. По данным Statistics Canada, в первом квартале 2025 года рост составил ровно 0,0%.   Да, в 2022–2023 годах</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ircc/">#IRCC</a></div></div>
+</a><a class="card" href="/post/2025-09-02-navodneniya-migrantov-bolshe-net-gospodin-poliev/">
+  <div class="card-img"><img src="/photos/photo_1014@02-09-2025_11-18-01.jpg" alt="“Наводнения мигрантов” больше нет, господин Полиев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">“Наводнения мигрантов” больше нет, господин Полиев</div>
+    <div class="card-excerpt">Колумнист The Globe and Mail Кэмпбелл Кларк напоминает: канадское население перестало расти. По данным Statistics Canada, в первом квартале 2025 года рост составил ровно 0,0%.   Да, в 2022–2023 годах</div>
+    <div class="card-meta">
+      <span class="card-date">2 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-09-01-bolshinstvo-otvetnyh-tarifov-kanady-snyaty-chto-dalshe/">
-  <div class="sc-img"><img src="/photos/photo_1008@01-09-2025_08-58-35.jpg" alt="Большинство ответных тарифов Канады сняты. Что дальше?" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Большинство ответных тарифов Канады сняты. Что дальше?</div>
-    <div class="pex">С 1 сентября Оттава отменила почти все контр-тарифы на американские товары, введённые весной в ответ на торговую атаку Дональда Трампа. Под пошлинами оставили лишь часть продукции, не соответствующей</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-09-01-bolshinstvo-otvetnyh-tarifov-kanady-snyaty-chto-dalshe/">
+  <div class="card-img"><img src="/photos/photo_1008@01-09-2025_08-58-35.jpg" alt="Большинство ответных тарифов Канады сняты. Что дальше?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Большинство ответных тарифов Канады сняты. Что дальше?</div>
+    <div class="card-excerpt">С 1 сентября Оттава отменила почти все контр-тарифы на американские товары, введённые весной в ответ на торговую атаку Дональда Трампа. Под пошлинами оставили лишь часть продукции, не соответствующей</div>
+    <div class="card-meta">
+      <span class="card-date">1 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-28-poliev-snova-pro-karbonovyy-nalog/">
-  <div class="sc-img"><img src="/photos/photo_994@28-08-2025_11-46-55.jpg" alt="Полиев снова про «карбоновый налог»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Полиев снова про «карбоновый налог»</div>
-    <div class="pex">Пьер Полиев не отпускает старую пластинку. Несмотря на то, что Марк Карни сразу после победы на выборах похоронил самую узнаваемую либеральскую политику Джастина Трюдо — углеродный налог для потребите</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2025-08-28-poliev-snova-pro-karbonovyy-nalog/">
+  <div class="card-img"><img src="/photos/photo_994@28-08-2025_11-46-55.jpg" alt="Полиев снова про «карбоновый налог»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Полиев снова про «карбоновый налог»</div>
+    <div class="card-excerpt">Пьер Полиев не отпускает старую пластинку. Несмотря на то, что Марк Карни сразу после победы на выборах похоронил самую узнаваемую либеральскую политику Джастина Трюдо — углеродный налог для потребите</div>
+    <div class="card-meta">
+      <span class="card-date">28 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-28-poliev-vremennye-inostrannye-rabochie-otbirayut-mesta-u-kana/">
-  <div class="sc-img"><img src="/photos/photo_993@28-08-2025_09-48-01.jpg" alt="Полиев: временные иностранные рабочие «отбирают» места у канадской молодежи" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Полиев: временные иностранные рабочие «отбирают» места у канадской молодежи</div>
-    <div class="pex">Пьер Полиев снова бьет по иммиграционной политике либералов. На пресс-конференции в Принс-Эдварде он обвинил правительство Марка Карни в том, что оно позволяет временным иностранным рабочим занимать р</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+</a><a class="card" href="/post/2025-08-28-poliev-vremennye-inostrannye-rabochie-otbirayut-mesta-u-kana/">
+  <div class="card-img"><img src="/photos/photo_993@28-08-2025_09-48-01.jpg" alt="Полиев: временные иностранные рабочие «отбирают» места у канадской молодежи" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Полиев: временные иностранные рабочие «отбирают» места у канадской молодежи</div>
+    <div class="card-excerpt">Пьер Полиев снова бьет по иммиграционной политике либералов. На пресс-конференции в Принс-Эдварде он обвинил правительство Марка Карни в том, что оно позволяет временным иностранным рабочим занимать р</div>
+    <div class="card-meta">
+      <span class="card-date">28 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-08-27-liberaly-snova-promahnulis-s-obeschaniyami-po-immigratsii/">
-  <div class="sc-img"><span style="font-size:26px">📋</span></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Либералы снова промахнулись с обещаниями по иммиграции</div>
-    <div class="pex">﻿ Несмотря на громкие заявления о снижении иммиграционных потоков, правительство Лены Метледж Диаб уже идёт к новым рекордам.  ﻿ По данным IRCC, за первые семь месяцев 2025 года Канада приняла 246 300</div>
-    <div class="pmeta sc-meta"><span class="pdate">27 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2025-08-27-liberaly-snova-promahnulis-s-obeschaniyami-po-immigratsii/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📋</span></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Либералы снова промахнулись с обещаниями по иммиграции</div>
+    <div class="card-excerpt">﻿ Несмотря на громкие заявления о снижении иммиграционных потоков, правительство Лены Метледж Диаб уже идёт к новым рекордам.  ﻿ По данным IRCC, за первые семь месяцев 2025 года Канада приняла 246 300</div>
+    <div class="card-meta">
+      <span class="card-date">27 авг 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb" href="/person/per-poliev/page/3/">←</a><a class="pb" href="/person/per-poliev/">1</a><a class="pb" href="/person/per-poliev/page/2/">2</a><a class="pb" href="/person/per-poliev/page/3/">3</a><a class="pb on" href="/person/per-poliev/page/4/">4</a><a class="pb" href="/person/per-poliev/page/5/">5</a><a class="pb" href="/person/per-poliev/page/6/">6</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/person/per-poliev/page/10/">10</a><a class="pb" href="/person/per-poliev/page/5/">→</a></div>

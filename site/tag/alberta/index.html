@@ -18,85 +18,153 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+:root{
+  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
+  --br:#2e2e32;--br2:#3d3d42;
+  --card:#222226;--card-hover:#28282d;
+  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
+  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
+  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
+  --gold:#c9963a;--gold2:#e8b44a;
+  --tg:#5b9bd5;--tg2:#7ab8f5;
+  --maple:#d4543a;
+  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
-.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--t);background:var(--bg3)}
-.nl.on{color:var(--t);background:var(--bg3)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
 .tgb svg{width:13px;height:13px;flex-shrink:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
-.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pdate{font-size:10px;color:var(--t3)}
-.ptags{display:flex;gap:4px;flex-wrap:wrap}
-.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
-.ptag:hover{color:var(--t2)}
-.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t2)}
-.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
+  pointer-events:none;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
-.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
-.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--cream);font-size:15px}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
-.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 
-.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc-title{font-size:13px;flex:1}
-.sc-meta{margin-top:auto;padding-top:5px}
-.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:16px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px}
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -112,325 +180,445 @@ footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
     <h1>#Альберта</h1>
     <p>123 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="small-card" href="/post/2026-03-24-pozhilye-kanadtsy-ostayutsya-glavnoy-oporoy-karni-opros/">
-  <div class="sc-img"><img src="/photos/photo_2432@24-03-2026_10-01-56.jpg" alt="Пожилые канадцы остаются главной опорой Карни — опрос" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">torontosun.com</div>
-    <div class="ptit sc-title">Пожилые канадцы остаются главной опорой Карни — опрос</div>
-    <div class="pex">Новый опрос Liaison Strategies показывает: лидерство Марк Карни держится не на молодёжи, а на избирателях старшего возраста.  Либералы сохраняют серьёзный отрыв от консерваторов — 41% против 27% у ком</div>
-    <div class="pmeta sc-meta"><span class="pdate">24 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-24-pozhilye-kanadtsy-ostayutsya-glavnoy-oporoy-karni-opros/">
+  <div class="card-img"><img src="/photos/photo_2432@24-03-2026_10-01-56.jpg" alt="Пожилые канадцы остаются главной опорой Карни — опрос" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Пожилые канадцы остаются главной опорой Карни — опрос</div>
+    <div class="card-excerpt">Новый опрос Liaison Strategies показывает: лидерство Марк Карни держится не на молодёжи, а на избирателях старшего возраста.  Либералы сохраняют серьёзный отрыв от консерваторов — 41% против 27% у ком</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-20-shest-vyvodov-iz-poyavleniya-pera-polieva-v-podkaste-dzho-ro/">
-  <div class="sc-img"><img src="/photos/photo_2415@20-03-2026_12-03-37.jpg" alt="Шесть выводов из появления Пьера Полиева в подкасте Джо Рогана" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Шесть выводов из появления Пьера Полиева в подкасте Джо Рогана</div>
-    <div class="pex">Лидер консерваторов Пьер Полиев провёл почти 2,5 часа в подкасте Джо Роган — и это был не просто разговор, а полноценная политическая заявка на аудиторию за пределами Канады.  Вот что из этого получил</div>
-    <div class="pmeta sc-meta"><span class="pdate">20 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+</a><a class="card" href="/post/2026-03-20-shest-vyvodov-iz-poyavleniya-pera-polieva-v-podkaste-dzho-ro/">
+  <div class="card-img"><img src="/photos/photo_2415@20-03-2026_12-03-37.jpg" alt="Шесть выводов из появления Пьера Полиева в подкасте Джо Рогана" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Шесть выводов из появления Пьера Полиева в подкасте Джо Рогана</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев провёл почти 2,5 часа в подкасте Джо Роган — и это был не просто разговор, а полноценная политическая заявка на аудиторию за пределами Канады.  Вот что из этого получил</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-18-naselenie-kanady-sokraschaetsya-vpervye-za-poslednie-gody/">
-  <div class="sc-img"><img src="/photos/photo_2401@18-03-2026_22-00-28.jpg" alt="Население Канады сокращается — впервые за последние годы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">www150.statcan.gc.ca</div>
-    <div class="ptit sc-title">Население Канады сокращается — впервые за последние годы</div>
-    <div class="pex">Новые данные Statistics Canada показывают: рост населения страны резко замедлился и перешёл в спад.   По состоянию на 1 января 2026 года население составило 41,47 млн человек.   За последний квартал 2</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2026-03-18-naselenie-kanady-sokraschaetsya-vpervye-za-poslednie-gody/">
+  <div class="card-img"><img src="/photos/photo_2401@18-03-2026_22-00-28.jpg" alt="Население Канады сокращается — впервые за последние годы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">www150.statcan.gc.ca</div>
+    <div class="card-title">Население Канады сокращается — впервые за последние годы</div>
+    <div class="card-excerpt">Новые данные Statistics Canada показывают: рост населения страны резко замедлился и перешёл в спад.   По состоянию на 1 января 2026 года население составило 41,47 млн человек.   За последний квартал 2</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-17-kubok-mira-po-hokkeyu-vernyotsya-v-2028-godu-matchi-primet-a/">
-  <div class="sc-img"><img src="/photos/photo_2378@17-03-2026_12-36-16.jpg" alt="Кубок мира по хоккею вернётся в 2028 году — матчи примет Альберта" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Кубок мира по хоккею вернётся в 2028 году — матчи примет Альберта</div>
-    <div class="pex">National Hockey League объявила, что Кубок мира по хоккею 2028 года пройдёт в Канаде и Чехии. Основными площадками турнира станут города Калгари, Эдмонтон и Прага.   Турнир вернётся после 12-летнего п</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-03-17-kubok-mira-po-hokkeyu-vernyotsya-v-2028-godu-matchi-primet-a/">
+  <div class="card-img"><img src="/photos/photo_2378@17-03-2026_12-36-16.jpg" alt="Кубок мира по хоккею вернётся в 2028 году — матчи примет Альберта" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Кубок мира по хоккею вернётся в 2028 году — матчи примет Альберта</div>
+    <div class="card-excerpt">National Hockey League объявила, что Кубок мира по хоккею 2028 года пройдёт в Канаде и Чехии. Основными площадками турнира станут города Калгари, Эдмонтон и Прага.   Турнир вернётся после 12-летнего п</div>
+    <div class="card-meta">
+      <span class="card-date">17 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-13-alberta-tratit-okolo-600-mln-na-obrazovanie-detey-vremennyh-/">
-  <div class="sc-img"><img src="/photos/photo_2353@13-03-2026_12-02-34.jpg" alt="Альберта тратит около $600 млн на образование детей временных жителей на фоне референдума по иммиграции" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ca.news.yahoo.com</div>
-    <div class="ptit sc-title">Альберта тратит около $600 млн на образование детей временных жителей на фоне референдума по иммиграции</div>
-    <div class="pex">Правительство Альберты тратит около $600 млн в год на образование детей временных жителей — иностранных работников и беженцев. Эти данные прозвучали во время обсуждения бюджета в законодательном собра</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-03-13-alberta-tratit-okolo-600-mln-na-obrazovanie-detey-vremennyh-/">
+  <div class="card-img"><img src="/photos/photo_2353@13-03-2026_12-02-34.jpg" alt="Альберта тратит около $600 млн на образование детей временных жителей на фоне референдума по иммиграции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ca.news.yahoo.com</div>
+    <div class="card-title">Альберта тратит около $600 млн на образование детей временных жителей на фоне референдума по иммиграции</div>
+    <div class="card-excerpt">Правительство Альберты тратит около $600 млн в год на образование детей временных жителей — иностранных работников и беженцев. Эти данные прозвучали во время обсуждения бюджета в законодательном собра</div>
+    <div class="card-meta">
+      <span class="card-date">13 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-11-minimalnaya-zarplata-v-kanade-snova-rastyot-no-do-zarplaty-d/">
-  <div class="sc-img"><img src="/photos/photo_2340@11-03-2026_20-02-09.jpg" alt="Минимальная зарплата в Канаде снова растёт — но до «зарплаты для жизни» всё равно далеко" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">dailydive.ca</div>
-    <div class="ptit sc-title">Минимальная зарплата в Канаде снова растёт — но до «зарплаты для жизни» всё равно далеко</div>
-    <div class="pex">В нескольких провинциях Канады с 1 апреля 2026 года повышается минимальная почасовая оплата. Повышения затронут Новую Шотландию, Остров Принца Эдуарда, Нью-Брансуик, Ньюфаундленд и Лабрадор, а также Ю</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-03-11-minimalnaya-zarplata-v-kanade-snova-rastyot-no-do-zarplaty-d/">
+  <div class="card-img"><img src="/photos/photo_2340@11-03-2026_20-02-09.jpg" alt="Минимальная зарплата в Канаде снова растёт — но до «зарплаты для жизни» всё равно далеко" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">dailydive.ca</div>
+    <div class="card-title">Минимальная зарплата в Канаде снова растёт — но до «зарплаты для жизни» всё равно далеко</div>
+    <div class="card-excerpt">В нескольких провинциях Канады с 1 апреля 2026 года повышается минимальная почасовая оплата. Повышения затронут Новую Шотландию, Остров Принца Эдуарда, Нью-Брансуик, Ньюфаундленд и Лабрадор, а также Ю</div>
+    <div class="card-meta">
+      <span class="card-date">11 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-11-bolshinstvo-zhiteley-alberty-protiv-vyhoda-iz-kanady-opros-l/">
-  <div class="sc-img"><img src="/photos/photo_2335@11-03-2026_13-04-51.jpg" alt="Большинство жителей Альберты против выхода из Канады — опрос Leger" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">edmontonjournal.com</div>
-    <div class="ptit sc-title">Большинство жителей Альберты против выхода из Канады — опрос Leger</div>
-    <div class="pex">Большинство жителей Альберты не поддерживают идею отделения провинции от Канады. Об этом свидетельствуют результаты нового опроса компании Leger, сообщает National Post.   На вопрос о будущем провинци</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-03-11-bolshinstvo-zhiteley-alberty-protiv-vyhoda-iz-kanady-opros-l/">
+  <div class="card-img"><img src="/photos/photo_2335@11-03-2026_13-04-51.jpg" alt="Большинство жителей Альберты против выхода из Канады — опрос Leger" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">edmontonjournal.com</div>
+    <div class="card-title">Большинство жителей Альберты против выхода из Канады — опрос Leger</div>
+    <div class="card-excerpt">Большинство жителей Альберты не поддерживают идею отделения провинции от Канады. Об этом свидетельствуют результаты нового опроса компании Leger, сообщает National Post.   На вопрос о будущем провинци</div>
+    <div class="card-meta">
+      <span class="card-date">11 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-10-seriynyy-ubiytsa-iz-nyu-bransuika-allan-lezher-umer-v-tyurme/">
-  <div class="sc-img"><img src="/photos/photo_2326@10-03-2026_12-06-24.jpg" alt="Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме</div>
-    <div class="pex">Серийный убийца Аллан Лежер, известный как «убийца из Мирамиши», умер в возрасте 78 лет. Об этом сообщила Служба исправительных учреждений Канады, передаёт CBC News.   Лежер умер в понедельник в федер</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+</a><a class="card" href="/post/2026-03-10-seriynyy-ubiytsa-iz-nyu-bransuika-allan-lezher-umer-v-tyurme/">
+  <div class="card-img"><img src="/photos/photo_2326@10-03-2026_12-06-24.jpg" alt="Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме</div>
+    <div class="card-excerpt">Серийный убийца Аллан Лежер, известный как «убийца из Мирамиши», умер в возрасте 78 лет. Об этом сообщила Служба исправительных учреждений Канады, передаёт CBC News.   Лежер умер в понедельник в федер</div>
+    <div class="card-meta">
+      <span class="card-date">10 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-03-05-liberaly-poluchayut-49-podderzhki-izbirateley-krupneyshiy-ot/">
-  <div class="sc-img"><img src="/photos/photo_2302@05-03-2026_17-02-21.jpg" alt="Либералы получают 49% поддержки избирателей — крупнейший отрыв партии за 10 лет: опрос Leger" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">nationalpost.com</div>
-    <div class="ptit sc-title">Либералы получают 49% поддержки избирателей — крупнейший отрыв партии за 10 лет: опрос Leger</div>
-    <div class="pex">Почти половина канадцев заявили, что проголосовали бы за Либеральную партию, если бы федеральные выборы состоялись сегодня. Это даёт партии премьер-министра Марка Карни самый большой перевес над сопер</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 мар 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+</a><a class="card" href="/post/2026-03-05-liberaly-poluchayut-49-podderzhki-izbirateley-krupneyshiy-ot/">
+  <div class="card-img"><img src="/photos/photo_2302@05-03-2026_17-02-21.jpg" alt="Либералы получают 49% поддержки избирателей — крупнейший отрыв партии за 10 лет: опрос Leger" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Либералы получают 49% поддержки избирателей — крупнейший отрыв партии за 10 лет: опрос Leger</div>
+    <div class="card-excerpt">Почти половина канадцев заявили, что проголосовали бы за Либеральную партию, если бы федеральные выборы состоялись сегодня. Это даёт партии премьер-министра Марка Карни самый большой перевес над сопер</div>
+    <div class="card-meta">
+      <span class="card-date">5 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-28-kanadskie-uchitelya-soobschayut-o-roste-stressa-iz-za-stremi/">
-  <div class="sc-img"><img src="/photos/photo_2274@28-02-2026_13-06-07.jpg" alt="Канадские учителя сообщают о росте стресса из-за стремительного внедрения ИИ — исследование" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">hcamag.com</div>
-    <div class="ptit sc-title">Канадские учителя сообщают о росте стресса из-за стремительного внедрения ИИ — исследование</div>
-    <div class="pex">Более трёх четвертей канадских педагогов считают, что быстрый запуск инструментов искусственного интеллекта в школах вызывает у них стресс. Об этом говорится в национальном исследовании компании Educa</div>
-    <div class="pmeta sc-meta"><span class="pdate">28 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2026-02-28-kanadskie-uchitelya-soobschayut-o-roste-stressa-iz-za-stremi/">
+  <div class="card-img"><img src="/photos/photo_2274@28-02-2026_13-06-07.jpg" alt="Канадские учителя сообщают о росте стресса из-за стремительного внедрения ИИ — исследование" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">hcamag.com</div>
+    <div class="card-title">Канадские учителя сообщают о росте стресса из-за стремительного внедрения ИИ — исследование</div>
+    <div class="card-excerpt">Более трёх четвертей канадских педагогов считают, что быстрый запуск инструментов искусственного интеллекта в школах вызывает у них стресс. Об этом говорится в национальном исследовании компании Educa</div>
+    <div class="card-meta">
+      <span class="card-date">28 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-25-kanadtsy-schitayut-chto-dlya-vyhoda-na-pensiyu-im-nuzhno-17-/">
-  <div class="sc-img"><img src="/photos/photo_2255@25-02-2026_20-00-48.jpg" alt="Канадцы считают, что для выхода на пенсию им нужно 1,7 млн долларов — опрос BMO" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bnnbloomberg.ca</div>
-    <div class="ptit sc-title">Канадцы считают, что для выхода на пенсию им нужно 1,7 млн долларов — опрос BMO</div>
-    <div class="pex">Канадцы уверены, что для комфортной пенсии им в среднем потребуется 1,7 млн долларов. Такие данные приводит ежегодный опрос банка BMO. Год назад оценка составляла около 1,54 млн — рост заметный.   При</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2026-02-25-kanadtsy-schitayut-chto-dlya-vyhoda-na-pensiyu-im-nuzhno-17-/">
+  <div class="card-img"><img src="/photos/photo_2255@25-02-2026_20-00-48.jpg" alt="Канадцы считают, что для выхода на пенсию им нужно 1,7 млн долларов — опрос BMO" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bnnbloomberg.ca</div>
+    <div class="card-title">Канадцы считают, что для выхода на пенсию им нужно 1,7 млн долларов — опрос BMO</div>
+    <div class="card-excerpt">Канадцы уверены, что для комфортной пенсии им в среднем потребуется 1,7 млн долларов. Такие данные приводит ежегодный опрос банка BMO. Год назад оценка составляла около 1,54 млн — рост заметный.   При</div>
+    <div class="card-meta">
+      <span class="card-date">25 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-18-alberta-potratit-400-mln-na-novye-pozharnye-samolyoty-na-fon/">
-  <div class="sc-img"><img src="/photos/photo_2201@18-02-2026_10-03-49.jpg" alt="Альберта потратит $400 млн на новые пожарные самолёты на фоне роста риска лесных пожаров" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Альберта потратит $400 млн на новые пожарные самолёты на фоне роста риска лесных пожаров</div>
-    <div class="pex">Альберта объявила о крупной покупке авиации для борьбы с лесными пожарами — около $400 млн пойдут на пять новых самолётов Canadair 515. Контракт заключён с компанией De Havilland Aircraft of Canada, п</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-02-18-alberta-potratit-400-mln-na-novye-pozharnye-samolyoty-na-fon/">
+  <div class="card-img"><img src="/photos/photo_2201@18-02-2026_10-03-49.jpg" alt="Альберта потратит $400 млн на новые пожарные самолёты на фоне роста риска лесных пожаров" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Альберта потратит $400 млн на новые пожарные самолёты на фоне роста риска лесных пожаров</div>
+    <div class="card-excerpt">Альберта объявила о крупной покупке авиации для борьбы с лесными пожарами — около $400 млн пойдут на пять новых самолётов Canadair 515. Контракт заключён с компанией De Havilland Aircraft of Canada, п</div>
+    <div class="card-meta">
+      <span class="card-date">18 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-14-tonna-narkotikov-spryatannyh-sredi-elektrolitnyh-napitkov-i-/">
-  <div class="sc-img"><img src="/photos/photo_2177@14-02-2026_10-04-19.jpg" alt="Тонна наркотиков, спрятанных среди электролитных напитков и деталей для пылесосов, перехвачена на границе в Куттсе" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Тонна наркотиков, спрятанных среди электролитных напитков и деталей для пылесосов, перехвачена на границе в Куттсе</div>
-    <div class="pex">Пограничная служба Канады (CBSA) сообщила об изъятии 1 010 килограммов наркотиков на пограничном пункте Куттс (Альберта) в ноябре и декабре 2025 года. Все партии перевозились коммерческими грузовиками</div>
-    <div class="pmeta sc-meta"><span class="pdate">14 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-02-14-tonna-narkotikov-spryatannyh-sredi-elektrolitnyh-napitkov-i-/">
+  <div class="card-img"><img src="/photos/photo_2177@14-02-2026_10-04-19.jpg" alt="Тонна наркотиков, спрятанных среди электролитных напитков и деталей для пылесосов, перехвачена на границе в Куттсе" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Тонна наркотиков, спрятанных среди электролитных напитков и деталей для пылесосов, перехвачена на границе в Куттсе</div>
+    <div class="card-excerpt">Пограничная служба Канады (CBSA) сообщила об изъятии 1 010 килограммов наркотиков на пограничном пункте Куттс (Альберта) в ноябре и декабре 2025 года. Все партии перевозились коммерческими грузовиками</div>
+    <div class="card-meta">
+      <span class="card-date">14 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-12-petitsiya-alberta-funds-public-schools-ne-sobrala-neobhodimo/">
-  <div class="sc-img"><img src="/photos/photo_2163@12-02-2026_14-06-09.jpg" alt="Петиция Alberta Funds Public Schools не собрала необходимое число подписей для референдума" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Петиция Alberta Funds Public Schools не собрала необходимое число подписей для референдума</div>
-    <div class="pex">Гражданская инициатива Alberta Funds Public Schools, предлагавшая вынести на референдум вопрос о прекращении государственного финансирования частных школ, не достигла требуемого порога подписей.   Для</div>
-    <div class="pmeta sc-meta"><span class="pdate">12 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-02-12-petitsiya-alberta-funds-public-schools-ne-sobrala-neobhodimo/">
+  <div class="card-img"><img src="/photos/photo_2163@12-02-2026_14-06-09.jpg" alt="Петиция Alberta Funds Public Schools не собрала необходимое число подписей для референдума" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Петиция Alberta Funds Public Schools не собрала необходимое число подписей для референдума</div>
+    <div class="card-excerpt">Гражданская инициатива Alberta Funds Public Schools, предлагавшая вынести на референдум вопрос о прекращении государственного финансирования частных школ, не достигла требуемого порога подписей.   Для</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-11-drugie-sluchai-strelby-v-kanadskih-shkolah-do-tragedii-v-tam/">
-  <div class="sc-img"><img src="/photos/photo_2150@11-02-2026_14-03-24.jpg" alt="Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">globalnews.ca</div>
-    <div class="ptit sc-title">Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже</div>
-    <div class="pex">Стрельба в Тамблэ-Ридже стала самым смертоносным нападением, связанным со школой в Канаде, почти за 40 лет. До этого в стране уже происходили трагедии, которые оставили глубокий след в общественной па</div>
-    <div class="pmeta sc-meta"><span class="pdate">11 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2026-02-11-drugie-sluchai-strelby-v-kanadskih-shkolah-do-tragedii-v-tam/">
+  <div class="card-img"><img src="/photos/photo_2150@11-02-2026_14-03-24.jpg" alt="Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже</div>
+    <div class="card-excerpt">Стрельба в Тамблэ-Ридже стала самым смертоносным нападением, связанным со школой в Канаде, почти за 40 лет. До этого в стране уже происходили трагедии, которые оставили глубокий след в общественной па</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-04-kak-alberta-planiruet-unichtozhit-gosudarstvennuyu-meditsinu/">
-  <div class="sc-img"><img src="/photos/photo_2104@04-02-2026_17-05-55.jpg" alt="Как Альберта планирует уничтожить государственную медицину по всей Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">thetyee.ca</div>
-    <div class="ptit sc-title">Как Альберта планирует уничтожить государственную медицину по всей Канаде</div>
-    <div class="pex">Новый закон Альберты — Health Statutes Amendment Act, 2025 — вовсе не про «реформу здравоохранения», утверждает Дэвид Клименхага в The Tyee. Его реальная цель — легализовать двухуровневую систему и те</div>
-    <div class="pmeta sc-meta"><span class="pdate">4 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/alberta/">#Альберта</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2026-02-04-kak-alberta-planiruet-unichtozhit-gosudarstvennuyu-meditsinu/">
+  <div class="card-img"><img src="/photos/photo_2104@04-02-2026_17-05-55.jpg" alt="Как Альберта планирует уничтожить государственную медицину по всей Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Как Альберта планирует уничтожить государственную медицину по всей Канаде</div>
+    <div class="card-excerpt">Новый закон Альберты — Health Statutes Amendment Act, 2025 — вовсе не про «реформу здравоохранения», утверждает Дэвид Клименхага в The Tyee. Его реальная цель — легализовать двухуровневую систему и те</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-03-alberta-popala-v-top-luchshih-mest-dlya-vyhoda-na-pensiyu-v-/">
-  <div class="sc-img"><img src="/photos/photo_2094@03-02-2026_13-07-14.jpg" alt="Альберта попала в топ лучших мест для выхода на пенсию в Прериях" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">worldatlas.com</div>
-    <div class="ptit sc-title">Альберта попала в топ лучших мест для выхода на пенсию в Прериях</div>
-    <div class="pex">Город Камроуз в центральной Альберте вошёл в список лучших мест для жизни на пенсии в канадских и американских Прериях по версии World Atlas.   Camrose с населением чуть более 20 тысяч человек выделил</div>
-    <div class="pmeta sc-meta"><span class="pdate">3 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-02-03-alberta-popala-v-top-luchshih-mest-dlya-vyhoda-na-pensiyu-v-/">
+  <div class="card-img"><img src="/photos/photo_2094@03-02-2026_13-07-14.jpg" alt="Альберта попала в топ лучших мест для выхода на пенсию в Прериях" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">worldatlas.com</div>
+    <div class="card-title">Альберта попала в топ лучших мест для выхода на пенсию в Прериях</div>
+    <div class="card-excerpt">Город Камроуз в центральной Альберте вошёл в список лучших мест для жизни на пенсии в канадских и американских Прериях по версии World Atlas.   Camrose с населением чуть более 20 тысяч человек выделил</div>
+    <div class="card-meta">
+      <span class="card-date">3 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-02-smit-deputaty-mogut-podpisyvat-lyubye-petitsii-dazhe-za-otde/">
-  <div class="sc-img"><img src="/photos/photo_2087@02-02-2026_10-05-24.jpg" alt="Смит: депутаты могут подписывать любые петиции — даже за отделение Альберты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Смит: депутаты могут подписывать любые петиции — даже за отделение Альберты</div>
-    <div class="pex">Премьер Альберты Даниэль Смит заявила, что не собирается контролировать, какие петиции подписывают депутаты её фракции — включая инициативы о референдуме по выходу провинции из состава Канады. Об этом</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2026-02-02-smit-deputaty-mogut-podpisyvat-lyubye-petitsii-dazhe-za-otde/">
+  <div class="card-img"><img src="/photos/photo_2087@02-02-2026_10-05-24.jpg" alt="Смит: депутаты могут подписывать любые петиции — даже за отделение Альберты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Смит: депутаты могут подписывать любые петиции — даже за отделение Альберты</div>
+    <div class="card-excerpt">Премьер Альберты Даниэль Смит заявила, что не собирается контролировать, какие петиции подписывают депутаты её фракции — включая инициативы о референдуме по выходу провинции из состава Канады. Об этом</div>
+    <div class="card-meta">
+      <span class="card-date">2 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-02-01-daniel-smit-v-kalgari-udary-po-starym-vragam-i-molchanie-o-s/">
-  <div class="sc-img"><img src="/photos/photo_2083@01-02-2026_13-02-31.jpg" alt="Даниэль Смит в Калгари: удары по старым врагам и молчание о сепаратизме" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Даниэль Смит в Калгари: удары по старым врагам и молчание о сепаратизме</div>
-    <div class="pex">На родной площадке в Калгари премьер Альберты Даниэль Смит выступила перед делегатами федерального съезда Консервативной партии, получив тёплый приём и серию оваций — при этом аккуратно обойдя тему се</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 фев 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-02-01-daniel-smit-v-kalgari-udary-po-starym-vragam-i-molchanie-o-s/">
+  <div class="card-img"><img src="/photos/photo_2083@01-02-2026_13-02-31.jpg" alt="Даниэль Смит в Калгари: удары по старым врагам и молчание о сепаратизме" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Даниэль Смит в Калгари: удары по старым врагам и молчание о сепаратизме</div>
+    <div class="card-excerpt">На родной площадке в Калгари премьер Альберты Даниэль Смит выступила перед делегатами федерального съезда Консервативной партии, получив тёплый приём и серию оваций — при этом аккуратно обойдя тему се</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-30-vozhdi-korennyh-narodov-alberty-vysmeyali-ideyu-luchshey-zhi/">
-  <div class="sc-img"><img src="/photos/photo_2076@30-01-2026_15-02-54.jpg" alt="Вожди коренных народов Альберты высмеяли идею «лучшей жизни» при отделении провинции" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">edmontonjournal.com</div>
-    <div class="ptit sc-title">Вожди коренных народов Альберты высмеяли идею «лучшей жизни» при отделении провинции</div>
-    <div class="pex">⁠  Лидеры коренных народов, представляющие договоры №6, 7 и 8, публично отвергли заявления сторонников отделения Альберты о том, что независимая провинция якобы улучшит положение Indigenous-сообществ.</div>
-    <div class="pmeta sc-meta"><span class="pdate">30 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2026-01-30-vozhdi-korennyh-narodov-alberty-vysmeyali-ideyu-luchshey-zhi/">
+  <div class="card-img"><img src="/photos/photo_2076@30-01-2026_15-02-54.jpg" alt="Вожди коренных народов Альберты высмеяли идею «лучшей жизни» при отделении провинции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">edmontonjournal.com</div>
+    <div class="card-title">Вожди коренных народов Альберты высмеяли идею «лучшей жизни» при отделении провинции</div>
+    <div class="card-excerpt">⁠  Лидеры коренных народов, представляющие договоры №6, 7 и 8, публично отвергли заявления сторонников отделения Альберты о том, что независимая провинция якобы улучшит положение Indigenous-сообществ.</div>
+    <div class="card-meta">
+      <span class="card-date">30 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-29-administratsiya-trampa-tayno-vstrechalas-s-kanadskimi-separa/">
-  <div class="sc-img"><img src="/photos/photo_2060@29-01-2026_09-05-11.jpg" alt="Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ft.com</div>
-    <div class="ptit sc-title">Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты</div>
-    <div class="pex">Администрация Дональда Трампа провела серию закрытых встреч с представителями движения Alberta Prosperity Project (APP), выступающего за отделение провинции Альберта от Канады. Об этом пишет Financial</div>
-    <div class="pmeta sc-meta"><span class="pdate">29 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-01-29-administratsiya-trampa-tayno-vstrechalas-s-kanadskimi-separa/">
+  <div class="card-img"><img src="/photos/photo_2060@29-01-2026_09-05-11.jpg" alt="Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ft.com</div>
+    <div class="card-title">Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты</div>
+    <div class="card-excerpt">Администрация Дональда Трампа провела серию закрытых встреч с представителями движения Alberta Prosperity Project (APP), выступающего за отделение провинции Альберта от Канады. Об этом пишет Financial</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-19-deti-v-kanade-zaplatyat-za-amerikanskuyu-voynu-s-vaktsinami/">
-  <div class="sc-img"><img src="/photos/photo_1978@19-01-2026_15-02-26.jpg" alt="Дети в Канаде заплатят за американскую «войну с вакцинами»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Дети в Канаде заплатят за американскую «войну с вакцинами»</div>
-    <div class="pex">Айрис Горфинкель из Globe and Mail пишет, что решение администрации США резко сократить перечень обязательных детских прививок неизбежно ударит и по Канаде — вне зависимости от того, хочет она этого и</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2026-01-19-deti-v-kanade-zaplatyat-za-amerikanskuyu-voynu-s-vaktsinami/">
+  <div class="card-img"><img src="/photos/photo_1978@19-01-2026_15-02-26.jpg" alt="Дети в Канаде заплатят за американскую «войну с вакцинами»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Дети в Канаде заплатят за американскую «войну с вакцинами»</div>
+    <div class="card-excerpt">Айрис Горфинкель из Globe and Mail пишет, что решение администрации США резко сократить перечень обязательных детских прививок неизбежно ударит и по Канаде — вне зависимости от того, хочет она этого и</div>
+    <div class="card-meta">
+      <span class="card-date">19 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-13-arenda-v-kanade-deshevela-ves-2025-god/">
-  <div class="sc-img"><img src="/photos/photo_1934@13-01-2026_14-02-58.jpg" alt="Аренда в Канаде дешевела весь 2025 год" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Аренда в Канаде дешевела весь 2025 год</div>
-    <div class="pex">Средние запрашиваемые цены на аренду жилья в Канаде снижались каждый месяц в течение 2025 года. В декабре аренда подешевела на 2,3% в годовом выражении — до $2 060, это минимальный уровень за последни</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-13-arenda-v-kanade-deshevela-ves-2025-god/">
+  <div class="card-img"><img src="/photos/photo_1934@13-01-2026_14-02-58.jpg" alt="Аренда в Канаде дешевела весь 2025 год" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Аренда в Канаде дешевела весь 2025 год</div>
+    <div class="card-excerpt">Средние запрашиваемые цены на аренду жилья в Канаде снижались каждый месяц в течение 2025 года. В декабре аренда подешевела на 2,3% в годовом выражении — до $2 060, это минимальный уровень за последни</div>
+    <div class="card-meta">
+      <span class="card-date">13 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-06-alberta-i-neft-smit-snova-tolkaet-truboprovody-na-fone-venes/">
-  <div class="sc-img"><img src="/photos/photo_1883@06-01-2026_14-05-57.jpg" alt="Альберта и нефть: Смит снова толкает трубопроводы на фоне Венесуэлы" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">calgarysun.com</div>
-    <div class="ptit sc-title">Альберта и нефть: Смит снова толкает трубопроводы на фоне Венесуэлы</div>
-    <div class="pex">⁠ Премьер Альберты Даниэль Смит использует действия США против Венесуэлы как аргумент за ускоренное строительство новых трубопроводов. По её словам, ситуация с режимом Николаса Мадуро подчёркивает нео</div>
-    <div class="pmeta sc-meta"><span class="pdate">6 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2026-01-06-alberta-i-neft-smit-snova-tolkaet-truboprovody-na-fone-venes/">
+  <div class="card-img"><img src="/photos/photo_1883@06-01-2026_14-05-57.jpg" alt="Альберта и нефть: Смит снова толкает трубопроводы на фоне Венесуэлы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">calgarysun.com</div>
+    <div class="card-title">Альберта и нефть: Смит снова толкает трубопроводы на фоне Венесуэлы</div>
+    <div class="card-excerpt">⁠ Премьер Альберты Даниэль Смит использует действия США против Венесуэлы как аргумент за ускоренное строительство новых трубопроводов. По её словам, ситуация с режимом Николаса Мадуро подчёркивает нео</div>
+    <div class="card-meta">
+      <span class="card-date">6 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2026-01-05-novye-zakony-i-pravila-v-kanade-v-2026-godu-chto-izmenitsya-/">
-  <div class="sc-img"><img src="/photos/photo_1879@05-01-2026_18-34-07.jpg" alt="Новые законы и правила в Канаде в 2026 году — что изменится для жителей" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">apple.news</div>
-    <div class="ptit sc-title">Новые законы и правила в Канаде в 2026 году — что изменится для жителей</div>
-    <div class="pex">2026 год принёс целый пакет федеральных и провинциальных изменений — от налогов и зарплат до миграции, рынка труда и цен на лекарства. Часть правил вступила в силу уже с 1 января.    Налоги и правила</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 янв 2026</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2026-01-05-novye-zakony-i-pravila-v-kanade-v-2026-godu-chto-izmenitsya-/">
+  <div class="card-img"><img src="/photos/photo_1879@05-01-2026_18-34-07.jpg" alt="Новые законы и правила в Канаде в 2026 году — что изменится для жителей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Новые законы и правила в Канаде в 2026 году — что изменится для жителей</div>
+    <div class="card-excerpt">2026 год принёс целый пакет федеральных и провинциальных изменений — от налогов и зарплат до миграции, рынка труда и цен на лекарства. Часть правил вступила в силу уже с 1 января.    Налоги и правила</div>
+    <div class="card-meta">
+      <span class="card-date">5 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-23-v-alberte-odobrili-vopros-o-vyhode-iz-sostava-kanady/">
-  <div class="sc-img"><img src="/photos/photo_1815@23-12-2025_14-48-01.jpg" alt="В Альберте одобрили вопрос о выходе из состава Канады" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">В Альберте одобрили вопрос о выходе из состава Канады</div>
-    <div class="pex">Избирательная комиссия Альберты дала зелёный свет гражданской инициативе о возможном отделении провинции от Канады. Это означает, что группа Alberta Prosperity Project может начать сбор подписей для в</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2025-12-23-v-alberte-odobrili-vopros-o-vyhode-iz-sostava-kanady/">
+  <div class="card-img"><img src="/photos/photo_1815@23-12-2025_14-48-01.jpg" alt="В Альберте одобрили вопрос о выходе из состава Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Альберте одобрили вопрос о выходе из состава Канады</div>
+    <div class="card-excerpt">Избирательная комиссия Альберты дала зелёный свет гражданской инициативе о возможном отделении провинции от Канады. Это означает, что группа Alberta Prosperity Project может начать сбор подписей для в</div>
+    <div class="card-meta">
+      <span class="card-date">23 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-23-liberaly-i-konservatory-sravnyalis-po-38/">
-  <div class="sc-img"><img src="/photos/photo_1814@23-12-2025_13-46-54.jpg" alt="Либералы и консерваторы сравнялись: по 38%" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">press.liaisonstrategies.ca</div>
-    <div class="ptit sc-title">Либералы и консерваторы сравнялись: по 38%</div>
-    <div class="pex">Новый общенациональный опрос компании Liaison Strategies показывает, что Либеральная партия Марка Карни продолжает терять поддержку и теперь делит первое место с консерваторами — по 38%.   Опрос прово</div>
-    <div class="pmeta sc-meta"><span class="pdate">23 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-12-23-liberaly-i-konservatory-sravnyalis-po-38/">
+  <div class="card-img"><img src="/photos/photo_1814@23-12-2025_13-46-54.jpg" alt="Либералы и консерваторы сравнялись: по 38%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">press.liaisonstrategies.ca</div>
+    <div class="card-title">Либералы и консерваторы сравнялись: по 38%</div>
+    <div class="card-excerpt">Новый общенациональный опрос компании Liaison Strategies показывает, что Либеральная партия Марка Карни продолжает терять поддержку и теперь делит первое место с консерваторами — по 38%.   Опрос прово</div>
+    <div class="card-meta">
+      <span class="card-date">23 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-19-environment-canada-nazvala-10-glavnyh-pogodnyh-sobytiy-2025-/">
-  <div class="sc-img"><img src="/photos/photo_1783@19-12-2025_13-05-21.jpg" alt="Environment Canada назвала 10 главных погодных событий 2025 года" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cheknews.ca</div>
-    <div class="ptit sc-title">Environment Canada назвала 10 главных погодных событий 2025 года</div>
-    <div class="pex">Федеральная метеослужба опубликовала ежегодный список самых значимых погодных явлений. 2025 год стал наглядным примером того, как экстремальные условия перестают быть исключением и превращаются в норм</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/arktika/">#Арктика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-12-19-environment-canada-nazvala-10-glavnyh-pogodnyh-sobytiy-2025-/">
+  <div class="card-img"><img src="/photos/photo_1783@19-12-2025_13-05-21.jpg" alt="Environment Canada назвала 10 главных погодных событий 2025 года" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cheknews.ca</div>
+    <div class="card-title">Environment Canada назвала 10 главных погодных событий 2025 года</div>
+    <div class="card-excerpt">Федеральная метеослужба опубликовала ежегодный список самых значимых погодных явлений. 2025 год стал наглядным примером того, как экстремальные условия перестают быть исключением и превращаются в норм</div>
+    <div class="card-meta">
+      <span class="card-date">19 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-18-dannye-roddomov-ukazyvayut-na-rost-rodilnogo-turizma-v-kanad/">
-  <div class="sc-img"><img src="/photos/photo_1779@18-12-2025_18-24-01.jpg" alt="Данные роддомов указывают на рост «родильного туризма» в Канаде" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">theglobeandmail.com</div>
-    <div class="ptit sc-title">Данные роддомов указывают на рост «родильного туризма» в Канаде</div>
-    <div class="pex">Роды у иностранок без постоянного статуса в Канаде снова растут — к такому выводу пришёл эксперт по иммиграционной статистике Эндрю Гриффит, проанализировав свежие данные канадских больниц. Его исслед</div>
-    <div class="pmeta sc-meta"><span class="pdate">18 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-12-18-dannye-roddomov-ukazyvayut-na-rost-rodilnogo-turizma-v-kanad/">
+  <div class="card-img"><img src="/photos/photo_1779@18-12-2025_18-24-01.jpg" alt="Данные роддомов указывают на рост «родильного туризма» в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Данные роддомов указывают на рост «родильного туризма» в Канаде</div>
+    <div class="card-excerpt">Роды у иностранок без постоянного статуса в Канаде снова растут — к такому выводу пришёл эксперт по иммиграционной статистике Эндрю Гриффит, проанализировав свежие данные канадских больниц. Его исслед</div>
+    <div class="card-meta">
+      <span class="card-date">18 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-17-alberta-snova-govorit-o-vyhode-iz-kanady-separatisty-podali-/">
-  <div class="sc-img"><img src="/photos/photo_1769@17-12-2025_12-37-25.jpg" alt="Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">edmonton.citynews.ca</div>
-    <div class="ptit sc-title">Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию</div>
-    <div class="pex">‎  В Альберте сделан ещё один формальный шаг к возможному референдуму о выходе из состава Канады. Сепаратистское движение подало новую гражданскую инициативу в Elections Alberta, а депутаты провинциал</div>
-    <div class="pmeta sc-meta"><span class="pdate">17 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-12-17-alberta-snova-govorit-o-vyhode-iz-kanady-separatisty-podali-/">
+  <div class="card-img"><img src="/photos/photo_1769@17-12-2025_12-37-25.jpg" alt="Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">edmonton.citynews.ca</div>
+    <div class="card-title">Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию</div>
+    <div class="card-excerpt">‎  В Альберте сделан ещё один формальный шаг к возможному референдуму о выходе из состава Канады. Сепаратистское движение подало новую гражданскую инициативу в Elections Alberta, а депутаты провинциал</div>
+    <div class="card-meta">
+      <span class="card-date">17 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-13-kanadtsy-stali-zhertvovat-menshe-minimum-za-20-let/">
-  <div class="sc-img"><img src="/photos/photo_1744@13-12-2025_15-29-01.jpg" alt="Канадцы стали жертвовать меньше — минимум за 20 лет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">ctvnews.ca</div>
-    <div class="ptit sc-title">Канадцы стали жертвовать меньше — минимум за 20 лет</div>
-    <div class="pex">Доля канадцев, делающих пожертвования благотворительным организациям, упала до самого низкого уровня за последние два десятилетия. Об этом говорится в новом исследовании Fraser Institute, основанном н</div>
-    <div class="pmeta sc-meta"><span class="pdate">13 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+</a><a class="card" href="/post/2025-12-13-kanadtsy-stali-zhertvovat-menshe-minimum-za-20-let/">
+  <div class="card-img"><img src="/photos/photo_1744@13-12-2025_15-29-01.jpg" alt="Канадцы стали жертвовать меньше — минимум за 20 лет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадцы стали жертвовать меньше — минимум за 20 лет</div>
+    <div class="card-excerpt">Доля канадцев, делающих пожертвования благотворительным организациям, упала до самого низкого уровня за последние два десятилетия. Об этом говорится в новом исследовании Fraser Institute, основанном н</div>
+    <div class="card-meta">
+      <span class="card-date">13 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-10-kanadskie-vuzy-aktiviziruyut-ohotu-za-veduschimi-mirovymi-uc/">
-  <div class="sc-img"><img src="/photos/photo_1708@10-12-2025_12-29-54.jpg" alt="Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">reuters.com</div>
-    <div class="ptit sc-title">Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования</div>
-    <div class="pex">‌﻿   Оттава запускает масштабную программу привлечения исследовательских звёзд из-за рубежа, рассчитывая воспользоваться ситуацией в США, где университеты сталкиваются с сокращениями бюджета и политич</div>
-    <div class="pmeta sc-meta"><span class="pdate">10 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+</a><a class="card" href="/post/2025-12-10-kanadskie-vuzy-aktiviziruyut-ohotu-za-veduschimi-mirovymi-uc/">
+  <div class="card-img"><img src="/photos/photo_1708@10-12-2025_12-29-54.jpg" alt="Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">reuters.com</div>
+    <div class="card-title">Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования</div>
+    <div class="card-excerpt">‌﻿   Оттава запускает масштабную программу привлечения исследовательских звёзд из-за рубежа, рассчитывая воспользоваться ситуацией в США, где университеты сталкиваются с сокращениями бюджета и политич</div>
+    <div class="card-meta">
+      <span class="card-date">10 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-05-pensioner-iz-saskachevana-poteryal-tri-tysyachi-dollarov-iz-/">
-  <div class="sc-img"><img src="/photos/photo_1669@05-12-2025_19-15-14.jpg" alt="Пенсионер из Саскачевана потерял три тысячи долларов из-за поддельного видео с «премьер-министром»" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Пенсионер из Саскачевана потерял три тысячи долларов из-за поддельного видео с «премьер-министром»</div>
-    <div class="pex">70-летний Линн Фано из Принс-Альберта решил поделиться своей историей после того, как стал жертвой криптомошенников, использовавших искусственно созданное видео, где будто бы премьер Марк Карни и веду</div>
-    <div class="pmeta sc-meta"><span class="pdate">5 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2025-12-05-pensioner-iz-saskachevana-poteryal-tri-tysyachi-dollarov-iz-/">
+  <div class="card-img"><img src="/photos/photo_1669@05-12-2025_19-15-14.jpg" alt="Пенсионер из Саскачевана потерял три тысячи долларов из-за поддельного видео с «премьер-министром»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Пенсионер из Саскачевана потерял три тысячи долларов из-за поддельного видео с «премьер-министром»</div>
+    <div class="card-excerpt">70-летний Линн Фано из Принс-Альберта решил поделиться своей историей после того, как стал жертвой криптомошенников, использовавших искусственно созданное видео, где будто бы премьер Марк Карни и веду</div>
+    <div class="card-meta">
+      <span class="card-date">5 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-02-petitsiya-navsegda-s-kanadoy-priznana-uspeshnoy-pochti-polmi/">
-  <div class="sc-img"><img src="/photos/photo_1626@02-12-2025_14-06-21.jpg" alt="Петиция «Навсегда с Канадой» признана успешной: почти полмиллиона албертцев подписались против сепаратизма" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Петиция «Навсегда с Канадой» признана успешной: почти полмиллиона албертцев подписались против сепаратизма</div>
-    <div class="pex">Elections Alberta подтвердила: гражданская инициатива Forever Canadian собрала более чем достаточно подписей. Для успеха требовалось 293 976, проверенными оказались 404 293 — после выборки с вероятнос</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2025-12-02-petitsiya-navsegda-s-kanadoy-priznana-uspeshnoy-pochti-polmi/">
+  <div class="card-img"><img src="/photos/photo_1626@02-12-2025_14-06-21.jpg" alt="Петиция «Навсегда с Канадой» признана успешной: почти полмиллиона албертцев подписались против сепаратизма" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Петиция «Навсегда с Канадой» признана успешной: почти полмиллиона албертцев подписались против сепаратизма</div>
+    <div class="card-excerpt">Elections Alberta подтвердила: гражданская инициатива Forever Canadian собрала более чем достаточно подписей. Для успеха требовалось 293 976, проверенными оказались 404 293 — после выборки с вероятнос</div>
+    <div class="card-meta">
+      <span class="card-date">2 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-02-alberta-novyy-nefteprovod-k-poberezhyu-mozhet-napolovinu-pri/">
-  <div class="sc-img"><img src="/photos/photo_1625@02-12-2025_12-59-01.jpg" alt="Альберта: новый нефтепровод к побережью может наполовину принадлежать общинам коренных народов" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">bloomberg.com</div>
-    <div class="ptit sc-title">Альберта: новый нефтепровод к побережью может наполовину принадлежать общинам коренных народов</div>
-    <div class="pex">Премьер Даниэль Смит заявила на мероприятии в Калгари, что будущий нефтепровод от Альберты к северному побережью Британской Колумбии может быть до 50% в собственности организаций коренных народов. По</div>
-    <div class="pmeta sc-meta"><span class="pdate">2 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-12-02-alberta-novyy-nefteprovod-k-poberezhyu-mozhet-napolovinu-pri/">
+  <div class="card-img"><img src="/photos/photo_1625@02-12-2025_12-59-01.jpg" alt="Альберта: новый нефтепровод к побережью может наполовину принадлежать общинам коренных народов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bloomberg.com</div>
+    <div class="card-title">Альберта: новый нефтепровод к побережью может наполовину принадлежать общинам коренных народов</div>
+    <div class="card-excerpt">Премьер Даниэль Смит заявила на мероприятии в Калгари, что будущий нефтепровод от Альберты к северному побережью Британской Колумбии может быть до 50% в собственности организаций коренных народов. По</div>
+    <div class="card-meta">
+      <span class="card-date">2 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-12-01-separatisty-zanyali-klyuchevye-mesta-v-rukovodstve-ucp/">
-  <div class="sc-img"><img src="/photos/photo_1615@01-12-2025_10-22-33.jpg" alt="Сепаратисты заняли ключевые места в руководстве UCP" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">calgaryherald.com</div>
-    <div class="ptit sc-title">Сепаратисты заняли ключевые места в руководстве UCP</div>
-    <div class="pex">﻿  На съезде Единой консервативной партии Альберты появились новые силы: сторонники независимости получили большинство в обновлённом составе правления. Из девяти позиций пять заняли кандидаты, которых</div>
-    <div class="pmeta sc-meta"><span class="pdate">1 дек 2025</span><div class="ptags"><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+</a><a class="card" href="/post/2025-12-01-separatisty-zanyali-klyuchevye-mesta-v-rukovodstve-ucp/">
+  <div class="card-img"><img src="/photos/photo_1615@01-12-2025_10-22-33.jpg" alt="Сепаратисты заняли ключевые места в руководстве UCP" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">calgaryherald.com</div>
+    <div class="card-title">Сепаратисты заняли ключевые места в руководстве UCP</div>
+    <div class="card-excerpt">﻿  На съезде Единой консервативной партии Альберты появились новые силы: сторонники независимости получили большинство в обновлённом составе правления. Из девяти позиций пять заняли кандидаты, которых</div>
+    <div class="card-meta">
+      <span class="card-date">1 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-26-poliev-obrushilsya-na-sdelku-smitkarni-po-truboprovodu-piar-/">
-  <div class="sc-img"><img src="/photos/photo_1589@26-11-2025_15-41-13.jpg" alt="Полиев обрушился на сделку Смит–Карни по трубопроводу: “пиар, а не проект”" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">calgaryherald.com</div>
-    <div class="ptit sc-title">Полиев обрушился на сделку Смит–Карни по трубопроводу: “пиар, а не проект”</div>
-    <div class="pex">На фоне подготовки премьер-министра Марка Карни к визиту в Калгари консерваторы резко атакуют предварительное соглашение между Оттавой и правительством Даниэль Смит о возможном трубопроводе на северо-</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+</a><a class="card" href="/post/2025-11-26-poliev-obrushilsya-na-sdelku-smitkarni-po-truboprovodu-piar-/">
+  <div class="card-img"><img src="/photos/photo_1589@26-11-2025_15-41-13.jpg" alt="Полиев обрушился на сделку Смит–Карни по трубопроводу: “пиар, а не проект”" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">calgaryherald.com</div>
+    <div class="card-title">Полиев обрушился на сделку Смит–Карни по трубопроводу: “пиар, а не проект”</div>
+    <div class="card-excerpt">На фоне подготовки премьер-министра Марка Карни к визиту в Калгари консерваторы резко атакуют предварительное соглашение между Оттавой и правительством Даниэль Смит о возможном трубопроводе на северо-</div>
+    <div class="card-meta">
+      <span class="card-date">26 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-26-kanada-raskryla-svezhie-dannye-o-nalogah-na-kannabis-s-oktya/">
-  <div class="sc-img"><img src="/photos/photo_1585@26-11-2025_10-27-10.jpg" alt="Канада раскрыла свежие данные о налогах на каннабис: с октября 2018 года собрано свыше $5,4 млрд." loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc"></div>
-    <div class="ptit sc-title">Канада раскрыла свежие данные о налогах на каннабис: с октября 2018 года собрано свыше $5,4 млрд.</div>
-    <div class="pex">Из них Оттава получила только $1,2 млрд, всё остальное — $4,2 млрд — ушло провинциям. Такие цифры правительство передало в Палату общин по запросу консерватора Люка Берто.   По договорённостям с CRA п</div>
-    <div class="pmeta sc-meta"><span class="pdate">26 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+</a><a class="card" href="/post/2025-11-26-kanada-raskryla-svezhie-dannye-o-nalogah-na-kannabis-s-oktya/">
+  <div class="card-img"><img src="/photos/photo_1585@26-11-2025_10-27-10.jpg" alt="Канада раскрыла свежие данные о налогах на каннабис: с октября 2018 года собрано свыше $5,4 млрд." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src"></div>
+    <div class="card-title">Канада раскрыла свежие данные о налогах на каннабис: с октября 2018 года собрано свыше $5,4 млрд.</div>
+    <div class="card-excerpt">Из них Оттава получила только $1,2 млрд, всё остальное — $4,2 млрд — ушло провинциям. Такие цифры правительство передало в Палату общин по запросу консерватора Люка Берто.   По договорённостям с CRA п</div>
+    <div class="card-meta">
+      <span class="card-date">26 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-25-ottava-i-alberta-soglasovali-osnovy-krupnoy-energeticheskoy-/">
-  <div class="sc-img"><img src="/photos/photo_1576@25-11-2025_11-42-27.jpg" alt="Оттава и Альберта согласовали основы крупной энергетической сделки — поддержка нового трубопровода входит в пакет" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Оттава и Альберта согласовали основы крупной энергетической сделки — поддержка нового трубопровода входит в пакет</div>
-    <div class="pex">CBC News сообщает: кабинет Марка Карни и правительство Даниэл Смит пришли к общим контурам меморандума о взаимопонимании, который сочетает политическую поддержку нового нефтепровода к побережью Британ</div>
-    <div class="pmeta sc-meta"><span class="pdate">25 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+</a><a class="card" href="/post/2025-11-25-ottava-i-alberta-soglasovali-osnovy-krupnoy-energeticheskoy-/">
+  <div class="card-img"><img src="/photos/photo_1576@25-11-2025_11-42-27.jpg" alt="Оттава и Альберта согласовали основы крупной энергетической сделки — поддержка нового трубопровода входит в пакет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оттава и Альберта согласовали основы крупной энергетической сделки — поддержка нового трубопровода входит в пакет</div>
+    <div class="card-excerpt">CBC News сообщает: кабинет Марка Карни и правительство Даниэл Смит пришли к общим контурам меморандума о взаимопонимании, который сочетает политическую поддержку нового нефтепровода к побережью Британ</div>
+    <div class="card-meta">
+      <span class="card-date">25 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
   </div>
-</a><a class="small-card" href="/post/2025-11-19-alberta-vklyuchaet-ogovorku-o-neprimenenii-hartii-chtoby-zas/">
-  <div class="sc-img"><img src="/photos/photo_1533@19-11-2025_15-04-33.jpg" alt="Альберта включает оговорку о неприменении Хартии, чтобы защитить три закона о трансгендерных детях и подростках" loading="lazy"></div>
-  <div class="sc-body">
-    <div class="psrc">cbc.ca</div>
-    <div class="ptit sc-title">Альберта включает оговорку о неприменении Хартии, чтобы защитить три закона о трансгендерных детях и подростках</div>
-    <div class="pex">Правительство Даниэль Смит делает редкий и крайне жёсткий ход: вносит законопроект, который закрывает путь к судебным искам против трёх уже принятых норм, касающихся здравоохранения, школы и спорта. П</div>
-    <div class="pmeta sc-meta"><span class="pdate">19 ноя 2025</span><div class="ptags"><a class="ptag" href="/tag/alberta/">#Альберта</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+</a><a class="card" href="/post/2025-11-19-alberta-vklyuchaet-ogovorku-o-neprimenenii-hartii-chtoby-zas/">
+  <div class="card-img"><img src="/photos/photo_1533@19-11-2025_15-04-33.jpg" alt="Альберта включает оговорку о неприменении Хартии, чтобы защитить три закона о трансгендерных детях и подростках" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Альберта включает оговорку о неприменении Хартии, чтобы защитить три закона о трансгендерных детях и подростках</div>
+    <div class="card-excerpt">Правительство Даниэль Смит делает редкий и крайне жёсткий ход: вносит законопроект, который закрывает путь к судебным искам против трёх уже принятых норм, касающихся здравоохранения, школы и спорта. П</div>
+    <div class="card-meta">
+      <span class="card-date">19 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
   </div>
 </a></div>
   <div class="pgn"><a class="pb on" href="/tag/alberta/">1</a><a class="pb" href="/tag/alberta/page/2/">2</a><a class="pb" href="/tag/alberta/page/3/">3</a><a class="pb" href="/tag/alberta/page/4/">4</a><a class="pb" href="/tag/alberta/page/2/">→</a></div>
