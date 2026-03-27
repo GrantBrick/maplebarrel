@@ -432,58 +432,56 @@ def parse_telegram_export(json_path):
 
 COMMON_CSS = """
 :root{
-  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
-  --br:#e2ddd4;--br2:#ccc7bc;
-  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
-  --ac:#c0392b;--ac2:#c0392b;
-  --tg:#2b6cb0;--tg2:#1a56a0;
-  --maple:#c0392b;
-  --shadow:0 2px 12px rgba(0,0,0,.09),0 1px 3px rgba(0,0,0,.06);
-  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --bg:#f2efe8;--bg2:#fff;--bg3:#f7f4ee;--bg4:#eae6de;
+  --br:#ddd9d0;--br2:#c8c4bb;
+  --t:#1a1916;--t2:#5a5750;--t3:#9a958c;--t4:#c0bbb2;
+  --ac:#c0392b;--tg2:#1a56a0;--maple:#c0392b;
+  --shadow:0 2px 8px rgba(0,0,0,.08);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
   --serif:'Playfair Display',Georgia,serif;
   --bserif:'Source Serif 4',Georgia,serif;
   --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
+img{display:block}
 
-/* NAV */
-nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.ni{max-width:1280px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:1px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
 .nl:hover{color:var(--t);background:var(--bg4)}
 .nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center}
-.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 15px;text-decoration:none;transition:background .2s;white-space:nowrap}
-.tgb:hover{background:var(--tg)}
+.tgb{display:flex;align-items:center;gap:6px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:background .2s}
+.tgb:hover{background:#1a4a8a}
 .tgb svg{width:14px;height:14px;flex-shrink:0}
 
-.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 20px 56px}
 
 /* SOURCE BADGE */
-.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;padding:2px 7px;border-radius:3px;white-space:nowrap}
 
-/* CARD - universal component */
+/* ── CARD — Meduza style ──
+   Structure: img → body(badge + title + meta)
+   No overflow tricks, no absolute positioning */
 .card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.card-img{aspect-ratio:3/2;overflow:hidden;background:var(--bg4);flex-shrink:0;display:block;width:100%}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
-.card-body{padding:13px 14px 14px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px;flex:1}
-.card-excerpt{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:7px;padding-top:8px;border-top:1px solid var(--br);flex-wrap:wrap;margin-top:auto}
+.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
+.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px}
+.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
 .card-date{font-size:10px;color:var(--t3)}
 .card-tags{display:flex;gap:3px;flex-wrap:wrap}
-.card-read{font-size:11px;font-weight:600;color:var(--ac);margin-top:2px}
 
 /* TAGS */
-.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap}
 .tag-pol{background:#fde8e8;color:#9b1c1c}
 .tag-eco{background:#fef3c7;color:#78350f}
 .tag-imm{background:#dbeafe;color:#1e40af}
@@ -498,37 +496,40 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-/* TAG FILTER */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
 .tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
 .tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
-/* LR CARD (longreads horizontal) */
-.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+/* LR-CARD for longreads */
+.lr-card{display:flex;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:120px;min-width:120px;flex-shrink:0;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
+.lrc-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
-/* FOOTER */
 footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
-.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.fi{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
 .flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
-.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
-.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
-.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:320px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:10px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:6px;transition:color .15s}
 .fcol a:hover{color:var(--t)}
-.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcp{max-width:1280px;margin:18px auto 0;padding-top:16px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* TG CTA */
-.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
-.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
-.csub{font-size:13px;color:var(--t2)}
-.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px;color:var(--t)}
+.csub{font-size:12px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:5px}
 .ctgp a{color:var(--tg2)}
-.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:5px;text-decoration:none;transition:background .15s;white-space:nowrap}
+.cbtn2:hover{background:#1a4a8a}
 
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
 @media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
@@ -677,51 +678,41 @@ def hero_card(p):
     src_label = source_name(p.get('source', ''))
     img = post_img_src(p)
     src = p.get('source', '')
-    bg, fg, label = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
     if img:
-        img_html = f'<div class="hc-img"><img src="{img}" alt="" loading="eager" onerror="this.src=\'\';this.parentNode.style.background=\'{bg}\'"></div>'
+        img_block = f'<div class="hc-img"><img src="{img}" alt="" loading="eager"></div>'
     else:
-        img_html = f'<div class="hc-img"><div class="hc-ph" style="background:{bg};color:{fg}">{label}</div></div>'
+        img_block = f'<div class="hc-img" style="background:{bg}"><span style="color:{fg};font-size:14px;font-weight:700">{lbl}</span></div>'
+    tags_html = tags_row(p.get('tags'), 3)
     return (f'<a class="hero-card" href="{post_url(p)}">'
-            f'{img_html}'
+            f'{img_block}'
             f'<div class="hc-body">'
-            f'<div><span class="src-badge">{esc(src_label)}</span></div>'
+            f'<span class="src-badge">{esc(src_label)}</span>'
             f'<div class="hc-title">{esc(p["title"])}</div>'
             f'<div class="hc-ex">{esc(p.get("excerpt",""))}</div>'
-            f'<div class="card-meta" style="margin-top:auto;border-top:1px solid var(--br);padding-top:10px">'
+            f'<div class="hc-meta">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
-            f'<div class="card-tags">{tags_row(p.get("tags"), 3)}</div>'
-            f'</div>'
-            f'<div class="card-read">Читать далее →</div>'
-            f'</div></a>')
-
-
+            f'<div class="card-tags">{tags_html}</div>'
+            f'</div></div></a>')
 def small_card(p, loading='lazy'):
     src_label = source_name(p.get('source', ''))
     img = post_img_src(p)
     src = p.get('source', '')
     bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
     if img:
-        img_html = (f'<div class="card-img">'
-                    f'<img src="{img}" alt="" loading="{loading}" '
-                    f"onerror=\"this.src=\'\';this.parentNode.innerHTML=\'<div class=card-placeholder style=background:{bg}><span style=color:{fg}>{lbl}</span></div>\'\">"
-                    f'</div>')
+        img_block = f'<div class="card-img"><img src="{img}" alt="" loading="{loading}"></div>'
     else:
-        img_html = f'<div class="card-img"><div class="card-placeholder" style="background:{bg}"><span style="color:{fg}">{lbl}</span></div></div>'
+        img_block = f'<div class="card-img"><div class="card-ph" style="background:{bg};color:{fg}">{lbl}</div></div>'
+    tags_html = tags_row(p.get('tags'), 2)
     return (f'<a class="card" href="{post_url(p)}">'
-            f'{img_html}'
+            f'{img_block}'
             f'<div class="card-body">'
-            f'<div><span class="src-badge">{esc(src_label)}</span></div>'
+            f'<span class="src-badge">{esc(src_label)}</span>'
             f'<div class="card-title">{esc(p["title"])}</div>'
-            f'<div class="card-excerpt">{esc(p.get("excerpt",""))}</div>'
             f'<div class="card-meta">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
-            f'<div class="card-tags">{tags_row(p.get("tags"), 2)}</div>'
-            f'</div>'
-            f'<div class="card-read">Читать далее →</div>'
-            f'</div></a>')
-
-
+            f'<div class="card-tags">{tags_html}</div>'
+            f'</div></div></a>')
 def compact_item(p, num):
     src_label = source_name(p.get('source', ''))
     return (f'<a class="compact-item" href="{post_url(p)}">'
@@ -737,22 +728,22 @@ def compact_item(p, num):
 
 
 def lr_card(p):
-    """Horizontal mini-card for longreads sidebar."""
     src_label = source_name(p.get('source', ''))
+    img = post_img_src(p)
     src = p.get('source', '')
     bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
-    img = post_img_src(p)
     if img:
-        img_html = f'<div class="lr-img"><img src="{img}" alt="" loading="lazy" onerror="this.parentNode.style.background=\'{bg}\';this.remove()"></div>'
+        img_block = f'<div class="lr-img"><img src="{img}" alt="" loading="lazy"></div>'
     else:
-        img_html = f'<div class="lr-img" style="background:{bg}"><span style="color:{fg};font-size:10px;font-weight:700">{lbl}</span></div>'
+        img_block = f'<div class="lr-img" style="background:{bg}"><span style="color:{fg};font-size:11px;font-weight:700">{lbl}</span></div>'
     return (f'<a class="lr-card" href="{post_url(p)}">'
-            f'{img_html}'
+            f'{img_block}'
             f'<div class="lrc-body">'
-            f'<span class="src-badge" style="font-size:9px;padding:1px 5px">{esc(src_label)}</span>'
+            f'<span class="src-badge" style="font-size:9px">{esc(src_label)}</span>'
             f'<div class="lrc-title">{esc(p["title"])}</div>'
-            f'<div class="card-date" style="font-size:10px;margin-top:3px">{fmt_date(p["date"])}</div>'
+            f'<span class="card-date" style="font-size:10px;color:var(--t3)">{fmt_date(p["date"])}</span>'
             f'</div></a>')
+
 
 
 # ── СТРАНИЦА ПОСТА ─────────────────────────────────────
@@ -877,34 +868,35 @@ def build_post_page(p, related):
 
 def build_news_index(posts_by_date):
     css = """
-.day-hdr{display:flex;align-items:baseline;gap:12px;padding:18px 0 12px;border-bottom:2px solid var(--br);margin-bottom:20px}
-.day-label{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--t)}
+.day-hdr{display:flex;align-items:baseline;gap:12px;padding:16px 0 12px;border-bottom:2px solid var(--br);margin-bottom:18px}
+.day-label{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--t)}
 .day-sub{font-size:12px;color:var(--t3)}
 
-/* HERO CARD - простая схема без хаков */
-.hero-card{display:grid;grid-template-columns:1fr 1fr;margin-bottom:20px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1)}
-.hc-img{background:var(--bg4);min-height:260px;overflow:hidden}
-.hc-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:260px}
-.hc-ph{width:100%;min-height:260px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;letter-spacing:.5px}
-.hc-body{background:#fff;padding:24px 22px;display:flex;flex-direction:column;gap:10px}
-.hc-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.3;color:var(--t);flex:1}
-.hc-ex{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+/* HERO — full width, image on top */
+.hero-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;margin-bottom:18px;transition:box-shadow .15s,transform .15s}
+.hero-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.hc-img{width:100%;aspect-ratio:16/6;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hc-body{padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px}
+.hc-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.25;color:var(--t)}
+.hc-ex{font-size:14px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 
-/* SMALL CARDS */
+/* 3-grid */
 .sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
 
-/* COMPACT LIST */
+/* Compact numbered list */
 .compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);margin-bottom:22px;border-radius:6px;overflow:hidden}
 .compact-item{background:#fff;display:flex;gap:10px;padding:11px 14px;align-items:flex-start;transition:background .12s;text-decoration:none}
 .compact-item:hover{background:var(--bg3)}
-.ci-num{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--br2);flex-shrink:0;line-height:1.2;min-width:22px;text-align:right}
+.ci-num{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--br2);flex-shrink:0;min-width:22px;text-align:right;padding-top:2px}
 .ci-body{flex:1;display:flex;flex-direction:column;gap:4px}
 .ci-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
-/* YESTERDAY */
+/* Yesterday 4-grid */
 .yesterday-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
 
-/* PREVIOUS DAYS */
+/* Prev days */
 .prev-section{margin-top:8px}
 .prev-day{margin-bottom:10px}
 .prev-day-btn{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
@@ -914,15 +906,16 @@ def build_news_index(posts_by_date):
 .pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
 .prev-posts{display:none;grid-template-columns:repeat(4,1fr);gap:12px;padding:12px 0}
 .prev-posts.open{display:grid}
-.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:0 1px 4px rgba(0,0,0,.07);transition:transform .12s}
+.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow-sm);transition:transform .12s}
 .pp-card:hover{transform:translateY(-1px)}
-.pp-src{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#fff;background:var(--ac);padding:1px 6px;border-radius:2px;display:inline-block;width:fit-content;margin-bottom:2px}
+.pp-src{font-size:9px;font-weight:700;text-transform:uppercase;color:#fff;background:var(--ac);padding:1px 6px;border-radius:2px;width:fit-content;margin-bottom:2px}
 .pp-title{font-family:var(--serif);font-size:12px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
 @media(max-width:1100px){.yesterday-grid{grid-template-columns:repeat(3,1fr)}.prev-posts{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.hero-card{grid-template-columns:1fr}.hc-img{min-height:200px}.hc-img img{min-height:200px}.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.sec-grid{grid-template-columns:1fr}.yesterday-grid{grid-template-columns:1fr 1fr}}
 """
+
     dates = sorted(posts_by_date.keys(), reverse=True)
     html = '<div class="wrap">'
 

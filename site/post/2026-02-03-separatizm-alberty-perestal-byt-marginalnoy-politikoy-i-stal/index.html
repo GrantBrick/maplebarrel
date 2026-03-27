@@ -19,58 +19,56 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
-  --br:#e2ddd4;--br2:#ccc7bc;
-  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
-  --ac:#c0392b;--ac2:#c0392b;
-  --tg:#2b6cb0;--tg2:#1a56a0;
-  --maple:#c0392b;
-  --shadow:0 2px 12px rgba(0,0,0,.09),0 1px 3px rgba(0,0,0,.06);
-  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --bg:#f2efe8;--bg2:#fff;--bg3:#f7f4ee;--bg4:#eae6de;
+  --br:#ddd9d0;--br2:#c8c4bb;
+  --t:#1a1916;--t2:#5a5750;--t3:#9a958c;--t4:#c0bbb2;
+  --ac:#c0392b;--tg2:#1a56a0;--maple:#c0392b;
+  --shadow:0 2px 8px rgba(0,0,0,.08);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
   --serif:'Playfair Display',Georgia,serif;
   --bserif:'Source Serif 4',Georgia,serif;
   --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
+img{display:block}
 
-/* NAV */
-nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.ni{max-width:1280px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
-.nav-links{display:flex;gap:1px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
 .nl:hover{color:var(--t);background:var(--bg4)}
 .nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center}
-.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 15px;text-decoration:none;transition:background .2s;white-space:nowrap}
-.tgb:hover{background:var(--tg)}
+.tgb{display:flex;align-items:center;gap:6px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:background .2s}
+.tgb:hover{background:#1a4a8a}
 .tgb svg{width:14px;height:14px;flex-shrink:0}
 
-.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 20px 56px}
 
 /* SOURCE BADGE */
-.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;padding:2px 7px;border-radius:3px;white-space:nowrap}
 
-/* CARD - universal component */
+/* ── CARD — Meduza style ──
+   Structure: img → body(badge + title + meta)
+   No overflow tricks, no absolute positioning */
 .card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.card-img{aspect-ratio:3/2;overflow:hidden;background:var(--bg4);flex-shrink:0;display:block;width:100%}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
-.card-body{padding:13px 14px 14px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px;flex:1}
-.card-excerpt{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:7px;padding-top:8px;border-top:1px solid var(--br);flex-wrap:wrap;margin-top:auto}
+.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
+.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px}
+.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
 .card-date{font-size:10px;color:var(--t3)}
 .card-tags{display:flex;gap:3px;flex-wrap:wrap}
-.card-read{font-size:11px;font-weight:600;color:var(--ac);margin-top:2px}
 
 /* TAGS */
-.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap}
 .tag-pol{background:#fde8e8;color:#9b1c1c}
 .tag-eco{background:#fef3c7;color:#78350f}
 .tag-imm{background:#dbeafe;color:#1e40af}
@@ -85,37 +83,40 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-/* TAG FILTER */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
 .tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
 .tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
-/* LR CARD (longreads horizontal) */
-.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+/* LR-CARD for longreads */
+.lr-card{display:flex;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:120px;min-width:120px;flex-shrink:0;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
+.lrc-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
-/* FOOTER */
 footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
-.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.fi{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
 .flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
-.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
-.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
-.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:320px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:10px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:6px;transition:color .15s}
 .fcol a:hover{color:var(--t)}
-.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fcp{max-width:1280px;margin:18px auto 0;padding-top:16px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* TG CTA */
-.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
-.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
-.csub{font-size:13px;color:var(--t2)}
-.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px;color:var(--t)}
+.csub{font-size:12px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:5px}
 .ctgp a{color:var(--tg2)}
-.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:5px;text-decoration:none;transition:background .15s;white-space:nowrap}
+.cbtn2:hover{background:#1a4a8a}
 
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
 @media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
@@ -154,7 +155,7 @@ footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;backgrou
     </a>
   </div>
 </div></nav>
-<div class="wrap"><a class="bk" href="javascript:history.back()">← Назад</a><div class="art-layout"><div><div class="art-src-row"><span class="src-badge">thewalrus.ca</span><div class="art-pers"><a class="art-per" href="/person/donald-tramp/">Дональд Трамп</a></div></div><h1 class="art-title">Сепаратизм Альберты перестал быть маргинальной политикой — и стал вопросом национальной безопасности Канады.</h1><div class="art-hero"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="eager" onerror="this.parentNode.innerHTML='<div class=art-hero-ph style=background:#4a4740><span style=color:#fff;font-size:24px;font-weight:700>THEW</span></div>'"></div><div class="art-metabar"><span class="art-date">3 февраля 2026</span><div class="art-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-reg" href="/tag/alberta/">#Альберта</a></div></div><div class="art-body-wrap"><div class="art-body"><p>Стало известно, что лидеры Alberta Prosperity Project (APP) уже провели три встречи с высокопоставленными представителями администрации Дональда Трампа в Вашингтоне, четвёртая — запланирована. По словам юриста APP Джеффри Рата, одна из встреч проходила в SCIF — защищённом помещении для работы с секретной информацией, куда обычно допускают только чиновников с допуском к гостайне.</p><p>Речь шла не просто о «признании» Альберты в случае референдума. Обсуждались конкретные меры поддержки со стороны США: валютные гарантии, пенсионные обязательства, кредиты на сотни миллиардов долларов под залог нефтяных ресурсов, ускоренное строительство трубопроводов и даже привязка будущей Альберты к доллару США.</p><p>На фоне новой доктрины Белого дома — фактического «коридора Монро 2.0», предполагающего жёсткий контроль США над Западным полушарием и его ресурсами, — Канада выглядит уязвимо. Особенно — ресурсная и слабо защищённая в военном плане.</p><p>Канадское право допускает агитацию за выход провинции из конфедерации. Но закон чётко проводит границу: иностранное влияние, тайные договорённости и вмешательство во внутренние политические процессы — это уже зона ответственности спецслужб.</p><p>Прецеденты есть. В 1960-х федеральные комиссии прямо указывали: если сепаратизм подпитывается из-за рубежа, он перестаёт быть просто политическим движением.</p><p>APP называет себя «образовательным обществом», но фактически действует как канал взаимодействия между альбертинскими сепаратистами и администрацией Трампа. При этом её представители не имеют ни мандата, ни выборной легитимности.</p><p>Дополнительный инструмент у Оттавы появился недавно — закон о прозрачности иностранного влияния. Он может обязать APP раскрыть контакты, договорённости и финансирование. Регламент к закону вот-вот вступит в силу.</p><p>Вопрос уже не в том, «можно ли агитировать за выход Альберты». Вопрос в том, когда политический проект превращается в механизм внешнего давления на целостность страны — и готова ли Канада это признать.</p></div></div><a class="src-link" href="https://thewalrus.ca/albertas-separatist-movement-is-a-national-security-threat/" target="_blank" rel="noopener">Читать оригинал на thewalrus.ca →</a><div class="tgcta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg><div class="ctxt"><div class="ctit">Читайте Maple Barrel в Telegram</div><div class="csub">Новые материалы каждый день — прямо в мессенджере</div><div class="ctgp">Этот пост в Telegram: <a href="https://t.me/maplebarrel/2368" target="_blank" rel="noopener">https://t.me/maplebarrel/2368</a></div></div><a class="cbtn2" href="https://t.me/maplebarrel" target="_blank" rel="noopener">Подписаться</a></div></div><div class="art-sb"><div class="sbt">Читайте также</div><div class="rel-posts"><a class="lr-card" href="/post/2026-03-27-liberaly-uzhestochayut-izbiratelnye-zakony-dipfeyki-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.style.background='#003087';this.remove()"></div><div class="lrc-body"><span class="src-badge" style="font-size:9px;padding:1px 5px">National Post</span><div class="lrc-title">Либералы ужесточают избирательные законы: дипфейки, иностранное вмешательство и «длинные бюллетени»</div><div class="card-date" style="font-size:10px;margin-top:3px">27 мар 2026</div></div></a><a class="lr-card" href="/post/2026-03-27-pereshedshiy-k-liberalam-deputat-izvinilsya-za-povedenie-na-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.style.background='#cc0000';this.remove()"></div><div class="lrc-body"><span class="src-badge" style="font-size:9px;padding:1px 5px">CBC</span><div class="lrc-title">Перешедший к либералам депутат извинился за поведение на слушаниях по китайским электромобилям</div><div class="card-date" style="font-size:10px;margin-top:3px">27 мар 2026</div></div></a><a class="lr-card" href="/post/2026-03-27-kanada-dostigla-tseli-nato-po-voennym-rashodam/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.style.background='#005eb8';this.remove()"></div><div class="lrc-body"><span class="src-badge" style="font-size:9px;padding:1px 5px">CTV News</span><div class="lrc-title">Канада достигла цели НАТО по военным расходам</div><div class="card-date" style="font-size:10px;margin-top:3px">27 мар 2026</div></div></a><a class="lr-card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.style.background='#cc0000';this.remove()"></div><div class="lrc-body"><span class="src-badge" style="font-size:9px;padding:1px 5px">CBC</span><div class="lrc-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div><div class="card-date" style="font-size:10px;margin-top:3px">26 мар 2026</div></div></a></div></div></div></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Сепаратизм Альберты перестал быть маргинальной политикой — и стал вопросом национальной безопасности Канады.", "datePublished": "2026-02-03", "publisher": {"@type": "Organization", "name": "Maple Barrel", "url": "https://journaists.ca"}, "url": "https://journaists.ca/post/2026-02-03-separatizm-alberty-perestal-byt-marginalnoy-politikoy-i-stal/", "description": "Стало известно, что лидеры Alberta Prosperity Project (APP) уже провели три встречи с высокопоставленными представителями администрации Дональда Трампа в Вашинг"}</script>
+<div class="wrap"><a class="bk" href="javascript:history.back()">← Назад</a><div class="art-layout"><div><div class="art-src-row"><span class="src-badge">thewalrus.ca</span><div class="art-pers"><a class="art-per" href="/person/donald-tramp/">Дональд Трамп</a></div></div><h1 class="art-title">Сепаратизм Альберты перестал быть маргинальной политикой — и стал вопросом национальной безопасности Канады.</h1><div class="art-hero"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="eager" onerror="this.parentNode.innerHTML='<div class=art-hero-ph style=background:#4a4740><span style=color:#fff;font-size:24px;font-weight:700>THEW</span></div>'"></div><div class="art-metabar"><span class="art-date">3 февраля 2026</span><div class="art-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-reg" href="/tag/alberta/">#Альберта</a></div></div><div class="art-body-wrap"><div class="art-body"><p>Стало известно, что лидеры Alberta Prosperity Project (APP) уже провели три встречи с высокопоставленными представителями администрации Дональда Трампа в Вашингтоне, четвёртая — запланирована. По словам юриста APP Джеффри Рата, одна из встреч проходила в SCIF — защищённом помещении для работы с секретной информацией, куда обычно допускают только чиновников с допуском к гостайне.</p><p>Речь шла не просто о «признании» Альберты в случае референдума. Обсуждались конкретные меры поддержки со стороны США: валютные гарантии, пенсионные обязательства, кредиты на сотни миллиардов долларов под залог нефтяных ресурсов, ускоренное строительство трубопроводов и даже привязка будущей Альберты к доллару США.</p><p>На фоне новой доктрины Белого дома — фактического «коридора Монро 2.0», предполагающего жёсткий контроль США над Западным полушарием и его ресурсами, — Канада выглядит уязвимо. Особенно — ресурсная и слабо защищённая в военном плане.</p><p>Канадское право допускает агитацию за выход провинции из конфедерации. Но закон чётко проводит границу: иностранное влияние, тайные договорённости и вмешательство во внутренние политические процессы — это уже зона ответственности спецслужб.</p><p>Прецеденты есть. В 1960-х федеральные комиссии прямо указывали: если сепаратизм подпитывается из-за рубежа, он перестаёт быть просто политическим движением.</p><p>APP называет себя «образовательным обществом», но фактически действует как канал взаимодействия между альбертинскими сепаратистами и администрацией Трампа. При этом её представители не имеют ни мандата, ни выборной легитимности.</p><p>Дополнительный инструмент у Оттавы появился недавно — закон о прозрачности иностранного влияния. Он может обязать APP раскрыть контакты, договорённости и финансирование. Регламент к закону вот-вот вступит в силу.</p><p>Вопрос уже не в том, «можно ли агитировать за выход Альберты». Вопрос в том, когда политический проект превращается в механизм внешнего давления на целостность страны — и готова ли Канада это признать.</p></div></div><a class="src-link" href="https://thewalrus.ca/albertas-separatist-movement-is-a-national-security-threat/" target="_blank" rel="noopener">Читать оригинал на thewalrus.ca →</a><div class="tgcta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg><div class="ctxt"><div class="ctit">Читайте Maple Barrel в Telegram</div><div class="csub">Новые материалы каждый день — прямо в мессенджере</div><div class="ctgp">Этот пост в Telegram: <a href="https://t.me/maplebarrel/2368" target="_blank" rel="noopener">https://t.me/maplebarrel/2368</a></div></div><a class="cbtn2" href="https://t.me/maplebarrel" target="_blank" rel="noopener">Подписаться</a></div></div><div class="art-sb"><div class="sbt">Читайте также</div><div class="rel-posts"><a class="lr-card" href="/post/2026-03-27-liberaly-uzhestochayut-izbiratelnye-zakony-dipfeyki-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge" style="font-size:9px">National Post</span><div class="lrc-title">Либералы ужесточают избирательные законы: дипфейки, иностранное вмешательство и «длинные бюллетени»</div><span class="card-date" style="font-size:10px;color:var(--t3)">27 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-27-pereshedshiy-k-liberalam-deputat-izvinilsya-za-povedenie-na-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge" style="font-size:9px">CBC</span><div class="lrc-title">Перешедший к либералам депутат извинился за поведение на слушаниях по китайским электромобилям</div><span class="card-date" style="font-size:10px;color:var(--t3)">27 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-27-kanada-dostigla-tseli-nato-po-voennym-rashodam/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge" style="font-size:9px">CTV News</span><div class="lrc-title">Канада достигла цели НАТО по военным расходам</div><span class="card-date" style="font-size:10px;color:var(--t3)">27 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge" style="font-size:9px">CBC</span><div class="lrc-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div><span class="card-date" style="font-size:10px;color:var(--t3)">26 мар 2026</span></div></a></div></div></div></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Сепаратизм Альберты перестал быть маргинальной политикой — и стал вопросом национальной безопасности Канады.", "datePublished": "2026-02-03", "publisher": {"@type": "Organization", "name": "Maple Barrel", "url": "https://journaists.ca"}, "url": "https://journaists.ca/post/2026-02-03-separatizm-alberty-perestal-byt-marginalnoy-politikoy-i-stal/", "description": "Стало известно, что лидеры Alberta Prosperity Project (APP) уже провели три встречи с высокопоставленными представителями администрации Дональда Трампа в Вашинг"}</script>
 <footer>
 <div class="fi">
   <div>
