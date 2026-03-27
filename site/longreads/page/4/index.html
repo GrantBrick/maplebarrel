@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лонгриды — Maple Barrel</title>
+<meta name="description" content="Большие материалы и аналитика о Канаде на русском языке.">
+<link rel="canonical" href="https://journalists.ca/longreads/">
+<meta property="og:title" content="Лонгриды — Maple Barrel">
+<meta property="og:description" content="Большие материалы и аналитика о Канаде на русском языке.">
+<meta property="og:url" content="https://journalists.ca/longreads/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Лонгриды — Maple Barrel">
+<meta name="twitter:description" content="Большие материалы и аналитика о Канаде на русском языке.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
+.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--t);background:var(--bg3)}
+.nl.on{color:var(--t);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb svg{width:13px;height:13px;flex-shrink:0}
+
+.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+
+.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
+.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
+.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pdate{font-size:10px;color:var(--t3)}
+.ptags{display:flex;gap:4px;flex-wrap:wrap}
+.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
+.ptag:hover{color:var(--t2)}
+.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+
+.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t2)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
+.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
+.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
+.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--t)}
+.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
+.csub{font-size:12px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}}
+
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br)}
+.lr-card{background:var(--bg2);display:grid;grid-template-columns:160px 1fr;min-height:150px;transition:background .12s}
+.lr-card:hover{background:var(--bg3)}
+.lrc-img{overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
+.lrc-body{padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-size:15px;flex:1}
+.lrc-ex{-webkit-line-clamp:3}
+.page-intro{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:20px}
+.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px}
+.page-intro p{font-size:14px;color:var(--t2)}
+@media(max-width:900px){.lr-grid{grid-template-columns:1fr}.lr-card{grid-template-columns:120px 1fr}}
+@media(max-width:640px){.lr-card{grid-template-columns:1fr}.lrc-img{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl on" href="/longreads/">Лонгриды</a><a class="nl" href="/about/">О проекте</a><a class="nl" href="/contacts/">Контакты</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg> Telegram</a>
+  </div>
+</div></nav>
+<div class="wrap">
+  <div class="page-intro">
+    <h1>Лонгриды</h1>
+    <p>Большие тексты и глубокий анализ — всё, что требует времени и внимания, а не просто заголовка.</p>
+  </div>
+  <div class="tag-chips"><a class="tc on" href="/longreads/">Все</a><a class="tc" href="/longreads/tag/tarify/">#тарифы</a><a class="tc" href="/longreads/tag/immigratsiya/">#иммиграция</a><a class="tc" href="/longreads/tag/zhilyo/">#жильё</a><a class="tc" href="/longreads/tag/vybory/">#выборы</a><a class="tc" href="/longreads/tag/ekonomika/">#экономика</a><a class="tc" href="/longreads/tag/energetika/">#энергетика</a><a class="tc" href="/longreads/tag/prestupnost/">#преступность</a><a class="tc" href="/longreads/tag/ontario/">#Онтарио</a><a class="tc" href="/longreads/tag/kvebek/">#Квебек</a><a class="tc" href="/longreads/tag/toronto/">#Торонто</a></div>
+  <div class="lr-grid"><a class="lr-card" href="/post/2025-10-17-karni-podtverdil-netanyahu-budet-arestovan-esli-priedet-v-ka/">
+  <div class="lrc-img"><img src="/photos/photo_1284@17-10-2025_20-51-25.jpg" alt="Карни подтвердил: Нетаньяху будет арестован, если приедет в Канаду" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Карни подтвердил: Нетаньяху будет арестован, если приедет в Канаду</div>
+    <div class="pex lrc-ex">Премьер-министр Канады Марк Карни заявил, что готов арестовать Биньямина Нетаньяху, если тот пересечёт канадскую границу.  В интервью британской журналистке Мишал Хусейн Карни прямо ответил «да» на во</div>
+    <div class="pmeta"><span class="pdate">17 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-16-chto-znachit-zhit-komfortno-v-kanade-novoe-issledovanie/">
+  <div class="lrc-img"><img src="/photos/photo_1276@16-10-2025_20-09-01.jpg" alt="Что значит «жить комфортно» в Канаде: новое исследование" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Что значит «жить комфортно» в Канаде: новое исследование</div>
+    <div class="pex lrc-ex">По данным опроса MoneySense и Leger, проведённого среди 9 000 канадцев в 79 городах, для большинства жителей страны комфортная жизнь начинается с годового дохода семьи в 100 000 долларов.  Любопытно,</div>
+    <div class="pmeta"><span class="pdate">16 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-15-karni-vzyal-v-polzovanie-48-proizvedeniy-iskusstva-iz-natsio/">
+  <div class="lrc-img"><img src="/photos/photo_1263@15-10-2025_12-57-18.jpg" alt="Карни взял в пользование 48 произведений искусства из Национальной галереи" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Карни взял в пользование 48 произведений искусства из Национальной галереи</div>
+    <div class="pex lrc-ex">⠀ Премьер-министр Марк Карни оказался самым «художественным» главой правительства за последние десятилетия. По данным National Post, с момента вступления в должность он отобрал 48 произведений канадск</div>
+    <div class="pmeta"><span class="pdate">15 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-15-ford-zapuskaet-reklamu-dlya-amerikantsev-protiv-tarifov-tram/">
+  <div class="lrc-img"><img src="/photos/photo_1262@15-10-2025_11-12-00.jpg" alt="Форд запускает рекламу для американцев — против тарифов Трампа" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">Форд запускает рекламу для американцев — против тарифов Трампа</div>
+    <div class="pex lrc-ex">⠀ Премьер Онтарио Даг Форд объявил о новой 75-миллионной рекламной кампании, нацеленной на американскую аудиторию и направленной против торговых тарифов Дональда Трампа. Ролики будут выходить на телек</div>
+    <div class="pmeta"><span class="pdate">15 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-14-rost-servisov-dostavki-edy-derzhitsya-na-deshyovom-chasto-im/">
+  <div class="lrc-img"><img src="/photos/photo_1257@14-10-2025_12-59-01.jpg" alt="Рост сервисов доставки еды держится на дешёвом, часто иммигрантском труде — исследование" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Рост сервисов доставки еды держится на дешёвом, часто иммигрантском труде — исследование</div>
+    <div class="pex lrc-ex">⠀ Канадские учёные показали то, о чём и так догадывался каждый, кто хоть раз видел десятки курьеров с рюкзаками Uber Eats или DoorDash, ждущих заказ на холодном тротуаре. Эта индустрия растёт взрывным</div>
+    <div class="pmeta"><span class="pdate">14 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-12-kanadskaya-mechta-pod-ugrozoy-molodyozh-vsyo-rezhe-zarabatyv/">
+  <div class="lrc-img"><img src="/photos/photo_1247@12-10-2025_14-09-01.jpg" alt="Канадская мечта под угрозой: молодёжь всё реже зарабатывает больше родителей" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">thehub.ca</div>
+    <div class="ptit lrc-title">Канадская мечта под угрозой: молодёжь всё реже зарабатывает больше родителей</div>
+    <div class="pex lrc-ex">Молодые канадцы всё чаще сталкиваются с тем, что «социальный лифт» застрял. Новый отчёт Монреальского экономического института (MEI) показывает: в большинстве провинций молодое поколение не может доби</div>
+    <div class="pmeta"><span class="pdate">12 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-10-ministr-obrazovaniya-ontario-raskritikoval-shkolu-v-toronto-/">
+  <div class="lrc-img"><img src="/photos/photo_1235@10-10-2025_11-27-00.jpg" alt="Министр образования Онтарио раскритиковал школу в Торонто за исполнение гимна Канады на арабском 7 октября" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Министр образования Онтарио раскритиковал школу в Торонто за исполнение гимна Канады на арабском 7 октября</div>
+    <div class="pex lrc-ex">В школе Earl Haig Secondary в северном Торонто утром 7 октября гимн Канады прозвучал на арабском языке — в тот самый день, когда мир отмечал вторую годовщину теракта ХАМАС против Израиля. Решение вызв</div>
+    <div class="pmeta"><span class="pdate">10 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-09-kak-podrostok-na-kontserte-teylor-svift-karni-pod-ognyom-nas/">
+  <div class="lrc-img"><img src="/photos/photo_1230@09-10-2025_11-43-01.jpg" alt="«Как подросток на концерте Тейлор Свифт»: Карни под огнём насмешек после визита к Трампу" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">«Как подросток на концерте Тейлор Свифт»: Карни под огнём насмешек после визита к Трампу</div>
+    <div class="pex lrc-ex">Премьер-министр Марк Карни вернулся из Вашингтона не только без торговой сделки, но и с новой порцией насмешек. National Post язвительно описал его поведение в Овальном кабинете как «фанбойство уровня</div>
+    <div class="pmeta"><span class="pdate">9 окт 2025</span><div class="ptags"></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-08-mark-karni-ochen-trebovatelnyy-boss/">
+  <div class="lrc-img"><img src="/photos/photo_1227@08-10-2025_18-36-01.jpg" alt="Марк Карни — очень требовательный босс" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">macleans.ca</div>
+    <div class="ptit lrc-title">Марк Карни — очень требовательный босс</div>
+    <div class="pex lrc-ex">очень большой и интересный материал про Карни от Macleans's  Его «локти наружу» и энтузиазм принесли победу на выборах. Теперь он управляет страной как топ-менеджер с Бей-стрит.  Марк Карни любит гово</div>
+    <div class="pmeta"><span class="pdate">8 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-07-politsiya-ontario-provela-krupneyshiy-za-god-reyd-protiv-nel/">
+  <div class="lrc-img"><img src="/photos/photo_1222@07-10-2025_18-44-00.jpg" alt="Полиция Онтарио провела крупнейший за год рейд против нелегальных наркоплантаций — на территории индейской резервации Тайендинага (восток Онтарио) изъято мариху" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">Полиция Онтарио провела крупнейший за год рейд против нелегальных наркоплантаций — на территории индейской резервации Тайендинага (восток Онтарио) изъято мариху</div>
+    <div class="pex lrc-ex">аны на сумму свыше 122 миллионов долларов.   В ходе операции 30 сентября и 1 октября офицеры OPP и полиция Тайендинаги обнаружили 72 тысячи кустов каннабиса, три единицы огнестрельного оружия, боеприп</div>
+    <div class="pmeta"><span class="pdate">7 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-06-tim-hortons-povyshaet-tseny-na-kofe-vsego-na-tri-tsenta-za-c/">
+  <div class="lrc-img"><img src="/photos/photo_1208@06-10-2025_10-02-05.jpg" alt="Tim Hortons повышает цены на кофе — «всего на три цента за чашку»" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">Tim Hortons повышает цены на кофе — «всего на три цента за чашку»</div>
+    <div class="pex lrc-ex">Впервые за три года сеть Tim Hortons поднимает цену на кофе — на 1,5%, или примерно на три цента за чашку. Компания уверяет, что это «более чем разумно», учитывая, что за то же время стоимость кофейны</div>
+    <div class="pmeta"><span class="pdate">6 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-03-krupneyshie-igroki-neftegazovoy-otrasli-kanady-vystavili-pre/">
+  <div class="lrc-img"><img src="/photos/photo_1196@03-10-2025_14-51-41.jpg" alt="Крупнейшие игроки нефтегазовой отрасли Канады выставили премьер-министру Марку Карни «незачёт» за первые полгода работы." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Крупнейшие игроки нефтегазовой отрасли Канады выставили премьер-министру Марку Карни «незачёт» за первые полгода работы.</div>
+    <div class="pex lrc-ex">«Оценка — неполная. Сделано кое-что правильное, но этого мало», — заявил глава Suncor Рич Крюгер. Его подпись стоит под письмом, которое подписали ещё 94 руководителя компаний.   Бизнес благодарит Кар</div>
+    <div class="pmeta"><span class="pdate">3 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-03-zhiteli-britanskoy-kolumbii-vsyo-menshe-ezdyat-v-ssha-i-eto-/">
+  <div class="lrc-img"><img src="/photos/photo_1195@03-10-2025_13-49-01.jpg" alt="Жители Британской Колумбии всё меньше ездят в США — и это уже восьмой месяц подряд." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Жители Британской Колумбии всё меньше ездят в США — и это уже восьмой месяц подряд.</div>
+    <div class="pex lrc-ex">По данным Cascade Gateway Border Data Warehouse, в сентябре через четыре основные границы с Вашингтоном (Peace Arch, Pacific Highway, Sumas и Lynden) проехало всего 124 тыс. машин с B.C.-номерами. Это</div>
+    <div class="pmeta"><span class="pdate">3 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-03-47-tysyach-inostrannyh-studentov-mogut-nahoditsya-v-kanade-n/">
+  <div class="lrc-img"><img src="/photos/photo_1192@03-10-2025_10-37-02.jpg" alt="47 тысяч иностранных студентов могут находиться в Канаде нелегально — такие данные озвучили в парламенте представители министерства иммиграции (IRCC)." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">47 тысяч иностранных студентов могут находиться в Канаде нелегально — такие данные озвучили в парламенте представители министерства иммиграции (IRCC).</div>
+    <div class="pex lrc-ex">По словам Айши Зафар, главы отдела миграционной добросовестности, речь идёт о 47 175 студентах, которых канадские вузы отметили как «потенциально не соблюдающих условия визы» — то есть они просто пере</div>
+    <div class="pmeta"><span class="pdate">3 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ircc/">#IRCC</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-02-andre-pratt-epoha-tryudokarni-katastrofa-dlya-kanadskih-fina/">
+  <div class="lrc-img"><img src="/photos/photo_1189@02-10-2025_11-46-59.jpg" alt="Андре Пратт: «Эпоха Трюдо–Карни — катастрофа для канадских финансов»" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Андре Пратт: «Эпоха Трюдо–Карни — катастрофа для канадских финансов»</div>
+    <div class="pex lrc-ex">﻿ В колонке для National Post бывший сенатор Андре Пратт раскритиковал либералов за то, как они довели финансы страны до рекордных дефицитов.  ﻿ По расчётам Парламентского бюджетного офиса, даже без о</div>
+    <div class="pmeta"><span class="pdate">2 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-02-kafedra-ii-v-kanade-tolko-dlya-zhenschin-s-invalidnostyu/">
+  <div class="lrc-img"><img src="/photos/photo_1188@02-10-2025_10-42-00.jpg" alt="Кафедра ИИ в Канаде — только для женщин с инвалидностью" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">Кафедра ИИ в Канаде — только для женщин с инвалидностью</div>
+    <div class="pex lrc-ex">﻿ Университет Далхаузи (Новая Шотландия) ищет руководителя научного проекта в области искусственного интеллекта и «здорового старения». Зарплата — $100 тысяч в год, должность финансируется в рамках фе</div>
+    <div class="pmeta"><span class="pdate">2 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-10-01-den-pravdy-i-primireniya-chto-dumayut-kanadtsy/">
+  <div class="lrc-img"><img src="/photos/photo_1184@01-10-2025_12-04-49.jpg" alt="День правды и примирения: что думают канадцы" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">День правды и примирения: что думают канадцы</div>
+    <div class="pex lrc-ex">﻿ Новый опрос Leger показал: отношение к Дню правды и примирения у канадцев весьма противоречивое.  ﻿ С одной стороны, 69% респондентов заявили, что стали лучше понимать, почему примирение с коренными</div>
+    <div class="pmeta"><span class="pdate">1 окт 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-29-bogatye-semi-platyat-bolshe-poloviny-nalogov-v-krupneyshih-p/">
+  <div class="lrc-img"><img src="/photos/photo_1174@29-09-2025_15-39-01.jpg" alt="Богатые семьи платят больше половины налогов в крупнейших провинциях Канады" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">thehub.ca</div>
+    <div class="ptit lrc-title">Богатые семьи платят больше половины налогов в крупнейших провинциях Канады</div>
+    <div class="pex lrc-ex">Свежий отчёт Fraser Institute показал: в Онтарио, Альберте, Британской Колумбии и Квебеке на верхние 20% семей по доходам приходится более половины всех налогов. В Онтарио они платят 58% совокупных сб</div>
+    <div class="pmeta"><span class="pdate">29 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-28-opros-angus-reid-pokazal-bolshinstvo-kanadtsev-otnosyatsya-k/">
+  <div class="lrc-img"><img src="/photos/photo_1167@28-09-2025_12-07-13.jpg" alt="Опрос Angus Reid показал: большинство канадцев относятся к программе временных иностранных работников (TFWP) отрицательно." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">Опрос Angus Reid показал: большинство канадцев относятся к программе временных иностранных работников (TFWP) отрицательно.</div>
+    <div class="pex lrc-ex">52% видят её в негативном свете, лишь 23% — позитивно. Более половины (55%) считают, что Канада принимает слишком много TFW, только четверть полагает, что число адекватное, и всего 9% выступают за рас</div>
+    <div class="pmeta"><span class="pdate">28 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-27-ted-morton-v-national-post-pishet-chto-pervye-shest-mesyatse/">
+  <div class="lrc-img"><img src="/photos/photo_1159@27-09-2025_10-41-52.jpg" alt="Тед Мортон в National Post пишет, что первые шесть месяцев Марка Карни на посту премьера — это разочарование." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Тед Мортон в National Post пишет, что первые шесть месяцев Марка Карни на посту премьера — это разочарование.</div>
+    <div class="pex lrc-ex">Карни обещал «дела, ранее считавшиеся невозможными, в темпах, которых не видели поколениями». Итог? Экономика падает, безработица 7,1%, молодёжная — почти 14%. За июль и август Канада потеряла свыше 1</div>
+    <div class="pmeta"><span class="pdate">27 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-25-konkordiya-i-studencheskiy-spravochnik-nenavisti/">
+  <div class="lrc-img"><img src="/photos/photo_1150@25-09-2025_18-31-01.jpg" alt="Конкордия и «студенческий справочник ненависти»" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Конкордия и «студенческий справочник ненависти»</div>
+    <div class="pex lrc-ex">Concordia University получила новую головную боль: студенческий союз выпустил справочник-ежедневник на 2025/26 год, который вместо календаря и учебных дат превратился в политический манифест.    В нём</div>
+    <div class="pmeta"><span class="pdate">25 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-25-leytenant-gubernator-luiziany-billi-nangesser-neozhidanno-po/">
+  <div class="lrc-img"><span style="font-size:28px">📋</span></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Лейтенант-губернатор Луизианы Билли Нангессер неожиданно попросил Дональда Трампа извиниться перед Канадой за его заявления о «51-м штате».</div>
+    <div class="pex lrc-ex">«Я только тут понял, насколько эти слова и тарифы испортили отношение канадцев. Было бы здорово, если бы президент извинился», — сказал Нангессер во время визита по продвижению туризма. Для Луизианы,</div>
+    <div class="pmeta"><span class="pdate">25 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-23-skandal-s-otkupom-oruzhiya-ministr-priznalsya-v-provale-no-k/">
+  <div class="lrc-img"><img src="/photos/photo_1136@23-09-2025_13-52-10.jpg" alt="Скандал с “откупом оружия”: министр признался в провале, но Карни не отступает ради Квебека" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Скандал с “откупом оружия”: министр признался в провале, но Карни не отступает ради Квебека</div>
+    <div class="pex lrc-ex">В сеть утекла аудиозапись, где министр общественной безопасности Гэри Анандасангари признаётся: у полиции просто нет ресурсов, чтобы заставить владельцев сдавать запрещённое оружие в рамках либерально</div>
+    <div class="pmeta"><span class="pdate">23 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-22-semi-vosmi-kanadtsev-ubityh-boevikami-hamas-7-oktyabrya-2023/">
+  <div class="lrc-img"><img src="/photos/photo_1128@22-09-2025_09-14-01.jpg" alt="Семьи восьми канадцев, убитых боевиками ХАМАС 7 октября 2023 года, выступили с резким заявлением против решения Марка Карни признать палестинское государство." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Семьи восьми канадцев, убитых боевиками ХАМАС 7 октября 2023 года, выступили с резким заявлением против решения Марка Карни признать палестинское государство.</div>
+    <div class="pex lrc-ex">По их словам, ни одно из обещанных условий — освобождение заложников, проведение выборов и уход ХАМАС — не выполнено.   “Признавая Палестину сейчас, премьер-министр легитимизирует варварство ХАМАС и п</div>
+    <div class="pmeta"><span class="pdate">22 сен 2025</span><div class="ptags"></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-21-vkus-kvebeka-meteorit-gastronomiya-i-nemnogo-instinktivnoy-k/">
+  <div class="lrc-img"><img src="/photos/photo_1122@21-09-2025_15-26-29.jpg" alt="Вкус Квебека: метеорит, гастрономия и немного «инстинктивной кухни»" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nytimes.com</div>
+    <div class="ptit lrc-title">Вкус Квебека: метеорит, гастрономия и немного «инстинктивной кухни»</div>
+    <div class="pex lrc-ex">Неожиданно классный и абсолютно рекламный материал про Квебек от The New York Times  400 миллионов лет назад в Шарлевуа врезался гигантский метеор. Сегодня именно этот кратер с плодородной почвой стал</div>
+    <div class="pmeta"><span class="pdate">21 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-20-mnenie-kanadskim-universitetam-ne-hvataet-raznoobraziya-vzgl/">
+  <div class="lrc-img"><img src="/photos/photo_1112@20-09-2025_14-24-01.jpg" alt="Мнение: Канадским университетам не хватает разнообразия взглядов" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">Мнение: Канадским университетам не хватает разнообразия взглядов</div>
+    <div class="pex lrc-ex">Майкл Зваагстра и Мэттью Митчелл в Financial Post пишут, что канадские университеты стали местом, где звучит только «правильная» точка зрения. Консервативные студенты убеждены: если они начнут спорить</div>
+    <div class="pmeta"><span class="pdate">20 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-19-professor-prava-universiteta-alberty-otstranyon-posle-kommen/">
+  <div class="lrc-img"><img src="/photos/photo_1108@19-09-2025_15-52-01.jpg" alt="Профессор права Университета Альберты отстранён после комментариев о Чарли Кирке" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Профессор права Университета Альберты отстранён после комментариев о Чарли Кирке</div>
+    <div class="pex lrc-ex">В Университете Альберты в неоплачиваемый административный отпуск отправили преподавателя права, чьи онлайн-комментарии вызвали скандал после убийства Чарли Кирка.   Декан юрфака Фиона Келли сообщила с</div>
+    <div class="pmeta"><span class="pdate">19 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-17-rayan-reynolds-dobilsya-dzhon-kendi-poluchil-svoy-film/">
+  <div class="lrc-img"><img src="/photos/photo_1094@17-09-2025_15-21-41.jpg" alt="Райан Рейнольдс добился: Джон Кэнди получил свой фильм" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Райан Рейнольдс добился: Джон Кэнди получил свой фильм</div>
+    <div class="pex lrc-ex">31 год после смерти — и только теперь канадская комедийная легенда Джон Кэнди получила документальный фильм о себе.   На TIFF-2025 в Торонто прошла премьера ленты John Candy: I Like Me, которую продюс</div>
+    <div class="pmeta"><span class="pdate">17 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-17-cd-howe-institute-kanade-stoit-eschyo-silnee-urezat-immigrat/">
+  <div class="lrc-img"><img src="/photos/photo_1092@17-09-2025_12-19-01.jpg" alt="C.D. Howe Institute: Канаде стоит ещё сильнее урезать иммиграцию" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">C.D. Howe Institute: Канаде стоит ещё сильнее урезать иммиграцию</div>
+    <div class="pex lrc-ex">Правительство Марка Карни уже снизило цели по приёму постоянных резидентов: 395 тысяч в 2025 году, 380 тысяч в 2026-м и 365 тысяч в 2027-м вместо прежних 485 тысяч. Но аналитический центр C.D. Howe In</div>
+    <div class="pmeta"><span class="pdate">17 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-16-robert-mansh-vybral-uhod-cherez-maid/">
+  <div class="lrc-img"><img src="/photos/photo_1084@16-09-2025_12-32-29.jpg" alt="Роберт Манш выбрал уход через MAID" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Роберт Манш выбрал уход через MAID</div>
+    <div class="pex lrc-ex">﻿ Канадская легенда детской литературы Роберт Манш, автор «Принцессы в бумажном пакете» и «Люблю тебя навсегда», принял решение воспользоваться программой медицинской помощи при смерти (MAID).  ﻿ Манш</div>
+    <div class="pmeta"><span class="pdate">16 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-16-elbows-up-protiv-elbows-down-karni-buksuet-na-pochve-trampa/">
+  <div class="lrc-img"><img src="/photos/photo_1083@16-09-2025_10-36-45.jpg" alt="«Elbows Up» против «Elbows Down»: Карни буксует на почве Трампа" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nytimes.com</div>
+    <div class="ptit lrc-title">«Elbows Up» против «Elbows Down»: Карни буксует на почве Трампа</div>
+    <div class="pex lrc-ex">﻿ New York Times пишет, что премьер-министр Марк Карни, победивший на волне лозунга «локти вверх» — обещаний жёстко отстаивать Канаду перед Дональдом Трампом, — теперь вынужден играть осторожнее.  ﻿ П</div>
+    <div class="pmeta"><span class="pdate">16 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-16-molodye-kanadtsy-protiv-missiy-po-podderzhaniyu-mira-v-ukrai/">
+  <div class="lrc-img"><img src="/photos/photo_1082@16-09-2025_09-26-33.jpg" alt="Молодые канадцы против миссий по поддержанию мира в Украине и Газе" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Молодые канадцы против миссий по поддержанию мира в Украине и Газе</div>
+    <div class="pex lrc-ex">﻿ Новый опрос Leger для Ассоциации канадских исследований показал: образ Канады как «миротворческой нации» трещит по швам — особенно у молодых поколений.  ﻿ – 53% канадцев в целом считают, что страна</div>
+    <div class="pmeta"><span class="pdate">16 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a><a class="ptag" href="/tag/ukraina/">#Украина</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-11-medovyy-mesyats-karni-taet-a-polovina-kanadtsev-schitaet-sha/">
+  <div class="lrc-img"><img src="/photos/photo_1057@11-09-2025_09-38-01.jpg" alt="Медовый месяц Карни тает, а половина канадцев считает шансы Полиева слабыми" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Медовый месяц Карни тает, а половина канадцев считает шансы Полиева слабыми</div>
+    <div class="pex lrc-ex">⠀ По свежему опросу Leger, 50% канадцев уверены: у Пьера Полиева мало шансов победить Марка Карни. Даже среди консерваторов почти пятая часть сторонников сомневается в успехе своего лидера. При этом 3</div>
+    <div class="pmeta"><span class="pdate">11 сен 2025</span><div class="ptags"></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-09-ispoved-byvshego-antivaksera-kak-lomaetsya-doverie-i-kak-ego/">
+  <div class="lrc-img"><img src="/photos/photo_1047@09-09-2025_11-29-01.jpg" alt="Исповедь бывшего антиваксера: как ломается доверие — и как его вернуть" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">macleans.ca</div>
+    <div class="ptit lrc-title">Исповедь бывшего антиваксера: как ломается доверие — и как его вернуть</div>
+    <div class="pex lrc-ex">В Альберте вспыхнула корь: по словам автора, в провинции уже около 1 400 случаев — больше, чем во всём США. На этом фоне медсестра из северной Альберты под псевдонимом рассказывает, как сама когда-то</div>
+    <div class="pmeta"><span class="pdate">9 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/zdorove/">#здоровье</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-08-vosem-let-ucheby-nol-predlozheniy-o-rabote/">
+  <div class="lrc-img"><img src="/photos/photo_1043@08-09-2025_11-47-01.jpg" alt="Восемь лет учебы. Ноль предложений о работе" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">macleans.ca</div>
+    <div class="ptit lrc-title">Восемь лет учебы. Ноль предложений о работе</div>
+    <div class="pex lrc-ex">﻿ Текст в Maclean’s звучит как коллективный крик целого поколения канадских выпускников. Автор Садра Йеганех, дважды магистр с отличной успеваемостью, опытом работы и сотней поданных заявок, до сих по</div>
+    <div class="pmeta"><span class="pdate">8 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/tehnologii/">#технологии</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-07-konservatory-edinoglasno-protiv-antisemitizma-liberaly-vrazn/">
+  <div class="lrc-img"><img src="/photos/photo_1038@07-09-2025_12-31-44.jpg" alt="Консерваторы единогласно против антисемитизма, либералы — вразнобой" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Консерваторы единогласно против антисемитизма, либералы — вразнобой</div>
+    <div class="pex lrc-ex">Все 144 депутата-консерватора подписали открытое письмо в поддержку еврейской общины Канады и против антисемитизма. Поводом стало нападение 27 августа в кошерном магазине в Оттаве, где пожилая женщина</div>
+    <div class="pmeta"><span class="pdate">7 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-05-kanada-kak-bankomat-dlya-hezbolly-i-drugih-terrogrupp/">
+  <div class="lrc-img"><img src="/photos/photo_1028@05-09-2025_10-38-01.jpg" alt="Канада как банкомат для «Хезболлы» и других террогрупп" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">Канада как банкомат для «Хезболлы» и других террогрупп</div>
+    <div class="pex lrc-ex">Минфин Канады тихо опубликовал доклад 2025 Assessment of Money Laundering and Terrorist Financing Risks in Canada. И там — неудобная правда: Хезболла, ХАМАС и ряд сикхских экстремистских групп активно</div>
+    <div class="pmeta"><span class="pdate">5 сен 2025</span><div class="ptags"></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-04-poliev-karni-obeschal-silu-a-prines-kapitulyatsiyu/">
+  <div class="lrc-img"><img src="/photos/photo_1025@04-09-2025_12-39-01.jpg" alt="Полиев: «Карни обещал силу, а принес капитуляцию»" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Полиев: «Карни обещал силу, а принес капитуляцию»</div>
+    <div class="pex lrc-ex">﻿ Пьер Полиев опубликовал колонку в National Post, где подвел итоги первых шести месяцев Марка Карни на посту премьера. Вердикт лидера консерваторов звучит безжалостно: «Он нарушил все ключевые обещан</div>
+    <div class="pmeta"><span class="pdate">4 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-09-04-kanadskiy-krizis-produktivnosti-usugubilsya-krupneyshee-pade/">
+  <div class="lrc-img"><img src="/photos/photo_1023@04-09-2025_09-36-36.jpg" alt="Канадский кризис продуктивности усугубился — крупнейшее падение за три года" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">Канадский кризис продуктивности усугубился — крупнейшее падение за три года</div>
+    <div class="pex lrc-ex">﻿ StatCan зафиксировало резкое падение производительности труда: во втором квартале 2025 года она снизилась на 1%. Это худший показатель с конца 2022 года.  ﻿ Главный фактор — неопределённость в торго</div>
+    <div class="pmeta"><span class="pdate">4 сен 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-08-31-v-kanadu-priezzhaet-menshe-studentov-i-inostrannyh-rabotniko/">
+  <div class="lrc-img"><img src="/photos/photo_1007@31-08-2025_15-52-01.jpg" alt="В Канаду приезжает меньше студентов и иностранных работников" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">В Канаду приезжает меньше студентов и иностранных работников</div>
+    <div class="pex lrc-ex">Правительство Канады опубликовало свежие данные: в первом полугодии 2025 года в страну прибыло на 214 520 меньше студентов и работников, чем за тот же период 2024-го.   Из них: – минус 88 617 новых ст</div>
+    <div class="pmeta"><span class="pdate">31 авг 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb" href="/longreads/page/3/">←</a><a class="pb" href="/longreads/">1</a><a class="pb" href="/longreads/page/2/">2</a><a class="pb" href="/longreads/page/3/">3</a><a class="pb on" href="/longreads/page/4/">4</a><a class="pb" href="/longreads/page/5/">5</a><a class="pb" href="/longreads/page/6/">6</a><a class="pb" href="/longreads/page/7/">7</a><a class="pb" href="/longreads/page/5/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
+</body>
+</html>

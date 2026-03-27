@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лонгриды — Maple Barrel</title>
+<meta name="description" content="Большие материалы и аналитика о Канаде на русском языке.">
+<link rel="canonical" href="https://journalists.ca/longreads/">
+<meta property="og:title" content="Лонгриды — Maple Barrel">
+<meta property="og:description" content="Большие материалы и аналитика о Канаде на русском языке.">
+<meta property="og:url" content="https://journalists.ca/longreads/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Лонгриды — Maple Barrel">
+<meta name="twitter:description" content="Большие материалы и аналитика о Канаде на русском языке.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c0b;--bg2:#141413;--bg3:#1b1b19;--bg4:#222220;--br:#2c2c29;--br2:#3a3a36;--t:#f0ece2;--t2:#a8a49a;--t3:#6b6760;--t4:#45443f;--ac:#c0392b;--ac2:#e05240;--gold:#c9963a;--tg:#5b9bd5;--tg2:#7ab8f5;--maple:#d4543a;--serif:'Playfair Display',Georgia,serif;--bserif:'Source Serif 4',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300}
+.ni{max-width:1320px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--t);background:var(--bg3)}
+.nl.on{color:var(--t);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.12);color:var(--tg2);border:1px solid rgba(91,155,213,.25);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.22)}
+.tgb svg{width:13px;height:13px;flex-shrink:0}
+
+.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
+
+.psrc{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
+.ptit{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t)}
+.pex{font-size:13px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pdate{font-size:10px;color:var(--t3)}
+.ptags{display:flex;gap:4px;flex-wrap:wrap}
+.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:8px;border:1px solid var(--br2);color:var(--t3);background:var(--bg4);white-space:nowrap}
+.ptag:hover{color:var(--t2)}
+.pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.deep-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 7px;border-radius:4px}
+
+.tag-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 11px;border-radius:12px;border:1px solid var(--br);color:var(--t3);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t2)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+.pgn{display:flex;gap:5px;justify-content:center;padding:28px 0 8px;flex-wrap:wrap}
+.pb{padding:5px 12px;border-radius:4px;border:1px solid var(--br);background:var(--bg2);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+footer{border-top:1px solid var(--br);padding:32px 20px;margin-top:48px}
+.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+.flogo{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
+.fcol h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--t)}
+.fcp{max-width:1320px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:3px solid var(--tg);border-radius:5px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:14px;margin-bottom:2px}
+.csub{font-size:12px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:var(--bg)}
+
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}}
+
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br)}
+.lr-card{background:var(--bg2);display:grid;grid-template-columns:160px 1fr;min-height:150px;transition:background .12s}
+.lr-card:hover{background:var(--bg3)}
+.lrc-img{overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
+.lrc-body{padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-size:15px;flex:1}
+.lrc-ex{-webkit-line-clamp:3}
+.page-intro{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:20px}
+.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px}
+.page-intro p{font-size:14px;color:var(--t2)}
+@media(max-width:900px){.lr-grid{grid-template-columns:1fr}.lr-card{grid-template-columns:120px 1fr}}
+@media(max-width:640px){.lr-card{grid-template-columns:1fr}.lrc-img{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl on" href="/longreads/">Лонгриды</a><a class="nl" href="/about/">О проекте</a><a class="nl" href="/contacts/">Контакты</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg> Telegram</a>
+  </div>
+</div></nav>
+<div class="wrap">
+  <div class="page-intro">
+    <h1>Лонгриды</h1>
+    <p>Большие тексты и глубокий анализ — всё, что требует времени и внимания, а не просто заголовка.</p>
+  </div>
+  <div class="tag-chips"><a class="tc on" href="/longreads/">Все</a><a class="tc" href="/longreads/tag/tarify/">#тарифы</a><a class="tc" href="/longreads/tag/immigratsiya/">#иммиграция</a><a class="tc" href="/longreads/tag/zhilyo/">#жильё</a><a class="tc" href="/longreads/tag/vybory/">#выборы</a><a class="tc" href="/longreads/tag/ekonomika/">#экономика</a><a class="tc" href="/longreads/tag/energetika/">#энергетика</a><a class="tc" href="/longreads/tag/prestupnost/">#преступность</a><a class="tc" href="/longreads/tag/ontario/">#Онтарио</a><a class="tc" href="/longreads/tag/kvebek/">#Квебек</a><a class="tc" href="/longreads/tag/toronto/">#Торонто</a></div>
+  <div class="lr-grid"><a class="lr-card" href="/post/2025-07-03-kanadtsy-vsyo-menshe-doveryayut-ssha-i-chuvstvuyut-sebya-tam/">
+  <div class="lrc-img"><img src="/photos/photo_677@03-07-2025_11-06-39.jpg" alt="Канадцы всё меньше доверяют США и чувствуют себя там нежеланными гостями — свежий опрос Leger:" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Канадцы всё меньше доверяют США и чувствуют себя там нежеланными гостями — свежий опрос Leger:</div>
+    <div class="pex lrc-ex">– 53% не доверяют Америке как государству – 55% чувствуют себя в США негостеприимно – 45% не считают США надёжным партнёром по безопасности – 75% уверены, что американские торговые правила несправедли</div>
+    <div class="pmeta"><span class="pdate">3 июл 2025</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-30-kanadtsy-gordyatsya-svoey-stranoy-no-ne-bez-ogovorok-po-dann/">
+  <div class="lrc-img"><img src="/photos/photo_665@30-06-2025_16-44-01.jpg" alt="Канадцы гордятся своей страной — но не без оговорок. По данным опроса Leger/Postmedia, 83% заявили, что гордятся тем, что они канадцы. Однако только 49% считают" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Канадцы гордятся своей страной — но не без оговорок. По данным опроса Leger/Postmedia, 83% заявили, что гордятся тем, что они канадцы. Однако только 49% считают</div>
+    <div class="pex lrc-ex">Канаду одной из лучших стран для жизни.  Гордость выше всего в Атлантической Канаде (90%), ниже — в Альберте (78%). Среди молодёжи уровень патриотизма заметно ниже, чем у старших возрастов. Либеральны</div>
+    <div class="pmeta"><span class="pdate">30 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-30-dumaesh-nedvizhimost-luchshiy-sposob-vlozhit-dengi-ne-speshi/">
+  <div class="lrc-img"><img src="/photos/photo_662@30-06-2025_13-09-01.jpg" alt="Думаешь, недвижимость — лучший способ вложить деньги? Не спеши." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">Думаешь, недвижимость — лучший способ вложить деньги? Не спеши.</div>
+    <div class="pex lrc-ex">Анализ канадских и американских данных с 1980 года показал: инвестирование в S&amp;P 500 принесло в 4 раза больше дохода, чем покупка дома.  📈 Вот сухая статистика:  – S&amp;P 500: +5079% (годовой реальный ро</div>
+    <div class="pmeta"><span class="pdate">30 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-29-toronto-novyy-yel-kak-tramp-podaril-kanade-professorov/">
+  <div class="lrc-img"><img src="/photos/photo_658@29-06-2025_10-16-28.jpg" alt="Торонто — новый Йель: как Трамп подарил Канаде профессоров" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nytimes.com</div>
+    <div class="ptit lrc-title">Торонто — новый Йель: как Трамп подарил Канаде профессоров</div>
+    <div class="pex lrc-ex">Марк Карни и его правительство не делают громких заявлений про «brain gain» — но оно уже идёт. Университет Торонто активно переманивает профессоров из США. Причина проста: Трамп снова у власти, и амер</div>
+    <div class="pmeta"><span class="pdate">29 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/toronto/">#Торонто</a><a class="ptag" href="/tag/ukraina/">#Украина</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-26-molodyozh-kanady-stolknulas-s-samym-rezkim-padeniem-rynka-tr/">
+  <div class="lrc-img"><img src="/photos/photo_650@26-06-2025_19-45-09.jpg" alt="Молодёжь Канады столкнулась с самым резким падением рынка труда среди всех стран G20" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">Молодёжь Канады столкнулась с самым резким падением рынка труда среди всех стран G20</div>
+    <div class="pex lrc-ex">По данным Bloomberg, уровень безработицы среди канадцев от 15 до 24 лет вырос на 3,6% за два года — это самый резкий скачок среди 25 крупнейших экономик ОЭСР. Сейчас показатель составляет 13,4%, а сре</div>
+    <div class="pmeta"><span class="pdate">26 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-25-otnyne-ofitsialno-25-rabochey-sily-kanady-dolzhny-byt-immigr/">
+  <div class="lrc-img"><img src="/photos/photo_640@25-06-2025_14-37-11.jpg" alt="📊 Отныне — официально: 25% рабочей силы Канады должны быть иммигрантами" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">📊 Отныне — официально: 25% рабочей силы Канады должны быть иммигрантами</div>
+    <div class="pex lrc-ex">Министерство иммиграции опубликовало новый план на 2025–26 годы: цель — не менее 25% работников страны должны быть иммигрантами и беженцами. Это меньше, чем пик в 29% после ковида, но всё ещё историче</div>
+    <div class="pmeta"><span class="pdate">25 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-24-karni-podpisal-krupneyshee-oboronnoe-soglashenie-kanady-s-es/">
+  <div class="lrc-img"><img src="/photos/photo_634@24-06-2025_12-33-06.jpg" alt="🇨🇦🤝🇪🇺 Карни подписал крупнейшее оборонное соглашение Канады с ЕС" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nytimes.com</div>
+    <div class="ptit lrc-title">🇨🇦🤝🇪🇺 Карни подписал крупнейшее оборонное соглашение Канады с ЕС</div>
+    <div class="pex lrc-ex">В Брюсселе премьер Марк Карни заключил оборонное партнёрство с Европейским союзом — самое масштабное, которое ЕС когда-либо подписывал с внешней страной. Это часть нового курса: меньше зависимости от</div>
+    <div class="pmeta"><span class="pdate">24 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a><a class="ptag" href="/tag/sshakanada/">#США–Канада</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-23-kanada-postroena-na-ukradennoy-zemle-eto-krasivaya-fraza-no-/">
+  <div class="lrc-img"><img src="/photos/photo_630@23-06-2025_14-56-45.jpg" alt="«Канада построена на украденной земле» — это красивая фраза. Но исторически и юридически — она ложная." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">«Канада построена на украденной земле» — это красивая фраза. Но исторически и юридически — она ложная.</div>
+    <div class="pex lrc-ex">Так утверждает Найджел Биггар, оксфордский профессор морали, в колонке для National Post. И у него — железная аргументация, особенно против тех, кто хочет «отдать всю землю обратно».  – Право собствен</div>
+    <div class="pmeta"><span class="pdate">23 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-19-sotni-uzhe-zdes-v-kanadu-begut-lyudi-ayatolly/">
+  <div class="lrc-img"><img src="/photos/photo_613@19-06-2025_13-18-10.jpg" alt="«Сотни уже здесь»: в Канаду бегут люди аятоллы" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">«Сотни уже здесь»: в Канаду бегут люди аятоллы</div>
+    <div class="pex lrc-ex">На фоне обострения на Ближнем Востоке и шаткого положения режима в Тегеране, канадские и еврейские правозащитники бьют тревогу: представители Иранского Корпуса стражей исламской революции (IRGC) могут</div>
+    <div class="pmeta"><span class="pdate">19 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-16-ontario-bolnoy-chelovek-kanady/">
+  <div class="lrc-img"><img src="/photos/photo_600@16-06-2025_11-54-06.jpg" alt="Онтарио — «больной человек» Канады" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">thehub.ca</div>
+    <div class="ptit lrc-title">Онтарио — «больной человек» Канады</div>
+    <div class="pex lrc-ex">Эрик Ломбарди в The Hub пишет жёстко и точно: самая большая и богатая провинция Канады превратилась в тормоз для всей страны.  У Онтарио — всё, чтобы быть локомотивом: ресурсы, почти безуглеродная эне</div>
+    <div class="pmeta"><span class="pdate">16 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-14-ministr-immigratsii-lena-diab-izbegaet-otvetov-i-zaschischae/">
+  <div class="lrc-img"><img src="/photos/photo_589@14-06-2025_09-58-09.jpg" alt="Министр иммиграции Лена Диаб избегает ответов и защищает старую политику Либералов, несмотря на “новое руководство”." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Министр иммиграции Лена Диаб избегает ответов и защищает старую политику Либералов, несмотря на “новое руководство”.</div>
+    <div class="pex lrc-ex">Джейми Сарконак в National Post описывает, как новый министр провалилась на дебатах по бюджету: вместо конкретики — отсылки к другим министерствам. – Сколько нелегалов выдворили с декабря? Вопрос к Pu</div>
+    <div class="pmeta"><span class="pdate">14 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-12-kanadtsa-ekstradirovali-v-ssha-po-obvineniyu-v-podgotovke-te/">
+  <div class="lrc-img"><img src="/photos/photo_580@12-06-2025_10-36-35.jpg" alt="Канадца экстрадировали в США по обвинению в подготовке теракта против еврейского центра в Нью-Йорке" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Канадца экстрадировали в США по обвинению в подготовке теракта против еврейского центра в Нью-Йорке</div>
+    <div class="pex lrc-ex">Мухаммад Шахзеб Хан, гражданин Пакистана, проживавший в Канаде, экстрадирован в США — его обвиняют в подготовке массового расстрела в еврейском центре Бруклина по мотивам, вдохновлённым ИГИЛ.  Факты д</div>
+    <div class="pmeta"><span class="pdate">12 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-10-na-rynke-zhilya-v-toronto-zator-aktivnyh-listingov-bolshe-30/">
+  <div class="lrc-img"><img src="/photos/photo_574@10-06-2025_12-56-38.jpg" alt="🏘 На рынке жилья в Торонто — затор: активных листингов больше 30 тысяч, но покупатели не реагируют." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">🏘 На рынке жилья в Торонто — затор: активных листингов больше 30 тысяч, но покупатели не реагируют.</div>
+    <div class="pex lrc-ex">По данным Toronto Regional Real Estate Board, в мае 2025 в регионе GTA зафиксировано более 30 000 активных предложений — на 41,5% больше, чем год назад. Продажи при этом упали на 13,3%.  Риелтор Том С</div>
+    <div class="pmeta"><span class="pdate">10 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-08-potok-bezhentsev-iz-ssha-v-kanadu-rezko-vyros-prichina-v-uzh/">
+  <div class="lrc-img"><img src="/photos/photo_563@08-06-2025_12-52-01.jpg" alt="Поток беженцев из США в Канаду резко вырос — причина в ужесточении американской миграционной политики." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Поток беженцев из США в Канаду резко вырос — причина в ужесточении американской миграционной политики.</div>
+    <div class="pex lrc-ex">Между январём и апрелем число соискателей убежища в Канаде выросло на 87 %. Особенно сильно поток увеличился после мартовского решения США приостановить защиту для беженцев из Колумбии, Гаити, Никараг</div>
+    <div class="pmeta"><span class="pdate">8 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/toronto/">#Торонто</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-07-skandal-vokrug-priglasheniya-modi-na-sammit-g7-v-kanade-nedo/">
+  <div class="lrc-img"><img src="/photos/photo_561@07-06-2025_12-46-35.jpg" alt="🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы.</div>
+    <div class="pex lrc-ex">Депутат от Либералов Сукх Дхаливал (Британская Колумбия) намерен лично поднять перед Марком Карни вопрос о визите премьера Индии Нарендры Моди.  Причина — массовые протесты в его округе: люди звонят,</div>
+    <div class="pmeta"><span class="pdate">7 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-07-dzheymi-sarkonak-v-kolonke-dlya-national-post-pogranichnyy-z/">
+  <div class="lrc-img"><img src="/photos/photo_560@07-06-2025_11-37-01.jpg" alt="Джейми Сарконак в колонке для National Post: «Пограничный закон Карни — подготовка Канады к новому раунду либерального бездействия»." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Джейми Сарконак в колонке для National Post: «Пограничный закон Карни — подготовка Канады к новому раунду либерального бездействия».</div>
+    <div class="pex lrc-ex">Первый крупный законопроект правительства Карни (Bill C-2) выглядит как мощный поворот к порядку. Но будет ли реальный результат — большой вопрос.  Законопроект — 140 страниц — предлагает целый ряд из</div>
+    <div class="pmeta"><span class="pdate">7 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-03-pokupay-kanadskoe-teper-zvuchit-slabovato-natsionalnaya-koal/">
+  <div class="lrc-img"><img src="/photos/photo_544@03-06-2025_11-41-29.jpg" alt="🇨🇦 “Покупай канадское” теперь звучит слабовато — Национальная коалиция граждан требует: нанимай канадцев." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">🇨🇦 “Покупай канадское” теперь звучит слабовато — Национальная коалиция граждан требует: нанимай канадцев.</div>
+    <div class="pex lrc-ex">На фоне рекордного роста безработицы среди молодёжи в Канаде правозащитная организация National Citizens Coalition (NCC) обрушилась на бизнес и правительство с критикой: компании охотно размахивают ло</div>
+    <div class="pmeta"><span class="pdate">3 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-06-02-kanade-nuzhna-polnaya-perestroyka-immigratsionnoy-sistemy/">
+  <div class="lrc-img"><img src="/photos/photo_541@02-06-2025_15-49-01.jpg" alt="Канаде нужна полная перестройка иммиграционной системы" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">thehub.ca</div>
+    <div class="ptit lrc-title">Канаде нужна полная перестройка иммиграционной системы</div>
+    <div class="pex lrc-ex">Мнение Майкла Боннера, бывшего советника министра иммиграции, автора доклада для Aristotle Foundation  18% иммигрантов уезжают из Канады навсегда в течение 25 лет. Половина из них — экономические мигр</div>
+    <div class="pmeta"><span class="pdate">2 июн 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-31-kanade-nuzhno-bolshe-lyudey-i-bolshe-gorodov-dlya-nih/">
+  <div class="lrc-img"><img src="/photos/photo_532@31-05-2025_10-36-06.jpg" alt="🇨🇦 Канаде нужно больше людей — и больше городов для них" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">macleans.ca</div>
+    <div class="ptit lrc-title">🇨🇦 Канаде нужно больше людей — и больше городов для них</div>
+    <div class="pex lrc-ex">Колонка Стива Лафлера из IRPP: рост населения — это не угроза, а шанс.  Иммиграция может дать Канаде геополитический вес, экономическое обновление и толчок к развитию городов за пределами Торонто и Ва</div>
+    <div class="pmeta"><span class="pdate">31 май 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-28-bank-kanady-ofitsialno-priznal-reshenie-pravitelstva-tryudo-/">
+  <div class="lrc-img"><img src="/photos/photo_522@28-05-2025_15-56-33.jpg" alt="Банк Канады официально признал: решение правительства Трюдо впустить миллион иностранных студентов обошлось канадцам потерей работы и снижением зарплат." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">torontosun.com</div>
+    <div class="ptit lrc-title">Банк Канады официально признал: решение правительства Трюдо впустить миллион иностранных студентов обошлось канадцам потерей работы и снижением зарплат.</div>
+    <div class="pex lrc-ex">Главные выводы доклада:  С 2015 года в Канаде произошёл резкий сдвиг — теперь именно временные мигранты, а не постоянные жители, стали главным источником прироста населения. В 2023 году в стране наход</div>
+    <div class="pmeta"><span class="pdate">28 май 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-27-srednestatisticheskiy-kanadets-platit-na-70-bolshe-podohodno/">
+  <div class="lrc-img"><img src="/photos/photo_518@27-05-2025_14-38-01.jpg" alt="📉 Среднестатистический канадец платит на 70% больше подоходного налога, чем американец" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">thehub.ca</div>
+    <div class="ptit lrc-title">📉 Среднестатистический канадец платит на 70% больше подоходного налога, чем американец</div>
+    <div class="pex lrc-ex">Именно такой вывод сделал Business Council of Alberta в свежем анализе.  С 1 июля вступит в силу обещанное снижение подоходного налога — минимальная ставка уменьшится на 1 пункт. Ожидаемая экономия: о</div>
+    <div class="pmeta"><span class="pdate">27 май 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ontario/">#Онтарио</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-25-kvartal-pandory-kak-tsentr-viktorii-prevratilsya-v-zonu-beds/">
+  <div class="lrc-img"><img src="/photos/photo_507@25-05-2025_10-04-01.jpg" alt="Квартал Пандоры: как центр Виктории превратился в зону бедствия" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">theglobeandmail.com</div>
+    <div class="ptit lrc-title">Квартал Пандоры: как центр Виктории превратился в зону бедствия</div>
+    <div class="pex lrc-ex">Огромный и классный материал TheGlobeAndMail. Зацените оригинал.  ____________________  Один квартал в самом сердце столицы Британской Колумбии стал символом провала всей канадской наркополитики. Pand</div>
+    <div class="pmeta"><span class="pdate">25 май 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-22-byvshiy-sovetnik-polieva-nam-nuzhno-nauchitsya-govorit-s-zhe/">
+  <div class="lrc-img"><img src="/photos/photo_500@22-05-2025_12-03-01.jpg" alt="Бывший советник Полиева: «Нам нужно научиться говорить с женщинами»" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Бывший советник Полиева: «Нам нужно научиться говорить с женщинами»</div>
+    <div class="pex lrc-ex">Бен Вудфиндэн, бывший директор по коммуникациям Пьера Полиева, дал откровенное интервью о провалах консервативной кампании — особенно в работе с женщинами.   Он прямо говорит: чтобы выиграть следующие</div>
+    <div class="pmeta"><span class="pdate">22 май 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-20-v-novom-otchyote-upravleniya-po-borbe-s-narkotikami-ssha-dea/">
+  <div class="lrc-img"><img src="/photos/photo_487@20-05-2025_11-26-40.jpg" alt="🇺🇸 В новом отчёте Управления по борьбе с наркотиками США (DEA) Канада названа “растущей угрозой” из-за подпольных фентанильных “суперлабораторий”, действующих н" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">🇺🇸 В новом отчёте Управления по борьбе с наркотиками США (DEA) Канада названа “растущей угрозой” из-за подпольных фентанильных “суперлабораторий”, действующих н</div>
+    <div class="pex lrc-ex">а её территории.  Американцы прямо заявляют: если поставки фентанила из Мексики будут нарушены, лаборатории в Канаде способны занять это место.   В отчёте фигурирует крупнейшая нарколаборатория, ликви</div>
+    <div class="pmeta"><span class="pdate">20 май 2025</span><div class="ptags"><a class="ptag" href="/tag/prestupnost/">#преступность</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-15-kanada-vvela-poshliny-na-60-mlrd-tovarov-iz-ssha-i-tut-zhe-p/">
+  <div class="lrc-img"><img src="/photos/photo_461@15-05-2025_10-16-58.jpg" alt="🇨🇦📉 Канада ввела пошлины на $60 млрд товаров из США… и тут же почти все отменила" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">🇨🇦📉 Канада ввела пошлины на $60 млрд товаров из США… и тут же почти все отменила</div>
+    <div class="pex lrc-ex">После победы на выборах Марк Карни обещал быть «жёстким переговорщиком» в торговой войне с Вашингтоном. В марте правительство ввело 25% пошлины на американский импорт, включая машины, еду, одежду и ко</div>
+    <div class="pmeta"><span class="pdate">15 май 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-13-canada-post-snova-gotovitsya-k-zabastovke-avtor-macleans-pre/">
+  <div class="lrc-img"><img src="/photos/photo_456@13-05-2025_14-56-24.jpg" alt="Canada Post снова готовится к забастовке — автор Maclean’s предлагает “решение раз и навсегда”: продать всё к чертям." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">macleans.ca</div>
+    <div class="ptit lrc-title">Canada Post снова готовится к забастовке — автор Maclean’s предлагает “решение раз и навсегда”: продать всё к чертям.</div>
+    <div class="pex lrc-ex">Винсент Желозо, профессор экономики из Вирджинии, опубликовал в Maclean’s колонку под прямым заголовком: «Пора приватизировать Canada Post». Повод — возможная новая забастовка с 22 мая, после январско</div>
+    <div class="pmeta"><span class="pdate">13 май 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-10-82-zhiteley-kvebeka-schitayut-sebya-chastyu-kanadskoy-natsii/">
+  <div class="lrc-img"><img src="/photos/photo_444@10-05-2025_17-53-01.jpg" alt="🇨🇦 82% жителей Квебека считают себя частью канадской нации — несмотря на сепаратистскую риторику своих политиков." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">🇨🇦 82% жителей Квебека считают себя частью канадской нации — несмотря на сепаратистскую риторику своих политиков.</div>
+    <div class="pex lrc-ex">Это выяснил свежий опрос Leger по заказу Association for Canadian Studies. Квебекцев спрашивали, считают ли они себя частью «канадской нации», если под нацией понимать общую культуру, язык и историю.</div>
+    <div class="pmeta"><span class="pdate">10 май 2025</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-08-ochen-krasivyy-i-klassno-napisannyy-material-nationalpost-so/">
+  <div class="lrc-img"><img src="/photos/photo_429@08-05-2025_17-05-55.jpg" alt="Очень красивый и классно написанный материал NationalPost, советуем оригинал" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Очень красивый и классно написанный материал NationalPost, советуем оригинал</div>
+    <div class="pex lrc-ex">📘 “Есть в Канаде одно шоссе, по которому проезжал почти каждый живой канадец — но о котором почти никто не задумывается.”  Так начинается история Транс-Канадского шоссе — самой недооценённой, но фунда</div>
+    <div class="pmeta"><span class="pdate">8 май 2025</span><div class="ptags"><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-08-karni-eschyo-ne-stal-premerom-a-krizis-natsionalnogo-edinstv/">
+  <div class="lrc-img"><img src="/photos/photo_425@08-05-2025_11-08-01.jpg" alt="🇨🇦 Карни ещё не стал премьером, а кризис национального единства уже стучится в дверь." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">🇨🇦 Карни ещё не стал премьером, а кризис национального единства уже стучится в дверь.</div>
+    <div class="pex lrc-ex">Премьер Альберты Даниэль Смит заявила, что понижает планку для возможного референдума о независимости провинции в 2026 году. Повод? Массовое ощущение несправедливости: 55% жителей Альберты считают, чт</div>
+    <div class="pmeta"><span class="pdate">8 май 2025</span><div class="ptags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a><a class="ptag" href="/tag/energetika/">#энергетика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-07-bolee-zhestkoe-mnenie-karni-i-tramp-druzya-bez-privilegiy-ko/">
+  <div class="lrc-img"><img src="/photos/photo_420@07-05-2025_10-49-01.jpg" alt="Более жесткое мнение — Карни и Трамп: друзья без привилегий — колонка Майкла Хиггинса для National Post" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Более жесткое мнение — Карни и Трамп: друзья без привилегий — колонка Майкла Хиггинса для National Post</div>
+    <div class="pex lrc-ex">⸻  Все грозные заявления Карни о том, как он будет «противостоять Трампу», рухнули за считаные минуты встречи в Белом доме. Улыбки, рукопожатия, молчание в ответ на прямые угрозы экономике Канады — и</div>
+    <div class="pmeta"><span class="pdate">7 май 2025</span><div class="ptags"><a class="ptag" href="/tag/tarify/">#тарифы</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-06-immigranty-i-molodyozh-klyuchevye-faktory-ne-davshie-karni-v/">
+  <div class="lrc-img"><img src="/photos/photo_416@06-05-2025_14-44-01.jpg" alt="Иммигранты и молодёжь — ключевые факторы, не давшие Карни взять большинство" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Иммигранты и молодёжь — ключевые факторы, не давшие Карни взять большинство</div>
+    <div class="pex lrc-ex">– По данным The Economist, в 31 избирательном округе Большого Торонто с долей иммигрантов выше 40% Консерваторы улучшили результат по сравнению с 2021 годом. – Напротив, прирост голосов за либералов н</div>
+    <div class="pmeta"><span class="pdate">6 май 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-05-karni-vyigral-stranu-no-proigral-ontario-pochemu-liberaly-ne/">
+  <div class="lrc-img"><img src="/photos/photo_401@05-05-2025_15-01-41.jpg" alt="Карни выиграл страну, но проиграл Онтарио: почему Либералы не дотянули до большинства — Nationalpost рефлексирует на тему выборов" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Карни выиграл страну, но проиграл Онтарио: почему Либералы не дотянули до большинства — Nationalpost рефлексирует на тему выборов</div>
+    <div class="pex lrc-ex">Новая реальность: Марк Карни стал премьером, но его Либералы не смогли взять большинство — и ключевым фактором стали потери в Онтарио. Сам Карни в своей первой пресс-конференции после выборов признал:</div>
+    <div class="pmeta"><span class="pdate">5 май 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/vybory/">#выборы</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-05-01-alberta-priblizhaet-referendum-o-vyhode-iz-kanady-smit-snizh/">
+  <div class="lrc-img"><img src="/photos/photo_364@01-05-2025_11-11-42.jpg" alt="Альберта приближает референдум о выходе из Канады? Смит снижает барьер" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Альберта приближает референдум о выходе из Канады? Смит снижает барьер</div>
+    <div class="pex lrc-ex">Премьер Альберты Даниэль Смит вносит закон, который упростит гражданам запуск референдума — в том числе по вопросу независимости провинции.  Что меняется: – Новый порог: 10% от голосовавших на последн</div>
+    <div class="pmeta"><span class="pdate">1 май 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/alberta/">#Альберта</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-04-30-ndp-teryaet-ofitsialnyy-status-partii-v-parlamente-chto-eto-/">
+  <div class="lrc-img"><img src="/photos/photo_353@30-04-2025_11-49-01.jpg" alt="НДП теряет официальный статус партии в парламенте. Что это значит?" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">НДП теряет официальный статус партии в парламенте. Что это значит?</div>
+    <div class="pex lrc-ex">После фиаско на выборах-2025 Новая демократическая партия (НДП) лишается официального статуса в Палате общин. Из 24 мест партия удержала только 7 — а нужно минимум 12.  Чем это грозит Джагмиту Сингу и</div>
+    <div class="pmeta"><span class="pdate">30 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-04-29-per-poliev-proigral-ne-tolko-vybory-no-i-vozmozhno-svoy-dom/">
+  <div class="lrc-img"><img src="/photos/photo_350@29-04-2025_18-32-01.jpg" alt="Пьер Полиев проиграл не только выборы, но и, возможно, свой дом" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Пьер Полиев проиграл не только выборы, но и, возможно, свой дом</div>
+    <div class="pex lrc-ex">⸻   Что произошло?  Пьер Полиев (Pierre Poilievre) проиграл выборы в своём родном округе Карлтон (пригород Оттавы), где избирался с 2004 года.  Либерал Брюс Фанджой (Bruce Fanjoy) победил его с разниц</div>
+    <div class="pmeta"><span class="pdate">29 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-04-26-ne-pro-vybory-no-ne-menee-vazhno/">
+  <div class="lrc-img"><img src="/photos/photo_321@26-04-2025_17-11-04.jpg" alt="Не про выборы, но не менее важно" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">Не про выборы, но не менее важно</div>
+    <div class="pex lrc-ex">Тут financial post выпустил материал на тему, которая вообще не в повестке выборов, хотя является одной из самых критичных в мире — гонка AI.  Канадский техсектор бьёт тревогу: в преддверии выборов ка</div>
+    <div class="pmeta"><span class="pdate">26 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/vybory/">#выборы</a><a class="ptag" href="/tag/tehnologii/">#технологии</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-04-26-finalnyy-opros-pered-vyborami-liberaly-operezhayut-konservat/">
+  <div class="lrc-img"><img src="/photos/photo_316@26-04-2025_08-44-01.jpg" alt="Финальный опрос перед выборами: Либералы опережают Консерваторов на 4 пункта" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Финальный опрос перед выборами: Либералы опережают Консерваторов на 4 пункта</div>
+    <div class="pex lrc-ex">(Данные Postmedia–Leger, опубликованы 26 апреля)  Основные цифры – Либералы: 43% – Консерваторы: 39% – НДП: 7% – Блок Квебекуа: 5%  Рейтинг лидеров (лучший кандидат на пост премьера) – Марк Карни: 40%</div>
+    <div class="pmeta"><span class="pdate">26 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/kvebek/">#Квебек</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-04-24-poteryannoe-desyatiletie-kanady-tsifry-ot-kotoryh-bolit-golo/">
+  <div class="lrc-img"><img src="/photos/photo_308@24-04-2025_12-05-00.jpg" alt="🇨🇦 Потерянное десятилетие Канады: цифры, от которых болит голова - большой материал National Post" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">🇨🇦 Потерянное десятилетие Канады: цифры, от которых болит голова - большой материал National Post</div>
+    <div class="pex lrc-ex">Если бы страна просто держала курс 2015 года, каждый канадец был бы богаче на $4200 в год, а тысячи погибших из-за преступности, наркотиков и развала здравоохранения – остались бы живы.  Что произошло</div>
+    <div class="pmeta"><span class="pdate">24 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/immigratsiya/">#иммиграция</a><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-04-22-spend-less-invest-more-perevod-s-liberalnogo-budut-novye-nal/">
+  <div class="lrc-img"><img src="/photos/photo_296@22-04-2025_13-34-01.jpg" alt="&quot;Spend less, invest more&quot;? Перевод с либерального: будут новые налоги" loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">financialpost.com</div>
+    <div class="ptit lrc-title">&quot;Spend less, invest more&quot;? Перевод с либерального: будут новые налоги</div>
+    <div class="pex lrc-ex">Эксперт по налогам Ким Муди жёстко раскритиковал экономическую программу Марка Карни и либералов, назвав их предвыборное обещание «тратить меньше, инвестировать больше» красивым слоганом, за которым с</div>
+    <div class="pmeta"><span class="pdate">22 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a></div></div>
+  </div>
+</a><a class="lr-card" href="/post/2025-04-18-kto-pobedil-na-angliyskih-debatah-poliev-bez-voprosov/">
+  <div class="lrc-img"><img src="/photos/photo_274@18-04-2025_11-37-01.jpg" alt="Кто победил на английских дебатах? Полиев. Без вопросов." loading="lazy"></div>
+  <div class="lrc-body">
+    <div class="psrc">nationalpost.com</div>
+    <div class="ptit lrc-title">Кто победил на английских дебатах? Полиев. Без вопросов.</div>
+    <div class="pex lrc-ex">По мнению обозревателя National Post Джейми Сарконак, ответ очевиден: Пьер Полиев не просто справился с дебатами — он разнёс соперников.   Полиев вёл  наступление в своём стиле:  – Внятное послание об</div>
+    <div class="pmeta"><span class="pdate">18 апр 2025</span><div class="ptags"><a class="ptag" href="/tag/zhilyo/">#жильё</a><a class="ptag" href="/tag/ekonomika/">#экономика</a></div></div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb" href="/longreads/page/5/">←</a><a class="pb" href="/longreads/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/longreads/page/4/">4</a><a class="pb" href="/longreads/page/5/">5</a><a class="pb on" href="/longreads/page/6/">6</a><a class="pb" href="/longreads/page/7/">7</a><a class="pb" href="/longreads/page/7/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
+</body>
+</html>
