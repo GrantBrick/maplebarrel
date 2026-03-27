@@ -469,9 +469,12 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 /* ── CARD — Meduza style ──
    Structure: img → body(badge + title + meta)
    No overflow tricks, no absolute positioning */
-.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;cursor:pointer}
+.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.card-body{padding:16px 16px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
+.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:7px}
 .card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px}
 .card-excerpt{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
@@ -673,10 +676,17 @@ def _img_block(p, loading='lazy'):
 
 
 def hero_card(p):
-    """Hero card — big text, no image (Meduza style)."""
     src_label = source_name(p.get('source', ''))
+    img = post_img_src(p)
+    src = p.get('source', '')
+    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    if img:
+        img_block = f'<div class="hc-img"><img src="{img}" alt="" loading="eager"></div>'
+    else:
+        img_block = f'<div class="hc-img" style="background:{bg}"><span style="color:{fg};font-size:14px;font-weight:700">{lbl}</span></div>'
     tags_html = tags_row(p.get('tags'), 3)
     return (f'<a class="hero-card" href="{post_url(p)}">'
+            f'{img_block}'
             f'<div class="hc-body">'
             f'<span class="src-badge">{esc(src_label)}</span>'
             f'<div class="hc-title">{esc(p["title"])}</div>'
@@ -685,34 +695,55 @@ def hero_card(p):
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_html}</div>'
             f'</div></div></a>')
-
 def small_card(p, loading='lazy'):
-    """Text-only card — Meduza style. No images."""
     src_label = source_name(p.get('source', ''))
     tags_html = tags_row(p.get('tags'), 2)
+    excerpt = p.get('excerpt','') or ''
     return (f'<a class="card" href="{post_url(p)}">'
             f'<div class="card-body">'
             f'<span class="src-badge">{esc(src_label)}</span>'
             f'<div class="card-title">{esc(p["title"])}</div>'
-            f'<div class="card-excerpt">{esc(p.get("excerpt",""))}</div>'
+            f'<div class="card-excerpt">{esc(excerpt)}</div>'
             f'<div class="card-meta">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_html}</div>'
             f'</div></div></a>')
 
+def photo_card(p, loading='lazy'):
+    """Card with photo — for Materials, Longreads, Surveys, Tags."""
+    src_label = source_name(p.get('source', ''))
+    img = post_img_src(p)
+    src = p.get('source', '')
+    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    if img:
+        img_block = f'<div class="card-img"><img src="{img}" alt="" loading="{loading}"></div>'
+    else:
+        img_block = f'<div class="card-img"><div class="card-ph" style="background:{bg};color:{fg}">{lbl}</div></div>'
+    tags_html = tags_row(p.get('tags'), 2)
+    excerpt = p.get('excerpt','') or ''
+    return (f'<a class="card" href="{post_url(p)}">'
+            f'{img_block}'
+            f'<div class="card-body">'
+            f'<span class="src-badge">{esc(src_label)}</span>'
+            f'<div class="card-title">{esc(p["title"])}</div>'
+            f'<div class="card-excerpt">{esc(excerpt)}</div>'
+            f'<div class="card-meta">'
+            f'<span class="card-date">{fmt_date(p["date"])}</span>'
+            f'<div class="card-tags">{tags_html}</div>'
+            f'</div></div></a>')
+
+
 def compact_item(p, num):
     src_label = source_name(p.get('source', ''))
-    return (f'<a class="compact-item" href="{post_url(p)}">'
-            f'<div class="ci-num">{num:02d}</div>'
-            f'<div class="ci-body">'
-            f'<span class="src-badge" style="font-size:9px;padding:1px 5px">{esc(src_label)}</span>'
-            f'<div class="ci-title">{esc(p["title"])}</div>'
-            f'<div style="display:flex;gap:6px;align-items:center;margin-top:2px">'
+    tags_html = tags_row(p.get('tags'), 1)
+    return (f'<a class="card" href="{post_url(p)}">'
+            f'<div class="card-body">'
+            f'<span class="src-badge">{esc(src_label)}</span>'
+            f'<div class="card-title">{esc(p["title"])}</div>'
+            f'<div class="card-meta">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
-            f'<div class="card-tags">{tags_row(p.get("tags"), 1)}</div>'
-            f'</div>'
-            f'</div></a>')
-
+            f'<div class="card-tags">{tags_html}</div>'
+            f'</div></div></a>')
 
 def lr_card(p):
     src_label = source_name(p.get('source', ''))
@@ -860,10 +891,12 @@ def build_news_index(posts_by_date):
 .day-sub{font-size:12px;color:var(--t3)}
 
 /* HERO — full width, image on top */
-.hero-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;margin-bottom:16px;transition:box-shadow .15s,transform .15s}
+.hero-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;margin-bottom:18px;transition:box-shadow .15s,transform .15s}
 .hero-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.hc-body{padding:20px 22px 20px;display:flex;flex-direction:column;gap:10px}
-.hc-title{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.2;color:var(--t)}
+.hc-img{width:100%;aspect-ratio:16/6;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hc-body{padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px}
+.hc-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.25;color:var(--t)}
 .hc-ex{font-size:14px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 
@@ -871,12 +904,12 @@ def build_news_index(posts_by_date):
 .sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
 
 /* Compact numbered list */
-.compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);margin-bottom:22px;border-radius:6px;overflow:hidden}
-.compact-item{background:#fff;display:flex;gap:10px;padding:11px 14px;align-items:flex-start;transition:background .12s;text-decoration:none}
-.compact-item:hover{background:var(--bg3)}
-.ci-num{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--br2);flex-shrink:0;min-width:22px;text-align:right;padding-top:2px}
-.ci-body{flex:1;display:flex;flex-direction:column;gap:4px}
-.ci-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+
+
+
+
+
 
 /* Yesterday 4-grid */
 .yesterday-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
@@ -907,7 +940,7 @@ def build_news_index(posts_by_date):
     for di, date in enumerate(dates[:9]):
         posts = posts_by_date[date]
         if di == 0:
-            label = 'Сегодня'
+            label = 'Главное'
         elif di == 1:
             label = 'Вчера'
         else:
@@ -973,6 +1006,7 @@ def build_news_index(posts_by_date):
 def build_materials_page(posts, page=1, tag=''):
     css = """
 .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mat-grid .card{min-height:140px}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
 .page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
@@ -984,7 +1018,7 @@ def build_materials_page(posts, page=1, tag=''):
     pages = max(1, -(-total // per))
     page_posts = posts[(page-1)*per:page*per]
 
-    tag_chips = '<div class="tag-chips">' + \
+    tag_chips = '<div class="tag-bar">' + \
         f'<a class="tc{" on" if not tag else ""}" href="/materials/">Все</a>' + \
         ''.join(f'<a class="tc{" on" if tag==t else ""}" href="/materials/tag/{slugify(t)}/">#{t}</a>' for t in TOP_TAGS[:10]) + \
         '</div>'
@@ -997,7 +1031,7 @@ def build_materials_page(posts, page=1, tag=''):
     <p>Аналитика, мнения и тексты из The Atlantic, Maclean's, The Hub и других изданий — не привязанные к конкретной дате.</p>
   </div>
   {tag_chips}
-  <div class="mat-grid">{"".join(small_card(p) for p in page_posts)}</div>
+  <div class="mat-grid">{"".join(photo_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(
@@ -1033,7 +1067,7 @@ def build_longreads_page(posts, page=1, tag=''):
     pages = max(1, -(-total // per))
     page_posts = posts[(page-1)*per:page*per]
 
-    tag_chips = '<div class="tag-chips">' + \
+    tag_chips = '<div class="tag-bar">' + \
         f'<a class="tc{" on" if not tag else ""}" href="/longreads/">Все</a>' + \
         ''.join(f'<a class="tc{" on" if tag==t else ""}" href="/longreads/tag/{slugify(t)}/">#{t}</a>' for t in TOP_TAGS[:10]) + \
         '</div>'
@@ -1081,7 +1115,7 @@ def build_tag_page(tag, posts, page=1):
     <h1>#{tag}</h1>
     <p>{total} материалов по теме</p>
   </div>
-  <div class="tag-grid">{"".join(small_card(p) for p in page_posts)}</div>
+  <div class="tag-grid">{"".join(photo_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(
@@ -1114,7 +1148,7 @@ def build_person_page(person, posts, page=1):
     <h1>{esc(person)}</h1>
     <p>{total} материалов</p>
   </div>
-  <div class="tag-grid">{"".join(small_card(p) for p in page_posts)}</div>
+  <div class="tag-grid">{"".join(photo_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(
@@ -1135,6 +1169,7 @@ def build_surveys_page(posts, page=1):
     pgn = _pagination(page, pages, '/surveys/')
     css = """
 .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mat-grid .card{min-height:140px}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
 .page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
@@ -1146,7 +1181,7 @@ def build_surveys_page(posts, page=1):
     <h1>Опросы и статистика</h1>
     <p>Данные, исследования, опросы и рейтинги — всё что можно измерить о Канаде.</p>
   </div>
-  <div class="mat-grid">{"".join(small_card(p) for p in page_posts)}</div>
+  <div class="mat-grid">{"".join(photo_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(
@@ -1218,7 +1253,7 @@ def build_sitemap(posts):
 
 
 def build_robots():
-    return f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n"
+    return "User-agent: *\nDisallow: /\n"
 
 
 # ── PAGINATION HELPER ─────────────────────────────────
