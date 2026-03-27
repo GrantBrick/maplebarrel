@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная | journAIsts.ca</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Главная лента | Maple Barrel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
 :root {
-    --bg: #f9fafb;
+    --bg: #fdfdfd;
     --card-bg: #ffffff;
-    --text-main: #111827;
-    --text-muted: #6b7280;
-    --accent: #2563eb; /* Технологичный синий для AI */
-    --border: #e5e7eb;
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --accent: #c53030; /* Канадский красный */
+    --border: #eeeeee;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { 
-    font-family: 'Inter', -apple-system, sans-serif; 
-    line-height: 1.5; color: var(--text-main); background: var(--bg); 
+    font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+    line-height: 1.7; color: var(--text-main); background: var(--bg); 
 }
 a { color: inherit; text-decoration: none; }
 
@@ -26,297 +26,1001 @@ header {
     padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
 }
 .header-content { 
-    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    max-width: 900px; margin: 0 auto; padding: 0 20px;
     display: flex; justify-content: space-between; align-items: center;
 }
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.05em; }
-.logo span { color: var(--accent); } /* Выделение AI */
+.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
+.nav-menu { display: flex; gap: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+.nav-menu a:hover { color: var(--accent); }
 
-.container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+.container { max-width: 800px; margin: 3rem auto; padding: 0 20px; }
 
-/* Сетка постов */
-.posts-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-    gap: 2rem; 
-}
+/* Список постов */
+.posts-list { display: flex; flex-direction: column; gap: 4rem; }
+.post-card { border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
+.post-card:last-child { border-bottom: none; }
 
-.post-card { 
-    background: var(--card-bg); border-radius: 16px; overflow: hidden;
-    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
-    display: flex; flex-direction: column;
-}
-.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; }
+.post-image { width: 100%; height: auto; display: block; }
 
-.post-image-wrap { width: 100%; height: 200px; overflow: hidden; background: #eee; }
-.post-image { width: 100%; height: 100%; object-fit: cover; }
+.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; }
+.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; }
+.post-content b, .post-content strong { font-weight: 700; }
+.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 
-.post-body { padding: 1.5rem; flex-grow: 1; }
-.post-date { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
-.post-text { margin-top: 0.75rem; font-size: 1rem; color: #374151; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: #f5f5f5; color: #444; font-weight: 500; }
+.person-badge { background: #fff1f1; color: var(--accent); }
 
-.post-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
-.tag-badge { background: #f3f4f6; color: #4b5563; }
-.person-badge { background: #eff6ff; color: var(--accent); }
+.pagination { margin: 5rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
+.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
 
-.pagination { margin-top: 3rem; text-align: center; }
-.btn { padding: 0.75rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; }
-.btn:hover { background: #f3f4f6; }
+.page-title { margin-bottom: 3rem; font-size: 2rem; font-weight: 800; }
+footer { text-align: center; padding: 5rem 0; color: #999; font-size: 0.8rem; border-top: 1px solid var(--border); }
 
 @media (max-width: 600px) {
-    .posts-grid { grid-template-columns: 1fr; }
+    header .nav-menu { display: none; } /* Упрощаем для мобилок */
 }
 </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <a href="/" class="logo">journ<span>AI</span>sts</a>
-            <nav style="display:flex; gap:1.5rem; font-size:0.9rem; font-weight:500;">
-                <a href="/">Главная</a>
+            <a href="/" class="logo">MAPLE BARREL</a>
+            <nav class="nav-menu">
+                <a href="/materials/">Материалы</a>
+                <a href="/longreads/">Лонгриды</a>
+                <a href="/about/">О проекте</a>
                 <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
             </nav>
         </div>
     </header>
     <main class="container">
-        <div class="posts-grid">
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1878@05-01-2026_17-15-25.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.01.2026</span>
-            <div class="post-text">Власти Канады: американским медучреждениям больше нельзя доверять</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1877@05-01-2026_15-12-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.01.2026</span>
-            <div class="post-text">Что удар США по Венесуэле может означать для нефти и канадского экспорта</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> 
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1876@05-01-2026_13-32-54.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.01.2026</span>
-            <div class="post-text">В Венесуэле «доктрина Донроу» Трампа уже работает. Канаде пора перестать отсиживаться</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/выборы/" class="badge tag-badge">#выборы</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1875@05-01-2026_12-12-23.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.01.2026</span>
-            <div class="post-text">Оттава предлагает штрафы до $1 млн за нарушение правил реестра иностранного влияния</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1874@05-01-2026_10-09-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.01.2026</span>
-            <div class="post-text">Зеленский назначил Христю Фриланд экономическим советником Украины</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/христя-фриланд/" class="badge person-badge">Христя Фриланд</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1873@05-01-2026_09-04-51.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.01.2026</span>
-            <div class="post-text">Более миллиона индийцев в Канаде рискуют потерять легальный статус</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1872@04-01-2026_18-02-54.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">04.01.2026</span>
-            <div class="post-text">r/Canada — итоги 2025 года: цифры, политика и усталость модераторов</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/выборы/" class="badge tag-badge">#выборы</a><a href="/tag/тарифы/" class="badge tag-badge">#тарифы</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1871@04-01-2026_15-04-36.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">04.01.2026</span>
-            <div class="post-text">Стартап из Монреаля разработал надувные «штаны-эйрбэги» для защиты пожилых людей от переломов при падении</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1870@04-01-2026_12-06-38.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">04.01.2026</span>
-            <div class="post-text">Карни о захвате Мадуро: «Канада приветствует шанс на свободу для Венесуэлы»</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/выборы/" class="badge tag-badge">#выборы</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        
-        <div class="post-body">
-            <span class="post-date">03.01.2026</span>
-            <div class="post-text">Пьер пробует сменить имидж.
+        <h1 class="page-title">Главная лента</h1><div class="posts-list">
+    <article class="post-card">
+        <span class="post-date">17 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1771@17-12-2025_15-29-01.jpg" class="post-image"></div>
+        <div class="post-content">Поездки канадцев в США упали на 40% — но путешествовать стали больше
+​‎
 
-Обратите внимание: мягкий тон, Аттенборо-стиль, даже некое "нердство" явно должно выглядеть хорошо на фоне "технократа" и банкира Карни. Продолжаем следить!</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+<a href="https://www.ctvnews.ca/toronto/consumer-alert/article/travel-to-the-us-down-40-per-cent-over-last-year-flight-centre/">Поездки канадцев в США в 2025 году сократились</a> примерно на 40% по сравнению с прошлым годом. Такие данные приводит Flight Centre Canada, связывая спад с торговыми спорами, тарифами и общей экономической напряжённостью в отношениях с США.
+​‎
+
+При этом канадцы не отказываются от отпусков. Напротив — путешествий стало больше, просто меняются направления. Турпоток всё активнее уходит в Карибский регион, Европу и Азию, а сами поездки становятся более дальними и продолжительными.
+​‎
+
+По данным Flight Centre, наибольший рост интереса за год показали:
+​‎
+– Теркс и Кайкос: +350%
+– Сент-Люсия: +116%
+– Япония: +88%
+– Колумбия: +75%
+– Швейцария: +64%
+– Барбадос: +61%
+– Вьетнам: +56%
+– Кюрасао: +53%
+– Германия: +43%
+– Австралия: +32%
+​‎
+
+В компании отмечают, что курс валют всё сильнее влияет на выбор направления. В Японии и Австралии канадский доллар позволяет чувствовать себя увереннее на месте, даже несмотря на долгий перелёт.
+​‎
+
+Аналогичную тенденцию фиксирует и торонтская компания G Adventures: бронирования поездок в США падают, но общее число путешествий растёт. В числе самых популярных направлений на следующий год — Перу, Марокко, Коста-Рика, Таиланд и Япония.
+​‎
+
+Отдельный тренд — уход от массового туризма. Всё больше людей выбирают поездки в межсезонье — весной и осенью — когда меньше толп и ниже цены.
+​‎
+
+Также растёт число одиночных путешественников, особенно женщин, которые предпочитают ехать одни, но в составе организованных тургрупп.
+​‎
+
+На рождественские праздники большинство направлений уже полностью забронировано. Поездки «к солнцу» на январь–март активно покупают сейчас, а дальние маршруты в Европу и Азию уже планируют на лето 2026 года.
+​‎
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1869@03-01-2026_18-14-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">03.01.2026</span>
-            <div class="post-text">Почти пять миллионов виз истекли в 2025 году. Где теперь их владельцы?</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">17 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1770@17-12-2025_14-04-04.jpg" class="post-image"></div>
+        <div class="post-content">Канада — 12-я в мире по уровню свободы на фоне глобального отката прав и свобод
+​‎
+
+<a href="https://www.ctvnews.ca/canada/article/canada-ranked-12th-freest-country-amid-global-decline-in-human-freedom-think-tank/">Канада заняла 12-е место в мировом рейтинге</a> человеческой свободы, следует из нового Human Freedom Index, опубликованного Fraser Institute совместно с американским Cato Institute.
+​‎
+
+Отчёт фиксирует тревожный тренд: почти 90% населения планеты в 2023 году жило в условиях меньшей свободы, чем в 2019-м — до пандемии. Это касается как демократий, так и авторитарных режимов, богатых и бедных стран.
+​‎
+
+Индекс оценивает свободу по 87 показателям, включая:
+​‎
+– верховенство права
+– безопасность
+– свободу слова, собраний и вероисповедания
+– свободу передвижения
+– экономические свободы и доступ к «здоровым деньгам»
+​‎
+
+Канада сохранила свою позицию по сравнению с прошлым годом, но её общий балл снизился на 0,03. Аналогичное падение зафиксировано и у США, которые остались на 15-м месте.
+​‎
+
+Авторы доклада подчёркивают: правительства по всему миру всё чаще ограничивают свободу выражения мнений, ассоциаций, протестов и перемещения граждан. Этот процесс, по их оценке, носит системный характер.
+​‎
+
+Самыми свободными странами мира вновь признаны:
+​‎
+– Швейцария
+– Дания
+– Новая Зеландия
+– Ирландия
+– Люксембург
+​‎
+
+При этом даже они показали снижение показателей свободы по сравнению с прошлым годом.
+​‎
+
+Внизу рейтинга — Сирия, Иран, Йемен, Судан и Мьянма. Любопытно, что Иран и Судан формально улучшили свои позиции, тогда как остальные страны из «пятёрки» показали дальнейшее падение.
+​‎
+
+Fraser Institute подчёркивает: более свободные общества в среднем живут богаче, здоровее и стабильнее. Свобода — не только ценность сама по себе, но и фактор качества жизни.
+​‎
+
+На фоне общего мирового тренда стагнация и постепенное снижение показателей даже у развитых демократий выглядят особенно показательно.
+​‎
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1868@03-01-2026_15-13-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">03.01.2026</span>
-            <div class="post-text">В Канаде разрешили выпуск дженериков Ozempic — но в аптеках их быстро не появится</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">17 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1769@17-12-2025_12-37-25.jpg" class="post-image"></div>
+        <div class="post-content">Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию
+​‎
+
+<a href="https://edmonton.citynews.ca/2025/12/16/alberta-separatists-new-petition-referendum-vote/">В Альберте сделан ещё один формальный ша</a>г к возможному референдуму о выходе из состава Канады. Сепаратистское движение подало новую гражданскую инициативу в Elections Alberta, а депутаты провинциального парламента уже одобрили $3 млн на подготовку плебисцита в 2026 году.
+​‎
+
+Автор петиции Митч Сильвестр предлагает прямой вопрос: должна ли провинция Альберта перестать быть частью Канады и стать независимым государством. По его словам, выход из федерации «принесёт пользу каждому жителю провинции».
+​‎
+
+Предыдущую версию инициативы суд признал неконституционной и нарушающей договорные права коренных народов. Но после того как правительство Даниэль Смит и министр юстиции Микки Эмери изменили правила гражданских инициатив, процесс стал заметно более «разрешительным». Сам Сильвестр открыто говорит, что рад обходу судебных ограничений.
+​‎
+
+Против сепаратизма уже мобилизовались оппоненты. Бывший вице-премьер Альберты Томас Лукашук сообщил, что его кампания Forever Canadian собрала более 400 тысяч подписей за сохранение провинции в составе Канады. Он настаивает, что вопрос должен решаться голосованием депутатов, без референдума.
+​‎
+
+Лукашук предупреждает: разговоры о выходе уже подрывают инвестиционную привлекательность региона и могут повторить сценарий Квебека времён сепаратистских кризисов. В то же время он подчёркивает, что его движение готово к полноценной кампании, если голосование всё же состоится.
+​‎
+
+Премьер Даниэль Смит официально заявляет, что поддерживает сохранение Альберты в Канаде, но на недавнем съезде UCP эти слова были встречены освистыванием. Критики считают, что смягчение правил — попытка удержать партию от раскола и успокоить радикальное крыло.
+​‎
+
+На улицах Эдмонтона мнения разделились: одни подчёркивают канадскую идентичность и опасаются политических и экономических последствий, другие уверены, что ресурсная база Альберты позволяет ей существовать самостоятельно.
+​‎
+
+Дополнительные $3 млн, одобренные UCP и NDP, пойдут на техническую подготовку Elections Alberta к возможному референдуму в 2026 году — даже если до самого голосования дело в итоге не дойдёт.
+​‎
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1867@03-01-2026_14-09-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">03.01.2026</span>
-            <div class="post-text">Антидепрессанты как стиль жизни: TikTok превращает СИОЗС в модный аксессуар</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">17 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1768@17-12-2025_11-12-38.jpg" class="post-image"></div>
+        <div class="post-content">РОн ДеСантис троллит Дага Форда: Флорида прекрасно обходится без канадских туристов и выигрывает Кубки Стэнли
+​‎
+
+<a href="https://torontosun.com/opinion/columnists/ron-desantis-florida-tourism-fine-without-doug-ford">Губернатор Флориды Рон ДеСантис публично ответил</a> премьеру Онтарио Дагу Форду, который на днях заявил, что не поедет во Флориду этой зимой и что туристическая отрасль штата якобы «страдает». Ответ ДеСантиса был коротким и издевательским — и подкреплён цифрами.
+​‎
+
+«На самом деле мы продолжаем бить туристические рекорды (и выигрывать Кубки Стэнли)», — написал ДеСантис в X, прикрепив официальную статистику по турпотоку.
+​‎
+
+По данным штата, во втором квартале 2025 года Флорида зафиксировала рекордное количество посетителей. В пиковый зимний период (январь–март) число канадцев действительно снизилось — с 1,3 млн в 2024 году до 1,2 млн в 2025-м. Но общее количество туристов за тот же период выросло с 37,2 млн до 41,2 млн.
+​‎
+
+За первые шесть месяцев 2025 года Флориду посетили 75,6 млн человек. В 2024 году итоговая цифра составила 143 млн, и, судя по темпам, штат идёт к очередному рекордному году.
+​‎
+
+Форд делал свои заявления на фоне пресс-конференции о развитии туризма в Ниагарском водопаде. Для контекста: Ниагара принимает около 14 млн туристов в год — примерно десятую часть от годового потока Флориды.
+​‎
+
+Отдельно ДеСантис напомнил, что команды НХЛ из Флориды выиграли Кубок Стэнли четыре раза с момента его вступления в должность. Канадские клубы не брали Кубок с 1993 года, а последняя победа команды из Онтарио датируется 1967 годом.
+​‎
+
+Колумнист National Post Брайан Лилли подытоживает ситуацию жёстко: США и Дональд Трамп занимают непропорционально большое место в канадской политической риторике, но Канада — и даже туристический бойкот — почти не волнуют американцев.
+​‎
+
+Канадских туристов во Флориде стало меньше — факт. Но их без особых проблем заменяют гости из других стран. А чувство морального превосходства, по словам автора, — слабая замена солнцу и океану.
+​‎
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1866@03-01-2026_13-11-44.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">03.01.2026</span>
-            <div class="post-text">Ни одного игрока из Квебека в сборной Канады по хоккею — впервые с 1952 года</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">17 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1767@17-12-2025_10-02-54.jpg" class="post-image"></div>
+        <div class="post-content">Нелегальный статус и годы ожидания: как иммиграционная система Канады подводит детей
+​‎
+
+<a href="https://www.cbc.ca/news/canada/ottawa/undocumented-children-at-risk-due-to-unviable-immigration-wait-times-lawyers-warn-9.7016069">Юристы и правозащитники бьют тревогу</a>: тысячи детей и подростков в Канаде рискуют остаться без будущего из-за фактически недееспособных сроков рассмотрения заявок на ПМЖ по гуманитарному и сострадательному основанию. Об этом сообщает CBC.
+​‎
+
+Речь идёт о детях без статуса или с утраченным временным статусом — зачастую это единственный иммиграционный путь, который для них вообще остаётся. Но в 2025 году сроки ожидания по этому каналу внезапно выросли до десятков лет.
+​‎
+
+По данным юристов, в очереди сейчас более 55 тысяч заявлений, тогда как правительство планирует принимать:
+​‎
+– 1 100 человек в 2026 году
+– 1 000 в 2027
+– 1 000 в 2028
+​‎
+
+Иммиграционный адвокат из Оттавы Хизер Нойфельд называет это «беспрецедентным обрушением» гуманитарного направления. По её словам, дети рискуют быть депортированы ещё до того, как их дело вообще рассмотрят.
+​‎
+
+CBC приводит истории подростков, выросших в Канаде, которые внезапно узнали, что у них нет статуса:
+​‎
+– они не могут легально работать
+– не могут поступить в колледж или университет
+– не имеют доступа к медицинской помощи
+– не могут путешествовать даже со школьной командой
+​‎
+
+16–17-летние подростки говорят о постоянном страхе, чувстве отставания от сверстников и невозможности строить планы — учёба, профессия, жизнь поставлены на паузу на неопределённый срок.
+​‎
+
+Правозащитные организации подчёркивают: по Конвенции ООН о правах ребёнка и собственному иммиграционному законодательству Канада обязана действовать в интересах детей. Отсрочка решений на 10–50 лет фактически означает отказ от этой обязанности.
+​‎
+
+IRCC в ответ заявляет, что гуманитарный путь — «последний вариант», а ускоренное рассмотрение возможно только в исключительных случаях по индивидуальному запросу.
+​‎
+
+Юристы предупреждают: если ситуация не изменится, Канада рискует создать собственный «подкласс» молодых людей без статуса — образованных, интегрированных, но вынужденных жить в тени.
+​‎
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1865@03-01-2026_11-01-15.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">03.01.2026</span>
-            <div class="post-text">Канадские политики спорят из-за ударов США по Венесуэле и захвата Мадуро</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">16 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1766@16-12-2025_21-37-01.jpg" class="post-image"></div>
+        <div class="post-content">Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов
+​
+‌
+<a href="https://nationalpost.com/opinion/the-conservatives-who-could-replace-pierre-poilievre">В National Post всё громче обсуждают сценарий</a>, который ещё год назад казался фантастикой: смена лидера Консервативной партии. Повод — серия болезненных переходов депутатов к либералам и ощущение, что позиции Пьера Полиева внутри собственного кокуса больше не выглядят незыблемыми.
+​
+‌
+После ухода Майкла Ма разговоры о лидерстве, начавшиеся ещё во время бюджетных баталий, вернулись с новой силой. Один из депутатов прямо говорит изданию: Полиев «умирает от тысячи порезов» — и не чувствует настроения в комнате.
+​
+‌
+На этом фоне автор перечисляет тех, кого в партии уже тихо рассматривают как запасные варианты.
+​
+‌
+Внутрипартийный кандидат — Джамиль Дживани.
+
+Депутат от Дарема публично выражает лояльность Полиеву, но аккуратно уходит от вопроса, что будет при новых переходах к либералам. Его университетские туры в стиле Чарли Кирка и попытка предложить себя посредником между Марком Карни и командой JD Vance делают его заметным, но пока осторожным игроком.
+​
+‌
+Западная ставка — Джейсон Кенни.
+
+Бывший премьер Альберты и экс-министр кабинета Харпера официально отрицает интерес к федеральному лидерству. При этом он активно появляется в медиа, включая франкоязычное CBC. Билингвизм и опыт на двух уровнях власти — серьёзные козыри, даже если сам Кенни говорит «нет».
+​
+‌
+Бей-стрит вариант — Марк Малруни.
+
+Весной банкиры уже прощупывали почву для его возможной кампании. Бизнес-элита ищет лидера, более комфортного для рынков. Назначение Малруни глобальным вице-председателем CIBC может охладить его политический пыл — слишком дорого обойдётся смена траектории.
+​
+‌
+Канада-1st — Даг Форд.
+
+Имя премьера Онтарио всплывает регулярно. Его «Captain Canada» риторика подогревает слухи, но партийная база до сих пор не простила ему дистанцирование от Полиева на прошлых выборах. В то же время источники утверждают: в Онтарио уже готовы люди, которые подхватят провинциальную партию, если Форд уйдёт на федеральный уровень.
+​
+‌
+Финальный штрих — угроза со стороны Reform Act. Того самого инструмента, который когда-то помог избавиться от О’Тула. По словам инсайдеров, главный вопрос для Полиева — не лидерский обзор, а момент, когда кокус решит воспользоваться этим механизмом. Весна или осень — пока открытый вопрос.
+​
+‌
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1864@03-01-2026_10-07-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">03.01.2026</span>
-            <div class="post-text">Канадская соцсеть Gander Social собрала $1,5 млн через краудфандинг — и обещает «без рекламы и манипуляций»</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">16 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1765@16-12-2025_18-07-01.jpg" class="post-image"></div>
+        <div class="post-content">Эксперт предупреждает канадцев о рисках поездок в США: «Мой совет — не ехать»
+​
+​
+Канадским гражданам<a href="https://apple.news/A-k-h7O9ZQe-KIXPb22Px6Q"> всё чаще советуют отказаться от поездок в США</a> на фоне резкого роста задержаний иммиграционными службами. Новые данные, полученные в результате судебного иска против ICE, показывают: за последние два года под арест всё чаще попадают обычные канадцы — включая детей — без серьёзного криминального прошлого.
+​
+​
+С января этого года более 200 канадцев находились под стражей ICE. Для сравнения, за весь 2024 год таких случаев было 137. Всего с сентября 2023 года по октябрь 2025 зафиксировано 434 эпизода содержания канадцев в иммиграционных центрах США.
+​
+​
+Из них:
+– только 2 человека имели обвинения, подпадающие под категорию тяжких преступлений
+– 6 имели иные судимости
+– 366 не имели серьёзного криминального прошлого
+​
+​
+Профессор права Queen’s University Шэрри Эйкен подчёркивает, что речь идёт не о росте преступности, а о жёстком изменении практики правоприменения. По её словам, многие задержания связаны с отсутствием визы или превышением срока пребывания — ситуациями, которые раньше решались без ареста.
+​
+​
+Отдельную тревогу вызывает задержание детей. Как минимум шесть канадских несовершеннолетних оказались в центрах ICE, один ребёнок провёл под стражей 51 день — более чем вдвое дольше установленного лимита. Часть детей содержалась в центре в Южном Техасе, который ранее критиковали за плохие условия, нехватку медицинской помощи и ограниченный доступ к юристам.
+​
+​
+Эксперты напрямую связывают происходящее с иммиграционной политикой Дональда Трампа во втором президентском сроке. Массовые депортации и давление на ICE с целью выполнять ежедневные «планы по арестам» приводят к тому, что под задержание может попасть практически любой.
+​
+​
+Профессор Toronto Metropolitan University Уэйн Петроцци предупреждает, что канадцы недооценивают риски пересечения границы. По его словам, даже незначительные нарушения или ошибки в статусе могут привести к аресту и длительному содержанию под стражей.
+​
+​
+Global Affairs Canada подтверждает, что знает о множестве подобных случаев и оказывает консульскую помощь, но возможности вмешательства ограничены, особенно если человек нарушил условия въезда в США.
+​
+​
+Юристы и исследователи сходятся во мнении: под риск попадают даже те, кто уверен, что соблюдает правила, а наибольшая уязвимость — у канадцев, не родившихся в стране.
+​
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1863@01-01-2026_20-48-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">01.01.2026</span>
-            <div class="post-text">Бенджамин Франклин тоже хотел «забрать» Канаду — и это не шутка</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">16 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1764@16-12-2025_14-56-21.jpg" class="post-image"></div>
+        <div class="post-content">«Мы хотим больше казино»: Даг Форд представил план превращения Ниагара-Фолс в «Лас-Вегас Севера»
+​
+​
+<a href="https://www.thestar.com/politics/provincial/we-want-more-casinos-doug-ford-unveils-plan-to-boost-tourism-in-niagara-falls/article_4b4074e0-4717-41e7-9520-eedd0651959b.html">Премьер Онтарио Даг Форд объявил о стратегии Destination Niagara</a>, цель которой — резко нарастить туризм и поддержать экономику провинции на фоне торговой войны с США. Ключевая идея — превратить Ниагара-Фолс в крупный развлекательный центр по образцу Лас-Вегаса.
+​
+​
+Выступая в Ниагара-Фолс, Форд заявил, что регион уже приносит около $3 млрд в год и принимает 13 млн туристов, но правительство рассчитывает удвоить эти показатели. Для этого власти делают ставку на новые аттракционы, транспортные проекты и расширение игорного сектора.
+​
+​
+По словам премьера, план включает:
+– привлечение крупных новых казино
+– строительство обзорного колеса по типу London Eye
+– возможное удлинение взлётно-посадочной полосы в аэропорту Niagara District для приёма больших самолётов
+– расширение QEW, дублирование Garden City Skyway
+– улучшение сообщения GO Transit с регионом
+​
+​
+При этом нового финансирования на реализацию инициатив объявлено не было — ставка делается на частные инвестиции.
+​
+​
+Мэр Ниагара-Фолс Джим Диодати заявил, что город «готов с распростёртыми объятиями» принимать больше туристов, а инициатива Куинс-Парка должна привлечь масштабный частный капитал.
+​
+​
+Глава Ontario Lottery and Gaming Corporation Джим Уоррен отметил, что инвестиции в Ниагару укрепляют позиции Онтарио как центра развлечений. В 2023–24 финансовом году OLG принесла провинции $2,4 млрд.
+​
+​
+На фоне ухудшения отношений с США Форд также прокомментировал судьбу американского алкоголя, изъятого из магазинов LCBO в ответ на тарифы Дональда Трампа. Он заявил, что продавать его в Онтарио не будут, чтобы не навредить местным винодельням и дистиллериям, но допустил продажу другим провинциям.
+​
+​
+Премьер добавил, что впервые не поедет на рождественские каникулы во Флориду, назвав тарифную политику Трампа «тиранической».
+​
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/тарифы/" class="badge">#тарифы</a><a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1862@01-01-2026_14-46-35.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">01.01.2026</span>
-            <div class="post-text">Новый год — новые налоги: что изменится в Канаде в 2026 году</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">16 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1763@16-12-2025_13-47-00.jpg" class="post-image"></div>
+        <div class="post-content">Канадским депутатам отказали во въезде в Израиль
+​
+​
+Делегации из 30 канадцев, включая шесть депутатов парламента, <a href="https://www.cbc.ca/news/world/israel-canada-9.7017424">отказали во въезде в Израиль</a> при пересечении границы со стороны Иордании. Об этом сообщает CBC News.
+​
+​
+По словам представителя National Council of Canadian Muslims, члены делегации получили требование подписать документ, в котором они должны были признать, что представляют угрозу общественной безопасности. Все участники отказались это сделать.
+​
+​
+Поездка была спонсирована канадской зарегистрированной некоммерческой организацией Canadian Muslim Vote.
+​
+​
+На прошлой неделе депутат от НДП Дженни Кван — единственный представитель своей партии в группе — заявляла CBC News, что опасается отказа во въезде из-за ухудшения отношений между Канадой и Израилем за последние два года. Остальные депутаты в составе делегации представляют Либеральную партию.
+​
+​
+В январе прошлого года аналогичная группа депутатов от либералов и НДП смогла въехать в Израиль и посетить перемещённых палестинцев на оккупированном Западном берегу. Участники нынешней поездки планировали аналогичный визит.
+​
+​
+CBC News обратился за комментариями к израильским властям. Ранее представитель правительства Израиля Шош Бедросян заявила, что не располагает информацией по этому визиту. Запросы о причинах отказа во въезде остаются без ответа.
+​
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1861@01-01-2026_11-44-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">01.01.2026</span>
-            <div class="post-text">Snowbirds из Канады хотят уйти из Флориды — но рынок недвижимости не даёт</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/экономика/" class="badge tag-badge">#экономика</a><a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">16 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1762@16-12-2025_12-04-01.jpg" class="post-image"></div>
+        <div class="post-content">Пьер Полиев обвинил либералов Карни в «фальшивом консерватизме»
+​
+​
+<a href="https://www.ctvnews.ca/politics/article/poilievre-says-carneys-liberals-are-counterfeit-conservatives/">Лидер Консервативной партии Пьер Полиев заявил</a>, что правительство премьер-министра Марка Карни практикует «поддельный консерватизм», заимствуя идеи консерваторов, но не собираясь выполнять собственные обещания.
+​
+​
+Выступая в итоговом интервью The Canadian Press, Полиев сказал, что Карни пытается копировать его повестку — в том числе обещание отменить потребительский углеродный налог — но на деле, по его словам, либеральное правительство не доводит эти шаги до конца.
+​
+​
+После ухода Джастина Трюдо Либеральная партия всё заметнее смещается к центру политического спектра. Этот разворот уже вызвал внутренние конфликты: бывший министр окружающей среды Стивен Гибо недавно покинул кабинет Карни, заявив, что правительство демонтирует климатические политики, которые он продвигал в прежнем составе.
+​
+​
+Полиев утверждает, что ключевая задача консерваторов — доказать избирателям, что смена риторики либералов не означает реальных изменений в политике. По его словам, Карни «говорит одно, а делает другое».
+​
+​
+Сам Марк Карни отказался от участия в итоговом интервью The Canadian Press.
+​
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1860@01-01-2026_09-46-57.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">01.01.2026</span>
-            <div class="post-text">25 хоккеистов номинированы в мужскую сборную Канады на Олимпиаду-2026</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">16 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1761@16-12-2025_10-33-09.jpg" class="post-image"></div>
+        <div class="post-content">Все больше канадцев выбирают Мексику вместо США для зимнего отдыха
+​
+​
+<a href="https://www.cbc.ca/news/canada/manitoba/more-canadians-head-to-mexico-for-winter-getaways-9.7011907">Все больше канадцев отказываются</a> от традиционных зимних поездок в США и выбирают отдых внутри Канады или в Мексике. Об этом сообщает CBC News, отмечая заметное изменение туристических привычек на фоне политической напряженности и смены приоритетов.
+​
+​
+Чарльз Бирт и Мерили Моллард из Манитобы в этом году отменили свою ежегодную поездку в Техас, где раньше проводили недели, а иногда и месяцы. По словам Бирта, решение связано с риторикой Дональда Трампа, разговорами о «51-м штате» и ощущением враждебности по отношению к канадцам. Пара решила тратить деньги в Канаде и Мексике, а не в США.
+​
+​
+Статистика подтверждает, что они не одни. По данным Министерства туризма Мексики, с января по сентябрь поток канадских туристов в страну вырос на 11,3% — почти на 200 тысяч человек по сравнению с прошлым годом. Сеть Meliá Hotels International сообщает о росте числа канадцев на своих мексиканских курортах на 22% по сравнению с 2024 годом.
+​
+​
+На этом фоне туризм в США проседает. Данные Tourism Economics и Национального управления по туризму США показывают падение канадского турпотока в США на 24% за первые шесть месяцев 2025 года. Особенно сильно пострадали:
+– Лас-Вегас (–50%)
+– Нью-Йорк (–46%)
+– Гонолулу (–41%)
+– Флорида остаётся самым устойчивым направлением, но тоже в минусе (–22%)
+​
+​
+По словам представителей туристической отрасли, речь идет о «реальном перераспределении» направлений: канадцы все реже бронируют поездки в США, а Мексика вышла на второе место по популярности после внутреннего туризма.
+​
+​
+При этом многие путешественники не исключают возвращения в США в будущем — но «когда Трамп уйдёт». Пока же Мексика становится главным зимним направлением для канадцев, желающих солнца, моря и более комфортной политической атмосферы.
+​
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1859@31-12-2025_23-59-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">31.12.2025</span>
-            <div class="post-text">С НОВЫМ ГОДОМ!</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    </div><div class="pagination"><a href="/page/27" class="btn">← Сюда</a> <a href="/page/29/" class="btn">Туда →</a></div>
+    <article class="post-card">
+        <span class="post-date">16 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1760@16-12-2025_08-59-01.jpg" class="post-image"></div>
+        <div class="post-content">В Оттаве и Восточном Онтарио умерли трое детей из-за осложнений гриппа A
+​
+​
+<a href="https://www.ctvnews.ca/ottawa/article/3-children-die-from-influenza-a-related-complications-in-ottawa-and-eastern-ontario-region/">Трое детей в возрасте от пяти до девяти лет умерли от осложнений</a>, связанных с гриппом A, в первые две недели декабря в регионе Оттавы и Восточного Онтарио. Об этом сообщили Ottawa Public Health и Eastern Ontario Health Unit.
+​
+​
+По словам главного врача Оттавы Тревора Арнасона, речь идёт о «быстром и резком росте» заболеваемости гриппом в самом начале сезона, сопровождающемся большим числом тяжёлых случаев. Власти подчёркивают, что летальные исходы от гриппа происходят каждый год, но текущая динамика вызывает особую тревогу.
+​
+​
+Детская больница CHEO сообщает о необычно высоком числе пациентов с гриппом и осложнениями. Президент и CEO CHEO Вера Этчес заявила о «беспрецедентной нагрузке» на приёмное отделение, работе с переполнением и расширении часов работы клиник для разгрузки скорой помощи.
+​
+​
+Ottawa Public Health официально объявила о начале сезона гриппа в первую неделю декабря, указав на «очень высокий уровень» циркуляции вируса в сообществе. По данным Агентства общественного здравоохранения Канады, доля положительных тестов на грипп по стране выросла до 20,2% за неделю, закончившуюся 6 декабря, по сравнению с 8,3% двумя неделями ранее.
+​
+​
+Медики настоятельно рекомендуют вакцинацию всем в возрасте от шести месяцев, особенно детям, подчёркивая, что прививка снижает риск тяжёлого течения болезни, госпитализации и осложнений.
+​
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1759@15-12-2025_21-38-01.jpg" class="post-image"></div>
+        <div class="post-content">«Праздничное истощение»: что это такое и почему канадцы чувствуют себя выжатыми к концу года
+​
+​
+Канадские медиа всё чаще <a href="https://www.ctvnews.ca/health/article/what-is-festive-exhaustion-and-how-do-you-fight-it-during-the-holidays/">используют термин «festive exhaustion»</a> — состояние, при котором праздники приносят не радость, а усталость, апатию и проблемы со сном. Об этом в эфире CTV Your Morning рассказала эксперт по сну Аманда Джусон.
+​
+​
+По её словам, парадокс в том, что даже при «времени отдыха» многие чувствуют себя хуже, чем в обычные недели. Причина — накопленный перегруз.
+​
+​
+– Постоянные приглашения и приёмы гостей
+– Роль «бесплатного организатора праздников»
+– Алкоголь и поздние вечера
+– Поездки и ночёвки не дома
+– Ментальная нагрузка: подарки, списки, продукты, логистика
+​
+​
+Алкоголь, подчёркивает Джусон, напрямую ухудшает качество сна и меняет его структуру. После нескольких вечеров с выпивкой организму может потребоваться до трёх дней, чтобы восстановиться.
+​
+​
+Отдельная проблема — сон вне дома. Даже при достаточном количестве часов мозг не получает полноценного восстановления.
+​
+​
+Что помогает справляться с праздничным истощением:
+​
+– «Золотой час» перед сном: 30–60 минут без дел, звонков и планирования
+– Жёсткий приоритет сна: 7–9 часов каждую ночь
+– Личный «набор сна» в поездках: маска, беруши, подушка, спрей
+– Осознанное «нет» мероприятиям, которые забирают силы
+​
+​
+По словам Джусон, отказ от части активности — не слабость, а способ сохранить энергию и здоровье в самый перегруженный период года.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1758@15-12-2025_20-30-57.jpg" class="post-image"></div>
+        <div class="post-content">Почему молодёжь в Канаде стала самым несчастным поколением
+​
+​
+Канадская молодёжь — больше не самая счастливая часть общества. <a href="https://www.ctvnews.ca/lifestyle/article/how-did-canadas-young-people-become-its-unhappiest-generation/">По данным World Happiness Report</a>, люди младше 30 лет, которые ещё в 2011 году лидировали по уровню удовлетворённости жизнью, теперь оказались на последнем месте среди всех возрастных групп.
+​
+​
+Падение — одно из самых резких в мире. Хуже динамика только у Иордании, Венесуэлы, Ливана и Афганистана. При этом в целом Канада остаётся в топ-20 самых счастливых стран. Контраст бросается в глаза.
+​
+​
+Истории молодых канадцев повторяются. Ожидания и реальность разошлись.
+​
+– Недоступное жильё и рекордные сроки накопления на первый взнос
+– Нестабильный рынок труда и сотни откликов на одну работу
+– Отсрочка браков, детей и «взрослой жизни»
+– Постоянный фон тревоги из-за новостей и соцсетей
+– Рост проблем с ментальным здоровьем
+​
+​
+Экономист Джон Хелливелл, один из авторов World Happiness Report, говорит, что привычная «U-кривая счастья» сломалась. Раньше молодёжь чувствовала себя лучше всех, затем был спад в среднем возрасте и рост в старости. Теперь самая низкая точка — именно у молодых.
+​
+​
+Главные причины — работа и жильё. Не просто наличие работы, а ощущение будущего. И не просто аренда, а чувство устойчивости и безопасности.
+​
+​
+Цифры это подтверждают:
+​
+– В 1986 году молодым канадцам требовалось около 5 лет, чтобы накопить на первый взнос
+– К 2021 году — уже 17 лет
+– В Торонто и Ванкувере — до 27 лет
+​
+​
+Другие жизненные ориентиры тоже сдвинулись. Средний возраст брака вырос с 25 до 35 лет, возраст первых родов — с 22 до 29. Многие прямо говорят: романтика и дети отходят на второй план из-за денег.
+​
+​
+При этом исследователи отмечают важный нюанс. Когда молодых спрашивают не о «лучшей возможной жизни», а о текущей удовлетворённости, падение выглядит менее драматичным. По данным Statistics Canada, уровень удовлетворённости снизился умеренно.
+​
+​
+Это может означать не полный крах, а период перестройки ожиданий. Молодые канадцы всё чаще находят опору не в далёких целях вроде дома или пенсии, а в ближайших радостях — сообществе, творчестве, волонтёрстве, семье, небольших планах на год-два вперёд.
+​
+​
+Хелливелл остаётся осторожным оптимистом. Он напоминает: резкие изменения восприятия не бывают необратимыми. И чувство общности — один из самых сильных факторов счастья, даже в условиях экономического давления.
+​
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1757@15-12-2025_18-40-15.jpg" class="post-image"></div>
+        <div class="post-content">Слово года — 2025: slop
+​
+​
+<a href="https://www.merriam-webster.com/wordplay/word-of-the-year">Merriam-Webster назвал словом 2025 года slop</a> — термин для цифрового контента низкого качества, массово производимого с помощью ИИ. Проще говоря, весь тот мусор, который в этом году заполнил экраны.
+​
+Редакторы словаря определяют slop как поток странных видео, кривых рекламных картинок, псевдоновостей, дешёвых книг, отчётов «ради отчёта» и бесконечных говорящих котов. Раздражает — но при этом отлично расходится.
+​
+Wall Street Journal писал: «AI-slop повсюду», а CNET констатировал, что соцсети превратились в «антисоциальную пустыню». Само слово звучит как нечто липкое и ненужное — и это не случайно. Изначально slop означало мягкую грязь, позже — помои и отбросы. В 2025-м оно стало ироничным ответом страхам вокруг ИИ: не угроза, а насмешка.
+​
+Другие слова, которые задали тон году по версии Merriam-Webster:
+​
+– Gerrymander — манипулятивная нарезка избирательных округов. Интерес к слову резко вырос на фоне политических баталий в США.
+​
+– Touch grass — совет «выйти в реальный мир» и отлипнуть от экрана. Фраза стала почти терапевтической после громких дискуссий о вреде соцсетей.
+​
+– Performative — показное поведение ради лайков и имиджа. В 2025-м так называли всё: от политики и активизма до «перформативного матча».
+​
+– Tariff — тарифы вернулись в повестку после решений администрации Трампа, и люди массово искали, что это вообще такое.
+​
+– Six seven — бессмысленный, но раздражающе популярный сленг поколения Alpha, вдохновлённый треком и ростом ЛаМело Болла.
+​
+– Conclave — всплеск интереса после смерти папы Франциска и начала выборов нового понтифика, усиленный одноимённым фильмом.
+​
+– Lake Chargoggagoggmanchauggagoggchaubunagungamaugg — не слово года, но хит поисков из-за Roblox и своей абсурдной длины.
+​
+2025-й оказался годом, когда язык не испугался технологий — а просто назвал происходящее помоями.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/тарифы/" class="badge">#тарифы</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1756@15-12-2025_16-46-01.jpg" class="post-image"></div>
+        <div class="post-content">Канадцы до 35 лет тонут в долгах — и «купи сейчас, плати потом» только усугубляет ситуацию
+​
+​
+Молодые канадцы сталкиваются с рекордным уровнем долгового стресса. <a href="https://www.cbc.ca/news/business/canadians-under-35-debt-relief-missed-payments-9.7012117">Некоммерческая Credit Counselling Society сообщила</a>, что в 2025 году к ним обратилось больше людей в возрасте от 18 до 34 лет, чем когда-либо за всю историю организации.
+​
+​
+По словам кредитного консультанта Марка Калиновски из Калгари, многие молодые клиенты приходят в отчаянии:
+​
+​
+— Они плачут, злятся, чувствуют, что жизнь поставлена на паузу, и не понимают, как выбраться.
+​
+​
+Причины типичны:
+​
+– студенческие кредиты
+– первые кредитные карты без опыта управления долгами
+– рост стоимости жизни при медленном росте зарплат
+​
+​
+Но отдельную роль, по мнению экспертов, играет массовое распространение сервисов buy now, pay later — Klarna, Affirm, PayPal и других.
+​
+​
+Проблема не в «шопинге ради удовольствия», объясняет экономист Джоди Леткевич (York University). Молодёжь использует такие сервисы для базовых расходов — оплаты счетов и повседневных покупок. Это тревожный сигнал для экономики.
+​
+​
+Главный риск — фрагментированный долг.
+​
+​
+— Это не выглядит как один большой кредит. Это десятки мелких платежей в разных приложениях. Управлять этим крайне сложно, — говорит Леткевич.
+​
+​
+Данные Equifax подтверждают тренд:
+​
+– у людей до 30 лет быстрее всего растут средние балансы по кредитным картам
+– именно у этой группы самый быстрый рост просрочек
+– около 1 из 20 канадцев в возрасте 18–35 лет пропустил платёж по кредитке в третьем квартале 2025 года
+​
+​
+Хотя молодые заёмщики в среднем должны меньше, чем предыдущие поколения в том же возрасте, проблема — в устойчивом росте пропущенных платежей.
+​
+​
+Эксперты отмечают ещё один парадокс. С одной стороны, молодёжь «менее устойчива» к экономическим шокам. С другой — она чаще и раньше обращается за помощью.
+​
+​
+— Для них нормально признать: «У меня проблемы с деньгами, мне нужна помощь», — говорит Калиновски.
+​
+​
+Это снижает долгосрочный ущерб: серьёзные кредитные ошибки в молодости могут тянуться в кредитной истории до семи лет. Чем раньше человек вмешивается, тем быстрее может вернуться к нормальной жизни.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1755@15-12-2025_14-44-01.jpg" class="post-image"></div>
+        <div class="post-content">StatCan решает, публиковать ли данные о трансгендерных детях младше 15 лет
+​
+​
+Статистическое управление Канады (StatCan) <a href="https://nationalpost.com/news/canada/statcan-seeking-advice-on-how-to-share-secret-census-data-on-transgender-children-o-to-14">проводит консультации о том</a>, как безопасно представить общественности данные переписи 2021 года о трансгендерных и небинарных детях в возрасте от младенцев до подростков. Если это произойдёт, Канада может стать первой страной в мире, где на уровне национальной статистики будут опубликованы подобные данные.
+​
+​
+Перепись 2021 года впервые включала вопросы не только о поле при рождении, но и о гендерной идентичности. Уже известно, что среди канадцев старше 15 лет 0,33% — около 101 тысячи человек — идентифицируют себя как трансгендерные или небинарные. Однако данные о детях до 15 лет пока не обнародованы.
+​
+​
+StatCan объясняет задержку необходимостью проверить качество информации и исключить риск раскрытия личных данных или возможного вреда для детей. Агентство отмечает, что число респондентов позволяет провести базовый анализ по группам 0–4, 5–9 и 10–14 лет.
+​
+​
+Среди специалистов мнения разделились.
+​
+Педиатр из Калгари Эдвард Лес считает, что публикация данных могла бы повысить прозрачность и помочь обществу лучше понимать проблемы таких детей. По его словам, «неясно, какой вред может принести открытость». Но он указывает на идеологическую окраску документа и сомневается, что родители способны объективно определять гендер ребёнка.
+​
+Психиатр Джоан Синай из Университета Британской Колумбии предупреждает, что не все дети с нетипичным поведением испытывают гендерную дисфорию: «Большинство таких детей вырастают геями или лесбиянками, а не трансгендерами». Она добавила, что практика «гендерно открытого» воспитания может запутать ребёнка, которому важно понимать своё место в социальной структуре.
+​
+​
+В документе StatCan отмечается, что дети могут осознавать гендерные нормы уже в возрасте 18–24 месяцев, а некоторые — ощущать расхождение между полом при рождении и своей идентичностью к шести-семи годам. Агентство также признаёт, что родительские ответы могут быть неточными, если ребёнок не раскрывает свою идентичность или если родители не признают её.
+​
+​
+Релиз данных может вызвать как интерес, так и негативную реакцию, предупреждает StatCan. Одни эксперты считают, что это поможет развеять мифы и уменьшить дискриминацию, другие опасаются, что статистика будет использована для оправдания ранней медицинской интервенции у несовершеннолетних.
+​
+​
+Консультации завершились 13 декабря. Те же вопросы о поле и гендере планируется включить и в перепись 2026 года.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1754@15-12-2025_13-20-00.jpg" class="post-image"></div>
+        <div class="post-content">Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой.
+
+​
+<a href="https://www.theglobeandmail.com/business/article-conestoga-college-squeeze-sharp-reduction-foreign-students/?intcmp=gift_share">Ещё в конце 2023 года колледж из Китченера</a> переживал настоящий бум: число иностранных студентов выросло до 32,5 тыс., что на 145% больше всего за два года. Доходы Conestoga почти утроились и достигли $945 млн за учебный год 2023–24.
+
+​
+Затем федеральное правительство резко изменило курс. Ограничения на студенческие визы в 2024–2025 годах ударили по всей системе послесреднего образования — и особенно по колледжам, которые сильнее других зависели от иностранных студентов.
+
+​
+Conestoga быстро начал сокращаться:
+
+– закрыты более 80 программ, ориентированных на иностранных студентов
+– закрыт кампус в центре Китченера (более 3 тыс. студентов)
+– закрыт кампус в Брантфорде
+– уволены около 180 сотрудников поддержки и свыше 1 500 преподавателей, плюс администраторы и менеджеры
+
+По оценке консалтинговой компании Eduvation, именно Conestoga потерял больше рабочих мест, чем любой другой колледж Онтарио — более 2 100 человек.
+
+​
+Президент колледжа Джон Тиббитс (зарплата $636 тыс. в 2024 году) утверждает, что рост набора был не ради прибыли, а для решения кадрового кризиса. В 2022 году, по его словам, колледжи «попросили помочь закрыть 323 тыс. вакансий» в Онтарио.
+
+​
+Проблема в том, что большинство этих вакансий были в низкооплачиваемом сервисном секторе. Многие выпускники-иностранцы оказались разочарованы.
+
+​
+Выпускник Conestoga Абхи Такур, получивший диплом по бизнес-менеджменту, после учёбы не смог найти работу по специальности. Работодатели прямо говорили ему, что диплом колледжа «не имеет большого веса», а рынок переполнен такими же выпускниками. Сейчас он работает на складе и подрабатывает Uber и Lyft.
+
+​
+Федеральные власти сначала называли иностранных студентов «экономической необходимостью», а затем — на фоне роста цен на жильё и общественного недовольства — фактически сделали их удобным виновником. Новое правительство Марка Карни сократило приём до примерно 150 тыс. иностранных студентов в год — почти вдвое меньше прежних уровней.
+
+​
+Это действительно охладило рынок аренды, но ударило по городам, где студенты были важной частью экономики. Мэр Китченера Берри Врбанович говорит, что в центре города уже закрываются рестораны и бизнесы, ориентированные на студентов.
+
+​
+Эксперты сходятся в одном: система была перекошена.
+
+Провинциальное финансирование колледжей и университетов в Онтарио десятилетиями снижалось, плата за обучение для канадцев была заморожена, и вузы фактически подсадили на доходы от иностранных студентов. Теперь этот «рычаг» резко убрали.
+
+​
+Экономист Университета Ватерлоо Микал Скутеруд называет стратегию ошибочной: иностранные студенты стали инструментом дешёвой рабочей силы, а не программой привлечения лучших талантов. Итог — подорвано доверие ко всей системе.
+
+​
+Для многих выпускников, как Абхи Такур, история Канады заканчивается разочарованием. Он уже планирует уехать, когда истечёт его разрешение на работу в 2027 году.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1753@15-12-2025_12-43-01.jpg" class="post-image"></div>
+        <div class="post-content">Знаменитые американцы могут получить канадское гражданство по новому закону
+​
+​
+Новый федеральный законопроект C-3, <a href="https://nationalpost.com/news/canada/these-famous-americans-could-be-eligible-for-canadian-citizenship-under-ottawas-new-legislation">который должен вступить в силу в начале 2026 года</a>, может открыть путь к канадскому гражданству для десятков тысяч людей по всему миру — включая ряд известных американцев.
+​
+​
+Речь идёт о поправках к Закону о гражданстве, устраняющих так называемое «ограничение первого поколения». Именно оно в 2009 году лишило многих потомков канадцев права автоматически получать гражданство по происхождению.
+​
+​
+По оценке Министерства иммиграции, речь идёт о «десятках тысяч» потенциальных заявителей, а не о сотнях тысяч. При этом интерес к закону особенно высок в США — из-за тесной миграционной истории двух стран.
+​
+​
+Среди публичных фигур, которые теоретически могут претендовать на канадский паспорт по линии предков:
+​
+– Хиллари Клинтон — по материнской линии, уходящей к французским канадцам и Filles du Roi
+– Мадонна — французско-канадские корни в Квебеке
+– Анджелина Джоли — прабабушка родом из Квебека
+– Лили Коллинз — прадед родился в Виннипеге
+– Джек Уайт — дед и бабушка из Новой Шотландии
+– Вигго Мортенсен — канадские корни по материнской линии в Атлантической Канаде
+​
+​
+Закон C-3 появился после решения суда Онтарио в 2023 году, который признал прежние правила неконституционными. Ранее они создали категорию так называемых «потерянных канадцев» — людей, лишённых гражданства из-за устаревших норм о месте рождения и передаче статуса.
+​
+​
+Что меняется:
+​
+– Для людей, родившихся до вступления закона в силу, гражданство восстанавливается ретроактивно при доказанной линии происхождения
+– Ограничений по глубине родословной нет: подходят даже пра-пра-предки
+– Гражданство не выдаётся автоматически — требуется индивидуальная подача и подтверждающие документы
+​
+​
+Для детей, рождённых уже после вступления закона в силу, вводится новое правило: родитель-канадец, рождённый за границей, должен доказать «существенную связь с Канадой» — не менее 1 095 дней проживания в стране до рождения ребёнка.
+​
+​
+Иммиграционные юристы ожидают сложные и спорные кейсы, особенно когда речь идёт о доказательствах проживания в Канаде в детском возрасте или о семьях с детьми, рождёнными по обе стороны даты вступления закона в силу.
+​
+​
+В правительстве утверждают, что система справится с нагрузкой, а сроки рассмотрения заявлений — около девяти месяцев — существенно не вырастут.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1752@15-12-2025_11-42-17.jpg" class="post-image"></div>
+        <div class="post-content">Канадский английский против британского: лингвисты призывают Карни не менять орфографию
+​
+​
+Сторонники канадского английского обеспокоены тем, что федеральное правительство начало использовать британскую орфографию в официальных документах — и считают это ошибочным сигналом миру.
+​
+​
+Пять известных лингвистов и представитель ассоциации редакторов <a href="https://www.ctvnews.ca/canada/article/canadian-english-supporters-urge-carney-to-abandon-federal-shift-to-british-spelling/">направили письмо премьер-министру Марку Карни</a> с призывом вернуться к стандартам канадского английского. Поводом стала, в частности, федеральная бюджетная документация на 2025 год, где появились формы вроде utilisation, globalisation и catalyse вместо привычных для Канады utilization, globalization и catalyze.
+​
+​
+Авторы письма подчёркивают:
+​
+– канадская орфография используется последовательно в СМИ, книгоиздании и государственных институтах
+– отказ от неё создаёт путаницу в том, что считать «канадским» стандартом
+– орфография — часть национальной идентичности, а не формальность
+​
+​
+По их словам, Standard Canadian English признан отдельным вариантом английского языка даже Oxford English Dictionary. Он сформировался под влиянием лоялистов после Американской революции, иммиграции из Британии и Европы, а также языков коренных народов.
+​
+​
+Канадский английский исторически балансирует между США и Великобританией, но не совпадает полностью ни с одним из них. В одних случаях Канада следует североамериканским формам, в других — британским, а некоторые варианты вообще не принимает.
+​
+​
+Авторы письма напоминают, что федеральное правительство последовательно использовало канадскую орфографию с 1970-х годов и призывают сохранить эту практику. По их мнению, это «самый простой способ занять позицию “elbows up”» — отстаивая собственную языковую и культурную самостоятельность.
+​
+​
+Офис премьер-министра Марка Карни на запрос The Canadian Press не ответил.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1751@15-12-2025_10-47-10.jpg" class="post-image"></div>
+        <div class="post-content">Канадские евреи не отменили ханукальные огни — несмотря на трагедию в Австралии
+
+​
+После расстрела на пляже Бонди в Сиднее, где двое вооружённых мужчин убили 15 человек во время ханукального праздника, еврейские общины Канады вышли на улицы — не для протеста, а для света.
+
+​
+В Торонто традиционное зажигание ханукального светильника на перекрёстке Батерст и Шеппард <a href="https://thecjn.ca/news/canadian-jews-hold-defiant-public-hanukkah-lightings-after-an-attack-in-australia-kills-15/">превратилось в митинг стойкости и скорби</a>. Полиция разделила участников и десяток прокпалестинских активистов, выкрикивавших лозунги через дорогу.
+
+​
+Рабби Моше Штайнер из Uptown Chabad читал письмо погибшего в Сиднее раввина Эли Шлангера, адресованное премьеру Австралии, в котором тот призывал пересмотреть признание палестинского государства. “Он говорил правду — и его голос не умолкнет,” сказал Штайнер.
+
+​
+На сцене выступили депутат Консервативной партии Роман Бабер и городские советники Джеймс Пастернак и Брэд Бредфорд. Пастернак назвал лозунг “Globalize the intifada” прямым призывом к убийствам и потребовал “жёсткого ответа закона”.
+
+​
+Бабер, перекрикивая активистов через улицу, заявил: “Мы всё равно будем зажигать ханукальные огни — хоть две тысячи лет подряд, хоть под угрозами”.
+
+​
+Организатор митинга Гиди Мамман сказал, что в иудаизме радость и боль идут рядом: “Мы не перестанем праздновать. Мы обязаны быть светом в темноте”.
+
+​
+По словам раввина Леви Гансбурга из Chabad on Bayview, погибший раввин Шлангер был его другом по юношеским годам: “Он жил ради доброты — и погиб, неся её людям. Это удар, который каждый из нас чувствует”.
+
+​
+Представитель UJA Toronto Сара Лефтон назвала случившееся “сигналом тревоги для всей Канады”: “Когда ненависть к евреям становится нормой, она превращается в насилие. Это не только наша проблема — это вопрос безопасности страны”.
+
+​
+Глава правового отдела CIJA Ришар Марсо напомнил: “Когда на улицах кричат ‘глобализируйте интифаду’ — это не политика, это угроза жизни евреев”.
+
+​
+B’nai Brith Canada потребовала от властей “разоблачить экстремистские сети и применять законы о разжигании ненависти”, не дожидаясь трагедии на канадской земле.
+
+​
+Премьер Марк Карни в Оттаве заявил, что его правительство “с решимостью выступает против ненависти”, напомнив о законопроекте о борьбе с экстремизмом, а мэр Торонто Оливия Чау пообещала усилить охрану синагог и центров.
+
+​
+Ханукальные огни по всей Канаде зажглись в тот вечер — не как привычный праздник, а как ответ на страх.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">15 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1750@15-12-2025_09-42-28.jpg" class="post-image"></div>
+        <div class="post-content">Торонто: мужчина обогнал новый Finch LRT на 18 минут
+​
+​
+Житель Торонто Мак Бауэр, известный в соцсетях как 514runner, <a href="https://www.cbc.ca/news/canada/toronto/toronto-man-outruns-finch-lrt-9.7015667">устроил забег против недавно открытой линии</a> Finch West LRT — и уверенно победил.
+​
+​
+Бауэр давно соревнуется с общественным транспортом TTC. Идея родилась год назад, когда он с женой понял, сколько времени уходит на поездки по городу. С тех пор он регулярно проверяет, быстрее ли человек на своих ногах трамвая или поезда.
+​
+​
+На этот раз объектом эксперимента стала Line 6 Finch West — линия длиной 10,3 км с 18 остановками, соединяющая Finch West station с северным кампусом Humber Polytechnic.
+​
+​
+Результат:
+​
+– Бауэр финишировал на 18 минут раньше LRT
+– Поездка по линии у журналиста CBC заняла 55 минут в одну сторону
+– Обратный путь — около 47 минут
+​
+​
+По словам бегуна, главные проблемы линии очевидны:
+​
+– отсутствие приоритета на светофорах
+– слишком частые остановки
+– замедление ближе к Finch West
+​
+​
+Когда LRT получал «зелёную волну» и расстояние между остановками было больше, он сокращал отставание. Но в целом система, по словам Бауэра, «тормозит всё подряд».
+​
+​
+Finch West LRT открылся после четырёх лет задержек и перерасхода бюджета и с первых дней столкнулся с техническими и операционными сбоями. TTC называет это «мягким запуском» и обещает ускорить движение к весне за счёт приоритета сигналов и донастройки системы.
+​
+​
+Транзитные активисты не удивлены исходу забега. По их словам, эксперимент Бауэра лишь подчёркивает хроническую проблему наземного транспорта в Торонто.
+​
+​
+Сам Бауэр формулирует это проще:
+​
+​
+— Я плачу налоги и хочу, чтобы транспорт работал нормально. Для растущего города мы должны справляться лучше.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">14 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1749@14-12-2025_18-19-01.jpg" class="post-image"></div>
+        <div class="post-content">Сериал Heated Rivalry официально продлён на второй сезон
+​
+
+Канадский <i>спортивно-романтический</i> сериал Heated Rivalry получил официальное продление на второй сезон от стриминга Crave с участием HBO Max в международной дистрибуции.  
+
+Премьера первого сезона состоялась 28 ноября 2025 года на Crave, и уже после нескольких эпизодов шоу стало одним из самых обсуждаемых телепроектов года. Оно основано на серии романов Game Changers Рэйчел Рид и рассказывает о двух звёздах профессионального хоккея — Шейне Холландере и Илье Розанове, соперничество на льду которых скрывает их тайные романтические отношения.  
+
+Успех сериала по зрительским рейтингам и обсуждаемости в соцсетях привёл к тому, что производители и платформы уверенно вложились в продолжение истории. † Создатели отмечают, что развитие сюжета будет следовать книгам, а фанаты вновь увидят развитие отношений главных героев.  
+
+Пока точная дата выхода второго сезона не объявлена, но подтверждение продления говорит о крепкой популярности проекта и значительном интересе аудитории как в Канаде, так и за рубежом.</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">14 декабря 2025</span>
+        
+        <div class="post-content">Просто дерево в Ванкувере
+
+📍Stanley Park</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">14 декабря 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1748@14-12-2025_15-36-24.jpg" class="post-image"></div>
+        <div class="post-content">Консерватор остался без подарка: депутат ушёл к либералам вместе с Secret Santa
+​
+
+Депутат-консерватор Джамил Дживани нашёл <a href="https://www.cbc.ca/news/politics/conservative-secret-santa-liberal-defection-9.7014334">самый бытовой символ политического перехода</a> Майкла Ма к либералам — исчезнувший рождественский подарок. Ма оказался его Secret Santa на обмене подарками в консервативном кокусе, но презент так и не дошёл до адресата.
+​
+
+Дживани отнёсся к ситуации с юмором. В интервью CBC News он рассказал, что в момент вручения подарков остался с пустыми руками и сначала решил, что это просто недоразумение. Истина вскрылась позже — после новости о переходе Ма в Либеральную партию.
+​
+
+«Может, он отдал подарок либералу», — пошутил Дживани, не скрывая улыбки.
+​
+
+Смех смехом, но сам политический манёвр он назвал «раздражающим» и «грустным». По словам Дживани, создаётся странный нарратив, будто единственный способ сотрудничества между либералами и консерваторами — это переход через зал и отказ от мандата избирателей.
+​
+
+Он напомнил, что партии уже находили точки соприкосновения — например, при голосовании за закон о крупных инфраструктурных проектах или в вопросах отношений с США. «Можно работать вместе и без показных жестов и перебежек», — подчеркнул депутат.
+​
+
+Майкл Ма стал вторым консерватором за осень, перешедшим к либералам, после Криса д’Энтремона из Новой Шотландии. Сам Ма заявил, что принял решение после общения с избирателями округа Маркхам–Юнионвилл и призвал к «единству и решительным действиям».
+​
+
+Дживани, впрочем, уверен: такие переходы скорее мобилизуют партию, чем деморализуют её. «Это напоминает нам, почему мы носим синюю форму», — сказал он.
+​
+
+Отдельную иронию ситуации добавил консерватор Курт Холман, который написал в соцсетях, что успел подарить Ма Amazon Fire Stick буквально за несколько часов до его перехода. «Теперь хочу подарок обратно — так же, как избиратели Маркхама хотят вернуть свои голоса», — пошутил он.
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    </div><div class="pagination"><a href="/page/27/" class="btn">← Назад</a><a href="/page/29/" class="btn">Вперед →</a></div>
     </main>
-    <footer style="text-align:center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
-        &copy; 2026 journAIsts.ca | Powered by Maple Barrel
+    <footer>
+        &copy; 2024–2026 Maple Barrel. Все права защищены.
     </footer>
 </body>
 </html>

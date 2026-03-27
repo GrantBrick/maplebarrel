@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная | journAIsts.ca</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Главная лента | Maple Barrel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
 :root {
-    --bg: #f9fafb;
+    --bg: #fdfdfd;
     --card-bg: #ffffff;
-    --text-main: #111827;
-    --text-muted: #6b7280;
-    --accent: #2563eb; /* Технологичный синий для AI */
-    --border: #e5e7eb;
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --accent: #c53030; /* Канадский красный */
+    --border: #eeeeee;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { 
-    font-family: 'Inter', -apple-system, sans-serif; 
-    line-height: 1.5; color: var(--text-main); background: var(--bg); 
+    font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+    line-height: 1.7; color: var(--text-main); background: var(--bg); 
 }
 a { color: inherit; text-decoration: none; }
 
@@ -26,305 +26,828 @@ header {
     padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
 }
 .header-content { 
-    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    max-width: 900px; margin: 0 auto; padding: 0 20px;
     display: flex; justify-content: space-between; align-items: center;
 }
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.05em; }
-.logo span { color: var(--accent); } /* Выделение AI */
+.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
+.nav-menu { display: flex; gap: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+.nav-menu a:hover { color: var(--accent); }
 
-.container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+.container { max-width: 800px; margin: 3rem auto; padding: 0 20px; }
 
-/* Сетка постов */
-.posts-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-    gap: 2rem; 
-}
+/* Список постов */
+.posts-list { display: flex; flex-direction: column; gap: 4rem; }
+.post-card { border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
+.post-card:last-child { border-bottom: none; }
 
-.post-card { 
-    background: var(--card-bg); border-radius: 16px; overflow: hidden;
-    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
-    display: flex; flex-direction: column;
-}
-.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; }
+.post-image { width: 100%; height: auto; display: block; }
 
-.post-image-wrap { width: 100%; height: 200px; overflow: hidden; background: #eee; }
-.post-image { width: 100%; height: 100%; object-fit: cover; }
+.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; }
+.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; }
+.post-content b, .post-content strong { font-weight: 700; }
+.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 
-.post-body { padding: 1.5rem; flex-grow: 1; }
-.post-date { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
-.post-text { margin-top: 0.75rem; font-size: 1rem; color: #374151; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: #f5f5f5; color: #444; font-weight: 500; }
+.person-badge { background: #fff1f1; color: var(--accent); }
 
-.post-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
-.tag-badge { background: #f3f4f6; color: #4b5563; }
-.person-badge { background: #eff6ff; color: var(--accent); }
+.pagination { margin: 5rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
+.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
 
-.pagination { margin-top: 3rem; text-align: center; }
-.btn { padding: 0.75rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; }
-.btn:hover { background: #f3f4f6; }
+.page-title { margin-bottom: 3rem; font-size: 2rem; font-weight: 800; }
+footer { text-align: center; padding: 5rem 0; color: #999; font-size: 0.8rem; border-top: 1px solid var(--border); }
 
 @media (max-width: 600px) {
-    .posts-grid { grid-template-columns: 1fr; }
+    header .nav-menu { display: none; } /* Упрощаем для мобилок */
 }
 </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <a href="/" class="logo">journ<span>AI</span>sts</a>
-            <nav style="display:flex; gap:1.5rem; font-size:0.9rem; font-weight:500;">
-                <a href="/">Главная</a>
+            <a href="/" class="logo">MAPLE BARREL</a>
+            <nav class="nav-menu">
+                <a href="/materials/">Материалы</a>
+                <a href="/longreads/">Лонгриды</a>
+                <a href="/about/">О проекте</a>
                 <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
             </nav>
         </div>
     </header>
     <main class="container">
-        <div class="posts-grid">
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1440@07-11-2025_12-23-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">07.11.2025</span>
-            <div class="post-text">Либералы и НДП протолкнули закон о «потерянных канадцах», отменив поправки оппозиции</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1439@07-11-2025_10-22-08.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">07.11.2025</span>
-            <div class="post-text">Квебек урезает иммиграцию: меньше новых жителей, больше французского</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1438@07-11-2025_09-16-56.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">07.11.2025</span>
-            <div class="post-text">Либералы Карни пережили первое голосование по доверию бюджету</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1437@06-11-2025_20-55-13.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">Небольшое наблюдение: 3 дня в Канаде не обсуждают ничего, кроме бюджета. Высказались все, от мусульманских общин Торонто до профсоюза работников заповедников. 
+        <h1 class="page-title">Главная лента</h1><div class="posts-list">
+    <article class="post-card">
+        <span class="post-date">13 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1252@13-10-2025_14-23-01.jpg" class="post-image"></div>
+        <div class="post-content">Даниэль Смит обвиняет Оттаву в «уклонении от ответственности» за новый нефтепровод
+​
+<a href="https://www.ctvnews.ca/edmonton/article/alberta-premier-smith-says-ottawa-is-dodging-responsibility-for-pipeline-decision/">Премьер Альберты Даниэль Смит обрушилась на федеральное правительств</a>о, заявив, что именно Оттава, а не провинция, несёт ответственность за решение по проекту нефтепровода на западное побережье.
 
-400 страниц разобраны по косточкам, эфиры ТВ ломятся от экспертов с учеными степенями и бывших министров. 
+​
+«Это обязанность премьер-министра Марка Карни и федерального кабинета. Мы ожидаем, что он проявит решительность и поддержит проект. Любое другое решение станет предательством конституционных прав альбертцев», — говорится в заявлении офиса Смит.
 
-Партии готовятся к чтениям, Пьер разминается, каждый пытается выбить получше условия. В общем, жизнь кипит. 
+​
+Поводом стало выступление министра природных ресурсов Канады Тима Ходжсона, который в Сенате напомнил, что без согласия Британской Колумбии и коренных народов никакой нефтепровод построить нельзя. «Альберте ещё предстоит поработать», — заметил он.
 
-Тем временем в России похожий по размеру бюджет приняли в первом чтении без единой поправки, все 450 депутатов проголосовали "За".  Почти 30% бюджета засекречено.</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1436@06-11-2025_19-21-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">🧢 Принц Гарри извиняется перед Канадой за бейсболку Dodgers</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1435@06-11-2025_15-42-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">Канадские спортсмены остались за бортом: в первом бюджете правительства Марка Карни не оказалось ни цента нового финансирования спорта.</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1434@06-11-2025_14-42-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">Перебежчики в Оттаве: сколько депутатов сменили партию за историю Канады</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1433@06-11-2025_13-31-44.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">Верховный суд Канады отказался рассматривать апелляцию фермеров из Британской Колумбии, пытавшихся спасти своих страусов от уничтожения.</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1432@06-11-2025_11-39-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">Скандал в Онтарио: деньги из фонда подготовки кадров оказались у компании, связанной со стрип-клубом</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1431@06-11-2025_10-37-24.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">Канадский доллар провалился к минимуму почти за 7 месяцев</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1430@06-11-2025_09-36-29.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">Приоритет тем, кто уже в Канаде: новый иммиграционный план правительства Карни</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1429@06-11-2025_08-39-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">06.11.2025</span>
-            <div class="post-text">Оливия Чау проиграла пари мэру Лос-Анджелеса и проехалась по Торонто в форме Dodgers</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1428@05-11-2025_21-57-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.11.2025</span>
-            <div class="post-text">OpenAI запретила ChatGPT давать юридические и медицинские советы</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1427@05-11-2025_20-18-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.11.2025</span>
-            <div class="post-text">Менопауза: лечиться можно, но не всем по карману 
+​
+Смит же настаивает, что федеральное правительство имеет исключительное право регулировать межпровинциальные трубопроводы и обязано использовать это полномочие. «Конституция не позволяет одной провинции блокировать экспорт ключевого ресурса пяти миллионов альбертцев», — заявил представитель правительства Сэм Блэкетт.
 
-Paywall</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+​
+Проект фактически является возрождением идеи Northern Gateway — того самого трубопровода, который был отменён в 2016 году. В начале октября кабинет Смит выделил $14 млн на подготовку документации и поиск инвесторов, включая потенциальное участие коренных общин в собственности. Но для реализации нужно, чтобы Оттава ослабила ряд экологических ограничений, включая запрет на танкеры у западного побережья.
+
+​
+Премьер Британской Колумбии Дэвид Иби назвал проект «фикцией» и напомнил, что у него нет ни инвесторов, ни одобрения, ни экопроверки. «Разговаривать можно о реальном проекте, а не о призраке», — сказал он.
+
+​
+Коренные народы тоже выступили резко против. Глава Coastal First Nations, вождь Мэрилин Слетт, заявила: «Разговоры о танкерах и риске разлива нефти в прибрежных водах не имеют ничего общего с “национальным строительством”».
+
+​
+Тем не менее опрос Angus Reid показал, что 59% канадцев поддерживают идею трубопровода из северной Альберты к побережью Британской Колумбии. Даже в самой Британской Колумбии большинство — 56% — выступают «за». Но более половины респондентов при этом считают, что провинции на маршруте должны иметь право вето, если их условия не выполняются.
+
+​
+Похоже, новая битва за нефть и федерализм только начинается.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1426@05-11-2025_18-14-00.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.11.2025</span>
-            <div class="post-text">Эндрю Койн: «И это всё?» — первый бюджет Карни оказался громким, но пустым</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">13 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1251@13-10-2025_13-39-01.jpg" class="post-image"></div>
+        <div class="post-content">«Сарафанное радио сработало»: в Нью-Брансуике распродают американский алкоголь, снятый с полок
+​
+<a href="https://globalnews.ca/news/11473795/nb-liquor-selling-american-alcohol-pulled-from-shelves/">NB Liquor пытается избавиться от запасов американского алкоголя</a>, которые залежались на складах после начала торговой войны между Канадой и США. Семь месяцев назад провинция присоединилась к бойкоту и убрала американские бренды с полок.
+
+​
+Теперь срок годности спиртного подходит к концу, и корпорация распродаёт его по скидке — чтобы хоть частично вернуть вложенные $3,4 миллиона. Распродажа идёт на складе в Салисбери, и, по словам главы NB Liquor Лори Стиклз, покупателей уже тянет даже из соседних провинций.
+
+​
+«Мы решили продавать прямо во время инвентаризации, — объясняет Стиклз. — Это почти как пасхальная охота: пока разбираем паллеты, появляются новые партии. Люди приезжают, ищут редкие бутылки — словом, “слово разошлось”».
+
+​
+В Новой Шотландии ситуация похожая: на складах Nova Scotia Liquor Corp. застряло ещё $14 миллионов американского алкоголя. Правительство премьера Тима Хьюстона заявило, что санкции останутся, пока они выгодны Канаде в торговых переговорах с Вашингтоном.
+
+​
+А вот в Квебеке летом случился скандал: там собирались уничтожить $300 тысяч американских напитков, но после общественного возмущения решили отдать их в дар.
+
+​
+Как отмечает представитель Canadian Manufacturers & Exporters Рон Марколин, американские производители уже почувствовали удар — экспорт упал на 85% во втором квартале. Зато для канадских дистиллерий это шанс.
+
+​
+«Канадские бренды оживились, — говорит Марколин. — На полках появляются новые вкусы, а развитие собственных ликёров и виски идёт полным ходом».
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1425@05-11-2025_15-11-31.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.11.2025</span>
-            <div class="post-text">Депутат из Новой Шотландии перешёл к либералам — не выдержал «негативности» Полиева</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">13 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1250@13-10-2025_11-38-01.jpg" class="post-image"></div>
+        <div class="post-content">Калифорния запрещает сковородки с антипригарным покрытием. Эксперты советуют Британской Колумбии сделать то же самое
+​
+Пока калифорнийские законодатели готовятся полностью запретить посуду с антипригарным покрытием, повара и эксперты в Канаде предупреждают: BC стоит задуматься о смене кухонного арсенала.
+
+​
+Причина — химия. Большинство таких сковородок содержат PFAS — так называемые «вечные химикаты», которые не разлагаются в природе. Они встречаются не только в посуде, но и в косметике, упаковке для еды, медицинских устройствах — везде.<a href="https://www.cbc.ca/news/canada/british-columbia/california-non-stick-pans-b-c-health-quality-9.6933856"> И, по данным Health Canada, их воздействие может повлиять на печень, почки, щитовидку, иммунную и репродуктивную системы.</a>
+
+​
+В Калифорнии уже принят закон, полностью запрещающий продажу посуды с PFAS. Губернатор Гэвин Ньюсом должен подписать его до 13 октября. Конечно, некоторые знаменитые шефы возмущены — особенно те, кто зарабатывает на продаже «фирменных» антипригарных сковородок.
+
+​
+А вот в Виктории наблюдают. Министерство юстиции Британской Колумбии заявило CBC, что «внимательно следит за другими юрисдикциями» и рассматривает варианты законодательного регулирования PFAS. «Мы готовы использовать все инструменты — от законов до судебных исков — чтобы привлечь недобросовестных производителей к ответственности», — говорится в заявлении.
+
+​
+Но отказаться от антипригарного покрытия не так уж страшно, уверяют профессионалы. Владелица магазина кухонных принадлежностей из Нанаймо Джулия Хаус и шеф-преподаватель кулинарной программы в Camosun College Дэвид Ланг уверяют: альтернатива есть.
+
+​
+«У нас отличные варианты — нужно просто освоить технику, — говорит Ланг. — Французская углеродистая сталь, чугун или даже обычная нержавейка могут стать “антипригарными”, если правильно их использовать».
+
+​
+Главное — следить за посудой: не ронять, не ржавить, при необходимости «переприправлять» слой масла. «Хорошая стальная сковорода прослужит всю жизнь, если за ней ухаживать», — добавляет Хаус.
+
+​
+Или, как подытоживает Ланг: «Чтобы сделать омлет, не нужна химия. Нужен только нагретый металл и немного ума».
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1424@05-11-2025_14-21-39.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.11.2025</span>
-            <div class="post-text">🎤 Канада может попасть на «Евровидение» — и CBC получит щедрую прибавку из бюджета</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">13 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1249@13-10-2025_09-36-36.jpg" class="post-image"></div>
+        <div class="post-content">Трамп инвестирует в канадские критические минералы — но Оттава может всё остановить
+​
+Американская администрация Дональда Трампа <a href="https://www.cbc.ca/news/world/trump-investment-critical-minerals-canada-9.6932122">неожиданно вложилась в две канадские компании</a>, добывающие критические минералы — и этим вызвала тревогу у экспертов.
+
+​
+Вашингтон купил 10% акций у базирующейся в Ванкувере Trilogy Metals, владеющей проектами на Аляске, и 5% у Lithium Americas, которая вместе с General Motors развивает крупнейшее в США литиевое месторождение Thacker Pass в Неваде. Инвестиции сделаны напрямую правительством США — через Министерство энергетики.
+
+​
+Именно это и насторожило Оттаву. Международный юрист Лоуренс Херман из C.D. Howe Institute назвал шаг «возможно беспрецедентным» и подчеркнул: Канада должна насторожиться, когда иностранное государство, а не частная компания, покупает долю в чувствительном секторе критических минералов.
+
+​
+«Это не безобидные рыночные инвестиции, — говорит Херман. — Когда правительство другой страны получает долю, оно получает и влияние. А если отношения напряжённые, как сейчас, риски очевидны».
+
+​
+Под угрозой может оказаться и утечка технологий или стратегической информации. Херман напомнил: действующие политики Вашингтона уже не раз шли вразрез с канадскими интересами.
+
+​
+По Закону об инвестициях в Канаду правительство имеет право проверять все иностранные вложения, а для сектора критических минералов в 2022 году правила ужесточили — «значительные» инвестиции госкомпаний разрешаются теперь только в исключительных случаях и могут быть подвергнуты проверке на предмет угрозы нацбезопасности. Именно так Оттава поступила с тремя китайскими инвесторами, которых заставили продать доли в канадских компаниях.
+
+​
+Но юристы не уверены, что канадские власти захотят ссориться с Трампом. Сэнди Уокер из Dentons отмечает, что эти доли — неконтрольные, а в условиях переговоров о торговом и оборонном сотрудничестве Оттава, скорее всего, предпочтёт промолчать.
+
+​
+Единственное, что может стать «красной линией», — если Вашингтон потребует, чтобы вся добытая руда шла исключительно в США. Тогда уже будет задет вопрос канадских цепочек поставок.
+
+​
+Пока же официальная позиция Министерства промышленности звучит дипломатично: все иностранные инвестиции будут «оцениваться в интересах канадцев».
+
+​
+Иными словами — Белый дом может купить долю, но в Оттаве за ним внимательно наблюдают.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1423@05-11-2025_12-58-02.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.11.2025</span>
-            <div class="post-text">📉 Оппозиция будет громко возмущаться бюджетом Карни, но всё равно даст ему пройти</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/выборы/" class="badge tag-badge">#выборы</a><a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">12 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1248@12-10-2025_17-12-01.jpg" class="post-image"></div>
+        <div class="post-content">«Дискриминация и удар по иммигрантам»: Онтарио вводит новое правило для врачей-иностранцев
+​
+<a href="https://www.thestar.com/news/ontario/discriminatory-and-devastating-new-ontario-rule-for-medical-residency-that-would-exclude-most-immigrant-physicians/article_efa7668a-1ad9-4eba-ae6f-9f1f6290ca6f.html">Министерство здравоохранения Онтарио тихо изменило правила допуска к медицинской резидентур</a>е — и вызвало бурю возмущения. Теперь, чтобы участвовать в первом туре распределения мест, иностранный выпускник медицинского вуза должен… отучиться не меньше двух лет в аккредитованной средней школе Онтарио.
+
+​
+Это автоматически исключает большинство иммигрантов-врачей, получивших образование за границей. Они смогут претендовать только на второй тур, когда оставшиеся места уже займут канадские выпускники.
+
+​
+«Мы приехали как иммигранты — как я мог закончить школу здесь? Это откровенная дискриминация», — говорит иранец Хормоз Насири Киглу, семейный врач с шестилетним стажем, который сдал все экзамены и получил канадское гражданство.
+
+​
+Представительница организации Internationally Trained Physicians of Canada Ишрат Саберин назвала новое требование «шокирующим и разрушительным»: «Врачей должны оценивать по компетентности, опыту и мотивации — а не по тому, где они ходили в школу».
+
+​
+Министр здравоохранения Сильвия Джонс утверждает, что мера направлена на поддержку «выпускников Онтарио с международными дипломами» и не закрывает путь остальным кандидатам, ведь они «смогут участвовать во втором раунде». Но для тысяч иммигрантов это означает почти нулевые шансы попасть в резидентуру: в прошлом году 432 места выделялись для международных выпускников, и большинство заполнялись уже после первого тура.
+
+​
+Эксперты недоумевают: при дефиците в 2,5 миллиона семейных врачей в провинции решение выглядит не просто странным — оно контрпродуктивно. «Онтарио лишает себя специалистов, которые уже здесь, готовы работать и прошли все экзамены», — говорит Джоан Атлин из организации World Education Services.
+
+​
+Иммигрантские сообщества требуют отмены правила и запустили кампанию писем в правительство. Тем временем всё больше врачей, как и Киглу, задумываются о переезде — например, в Австралию, где иностранным медикам дают шанс доказать квалификацию на практике.
+
+​
+«Мой друг не смог попасть ни в одну программу в Канаде — а Йель взял его в резидентуру по внутренней медицине. Как это возможно?» — спрашивает Киглу.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1422@05-11-2025_11-05-50.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.11.2025</span>
-            <div class="post-text">Оттава закручивает кран для временных мигрантов: минус 43 % уже в 2026 году</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">12 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1247@12-10-2025_14-09-01.jpg" class="post-image"></div>
+        <div class="post-content">Канадская мечта под угрозой: молодёжь всё реже зарабатывает больше родителей
+​
+Молодые канадцы всё чаще сталкиваются с тем, что «социальный лифт» застрял. <a href="https://thehub.ca/2025/10/11/many-young-canadians-will-never-earn-more-than-their-parents-due-to-social-mobility-barriers-report/">Новый отчёт Монреальского экономического института (MEI) показывает</a>: в большинстве провинций молодое поколение не может добиться более высокого уровня дохода и жизни, чем их родители.
+
+​
+Экономист Винсент Желозо из Университета Джорджа Мейсона, один из авторов доклада, говорит прямо: «Мы видим падение как абсолютной, так и относительной мобильности. Канадцы всё реже становятся богаче своих родителей».
+
+​
+Лидером рейтинга оказалась Альберта — но даже она получила меньше 60 баллов из 100. По словам Желозо, провинция «тонет в избыточных лицензиях и регулировании профессий».
+
+​
+На втором месте — Британская Колумбия с 52,7 балла. Главный тормоз — жильё. «Ванкувер — великолепный город, но политика в сфере землепользования делает предложение жилья настолько жёстким, что каждый новый житель просто взвинчивает цены. Это убивает шансы на социальный рост», — отмечает Желозо.
+
+​
+Онтарио — середняк с 46,9 балла. Когда-то образец для всей страны, теперь провинция теряет привлекательность: кризис жилья, низкое качество школ и налоги душат мобильность.
+
+​
+Аутсайдер — Квебек (39,7). «Провинция задыхается от регулирования: профессии, строительство, налоги — всё мешает людям двигаться вверх», — говорит Желозо.
+
+​
+По данным MEI, на мобильность влияют как «искусственные барьеры» (госрегулирование, налоги, ограничения по жилью и образованию), так и «естественные» — неравенство, бедность, слабые социальные связи.
+
+​
+И картина на будущее выглядит мрачно: рекордная безработица среди молодёжи, падение ВВП, рост эмиграции и очередей в продовольственные банки.
+
+​
+«Если ты родился во время экономического спада — последствия могут преследовать всю жизнь», — предупреждает Желозо.
+
+​
+Похоже, в Канаде теперь не род профессии определяет твоё будущее, а год твоего рождения.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1421@05-11-2025_09-06-40.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">05.11.2025</span>
-            <div class="post-text">Бюджет-2025: ставка на мегастройку и промышленность, дефицит — $78,3 млрд</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">12 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1246@12-10-2025_12-08-01.jpg" class="post-image"></div>
+        <div class="post-content">OpenAI хочет договор с Канадой. Но не продаст ли Оттава цифровой суверенитет?
+​
+Одна из крупнейших компаний мира в сфере искусственного интеллекта — OpenAI — <a href="https://www.cbc.ca/news/business/open-ai-canada-data-centres-digital-sovereignty-9.6935195">стучится в двери Канады</a>. На кону — дешевое электричество, гигантские дата-центры и вопрос: кто будет контролировать канадские данные.
+
+​
+OpenAI строит сеть центров обработки данных по всему миру, чтобы питать ChatGPT и другие сервисы. В компании уверены, что ИИ — это «новая инфраструктура экономики» и хотят, чтобы Канада стала частью их глобальной сети. «У Канады есть всё — энергия, ресурсы и амбиции, чтобы стать лидером в технологии», — заявил Чан Пак, глава по связям с США и Канадой, на конференции Elevate в Торонто.
+
+​
+Проблема в том, что Канада всё громче говорит о «цифровом суверенитете» — праве хранить и контролировать собственные данные внутри страны. И вот парадокс: OpenAI обещает помочь именно в этом, построив дата-центры на канадской земле.
+
+​
+Но эксперты напоминают: даже если серверы стоят в Альберте, а не в Калифорнии, данные принадлежат американской компании — а значит, подпадают под законы США. С 2018 года действует CLOUD Act, позволяющий Вашингтону получать доступ к информации, хранящейся на серверах американских фирм за рубежом. Microsoft уже признала, что не может гарантировать суверенитет данных даже странам ЕС.
+
+​
+«Если завтра правительство США потребует у OpenAI прекратить работу в Канаде — они, возможно, будут вынуждены подчиниться», — предупреждает профессор Гийом Бомье из Квебека.
+
+​
+Министр по делам искусственного интеллекта Эван Соломон действительно встречался с представителями OpenAI, но подчёркивает: «Эти встречи — не переговоры, а часть консультаций. Любая инфраструктура должна соответствовать канадским законам и стандартам приватности».
+
+​
+Тем не менее, полностью закрываться от мировых игроков Канада не может. «Мы не можем возводить цифровую стену. Ни одна страна, даже США, не создаёт ИИ в изоляции», — говорит Бенджамин Берген из Совета канадских инноваторов.
+
+​
+Выход, похоже, один — развивать собственные компании. Правительство уже сотрудничает с торонтской Cohere, которая создаёт канадские модели ИИ. Но масштаб, конечно, не тот: OpenAI и Amazon играют в другой лиге.
+
+​
+Дилемма проста: если Канада откроет двери OpenAI, она получит технологии и инвестиции — но может потерять контроль над своими данными. Если закроет — рискует остаться на обочине новой технологической эпохи.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/квебек/" class="badge">#Квебек</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
     
-    <div class="post-card">
-        
-        <div class="post-body">
-            <span class="post-date">04.11.2025</span>
-            <div class="post-text">кому интересно, тизер и  полная версия бюджета 
+    <article class="post-card">
+        <span class="post-date">12 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1245@12-10-2025_09-59-01.jpg" class="post-image"></div>
+        <div class="post-content">В Торонто появилось «Маленький Иран» – новый культурный район
+​
+<a href="https://www.cbc.ca/news/canada/toronto/little-iran-innaugurated-9.6936128?cmp=rss">В Северном Йорке официально открыли новый культурный район</a> — Little Iran. Церемония прошла в субботу при участии мэра Оливии Чау, депутата Али Эссаси и члена городского совета Лили Чен.
+
+​
+Праздник в Centre Park получился по-восточному щедрым: музыка, танцы, персидская еда и десерты, выставки искусства — и обещание, что скоро здесь появится настоящий персидский сад.
+
+​
+«Сегодня исторический день. Я благодарна иранской общине за то, что она объединяет людей и празднует вместе с городом», — сказала Чау.
+
+​
+Президент иранского культурного центра Афхам Мардухи отметила, что признание района символизирует «еще один слой принадлежности». Волонтёр Марьял Эсмаэили добавила: «Такое ощущение, будто я снова дома. Приглашаю все культуры мира прийти и отпраздновать с нами».
+
+​
+Для многих иранцев, живущих в районе Йонг-стрит и Centre Avenue, этот день стал просто формальностью: «Мы и так давно называли это место Маленьким Ираном», — говорит владелец персидского магазина Сэм Файяз, чья семья работает здесь уже 35 лет.
+
+​
+Теперь район получил официальное признание, а Торонто — ещё одно доказательство того, насколько разнообразна и живая его культура.
+
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">11 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1244@11-10-2025_21-13-44.jpg" class="post-image"></div>
+        <div class="post-content">Опа</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">11 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1243@11-10-2025_17-48-01.jpg" class="post-image"></div>
+        <div class="post-content">Поддержка обязательных прививок в Канаде снова растёт — но не вернулась к допандемийному уровню
+
+​
+
+<a href="https://globalnews.ca/news/11472486/growing-support-mandatory-vaccinations-canada-poll/">По данным нового опроса Research Co</a>., 72% канадцев считают, что вакцинация детей должна быть «обязательно» или «скорее обязательно» — на 5 пунктов больше, чем год назад. Однако это всё ещё далеко от 88% в 2018 году, до COVID-19.
+
+​
+
+Доля тех, кто считает, что решение о прививках должны принимать сами родители, снизилась до 23% (минус 6 пунктов).
+
+​
+
+«Корь настолько заразна, что если больной человек выйдет из комнаты, а невакцинированный зайдёт туда через полтора часа — шанс заразиться будет крайне высок», — напомнила семейный врач из Ванкувера Анна Волак.
+
+​
+
+Тем не менее, скепсис жив: третий канадцев по-прежнему верят, что вакцина от кори, паротита и краснухи (MMR) может быть связана с аутизмом — несмотря на то, что исследование конца 1990-х, породившее эту теорию, давно признано ложным. Среди женщин так считают 30%, среди мужчин — 42%.
+
+​
+
+Президент Research Co. Марио Кансекко отмечает: «Мы наблюдаем рост доверия, но полного восстановления допандемийного консенсуса пока нет».
+
+​
 
 Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    </div><div class="pagination"><a href="/page/47" class="btn">← Сюда</a> <a href="/page/49/" class="btn">Туда →</a></div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">11 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1242@11-10-2025_15-46-41.jpg" class="post-image"></div>
+        <div class="post-content">Пекин предлагает сделку: снимите пошлины с китайских электромобилей — уберём тарифы с канадской канолы
+​
+<a href="https://www.ctvnews.ca/world/trumps-tariffs/article/china-will-remove-canola-tariffs-if-canada-scraps-ev-levies-ambassador/">Китай готов отменить пошлины на канадскую агропродукцию</a>, включая канолу, если Оттава откажется от 100% тарифов на электромобили из КНР, заявил посол Ван Ди в интервью CTV. По его словам, «если Канада исправит практику односторонних необоснованных тарифов, Китай ответит взаимностью». Сейчас на канадское рапсовое масло и шрот действует тариф 100%, на семена канолы — 75,8%.
+​
+Напомним, Канада ввела 100% пошлину на китайские EV с 1 октября 2024 года, а также 25% на сталь и алюминий из КНР. В Оттаве признают, что решение по тарифам на EV находится на «неформальном» пересмотре. Тем временем Саскачеван бьёт тревогу: экспорт в Китай в августе упал на 76% год к году; отрасль требует поддержки фермеров. Лидер консерваторов Пьер Полиев против снятия тарифов с EV, но настаивает на том, чтобы Пекин убрал ответные налоги на канолу.
+​
+Пекин одновременно даёт «оливковую ветвь» энергетике: Китай открыт к большему импорту канадской нефти. После запуска расширения Trans Mountain КНР стала крупнейшим покупателем канадской нефти вне США — в среднем около 207 тыс. барр./сутки. Иными словами, у Оттавы возникает классическая вилка: защитить автопром — потерять рынок для фермеров, или наоборот.
+​
+Полное интервью посла — в воскресном выпуске CTV Question Period.
+​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/тарифы/" class="badge">#тарифы</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">11 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1241@11-10-2025_14-41-24.jpg" class="post-image"></div>
+        <div class="post-content">Проверки работодателей временных иностранных работников в Канаде рухнули — при том что самих рабочих стало в разы больше
+
+​
+
+<a href="https://www.thestar.com/news/canada/inspections-of-temporary-foreign-worker-employers-in-canada-have-plummeted-despite-a-surge-of-workers/article_fc955b30-9583-4a98-b62e-458fed5cc0b2.html">Как выяснила Toronto Star</a>, за последние пять лет число инспекций компаний, нанимающих временных иностранных работников, упало на 57% — с 3365 в 2020 году до 1435 в 2024-м.
+
+​
+
+И даже из этих проверок три четверти проводятся “по бумагам”, без выезда инспекторов на место. То есть 77% всех 12 тысяч проверок за последние годы проходили удалённо — чиновники просто запрашивали документы и отчёты, не видя реальных условий труда.
+
+​
+
+Проблема в том, что программа Temporary Foreign Worker (TFW) тем временем резко разрослась. Только в третьем квартале 2024 года одобрено почти 51 тысяча заявок на наём — втрое больше, чем три года назад. На фоне роста жалоб на эксплуатацию это вызывает очевидные вопросы: кто вообще всё это контролирует?
+
+​
+
+Да, министерство труда (ESDC) утверждает, что «сохраняет баланс между дистанционными и выездными проверками», и что при подозрениях на насилие или угрозу здоровью инспекторы выезжают обязательно. Но эксперты не убеждены.
+
+​
+
+«Сбор документов — это важно, но без выездных проверок невозможно реально выявить нарушения», — говорит профессор Университета Макмастера Кэтрин Коннелли, специалист по программе TFW.
+
+​
+
+С 2025 года правительство уже наложило штрафов на 6,8 миллиона долларов — больше, чем за весь прошлый рекордный год. Но критики называют систему «пиар-упражнением»: работодателей часто предупреждают заранее, а сами работники не имеют легального механизма жалоб и боятся сообщать о нарушениях, ведь их статус в Канаде привязан к конкретному работодателю.
+
+​
+
+«Эта система не защищает людей, а защищает имидж правительства», — заявил Саид Хуссан из Migrant Workers Alliance for Change.
+
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">11 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1240@11-10-2025_12-42-18.jpg" class="post-image"></div>
+        <div class="post-content">Редакция Canadian Affairs: Канаде нужны не офисы, а правила игры
+
+​
+
+<a href="https://www.canadianaffairs.news/2025/10/09/editorial-our-major-projects-wish-list/">Редакционная коллегия Canadian Affairs раскритиковала</a> новый Major Projects Office (Офис крупных проектов) — инициативу правительства Марка Карни, которая должна ускорить строительство «национальных мегапроектов». По мнению издания, это неправильное решение правильной проблемы.
+
+​
+
+Да, Канада захлебывается в собственных бюрократических проволочках. Именно из-за этого крупнейший частный проект в истории страны — LNG Canada — оказался полностью в руках иностранных инвесторов. На запуск потребовалось десять лет, пока США за то же время построили восемь экспортных терминалов и стали мировым лидером в поставках СПГ.
+
+​
+
+Другой пример — регион Ring of Fire в Онтарио, богатый критически важными минералами. С момента его открытия прошло 18 лет, но из-за судебных и инфраструктурных барьеров там до сих пор почти ничего не построено.
+
+​
+
+По мнению редакции, вместо того чтобы создавать ещё одну структуру, правительству стоило бы реформировать всю систему регулирования — и законы, и судебные процессы. Ведь сегодня именно суды часто тормозят проекты. При этом нужно не «ускорять отдельных избранных», а гарантировать одинаковые правила для всех.
+
+​
+
+Редакция напоминает: Нобелевские лауреаты Дарон Аджемоглу, Саймон Джонсон и Джеймс Робинсон доказали, что процветание достигают страны с «инклюзивными институтами» — где соблюдается верховенство права и защищены имущественные права. Когда же власть выбирает победителей вручную, возникают «экстрактивные» институты, ведущие к стагнации.
+
+​
+
+Главная опасность MPO — именно в этом: оно будет решать, кто достоин поддержки, а кто пусть тонет в старых процедурах.
+
+​
+
+Canadian Affairs предлагает свой вишлист «настоящих» национальных проектов:
+– создание урановых обогатительных мощностей, чтобы Канада могла сама производить топливо для АЭС;
+– строительство заводов по переработке бокситов в глинозём, чтобы перестать зависеть от импорта;
+– и, наконец, единый национальный нефтепровод, который обеспечит энергетическую независимость и избавит восточную Канаду от импорта нефти из США и Саудовской Аравии.
+
+​
+
+«Правительство Карни спешит строить нацию, — подытоживает редакция. — Но в этой спешке оно рискует забыть: его главная роль — создавать условия для процветания, а не назначать победителей».
+
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">11 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1239@11-10-2025_11-39-01.jpg" class="post-image"></div>
+        <div class="post-content">Карни анонсировал «бюджет доступности»: автоматическая подача налогов и продление программы школьного питания
+
+​
+
+<a href="https://www.ctvnews.ca/politics/article/automatic-tax-filing-permanent-school-food-program-coming-in-budget-carney/">Премьер-министр Марк Карни начал прогрев перед ноябрьским федеральным бюджетом</a> с обещаний, рассчитанных на массового избирателя: автоматическая подача налогов, бесплатное питание в школах и дешёвые поездки для семей.
+
+​
+
+На встрече в спортцентре в своём округе в Оттаве Карни заявил, что с 2026 года Канадское налоговое агентство (CRA) начнёт само подавать декларации за 5,5 миллиона малодоходных канадцев, чтобы те автоматически получали пособия вроде Canada Child Benefit и GST/HST-кредита.
+
+​
+
+«Миллионы людей с низкими доходами не подают налоги, думая, что их доходы слишком малы, чтобы это имело значение. В результате именно те, кто нуждается в помощи, её не получают», — сказал Карни.
+
+​
+
+Проект обещают полностью запустить к 2028 году — спустя пять лет после того, как либералы впервые пообещали автоматическую отчётность. Ассоциация Tax-Filer Empowerment Canada уже раскритиковала идею, заявив, что «налогоплательщики теперь будут субсидировать тех, кто и так мог воспользоваться бесплатными сервисами».
+
+​
+
+Кроме того, правительство делает национальную программу школьного питания постоянной — она охватывает около 400 тысяч детей. Теперь её финансирование и законодательная база будут закреплены в виде постоянной социальной программы.
+
+​
+
+Карни также возрождает «Canada Strong Pass» — скидочную программу для посещения музеев, национальных парков и исторических мест. С 12 декабря по 15 января она снова будет действовать по всей стране. Студенты 18–24 лет смогут получить скидку 25% на поездки Via Rail во время праздников.
+
+​
+
+По словам обозревателя CTV Скотта Рида, у Карни получится «бюджет Джекила и Хайда»: с одной стороны — меры поддержки, с другой — разговоры об экономии и огромном дефиците. Как это продать избирателям — большой вопрос.
+
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">11 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1238@11-10-2025_09-34-01.jpg" class="post-image"></div>
+        <div class="post-content">Канадский доллар пробил психологическую отметку 1,40 за доллар США
+
+​
+
+<a href="https://www.reuters.com/business/canadian-dollar-hits-near-six-month-low-140-mark-gives-way-2025-10-09/">Канадский доллар резко ослаб </a>и достиг почти шестимесячного минимума — 1,4025 за доллар США, или всего 71,3 американских цента. Это произошло на фоне общего бегства инвесторов в «безопасные активы» — доллар США и золото.
+
+​
+
+«Свежая волна покупок доллара утром подняла курс USD/CAD выше 1,40, что придало движению дополнительный технический вес», — отметил аналитик Convera Кевин Форд.
+
+​
+
+Отметка 1,40 — не просто красивая цифра: такие «круглые» уровни часто срабатывают как триггеры для крупных ордеров. Пробой этой границы стал сигналом, что рынок нервничает.
+
+​
+
+Дополнительное давление пришло со стороны нефти: цены упали на 1,8% до $61,43 за баррель после новости о прекращении огня между Израилем и ХАМАС — сделке, которая снизила премию за риск на энергорынках.
+
+​
+
+Завтра выйдет сентябрьский отчёт о занятости в Канаде. Экономисты ждут прироста лишь на 5 000 рабочих мест и роста безработицы до 7,2%. Вероятность нового снижения ключевой ставки Банком Канады 29 октября оценивается уже в 64%. Напомним, в сентябре регулятор уже снизил ставку до 2,5%.
+
+
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">10 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1237@10-10-2025_14-28-01.jpg" class="post-image"></div>
+        <div class="post-content">🇲🇽🇨🇦🇺🇸 Эра североамериканских торговых соглашений подходит к концу — заявляет мексиканский депутат
+​﻿ ​
+
+<a href="https://www.cbc.ca/news/world/mexico-canada-us-trade-9.6934160">По словам депутата Хермана Мартинеса Касареса</a>, трёхсторонние торговые соглашения вроде CUSMA (в Канаде — Canada-U.S.-Mexico Agreement, в Мексике — T-MEC) больше не выдерживают давления национализма, набирающего силу в США и Мексике.
+
+​﻿ ​
+
+«Мы идём к эпохе двусторонних соглашений — между Мексикой и Канадой, между Мексикой и США. Трёхсторонний формат умирает», — заявил Мартинес Касарес в интервью CBC News.
+
+​﻿ ​
+
+Пока правительство Клаудии Шейнбаум на словах продолжает поддерживать CUSMA, в Мехико растёт ощущение, что Вашингтон готовит разворот. И не зря: Дональд Трамп, принимая премьер-министра Марка Карни в Белом доме, заявил, что открыт для «разных сделок с отдельными странами».
+
+​﻿ ​
+
+Эти слова вызвали бурю в Мексике — три ведущие газеты вышли с заголовками в духе «Трамп угрожает похоронить T-MEC». А ещё раньше американский торговый представитель Джеймисон Грир усомнился в целесообразности самого соглашения: «Наши отношения с Канадой и Мексикой настолько разные, что возникает вопрос — зачем мы вообще объединяли их в один договор?»
+
+​﻿ ​
+
+На этом фоне мексиканский МИД поспешил заявить, что готов пройти процедуру пересмотра соглашения в 2026 году. Министр иностранных дел Хуан Рамон де ла Фуэнте подчеркнул, что и премьер Карни «также выступает за обновление и продление договора».
+
+​﻿ ​
+
+За 30 лет после NAFTA торговля между Канадой и Мексикой выросла с 5 до 56 миллиардов долларов. Мексика — третий торговый партнёр Канады после США и Китая. В Мексике работают более 60 канадских автопромышленных компаний, канадцы активно инвестируют в энергетику и горнодобычу — в общей сложности свыше 46 миллиардов долларов.
+
+​﻿ ​
+
+Но в самой Мексике усиливается экономический национализм. Новый закон о таможне, продвигаемый правительством Шейнбаум, вызывает споры — оппозиция считает, что он нарушает условия CUSMA и создаёт новые барьеры для торговли. «Нельзя менять правила, пока действует соглашение», — заявила депутат Патрисия Флорес Элизондо.
+
+​﻿ ​
+
+Правящая партия Morena настаивает: реформа направлена против коррупции и уклонения от налогов. Однако эксперты предупреждают, что контроль над таможней у военных без надзора — рецепт для непрозрачности.
+
+​﻿ ​
+
+И пока политики спорят, бизнес уже ищет запасные варианты. Канадские компании, вроде Mechatronic Design Solutions из Оттавы, активно выходят на мексиканский рынок. «Даже если CUSMA не выживет, между Канадой и Мексикой всё равно будет свободная торговля», — уверен основатель компании Этьен Пуссон.
+
+​﻿ ​
+
+Похоже, Северная Америка снова возвращается к формату «каждый сам за себя».
+
+​﻿ ​
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">10 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1236@10-10-2025_12-27-06.jpg" class="post-image"></div>
+        <div class="post-content">Почтовая драма на скорости экспресс-доставки
+
+​
+
+<a href="https://www.ctvnews.ca/business/article/postal-workers-union-takes-aim-at-purolator-which-is-owned-by-canada-post/">Канадский союз почтовых работников (CUPW) обрушился с критикой на Purolator</a> — курьерскую компанию, на 91% принадлежащую Canada Post. Повод простой: пока почтальоны бастуют, Purolator исправно развозит посылки и переманивает клиентов щедрыми скидками.
+
+​
+
+«Когда мы боролись за достойные зарплаты и условия, Purolator заманивал малый бизнес акциями», — возмущается профсоюз. «Canada Post должна вести переговоры, а не отводить клиентов к дочке».
+
+​
+
+Работники уже начали пикеты у терминалов Purolator, останавливая фургоны с доставкой. Ирония ситуации в том, что руководители Canada Post — в том числе президент Даг Эттингер — сидят и в совете директоров Purolator. Пока сама Canada Post тонула в убытках (−841 млн в 2024 году), Purolator зарабатывал 294 млн прибыли.
+
+​
+
+Профессор трудовых отношений из Манитобы Адам Кинг говорит прямо: вопрос Purolator давно маячит за спиной переговоров. «Похоже, менеджмент Canada Post использует “дочку”, чтобы сгладить последствия забастовки и ослабить позиции CUPW».
+
+​
+
+В Teamsters Canada, представляющем часть работников Purolator, заявили, что «солидарны» с бастующими почтовиками и уважают их пикеты. Но признают: когда один гигант простаивает, другим прибавляется работы — «это естественно».
+
+​
+
+Canada Post, как и ожидалось, все обвинения отвергает. По её версии, клиенты «сами уходят к конкурентам из-за неопределенности» и никакого сознательного перекидывания бизнеса на Purolator нет. «Союз распространяет ложные обвинения, вместо того чтобы взять ответственность за последствия собственных забастовок», — говорится в заявлении компании.
+
+​
+
+А в стороне стоит Purolator, отмахиваясь от скандала: «Мы не сторона в трудовом конфликте».
+
+​
+
+Сценарий почти классический: государственная компания тонет в убытках, её «дочка» процветает, а работники задаются вопросом — кто на самом деле доставляет выгоду?
+
+​
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">10 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1235@10-10-2025_11-27-00.jpg" class="post-image"></div>
+        <div class="post-content">Министр образования Онтарио раскритиковал школу в Торонто за исполнение гимна Канады на арабском 7 октября
+​
+В школе Earl Haig Secondary в северном Торонто утром 7 октября гимн Канады прозвучал на арабском языке — в тот самый день, когда мир отмечал вторую годовщину теракта ХАМАС против Израиля. <a href="https://nationalpost.com/news/canada/toronto-school-o-canada-arabic-october-7">Решение вызвало бурную реакцию</a> — вплоть до вмешательства министра образования Онтарио Пола Каландры.
+
+​
+«Трудно поверить, что никто не осознал значение этой даты — годовщины худшей атаки на еврейский народ со времён Холокоста», — заявил Каландра, добавив, что школы должны обеспечивать безопасность для всех учеников, «не за счёт одной общины».
+
+​
+По данным National Post, исполнение гимна на арабском было инициативой учеников в рамках Месяца исламской истории Канады, а директор школы не знал, что это совпадёт с 7 октября. После инцидента он встретился с еврейскими учениками и преподавателями, чтобы принести извинения.
+
+​
+В ответ Каландра напомнил, что National Anthem Act разрешает только английскую и французскую версии гимна, и потребовал, чтобы все школы следовали этому правилу. TDSB (Торонтийский школьный совет) уже направил директорам официальное указание использовать лишь английский, французский или инструментальный вариант.
+
+​
+Бывший депутат Кевин Вуон назвал произошедшее «по меньшей мере бездумным, а скорее всего — преднамеренно оскорбительным» и заявил, что ответственный «должен быть уволен».
+
+​
+Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">10 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1234@10-10-2025_10-23-01.jpg" class="post-image"></div>
+        <div class="post-content">Мелани Жоли представила новую промышленную стратегию: «Нам нужны крупные канадские компании»
+​
+Федеральное правительство запускает «трёхступенчатую» промышленную стратегию, направленную на защиту рабочих мест, создание новых и привлечение инвестиций, з<a href="https://www.ctvnews.ca/politics/article/we-need-bigger-canadian-companies-joly-unveils-three-pronged-industrial-strategy-to-bolster-key-canadian-sectors/">аявила министр промышленности Мелани Жоли</a>, выступая в Canadian Club of Toronto.
+
+​
+План рассчитан на укрепление ключевых отраслей — стали, алюминия, лесопрома и автопрома — которые страдают от американских тарифов Дональда Трампа. «Мы не оставим эти индустрии позади. Мы делаем это ради рабочих, ради отраслей и ради страны», — сказала Жоли.
+
+​
+Три опоры стратегии:
+– Защита рабочих мест. Введены целевые кредиты и меры поддержки для компаний, пострадавших от пошлин. Пример — $400 млн займа для Algoma Steel, чтобы переориентировать производство на внутренний рынок.
+– Создание новых рабочих мест. Правительство обещает ускорить жилищное строительство с использованием канадских материалов и обеспечить отечественные контракты для судостроителей и авиапрома.
+– Привлечение инвестиций и талантов. Власти намерены «выиграть мировую гонку за кадры» и сделать Канаду центром притяжения для лучших специалистов в ИИ, полупроводниках и критических минералах.
+
+​
+Жоли подчеркнула, что ставка делается на технологии, энергетический переход и «умные государственные заказы» вместо субсидий. «Компании предпочитают контракты, а не чеки от государства», — отметила министр.
+
+​
+В ближайшие недели правительство представит отдельную Talent Attraction Strategy для привлечения исследователей и инженеров. «Нам нужны более крупные канадские компании, чтобы усиливать влияние страны в мире», — подытожила Жоли.
+
+​
+Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/мелани-жоли/" class="badge person-badge">Мелани Жоли</a> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">10 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1233@10-10-2025_09-19-01.jpg" class="post-image"></div>
+        <div class="post-content">Почтовый союз Канады переходит от общенациональной забастовки к ротационной
+​
+Субботним утром почта в стране начнёт работать частично: <a href="https://www.ctvnews.ca/business/article/canada-post-union-switching-from-countrywide-to-rotating-strikes/">Канадский союз почтовых работников объявил</a>, что вместо общенациональной остановки переходит к ротационным забастовкам. Это позволит возобновить доставку писем и посылок, хотя и с перебоями.
+
+​
+Решение принято после встречи представителей профсоюза с федеральным министром Жоэлем Лайтбаундом, курирующим Canada Post. Работники потребовали отменить план реформы почтовой службы, предусматривающий прекращение доставки «до двери» почти для всех домохозяйств в течение десяти лет, сокращение частоты доставки и закрытие ряда отделений.
+
+​
+Министр, по словам участников встречи, заявил, что изменения останутся в силе. В ответ союз обвинил правительство в вмешательстве в переговорный процесс и предупредил, что готов к долгой борьбе.
+
+​
+Canada Post приветствовала переход к ротационным акциям, назвав это шагом к стабилизации ситуации на фоне тяжёлого финансового положения корпорации.
+
+​
+Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">9 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1232@09-10-2025_14-17-01.jpg" class="post-image"></div>
+        <div class="post-content">Правительство Карни смягчило проект жёсткого иммиграционного закона, но не отступило от его сути
+​
+Кабинет Марка Карни внёс в парламент <a href="https://www.thestar.com/politics/federal/carney-government-tables-toned-down-version-of-tougher-immigration-law/article_f341b3c5-b107-4127-8cd5-4f1059871643.html">обновлённую версию законопроекта Strong Borders Act</a> — теперь без самых спорных пунктов, вызвавших волну критики.
+
+​
+Из текста убрали положения, которые позволяли бы Canada Post вскрывать подозрительные посылки, а полиции — получать базовые данные абонентов без судебного ордера. Также исключили идею ограничить наличные операции свыше $10 000. Эти инициативы посчитали угрозой частной жизни и правам по Хартии.
+
+​
+Тем не менее законопроект остаётся самым масштабным за последние годы пакетом иммиграционных и полицейских реформ. Он предусматривает ужесточение правил предоставления убежища, расширение полномочий пограничников по проверке экспортных грузов, усиление контроля за документами мигрантов и обмен информацией с американскими ведомствами.
+
+​
+Критики предупреждают, что даже в смягчённом виде закон даёт чиновникам слишком широкие полномочия — вплоть до отмены виз и прекращения рассмотрения дел по усмотрению офицеров.
+
+​
+В Оттаве не скрывают: новый вариант закона призван показать Вашингтону, что Канада «серьёзно относится к безопасности границы» — главный сигнал, на который рассчитывает кабинет Карни в переговорах с Трампом.
+
+​
+Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">9 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1231@09-10-2025_13-17-13.jpg" class="post-image"></div>
+        <div class="post-content">Консерваторы хотят отменить гражданство по праву рождения для детей временных жителей
+​
+<a href="https://www.ctvnews.ca/politics/article/conservatives-want-to-end-birthright-citizenship-for-children-of-temporary-residents/?taid=68e6bbcfe7f28e0001f26d19&utm_campaign=trueAnthem%3A+Trending+Content&utm_medium=trueAnthem&utm_source=twitter">Консерваторы предлагают ограничить автоматическое канадское гражданство</a> — его больше не должны получать дети, родившиеся в Канаде у родителей без статуса постоянного жителя или гражданина.
+
+​
+Сейчас по закону любой ребёнок, появившийся на свет на территории страны, автоматически становится гражданином. Депутат Мишель Ремпел Гарнер заявила, что Канада должна «привести правила в соответствие с другими развитыми странами» и прекратить практику «туризма ради гражданства».
+
+​
+Поправку Гарнер попытались внести во вторник в парламентский комитет по иммиграции, но либералы и Блок Квебекуа проголосовали против. Министр юстиции Шон Фрейзер отметил, что не видит необходимости менять закон: «Это часть нашей национальной идентичности».
+
+​
+Генеральный директор Института канадского гражданства предупредил, что подобные инициативы лишь подогревают антимигрантские настроения: «Нельзя превращать новичков в козлов отпущения под видом “реформы справедливости”».
+
+​
+Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">9 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1230@09-10-2025_11-43-01.jpg" class="post-image"></div>
+        <div class="post-content">«Как подросток на концерте Тейлор Свифт»: <a href="https://torontosun.com/news/national/mark-carney-acted-like-a-teen-at-a-taylor-swift-concert-in-front-of-trump">Карни под огнём насмешек после визита к Трампу</a>
+​
+Премьер-министр Марк Карни вернулся из Вашингтона не только без торговой сделки, но и с новой порцией насмешек. National Post язвительно описал его поведение в Овальном кабинете как «фанбойство уровня Тейлор Свифт».
+
+​
+Во время встречи Карни сиял улыбкой, щедро раздавал комплименты Дональду Трампу и назвал его «трансформационным президентом». Как отмечает британская экспертка по невербальной коммуникации Джуди Джеймс, «Карни пустил столько дыма в сторону Трампа, что даже этот эгоцентричный президент не выдержал и перебил его шуткой».
+
+​
+Когда Карни говорил о важности партнёрства, Трамп с ухмылкой перебил: «О слиянии Канады и США?» — вызвав хохот в зале. «Не совсем туда я клоню», — неловко ответил премьер.
+
+​
+На этом шоу не закончилось. Когда журналист спросил, почему при всей «великолепности» Карни сделка всё ещё не достигнута, Трамп ответил: «Потому что я тоже хочу быть великим человеком». Карни, по словам очевидцев, буквально «захлопал в ладоши и откинулся со смехом, как подросток на концерте Тейлор Свифт».
+
+​
+Некоторые эксперты видят в этом попытку построить личное доверие с импульсивным президентом, другие — дипломатический позор. Как заметил аналитик Робин Брейли, «Карни и Трамп выглядели как старые приятели. Вопрос лишь в том, кто из них кому подыгрывает».
+
+​
+Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">9 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1229@09-10-2025_10-42-04.jpg" class="post-image"></div>
+        <div class="post-content">Карни вернулся из Вашингтона без сделки по пошлинам, но с поддержкой из Альберты
+​
+<a href="https://www.ctvnews.ca/politics/article/carney-returning-to-ottawa-without-a-deal-to-end-the-us-tariffs/">Премьер-министр Марк Карни завершил визит в Вашингтон</a>, не добившись отмены американских тарифов на канадские товары. Несмотря на улыбки в Овальном кабинете и заверения Дональда Трампа, что «Канада уйдёт довольной», конкретных результатов встреча не принесла.
+
+​
+Как сообщает The Canadian Press, стороны договорились продолжить переговоры по стали, алюминию и энергетике «в ближайшие недели». Министр торговли Доминик Леблан остался в США, чтобы вести дальнейшие переговоры.
+
+​
+Трамп, похоже, по-прежнему не намерен отказываться от тарифов — 35 % на канадские товары, введённых в августе, не затрагивают лишь те, что соответствуют условиям CUSMA. В ближайшее время новые пошлины ожидаются и на пиломатериалы.
+
+​
+Парадоксально, но премьер получил поддержку от премьера Альберты Даниэль Смит, которая обычно жёстко критикует либералов. На саммите BMO в Торонто она сказала, что Карни «читается по Трампу как по книге The Art of the Deal» и действует правильно: «С таким президентом “локтями” ничего не добьёшься».
+
+​
+Эксперты отмечают, что стратегия Карни — умиротворить Трампа, сняв ответные пошлины, заморозив налог на цифровые сервисы и усилив оборонные расходы. Аналитик Эрик Миллер считает, что главное — «Трамп уважает Карни, а это редкость в его мире».
+
+​
+Теперь ставка на то, что осенью удастся достичь частичного тарифного послабления и показать избирателям хоть какой-то результат перед пересмотром CUSMA в следующем году. Как заметил политолог Кристофер Сэндс: «Людям всё равно, как была сделка заключена — лишь бы она была хорошей».
+
+​
+Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">9 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1228@09-10-2025_09-23-01.jpg" class="post-image"></div>
+        <div class="post-content">Скандал в U of T: студенческий союз устроил «вечер памяти мучеников Палестины» в годовщину атаки ХАМАС
+​
+<a href="https://www.thestar.com/news/gta/u-of-t-mississauga-students-union-club-host-events-honouring-palestinian-martyrs-on-anniversary-of/article_646efca3-21ff-4e14-9d9c-c955587a2d05.html">На кампусе Университета Торонто в Миссиссаге прошла акция</a>, организованная студенческим союзом и Палестинским культурным клубом, приуроченная к двухлетней годовщине атаки ХАМАС на Израиль. В приглашениях говорилось, что участники «соберутся, чтобы почтить мучеников Палестины» и «два года геноцида в Газе».
+
+​
+По данным Toronto Star, мероприятие вызвало бурную реакцию — от поддержки до возмущения. Критики сочли использование слова «мученики» в годовщину 7 октября прямой демонстрацией сочувствия террористам, убившим более 1200 израильтян.
+
+​
+На самом мероприятии, куда пришло около 150 человек, представители союза заявили, что цель — «пространство для скорби» и что «каждая невинная жизнь — трагедия». Они подчеркнули, что скорбят и по израильским мирным жертвам.
+
+​
+Руководство университета сообщило, что встретилось с организаторами, напомнив им об их обязанностях, и что безопасность контролировалась полицией и службой кампуса. Акция прошла мирно.
+
+​
+Доктор Фрэнк Соммерс из организации Doctors Against Racism and Antisemitism направил письмо в администрацию U of T, назвав мероприятие «оскорблением для еврейских студентов и преподавателей» и поставив под сомнение соответствие политики университета.
+
+​
+Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
+        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    </div><div class="pagination"><a href="/page/47/" class="btn">← Назад</a><a href="/page/49/" class="btn">Вперед →</a></div>
     </main>
-    <footer style="text-align:center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
-        &copy; 2026 journAIsts.ca | Powered by Maple Barrel
+    <footer>
+        &copy; 2024–2026 Maple Barrel. Все права защищены.
     </footer>
 </body>
 </html>

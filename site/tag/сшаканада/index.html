@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тема: США–Канада | journAIsts.ca</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Тема: #США–Канада | Maple Barrel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
 :root {
-    --bg: #f9fafb;
+    --bg: #fdfdfd;
     --card-bg: #ffffff;
-    --text-main: #111827;
-    --text-muted: #6b7280;
-    --accent: #2563eb; /* Технологичный синий для AI */
-    --border: #e5e7eb;
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --accent: #c53030; /* Канадский красный */
+    --border: #eeeeee;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { 
-    font-family: 'Inter', -apple-system, sans-serif; 
-    line-height: 1.5; color: var(--text-main); background: var(--bg); 
+    font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+    line-height: 1.7; color: var(--text-main); background: var(--bg); 
 }
 a { color: inherit; text-decoration: none; }
 
@@ -26,75 +26,90 @@ header {
     padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
 }
 .header-content { 
-    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    max-width: 900px; margin: 0 auto; padding: 0 20px;
     display: flex; justify-content: space-between; align-items: center;
 }
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.05em; }
-.logo span { color: var(--accent); } /* Выделение AI */
+.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
+.nav-menu { display: flex; gap: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+.nav-menu a:hover { color: var(--accent); }
 
-.container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+.container { max-width: 800px; margin: 3rem auto; padding: 0 20px; }
 
-/* Сетка постов */
-.posts-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-    gap: 2rem; 
-}
+/* Список постов */
+.posts-list { display: flex; flex-direction: column; gap: 4rem; }
+.post-card { border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
+.post-card:last-child { border-bottom: none; }
 
-.post-card { 
-    background: var(--card-bg); border-radius: 16px; overflow: hidden;
-    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
-    display: flex; flex-direction: column;
-}
-.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; }
+.post-image { width: 100%; height: auto; display: block; }
 
-.post-image-wrap { width: 100%; height: 200px; overflow: hidden; background: #eee; }
-.post-image { width: 100%; height: 100%; object-fit: cover; }
+.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; }
+.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; }
+.post-content b, .post-content strong { font-weight: 700; }
+.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 
-.post-body { padding: 1.5rem; flex-grow: 1; }
-.post-date { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
-.post-text { margin-top: 0.75rem; font-size: 1rem; color: #374151; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: #f5f5f5; color: #444; font-weight: 500; }
+.person-badge { background: #fff1f1; color: var(--accent); }
 
-.post-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
-.tag-badge { background: #f3f4f6; color: #4b5563; }
-.person-badge { background: #eff6ff; color: var(--accent); }
+.pagination { margin: 5rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
+.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
 
-.pagination { margin-top: 3rem; text-align: center; }
-.btn { padding: 0.75rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; }
-.btn:hover { background: #f3f4f6; }
+.page-title { margin-bottom: 3rem; font-size: 2rem; font-weight: 800; }
+footer { text-align: center; padding: 5rem 0; color: #999; font-size: 0.8rem; border-top: 1px solid var(--border); }
 
 @media (max-width: 600px) {
-    .posts-grid { grid-template-columns: 1fr; }
+    header .nav-menu { display: none; } /* Упрощаем для мобилок */
 }
 </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <a href="/" class="logo">journ<span>AI</span>sts</a>
-            <nav style="display:flex; gap:1.5rem; font-size:0.9rem; font-weight:500;">
-                <a href="/">Главная</a>
+            <a href="/" class="logo">MAPLE BARREL</a>
+            <nav class="nav-menu">
+                <a href="/materials/">Материалы</a>
+                <a href="/longreads/">Лонгриды</a>
+                <a href="/about/">О проекте</a>
                 <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
             </nav>
         </div>
     </header>
     <main class="container">
-        <h1>#США–Канада</h1><div class="posts-grid" style="margin-top:2rem">
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1223@08-10-2025_09-31-58.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">08.10.2025</span>
-            <div class="post-text">«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/сшаканада/" class="badge tag-badge">#США–Канада</a><a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/тарифы/" class="badge tag-badge">#тарифы</a>
-        </div>
-    </div>
-    </div>
+        <h1 class="page-title">Тема: #США–Канада</h1><div class="posts-list">
+    <article class="post-card">
+        <span class="post-date">8 октября 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_1223@08-10-2025_09-31-58.jpg" class="post-image"></div>
+        <div class="post-content">«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет
+​
+Дональд Трамп заявил, что работает с премьер-министром Марком Карни над торговым соглашением, которое «канадцам понравится». Однако после их встречи в Белом доме <a href="https://www.cbc.ca/news/politics/trump-carney-meeting-white-house-1.7652510">никаких конкретных договорённостей по тарифам достигнуто не было</a>.
+​
+«Я думаю, они уйдут очень довольными. Люди Канады снова нас полюбят», — сказал Трамп, сидя рядом с Карни в Овальном кабинете. Тем не менее, уже к вечеру стало ясно: сделка всё ещё не готова, а переговоры продолжаются.
+​
+Министр торговли Доминик Леблан заявил, что обсуждения были «позитивными и содержательными», но конкретных уступок пока нет. Он останется в Вашингтоне, чтобы продолжить переговоры о снятии или смягчении тарифов на сталь, алюминий и энергоносители.
+​
+Трамп при этом подчеркнул, что полностью безтарифного режима не будет:
+«У нас всё равно будут пошлины. Но мы хотим, чтобы Канада чувствовала себя справедливо».
+​
+Президент также не исключил пересмотра соглашения CUSMA (США–Канада–Мексика) в следующем году, что в Оттаве сочли хотя бы небольшим поводом для оптимизма.
+​
+Несмотря на взаимные комплименты — Трамп назвал Карни «мирового класса лидером», а Карни в ответ отметил «трансформационную роль» Трампа, — атмосфера встречи была напряжённой. Трамп вновь заявил, что между странами существует «естественный экономический конфликт», и что он хочет «заменить канадские автомобили и сталь американскими».
+​
+Накануне президент объявил о 25% пошлине на импорт средне- и тяжёлых грузовиков, что дополнительно ударит по канадскому автопрому. Ранее Вашингтон уже повысил тарифы на древесину, алюминий, мебель и кухонные гарнитуры, обосновав их «угрозой национальной безопасности».
+​
+Премьер Онтарио Даг Форд заявил, что «теряет терпение» и призвал Карни готовить ответные меры:
+«Садитесь за стол и договаривайтесь — или начинайте бить в ответ. Мы не можем позволять, чтобы нас избивали каждый день».
+​
+Лидер Консерваторов Пьер Полиев добавил, что «всё тот же результат: ни сделки, ни победы».
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        <div class="post-footer"><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/тарифы/" class="badge">#тарифы</a><a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/сшаканада/" class="badge">#США–Канада</a></div>
+    </article>
+    </div><div class="pagination"></div>
     </main>
-    <footer style="text-align:center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
-        &copy; 2026 journAIsts.ca | Powered by Maple Barrel
+    <footer>
+        &copy; 2024–2026 Maple Barrel. Все права защищены.
     </footer>
 </body>
 </html>

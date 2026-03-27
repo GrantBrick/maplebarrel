@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная | journAIsts.ca</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Главная лента | Maple Barrel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
 :root {
-    --bg: #f9fafb;
+    --bg: #fdfdfd;
     --card-bg: #ffffff;
-    --text-main: #111827;
-    --text-muted: #6b7280;
-    --accent: #2563eb; /* Технологичный синий для AI */
-    --border: #e5e7eb;
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --accent: #c53030; /* Канадский красный */
+    --border: #eeeeee;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { 
-    font-family: 'Inter', -apple-system, sans-serif; 
-    line-height: 1.5; color: var(--text-main); background: var(--bg); 
+    font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+    line-height: 1.7; color: var(--text-main); background: var(--bg); 
 }
 a { color: inherit; text-decoration: none; }
 
@@ -26,297 +26,754 @@ header {
     padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
 }
 .header-content { 
-    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    max-width: 900px; margin: 0 auto; padding: 0 20px;
     display: flex; justify-content: space-between; align-items: center;
 }
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.05em; }
-.logo span { color: var(--accent); } /* Выделение AI */
+.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
+.nav-menu { display: flex; gap: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+.nav-menu a:hover { color: var(--accent); }
 
-.container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+.container { max-width: 800px; margin: 3rem auto; padding: 0 20px; }
 
-/* Сетка постов */
-.posts-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-    gap: 2rem; 
-}
+/* Список постов */
+.posts-list { display: flex; flex-direction: column; gap: 4rem; }
+.post-card { border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
+.post-card:last-child { border-bottom: none; }
 
-.post-card { 
-    background: var(--card-bg); border-radius: 16px; overflow: hidden;
-    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
-    display: flex; flex-direction: column;
-}
-.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; }
+.post-image { width: 100%; height: auto; display: block; }
 
-.post-image-wrap { width: 100%; height: 200px; overflow: hidden; background: #eee; }
-.post-image { width: 100%; height: 100%; object-fit: cover; }
+.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; }
+.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; }
+.post-content b, .post-content strong { font-weight: 700; }
+.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 
-.post-body { padding: 1.5rem; flex-grow: 1; }
-.post-date { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
-.post-text { margin-top: 0.75rem; font-size: 1rem; color: #374151; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: #f5f5f5; color: #444; font-weight: 500; }
+.person-badge { background: #fff1f1; color: var(--accent); }
 
-.post-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
-.tag-badge { background: #f3f4f6; color: #4b5563; }
-.person-badge { background: #eff6ff; color: var(--accent); }
+.pagination { margin: 5rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
+.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
 
-.pagination { margin-top: 3rem; text-align: center; }
-.btn { padding: 0.75rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; }
-.btn:hover { background: #f3f4f6; }
+.page-title { margin-bottom: 3rem; font-size: 2rem; font-weight: 800; }
+footer { text-align: center; padding: 5rem 0; color: #999; font-size: 0.8rem; border-top: 1px solid var(--border); }
 
 @media (max-width: 600px) {
-    .posts-grid { grid-template-columns: 1fr; }
+    header .nav-menu { display: none; } /* Упрощаем для мобилок */
 }
 </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <a href="/" class="logo">journ<span>AI</span>sts</a>
-            <nav style="display:flex; gap:1.5rem; font-size:0.9rem; font-weight:500;">
-                <a href="/">Главная</a>
+            <a href="/" class="logo">MAPLE BARREL</a>
+            <nav class="nav-menu">
+                <a href="/materials/">Материалы</a>
+                <a href="/longreads/">Лонгриды</a>
+                <a href="/about/">О проекте</a>
                 <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
             </nav>
         </div>
     </header>
     <main class="container">
-        <div class="posts-grid">
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1077@15-09-2025_10-18-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">15.09.2025</span>
-            <div class="post-text">Правительство Карни запускает Build Canada Homes с бюджетом $13 млрд</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a><a href="/tag/торонто/" class="badge tag-badge">#Торонто</a><a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1076@15-09-2025_09-17-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">15.09.2025</span>
-            <div class="post-text">Бонни Кромби уходит с поста лидера либералов Онтарио</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1075@14-09-2025_14-27-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">14.09.2025</span>
-            <div class="post-text">Опрос Ipsos: правительство Карни начинает осеннюю сессию с рекордным рейтингом</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a><a href="/tag/экономика/" class="badge tag-badge">#экономика</a><a href="/tag/выборы/" class="badge tag-badge">#выборы</a><a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1074@14-09-2025_12-16-46.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">14.09.2025</span>
-            <div class="post-text">Беспорядки в Торонто: 10 задержанных на митингах в Christie Pits</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1073@14-09-2025_10-13-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">14.09.2025</span>
-            <div class="post-text">Малый бизнес в Канаде платит на четверть больше налогов, чем в США</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/экономика/" class="badge tag-badge">#экономика</a><a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1072@14-09-2025_09-14-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">14.09.2025</span>
-            <div class="post-text">Канада вызвала посла России из-за вторжения дронов в Польшу</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1071@13-09-2025_16-21-25.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">13.09.2025</span>
-            <div class="post-text">16-20</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1070@13-09-2025_14-51-47.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">13.09.2025</span>
-            <div class="post-text">Квебек срочно остановил все 1200 школьных электробусов Lion после пожара</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1069@13-09-2025_13-49-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">13.09.2025</span>
-            <div class="post-text">Полиев о политическом насилии и безопасности семьи</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> 
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1068@13-09-2025_12-18-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">13.09.2025</span>
-            <div class="post-text">COVID снова набирает обороты в Канаде</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1067@13-09-2025_10-17-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">13.09.2025</span>
-            <div class="post-text">80% индийских студентов получают отказ в канадских учебных визах</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/ircc/" class="badge tag-badge">#IRCC</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1066@12-09-2025_14-26-49.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">12.09.2025</span>
-            <div class="post-text">Карни идёт в наступление: закон о защите верующих и общинных центров</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1065@12-09-2025_12-24-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">12.09.2025</span>
-            <div class="post-text">Рестораны против Эби: кто «не видит реальности» в споре о временных иностранных работниках</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/экономика/" class="badge tag-badge">#экономика</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1064@12-09-2025_10-23-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">12.09.2025</span>
-            <div class="post-text">Почему всё больше канадских пенсионеров оказываются бездомными</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1063@12-09-2025_09-21-45.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">12.09.2025</span>
-            <div class="post-text">Прорывное лечение рака придумали в Монреале — но Канаде придётся подождать</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1062@11-09-2025_18-59-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">11.09.2025</span>
-            <div class="post-text">Кто такой Марк Карни — и почему он вообще оказался в кресле премьера?
+        <h1 class="page-title">Главная лента</h1><div class="posts-list">
+    <article class="post-card">
+        <span class="post-date">25 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_821@25-07-2025_11-06-42.jpg" class="post-image"></div>
+        <div class="post-content">Канада и США продолжают торговаться в Вашингтоне, но сделка до 1 августа всё менее вероятна.
 
-Журналист Mark Bourrie в The Walrus пишет, что мы «наняли парня с лучшим резюме». Бывший глава двух центробанков G7, выпускник Гарварда и Оксфорда, топ-менеджер Goldman Sachs и Brookfield, автор 528-страничного бестселлера Values. Один из самых состоятельных людей, когда-либо руководивших Канадой. И, пожалуй, самый «привилегированный» премьер в эпоху, когда почти всё вокруг крутится вокруг популизма.</div>
-        </div>
-        <div class="post-footer">
-            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
-        </div>
-    </div>
+<a href="https://www.ctvnews.ca/world/trumps-tariffs/article/canada-still-working-toward-aug-1-trade-deal-deadline-leblanc-says-as-us-senator-casts-doubt/">Министр торговли Доминик Леблан заявил</a>, что переговоры идут “продуктивно”, но сразу дал понять — Канада подпишет соглашение только если это будет в интересах канадских рабочих. Не раньше и не по приказу Вашингтона.
+
+— Переговоры ведутся с министром торговли США Ховардом Латником и группой сенаторов от Республиканской партии
+— Обсуждаются тарифы, оборона и безопасность
+— Белый дом угрожает 35% тарифами, но делает исключения для импорта в рамках CUSMA
+— США уже ввели пошлины на канадскую сталь, алюминий, автомобили, а с 1 августа добавят медь
+— Канадские ответные меры, включая борьбу с демпингом со стороны Китая, были «восприняты позитивно», по словам посла Кристины Хиллман
+
+На фоне этого Дональд Трамп продолжает хвастаться, что другие страны — Япония, Великобритания, Вьетнам — уже «купили» себе скидки на тарифы. Прямым текстом заявил, что и другим “позволит выкупить ставку”.
+
+Сенатор от Аляски Лиза Мурковски, недавно посетившая Оттаву, скептична: договор до 1 августа — маловероятен.</div>
+        <div class="post-footer"><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/тарифы/" class="badge">#тарифы</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1061@11-09-2025_15-44-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">11.09.2025</span>
-            <div class="post-text">Канадские вузы начали новый учебный год в условиях кризиса: меньше иностранных студентов, меньше денег, меньше курсов и поддержки.</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">25 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_820@25-07-2025_09-33-01.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://www.ekospolitics.com/index.php/2025/07/liberals-hold-13-point-lead-as-post-election-honeymoon-continues/">EKOS:</a> Либералы продолжают лидировать — спустя три месяца после победы на выборах
+
+– Либеральная партия — 43.2%
+– Консерваторы — 30.5%
+– НДП — 13.0% (в два раза больше, чем на выборах)
+
+«Бинарная» модель, когда почти весь электорат был поделен между двумя партиями, начинает распадаться. На фоне этого НДП восстанавливает позиции.
+
+Региональная картина:
+
+– Либералы доминируют в Онтарио, Квебеке и на Атлантике
+– Консерваторы уверены только в Альберте, но даже там либералы укрепляют позиции
+– В Британской Колумбии идёт трёхсторонняя борьба
+
+По социологии:
+
+– Либералы особенно сильны среди женщин, пожилых, выпускников университетов и обеспеченных
+– Консерваторы — среди мужчин, людей 35–49 лет и выпускников колледжей
+
+Параллельно EKOS отслеживает уровень дезинформации. Результат — мнение о миграции напрямую зависит от уровня осведомлённости:
+– Среди тех, кто хорошо разбирается в климате, вакцинах и войне в Украине, мнения разделены
+– Среди тех, кто поверил в фейки  почти полное единодушие: «слишком много иммигрантов»
+
+Отдельно: в Альберте одновременно растёт и поддержка сепаратизма, и национальная привязанность. Это подчёркивает уровень поляризации даже внутри одного региона.</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1060@11-09-2025_13-43-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">11.09.2025</span>
-            <div class="post-text">Mazda отзывает 14 тысяч автомобилей в Канаде из-за риска аварий</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">25 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_819@25-07-2025_08-31-34.jpg" class="post-image"></div>
+        <div class="post-content">Все пятеро бывших игроков сборной Канады 2018 года по хоккею с шайбой признаны невиновными по делу об изнасиловании, которое, по словам судьи, не было доказано.
+
+<a href="https://www.cbc.ca/news/canada/livestory/recap-all-5-former-hockey-canada-players-found-not-guilty-of-sexual-assault-9.6842381?webview=true&appname=news-ios-app&udid=83fa884d-ba3c-4bd1-9918-c922f107b62d&featurename=content-package&mobile=true&didomiConfig.notice.enable=false">Судья Верховного суда Онтарио Мария Каррочча заявила</a>, что не считает показания истицы (известной как E.M.) ни достоверными, ни надежными. По её словам, обвинение не доказало, что половой акт произошёл без согласия. Решение оглашалось несколько часов, судья подробно разобрала расхождения в словах истицы между полицией, гражданским иском и её нынешними показаниями.
+
+– E.M. уже назвала вердикт «опустошающим»
+– Прокуратура рассматривает возможность апелляции
+– Адвокаты обвиняемых говорят об «реабилитации» и «предсказуемом финале»
+– Все пятеро утверждали, что именно E.M. проявляла инициативу в происходящем в гостиничном номере в 2018 году
+– До этого Hockey Canada заключила с ней гражданское мировое соглашение, без участия игроков
+
+Полиция Лондона и Ассоциация врачей Канады отдельно поблагодарили E.M. за мужество пройти через тяжёлый судебный процесс. Но сам вердикт уже вызвал бурную дискуссию: от феминистских групп до спортивных комментаторов.</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1059@11-09-2025_11-42-14.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">11.09.2025</span>
-            <div class="post-text">Мэр Лас-Вегаса канадцам: «Мы вас любим, нам вы нужны, и мы скучаем»</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">24 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_818@24-07-2025_15-28-01.jpg" class="post-image"></div>
+        <div class="post-content">CBC: Канадские сети продвигают импорт под видом “нашего”
+
+<a href="https://www.cbc.ca/news/business/label-grocer-canadian-1.7590956">Расследование CBC показало</a>, что крупные продуктовые сети, включая Sobeys, Loblaws и Metro  активно используют кленовый лист и маркировки вроде “Product of Canada” и “Made in Canada” на товарах, которые… произведены за рубежом.
+
+Примеры, зафиксированные CBC в магазинах Торонто:
+
+– органическая брокколи с табличкой “Продукт Канады”, но этикеткой “США”
+
+– миндаль с надписью “Сделано в Канаде”, хотя орех импортирован
+
+– черника, малина, баклажаны — те же несостыковки между рекламой и реальной страной происхождения
+
+– упаковки фирменных товаров Compliments с кленовым листом, но надписью “импортировано для Sobeys”
+
+CFIA (федеральный инспекторат пищевых продуктов) за последние 8 месяцев получил 97 жалоб на ложные указания страны происхождения. В трети случаев нарушения подтвердились.
+
+По закону, страна происхождения должна быть указана точно — если продукт произведён за границей, нельзя использовать символику Канады или фразы вроде “Prepared in Canada”, если речь идёт просто об упаковке на территории страны.
+
+Комментарий экспертов:
+
+– «Мы не выращиваем миндаль в Канаде. Такие товары не должны маркироваться как “Сделано в Канаде”»  профессор Университета Гвельфа
+
+– «Это подрывает доверие покупателей. Покупатели устали от таких манипуляций»  профессор Торонтского университета Мэри Л’Аббе
+
+Ответ ритейлеров:
+
+– «Масштабные поставки, ошибки случаются»
+– «Мы усилим контроль и просим сообщать о таких случаях»
+– После запроса CBC, часть спорной маркировки в магазинах исчезла
+
+Реакция покупателей: раздражение и разочарование. С учётом кампаний в поддержку “покупай канадское”, такие махинации воспринимаются как откровенное лицемерие.</div>
+        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1058@11-09-2025_10-41-57.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">11.09.2025</span>
-            <div class="post-text">Аудитор Онтарио проверит $2,5 млрд фонд развития навыков — всплывают «оттенки Гринбелта»</div>
-        </div>
-        <div class="post-footer">
-             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
-        </div>
-    </div>
+    <article class="post-card">
+        <span class="post-date">24 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_817@24-07-2025_12-51-54.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://www.thestar.com/opinion/contributors/as-a-20-something-i-paid-my-mortgage----and-had-money-for/article_c7f71063-3c65-49e2-9727-d61e9053ef9c.html">Шеллин Дрейкс-Талл из Toronto Star вспоминает</a>, как в 1999 году с сестрой легко взяла ипотеку на двухкомнатную квартиру в Скарборо:
+
+– без помощи родителей
+– без двух-трёх работ
+– и всё равно оставались деньги на отдых и жизнь
+
+Теперь, по её словам, всё наоборот. Молодые в Торонто даже не в 20, а в 30+  не могут войти на рынок вообще.
+
+– Средняя арендная плата за однушку  $2283 в месяц
+
+– Средняя аренда по Канаде  $1878, минимум в Сент-Джонсе, максимум  в Норт-Ванкувере
+
+– Цены на кондо падают, застройщики отменяют проекты, но ультра-люкс жив и процветает
+
+Даже если бы молодые хотели купить жильё то без помощи семьи это невозможно. И это не просто “трудности поколения”, а результат провалившейся политики:
+
+– В 2018 году правительство Дуга Форда отменило контроль аренды для новостроек
+
+– Обещано 1.5 миллиона новых домов до 2031 года, но министр признал — план проваливается
+
+– Главные бенефициары застройщики, а не молодёжь
+
+Пока помощь получает рынок, а не люди. Будущее Торонто уезжает в другие города. Не потому что хочет, а потому что не может остаться.</div>
+        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
     
-    <div class="post-card">
-        <div class="post-image-wrap"><img src="/photos/photo_1057@11-09-2025_09-38-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-body">
-            <span class="post-date">11.09.2025</span>
-            <div class="post-text">Медовый месяц Карни тает, а половина канадцев считает шансы Полиева слабыми</div>
-        </div>
-        <div class="post-footer">
-             
-        </div>
-    </div>
-    </div><div class="pagination"><a href="/page/64" class="btn">← Сюда</a> <a href="/page/66/" class="btn">Туда →</a></div>
+    <article class="post-card">
+        <span class="post-date">24 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_816@24-07-2025_11-57-01.jpg" class="post-image"></div>
+        <div class="post-content">Климат бьёт по кошельку: страховка жилья в Канаде дорожает. Что делать?
+
+<a href="https://www.ctvnews.ca/climate-and-environment/article/extreme-weather-is-making-home-insurance-more-expensive-heres-how-you-can-keep-costs-under-control/">По данным CTV,</a> страховые компании в Канаде платят рекордные суммы по убыткам из-за природных катастроф  и это напрямую бьёт по владельцам жилья.
+
+– В 2024 году выплаты по климатическим катастрофам достигли $8 млрд
+
+– В 2025 году средняя стоимость страховки выросла на 5.3%, в Альберте
+ на 9%
+
+– Основные риски: пожары, наводнения, ураганы, отключения электроэнергии
+
+Как сдержать рост цен:
+
+– Увеличить франшизу — чем выше сумма, которую вы платите сами, тем ниже тариф
+
+– Объединить полисы (жильё + авто) в одной компании
+
+– Укрепить дом: огнеупорные материалы, дренаж, противоударные окна, сигнализация
+
+– Уточнить скидки: за возраст, военную службу, отсутствие ипотеки, лояльность. Сравнивать страховщиков — не стоит платить больше, чем нужно
+
+Любые апгрейды жилья (например, пожароустойчивость) нужно сообщать страховой — это может снизить тариф и дать налоговые вычеты.</div>
+        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">24 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_815@24-07-2025_09-54-01.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://www.ctvnews.ca/montreal/article/quebec-city-cancels-show-by-us-maga-superstar-musician/">Город Квебек отменил</a> выступление американского христианского музыканта Шона Фойхта, известного своей ультраправой и прореспубликанской риторикой. 
+
+Он должен был выступить в пятницу на площадке ExpoCité в рамках канадского тура Revive in 25.
+
+Музыкант открыто выступает против:
+
+– ЛГБТ-сообщества
+– «гендерной идеологии»
+– абортов
+
+Он также поддерживает Дональда Трампа, и был описан как «христианский националист». Ранее называл сторонников абортов «демонами» и говорил, что Трамп «избран Богом».
+
+Ситуация по другим городам:
+
+– Галифакс: концерт отменён из-за жалоб жителей и опасений насчёт протестов
+– Шарлоттаун (ПЭИ): власти отменили выступление после консультаций с полицией
+– Гатино (Квебек): концерт отменён
+– Вон (Онтарио): пока в списке, но под вопросом
+
+Организаторы ExpoCité заявили, что изначально не знали о скандальной репутации исполнителя. Контракт с промоутером был расторгнут.
+
+Фойхт уже отреагировал в соцсетях:
+
+«Это типичный сценарий: антикристианские фанатики, которые проповедуют «толерантность», но не терпят мирных христианских собраний. Это место принимало прайд-событие — но для нас, значит, нельзя.»
+
+Местные власти заявляют, что решения принимались исключительно из соображений общественной безопасности.</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">24 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_814@24-07-2025_08-53-01.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://nationalpost.com/news/canada/most-canadians-still-think-canada-is-accepting-too-many-immigrants-and-many-dont-trust-newcomers-poll">Свежий опрос Leger для Association for Canadian Studies показал:</a>
+
+– 62 % канадцев считают, что страна принимает слишком много иммигрантов
+– Лишь 20 % не согласны
+– 57 % самих иммигрантов тоже считают, что их слишком много
+– 60 % канадцев, рождённых в Канаде — того же мнения
+
+По доверию к иммигрантам и беженцам:
+
+– Только 42 % доверяют иммигрантам
+– Лишь 36 % доверяют беженцам
+– Среди тех, кто считает, что иммигрантов слишком много, уровень доверия падает до 32 % к иммигрантам и 24 % к беженцам
+– Каждый четвёртый считает, что беженцам доверять нельзя
+
+Президент института Джек Джедваб:
+
+«Речь уже не только об экономике или жилье. Это — вопрос безопасности и восприятия угрозы».
+
+Интересно, что уровень недоверия не зависит от этнического происхождения или статуса — доля критиков среди иммигрантов и среди канадцев без иммиграционного прошлого примерно одинакова.
+
+Региональные различия:
+
+– Атлантические провинции: 71 % считают, что иммигрантов слишком много
+– Альберта: 65 %
+– Квебек и Онтарио: 63 %
+– Манитоба и Саскачеван: 54 %
+– Британская Колумбия: 52 %
+
+Молодёжь (18–34): 55 % за снижение миграции — но это самая лояльная группа.</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">23 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_813@23-07-2025_12-54-01.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://nanos.co/wp-content/uploads/2025/07/Political-Package-2025-07-18-FOR-RELEASE.pdf">Свежие цифры от Nanos Research показывают</a>: эффект Карни пока живёт.
+
+– Либералы: 44.3 %
+– Консерваторы: 34.0 %
+– НДП: 10.3 %
+
+По вопросу, кого канадцы хотят видеть премьером:
+
+– Марк Карни: 51 %
+– Пьер Полиев: 25 %
+
+Главные заботы избирателей:
+
+– Рабочие места и экономика
+– Торговля с США и Трамп
+
+Это уже второй опрос подряд, где либералы Карни уверенно опережают консерваторов. При этом рейтинг Полиева как предпочтительного премьера — в два раза ниже, чем у действующего главы правительства.</div>
+        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/экономика/" class="badge">#экономика</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">23 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_812@23-07-2025_11-51-45.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://www.theglobeandmail.com/politics/article-ottawas-hotel-bill-for-asylum-seekers-reaches-11-billion/">The Globe and Mail сообщает</a>: с 2017 года федеральное правительство потратило $1.1 млрд на размещение беженцев в отелях. 
+
+Ещё $1.5 млрд — переведено провинциям и городам в рамках программы IHAP.
+
+– Всего с 2017 по 2024 число заявок на убежище выросло с 50 тыс. до 173 тыс. в год
+
+– В марте 2024 правительство размещало беженцев в 7 отелях, сейчас — в 5 (4 в Онтарио, 1 в Квебеке)
+
+– Средняя стоимость проживания — $132 в день на человека, в 2023 было $199
+
+– В Торонто с 2017 года выделено $669 млн, в Квебек
+ $542 млн, Оттава  $105.7 млн, Peel Region  $97.8 млн
+
+– В феврале в Peel открылся крупнейший в Канаде центр размещения беженцев, на 680 мест, в 10 минутах от Pearson
+
+Консерваторы называют такие расходы несправедливыми по отношению к остальным канадцам. Мишель Ремпел Гарнер: «Когда обычный человек слышит, что беженцев селят в отели — это вызывает вполне понятное чувство несправедливости».
+
+НДП критикует правительство за отсутствие устойчивого решения: «Это просто не имеет смысла»,  заявила депутат Дженни Кван.
+
+С 2023 года Ottawa начала выдавать “notices to vacate”, чтобы стимулировать переселение. По данным IRCC, 13 000 человек покинули отели с января по март 2024.
+
+Правительство готовит новые ограничения: законопроект C-2 предлагает запретить рассмотрение дел для тех, кто незаконно пересёк границу или находится в стране больше года.</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/квебек/" class="badge">#Квебек</a><a href="/tag/торонто/" class="badge">#Торонто</a><a href="/tag/ircc/" class="badge">#IRCC</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">23 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_811@23-07-2025_09-51-43.jpg" class="post-image"></div>
+        <div class="post-content">Канадская семья в 2024 году отдала на налоги 42.3 % своего дохода — больше, чем на жильё, еду и одежду вместе взятые. <a href="https://www.bnnbloomberg.ca/business/economics/2025/07/22/average-canadian-family-spent-423-of-income-on-taxes-in-2024-study/">Об этом в новом отчёте Fraser Institute</a>
+
+– Средний доход семьи: $114,289
+– Общая сумма налогов: $48,306
+– На жильё уходит 22 %, на еду 11 %, на одежду 2 %
+– Всего на базовые потребности — 35.5 % дохода
+
+Сравнение с прошлым:
+
+– В 1961 году семьи тратили на налоги 33.5 %, а на жильё, еду и одежду — 56.5 %
+
+– В 1981 — почти поровну: 40.8 % на налоги, 40.5 % на базовые расходы
+
+– После пандемии налоговая нагрузка вновь выросла и превысила доковидные уровни
+
+Куда уходят деньги:
+
+– Подоходный налог: $15,085
+– Взносы в пенсионные и медфонды: $10,319
+– Налог с продаж: $6,812
+– Налог на прибыль бизнеса: $6,534
+– Муниципальные и другие налоги — всё остальное
+
+Авторы подчёркивают: речь не только о прямых налогах. В реальности, налоговая нагрузка включает в себя и те налоги, которые формально платят компании — ведь в итоге они перекладываются на потребителей.</div>
+        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">23 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_810@23-07-2025_08-49-01.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://torontosun.com/news/national/temporary-workers-account-for-19-of-canadas-private-sector-workforce?taid=6880215cb7a37600015bbafb&utm_campaign=trueanthem&utm_medium=social&utm_source=twitter">Postmedia News пишет</a>: временные резиденты теперь составляют почти 19 % всей рабочей силы в частном секторе Канады. 
+
+Это данные из внутренней записки Минмиграции, датированной 1 мая.
+
+– Всего в Канаде более 3 миллионов временных резидентов
+
+– Это включает 1.5 млн обладателей рабочих виз, 644 тыс. студентов, 164 тыс. членов семей без разрешений и 280 тыс. беженцев с правом на работу
+
+– Более 129 тыс. человек нелегально остались после истечения визы
+
+– Всего в частном секторе, по данным Статистики Канады, работает около 16.5 млн человек
+
+– Минмиграции признаёт вклад временных работников, но говорит о необходимости сокращения их численности для «баланса с рынком труда, доступным жильём и инфраструктурой»
+
+То, что началось как временная мера, стало основой экономики: почти каждый пятый работник в частном бизнесе — не гражданин и не резидент. А Ottawa ищет способ затормозить рост.</div>
+        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">22 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_809@22-07-2025_15-37-01.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://www.ctvnews.ca/regina/article/saskatchewan-announces-trade-related-memorandums-of-understanding-with-manitoba-pei/">Global News сообщает</a>: премьер Саскачевана Скотт Мо подписал новые торговые соглашения с Манитобой и островом Принца Эдварда
+
+– Меморандумы касаются продажи алкоголя между провинциями, мобильности рабочей силы, инвестиций и сотрудничества между госкомпаниями
+
+– Подобное соглашение с Онтарио было подписано ещё в июне перед встречей премьеров в Саскатуне
+
+– Объём торговли Саскачевана с ПЭИ  $44 млн, с Манитобой $6 млрд (данные за 2021 год)
+
+– Мо призывает все провинции присоединиться к инициативе New West Partnership
+
+– В Muskoka прошла трёхдневная встреча глав провинций, где обсуждалось расширение Канадского соглашения о свободной торговле
+
+Цель Мо это максимально снизить барьеры внутри страны, пока канадские товары блокируются в США. Он настаивает: без сильного межпровинциального рынка экономика не выдержит внешнего давления.</div>
+        <div class="post-footer"> <a href="/tag/экономика/" class="badge">#экономика</a><a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">22 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_808@22-07-2025_14-24-01.jpg" class="post-image"></div>
+        <div class="post-content">Либералы больше не прогрессивные. После ухода Джастина Трюдо и прихода Марка Карни партия резко сдвинулась вправо. 
+
+<a href="https://www.hilltimes.com/story/2025/07/21/liberal-governments-transformation-from-progressive-to-right-of-centre-a-reflection-of-where-people-are-today-say-some-caucus-members/467680/">Аббас Рана из The Hill Times пишет о том</a>, как либералы под руководством Марка Карни уходят с позиций прогрессивного центра в сторону экономического консерватизма. Партия меняется — и далеко не всем в её рядах это нравится.
+
+– «Все прогрессивные, пока могут платить по счетам», — говорит один депутат
+– Карни уводит либералов вправо, делая ставку на экономику вместо идентичности
+– Министрам велено урезать операционные расходы: 7.5 % в 2026, 10 % в 2027, 15 % в 2028
+– Принят закон C-5, позволяющий ускорять национальные проекты — от инфраструктуры до энергетики
+– Коренные народы протестуют: с ними не было консультаций
+– Внутри фракции напряжение: женщины, сельские депутаты и представители коренных народов в замешательстве
+– Съезд в Эдмонтоне (9–12 сентября) покажет, насколько глубоко принимается новая линия партии
+
+Политологи называют это отказом от постматериальных приоритетов Трюдо — прав меньшинств, экологии, инклюзии — ради материальных: занятость, инфляция, госдолг. Карни говорит языком экономической тревоги, и избиратель его слышит.
+
+Но у этого поворота есть срок годности. Когда Трамп потеряет влияние, исчезнет и страх, который временно держит прогрессивных избирателей рядом с либералами.
+
+Теперь в приоритете не социальная повестка, а экономия, рост и борьба с кризисом.
+
+– «Все прогрессивные, пока могут платить по счетам», — говорит один депутат
+
+– Финансовая повестка Карни вытеснила идеологию Трюдо
+
+– Министрам приказано урезать расходы на 15 % к 2028 году
+
+– Принят закон C-5, позволяющий продвигать инфраструктурные проекты без длительных согласований
+
+– Коренные народы уже протестуют — с ними не консультировались
+
+– Карни пытается спасти отношения с США на фоне торговой войны, в том числе за счёт снижения зависимости от американского рынка
+
+Партийная база в замешательстве. Большинство депутатов это всё ещё люди левого центра. Никто не знает, что будет дальше. В сентябре в Эдмонтоне пройдёт летний съезд либеральной фракции, где, возможно, появится хоть какая-то ясность.
+
+Политологи объясняют: у Трюдо была «постматериальная» повестка — права меньшинств, экология, инклюзия. 
+
+У Карни «материальная»: рабочие места, экономика, госфинансы. Он говорит на языке страха перед инфляцией, долгами и спадом. И этот язык избиратель пока понимает.</div>
+        <div class="post-footer"> <a href="/tag/экономика/" class="badge">#экономика</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">22 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_807@22-07-2025_13-32-01.jpg" class="post-image"></div>
+        <div class="post-content"><a href="https://www.nationalobserver.com/2025/07/21/news/poilievre-conservatives-freedom-convoy-politics">Пьер Полиев и другие депутаты-консерваторы вступились</a> за организаторов протестов «Конвоя свободы» Тамару Лич и Криса Барбера. Прямо накануне слушаний по их приговору.
+
+– Лич и Барбер были признаны виновными в апреле по обвинению в создании беспорядков
+
+– Корона добивается 7 лет тюрьмы для Лич и 8 лет для Барбера
+
+– Полиев пишет: «Где справедливость, если рецидивисты выходят под залог за насилие, а за протест — 7 лет?»
+
+– Заместительница Полиева Мелисса Лантсман назвала дело «политической местью»
+
+– Депутат Эндрю Лотон заявил, что наказание «чрезмерное и мстительное»
+
+– Джереми Патцер из Саскачевана сравнил дело с другими, где наказание было мягче за более серьёзные преступления
+
+– Юрист Майкл Спратт: «Это опасно — политики подрывают доверие к судам ради хайпа»
+
+Судья признала, что Лич и Барбер сознательно поощряли людей оставаться в протесте, несмотря на ущерб для жителей и бизнеса в центре Оттавы.
+
+Напомним: протест в 2022 длился более трёх недель. Центр города был заблокирован, жители жаловались на гудки, дизель и угрозы. В итоге правительство Трюдо впервые в истории применило Закон о чрезвычайных ситуациях.
+
+Слушание по приговору состоится в среду.</div>
+        <div class="post-footer"><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">22 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_806@22-07-2025_12-34-01.jpg" class="post-image"></div>
+        <div class="post-content">Операция UNIFIER: как канадские военные уже 10 лет обучают украинцев воевать
+
+Тысячи украинцев, ещё недавно работавшие в магазинах и на фермах, теперь учатся у канадцев — как разминировать танковые мины, оказывать помощь на поле боя и даже обезвреживать вражеские гранаты под визг FPV-дронов. Всё это — <a href="https://www.canadianaffairs.news/2025/07/18/unifier-canadian-military-operation-saving-ukrainian-lives/">в рамках канадской миссии UNIFIER</a>, которая с 2015 года готовит украинскую армию к войне с Россией.
+
+Миссия началась после аннексии Крыма, как скромное обучение в Украине. После вторжения 2022 года канадцы эвакуировались, но быстро возобновили подготовку бойцов на базах в Польше и Латвии.
+
+Сейчас в Польше работает около 300 военнослужащих Канады. За 10 лет они обучили 44 000 украинцев — почти 5% от всей армии Украины. Подготовка длится всего 6 недель, но в неё вложены месяцы боевого опыта и навыков НАТО.
+
+Офицеры рассказывают, что на базе постоянно улучшают условия: отстраивают окопы, моделируют реальные сценарии, модернизируют инфраструктуру вместе с поляками.
+
+Канада — не единственная страна, участвующая в подготовке, но её вклад выделяется. Канадцев ценят за гибкость, совместимость с США и умение работать с союзниками без политических конфликтов.
+
+Миссия UNIFIER не входит в мандат НАТО, но считается критически важной частью западной помощи Киеву. 
+
+В отличие от операции REASSURANCE в Латвии (2 000 канадских военных), UNIFIER — это вклад напрямую в победу Украины, а не просто сдерживание России.
+
+«Когда мы слышим, что обучение спасло кому-то жизнь — это делает всё реальным», — говорит капитан Кристофер Данис, инструктор по инженерной подготовке.</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">22 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_805@22-07-2025_10-32-01.jpg" class="post-image"></div>
+        <div class="post-content">Stellantis объявила о многомиллиардных потерях. Заводы в Онтарио  под угрозой
+
+<a href="https://www.cbc.ca/news/canada/windsor/stellantis-2025-tariffs-trump-losses-charges-1.7589917">Автоконцерн Stellantis (владеет марками Jeep и Ram) сообщил</a> о чистом убытке почти 3,7 млрд канадских долларов за первую половину 2025 года. Основные причины: американские пошлины, отмена топливных штрафов и закрытие нескольких программ
+
+Флавио Вольпе, глава Ассоциации автопроизводителей Канады, заявил: заводы в Брамптоне и Виндзоре не выдержат такого давления
+
+Брамптонский завод простаивает, ему не назначены новые модели
+Виндзорский периодически останавливается, чтобы сократить издержки
+Если тарифы сохранятся, оба предприятия рискуют закрыться
+
+Вольпе подчеркнул, что сама компания выживет, но конкретные канадские площадки — нет
+
+Stellantis также приостановила запуск нового Dodge Charger, который должен был производиться в Канаде с 2026 года</div>
+        <div class="post-footer"> <a href="/tag/тарифы/" class="badge">#тарифы</a><a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">22 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_804@22-07-2025_08-59-01.jpg" class="post-image"></div>
+        <div class="post-content">Трамп взбесился: Канада — «злая и противная», по версии посла США
+
+<a href="https://www.ctvnews.ca/canada/article/trump-thinks-canadians-nasty-for-avoiding-us-travel-banning-booze-ambassador/">Американский посол Пит Хукстра заявил</a>, что Дональд Трамп раздражён действиями Канады. Причины:
+
+– канадцы массово отказываются от поездок в США
+– несколько провинций запретили продажу американского алкоголя
+– Вашингтон считает это «негативными сигналами» и «непартнёрским поведением»
+
+Хукстра напрямую:
+«Есть причины, по которым президент и его команда называют Канаду злой и неприятной в работе. Это как раз те самые шаги».
+
+Отвечая на вопрос о будущем отношений, он добавил, что «не нравится», когда канадцы остаются дома, но это их право.
+Также пошутил, что может спокойно ввозить алкоголь из США через границу: «Машину никто не проверяет».
+
+Премьер Британской Колумбии Дэвид Эби ответил:
+«Эти заявления означают, что наш протест работает. Продолжайте в том же духе: покупайте канадское, отдыхайте в Канаде».
+
+На фоне торговой войны с Трампом, число поездок канадцев в США резко сократилось — в марте падение составило 32 % по автопересечениям и 13,5 % по авиаперелётам.</div>
+        <div class="post-footer"><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">21 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_803@21-07-2025_15-27-01.jpg" class="post-image"></div>
+        <div class="post-content">Алберта резко снизила потребление алкоголя и вышла в лидеры по тратам на марихуану. Но напрямую эти два факта между собой не связаны.
+
+<a href="https://www.cbc.ca/news/canada/calgary/alberta-alcohol-cannabis-trends-1.7582982">В 2008 году Алберта была первой в стране по потреблению алкоголя — 9,7 литра чистого спирта на человека в год</a>. Сейчас это 7,6 литра. Спад — один из самых резких в Канаде. Для сравнения: это минус 107 банок пива на человека в год.
+
+На смену алкоголю пришёл не косяк, а множество факторов: рост цен, новые рекомендации по здоровью, мода на трезвость среди молодёжи и бум безалкогольных напитков. Только за последний год рынок моктейлей и “нулевых” вин вырос почти до $200 млн.
+
+Но Алберта действительно тратит больше всех в стране на легальный каннабис — $248 на человека в год. Почти в три раза больше, чем в Квебеке. Причина — плотность магазинов. В какой-то момент в Алберте было больше точек продажи, чем во всех остальных провинциях вместе взятых.
+
+Цена тоже сыграла роль. С конца 2018 года алкоголь в Алберте подорожал на 14%, а марихуана подешевела на 38%.
+
+Эксперты не видят массового перехода от пива к марихуане. Но считают, что с годами молодые потребители будут чаще делать выбор в пользу травки, а не бокала.</div>
+        <div class="post-footer"> <a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">21 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_802@21-07-2025_14-03-01.jpg" class="post-image"></div>
+        <div class="post-content">CMHC подтверждает: меньше иммигрантов — ниже аренда
+
+<a href="https://nationalpost.com/opinion/geoff-russ-the-data-is-in-lower-immigration-means-lower-rent">Срыв покровов от Canada Mortgage and Housing Corporation (CMHC)</a>: падение цен на аренду напрямую связано с сокращением числа иностранных студентов и временных резидентов.
+
+– В Ванкувере аренда двухкомнатных квартир упала на 4.9%
+
+– В Торонто – на 3.7%
+
+– В Галифаксе – на 4.2%
+
+И это только за первый квартал 2025 года.
+
+Федеральное агентство напрямую связывает этот эффект с ограничением потока новых временных жителей. То, что ещё пару лет назад считалось “крайним мнением”, теперь стало официальной позицией государства: чем меньше людей приезжает — тем доступнее жильё.
+
+Это удар по нарративу эпохи Трюдо и сторонников Century Initiative, которые твердили, что массовая иммиграция “не влияет на цены” и даже “спасает экономику”.
+
+По данным CMHC, чтобы вернуть доступное жильё, Канаде к 2030 году нужно построить ещё 3,5 миллиона единиц жилья, сверх уже запланированных 18,2 млн. Даже с падением аренды, кризис никуда не делся — он просто стал чуть менее адским.
+
+Что дальше?
+
+– Новый премьер-министр Марк Карни обещает сократить количество новых постоянных резидентов до менее чем 400 тыс. в год
+
+– Студентов и временных рабочих собираются ограничить до 5% от населения, то есть всё равно более 4 миллионов человек
+
+Тем временем уровень безработицы среди канадской молодёжи достиг 11.2% — против 8.2% в 2020-м.
+
+ Молодые канадцы вытесняются с рынка труда временными рабочими, которым платят меньше и с которых меньше спрос.
+
+Ещё одно подтверждение: сказка о том, что “канадцы не хотят работать на этих работах” — не более чем удобный миф для тех, кто хочет платить меньше и нанимать беззащитных.</div>
+        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/иммиграция/" class="badge">#иммиграция</a><a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">21 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_801@21-07-2025_12-38-01.jpg" class="post-image"></div>
+        <div class="post-content">Canada Strong Pass расширяется: больше музеев, больше скидок
+
+Федеральная программа Canada Strong Pass, <a href="https://globalnews.ca/news/11292316/canada-strong-pass-new-additions/">запущенная весной 2025 года</a>, расширяется — к ней присоединились новые музеи и галереи в провинциях и территориях, которые до этого не участвовали в инициативе.
+
+<b>Что это даёт:</b>
+
+1. Бесплатный вход для детей до 17 лет
+
+2. Скидка 50% на билеты для молодёжи от 18 до 24 лет
+
+3.  Всё это действует до 2 сентября 2025 года
+
+<b>Среди новых участников программы:</b>
+
+– Королевский музей Британской Колумбии (Виктория)
+
+– Центр нефтяных песков (Форт-Мак-Мюррей)
+
+– Winnipeg Art Gallery-Qaumajuq
+
+– Art Gallery of Ontario (Торонто
+
+– Fisheries Museum of the Atlantic (Новая Шотландия)
+
+– Yukon Beringia Centre (Уайтхорс)
+
+Плюс остаются уже существующие бонусы:
+
+– Бесплатный вход во все национальные парки, исторические места и морские заповедники от Parks Canada
+
+– Скидка 25% на кемпинг в партнёрских локациях
+
+– Не требует регистрации, физического пропуска или канадского гражданства — участвовать могут все, включая туристов
+
+На фоне торговой войны с США и новых пошлин со стороны Дональда Трампа, программа была запущена как способ поддержать внутренний туризм и объединить страну. По словам министра культуры и идентичности Стивена Гилбо, инициатива показывает, “как Канада может быть сильной, когда она выбирает саму себя”.</div>
+        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">21 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_800@21-07-2025_11-36-37.jpg" class="post-image"></div>
+        <div class="post-content">В Квебекской тюрьме убит лидер банды Arab Power
+
+В воскресенье утром в тюрьме максимальной безопасности Donnacona (пригород Квебека) был убит 26-летний Сильвен Каббуши — один из главарей уличной группировки Arab Power.
+
+– <a href="https://www.ctvnews.ca/montreal/article/arab-power-leader-killed-in-quebec-prison/">По данным полиции Квебека</a> (SQ), его забили до смерти другие заключённые около 10:30 утра
+
+– Медики пытались реанимировать Каббуши 30–40 минут, но безуспешно
+
+– Он отбывал пожизненное заключение за убийство 2021 года — 14 апреля 2025 был осуждён за расправу над Nitchell Lapaix
+
+– Arab Power это относительно новая группировка, замешанная в шантажах и наркоторговле в Лавале и Монреале
+
+– У многих участников, включая Каббуши, уже есть приговоры за убийства
+
+– По информации Noovo Info, нападение произошло на фоне внутренней борьбы за власть внутри самой банды
+
+– Источники утверждают, что члены Arab Power продолжают координировать действия из тюрьмы с помощью контрабандных телефонов
+
+Следствие продолжается, мотивация и исполнители убийства уточняются.</div>
+        <div class="post-footer"> <a href="/tag/квебек/" class="badge">#Квебек</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">21 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_799@21-07-2025_10-34-01.jpg" class="post-image"></div>
+        <div class="post-content">Канада — центр эпидемии кори в Северной Америке: более 3 800 случаев в 2025 году
+
+Пока мир пытается не допустить возвращения давно забытых болезней, <a href="https://www.bbc.com/news/articles/c4g8d39gdr0o">в Канаде самая крупная вспышка кори среди развитых стран</a>.
+
+ Зафиксировано свыше 3 800 случаев, большинство среди детей и младенцев. Это в три раза больше, чем в США, несмотря на разницу в численности населения.
+
+– Эпидемия началась после массового религиозного собрания меннонитов в Нью-Брансуике
+
+– На юго-западе Онтарио заражение пошло в закрытых низковакцинированных общинах
+
+– В Альберте число случаев вышло из-под контроля. Не установлены даже первоисточники
+
+– В некоторых провинциях вакцинация упала почти на 50% с 2019 года
+
+– Младенцы, не достигшие 12 месяцев, не имеют права на прививку — именно они в зоне риска
+
+– Местные клиники фиксируют сотни новых случаев в неделю
+
+– Антипрививочная дезинформация распространяется даже среди тех, кто ранее доверял медицине
+
+– После ковида доверие к системе здравоохранения у части населения рухнуло
+– Власти начали кампанию по убеждению населения, но её масштаб вялый и поздний
+
+Канада это единственная западная страна, попавшая в топ-10 мировых очагов кори. По данным CDC, она занимает 8-е место.</div>
+        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">21 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_798@21-07-2025_09-31-34.jpg" class="post-image"></div>
+        <div class="post-content">Netflix и Disney+ заблокировали в правительстве Канады. Но не из-за интернета
+
+<a href="https://www.cbc.ca/news/politics/netflix-block-government-1.7585627">Федеральные чиновники больше не могут смотреть Netflix, Amazon Prime, Crave и другие стриминги на рабочих устройствах</a> — не потому что сеть не справляется, а потому что «это проблема управления людьми».
+
+ Что выяснилось из внутренних документов:
+
+– Решение приняли в декабре 2024
+
+– Руководство ИТ-службы (Shared Services Canada) напрямую признало: дело не в трафике, а в «восприятии» и «поведении сотрудников»
+
+– То есть смотреть сериальчики в рабочее время стало слишком заметно
+
+– Например, за сентябрь 2024 года в Минобороны насчитали 3+ ТБ видео (до 3000 часов в SD-качестве)
+
+– В канцелярии премьер-министра — около 1.5 ТБ, в Минфине — почти 1 ТБ
+
+– На гостевом Wi-Fi (т.е. с личных телефонов) — ещё 10 ТБ за месяц
+
+– Несмотря на это, общие объёмы трафика были небольшие на фоне сотен тысяч работников. Но Служба связей решила действовать «символически»
+
+ В письмах между чиновниками прямо говорится: «Сейчас важнее общественное восприятие госаппарата, чем технические показатели»
+
+Так что теперь никаких «The Boys» между совещаниями. Только отчёты, таблицы и собрания.</div>
+        <div class="post-footer"> </div>
+    </article>
+    
+    <article class="post-card">
+        <span class="post-date">20 июля 2025</span>
+        <div class="post-image-wrap"><img src="/photos/photo_797@20-07-2025_18-52-01.jpg" class="post-image"></div>
+        <div class="post-content">Ребёнок в Канаде обойдётся в $17 000 в год — и это не шутка
+
+<a href="https://www.thestar.com/business/personal-finance/raising-a-child-in-canada-will-cost-you-around-17-000-a-year-how-to/article_7cab51a4-dc43-45ad-95de-ef7dfbc10603.html">Средняя стоимость воспитания одного ребёнка в Канаде (до 17 лет)</a>:
+
+$293 000 или по $17 235 в год
+
+Что входит в расходы:
+
+– Детский сад: до $7 500 в год вне Квебека
+– Няня: от $10 до $20/час
+– Частные палаты в роддоме: $250–500/ночь
+– Подгузники, питание, одежда, развивашки
+– Страховки, допуслуги, кружки
+– Накопления на колледж/университет (через RESP)
+
+ Проблема: высокая цена  один из факторов рекордно низкой рождаемости (1.26 ребёнка на женщину в 2023 году)
+
+Финансовая подготовка это ключ к выживанию
+
+– Запаситесь подушкой в TFSA заранее
+– Бюджетируйте год отпуска по уходу за ребёнком
+– Убедитесь, что работодатель делает «топ-ап» к EI
+– При низких доходах  проверьте, положены ли Canada Child Benefit и Ontario Child Benefit
+– Проверьте жизненную страховку, напишите завещание
+– Будьте готовы к очередям в детсады: подавайте заявки ещё во время беременности
+– Если нет денег на RESP в первые годы не беда, лимиты переносятся
+
+👶 Факт: многие семьи в Торонто откладывают рождение детей исключительно по финансовым причинам. И это не алармизм, а новая реальность.</div>
+        <div class="post-footer"> <a href="/tag/квебек/" class="badge">#Квебек</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
+    </article>
+    </div><div class="pagination"><a href="/page/64/" class="btn">← Назад</a><a href="/page/66/" class="btn">Вперед →</a></div>
     </main>
-    <footer style="text-align:center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
-        &copy; 2026 journAIsts.ca | Powered by Maple Barrel
+    <footer>
+        &copy; 2024–2026 Maple Barrel. Все права защищены.
     </footer>
 </body>
 </html>
