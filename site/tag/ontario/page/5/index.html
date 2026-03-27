@@ -1,1260 +1,677 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#Онтарио | Maple Barrel</title>
-    <style>
-:root {
-    --bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #c53030;
-    --border: #eeeeee;
-    --bg-alt: #f9f9f9;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#Онтарио — Maple Barrel</title>
+<meta name="description" content="Все материалы по теме «Онтарио» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<link rel="canonical" href="https://journalists.ca/tag/ontario/">
+<meta property="og:title" content="#Онтарио — Maple Barrel">
+<meta property="og:description" content="Все материалы по теме «Онтарио» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta property="og:url" content="https://journalists.ca/tag/ontario/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="#Онтарио — Maple Barrel">
+<meta name="twitter:description" content="Все материалы по теме «Онтарио» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    line-height: 1.6; color: var(--text-main); background: var(--bg); 
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
-a { color: inherit; text-decoration: none; }
-header { 
-    background: #fff; border-bottom: 1px solid var(--border); 
-    padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
 }
-.header-content { 
-    max-width: 800px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; align-items: center;
+
+.tgb:hover{
+  background:#a93226;
 }
-.logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.03em; color: var(--accent); }
-.nav-menu { display: flex; gap: 1.2rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-.nav-menu a:hover { color: var(--accent); }
-.container { max-width: 800px; margin: 2.5rem auto; padding: 0 20px; }
-.post-card { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
-.post-card:last-child { border-bottom: none; }
-.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; font-weight: 500; }
-.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; background: var(--bg-alt); }
-.post-image { width: 100%; height: auto; display: block; }
-.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; color: #222; }
-.post-content b, .post-content strong { font-weight: 700; color: #000; }
-.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { 
-    font-size: 0.75rem; padding: 5px 12px; border-radius: 4px; 
-    background: var(--bg-alt); color: #555; font-weight: 600; border: 1px solid #eee;
+
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
+
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform .15s;
 }
-.person-badge { border-color: #fed7d7; color: var(--accent); }
-.pagination { margin: 4rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
-.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-.page-title { margin-bottom: 3rem; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; }
-footer { text-align: center; padding: 4rem 0; color: #aaa; font-size: 0.75rem; border-top: 1px solid var(--border); }
-@media (max-width: 600px) { .nav-menu { display: none; } }
+.card:hover{
+  transform:translateY(-2px);
+}
+
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
+.tag-hdr p{font-size:13px;color:var(--t3)}
+@media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="/" class="logo">MAPLE BARREL</a>
-            <nav class="nav-menu">
-                <a href="/materials/">Материалы</a>
-                <a href="/longreads/">Лонгриды</a>
-                <a href="/about/">О проекте</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container"><h1 class="page-title">#Онтарио</h1><article class="post-card">
-        <span class="post-date">9 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1911@09-01-2026_21-28-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Чаевые без тормозов: канадцев всё чаще подталкивают платить больше
-​
 
-От кофе навынос до терминалов самообслуживания — запросы на чаевые в Канаде вылезают уже почти везде. <a href="https://www.ctvnews.ca/business/article/canadians-face-rising-tip-prompts-prices-with-no-end-in-sight-experts/">Эксперты называют это «ползучими чаевыми»</a>: система постепенно приучает клиентов оставлять больше и чаще.
-​
-
-Опрос H&R Block Canada за 2025 год показал:
-– 82% канадцев считают, что чаевые теперь «ожидаются» в гораздо большем числе мест
-– 90% уверены, что размеры чаевых стали чрезмерными
-– почти 60% признались, что платят больше, чем год назад
-​
-
-Профессор Торонто Метрополитенского университета Уэйн Смит говорит о «усталости от чаевых». Раньше чек клали на стол — сейчас терминал держат прямо перед лицом клиента. Продавец смотрит, кнопки с процентами мигают, неловкая пауза работает лучше любого давления.
-​
-
-Пандемия только закрепила этот механизм. Приложения доставки встроили чаевые прямо в оплату, а цифровые терминалы сделали их «незаметными». Деньги уходят не физически — психологический барьер ниже. Это называют эффектом социальной желательности: никто не хочет выглядеть жадным.
-​
-
-Профессор Университета Саскачевана Марк Ментцер добавляет: минимальные варианты чаевых на терминалах часто начинаются выше 15%, и это уже норма. Поведение потребителей меняется не случайно — его формируют технологии и инфляция.
-​
-
-По данным Статистического управления Канады, в 2024 году чаевые или комиссионные получали около 1,2 млн работников — почти 7% рабочей силы. В сфере общепита и размещения — более 43%.
-​
-
-Отдельная боль — разрыв между минимальной и «прожиточной» зарплатой. Федеральный минимум — $17,75 в час, в провинциях — от $15 до $18. Для сравнения: прожиточная ставка в районе Большого Торонто оценивается примерно в $27,20. Разницу традиционно перекладывают на клиентов.
-​
-
-Даже отмена пониженной ставки для официантов в Онтарио в 2022 году ничего не изменила: базовая оплата выросла, а чаевые остались на прежнем уровне. Более того, в провинциях с самыми низкими минимальными ставками часто фиксируют и самые низкие чаевые.
-​
-
-Ситуацию усугубляют цены. В 2024 году стоимость еды в ресторанах выросла на 3,3%, а продовольственная инфляция уже девять месяцев подряд опережает общую. Даже при неизменном проценте чаевых итоговая сумма растёт автоматически.
-​
-
-И ещё один нюанс, о котором многие не знают: чаевые редко достаются одному официанту. В Онтарио, Британской Колумбии и Квебеке разрешены «пулы», где деньги распределяются между персоналом. Формальных правил часто нет, а клиенту об этом никто не сообщает.
-​
-
-Итог прост: давление растёт сразу с двух сторон — через цены и через экраны терминалов. А остановок на горизонте не видно.
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">7 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1888@07-01-2026_11-36-48.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Дональд Трамп только что похоронил трубопроводные мечты Альберты
-
-<b>Мнение</b>:
-
-<a href="https://www.nationalobserver.com/2026/01/06/opinion/trump-alberta-venezuela-oil">Макс Фосетт, National Observer</a>
-​
-​
-​
-​
-​
-Ещё до разговоров про «51-й штат», до тарифов, рейдов ICE и откровенно незаконного удара по Венесуэле Дональд Трамп уже был самым непопулярным президентом США в истории Канады. Почти без конкуренции.
-​
-​
-​
-Но было одно исключение — Альберта. Особенно нефтегазовый сектор. Там в Трампе видели человека, который срежет регулирование, свернёт климатическую повестку и надавит на Оттаву.
-​
-​
-​
-В реальности они получили президента, который хочет резко нарастить добычу в США, уронить цены и заменить канадскую нефть американской — той, что можно контролировать напрямую. Пока в Альберте годами рассказывали, что Джастин Трюдо «убивает нефтянку», именно Трамп может нанести ей реальный удар.
-​
-​
-​
-Если авантюра США в Венесуэле вдруг сработает и американские компании восстановят местную инфраструктуру, на рынок вернутся миллионы баррелей тяжёлой нефти — прямой конкурент канадскому экспорту.
-​
-​
-​
-Плюс Гайана с её гигантскими офшорными месторождениями. Они уже добывают больше нефти, чем Венесуэла, и добыча там дешевле и проще. Именно это, а не Венесула, может быть настоящей целью Трампа и его корпоративных союзников.
-​
-​
-​
-Это не мгновенная угроза — восстановление добычи займёт годы, да и трубопроводов к американским НПЗ пока нет. Но сам факт появления дополнительной нефти на и так перенасыщенном рынке — плохая новость для Альберты.
-​
-​
-​
-Рынок это понял быстро. В день после атаки на Венесуэлу нефть и основные индексы росли, а крупнейшие канадские нефтегазовые компании падали сильнее остальных.
-​
-​
-​
-И это может быть только начало. Если оккупация Венесуэлы пойдёт по привычному американскому сценарию, нефтегазовая отрасль рискует стать глобальным изгоем. Потребители в Европе, Азии и даже в США могут ускоренно уходить в электромобили — тем более что они становятся дешевле и доступнее.
-​
-​
-​
-Раньше такого выбора не было — ни во время Ирака, ни раньше. Теперь есть. И у главного геополитического соперника США есть прямой интерес этот выбор поощрять. Китай вряд ли ответит санкциями или войной — он просто продолжит захватывать рынки электромобилей и энергетических технологий.
-​
-​
-​
-На этом фоне в Канаде снова звучат призывы строить новые трубопроводы к Тихому океану. Премьер Альберты Даниэль Смит уже говорит о «необходимости диверсифицировать экспорт» и о совместном с коренными народами трубопроводе к северо-западному побережью Британской Колумбии.
-​
-​
-​
-Это сознательное подменивание темы. Пока никто не предлагает закрыть экспорт в США, ни одна компания не вложится в новый миллион баррелей в день на рынке, где спрос замедляется, а предложение растёт. И за это Альберта может поблагодарить именно Трампа.
-​
-​
-​
-Канадская нефтянка любит Дональда Трампа. Но после Венесуэлы она, скорее всего, возненавидит его так же, как и вся остальная страна.
-​
-​
-​
-Если говорить о защите от американского давления, логичнее обсуждать трубопровод в Онтарио и Квебек — чтобы сократить импорт нефти из США. Или налог на экспорт, который помог бы профинансировать восточно-западную инфраструктуру. Можно даже вспомнить про новый Национальный энергетический план.
-​
-​
-​
-Но пока Канада продолжает делать вид, что администрация Трампа не пытается ослабить нашу экономику и подорвать суверенитет. Рано или поздно руководству нефтегазового сектора Альберты придётся признать: их просто «отрампили».
-​
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/dzhastin-tryudo/" class="badge person-badge">Джастин Трюдо</a><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">6 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1882@06-01-2026_12-02-18.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Профсоюзы и госслужащие выступили против обязательного возвращения в офисы в Онтарио
-​
-
-<a href="https://www.cbc.ca/news/canada/toronto/full-time-return-to-office-ontario-public-service-9.7033998">С 5 января в Онтарио вступило в силу</a> требование о полном возвращении государственных служащих в офисы — пять дней в неделю. Решение правительства вызвало резкую критику со стороны профсоюзов и самих работников.
-​
-
-Глава Ontario Public Service Employees Union Джей Пи Хорник назвал мандат «возвратом в прошлую эпоху». По его словам, политика не учитывает реальность: нехватку офисных площадей, длинные поездки и отсутствие диалога с профсоюзами.
-​
-
-Отдельная проблема — альтернативные форматы работы. По данным OPSEU, около 10 тысяч сотрудников подали заявки на гибкий режим или удалёнку, но ни одна из них пока не была рассмотрена.
-​
-
-Даже сам приказ выполняется не везде. Некоторые ведомства, включая LCBO, отложили возвращение сотрудников из-за банальной нехватки рабочих мест.
-​
-
-Правительство объявило о возврате к офисному формату ещё в августе. До этого, с 2022 года, действовала гибридная модель — три дня в офисе. Премьер Doug Ford утверждал, что полный офисный режим повысит продуктивность и поддержит малый бизнес в центре городов.
-​
-
-Профсоюзы с этим не согласны. Хорник указывает, что часы, проведённые в пробках, снижают эффективность труда и наносят удар по бизнесам в спальных районах, которые выигрывали от удалённой работы.
-​
-
-Форд, в свою очередь, заявил, что проблемы с офисами — «небольшая кочка на дороге», а трафик не станет хуже, чем раньше. Он также связал ситуацию с будущими инфраструктурными проектами, включая новые линии общественного транспорта.
-​
-
-Против мандата выступили и работники системы здравоохранения. Члены профсоюза Canadian Union of Public Employees из Ontario Health atHome провели акцию протеста, требуя вернуть гибридный формат.
-​
-
-По их словам, удалённая работа позволяла экономить деньги, снижала стресс и повышала продуктивность. Теперь же сотрудники жалуются на переполненные офисы и отсутствие понятного смысла в ежедневных поездках.
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">6 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1881@06-01-2026_09-04-05.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">«Запасайтесь»: Даг Форд подтвердил, что Crown Royal уберут с полок LCBO уже в феврале
-​
-
-<a href="https://globalnews.ca/news/11599577/lcbo-crown-royal-removal-confirmed/">Премьер Онтарио Doug Ford официально подтверди</a>л: канадский виски Crown Royal исчезнет из ассортимента LCBO после закрытия завода в Амхерстберге. Покупателям он посоветовал «запастись заранее».
-​
-
-Речь идёт о конфликте с корпорацией Diageo, которая решила закрыть завод по розливу в городе Amherstburg. Компания утверждает, что это часть глобальной реструктуризации, а не следствие тарифов или давления со стороны властей.
-​
-
-По плану Diageo, розлив продукции для американского рынка перенесут в США, а бутылки для Канады будут производиться на заводе в Валлифилде, Квебек. Форд заявил, что предлагал варианты поддержки предприятия, чтобы сохранить рабочие места, но договориться не удалось.
-​
-
-В знак протеста осенью 2025 года Форд демонстративно вылил бутылку Crown Royal на пресс-конференции и пригрозил убрать с полок всю продукцию Diageo. Теперь он уточнил: под санкции попадёт только Crown Royal.
-​
-
-Другие бренды компании — Gordon’s Gin, Smirnoff и Guinness — пока трогать не будут. При этом премьер прямо заявил: решение окончательное и будет реализовано сразу после закрытия завода.
-​
-
-Предприятие планируют остановить в феврале 2026 года. Это затронет 168 профсоюзных работников и ударит по экономике небольшого города. Мэр Амхерстберга Майкл Прю ранее говорил, что есть как минимум три компании, заинтересованные в аренде завода и сохранении рабочих мест.
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/dag-ford/" class="badge person-badge">Даг Форд</a> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">5 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1879@05-01-2026_18-34-07.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Новые законы и правила в Канаде в 2026 году — что изменится для жителей
-
-​
-
-<a href="https://apple.news/AfS1-Bn4iQJaMoQCDIKwxSw">2026 год принёс целый пакет федеральных и провинциальных изменений</a> — от налогов и зарплат до миграции, рынка труда и цен на лекарства. Часть правил вступила в силу уже с 1 января.
-
-​
-
-Налоги и правила CRA
-
-​
-
-Новые налоговые ставки
-
-​
-
-Правительство Марка Карни снизило нижнюю федеральную ставку подоходного налога с 15% до 14%. В 2026 году это впервые действует весь год.
-
-​
-
-Федеральные налоговые пороги на 2026 год:
-– до $58 523 — 14%
-– $58 523–117 045 — 20,5%
-– $117 045–181 440 — 26%
-– $181 440–258 482 — 29%
-– свыше $258 482 — 33%
-
-​
-
-TFSA
-
-​
-
-Лимит взноса остаётся $7 000.
-Для тех, кто никогда не вносил средства и родился в 1991 году или раньше, совокупный лимит достигает $109 000.
-
-​
-
-RRSP
-
-​
-
-Максимальный лимит взносов повышен до $33 810 (против $32 490 в 2025 году).
-Ограничение — до 18% дохода за прошлый год.
-
-​
-
-Базовый личный вычет
-
-​
-
-Необлагаемый минимум вырос до $16 452.
-Это означает налоговую экономию до $2 303 для большинства налогоплательщиков.
-
-​
-
-Пенсии и банковские правила
-
-​
-
-CPP
-
-​
-
-Ставка взносов не меняется — 5,95% (11,9% для самозанятых).
-Максимальный взнос:
-– $4 230,45 для работников
-– $8 460,90 для самозанятых
-
-​
-
-Выплаты CPP увеличатся на 2% в январе — меньше, чем в прошлые годы, на фоне замедления инфляции.
-
-​
-
-NSF-чеки
-
-​
-
-С 12 марта 2026 года:
-– штраф за NSF ограничен $10
-– не более одного штрафа за два рабочих дня
-– штрафы запрещены при разрешённом овердрафте менее $10
-
-​
-
-Иммиграция
-
-​
-
-Пауза по уходовым программам
-
-​
-
-Федеральное правительство приостанавливает Home Care Worker Immigration pilots — программы, позволявшие сиделкам и помощникам по уходу получать ПМЖ.
-Это прерывает почти 30-летнюю практику отдельных иммиграционных путей для caregivers.
-
-​
-
-Работа и зарплаты
-
-​
-
-Минимальная зарплата
-
-​
-
-Федеральный минимум вырастет до $18,10 с 1 апреля.
-
-​
-
-Провинции:
-– Остров Принца Эдуарда — $17 с 1 апреля
-– Новая Шотландия — $16,75 с 1 апреля и $17 с 1 октября
-
-​
-
-Онтарио, Британская Колумбия, Альберта, Ньюфаундленд и Лабрадор, Юкон и Северо-Западные территории также готовят повышение — точные цифры пока не объявлены.
-
-​
-
-Свободная торговля внутри Канады
-
-​
-
-Закон о свободной торговле и мобильности труда
-
-​
-
-С 1 января вступает в силу закон, снимающий федеральные барьеры на перемещение товаров, услуг и работников между провинциями.
-
-​
-
-Примеры:
-– товар, одобренный в провинции, автоматически соответствует федеральным требованиям
-– лицензированные специалисты смогут проще работать в федеральных юрисдикциях
-
-​
-
-Онтарио: вакансии и мобильность труда
-
-​
-
-Новые правила вакансий
-
-​
-
-С 1 января работодатели обязаны:
-– указывать зарплату или диапазон (разница не более $50 000)
-– не требовать канадский опыт работы
-– раскрывать использование ИИ в найме
-– сообщать кандидатам о решении в течение 45 дней
-
-​
-
-As of Right
-
-​
-
-Врачи, инженеры, электрики и другие лицензированные специалисты из других провинций смогут начать работу в Онтарио по ускоренной процедуре — с подтверждением в течение 10 рабочих дней.
-
-​
-
-Британская Колумбия
-
-​
-
-С 2026 года компании с 50+ сотрудниками обязаны публиковать ежегодные отчёты о гендерном разрыве в оплате труда.
-
-​
-
-Canada Strong Pass
-
-​
-
-Программа бесплатного и льготного доступа в национальные парки, музеи и исторические объекты:
-– действует до 15 января 2026
-– вернётся летом 2026
-– включает скидки на кемпинги и Via Rail
-
-​
-
-Цены на лекарства
-
-​
-
-Совет по контролю цен на запатентованные лекарства вводит новые правила:
-– углублённые проверки только при превышении мировых цен или инфляции
-– жалобы смогут подавать только министры здравоохранения и госпрограммы
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">4 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1871@04-01-2026_15-04-36.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Стартап из Монреаля разработал надувные «штаны-эйрбэги» для защиты пожилых людей от переломов при падении
-​
-​
-​
-<a href="https://www.ctvnews.ca/montreal/article/montreal-startup-develops-inflatable-fall-protection-pants-aimed-at-preventing-hip-fractures/">Монреальская компания Azimut Medical представила</a> необычное решение для одной из самых серьёзных проблем пожилого возраста — падений и переломов шейки бедра. Стартап встроил систему надувных подушек безопасности прямо в брюки.
-​
-​
-​
-При падении устройство срабатывает за доли секунды: слышен тихий хлопок, и эйрбэг полностью раскрывается ещё до контакта с полом. Защитные элементы размещены в поясе и закрывают область бёдер и таза.
-​
-​
-​
-Генеральный директор и сооснователь компании Максим Болдук объясняет, что ключевое отличие — не в «железе», а в программной части. Алгоритм машинного обучения анализирует движения и умеет отличать реальное падение от обычного присаживания на диван.
-​
-​
-​
-Идея проекта появилась у Болдука после размышлений о безопасности собственных бабушки и дедушки. Имея образование инженера-механика и магистра по управлению инновациями, он решил создать более эффективную альтернативу классическим защитным накладкам из пены, которые вставляют в бельё.
-​
-​
-​
-Гериатр доктор Стефан Лемир отмечает, что прежние защитные решения были неудобными и непопулярными среди пациентов, тогда как надувная защита выглядит куда более перспективно. По его словам, такие устройства способны снизить число госпитализаций и переломов шейки бедра.
-​
-​
-​
-Цена технологии пока остаётся высокой — коммерческая версия может стоить около 1500 долларов за пару, произведённую в Квебеке. При этом исследования компании показывают, что новая разработка на 64% эффективнее традиционных защитных средств.
-​
-​
-​
-Клинические испытания стартуют в январе 2026 года в Квебеке и Онтарио. Первые участники программы получат возможность начать год с дополнительной защитой — буквально надетой на себя.
-​
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">29 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1846@29-12-2025_22-37-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Второй ультрабогатый сексуальный преступник в окружении принца Эндрю
-​
-​
-Связь принца Эндрю Маунтбеттен-Виндзор с Джеффри Эпштейном давно стала символом его репутационного краха. Но опубликованные материалы ФБР показывают: в его окружении был ещё один человек с похожей биографией — канадский миллиардер Питер Найгард.
-​
-​
-Найгард — основатель компании Nygard International, одного из крупнейших производителей массовой женской одежды в Северной Америке. Его бизнес строился не на люксе и подиумах, а на недорогой «офисной» и повседневной одежде, продаваемой через универмаги и сетевые магазины. В пике у компании было около 170 торговых точек, собственные фабрики и почти 1 500 сотрудников по всему миру.
-​
-​
-История Найгарда долго подавалась как канадская версия «американской мечты»: бедное детство в Финляндии, эмиграция в Манитобу, старт с небольшого кредита — и затем миллиарды, частные самолёты и собственный остров на Багамах. Сам он называл себя «новыми деньгами», заработанными «по заслугам».
-​
-​
-Параллельно с ростом бизнеса, по версии следствия, годами существовала система сексуальной эксплуатации. В 2024 году 84-летний Найгард был приговорён к 11 годам тюрьмы за сексуальные нападения на четырёх женщин в Торонто. На момент преступлений жертвам было от 16 до 28 лет. Отдельно остаётся в силе коллективный иск от 57 женщин, обвиняющих его в насилии с конца 1970-х годов.
-​
-​
-Документы ФБР показывают: в апреле 2020 года американские власти запросили у Великобритании допрос принца Эндрю в рамках расследования, связанного с Найгардом. Следователей интересовало:
-– видел ли он несовершеннолетних девушек на острове Найгарда на Багамах
-– каков был характер его отношений с бизнесменом
-– существовали ли между ними финансовые контакты
-​
-​
-В 2000 году Эндрю отдыхал в багамском поместье Найгарда вместе с Сара Фергюсон и дочерьми — Евгенией и Беатрис. Поместье представляло собой эксцентричный «дворец развлечений» с тематическими вечеринками и элементами, которые позже фигурировали в обвинениях о сексуальной эксплуатации.
-​
-​
-ФБР подчёркивало, что принц не являлся объектом расследования и доказательств его преступлений не имелось. Тем не менее власти США считали, что он может располагать информацией, важной сразу для двух дел — Найгарда и Джеффри Эпштейн.
-​
-​
-Судья Верховного суда Онтарио Роберт Голдштейн назвал Найгарда «сексуальным хищником», который использовал деньги и власть для систематического насилия. «Канадская история успеха, пошедшая катастрофически не туда», — так суд описал итог его карьеры.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">28 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1832@28-12-2025_10-44-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Онтарио меняет правила публикации вакансий с 1 января 2026 года
-​⁠ ​
-
-Власти Онтарио вводят новые требования к публичным вакансиям. <a href="https://www.cbc.ca/news/canada/ottawa/major-changes-to-ontario-law-on-job-postings-coming-jan-1-9.7026281">Изменения в рамках Employment Standards Act</a> затронут работодателей с численностью более 25 сотрудников.
-​⁠ ​
-
-Главные нововведения:
-​⁠ ​
-– в каждой вакансии обязательно указывать оплату труда; диапазон зарплаты не может превышать $50 000 в год
-– работодатель обязан сообщать, используется ли искусственный интеллект в процессе подбора
-– запрет на требование «канадского опыта работы»
-– обязанность уведомить кандидата о принятом решении не позднее чем через 45 дней после последнего интервью
-​⁠ ​
-
-В рекрутинговой индустрии инициативу оценивают неоднозначно. Руководитель Altis Recruitment Кэтрин Тремблей поддерживает курс на прозрачность, но сомневается, что эффект будет значительным. По её словам, слишком широкий зарплатный коридор снижает ценность информации для соискателей.
-​⁠ ​
-
-Похожий опыт уже был в Британской Колумбии: после обязательного раскрытия зарплат гендерный разрыв сократился лишь на 2%. Тремблей ожидает от Онтарио схожий, ограниченный результат.
-​⁠ ​
-
-Отдельный вопрос — ИИ в найме. Формальное уведомление, по мнению экспертов, вряд ли снимет опасения о скрытой дискриминации, поскольку большинство работодателей будут использовать стандартные формулировки.
-​⁠ ​
-
-На фоне роста безработицы бизнес опасается дополнительной нагрузки и спешно готовится к вступлению правил в силу.
-​⁠ ​
-
-Источник: CBC News
-​⁠ ​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">25 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1827@25-12-2025_12-23-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Канада перестаёт быть выбором №1 для студентов из Индии
-​
-​
-Ещё недавно Канада была главным направлением для индийских студентов. <a href="https://www.therecord.com/news/waterloo-region/canada-no-longer-top-choice-for-students-from-india/article_cef50ca8-0cf4-54e6-bab9-cc9adc1bef89.html">Теперь они всё чаще выбирают Австралию, Европу и Великобританию</a> — и этот сдвиг уже подтверждён официальной статистикой и данными с места.
-​
-​
-В Нью-Дели учебные классы, где раньше ежемесячно готовились сотни абитуриентов для Канады, сегодня почти пусты. По словам визовых консультантов, поток студентов сократился в десятки раз — с сотен до единиц.
-​
-​
-Данные Immigration, Refugees and Citizenship Canada показывают масштаб обвала:
-– с января по август 2025 года было одобрено всего 9 955 студенческих виз для граждан Индии
-– годом ранее за тот же период — почти 77 000
-– два года назад — около 150 000
-​
-​
-Даже число заявок рухнуло: в августе 2023 года — 19 175 заявлений, в августе 2025 — лишь 3 920.
-​
-​
-Причины, по словам консультантов, не ограничиваются квотами. Ключевой фактор — деньги. Минимальная сумма в GIC выросла с $10 000 до $20 000, что стало серьёзным психологическим и финансовым барьером для семей. К этому добавились федеральные лимиты, сокращение временных рабочих разрешений и неопределённость с путями к ПМЖ.
-​
-​
-Параллельно другие страны сделали свои системы более привлекательными:
-– Австралия расширила права на работу после учёбы
-– Европа активно наращивает приём студентов
-– Великобритания удерживает стабильные объёмы виз
-​
-​
-По данным ApplyBoard, для 80% индийских студентов решающим фактором стали именно перспективы работы после выпуска — и здесь Канада больше не выглядит самым надёжным вариантом.
-​
-​
-Эффект уже заметен в Онтарио. В University of Waterloo число новых разрешений на обучение для бакалавров сократилось на 43% за два года. Аналогичную динамику фиксирует Wilfrid Laurier University. Регион становится более «аспирантским» и менее ориентированным на бакалавриат.
-​
-​
-Особенно болезненно спад ударил по колледжам. В Conestoga College международный набор упал почти на две трети, что привело к сокращению более 2 500 сотрудников. При этом внутренний набор канадских студентов растёт, но международный поток остаётся тонким.
-​
-​
-Консультанты в Индии сходятся в одном: Канада по-прежнему уважаема, но больше не воспринимается как автоматический и самый безопасный выбор.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">24 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1818@24-12-2025_09-29-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">«Никогда больше»: пенсионер из Виндзора опозорился из-за пустых подарочных карт
-
-​⁠
-​⁠
-<a href="https://www.cbc.ca/news/canada/windsor/scammed-gift-cards-tim-hortons-windsor-9.7021349">66-летний Марк Дюгей из Виндзора говорит,</a> что больше никогда не купит подарочные карты. Причина — $275, которые буквально исчезли.
-
-​⁠
-​⁠
-В начале декабря его клуб пенсионеров по игре в эухр решил поблагодарить пятерых организаторов. Скинулись деньгами, а Дюгею поручили купить подарки — пять карт Tim Hortons по $55.
-
-​⁠
-​⁠
-Карты он приобрёл в Dollarama. 10 декабря их вручили адресатам. Уже на следующий день все пятеро вернулись с одной и той же новостью: карты не работают. Баланс — ноль. Сообщение системы — «access denied».
-
-​⁠
-​⁠
-Проверка подтвердила: все карты были «обнулены». Деньги сняты ещё до того, как подарки попытались использовать.
-
-​⁠
-​⁠
-Dollarama отказалась возвращать средства, сославшись на то, что не может доказать, кто именно использовал карты. В Tim Hortons на запрос CBC не ответили.
-
-​⁠
-​⁠
-По словам главы Better Business Bureau в Западном Онтарио Дженнифер Мэттьюз, это типичная схема. Мошенники подменяют или считывают штрих-коды подарочных карт, возвращают их на полки, а затем моментально списывают деньги, как только карта активируется на кассе.
-
-​⁠
-​⁠
-Эксперты советуют:
-– внимательно осматривать защитный слой на обратной стороне
-– покупать карты онлайн
-– или брать только те, что хранятся за прилавком
-
-​⁠
-​⁠
-Сам Дюгей говорит, что сильнее всего его задело не потерянное $275, а чувство стыда перед клубом.
-
-​⁠
-​⁠
-«Такое ощущение, будто это я украл деньги. Я знаю, что меня поняли. Но объяснить это — слово против системы», — говорит он.
-
-​⁠
-​⁠
-Его вывод прост: «Подарочные карты — всё. Никогда больше».
-
-​⁠
-​⁠
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">23 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1814@23-12-2025_13-46-54.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Либералы и консерваторы сравнялись: по 38%
-​
-​
-<a href="https://press.liaisonstrategies.ca/liberals-tories-tied-at-38/?ref=liaison-strategies-newsletter">Новый общенациональный опрос компании Liaison Strategies показывает</a>, что Либеральная партия Марка Карни продолжает терять поддержку и теперь делит первое место с консерваторами — по 38%.
-​
-​
-Опрос проводился 19–21 декабря среди 1 000 канадцев методом автоматических телефонных звонков (IVR). Погрешность — ±3,09 п.п.
-​
-​
-Ключевые цифры:
-– либералы: 38% (–3 п.п. с прошлого замера)
-– консерваторы: 38% (+2 п.п.)
-– НДП: 12% по стране, 19% в Британской Колумбии
-​
-​
-Региональная картина остаётся более благоприятной для либералов:
-– Атлантическая Канада: +7
-– Квебек: +4 (по сравнению с Блоком)
-– Онтарио: +5
-– Британская Колумбия: +4
-​
-​
-Консерваторы уверенно доминируют на прериях:
-– Саскачеван и Манитоба: +26
-– Альберта: +40
-​
-​
-Личный рейтинг Марка Карни продолжает снижаться, но всё ещё остаётся в плюсе. По данным трекинга Liaison, его чистый рейтинг одобрения составляет +18, несмотря на рост негативных оценок.
-​
-​
-Социологи отмечают разрыв между личной популярностью премьера и текущими электоральными намерениями — эффект, который может исчезнуть по мере того, как Карни проведёт полный год у власти.
-​
-​
-На фоне нестабильного 2025 года аналитики не исключают в 2026-м ничего: ни новых переходов депутатов, ни досрочных выборов, ни неожиданных политических поворотов.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">23 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1813@23-12-2025_12-47-38.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Уволенные разработчики GTA в Канаде просят вернуть им работу
-​
-​
-Один из канадских сотрудников студии Rockstar, уволенных осенью, <a href="https://www.cbc.ca/news/entertainment/grand-theft-auto-canadian-fired-worker-9.7024478">рассказал CBC News</a>, что увольнение стало полным шоком. В октябре компания одновременно уволила 34 человека — троих в Канаде и 31 в Великобритании — заявив о «грубых нарушениях» и утечке корпоративной информации.
-​
-​
-Сами сотрудники и профсоюзы называют происходящее откровенным подавлением профсоюзной активности. По их словам, все уволенные состояли в одном Discord-чате, где работники игровой индустрии обсуждали условия труда и возможность объединения в профсоюз. Других общих признаков у них не было.
-​
-​
-Rockstar и её материнская компания Take-Two Interactive доказательств утечек не предоставили и на запросы CBC о канадских сотрудниках не ответили. Профсоюзные представители называют обвинения необоснованными и говорят о «охлаждающем эффекте» для всей индустрии — работники боятся обсуждать условия труда из страха быть уволенными или фактически занесёнными в чёрный список.
-​
-​
-Игровая индустрия давно сопротивляется профсоюзам, несмотря на многолетние жалобы на переработки и «crunch» — периоды экстремальных сверхурочных перед релизами. Rockstar уже критиковали за такую практику в прошлом, в том числе во время разработки Red Dead Redemption 2.
-​
-​
-В Канаде ситуация особенно чувствительна: несколько крупных студий контролируют значительную часть рынка труда, и потеря репутации может закрыть дорогу к будущей работе.
-​
-​
-Ранее премьер Великобритании Кир Стармер назвал увольнения «глубоко тревожными» и пообещал разобраться. В Онтарио министр труда напомнил, что работники имеют право обсуждать условия труда без страха репрессий.
-​
-​
-Сами уволенные говорят, что не требуют ничего сверхъестественного — они просто хотят вернуться к работе над игрой. По их словам, все они пришли в Rockstar, чтобы делать лучший возможный продукт, и по-прежнему считают студию способной изменить своё отношение к сотрудникам.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">22 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1808@22-12-2025_20-46-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Первое Рождество Канады без Hudson’s Bay Company
-​
-​
-Впервые за более чем три с половиной века Канада встречает Рождество без Hudson’s Bay Company — компании, которая не просто торговала, а буквально участвовала в создании страны.
-​
-​
-Финал оказался символичным и тихим. В декабре суд Онтарио разрешил продать оригинальный королевский чартер 1670 года — документ, давший HBC контроль над территорией, превышавшей по размеру Священную Римскую империю. А месяцем ранее последние 25 магазинов компании были возвращены арендодателям. Юридическая сага 2025 года завершилась.
-​
-​
-Некогда флагманские универмаги приходили в упадок задолго до ликвидации. В Оттаве эскалаторы месяцами не работали, а покупатели поднимались по тёмным лестницам к финальным распродажам. Среди последних товаров — безликие манекены по $50.
-​
-​
-История HBC началась в 1670 году как авантюрный проект британской знати, искавшей Северо-Западный проход и прибыль от пушнины. Компания выжила только благодаря помощи коренных народов — дене, инуитов, кри и других, которые делились едой, знаниями и маршрутами.
-​
-​
-Королевский чартер дал компании право управлять, вести войны и торговать на землях, которые позже стали третью современной Канады. В 1869 году эти территории — «Земля Руперта» — были проданы молодому канадскому государству. Коренные народы в сделке не участвовали и ничего не получили.
-​
-​
-В XX веке HBC превратилась в крупнейшего ритейлера страны: торговые посты сменились универмагами, а к 2003 году оборот достиг $7,3 млрд, штат — 70 тысяч человек. К началу 2025-го у компании осталось $3,3 млн наличными при долгах свыше $2 млрд. В момент ликвидации — 9 тысяч сотрудников.
-​
-​
-Крах вызвал волну ностальгии. Цены на культовые полосатые одеяла HBC взлетели, став для многих символом «старой Канады» — стабильной и понятной.
-​
-​
-Но для других это не повод для сентиментальности. Бывшие «Bay Boys» и лидеры коренных общин напоминают: история HBC — это и история лишения земель, неравенства и расизма. Для них исчезновение компании — не утрата, а закрытая глава.
-​
-​
-Сегодня пустой склад HBC в Йеллоунайфе стоит как музей без экспонатов. Для одних — символ национального прошлого. Для других — напоминание о том, какой ценой это прошлое было построено.
-​
-Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">22 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1805@22-12-2025_15-41-36.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Торонто идёт к 50-летнему минимуму по убийствам. Почему же горожанам кажется, что преступности стало больше?
-​⁠
-
-Вопреки устойчивому ощущению «всё становится хуже», <a href="https://www.thestar.com/news/gta/torontos-set-to-hit-a-50-year-low-in-homicides-so-why-do-many-people/article_175ae6eb-9d16-4990-ba47-b2ffa72ae316.html">статистика за 2025 год показывает обратное</a>: Торонто может закончить год с самым низким числом убийств за полвека. По состоянию на 18 декабря — 38 случаев. Для сравнения: в 2024 году было 81. Предыдущий минимум — 49 в 1999-м.
-​⁠
-
-Падают и другие ключевые показатели: нападения, грабежи, угоны, стрельба. Общее число инцидентов с применением огнестрельного оружия снизилось на 43%, сами стрельбы — на 30%.
-​⁠
-
-Но есть парадокс. По октябрьскому опросу Liaison Strategies, около 70% жителей десяти городов Онтарио уверены, что уровень преступности растёт. В Торонто — 76% считают, что убийств стало больше.
-​⁠
-
-Причина — разрыв между цифрами и ощущениями. Криминологи называют это «парадоксом риска и страха»:
-– медиа и соцсети усиливают эффект редких, но шокирующих трагедий;
-– старые всплески преступности (например, автоугоны) запоминаются дольше, чем нынешний спад;
-– политики постоянно говорят о «жёсткой борьбе с преступностью», закрепляя ощущение кризиса.
-​⁠
-
-Полиция признаёт: статистика улучшается, но чувство безопасности — нет. А для избирателей именно ощущение важнее сухих таблиц. С учётом приближающихся муниципальных выборов тема преступности никуда не денется, даже если цифры продолжают идти вниз.
-​⁠
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">20 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1791@20-12-2025_09-42-03.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Самые загруженные дни путешествий в году уже здесь. Хаос или спокойствие?
-​
-​
-Конец декабря — традиционно пик путешествий в Канаде. В ближайшие дни аэропорты, вокзалы и трассы будут работать на пределе: это самые загруженные даты всего 2025 года. Вопрос, который волнует всех — подведёт ли погода.
-​
-​
-<a href="https://www.cbc.ca/news/canada/christmas-travel-delays-9.7022815">По данным Environment and Climate Change Canada</a>, в этом году картина на удивление мягкая. Главный климатолог ведомства Дэвид Филлипс говорит прямо: ничего экстремального не ожидается. Немного дождей в Ванкувере, слабый снег в Онтарио и Атлантических провинциях, ясная и холодная погода на севере.
-​
-​
-«Когда смотришь на прогноз на неделю — он удивительно спокойный», — отмечает Филлипс. Для канадской зимы это редкий подарок.
-​
-​
-Аэропорты, тем временем, перешли в режим максимальной загрузки:
-​
-– Toronto Pearson ждёт около 171 тысячи пассажиров в день и официально объявил «holiday peak mode»
-– Оттава ожидает пик с 21 по 23 декабря — рейсы почти полностью заполнены
-– Калгари прогнозирует 1,48 млн пассажиров за декабрь
-– Ванкувер уже прошёл самый загруженный день сезона
-​
-​
-Основные направления — традиционные: внутренние перелёты в Ванкувер, Калгари и Монреаль, а также массовый поток в тёплые страны — Мексика и Доминикана. Спрос на поездки, по словам аэропортов, выше обычного.
-​
-​
-Метеорологи всё же предупреждают: в ближайшие 24 часа возможны сложные условия в южном Онтарио и Квебеке — дождь, снег, ветер и резкое похолодание, что может привести к гололёду. Но уже на следующей неделе системы ослабеют.
-​
-​
-Вывод простой: толпы — да, серьёзных погодных сюрпризов — скорее всего, нет. Но проверять прогноз и статус рейса перед выездом всё равно придётся. Канадская зима любит напоминать о себе внезапно.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1789@19-12-2025_20-45-15.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Мухаммад и Эмма — самые популярные имена новорождённых в Торонто в 2024 году
-​
-​
-В Торонто в 2024 году родители чаще всего называли мальчиков Мухаммад, а девочек — Эмма. Об этом сообщило правительство Онтарио, опубликовав свежую статистику по регистрации новорождённых.
-​
-​
-Мухаммад за год поднялся сразу с четвёртого места и обошёл Ноя, который ранее стабильно лидировал. В десятку самых популярных мужских имён в городе также вошли Лиам, Адам, Итан, Лукас, Теодор, Александр, Ибрагим и Леви.
-​
-​
-У девочек Эмма вытеснила Оливию, которая много лет удерживала лидерство. В топ-10 также оказались Миа, Ава, Амелия, Изабелла, Хлоя и Эмили. Любопытная деталь — сразу два варианта имени София (Sofia и Sophia) попали в список, заняв седьмое и девятое места.
-​
-​
-По всей Онтарио картина более стабильная: Ной и Оливия снова стали самыми популярными именами — уже шестой год подряд для мальчиков и шестнадцатый для девочек. Мухаммад в масштабах провинции занял лишь девятое место.
-​
-​
-Власти использовали публикацию рейтинга как повод напомнить родителям о сервисе 5-in-1 Newborn Bundle от ServiceOntario, который позволяет оформить сразу несколько документов для ребёнка через одну заявку.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1788@19-12-2025_19-33-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Будущее Marineland в Ниагара-Фолс по-прежнему в подвешенном состоянии
-
-​
-<a href="https://www.cbc.ca/news/canada/marineland-future-property-niagara-falls-9.7020198">Жители Ниагара-Фолс всё больше недовольны </a>отсутствием решений по судьбе закрытого Marineland и десятков животных, включая до 30 белух и четырёх дельфинов. Почти два месяца прошло после отказа Оттавы разрешить экспорт животных — прогресса нет.
-
-​
-Когда-то Marineland был важным туристическим и экономическим объектом. Сейчас это пустующая территория площадью около 324 гектаров рядом с Ниагарским водопадом. Инвесторы интересуются землёй, но почти всех отпугивает ответственность за животных.
-
-​
-Содержание белух обходится примерно в $2 млн в месяц. После отказа в экспорте в Китай парк даже просил федеральное правительство о срочной помощи, предупреждая о риске эвтаназии.
-
-​
-Ситуацию осложняет закон 2019 года, запретивший разведение и использование китов и дельфинов в развлекательных целях, а также многолетние скандалы вокруг условий содержания животных. С 2019 года в Marineland умерли как минимум 19 белух, последняя косатка погибла в 2023 году.
-
-​
-Американская Knapp Capital Management предложила проект на $4 млрд: развлекательный комплекс с отелями, казино и санктуарием для белух. Компания заявляет, что готова сразу взять на себя уход за животными, но проект застопорился из-за отсутствия одобрений со стороны провинции.
-
-​
-Премьер Онтарио Даг Форд дистанцировался от проблемы, заявив, что Marineland — не объект правительства. Сам парк предложение инвесторов не прокомментировал.
-
-​
-Итог: у города есть земля, идеи и инвесторы, но судьба белух остаётся главным препятствием.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/dag-ford/" class="badge person-badge">Даг Форд</a> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1784@19-12-2025_14-34-19.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">В Онтарио и Квебеке накрыли крупную сеть краж из Shoppers Drug Mart
-
-​
-<a href="https://www.cbc.ca/news/canada/hamilton/project-somme-retail-crime-ring-9.7021191">Полиция Хэмилтона сообщила о ликвидации</a> организованной преступной группы, причастной к сотням краж из магазинов Shoppers Drug Mart в Онтарио и Квебеке. Ущерб — свыше $1 млн.
-
-​
-В рамках расследования Project Sommes арестован 21 человек в возрасте от 15 до 75 лет. Все — жители Хэмилтона и региона GTA. В операции участвовали полицейские службы Хэмилтона, а также регионов Пил, Йорк и Ватерлоо.
-
-​
-По данным полиции, схема была отлажена:
-– участники заходили в аптеки, в основном Shoppers
-– наполняли специальные сумки, экранированные от противокражных систем
-– незаметно покидали магазин
-– товар оперативно вывозился в Миссиссагу
-– затем перепродавался через ликвидационные склады и оптовиков
-
-​
-Среди украденного:
-– бритвы
-– никотиновая жвачка
-– косметика
-– кремы для лица
-
-​
-Полиция подчёркивает, что речь идёт не о мелком шоплифтинге, а о «сложной сети с централизованной логистикой», где регион Пил играл ключевую роль.
-
-​
-Расследование показало, что группа действовала как минимум с февраля 2024 года и могла быть причастна к сотням, а возможно и тысячам эпизодов. Точная сумма ущерба всё ещё подсчитывается.
-
-​
-16 обысков были проведены во вторник. Кроме того:
-– выданы ордера на арест ещё двух человек, которые, предположительно, покинули Канаду
-– двое подозреваемых задержаны в Британской Колумбии после серии краж в Ванкувере и будут этапированы в Онтарио
-
-​
-Всего фигурантам предъявлено 175 обвинений, включая:
-– участие в преступной организации
-– подстрекательство к совершению тяжких преступлений
-– хранение имущества, полученного преступным путём
-
-​
-Полиция намеренно концентрирует все обвинения в одном юрисдикционном центре — в Хэмилтоне. Это сделано, чтобы избежать быстрого освобождения под залог, с чем следствие уже сталкивалось ранее.
-
-​
-В Loblaws заявили, что организованные кражи — это не просто убытки для бизнеса: прибыль от перепродажи может использоваться для финансирования более тяжких и насильственных преступлений.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1783@19-12-2025_13-05-21.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Environment Canada назвала 10 главных погодных событий 2025 года
-​
-​
-<a href="https://cheknews.ca/a-look-at-environment-canadas-top-10-weather-events-for-2025-1295784/">Федеральная метеослужба опубликовала</a> ежегодный список самых значимых погодных явлений. 2025 год стал наглядным примером того, как экстремальные условия перестают быть исключением и превращаются в норму.
-
-​
-  1.  Второй по масштабу сезон лесных пожаров в истории Канады
-– сгорело более 89 000 кв. км
-– сильнее всего пострадали Саскачеван и Манитоба
-– пожары шли волнами из-за жары, засухи и ветра
-
-​
-2. Усиление засухи по всей стране
-– в Досон-Крике (Британская Колумбия) осенью оставалось лишь 150 дней запасов воды
-– на реке Святого Лаврентия суда застревали на обмелевших участках
-
-​
-3. Мощные грозы в центральном и восточном Онтарио
-– конец июня
-– десятки тысяч без электричества
-– разрушенные дороги, поваленные деревья
-– один погибший
-
-​
-4. Майская жара и пожары в Манитобе
-– температура превышала 35°C
-– пожар в парке Nopiming охватил более 100 000 гектаров
-– в Lac du Bonnet погибли два человека
-
-​
-5. Крупнейший ледяной дождь парализовал Онтарио
-– конец марта
-– Онтарио и Квебек покрылись толстым слоем льда
-– миллионы домов без электричества
-– открывались временные пункты обогрева
-
-​
-6. Серия сильных снегопадов в центре и на востоке страны
-– февраль
-– от Онтарио до Лабрадора
-– Миребель (Квебек) получил 53 см снега за одну бурю
-
-​
-7. Штормы разрушили Прерии
-– 20 августа
-– пострадали Альберта, Саскачеван и Манитоба
-– град размером с бейсбольный мяч
-– порывы ветра до 155 км/ч
-
-​
-8. Штормовой нагон воды в Туктояктуке, СЗТ
-– 30 августа
-– подъём уровня океана более чем на 2,5 метра
-– самый высокий показатель за всю историю наблюдений
-– ранее редкое явление для Арктики
-
-​
-9. Ноябрьский «погодный взрыв» в Атлантической Канаде
-– шторм перекрыл по эффекту весь сезон ураганов
-– юго-восток Ньюфаундленда
-– остров Сагуна — почти ураганный ветер 9 часов подряд
-
-​
-10. Рекордная позднелетняя жара на западе
-– конец августа
-– Литтон (Британская Колумбия): 40°C четыре дня подряд
-
-​
-2025 год стал ещё одним сигналом: экстремальная погода больше не эпизод, а устойчивый фон.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1779@18-12-2025_18-24-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Данные роддомов указывают на рост «родильного туризма» в Канаде
-​
-
-​
-Роды у иностранок без постоянного статуса в Канаде снова растут — <a href="https://www.theglobeandmail.com/politics/article-hospital-birth-data-suggests-increase-in-birth-tourism-says/">к такому выводу пришёл эксперт по иммиграционной статистике </a>Эндрю Гриффит, проанализировав свежие данные канадских больниц. Его исследование опубликовано в Policy Options.
-​
-
-​
-Речь идёт о женщинах, находящихся в стране по гостевым визам, а также о временных резидентах — иностранных студентах и временных работниках. В 2024–2025 финансовом году число таких родов выросло примерно на 4% по сравнению с прошлым годом.
-​
-
-​
-Особенность момента в том, что рост происходит на фоне сокращения временной иммиграции:
-– количество студенческих виз снизилось на 31%
-– число временных иностранных работников — на 21%
-​
-
-​
-Это позволяет предположить, что увеличение обеспечивают именно посетители по туристическим визам — классический «родильный туризм». Сам Гриффит прямо говорит, что такие случаи могут быть даже занижены в статистике.
-​
-
-​
-Ключевые цифры по данным больниц:
-– 5 430 родов у нерезидентов в 2024–2025 году
-– почти возврат к допандемийному уровню (5 698 в 2019–2020)
-– во время пандемии показатель падал почти на 50%
-​
-
-​
-География:
-– Онтарио — 2 895 родов
-– Квебек — 1 417
-– Британская Колумбия — 542
-– Альберта — 345
-– остальные провинции — 225
-​
-
-​
-Отдельный интерес вызывает концентрация таких родов: треть всех случаев пришлась всего на 10 больниц, включая четыре в районе Монреаля.
-​
-
-​
-Отдельные учреждения показывают резкий рост по сравнению с допандемийным периодом:
-– North York General (Торонто): +44%
-– Maisonneuve-Rosemount (Квебек): +80%
-– Humber River-Wilson (Торонто): почти +30%
-​
-
-​
-Важно: данные Статистического управления Канады дают значительно более высокую оценку. Используя демографическое моделирование, StatsCan предполагает, что в 2024 году около 35 000 из 366 000 родов в Канаде пришлись на женщин без постоянного статуса — значительно больше, чем показывают больничные данные.
-​
-
-​
-Политический фон уже накаляется. Консерваторы требуют пересмотра принципа автоматического гражданства по рождению и считают «родильный туризм» злоупотреблением системой. Либералы пока менять правило jus soli не готовы.
-​
-
-​
-По закону Канады любой ребёнок, рождённый на территории страны, автоматически становится гражданином — в отличие от Австралии или Великобритании, где нужен гражданский или постоянный статус одного из родителей.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1777@18-12-2025_14-14-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Главный санитарный врач Квебека предупреждает: грипп распространяется «почти как пожар»
-​
-
-​
-<a href="https://www.cbc.ca/news/canada/montreal/quebec-public-health-influenza-a-prevention-holidays-9.7017611">Педиатрические больницы Монреаля переполнены</a> накануне праздников из-за резкого всплеска сезонных вирусов. Власти просят родителей не обращаться в приёмные покои без острой необходимости.
-​
-
-​
-Глава общественного здравоохранения Квебека доктор Каролин Куаш заявила, что в провинции активно распространяется особенно заразный штамм гриппа A — H3N2. По её словам, сезон начался значительно раньше обычного и выйдет на пик как раз во время праздничных встреч.
-​
-
-​
-Причина тревоги — мутации вируса. Он частично уходит от защиты, которую дают как прошлые инфекции, так и вакцинация, что делает его более заразным.
-​
-
-​
-По данным Куаш, сейчас около 50% детей с симптомами, которых тестируют в Квебеке, получают положительный результат на грипп. Для сравнения, среди населения в целом этот показатель составляет около 26%.
-​
-
-​
-Ситуация в детских больницах Монреаля:
-– в Montreal Children’s Hospital загрузка носилок достигла 130%
-– в CHU Sainte-Justine — в среднем 147%
-– более 40% обращений связаны с лёгкими инфекциями
-​
-
-​
-Больницы подчёркивают: экстренная помощь оказывается всем нуждающимся, но при нетяжёлых симптомах ожидание может быть долгим. Родителей просят по возможности пользоваться альтернативами — линией Info-Santé 811 или клиниками без записи.
-​
-
-​
-Дополнительную обеспокоенность вызывает Онтарио, где в декабре грипп стал причиной смерти трёх детей в возрасте от пяти до девяти лет.
-​
-
-​
-Куаш вновь призвала жителей Квебека вакцинироваться от гриппа. Прививка не гарантирует полной защиты, но снижает риск осложнений. Также она напомнила о базовых мерах — мытьё рук, маски в общественных местах, избегание контактов с уязвимыми людьми и отказ от визитов на праздники при симптомах болезни.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1776@18-12-2025_13-12-14.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг
-​
-
-​
-Администрация Дональда Трампа <a href="https://www.cbc.ca/news/politics/trump-cusma-conditions-review-9.7020403">впервые публично обозначила</a>, что именно Канада должна изменить, чтобы сохранить торговое соглашение CUSMA после пересмотра в 2026 году. Об этом в Конгрессе заявил торговый представитель США Джеймисон Грир.
-​
-
-​
-По его словам, соглашение «сработало лишь частично». Американский экспорт в Канаду и Мексику вырос на 56% с 2020 года, но автоматическое продление на 16 лет Вашингтон не устроит. Альтернатива — ежегодный пересмотр, которого Оттава старается любой ценой избежать.
-​
-
-​
-Ключевые претензии США к Канаде:
-– расширить доступ американской молочной продукции на канадский рынок
-– пересмотреть правила экспортa молочных ингредиентов
-– изменить закон о стриминге, который распространяет канадские культурные требования на Netflix, Spotify и YouTube
-– отменить провинциальные запреты на продажу американского алкоголя
-– смягчить правила госзакупок в Онтарио, Квебеке и Британской Колумбии
-– упростить таможенные процедуры для импорта из США
-– пересмотреть энергетические правила Альберты, затрагивающие поставщиков из Монтаны
-​
-
-​
-Особое раздражение у Вашингтона вызывает канадская система управления молочным рынком. Формально США не требуют её ликвидации, но настаивают, что действующие квоты «несправедливо ограничивают доступ» американских производителей.
-​
-
-​
-Отдельно Грир указал на бойкоты американского алкоголя на уровне провинций. Продажи Brown-Forman (Jack Daniel’s) в Канаде упали более чем на 60%. В Вашингтоне считают эти меры ответом «из вредности» на тарифы США.
-​
-
-​
-Важно: в документе США ничего не говорится об отмене американских секторальных тарифов на канадскую сталь, алюминий, автомобили и древесину. Переговоры по ним ранее сорвались после антироссийских — точнее, антиамериканских — рекламных кампаний правительства Онтарио.
-​
-
-​
-Грир также напомнил, что Марк Карни уже пошёл на уступки: отменил цифровой налог и свернул часть ответных тарифов. Но этого оказалось недостаточно.
-​
-
-​
-При этом бизнес и профсоюзы по обе стороны границы почти единодушны: CUSMA нужно сохранять, пусть и с изменениями. США не исключают даже отказ от трёхстороннего формата в пользу отдельных сделок с Канадой и Мексикой.
-​
-
-​
-Итог простой: продление CUSMA больше не выглядит технической формальностью. Для Оттавы это будет жёсткий торг — с реальными политическими и экономическими уступками.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1775@18-12-2025_12-12-30.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Закон о «потерянных канадцах» вступил в силу
-​
-
-​
-<a href="https://www.bbc.com/news/articles/cvgkj8gpkgwo">Канада изменила правила гражданства по происхождению</a>: теперь автоматическое гражданство получают дети, рождённые или усыновлённые за границей, если их канадский родитель тоже родился за пределами страны.
-​
-
-​
-Ключевое условие — «существенная связь» с Канадой. Родитель обязан доказать, что прожил в стране не менее трёх лет до рождения или усыновления ребёнка.
-​
-
-​
-Термин «потерянные канадцы» относится к людям, которые утратили или так и не получили гражданство из-за устаревших норм закона. Речь идёт прежде всего о поправках 2009 года времён правительства Стивена Харпера, которые ограничили гражданство по происхождению одним поколением.
-​
-
-​
-Изменения стали следствием решения суда Онтарио в 2023 году: суд признал такие ограничения неконституционными. Либеральное правительство не стало оспаривать вердикт, признав, что прежние нормы приводили к «неприемлемым последствиям» для детей канадцев, рождённых за границей.
-​
-
-​
-Точных цифр нет, но ведомство по иммиграции ожидает десятки тысяч заявлений со временем. Парламентский бюджетный офицер ранее оценивал масштаб — около 115 тысяч человек за пять лет.
-​
-
-​
-Консерваторы выступили резко против. Теневой министр по иммиграции Мишель Ремпел Гарнер заявила, что закон открывает дорогу «гражданству без ограничений» и формирует «граждан удобства». Вместе с Блоком Квебека партия пыталась ужесточить правила — ввести языковые требования и дополнительные проверки для взрослых, но эти поправки провалились.
-​
-
-​
-Одним из первых новых граждан стал британский футболист Алфи Джонс, недавно приглашённый в сборную Канады к ЧМ-2026. Его бабушка родом из Альберты — и этого оказалось достаточно по новым правилам.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">17 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1768@17-12-2025_11-12-38.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">РОн ДеСантис троллит Дага Форда: Флорида прекрасно обходится без канадских туристов и выигрывает Кубки Стэнли
-​‎
-
-<a href="https://torontosun.com/opinion/columnists/ron-desantis-florida-tourism-fine-without-doug-ford">Губернатор Флориды Рон ДеСантис публично ответил</a> премьеру Онтарио Дагу Форду, который на днях заявил, что не поедет во Флориду этой зимой и что туристическая отрасль штата якобы «страдает». Ответ ДеСантиса был коротким и издевательским — и подкреплён цифрами.
-​‎
-
-«На самом деле мы продолжаем бить туристические рекорды (и выигрывать Кубки Стэнли)», — написал ДеСантис в X, прикрепив официальную статистику по турпотоку.
-​‎
-
-По данным штата, во втором квартале 2025 года Флорида зафиксировала рекордное количество посетителей. В пиковый зимний период (январь–март) число канадцев действительно снизилось — с 1,3 млн в 2024 году до 1,2 млн в 2025-м. Но общее количество туристов за тот же период выросло с 37,2 млн до 41,2 млн.
-​‎
-
-За первые шесть месяцев 2025 года Флориду посетили 75,6 млн человек. В 2024 году итоговая цифра составила 143 млн, и, судя по темпам, штат идёт к очередному рекордному году.
-​‎
-
-Форд делал свои заявления на фоне пресс-конференции о развитии туризма в Ниагарском водопаде. Для контекста: Ниагара принимает около 14 млн туристов в год — примерно десятую часть от годового потока Флориды.
-​‎
-
-Отдельно ДеСантис напомнил, что команды НХЛ из Флориды выиграли Кубок Стэнли четыре раза с момента его вступления в должность. Канадские клубы не брали Кубок с 1993 года, а последняя победа команды из Онтарио датируется 1967 годом.
-​‎
-
-Колумнист National Post Брайан Лилли подытоживает ситуацию жёстко: США и Дональд Трамп занимают непропорционально большое место в канадской политической риторике, но Канада — и даже туристический бойкот — почти не волнуют американцев.
-​‎
-
-Канадских туристов во Флориде стало меньше — факт. Но их без особых проблем заменяют гости из других стран. А чувство морального превосходства, по словам автора, — слабая замена солнцу и океану.
-​‎
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">16 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1766@16-12-2025_21-37-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Аналитик National Post: кто может заменить Пьера Полиева во главе консерваторов
-​
-‌
-<a href="https://nationalpost.com/opinion/the-conservatives-who-could-replace-pierre-poilievre">В National Post всё громче обсуждают сценарий</a>, который ещё год назад казался фантастикой: смена лидера Консервативной партии. Повод — серия болезненных переходов депутатов к либералам и ощущение, что позиции Пьера Полиева внутри собственного кокуса больше не выглядят незыблемыми.
-​
-‌
-После ухода Майкла Ма разговоры о лидерстве, начавшиеся ещё во время бюджетных баталий, вернулись с новой силой. Один из депутатов прямо говорит изданию: Полиев «умирает от тысячи порезов» — и не чувствует настроения в комнате.
-​
-‌
-На этом фоне автор перечисляет тех, кого в партии уже тихо рассматривают как запасные варианты.
-​
-‌
-Внутрипартийный кандидат — Джамиль Дживани.
-
-Депутат от Дарема публично выражает лояльность Полиеву, но аккуратно уходит от вопроса, что будет при новых переходах к либералам. Его университетские туры в стиле Чарли Кирка и попытка предложить себя посредником между Марком Карни и командой JD Vance делают его заметным, но пока осторожным игроком.
-​
-‌
-Западная ставка — Джейсон Кенни.
-
-Бывший премьер Альберты и экс-министр кабинета Харпера официально отрицает интерес к федеральному лидерству. При этом он активно появляется в медиа, включая франкоязычное CBC. Билингвизм и опыт на двух уровнях власти — серьёзные козыри, даже если сам Кенни говорит «нет».
-​
-‌
-Бей-стрит вариант — Марк Малруни.
-
-Весной банкиры уже прощупывали почву для его возможной кампании. Бизнес-элита ищет лидера, более комфортного для рынков. Назначение Малруни глобальным вице-председателем CIBC может охладить его политический пыл — слишком дорого обойдётся смена траектории.
-​
-‌
-Канада-1st — Даг Форд.
-
-Имя премьера Онтарио всплывает регулярно. Его «Captain Canada» риторика подогревает слухи, но партийная база до сих пор не простила ему дистанцирование от Полиева на прошлых выборах. В то же время источники утверждают: в Онтарио уже готовы люди, которые подхватят провинциальную партию, если Форд уйдёт на федеральный уровень.
-​
-‌
-Финальный штрих — угроза со стороны Reform Act. Того самого инструмента, который когда-то помог избавиться от О’Тула. По словам инсайдеров, главный вопрос для Полиева — не лидерский обзор, а момент, когда кокус решит воспользоваться этим механизмом. Весна или осень — пока открытый вопрос.
-​
-‌
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/dag-ford/" class="badge person-badge">Даг Форд</a> <a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><div class="pagination"><a href="/tag/ontario/page/4/" class="btn">← Назад</a><a href="/tag/ontario/page/6/" class="btn">Вперед →</a></div></main>
-    <footer>&copy; 2024–2026 Maple Barrel. Journalists.ca</footer>
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="tag-hdr">
+    <h1>#Онтарио</h1>
+    <p>504 материалов по теме</p>
+  </div>
+  <div class="tag-grid"><a class="card" href="/post/2025-11-25-v-gta-ugnali-gruzovik-s-polnym-oformleniem-schelkunchika-gas/">
+  <div class="card-img"><img src="/photos/photo_1580@25-11-2025_17-22-01.jpg" alt="В ГТА угнали грузовик с полным оформлением “Щелкунчика” — гастрольный балет лишился всех декораций перед рождественскими выступлениями" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В ГТА угнали грузовик с полным оформлением “Щелкунчика” — гастрольный балет лишился всех декораций перед рождественскими выступлениями</div>
+    <div class="card-excerpt">В труппе Ballet Jörgen случилось то, что обычно попадает в рождественские комедии, а не в новости CBC: ночью в Этобико украли грузовик Penske, внутри которого находились все декорации и задники для “Щ</div>
+    <div class="card-meta">
+      <span class="card-date">25 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-25-statkan-opyat-podvezla-infografiku-kotoruyu-mozhno-smelo-pri/">
+  <div class="card-img"><img src="/photos/photo_1578@25-11-2025_14-03-53.jpg" alt="Статкан опять подвезла инфографику, которую можно смело приклеивать к двери кабинета Марка Карни как объяснительную записку — “как мы довели систему до ручки за" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">www150.statcan.gc.ca</div>
+    <div class="card-title">Статкан опять подвезла инфографику, которую можно смело приклеивать к двери кабинета Марка Карни как объяснительную записку — “как мы довели систему до ручки за</div>
+    <div class="card-excerpt">десять лет”.   Наблюдаем картину: в 2014/15 международники были четвертью контингента колледжей. Теперь — половина. Индия — 59% всех студентов в паблик-колледжах. Китай, который раньше был №1, теперь</div>
+    <div class="card-meta">
+      <span class="card-date">25 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-24-tramp-prigrozil-kanade-tarifami-no-pochti-mesyats-nichego-ne/">
+  <div class="card-img"><img src="/photos/photo_1570@24-11-2025_11-27-01.jpg" alt="Трамп пригрозил Канаде тарифами, но почти месяц ничего не подписывает" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">politico.com</div>
+    <div class="card-title">Трамп пригрозил Канаде тарифами, но почти месяц ничего не подписывает</div>
+    <div class="card-excerpt">Politico сообщает: несмотря на публичное заявление Дональда Трампа о повышении пошлин на канадские товары ещё на 10 пунктов, никаких юридических действий со стороны Белого дома не последовало. Импортё</div>
+    <div class="card-meta">
+      <span class="card-date">24 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-24-sorval-bron-za-43-tys-a-potom-predlozhil-te-zhe-komnaty-za-1/">
+  <div class="card-img"><img src="/photos/photo_1568@24-11-2025_09-26-38.jpg" alt="сорвал бронь за $4,3 тыс., а потом предложил те же комнаты за $17 тыс." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">сорвал бронь за $4,3 тыс., а потом предложил те же комнаты за $17 тыс.</div>
+    <div class="card-excerpt">История из Go Public CBC: жительница Онтарио Эрика Манн забронировала на  четырёхкомнатный номер в монреальском Holland Hotel на Гран-при «Формулы-1» 2026 года. Цена — около $4,3 тыс. Всё подтверждено</div>
+    <div class="card-meta">
+      <span class="card-date">24 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-22-zakon-o-poteryannyh-kanadtsah-vstupil-v-silu-pravila-grazhda/">
+  <div class="card-img"><img src="/photos/photo_1564@22-11-2025_15-56-25.jpg" alt="Закон о “потерянных канадцах” вступил в силу: правила гражданства переписаны после решения суда" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Закон о “потерянных канадцах” вступил в силу: правила гражданства переписаны после решения суда</div>
+    <div class="card-excerpt">‌﻿   Глобал сообщает: поправки, призванные восстановить конституционность канадского гражданства, прошли Сенат и получили королевское согласие. Закон касается людей, родившихся за пределами страны у к</div>
+    <div class="card-meta">
+      <span class="card-date">22 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-21-v-ontario-bunt-sredi-rabochih-sotni-zayavok-na-immigratsiyu-/">
+  <div class="card-img"><img src="/photos/photo_1547@21-11-2025_12-57-05.jpg" alt="В Онтарио — бунт среди рабочих: сотни заявок на иммиграцию отменили за ночь, людей назвали мошенниками без объяснений" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Онтарио — бунт среди рабочих: сотни заявок на иммиграцию отменили за ночь, людей назвали мошенниками без объяснений</div>
+    <div class="card-excerpt">‌  CBC News сообщает: у здания парламента в Торонто уже третий день стоят более сотни людей из сферы рабочих профессий. Причина — резкая отмена 2600 заявок в рамках потока OINP для квалифицированных с</div>
+    <div class="card-meta">
+      <span class="card-date">21 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-20-ontario-svorachivaet-uskorennyy-put-k-pmzh-dlya-rabochih-spe/">
+  <div class="card-img"><img src="/photos/photo_1541@20-11-2025_12-12-13.jpg" alt="Онтарио сворачивает ускоренный путь к ПМЖ для рабочих специальностей — тысячи заявителей брошены в подвешенном состоянии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Онтарио сворачивает ускоренный путь к ПМЖ для рабочих специальностей — тысячи заявителей брошены в подвешенном состоянии</div>
+    <div class="card-excerpt">Правительство Онтарио тихо приостановило ключевой поток Ontario Immigrant Nominee Program (OINP), предназначенный для привлечения квалифицированных рабочих, и аннулировало все текущие заявления. Речь</div>
+    <div class="card-meta">
+      <span class="card-date">20 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-19-canada-post-zayavlyaet-o-fakticheskom-bankrotstve-i-gotovits/">
+  <div class="card-img"><img src="/photos/photo_1527@19-11-2025_09-05-20.jpg" alt="Canada Post заявляет о фактическом банкротстве и готовится к массовому сокращению штата" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Canada Post заявляет о фактическом банкротстве и готовится к массовому сокращению штата</div>
+    <div class="card-excerpt">На годовом публичном собрании руководство Canada Post выступило с самым мрачным отчётом за всю историю корпорации. Финансовый директор Риндала Эль-Хадж прямо сказала: компания «фактически неплатёжеспо</div>
+    <div class="card-meta">
+      <span class="card-date">19 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-18-shoppers-drug-mart-vybil-iz-ontario-81-mln-za-medscheck-za-d/">
+  <div class="card-img"><img src="/photos/photo_1523@18-11-2025_18-45-13.jpg" alt="Shoppers Drug Mart выбил из Онтарио $81 млн за MedsCheck за два года — на фоне жалоб на давление сверху" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Shoppers Drug Mart выбил из Онтарио $81 млн за MedsCheck за два года — на фоне жалоб на давление сверху</div>
+    <div class="card-excerpt">‌﻿  Shoppers Drug Mart резко нарастил счета по программе MedsCheck в Онтарио — $81,2 млн за 2022–24 годы. Эти два года дали сети больше, чем предыдущие шесть лет вместе взятые. CBC получило данные чер</div>
+    <div class="card-meta">
+      <span class="card-date">18 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-18-politsiya-nakryla-podpolnye-plantatsii-na-territorii-tayndin/">
+  <div class="card-img"><img src="/photos/photo_1519@18-11-2025_11-47-01.jpg" alt="Полиция накрыла подпольные плантации на территории Тайндинага: изъято конопли на $200 млн" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиция накрыла подпольные плантации на территории Тайндинага: изъято конопли на $200 млн</div>
+    <div class="card-excerpt">Провинциальная полиция Онтарио сообщает о крупнейших за последние годы рейдах на территории Тайнднага: за два месяца силовики нашли и уничтожили более 118 тысяч нелегальных растений каннабиса. По оцен</div>
+    <div class="card-meta">
+      <span class="card-date">18 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-17-pit-makmartin-skolko-pokoleniy-dolzhno-proyti-chtoby-menya-p/">
+  <div class="card-img"><img src="/photos/photo_1516@17-11-2025_21-37-01.jpg" alt="Пит МакМартин: сколько поколений должно пройти, чтобы меня перестали считать пришельцем на этой земле?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Пит МакМартин: сколько поколений должно пройти, чтобы меня перестали считать пришельцем на этой земле?</div>
+    <div class="card-excerpt">Колумнист Vancouver Sun Пит МакМартин рассуждает о том, как дискуссия вокруг примирения и признания исторической несправедливости в адрес коренных народов влияет на то, как канадцы воспринимают собств</div>
+    <div class="card-meta">
+      <span class="card-date">17 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-16-toronto-preduprezhdaet-iz-za-zapreta-kamer-fiksatsii-skorost/">
+  <div class="card-img"><img src="/photos/photo_1504@16-11-2025_15-36-25.jpg" alt="Торонто предупреждает: из-за запрета камер фиксации скорости город может уволить около тысячи человек" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Торонто предупреждает: из-за запрета камер фиксации скорости город может уволить около тысячи человек</div>
+    <div class="card-excerpt">Мэр Торонто Оливия Чау заявила, что решение правительства Онтарио убрать камеры фиксации скорости по всей провинции приведёт к серьёзным потерям для города. Доходы от системы автоматического контроля</div>
+    <div class="card-meta">
+      <span class="card-date">16 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-16-est-prichina-po-kotoroy-mark-karni-ne-razgovarivaet-s-donald/">
+  <div class="card-img"><img src="/photos/photo_1503@16-11-2025_12-33-01.jpg" alt="Есть причина, по которой Марк Карни не разговаривает с Дональдом Трампом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Есть причина, по которой Марк Карни не разговаривает с Дональдом Трампом</div>
+    <div class="card-excerpt">Paywall  Отношения между Марком Карни и Дональдом Трампом охладились до нуля. Еще месяц назад премьер без смущения рассказывал, как американский президент писал ему практически круглые сутки — крупный</div>
+    <div class="card-meta">
+      <span class="card-date">16 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-14-ontario-i-kvebek-bednee-luiziany-novye-dannye-sravnili-urove/">
+  <div class="card-img"><img src="/photos/photo_1491@14-11-2025_12-19-01.jpg" alt="Онтарио и Квебек беднее Луизианы: новые данные сравнили уровень достатка 50 штатов и 10 провинций" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Онтарио и Квебек беднее Луизианы: новые данные сравнили уровень достатка 50 штатов и 10 провинций</div>
+    <div class="card-excerpt">﻿  Свежий сравнительный анализ Тревора Томба из Университета Калгари, основанный на данных Статистического управления Канады и Бюро экономического анализа США, показывает довольно мрачную картину: бол</div>
+    <div class="card-meta">
+      <span class="card-date">14 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-14-ago-poluchaet-krupneyshiy-dar-za-mnogo-let-uorhol-lihtenshte/">
+  <div class="card-img"><img src="/photos/photo_1490@14-11-2025_12-18-01.jpg" alt="АГО получает крупнейший дар за много лет: Уорхол, Лихтенштейн, Хокни и сотни других работ" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">АГО получает крупнейший дар за много лет: Уорхол, Лихтенштейн, Хокни и сотни других работ</div>
+    <div class="card-excerpt">﻿  Художественная галерея Онтарио сообщила о масштабном пополнении коллекции: семья Кэрол и Мортона Рэпп передала свыше 450 работ — от графики и фотографий конца 60–70-х до произведений начала XXI век</div>
+    <div class="card-meta">
+      <span class="card-date">14 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-13-v-saskachevane-vsplesk-zayavleniy-o-bezhenstve-na-fone-zhyos/">
+  <div class="card-img"><img src="/photos/photo_1488@13-11-2025_17-40-19.jpg" alt="В Саскачеване всплеск заявлений о беженстве на фоне жёстких ограничений иммиграции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Саскачеване всплеск заявлений о беженстве на фоне жёстких ограничений иммиграции</div>
+    <div class="card-excerpt">﻿  CBC публикует данные, которые рисуют непростую картину: число заявлений о беженстве в Саскачеване выросло почти вдвое — с 683 во втором квартале 2024 года до 1 344 год спустя. Это самый резкий скач</div>
+    <div class="card-meta">
+      <span class="card-date">13 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-13-kanada-vvodit-novye-sanktsii-protiv-rossiyskih-dronov-anand-/">
+  <div class="card-img"><img src="/photos/photo_1482@13-11-2025_10-37-01.jpg" alt="Канада вводит новые санкции против российских дронов — Ананд завершает председательство на G7 в условиях напряжённости с США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канада вводит новые санкции против российских дронов — Ананд завершает председательство на G7 в условиях напряжённости с США</div>
+    <div class="card-excerpt">﻿  В Наягре собрались главы МИД стран G7, но обсуждение глобальных кризисов оказалось в тени дипломатического конфликта Вашингтона и Оттавы. Дональд Трамп по-прежнему заморозил торговые переговоры из-</div>
+    <div class="card-meta">
+      <span class="card-date">13 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-12-kanadtsy-perestali-ezdit-v-ssha-turizm-teryaet-milliardy/">
+  <div class="card-img"><img src="/photos/photo_1475@12-11-2025_09-28-01.jpg" alt="Канадцы перестали ездить в США — туризм теряет миллиарды" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канадцы перестали ездить в США — туризм теряет миллиарды</div>
+    <div class="card-excerpt">По данным CBC News, США теряют около 5,7 миллиарда долларов в год из-за резкого сокращения числа канадских туристов. Причина — политика Дональда Трампа, вернувшегося в Белый дом в январе и быстро испо</div>
+    <div class="card-meta">
+      <span class="card-date">12 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-11-bolee-260-vrachey-iz-kvebeka-podali-zayavki-na-rabotu-v-onta/">
+  <div class="card-img"><img src="/photos/photo_1472@11-11-2025_15-46-04.jpg" alt="Более 260 врачей из Квебека подали заявки на работу в Онтарио после принятия закона № 2" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Более 260 врачей из Квебека подали заявки на работу в Онтарио после принятия закона № 2</div>
+    <div class="card-excerpt">Закон, меняющий систему оплаты труда врачей в Квебеке, вызвал массовый исход медиков из провинции. За две недели после его принятия 263 врача из Квебека подали заявки на получение лицензий в Онтарио,</div>
+    <div class="card-meta">
+      <span class="card-date">11 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-11-domashniy-arest-dlya-vladeltsev-fiktivnyh-avtoshkol-obmanuvs/">
+  <div class="card-img"><img src="/photos/photo_1470@11-11-2025_13-19-01.jpg" alt="Домашний арест для владельцев фиктивных автошкол, обманувших десятки индийских иммигрантов в Онтарио" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Домашний арест для владельцев фиктивных автошкол, обманувших десятки индийских иммигрантов в Онтарио</div>
+    <div class="card-excerpt">Двое выходцев из Индии получили по два года условного домашнего заключения за организацию мошеннических автошкол для подготовки водителей-дальнобойщиков в Онтарио. Суд признал Гурвиндера Сингха и Гурп</div>
+    <div class="card-meta">
+      <span class="card-date">11 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-11-ozero-verhnee-progrelos-na-3-gradusa-vyshe-normy-oktyabrskie/">
+  <div class="card-img"><img src="/photos/photo_1468@11-11-2025_10-27-01.jpg" alt="Озеро Верхнее прогрелось на 3 градуса выше нормы — октябрьские воды почти как в августе" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Озеро Верхнее прогрелось на 3 градуса выше нормы — октябрьские воды почти как в августе</div>
+    <div class="card-excerpt">По данным Национального управления океанических и атмосферных исследований США (NOAA), температура воды в озере Верхнем 20 октября составила 11,6 °C, что на три градуса выше исторического среднего пок</div>
+    <div class="card-meta">
+      <span class="card-date">11 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-10-bukvalno-obuvnaya-korobka-pochemu-arendatory-toronto-izbegay/">
+  <div class="card-img"><img src="/photos/photo_1464@10-11-2025_15-12-01.jpg" alt="«Буквально обувная коробка»: почему арендаторы Торонто избегают новостроек" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">«Буквально обувная коробка»: почему арендаторы Торонто избегают новостроек</div>
+    <div class="card-excerpt">Всего 53 новых кондо-продажи в сентябре — настолько рухнул рынок новостроек в Торонто, по данным Building Industry and Land Development Association (BILD). И на фоне застоя всё больше арендаторов откр</div>
+    <div class="card-meta">
+      <span class="card-date">10 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-10-toronto-zavalilo-snegom-rekordno-ranniy-noyabrskiy-snegopad-/">
+  <div class="card-img"><img src="/photos/photo_1461@10-11-2025_10-37-01.jpg" alt="Торонто завалило снегом: рекордно ранний ноябрьский снегопад за полвека" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">toronto.citynews.ca</div>
+    <div class="card-title">Торонто завалило снегом: рекордно ранний ноябрьский снегопад за полвека</div>
+    <div class="card-excerpt">Южный Онтарио встретил зиму раньше обычного: 9 ноября на Торонто обрушился снегопад, который стал самым ранним случаем накопления более 5 сантиметров снега с 1969 года.   По данным метеослужбы, утром</div>
+    <div class="card-meta">
+      <span class="card-date">10 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-06-skandal-v-ontario-dengi-iz-fonda-podgotovki-kadrov-okazalis-/">
+  <div class="card-img"><img src="/photos/photo_1432@06-11-2025_11-39-01.jpg" alt="Скандал в Онтарио: деньги из фонда подготовки кадров оказались у компании, связанной со стрип-клубом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Скандал в Онтарио: деньги из фонда подготовки кадров оказались у компании, связанной со стрип-клубом</div>
+    <div class="card-excerpt">В Онтарио — новый удар по правительству Дага Форда. Оппозиция требует объяснить, как почти 10 миллионов долларов из провинциального Skills Development Fund, созданного для переобучения работников, мог</div>
+    <div class="card-meta">
+      <span class="card-date">6 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-03-national-post-primirenie-zashlo-v-tupik-reshenie-po-delu-cow/">
+  <div class="card-img"><img src="/photos/photo_1411@03-11-2025_17-47-01.jpg" alt="National Post: «Примирение» зашло в тупик — решение по делу Cowichan ставит Канаду под угрозу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">National Post: «Примирение» зашло в тупик — решение по делу Cowichan ставит Канаду под угрозу</div>
+    <div class="card-excerpt">Редакция National Post жёстко раскритиковала нынешнюю политику «примирения» с коренными народами, назвав её «катастрофой» и «рецептом правового хаоса». Поводом стало решение Верховного суда Британской</div>
+    <div class="card-meta">
+      <span class="card-date">3 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-02-poliev-raskritikoval-karni-za-proval-v-torgovyh-peregovorah-/">
+  <div class="card-img"><img src="/photos/photo_1402@02-11-2025_14-02-01.jpg" alt="Полиев раскритиковал Карни за провал в торговых переговорах с США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиев раскритиковал Карни за провал в торговых переговорах с США</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев обрушился с критикой на премьер-министра Марка Карни за срыв торговых переговоров с США, которые должны были привести к снижению тарифов для Канады.   В интервью CBC По</div>
+    <div class="card-meta">
+      <span class="card-date">2 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-01-dzhessi-klayn-karni-dokazal-chto-ne-sposoben-protivostoyat-t/">
+  <div class="card-img"><img src="/photos/photo_1397@01-11-2025_13-02-23.jpg" alt="Джесси Клайн: Карни доказал, что не способен противостоять Трампу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Джесси Клайн: Карни доказал, что не способен противостоять Трампу</div>
+    <div class="card-excerpt">Шесть месяцев бесплодных переговоров — и премьер-министр Марк Карни наконец признал очевидное: Канада остаётся один на один с Вашингтоном.   Колумнист Jesse Kline в National Post язвительно пишет, что</div>
+    <div class="card-meta">
+      <span class="card-date">1 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-01-poliev-obeschaet-primenit-ogovorku-o-neprimenimosti-chtoby-o/">
+  <div class="card-img"><img src="/photos/photo_1396@01-11-2025_10-04-13.jpg" alt="Полиев обещает применить «оговорку о неприменимости», чтобы отменить решение Верховного суда по детской порнографии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиев обещает применить «оговорку о неприменимости», чтобы отменить решение Верховного суда по детской порнографии</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев заявил, что если станет премьером, он воспользуется статьёй 33 Хартии, чтобы отменить решение Верховного суда, признавшего неконституционными минимальные тюремные сроки</div>
+    <div class="card-meta">
+      <span class="card-date">1 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-31-iskusstvo-prinosit-milliardy-v-ekonomiku-kanady-no-finansiro/">
+  <div class="card-img"><img src="/photos/photo_1393@31-10-2025_19-12-01.jpg" alt="Искусство приносит миллиарды в экономику Канады — но финансирование тает" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Искусство приносит миллиарды в экономику Канады — но финансирование тает</div>
+    <div class="card-excerpt">Сектор искусства и культуры в Канаде внёс в экономику 65 миллиардов долларов за прошлый год, сообщает Канадская торговая палата. Только в Онтарио этот сектор обеспечил 458 тысяч рабочих мест и $28 млр</div>
+    <div class="card-meta">
+      <span class="card-date">31 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-31-tramp-zayavil-chto-karni-izvinilsya-za-antitarifnuyu-reklamu/">
+  <div class="card-img"><img src="/photos/photo_1388@31-10-2025_14-22-33.jpg" alt="Трамп заявил, что Карни извинился за «антитарифную» рекламу с Рейганом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Трамп заявил, что Карни извинился за «антитарифную» рекламу с Рейганом</div>
+    <div class="card-excerpt">Президент США Дональд Трамп рассказал журналистам на борту Air Force One, что премьер-министр Канады Марк Карни якобы извинился за рекламный ролик Онтарио, высмеивающий американские тарифы и использую</div>
+    <div class="card-meta">
+      <span class="card-date">31 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-31-pravitelstvo-daga-forda-zapretilo-kamery-fiksatsii-skorosti-/">
+  <div class="card-img"><img src="/photos/photo_1385@31-10-2025_11-44-01.jpg" alt="Правительство Дага Форда запретило камеры фиксации скорости в Онтарио" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Правительство Дага Форда запретило камеры фиксации скорости в Онтарио</div>
+    <div class="card-excerpt">Парламент Онтарио утвердил законопроект №56 — Building a More Competitive Economy Act, который полностью запрещает муниципалитетам устанавливать камеры контроля скорости. Документ прошёл через все чте</div>
+    <div class="card-meta">
+      <span class="card-date">31 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-30-td-sokraschenie-immigratsii-pomoglo-kanade-vydohnut/">
+  <div class="card-img"><img src="/photos/photo_1382@30-10-2025_20-56-01.jpg" alt="TD: сокращение иммиграции помогло Канаде выдохнуть" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">TD: сокращение иммиграции помогло Канаде выдохнуть</div>
+    <div class="card-excerpt">Резкое сокращение иммиграции дало Канаде шанс «догнать» по жилью, работе и инфраструктуре — к такому выводу пришли экономисты TD Bank в новом отчёте.   После того как Оттава снизила цели по приёму пос</div>
+    <div class="card-meta">
+      <span class="card-date">30 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-30-pochemu-evropa-obozhaet-kamery-skorosti-a-kanada-net/">
+  <div class="card-img"><img src="/photos/photo_1381@30-10-2025_19-22-01.jpg" alt="Почему Европа обожает камеры скорости, а Канада — нет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Почему Европа обожает камеры скорости, а Канада — нет</div>
+    <div class="card-excerpt">Пока премьер Онтарио Даг Форд готовится запретить камеры фиксации скорости, называя их «способом сдирать деньги с водителей», в Европе такие камеры считаются неотъемлемой частью дорожной безопасности</div>
+    <div class="card-meta">
+      <span class="card-date">30 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-30-milliardnye-soglasheniya-pravitelstva-s-stellantis-i-nextsta/">
+  <div class="card-img"><img src="/photos/photo_1377@30-10-2025_13-14-01.jpg" alt="Миллиардные соглашения правительства с Stellantis и NextStar по строительству завода батарей раскрыты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Миллиардные соглашения правительства с Stellantis и NextStar по строительству завода батарей раскрыты</div>
+    <div class="card-excerpt">CBC получила копии конфиденциальных контрактов федерального правительства с компанией NextStar Energy — совместным предприятием Stellantis и южнокорейской LG Energy Solution, строящей завод по произво</div>
+    <div class="card-meta">
+      <span class="card-date">30 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-30-bozhe-net-liberaly-uveryayut-chto-kanadtsy-ne-hotyat-vyborov/">
+  <div class="card-img"><img src="/photos/photo_1375@30-10-2025_11-12-01.jpg" alt="«Боже, нет»: либералы уверяют, что канадцы не хотят выборов, пока парламент играет в политическое «куриное бегство» из-за бюджета" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">«Боже, нет»: либералы уверяют, что канадцы не хотят выборов, пока парламент играет в политическое «куриное бегство» из-за бюджета</div>
+    <div class="card-excerpt">В Оттаве назревает очередной кризис правительства меньшинства Марка Карни. Если либералы не соберут достаточного числа голосов для утверждения бюджета, страну может ждать… рождественская избирательная</div>
+    <div class="card-meta">
+      <span class="card-date">30 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-30-skandal-v-yunosheskom-hokkee-ontario-rassledovanie-podtverdi/">
+  <div class="card-img"><img src="/photos/photo_1374@30-10-2025_11-11-59.jpg" alt="Скандал в юношеском хоккее Онтарио: расследование подтвердило системное насилие и издевательства" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Скандал в юношеском хоккее Онтарио: расследование подтвердило системное насилие и издевательства</div>
+    <div class="card-excerpt">Шесть игроков команды Stoney Creek (категория до 14 лет, AA) получили двухлетний испытательный срок после расследования, подтвердившего серию издевательств и сексуальных домогательств в раздевалке в с</div>
+    <div class="card-meta">
+      <span class="card-date">30 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-29-kak-kanada-pobedila-kor-v-1998-godu-i-pochemu-teper-riskuet-/">
+  <div class="card-img"><img src="/photos/photo_1365@29-10-2025_12-56-57.jpg" alt="Как Канада победила корь в 1998 году — и почему теперь рискует всё потерять" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Как Канада победила корь в 1998 году — и почему теперь рискует всё потерять</div>
+    <div class="card-excerpt">В 1960-х маленькая Арлин Кинг из Британской Колумбии болела корью — настолько тяжело, что не могла надеть обувь. Её младший брат перенёс судороги от жара. Шестьдесят лет спустя доктор Кинг, ставшая од</div>
+    <div class="card-meta">
+      <span class="card-date">29 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-29-karni-i-tramp-vstretyatsya-na-uzhine-u-prezidenta-yuzhnoy-ko/">
+  <div class="card-img"><img src="/photos/photo_1364@29-10-2025_11-58-01.jpg" alt="Карни и Трамп встретятся на ужине у президента Южной Кореи — впервые после разрыва торговых переговоров" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Карни и Трамп встретятся на ужине у президента Южной Кореи — впервые после разрыва торговых переговоров</div>
+    <div class="card-excerpt">Премьер-министр Канады Марк Карни и президент США Дональд Трамп сегодня окажутся за одним столом — на ужине, который проводит президент Южной Кореи Ли Чжэ Мён в рамках саммита АТЭС.   Это будет первая</div>
+    <div class="card-meta">
+      <span class="card-date">29 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-28-v-toronto-snova-rekord-po-ispolzovaniyu-produktovyh-bankov-4/">
+  <div class="card-img"><img src="/photos/photo_1360@28-10-2025_18-33-01.jpg" alt="В Торонто снова рекорд по использованию продуктовых банков — 4,1 миллиона визитов за год" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Торонто снова рекорд по использованию продуктовых банков — 4,1 миллиона визитов за год</div>
+    <div class="card-excerpt">С марта 2024 по апрель 2025 жители Торонто обратились в продуктовые банки более 4,1 миллиона раз, говорится в свежем отчёте Who’s Hungry от Daily Bread Food Bank и North York Harvest Food Bank. Это на</div>
+    <div class="card-meta">
+      <span class="card-date">28 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-28-uchitelya-alberty-borba-tolko-nachinaetsya-nesmotrya-na-zako/">
+  <div class="card-img"><img src="/photos/photo_1357@28-10-2025_11-43-01.jpg" alt="Учителя Альберты: «Борьба только начинается» — несмотря на закон о принудительном возвращении к работе" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Учителя Альберты: «Борьба только начинается» — несмотря на закон о принудительном возвращении к работе</div>
+    <div class="card-excerpt">Правительство Даниэль Смит за одну ночь продавило через парламент Альберты закон, принуждающий учителей вернуться к работе — и впервые в истории провинции задействовало для этого статью об «оговорке о</div>
+    <div class="card-meta">
+      <span class="card-date">28 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb" href="/tag/ontario/page/4/">←</a><a class="pb" href="/tag/ontario/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/ontario/page/3/">3</a><a class="pb" href="/tag/ontario/page/4/">4</a><a class="pb on" href="/tag/ontario/page/5/">5</a><a class="pb" href="/tag/ontario/page/6/">6</a><a class="pb" href="/tag/ontario/page/7/">7</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/ontario/page/13/">13</a><a class="pb" href="/tag/ontario/page/6/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
 </body>
 </html>

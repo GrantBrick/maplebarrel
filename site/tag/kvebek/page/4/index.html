@@ -1,1153 +1,677 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#Квебек | Maple Barrel</title>
-    <style>
-:root {
-    --bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #c53030;
-    --border: #eeeeee;
-    --bg-alt: #f9f9f9;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#Квебек — Maple Barrel</title>
+<meta name="description" content="Все материалы по теме «Квебек» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<link rel="canonical" href="https://journalists.ca/tag/kvebek/">
+<meta property="og:title" content="#Квебек — Maple Barrel">
+<meta property="og:description" content="Все материалы по теме «Квебек» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta property="og:url" content="https://journalists.ca/tag/kvebek/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="#Квебек — Maple Barrel">
+<meta name="twitter:description" content="Все материалы по теме «Квебек» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    line-height: 1.6; color: var(--text-main); background: var(--bg); 
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
-a { color: inherit; text-decoration: none; }
-header { 
-    background: #fff; border-bottom: 1px solid var(--border); 
-    padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
 }
-.header-content { 
-    max-width: 800px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; align-items: center;
+
+.tgb:hover{
+  background:#a93226;
 }
-.logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.03em; color: var(--accent); }
-.nav-menu { display: flex; gap: 1.2rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-.nav-menu a:hover { color: var(--accent); }
-.container { max-width: 800px; margin: 2.5rem auto; padding: 0 20px; }
-.post-card { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
-.post-card:last-child { border-bottom: none; }
-.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; font-weight: 500; }
-.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; background: var(--bg-alt); }
-.post-image { width: 100%; height: auto; display: block; }
-.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; color: #222; }
-.post-content b, .post-content strong { font-weight: 700; color: #000; }
-.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { 
-    font-size: 0.75rem; padding: 5px 12px; border-radius: 4px; 
-    background: var(--bg-alt); color: #555; font-weight: 600; border: 1px solid #eee;
+
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
+
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform .15s;
 }
-.person-badge { border-color: #fed7d7; color: var(--accent); }
-.pagination { margin: 4rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
-.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-.page-title { margin-bottom: 3rem; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; }
-footer { text-align: center; padding: 4rem 0; color: #aaa; font-size: 0.75rem; border-top: 1px solid var(--border); }
-@media (max-width: 600px) { .nav-menu { display: none; } }
+.card:hover{
+  transform:translateY(-2px);
+}
+
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
+.tag-hdr p{font-size:13px;color:var(--t3)}
+@media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="/" class="logo">MAPLE BARREL</a>
-            <nav class="nav-menu">
-                <a href="/materials/">Материалы</a>
-                <a href="/longreads/">Лонгриды</a>
-                <a href="/about/">О проекте</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container"><h1 class="page-title">#Квебек</h1><article class="post-card">
-        <span class="post-date">6 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1881@06-01-2026_09-04-05.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">«Запасайтесь»: Даг Форд подтвердил, что Crown Royal уберут с полок LCBO уже в феврале
-​
 
-<a href="https://globalnews.ca/news/11599577/lcbo-crown-royal-removal-confirmed/">Премьер Онтарио Doug Ford официально подтверди</a>л: канадский виски Crown Royal исчезнет из ассортимента LCBO после закрытия завода в Амхерстберге. Покупателям он посоветовал «запастись заранее».
-​
-
-Речь идёт о конфликте с корпорацией Diageo, которая решила закрыть завод по розливу в городе Amherstburg. Компания утверждает, что это часть глобальной реструктуризации, а не следствие тарифов или давления со стороны властей.
-​
-
-По плану Diageo, розлив продукции для американского рынка перенесут в США, а бутылки для Канады будут производиться на заводе в Валлифилде, Квебек. Форд заявил, что предлагал варианты поддержки предприятия, чтобы сохранить рабочие места, но договориться не удалось.
-​
-
-В знак протеста осенью 2025 года Форд демонстративно вылил бутылку Crown Royal на пресс-конференции и пригрозил убрать с полок всю продукцию Diageo. Теперь он уточнил: под санкции попадёт только Crown Royal.
-​
-
-Другие бренды компании — Gordon’s Gin, Smirnoff и Guinness — пока трогать не будут. При этом премьер прямо заявил: решение окончательное и будет реализовано сразу после закрытия завода.
-​
-
-Предприятие планируют остановить в феврале 2026 года. Это затронет 168 профсоюзных работников и ударит по экономике небольшого города. Мэр Амхерстберга Майкл Прю ранее говорил, что есть как минимум три компании, заинтересованные в аренде завода и сохранении рабочих мест.
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/dag-ford/" class="badge person-badge">Даг Форд</a> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">4 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1871@04-01-2026_15-04-36.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Стартап из Монреаля разработал надувные «штаны-эйрбэги» для защиты пожилых людей от переломов при падении
-​
-​
-​
-<a href="https://www.ctvnews.ca/montreal/article/montreal-startup-develops-inflatable-fall-protection-pants-aimed-at-preventing-hip-fractures/">Монреальская компания Azimut Medical представила</a> необычное решение для одной из самых серьёзных проблем пожилого возраста — падений и переломов шейки бедра. Стартап встроил систему надувных подушек безопасности прямо в брюки.
-​
-​
-​
-При падении устройство срабатывает за доли секунды: слышен тихий хлопок, и эйрбэг полностью раскрывается ещё до контакта с полом. Защитные элементы размещены в поясе и закрывают область бёдер и таза.
-​
-​
-​
-Генеральный директор и сооснователь компании Максим Болдук объясняет, что ключевое отличие — не в «железе», а в программной части. Алгоритм машинного обучения анализирует движения и умеет отличать реальное падение от обычного присаживания на диван.
-​
-​
-​
-Идея проекта появилась у Болдука после размышлений о безопасности собственных бабушки и дедушки. Имея образование инженера-механика и магистра по управлению инновациями, он решил создать более эффективную альтернативу классическим защитным накладкам из пены, которые вставляют в бельё.
-​
-​
-​
-Гериатр доктор Стефан Лемир отмечает, что прежние защитные решения были неудобными и непопулярными среди пациентов, тогда как надувная защита выглядит куда более перспективно. По его словам, такие устройства способны снизить число госпитализаций и переломов шейки бедра.
-​
-​
-​
-Цена технологии пока остаётся высокой — коммерческая версия может стоить около 1500 долларов за пару, произведённую в Квебеке. При этом исследования компании показывают, что новая разработка на 64% эффективнее традиционных защитных средств.
-​
-​
-​
-Клинические испытания стартуют в январе 2026 года в Квебеке и Онтарио. Первые участники программы получат возможность начать год с дополнительной защитой — буквально надетой на себя.
-​
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">3 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1866@03-01-2026_13-11-44.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Ни одного игрока из Квебека в сборной Канады по хоккею — впервые с 1952 года
-​⁠ ⁠
-
-<a href="https://www.ctvnews.ca/montreal/article/it-has-to-raise-an-alarm-no-quebec-players-on-canada-hockey-roster-for-first-time-since-1952/">TSN и RDS бьют тревогу</a>: в заявке мужской сборной Канады на Олимпиаду-2026 в Милане и Кортина-д’Ампеццо нет ни одного хоккеиста, рождённого в Квебеке. Даже среди вратарей — ноль.
-​⁠ ⁠
-
-Для провинции, которая десятилетиями была кузницей элиты канадского хоккея, это исторический обрыв. С 1998 года — с момента, когда НХЛ начала отпускать игроков на Олимпиады — в каждой сборной было в среднем по четыре квебекца. В 2010-м все три голкипера Канады были из Квебека.
-​⁠ ⁠
-
-Теперь — пусто. Единственные представители провинции в штабе: ассистент генменеджера Жюльен Брисбуа и видеокоординатор Эллиот Монду.
-​⁠ ⁠
-
-Комментатор RDS Микер Геррье говорит прямо:
-«Это тревожный сигнал. Что-то явно не работает в системе развития игроков. Либо сами игроки должны меняться, либо Hockey Québec».
-​⁠ ⁠
-
-Журналист Брендан Келли назвал состав сборной «обвинительным актом против Hockey Québec». Вопрос звучит всё громче: почему провинция с населением 9,1 млн больше не производит звёзд НХЛ — особенно вратарей?
-​⁠ ⁠
-
-Контраст болезненный. Новая Шотландия — всего около 1 млн жителей — даёт сборной сразу трёх суперзвёзд: Кросби, Маккиннона и Маршанда.
-​⁠ ⁠
-
-Даже на молодежном уровне ситуация не выглядит случайной. На последнем МЧМ в составе Канады из Квебека был лишь один игрок — 18-летний Калеб Деснуайе из Сен-Иасента.
-​⁠ ⁠
-
-Бывшие функционеры и инсайдеры указывают на системную проблему, уходящую корнями в 2000-е. Бывший глава Hockey Québec Жослен Тибо ещё тогда ушёл в отставку, прямо заявив о «сопротивлении изменениям» внутри структуры. Его тогда не услышали.
-​⁠ ⁠
-
-Сегодняшний ноль в олимпийской заявке — не случайность и не осечка одного поколения. Это итог многолетнего управленческого и методологического застоя.
-​⁠ ⁠
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">1 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1863@01-01-2026_20-48-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Бенджамин Франклин тоже хотел «забрать» Канаду — и это не шутка
-​
-​
-В Канаде любят думать, что разговоры про «51-й штат» начались с Дональда Трампа. <a href="https://nationalpost.com/news/canada/benjamin-franklin-tried-to-annex-canada">История подсказывает</a>: нет, это старая американская заезженная пластинка.
-​
-​
-Журналистка и исследовательница Madelaine Drohan в книге He Did Not Conquer: Benjamin Franklin’s Failure to Annex Canada (вышла в сентябре 2025) напоминает: один из отцов-основателей США Бенджамин Франклин годами продавливал идею, что «Канада должна быть американской».
-​
-​
-Что двигало Франклином
-​
-– безопасность: в его молодости «Канада» (по сути, колониальный Квебек и шире) воспринималась как угроза британским колониям на юге — рейды, войны, насилие с участием союзников из числа коренных народов
-– демография и территория: Франклин был уверен, что население колоний будет удваиваться каждые 25 лет, и им понадобится пространство; Канада шла в списке «куда расширяться»
-– «компенсация» после революции: в Париже в 1780-х, уже на переговорах о мире, он предлагал отдать Канаду США как плату за ущерб от британцев
-​
-​
-Почему не получилось
-​
-Финальный заход Франклина сорвался не из-за принципов Лондона, а из-за приоритетов своих же переговорщиков: им важнее были рыболовные права у Новой Шотландии и Ньюфаундленда и спорные территории под Великими озёрами. Канада в сделку не вошла.
-​
-​
-А раньше, в 1775–1776, всё было ещё прямолинейнее: Континентальная армия вторглась в «Канаду», взяла Монреаль и Труа-Ривьер, но застряла у Квебека. Конгресс отправил Франклина в Монреаль агитировать франкоканадцев перейти на сторону восстания. Он не убедил достаточно людей. Когда по Святому Лаврентию пришли британские корабли, американцы и сам Франклин фактически свернули операцию и отступили к границе.
-​
-​
-Почему франкоканадцы не побежали в объятия «революции»
-​
-После британского завоевания 1760–1763 Лондон выбрал прагматичный вариант управления: Quebec Act 1774 разрешил католицизм, оставил французское гражданское право и старые сборы для элит. Для духовенства и сеньоров это было выгоднее, чем неизвестность под американцами. Обычных людей тогда почти никто не спрашивал, но массового подъёма тоже не случилось.
-​
-​
-Неприятная деталь: у Франклина в планах Канада виделась англоязычной и протестантской. Франкоканадцам предлагались варианты «уехать» или «раствориться». Потом он смягчал риторику, но базовая логика была именно такой.
-​
-​
-Почему эту историю мало кто помнит
-​
-Франклин не оставил личных писем из Монреаля — для историков там дырка. США не любят вспоминать момент, где «жертвы тирании» параллельно вторгаются к соседям. В Канаде франкоканадская историческая память больше привязана к завоеванию 1760 года, а англоязычных жителей тогда было слишком мало, чтобы это стало «нашим эпосом»; куда проще раскручивать войну 1812-го.
-​
-​
-В результате получается полезная мысль Drohan: мирная эпоха после Второй мировой — это не вечное правило, а довольно короткий исторический отрезок. А идея «Канада должна быть американской» всплывала и раньше — и будет всплывать снова.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">30 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1850@30-12-2025_15-04-57.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Что дальше в канадской политике: пять сюжетов, за которыми будут следить в 2026 году
-
-​⁠
-
-<a href="https://www.cbc.ca/news/politics/five-key-stories-canadian-politics-carney-poilievre-trump-trade-canada-9.7028865">2025-й закончился максимально нервно</a>: уход Джастина Трюдо, приход Марка Карни, перебежчики из Консервативной партии и торговая война США. 2026-й обещает быть не менее насыщенным — с давлением из Вашингтона и внутренними разборками в оппозиции.
-
-​⁠
-
-1. Пересмотр торгового соглашения с США и Мексикой (CUSMA)
-
-​⁠
-
-В 2026 году стартует обязательный пересмотр CUSMA. Переговоры с США начнутся уже в январе. Дональд Трамп и его команда требуют:
-
-– большего доступа США к канадскому рынку молочной продукции
-– отмены региональных запретов на американский алкоголь
-– пересмотра Online Streaming Act и Online News Act
-– уступок по энергетике и госзакупкам
-
-Тарифы на сталь, алюминий, автомобили и древесину продолжают бить по канадской экономике. Дополнительная интрига — возможное решение Верховного суда США о законности «чрезвычайных» тарифов Трампа.
-
-​⁠
-
-2. Лидерство Пьера Полиева под вопросом
-
-​⁠
-
-В конце января консерваторы соберутся в Калгари на обязательный лидерский пересмотр. Формально Пьер Полиев уверен в победе, но:
-
-– партия проиграла выборы
-– два депутата уже перешли к либералам
-– внутри фракции звучат обвинения в токсичной атмосфере
-
-Полиев усиливает штаб и меняет стратегов, но вопрос его будущего в партии в 2026 году никуда не исчезнет.
-
-​⁠
-
-3. Либералы в одном шаге от большинства
-
-​⁠
-
-Правительство Марка Карни не хватает всего одного депутата до большинства. После двух переходов из Консервативной партии либералы открыто намекают: желающие есть ещё.
-
-Министры признают, что получают «много запросов». Оппозиция обвиняет Карни в закулисных договорённостях, но сам премьер говорит о «личных решениях депутатов».
-
-Каждый новый перебежчик может радикально изменить баланс сил в парламенте.
-
-​⁠
-
-4. Гонка за лидерство в НДП
-
-​⁠
-
-Новая демократическая партия переживает худший результат в истории — всего семь мест. В марте партия выберет нового лидера.
-
-Пять кандидатов, ни один из которых не владеет французским языком на рабочем уровне, что серьёзно осложняет перспективы в Квебеке.
-
-Внутренний отчёт НДП прямо признаёт: партия не смогла навязать собственную повестку и потерялась между Трампом, Полиевом и Карни.
-
-​⁠
-
-5. Пограничные законы и спорные полномочия государства
-
-​⁠
-
-Либералы продолжают проталкивать реформы пограничной и миграционной политики:
-
-– усиление контроля
-– борьба с отмыванием денег
-– ограничения на подачу беженских заявок
-– расширение обмена персональными данными
-
-После критики законопроект разделили на части. Один из них уже в Сенате, но окончательное принятие ожидается не раньше февраля.
-
-Дополнительно в парламенте зависли налоговые изменения и крупная реформа уголовного законодательства.
-
-​⁠
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">29 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1842@29-12-2025_17-02-09.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">В Канаде обнаружен почти неисчерпаемый запас лития
-​⁠
-В Квебеке заявлено об одном из крупнейших в мире потенциальных месторождений лития. <a href="https://www.earth.com/news/an-almost-inexhaustible-reserve-of-lithium-discovered-in-canada/#google_vignette">По оценке, представленной австралийской компанией Fleet Space Technologies</a>, литиевый проект Cisco в регионе Джеймс-Бей может содержать до 329 миллионов тонн руды — или около 360 миллионов тонн материала в целом.
-
-​⁠
-Речь идёт не о подтверждённых запасах, а об разведочном целевом показателе, полученном с использованием спутникового ИИ и наземных сенсоров. Тем не менее, такие объёмы выводят Cisco в число крупнейших проектов твёрдого лития, отслеживаемых сегодня в Канаде.
-
-​⁠
-Работы ведёт компания Fleet Space Technologies — разработчик спутниковых и сенсорных систем для геологоразведки. Их платформа ExoSphere объединяет данные со спутников, сейсмических датчиков, гравитационных и магнитных измерений, создавая трёхмерную модель недр.
-
-​⁠
-На участке Cisco система показала около 300 миллионов тонн литиевой породы со средним содержанием около 1% оксида лития. Основной минерал — сподумен, ключевое сырьё для аккумуляторов электромобилей.
-
-​⁠
-Проект расположен в регионе Джеймс-Бей на севере Квебека, с доступом по шоссе Билли Даймонд. Лицензией владеет компания Q2 Metals. По словам Fleet Space, литиевые структуры могут выходить за пределы текущих границ участка, что указывает на «потенциал масштаба целого района».
-
-​⁠
-Ключевая особенность технологии — скорость. После загрузки данных алгоритмы могут предложить новые точки бурения в течение 48 часов. Каждая новая скважина тут же уточняет модель, позволяя следующему этапу быть точнее и дешевле.
-
-​⁠
-Регион Джеймс-Бей уже считается одним из самых перспективных литиевых поясов Северной Америки. Здесь сосредоточены несколько твёрдопородных проектов, хорошая дорожная инфраструктура и доступ к портам.
-
-​⁠
-Отдельный фактор — гидроэнергетика Квебека. Переработка лития на «чистой» электроэнергии даёт Канаде преимущество по углеродному следу по сравнению с поставками из стран, зависящих от угля и газа.
-
-​⁠
-Рост спроса на литий ускоряется из-за электромобилей и аккумуляторных систем для солнечной и ветровой генерации. По оценкам Международного энергетического агентства, потребность в литии для «зелёных» технологий может резко вырасти к 2030 году. При этом запуск новых рудников обычно занимает до десяти лет — и ускорение ранней разведки становится критичным.
-
-​⁠
-Проект Cisco расположен на территории Эйю Истьчи — традиционных землях народа кри. Законодательство Квебека требует экологической оценки и консультаций с коренными общинами до начала добычи. Использование точных моделей позволяет сократить площадь бурения и снизить воздействие на окружающую среду, но не отменяет дальнейших переговоров о воде, рекультивации и дизайне шахты.
-
-​⁠
-Важно подчеркнуть: заявленные объёмы — не запасы и не подтверждённые ресурсы. Для этого потребуются дополнительные этапы бурения и независимая верификация по канадским стандартам отчётности. Даже сами разработчики подчёркивают, что цифры носят концептуальный характер.
-
-​⁠
-Тем не менее, Cisco уже стал тестовым примером того, как ИИ и спутниковые технологии могут изменить геологоразведку — именно в момент, когда миру срочно нужны новые источники аккумуляторных металлов.
-
-​⁠
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/energetika/" class="badge">#энергетика</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">29 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1841@29-12-2025_15-35-53.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">338 Canada: финальные опросы 2025 показывают трещины в поддержке либералов
-​
-​
-<a href="https://www.338canada.ca/p/338-sunday-update-final-2025-polls">Финальные федеральные опросы</a> уходящего года рисуют для либералов Марка Карни картину куда менее комфортную, чем ещё пару месяцев назад. Под конец декабря поддержка правительства просела — и сразу несколько социологических компаний зафиксировали один и тот же тренд.
-​
-​
-Опросы, проведённые в середине декабря, дали почти идентичный результат:
-– Mainstreet Research — минимальное преимущество консерваторов
-– Nanos Research и Liaison Strategies — полная статистическая ничья
-– Pallas Data и Ipsos — преимущество либералов всего в 3 пункта
-​
-​
-В сумме 2025 год заканчивается фактическим паритетом. Это особенно показательно на фоне того, что Пьер Полиев за год пережил серию тяжёлых ударов: потерял почти гарантированное лидерство, проиграл выборы и лишился собственного мандата в Карлтоне.
-​
-​
-Тем не менее, даже после такого года Консервативная партия остаётся на расстоянии вытянутой руки от власти. Для либералов это тревожный сигнал — особенно с учётом ослабления позиций в Квебеке и Британской Колумбии и снижения личного рейтинга правительства.
-​
-​
-Автор 338 Canada Филипп Ж. Фурнье отдельно отмечает, что декабрьские опросы всегда сложны для интерпретации из-за праздничного периода. Если в начале 2026 года цифры резко отскочат вверх, это станет отдельной темой для анализа. Пока же — перед нами редкий момент, когда страна входит в новый год без явного фаворита.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">29 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1840@29-12-2025_14-41-56.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Два места в Канаде вошли в список лучших направлений мира на 2026 год
-​⁠
-<a href="https://apple.news/AEinrZUzARJmZVF-qw6f1VQ">Американское издание U.S. News опубликовало</a> рейтинг 30 лучших мест в мире для путешествий в 2026 году — и сразу два канадских направления оказались в списке.
-
-​⁠
-Quebec City занял 28-е место. Город отметили за брусчатые улицы, историческую застройку и «неоспоримое очарование». По версии рейтинга, старый Квебек выглядит как сцена с европейской открытки: здания XVIII–XIX веков, кафе, булочные и небольшие магазины за крепостными стенами.
-
-​⁠
-Лучшее время для поездки — июнь–сентябрь и декабрь–февраль, когда проходят фестивали и крупные события. Среди отелей на первом месте — Fairmont Le Château Frontenac, далее Auberge Saint-Antoine и Monsieur Jean.
-
-​⁠
-На 29-й строчке рейтинга оказался Banff. Его выделили за разнообразие активностей и «альпийскую» атмосферу, особенно зимой. Отдельно подчеркнули удобное расположение рядом с Banff National Park — первым национальным парком Канады, что делает поездку относительно доступной для туристов из США.
-
-​⁠
-Лучшим отелем региона назван Fairmont Banff Springs, за ним следуют Fairmont Château Lake Louise и Rimrock Resort Hotel Banff. Ранее в декабре Banff уже вошёл в пятёрку лучших мест для путешествий по Канаде в 2026 году.
-
-​⁠
-Первое место в мировом рейтинге занял Рим, далее идут Токио и Прага.
-
-​⁠
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">25 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1829@25-12-2025_19-29-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Запрет смартфонов в школах Квебека дал «огромный эффект» — спустя четыре месяца
-​
-Четыре месяца спустя после полного запрета мобильных телефонов в начальных и средних школах Квебека <a href="https://www.reddit.com/r/canada/">директора и учителя почти единодушны</a>: изменения заметны и в поведении, и в атмосфере, и в учебе.
-​
-В школе Monseigneur-A.-M.-Parent в Лонгёе на переменах теперь играют в карты, настольные игры, пинг-понг, идут в спортзал или просто разговаривают. То, что раньше было коридорами с опущенными головами и экранами, превратилось в шумное живое пространство.
-​
-Ученики говорят прямо: без телефонов стало проще общаться. Даже замкнутые подростки чаще заводят новые знакомства. Исчезла привычка проверять уведомления перед уроком — концентрация выросла.
-​
-Директор школы отмечает быстрый эффект: меньше изоляции, больше реального общения. Да, стало громче — потому что дети разговаривают. Администрация считает это плюсом, а не проблемой.
-​
-Похожая картина и в частных школах. В Séminaire Saint-François под Квебек-Сити опасались сопротивления старшеклассников, но его не случилось. Жалоб не было, «бунта» тоже. Зато появились смех, игры и разговоры в коридорах — и заметный рост социальных навыков.
-​
-Клинический психолог и исследователь Линда Пагани объясняет: подростковый возраст — ключевой этап формирования личности, а постоянное залипание в экранах этому мешает. Гиперподключенность снижает способность учиться и вызывает ментальную усталость.
-​
-Отдельная тема — технологии в обучении. Даже школы, где остаются планшеты, всё чаще сомневаются в их пользе. В том же Séminaire Saint-François планшеты планируют заменить ноутбуками: они меньше отвлекают и лучше соответствуют будущим академическим и профессиональным требованиям.
-​
-Запрет телефонов в классах действует в Квебеке с января 2024 года — это первая рекомендация комиссии по влиянию экранов и соцсетей на здоровье и развитие детей. Судя по первым итогам, мера оказалась куда эффективнее, чем ожидали.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">25 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1828@25-12-2025_15-12-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Либералы Карни заканчивают 2025 год с минимальным преимуществом над консерваторами — опрос
-​
-​
-Либеральная партия под руководством Марк Карни сохраняет узкое лидерство над консерваторами к концу 2025 года, <a href="https://globalnews.ca/news/11580052/carney-liberals-conservatives-ipsos-poll-2025/">показывают новые данные опроса Ipsos для Global News</a>.
-​
-​
-Если бы федеральные выборы прошли сейчас, за либералов проголосовали бы 40% канадцев, за консерваторов — 37%. Разрыв в пределах статистической погрешности и почти не отличается от картины последних выборов.
-​
-​
-Примечательно другое: личный рейтинг Карни заметно выше рейтинга его партии. Одобрение работы правительства под его руководством составляет 55% — на 15 пунктов выше поддержки самих либералов.
-​
-​
-Глава Ipsos Public Affairs Даррелл Брикер отмечает, что эффект Карни во многом персональный. Его образ работает лучше, чем партийный бренд, что даёт премьеру преимущество в эпоху «политики лидеров», но не гарантирует роста поддержки партии в целом.
-​
-​
-Одновременно усиливаются НДП и Квебекский блок — обе партии прибавили по два пункта с сентября и сейчас имеют по 9%. Этот переток идёт в основном за счёт либералов, а не консерваторов.
-​
-​
-Вопрос о новых выборах в 2026 году разделил страну почти поровну:
-– 40% канадцев хотели бы снова пойти на выборы
-– 38% выступают против
-– 22% не определились
-​
-​
-Самыми заинтересованными в новом голосовании остаются сторонники консерваторов (71%), молодёжь 18–34 лет (54%) и жители Альберты (52%).
-​
-​
-Для консерваторов данные опроса тоже тревожны. Лидер партии Пьер Полиев идёт к январскому пересмотру лидерства на фоне внутренних проблем: переходов депутатов к либералам и анонсированных отставок. При этом разрыв с либералами так и не сокращается.
-​
-​
-По словам аналитиков, поддержка консерваторов сегодня строится не столько вокруг личности лидера, сколько вокруг запроса на перемены после десяти лет либерального правления.
-​
-​
-Опрос Ipsos проводился онлайн с 8 по 15 декабря среди 1 502 канадцев. Погрешность составляет ±3,1 процентного пункта.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">24 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1825@24-12-2025_22-15-14.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Министр Альберты требует от Оттавы жёстких мер против мошенничества в грузоперевозках
-
-​⁠
-​⁠
-Министр транспорта Альберты Devin Dreeshen призвал федеральное правительство усилить контроль над иммиграционными злоупотреблениями в сфере коммерческих перевозок, заявив, что бездействие напрямую угрожает безопасности на дорогах.
-
-​⁠
-​⁠
-По словам Дришена, поскольку грузовики постоянно пересекают провинциальные границы, именно Оттава обязана навести порядок с «одноразовыми» транспортными компаниями, которые нанимают плохо подготовленных иностранных водителей и уходят от ответственности.
-
-​⁠
-​⁠
-В 2025 году власти Альберты закрыли:
-– пять некачественных школ подготовки водителей
-– 13 так называемых chameleon carriers — перевозчиков, которые меняют названия и юрлица, чтобы скрыть прошлые нарушения безопасности
-
-​⁠
-​⁠
-<a href="https://nationalpost.com/news/canada/alberta-minister-calls-on-feds-to-crack-down-on-foreign-trucking-scams">Как выяснило издание National Post</a>, по меньшей мере восемь из этих компаний имели связи с владельцами из южноазиатского сообщества.
-
-​⁠
-​⁠
-Среди закрытых учебных заведений — базирующаяся в Эдмонтоне Indo Canadian Driver Training School Inc. Названия ещё двух школ не раскрываются из-за апелляций.
-
-​⁠
-​⁠
-Дришен признаёт, что федералы улучшили обмен данными между провинциями, но считает, что этого недостаточно. По его словам, требуется более жёсткая проверка мигрантов, приезжающих работать дальнобойщиками.
-
-​⁠
-​⁠
-Оттава ранее объявила о мерах против схемы Driver Inc., при которой водителей фиктивно оформляют как независимых подрядчиков. Эти шаги были включены в федеральный бюджет в ноябре.
-
-​⁠
-​⁠
-Министр отдельно подчеркнул необходимость лучшего надзора за набором водителей из Индии:
-«Если люди из Индии хотят работать в канадской trucking-индустрии, они должны чётко понимать требования к обучению и стандартам безопасности в Канаде».
-
-​⁠
-​⁠
-Примерно каждый пятый водитель грузовика в стране имеет южноазиатское происхождение. При этом, как отмечают аналитики, публичных данных недостаточно, чтобы утверждать, что такие водители чаще становятся виновниками смертельных ДТП.
-
-​⁠
-​⁠
-С 1 декабря Альберта начала учитывать аварийность на уровне конкретных водителей, а не только компаний. Пока в этих данных не фиксируется гражданство или страна происхождения.
-
-​⁠
-​⁠
-Заявления Дришена прозвучали на фоне доклада Alberta Next Panel, который рекомендовал провести в 2026 году референдум о расширении полномочий провинции в сфере иммиграции.
-
-​⁠
-​⁠
-Министр допустил модель, близкую к квебекской, где провинция сможет указывать Оттаве, каких именно мигрантов и в каком количестве она готова принимать — с привязкой к экономическим потребностям региона.
-
-​⁠
-​⁠
-Запросы National Post к федеральным министрам иммиграции и транспорта остались без ответа.
-
-​⁠
-​⁠
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">23 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1814@23-12-2025_13-46-54.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Либералы и консерваторы сравнялись: по 38%
-​
-​
-<a href="https://press.liaisonstrategies.ca/liberals-tories-tied-at-38/?ref=liaison-strategies-newsletter">Новый общенациональный опрос компании Liaison Strategies показывает</a>, что Либеральная партия Марка Карни продолжает терять поддержку и теперь делит первое место с консерваторами — по 38%.
-​
-​
-Опрос проводился 19–21 декабря среди 1 000 канадцев методом автоматических телефонных звонков (IVR). Погрешность — ±3,09 п.п.
-​
-​
-Ключевые цифры:
-– либералы: 38% (–3 п.п. с прошлого замера)
-– консерваторы: 38% (+2 п.п.)
-– НДП: 12% по стране, 19% в Британской Колумбии
-​
-​
-Региональная картина остаётся более благоприятной для либералов:
-– Атлантическая Канада: +7
-– Квебек: +4 (по сравнению с Блоком)
-– Онтарио: +5
-– Британская Колумбия: +4
-​
-​
-Консерваторы уверенно доминируют на прериях:
-– Саскачеван и Манитоба: +26
-– Альберта: +40
-​
-​
-Личный рейтинг Марка Карни продолжает снижаться, но всё ещё остаётся в плюсе. По данным трекинга Liaison, его чистый рейтинг одобрения составляет +18, несмотря на рост негативных оценок.
-​
-​
-Социологи отмечают разрыв между личной популярностью премьера и текущими электоральными намерениями — эффект, который может исчезнуть по мере того, как Карни проведёт полный год у власти.
-​
-​
-На фоне нестабильного 2025 года аналитики не исключают в 2026-м ничего: ни новых переходов депутатов, ни досрочных выборов, ни неожиданных политических поворотов.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">23 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1810@23-12-2025_09-47-18.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Карни назначил близкого друга и экс-банкира послом Канады в США
-​
-​
-<a href="https://nationalnewswatch.com/2025/12/22/cp-newsalert-carney-names-investment-banker-mark-wiseman-as-next-u-s-ambassador">Премьер-министр Марк Карни назначил </a>Марка Уайзмана новым послом Канады в Вашингтоне. Он вступит в должность 15 февраля и будет курировать переговоры с США по пересмотру континентального торгового соглашения.
-​
-​
-Назначение сразу привлекло внимание из-за личных и политических связей. Уайзман — давний друг Карни и один из первых доноров его кампании за лидерство в Либеральной партии. Во время выборов он пожертвовал максимальные суммы как лично Карни, так и партии.
-​
-​
-Уайзман сменит Кристен Хиллман, которая ранее объявила о завершении своей миссии, объяснив это тем, что новый этап переговоров по CUSMA требует «свежей команды».
-​
-​
-Формально опыт у нового посла впечатляющий, но не дипломатический:
-– бывший инвестиционный банкир и управляющий пенсионными фондами
-– экс-глава активных инвестиций в BlackRock
-– руководил инвестиционным портфелем Canada Pension Plan
-– возглавлял Alberta Investment Management Corp.
-​
-​
-При этом у него почти нет политического и дипломатического опыта — на фоне предыдущих послов, среди которых были бывшие премьеры, министры и карьерные дипломаты, участвовавшие в переговорах по ключевым торговым соглашениям.
-​
-​
-Отдельную критику вызвало участие Уайзмана в создании Century Initiative — проекта, предлагающего увеличить население Канады до 100 миллионов к 2100 году. Лидер консерваторов Пьер Полиев назвал эту идею «радикальной», а Блок Квебекуа напомнил о его старом посте, где он писал о необходимости роста населения «даже если Квебек будет выть». Сообщение позже было удалено.
-​
-​
-Назначение Уайзмана выглядит как ставка Карни на людей из финансового мира и на личное доверие — особенно на фоне предстоящих сложных переговоров с администрацией Дональда Трампа.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">22 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1806@22-12-2025_17-21-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">После легализации каннабиса полиция Канады стала чаще ловить пьяных водителей
-​
-​
-После легализации каннабиса в октябре 2018 года ожидали всплеска «накуренных» водителей. Однако полицейская статистика показывает более сложную картину.
-​
-​
-Исследование охватывает 2009–2023 годы и основано на данных о случаях вождения в состоянии опьянения, зафиксированных полицией. Учитывались четыре категории: алкоголь, наркотики, сочетание алкоголя и наркотиков, а также неопределённые вещества.
-​
-​
-До 2018 года общий уровень выявленного опьянения за рулём стабильно снижался. Но уже в 2019-м произошёл резкий скачок: в 2019–2023 годах полиция зафиксировала на 31% больше случаев, чем прогнозировалось на основе прежнего тренда.
-​
-​
-Алкоголь по-прежнему доминирует, но его доля заметно сократилась: с 98% всех случаев в 2009 году до 80% в 2023-м. При этом именно пьяных водителей полиция стала задерживать намного чаще — рост в абсолютных числах оказался в четыре раза выше, чем у водителей под воздействием наркотиков.
-​
-​
-Наибольший процентный рост пришёлся на категорию «наркотики»: +42% к ожидаемому уровню. Однако в статистике «наркотики» включают не только каннабис, но и опиоиды, амфетамины и другие вещества — без детализации по конкретным препаратам.
-​
-​
-Рост показателей сильно различался по провинциям. В Квебеке и Саскачеване значимых изменений не зафиксировано, тогда как в Британской Колумбии и Ньюфаундленде показатели фактически удвоились.
-​
-​
-Наиболее сильная связь обнаружена между ростом выявленных нарушений и числом полицейских, прошедших подготовку по распознаванию наркотического опьянения. Чем больше обученных офицеров — тем больше выявленных случаев.
-​
-​
-Вторым фактором стали ковидные ограничения. Они совпали со снижением алкогольного опьянения за рулём и одновременным ростом случаев, связанных с наркотиками.
-​
-​
-При этом ни рост потребления каннабиса, ни объёмы легальных продаж почти не коррелируют с показателями наркотического опьянения за рулём. Это указывает на то, что увеличение числа задержаний связано скорее с усилением контроля и внешними обстоятельствами, чем с самой легализацией.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">22 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1801@22-12-2025_09-43-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">В Монреале мужчина оспаривает закон Квебека о конфискации после изъятия $2 млн 
-​
-​
-<a href="https://montrealgazette.com/news/seizure-of-2-million-montreal-man-challenging-quebec-forfeiture-law">75-летний бизнесмен Андре Леви подал конституционный иск против</a> гражданского закона Квебека о конфискации имущества после того, как полиция изъяла у него более $2,1 млн наличными — при том, что ему так и не предъявили никаких уголовных обвинений.
-​
-​
-Адвокаты Леви утверждают, что ключевая норма закона нарушает Канадскую хартию прав и свобод. Речь идёт о презумпции, согласно которой любые суммы наличных от $2 000 считаются доходом от преступной деятельности, если их хранение «несовместимо с практиками финансовых учреждений».
-​
-​
-По версии защиты, это:
-​
-– подрывает презумпцию невиновности
-– позволяет изымать собственность без доказательства преступления
-– нарушает право на справедливую процедуру и защиту от необоснованных обысков
-​
-​
-«Лишать человека значительной суммы, накопленной за всю жизнь, лишь потому, что он не может опровергнуть законную презумпцию, — это путь к злоупотреблениям властью», — указали адвокаты в судебных материалах.
-​
-​
-Деньги были обнаружены в январе 2024 года во время обыска в доме Леви после жалобы бывшей супруги на домогательства. Она сообщила полиции о наличии оружия и крупной суммы наличных. Оружие нашли, но уголовных обвинений по делу о деньгах так и не последовало.
-​
-​
-Полиция заявляет, что:
-​
-– деньги были спрятаны за фальшивой стеной
-– часть купюр была перевязана резинками и упакована в чёрный пластик
-– в доме находилась машинка для подсчёта денег
-– девять купюр по $20 ранее использовались в полицейской закупке наркотиков
-​
-​
-Следствие также указало, что задекларированный доход Леви с 2013 по 2022 год составил около $1,2 млн, что, по их мнению, не объясняет наличие более $2 млн наличными.
-​
-​
-Защита настаивает, что деньги были получены легально, а сам обыск был проведён с нарушениями. Кроме того, Леви утверждает, что во время обыска пропали $300 000, и требует почти $1 млн компенсации от полиции Лонгёя и следователя.
-​
-​
-Спорная презумпция была добавлена в закон о гражданской конфискации в 2024 году в рамках реформы, направленной на «повышение эффективности правосудия». Тогда изменения почти не вызвали общественной дискуссии — обеспокоенность публично выразила лишь Коллегия адвокатов Квебека, назвав норму чрезмерной и расплывчатой.
-​
-​
-Юристы отмечают, что аналогичные режимы существуют и в других провинциях, но именно квебекская версия с фиксированным порогом наличных, вероятно, станет предметом серьёзной конституционной проверки.
-​
-​
-Офис генерального прокурора Квебека от комментариев отказался, сославшись на то, что дело находится в суде.
-​
-Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">20 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1791@20-12-2025_09-42-03.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Самые загруженные дни путешествий в году уже здесь. Хаос или спокойствие?
-​
-​
-Конец декабря — традиционно пик путешествий в Канаде. В ближайшие дни аэропорты, вокзалы и трассы будут работать на пределе: это самые загруженные даты всего 2025 года. Вопрос, который волнует всех — подведёт ли погода.
-​
-​
-<a href="https://www.cbc.ca/news/canada/christmas-travel-delays-9.7022815">По данным Environment and Climate Change Canada</a>, в этом году картина на удивление мягкая. Главный климатолог ведомства Дэвид Филлипс говорит прямо: ничего экстремального не ожидается. Немного дождей в Ванкувере, слабый снег в Онтарио и Атлантических провинциях, ясная и холодная погода на севере.
-​
-​
-«Когда смотришь на прогноз на неделю — он удивительно спокойный», — отмечает Филлипс. Для канадской зимы это редкий подарок.
-​
-​
-Аэропорты, тем временем, перешли в режим максимальной загрузки:
-​
-– Toronto Pearson ждёт около 171 тысячи пассажиров в день и официально объявил «holiday peak mode»
-– Оттава ожидает пик с 21 по 23 декабря — рейсы почти полностью заполнены
-– Калгари прогнозирует 1,48 млн пассажиров за декабрь
-– Ванкувер уже прошёл самый загруженный день сезона
-​
-​
-Основные направления — традиционные: внутренние перелёты в Ванкувер, Калгари и Монреаль, а также массовый поток в тёплые страны — Мексика и Доминикана. Спрос на поездки, по словам аэропортов, выше обычного.
-​
-​
-Метеорологи всё же предупреждают: в ближайшие 24 часа возможны сложные условия в южном Онтарио и Квебеке — дождь, снег, ветер и резкое похолодание, что может привести к гололёду. Но уже на следующей неделе системы ослабеют.
-​
-​
-Вывод простой: толпы — да, серьёзных погодных сюрпризов — скорее всего, нет. Но проверять прогноз и статус рейса перед выездом всё равно придётся. Канадская зима любит напоминать о себе внезапно.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1784@19-12-2025_14-34-19.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">В Онтарио и Квебеке накрыли крупную сеть краж из Shoppers Drug Mart
-
-​
-<a href="https://www.cbc.ca/news/canada/hamilton/project-somme-retail-crime-ring-9.7021191">Полиция Хэмилтона сообщила о ликвидации</a> организованной преступной группы, причастной к сотням краж из магазинов Shoppers Drug Mart в Онтарио и Квебеке. Ущерб — свыше $1 млн.
-
-​
-В рамках расследования Project Sommes арестован 21 человек в возрасте от 15 до 75 лет. Все — жители Хэмилтона и региона GTA. В операции участвовали полицейские службы Хэмилтона, а также регионов Пил, Йорк и Ватерлоо.
-
-​
-По данным полиции, схема была отлажена:
-– участники заходили в аптеки, в основном Shoppers
-– наполняли специальные сумки, экранированные от противокражных систем
-– незаметно покидали магазин
-– товар оперативно вывозился в Миссиссагу
-– затем перепродавался через ликвидационные склады и оптовиков
-
-​
-Среди украденного:
-– бритвы
-– никотиновая жвачка
-– косметика
-– кремы для лица
-
-​
-Полиция подчёркивает, что речь идёт не о мелком шоплифтинге, а о «сложной сети с централизованной логистикой», где регион Пил играл ключевую роль.
-
-​
-Расследование показало, что группа действовала как минимум с февраля 2024 года и могла быть причастна к сотням, а возможно и тысячам эпизодов. Точная сумма ущерба всё ещё подсчитывается.
-
-​
-16 обысков были проведены во вторник. Кроме того:
-– выданы ордера на арест ещё двух человек, которые, предположительно, покинули Канаду
-– двое подозреваемых задержаны в Британской Колумбии после серии краж в Ванкувере и будут этапированы в Онтарио
-
-​
-Всего фигурантам предъявлено 175 обвинений, включая:
-– участие в преступной организации
-– подстрекательство к совершению тяжких преступлений
-– хранение имущества, полученного преступным путём
-
-​
-Полиция намеренно концентрирует все обвинения в одном юрисдикционном центре — в Хэмилтоне. Это сделано, чтобы избежать быстрого освобождения под залог, с чем следствие уже сталкивалось ранее.
-
-​
-В Loblaws заявили, что организованные кражи — это не просто убытки для бизнеса: прибыль от перепродажи может использоваться для финансирования более тяжких и насильственных преступлений.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1783@19-12-2025_13-05-21.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Environment Canada назвала 10 главных погодных событий 2025 года
-​
-​
-<a href="https://cheknews.ca/a-look-at-environment-canadas-top-10-weather-events-for-2025-1295784/">Федеральная метеослужба опубликовала</a> ежегодный список самых значимых погодных явлений. 2025 год стал наглядным примером того, как экстремальные условия перестают быть исключением и превращаются в норму.
-
-​
-  1.  Второй по масштабу сезон лесных пожаров в истории Канады
-– сгорело более 89 000 кв. км
-– сильнее всего пострадали Саскачеван и Манитоба
-– пожары шли волнами из-за жары, засухи и ветра
-
-​
-2. Усиление засухи по всей стране
-– в Досон-Крике (Британская Колумбия) осенью оставалось лишь 150 дней запасов воды
-– на реке Святого Лаврентия суда застревали на обмелевших участках
-
-​
-3. Мощные грозы в центральном и восточном Онтарио
-– конец июня
-– десятки тысяч без электричества
-– разрушенные дороги, поваленные деревья
-– один погибший
-
-​
-4. Майская жара и пожары в Манитобе
-– температура превышала 35°C
-– пожар в парке Nopiming охватил более 100 000 гектаров
-– в Lac du Bonnet погибли два человека
-
-​
-5. Крупнейший ледяной дождь парализовал Онтарио
-– конец марта
-– Онтарио и Квебек покрылись толстым слоем льда
-– миллионы домов без электричества
-– открывались временные пункты обогрева
-
-​
-6. Серия сильных снегопадов в центре и на востоке страны
-– февраль
-– от Онтарио до Лабрадора
-– Миребель (Квебек) получил 53 см снега за одну бурю
-
-​
-7. Штормы разрушили Прерии
-– 20 августа
-– пострадали Альберта, Саскачеван и Манитоба
-– град размером с бейсбольный мяч
-– порывы ветра до 155 км/ч
-
-​
-8. Штормовой нагон воды в Туктояктуке, СЗТ
-– 30 августа
-– подъём уровня океана более чем на 2,5 метра
-– самый высокий показатель за всю историю наблюдений
-– ранее редкое явление для Арктики
-
-​
-9. Ноябрьский «погодный взрыв» в Атлантической Канаде
-– шторм перекрыл по эффекту весь сезон ураганов
-– юго-восток Ньюфаундленда
-– остров Сагуна — почти ураганный ветер 9 часов подряд
-
-​
-10. Рекордная позднелетняя жара на западе
-– конец августа
-– Литтон (Британская Колумбия): 40°C четыре дня подряд
-
-​
-2025 год стал ещё одним сигналом: экстремальная погода больше не эпизод, а устойчивый фон.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1779@18-12-2025_18-24-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Данные роддомов указывают на рост «родильного туризма» в Канаде
-​
-
-​
-Роды у иностранок без постоянного статуса в Канаде снова растут — <a href="https://www.theglobeandmail.com/politics/article-hospital-birth-data-suggests-increase-in-birth-tourism-says/">к такому выводу пришёл эксперт по иммиграционной статистике </a>Эндрю Гриффит, проанализировав свежие данные канадских больниц. Его исследование опубликовано в Policy Options.
-​
-
-​
-Речь идёт о женщинах, находящихся в стране по гостевым визам, а также о временных резидентах — иностранных студентах и временных работниках. В 2024–2025 финансовом году число таких родов выросло примерно на 4% по сравнению с прошлым годом.
-​
-
-​
-Особенность момента в том, что рост происходит на фоне сокращения временной иммиграции:
-– количество студенческих виз снизилось на 31%
-– число временных иностранных работников — на 21%
-​
-
-​
-Это позволяет предположить, что увеличение обеспечивают именно посетители по туристическим визам — классический «родильный туризм». Сам Гриффит прямо говорит, что такие случаи могут быть даже занижены в статистике.
-​
-
-​
-Ключевые цифры по данным больниц:
-– 5 430 родов у нерезидентов в 2024–2025 году
-– почти возврат к допандемийному уровню (5 698 в 2019–2020)
-– во время пандемии показатель падал почти на 50%
-​
-
-​
-География:
-– Онтарио — 2 895 родов
-– Квебек — 1 417
-– Британская Колумбия — 542
-– Альберта — 345
-– остальные провинции — 225
-​
-
-​
-Отдельный интерес вызывает концентрация таких родов: треть всех случаев пришлась всего на 10 больниц, включая четыре в районе Монреаля.
-​
-
-​
-Отдельные учреждения показывают резкий рост по сравнению с допандемийным периодом:
-– North York General (Торонто): +44%
-– Maisonneuve-Rosemount (Квебек): +80%
-– Humber River-Wilson (Торонто): почти +30%
-​
-
-​
-Важно: данные Статистического управления Канады дают значительно более высокую оценку. Используя демографическое моделирование, StatsCan предполагает, что в 2024 году около 35 000 из 366 000 родов в Канаде пришлись на женщин без постоянного статуса — значительно больше, чем показывают больничные данные.
-​
-
-​
-Политический фон уже накаляется. Консерваторы требуют пересмотра принципа автоматического гражданства по рождению и считают «родильный туризм» злоупотреблением системой. Либералы пока менять правило jus soli не готовы.
-​
-
-​
-По закону Канады любой ребёнок, рождённый на территории страны, автоматически становится гражданином — в отличие от Австралии или Великобритании, где нужен гражданский или постоянный статус одного из родителей.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1777@18-12-2025_14-14-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Главный санитарный врач Квебека предупреждает: грипп распространяется «почти как пожар»
-​
-
-​
-<a href="https://www.cbc.ca/news/canada/montreal/quebec-public-health-influenza-a-prevention-holidays-9.7017611">Педиатрические больницы Монреаля переполнены</a> накануне праздников из-за резкого всплеска сезонных вирусов. Власти просят родителей не обращаться в приёмные покои без острой необходимости.
-​
-
-​
-Глава общественного здравоохранения Квебека доктор Каролин Куаш заявила, что в провинции активно распространяется особенно заразный штамм гриппа A — H3N2. По её словам, сезон начался значительно раньше обычного и выйдет на пик как раз во время праздничных встреч.
-​
-
-​
-Причина тревоги — мутации вируса. Он частично уходит от защиты, которую дают как прошлые инфекции, так и вакцинация, что делает его более заразным.
-​
-
-​
-По данным Куаш, сейчас около 50% детей с симптомами, которых тестируют в Квебеке, получают положительный результат на грипп. Для сравнения, среди населения в целом этот показатель составляет около 26%.
-​
-
-​
-Ситуация в детских больницах Монреаля:
-– в Montreal Children’s Hospital загрузка носилок достигла 130%
-– в CHU Sainte-Justine — в среднем 147%
-– более 40% обращений связаны с лёгкими инфекциями
-​
-
-​
-Больницы подчёркивают: экстренная помощь оказывается всем нуждающимся, но при нетяжёлых симптомах ожидание может быть долгим. Родителей просят по возможности пользоваться альтернативами — линией Info-Santé 811 или клиниками без записи.
-​
-
-​
-Дополнительную обеспокоенность вызывает Онтарио, где в декабре грипп стал причиной смерти трёх детей в возрасте от пяти до девяти лет.
-​
-
-​
-Куаш вновь призвала жителей Квебека вакцинироваться от гриппа. Прививка не гарантирует полной защиты, но снижает риск осложнений. Также она напомнила о базовых мерах — мытьё рук, маски в общественных местах, избегание контактов с уязвимыми людьми и отказ от визитов на праздники при симптомах болезни.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1776@18-12-2025_13-12-14.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг
-​
-
-​
-Администрация Дональда Трампа <a href="https://www.cbc.ca/news/politics/trump-cusma-conditions-review-9.7020403">впервые публично обозначила</a>, что именно Канада должна изменить, чтобы сохранить торговое соглашение CUSMA после пересмотра в 2026 году. Об этом в Конгрессе заявил торговый представитель США Джеймисон Грир.
-​
-
-​
-По его словам, соглашение «сработало лишь частично». Американский экспорт в Канаду и Мексику вырос на 56% с 2020 года, но автоматическое продление на 16 лет Вашингтон не устроит. Альтернатива — ежегодный пересмотр, которого Оттава старается любой ценой избежать.
-​
-
-​
-Ключевые претензии США к Канаде:
-– расширить доступ американской молочной продукции на канадский рынок
-– пересмотреть правила экспортa молочных ингредиентов
-– изменить закон о стриминге, который распространяет канадские культурные требования на Netflix, Spotify и YouTube
-– отменить провинциальные запреты на продажу американского алкоголя
-– смягчить правила госзакупок в Онтарио, Квебеке и Британской Колумбии
-– упростить таможенные процедуры для импорта из США
-– пересмотреть энергетические правила Альберты, затрагивающие поставщиков из Монтаны
-​
-
-​
-Особое раздражение у Вашингтона вызывает канадская система управления молочным рынком. Формально США не требуют её ликвидации, но настаивают, что действующие квоты «несправедливо ограничивают доступ» американских производителей.
-​
-
-​
-Отдельно Грир указал на бойкоты американского алкоголя на уровне провинций. Продажи Brown-Forman (Jack Daniel’s) в Канаде упали более чем на 60%. В Вашингтоне считают эти меры ответом «из вредности» на тарифы США.
-​
-
-​
-Важно: в документе США ничего не говорится об отмене американских секторальных тарифов на канадскую сталь, алюминий, автомобили и древесину. Переговоры по ним ранее сорвались после антироссийских — точнее, антиамериканских — рекламных кампаний правительства Онтарио.
-​
-
-​
-Грир также напомнил, что Марк Карни уже пошёл на уступки: отменил цифровой налог и свернул часть ответных тарифов. Но этого оказалось недостаточно.
-​
-
-​
-При этом бизнес и профсоюзы по обе стороны границы почти единодушны: CUSMA нужно сохранять, пусть и с изменениями. США не исключают даже отказ от трёхстороннего формата в пользу отдельных сделок с Канадой и Мексикой.
-​
-
-​
-Итог простой: продление CUSMA больше не выглядит технической формальностью. Для Оттавы это будет жёсткий торг — с реальными политическими и экономическими уступками.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1775@18-12-2025_12-12-30.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Закон о «потерянных канадцах» вступил в силу
-​
-
-​
-<a href="https://www.bbc.com/news/articles/cvgkj8gpkgwo">Канада изменила правила гражданства по происхождению</a>: теперь автоматическое гражданство получают дети, рождённые или усыновлённые за границей, если их канадский родитель тоже родился за пределами страны.
-​
-
-​
-Ключевое условие — «существенная связь» с Канадой. Родитель обязан доказать, что прожил в стране не менее трёх лет до рождения или усыновления ребёнка.
-​
-
-​
-Термин «потерянные канадцы» относится к людям, которые утратили или так и не получили гражданство из-за устаревших норм закона. Речь идёт прежде всего о поправках 2009 года времён правительства Стивена Харпера, которые ограничили гражданство по происхождению одним поколением.
-​
-
-​
-Изменения стали следствием решения суда Онтарио в 2023 году: суд признал такие ограничения неконституционными. Либеральное правительство не стало оспаривать вердикт, признав, что прежние нормы приводили к «неприемлемым последствиям» для детей канадцев, рождённых за границей.
-​
-
-​
-Точных цифр нет, но ведомство по иммиграции ожидает десятки тысяч заявлений со временем. Парламентский бюджетный офицер ранее оценивал масштаб — около 115 тысяч человек за пять лет.
-​
-
-​
-Консерваторы выступили резко против. Теневой министр по иммиграции Мишель Ремпел Гарнер заявила, что закон открывает дорогу «гражданству без ограничений» и формирует «граждан удобства». Вместе с Блоком Квебека партия пыталась ужесточить правила — ввести языковые требования и дополнительные проверки для взрослых, но эти поправки провалились.
-​
-
-​
-Одним из первых новых граждан стал британский футболист Алфи Джонс, недавно приглашённый в сборную Канады к ЧМ-2026. Его бабушка родом из Альберты — и этого оказалось достаточно по новым правилам.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">17 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1769@17-12-2025_12-37-25.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию
-​‎
-
-<a href="https://edmonton.citynews.ca/2025/12/16/alberta-separatists-new-petition-referendum-vote/">В Альберте сделан ещё один формальный ша</a>г к возможному референдуму о выходе из состава Канады. Сепаратистское движение подало новую гражданскую инициативу в Elections Alberta, а депутаты провинциального парламента уже одобрили $3 млн на подготовку плебисцита в 2026 году.
-​‎
-
-Автор петиции Митч Сильвестр предлагает прямой вопрос: должна ли провинция Альберта перестать быть частью Канады и стать независимым государством. По его словам, выход из федерации «принесёт пользу каждому жителю провинции».
-​‎
-
-Предыдущую версию инициативы суд признал неконституционной и нарушающей договорные права коренных народов. Но после того как правительство Даниэль Смит и министр юстиции Микки Эмери изменили правила гражданских инициатив, процесс стал заметно более «разрешительным». Сам Сильвестр открыто говорит, что рад обходу судебных ограничений.
-​‎
-
-Против сепаратизма уже мобилизовались оппоненты. Бывший вице-премьер Альберты Томас Лукашук сообщил, что его кампания Forever Canadian собрала более 400 тысяч подписей за сохранение провинции в составе Канады. Он настаивает, что вопрос должен решаться голосованием депутатов, без референдума.
-​‎
-
-Лукашук предупреждает: разговоры о выходе уже подрывают инвестиционную привлекательность региона и могут повторить сценарий Квебека времён сепаратистских кризисов. В то же время он подчёркивает, что его движение готово к полноценной кампании, если голосование всё же состоится.
-​‎
-
-Премьер Даниэль Смит официально заявляет, что поддерживает сохранение Альберты в Канаде, но на недавнем съезде UCP эти слова были встречены освистыванием. Критики считают, что смягчение правил — попытка удержать партию от раскола и успокоить радикальное крыло.
-​‎
-
-На улицах Эдмонтона мнения разделились: одни подчёркивают канадскую идентичность и опасаются политических и экономических последствий, другие уверены, что ресурсная база Альберты позволяет ей существовать самостоятельно.
-​‎
-
-Дополнительные $3 млн, одобренные UCP и NDP, пойдут на техническую подготовку Elections Alberta к возможному референдуму в 2026 году — даже если до самого голосования дело в итоге не дойдёт.
-​‎
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">15 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1753@15-12-2025_12-43-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Знаменитые американцы могут получить канадское гражданство по новому закону
-​
-​
-Новый федеральный законопроект C-3, <a href="https://nationalpost.com/news/canada/these-famous-americans-could-be-eligible-for-canadian-citizenship-under-ottawas-new-legislation">который должен вступить в силу в начале 2026 года</a>, может открыть путь к канадскому гражданству для десятков тысяч людей по всему миру — включая ряд известных американцев.
-​
-​
-Речь идёт о поправках к Закону о гражданстве, устраняющих так называемое «ограничение первого поколения». Именно оно в 2009 году лишило многих потомков канадцев права автоматически получать гражданство по происхождению.
-​
-​
-По оценке Министерства иммиграции, речь идёт о «десятках тысяч» потенциальных заявителей, а не о сотнях тысяч. При этом интерес к закону особенно высок в США — из-за тесной миграционной истории двух стран.
-​
-​
-Среди публичных фигур, которые теоретически могут претендовать на канадский паспорт по линии предков:
-​
-– Хиллари Клинтон — по материнской линии, уходящей к французским канадцам и Filles du Roi
-– Мадонна — французско-канадские корни в Квебеке
-– Анджелина Джоли — прабабушка родом из Квебека
-– Лили Коллинз — прадед родился в Виннипеге
-– Джек Уайт — дед и бабушка из Новой Шотландии
-– Вигго Мортенсен — канадские корни по материнской линии в Атлантической Канаде
-​
-​
-Закон C-3 появился после решения суда Онтарио в 2023 году, который признал прежние правила неконституционными. Ранее они создали категорию так называемых «потерянных канадцев» — людей, лишённых гражданства из-за устаревших норм о месте рождения и передаче статуса.
-​
-​
-Что меняется:
-​
-– Для людей, родившихся до вступления закона в силу, гражданство восстанавливается ретроактивно при доказанной линии происхождения
-– Ограничений по глубине родословной нет: подходят даже пра-пра-предки
-– Гражданство не выдаётся автоматически — требуется индивидуальная подача и подтверждающие документы
-​
-​
-Для детей, рождённых уже после вступления закона в силу, вводится новое правило: родитель-канадец, рождённый за границей, должен доказать «существенную связь с Канадой» — не менее 1 095 дней проживания в стране до рождения ребёнка.
-​
-​
-Иммиграционные юристы ожидают сложные и спорные кейсы, особенно когда речь идёт о доказательствах проживания в Канаде в детском возрасте или о семьях с детьми, рождёнными по обе стороны даты вступления закона в силу.
-​
-​
-В правительстве утверждают, что система справится с нагрузкой, а сроки рассмотрения заявлений — около девяти месяцев — существенно не вырастут.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">13 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1744@13-12-2025_15-29-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Канадцы стали жертвовать меньше — минимум за 20 лет
-​
-
-Доля канадцев, делающих пожертвования благотворительным организациям, упала до самого низкого уровня за последние два десятилетия. <a href="https://www.ctvnews.ca/canada/article/canadians-not-as-charitable-with-donations-as-they-used-to-be-study-finds/">Об этом говорится в новом исследовании Fraser Institute</a>, основанном на налоговых данных за 2023 год.
-​
-
-Сегодня лишь около 16,8% налогоплательщиков в Канаде указывают благотворительные пожертвования в декларациях. Для сравнения: в 2013 году таких было почти 22%, а пик щедрости пришёлся на 2004 год — тогда жертвовали более 25% канадцев.
-​
-
-Падает не только число доноров, но и объём помощи. В 2023 году канадцы направили на благотворительность 0,53% совокупного дохода — меньше, чем десять лет назад. Снижение зафиксировано почти во всех провинциях и территориях страны.
-​
-
-По регионам картина неоднородна:
-– Манитоба лидирует — 18,7% налогоплательщиков делают пожертвования
-– Онтарио и Квебек — чуть более 17%
-– Нью-Брансуик замыкает список — 14,4%
-​
-
-Если смотреть на долю дохода, направляемую на благотворительность, Манитоба, Альберта и Британская Колумбия превышают отметку 0,60%. Квебек и Ньюфаундленд и Лабрадор — в самом конце, всего 0,27% совокупного дохода.
-​
-
-Во Fraser Institute связывают спад прежде всего с давлением на располагаемые доходы. Проще говоря, у людей остаётся меньше денег после налогов — и жертвовать становится сложнее.
-​
-
-Отдельно исследование сравнивает Канаду с США — и тут разрыв устойчивый и давний. Уже десятилетиями американцы отдают на благотворительность большую долю доходов. В 2022 году 37 штатов США, включая округ Колумбия, превзошли любой канадский регион по уровню пожертвований.
-​
-
-Причины — более высокие доходы, больший объём частных расходов на образование и медицину, а также более высокая религиозность, которая традиционно связана с благотворительными взносами.
-​
-
-Авторы отчёта прямо говорят: падение щедрости ограничивает возможности канадских благотворительных организаций и напрямую влияет на качество жизни в сообществах по всей стране.
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><div class="pagination"><a href="/tag/kvebek/page/3/" class="btn">← Назад</a><a href="/tag/kvebek/page/5/" class="btn">Вперед →</a></div></main>
-    <footer>&copy; 2024–2026 Maple Barrel. Journalists.ca</footer>
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="tag-hdr">
+    <h1>#Квебек</h1>
+    <p>340 материалов по теме</p>
+  </div>
+  <div class="tag-grid"><a class="card" href="/post/2025-11-11-bolee-260-vrachey-iz-kvebeka-podali-zayavki-na-rabotu-v-onta/">
+  <div class="card-img"><img src="/photos/photo_1472@11-11-2025_15-46-04.jpg" alt="Более 260 врачей из Квебека подали заявки на работу в Онтарио после принятия закона № 2" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Более 260 врачей из Квебека подали заявки на работу в Онтарио после принятия закона № 2</div>
+    <div class="card-excerpt">Закон, меняющий систему оплаты труда врачей в Квебеке, вызвал массовый исход медиков из провинции. За две недели после его принятия 263 врача из Квебека подали заявки на получение лицензий в Онтарио,</div>
+    <div class="card-meta">
+      <span class="card-date">11 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-09-chto-budet-s-konservatorami-bez-pera-polieva-opros-pokazal-c/">
+  <div class="card-img"><img src="/photos/photo_1459@09-11-2025_17-57-01.jpg" alt="Что будет с консерваторами без Пьера Полиева: опрос показал, что у партии нет равной замены" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Что будет с консерваторами без Пьера Полиева: опрос показал, что у партии нет равной замены</div>
+    <div class="card-excerpt">Исследование Abacus Data для Toronto Star показало, что Пьер Полиев остаётся главным стержнем Консервативной партии. Без него партия теряет узнаваемость, энергию и часть своего электората.   Опрос поч</div>
+    <div class="card-meta">
+      <span class="card-date">9 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-08-konservatory-polieva-treschat-po-shvam-poka-karni-uderzhivae/">
+  <div class="card-img"><img src="/photos/photo_1451@08-11-2025_14-39-01.jpg" alt="Консерваторы Полиева трещат по швам, пока Карни удерживает власть после второго голосования по бюджету" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Консерваторы Полиева трещат по швам, пока Карни удерживает власть после второго голосования по бюджету</div>
+    <div class="card-excerpt">Правительство Марка Карни вновь пережило вотум доверия: поправка Блока Квебека, призывавшая отклонить бюджет, провалилась со счётом 307 против 30. Но главная интрига недели разыгралась не в рядах прав</div>
+    <div class="card-meta">
+      <span class="card-date">8 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-08-opros-leger-liberaly-karni-sohranyayut-liderstvo-reyting-pre/">
+  <div class="card-img"><img src="/photos/photo_1448@08-11-2025_10-36-57.jpg" alt="Опрос Leger: либералы Карни сохраняют лидерство, рейтинг премьера растёт" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">leger360.com</div>
+    <div class="card-title">Опрос Leger: либералы Карни сохраняют лидерство, рейтинг премьера растёт</div>
+    <div class="card-excerpt">Новый опрос Leger для Postmedia показал: спустя несколько месяцев после выборов Либеральная партия остаётся впереди. Если бы голосование состоялось сегодня, за либералов проголосовали бы 43% определив</div>
+    <div class="card-meta">
+      <span class="card-date">8 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-08-konservatory-spasli-pravitelstvo-karni-ot-padeniya-otkloniv-/">
+  <div class="card-img"><img src="/photos/photo_1447@08-11-2025_09-34-01.jpg" alt="Консерваторы спасли правительство Карни от падения, отклонив поправку Блока" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ipolitics.ca</div>
+    <div class="card-title">Консерваторы спасли правительство Карни от падения, отклонив поправку Блока</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни вновь удержал власть: в пятницу Палата общин отклонила поправку Блока Квебека к федеральному бюджету, которая рассматривалась как вотум доверия.    Блок предложил отвергнуть</div>
+    <div class="card-meta">
+      <span class="card-date">8 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-07-ne-trogayte-nashi-prilozheniya-netflix-i-youtube-protiv-kveb/">
+  <div class="card-img"><img src="/photos/photo_1443@07-11-2025_15-19-01.jpg" alt="«Не трогайте наши приложения»: Netflix и YouTube против квебекского закона о французском контенте" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">montrealgazette.com</div>
+    <div class="card-title">«Не трогайте наши приложения»: Netflix и YouTube против квебекского закона о французском контенте</div>
+    <div class="card-excerpt">⠀ Американские стриминговые гиганты Netflix и YouTube выступили против нового законопроекта Квебека, направленного на продвижение «культурного суверенитета» и «видимости франкоязычного контента» в циф</div>
+    <div class="card-meta">
+      <span class="card-date">7 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-07-liberaly-i-ndp-protolknuli-zakon-o-poteryannyh-kanadtsah-otm/">
+  <div class="card-img"><img src="/photos/photo_1440@07-11-2025_12-23-01.jpg" alt="Либералы и НДП протолкнули закон о «потерянных канадцах», отменив поправки оппозиции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Либералы и НДП протолкнули закон о «потерянных канадцах», отменив поправки оппозиции</div>
+    <div class="card-excerpt">⠀ Правительство Марка Карни при поддержке НДП провело через третье чтение законопроект C-3 о гражданстве по происхождению (citizenship by descent) — в его исходной версии, без ограничений, добавленных</div>
+    <div class="card-meta">
+      <span class="card-date">7 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-07-kvebek-urezaet-immigratsiyu-menshe-novyh-zhiteley-bolshe-fra/">
+  <div class="card-img"><img src="/photos/photo_1439@07-11-2025_10-22-08.jpg" alt="Квебек урезает иммиграцию: меньше новых жителей, больше французского" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ici.radio-canada.ca</div>
+    <div class="card-title">Квебек урезает иммиграцию: меньше новых жителей, больше французского</div>
+    <div class="card-excerpt">⠀ Правительство Квебека объявило о сокращении иммиграционных квот: в ближайшие четыре года провинция будет принимать по 45 000 новых постоянных жителей ежегодно — вместо 61 000 в 2025 году.  ⠀ Рассмат</div>
+    <div class="card-meta">
+      <span class="card-date">7 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-07-liberaly-karni-perezhili-pervoe-golosovanie-po-doveriyu-byud/">
+  <div class="card-img"><img src="/photos/photo_1438@07-11-2025_09-16-56.jpg" alt="Либералы Карни пережили первое голосование по доверию бюджету" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Либералы Карни пережили первое голосование по доверию бюджету</div>
+    <div class="card-excerpt">⠀ Правительство Марка Карни избежало падения: в четверг вечером либералы выиграли первое из серии голосований по вотуму доверия, связанному с федеральным бюджетом 2025 года.  ⠀ Попытку консерваторов п</div>
+    <div class="card-meta">
+      <span class="card-date">7 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-06-perebezhchiki-v-ottave-skolko-deputatov-smenili-partiyu-za-i/">
+  <div class="card-img"><img src="/photos/photo_1434@06-11-2025_14-42-01.jpg" alt="Перебежчики в Оттаве: сколько депутатов сменили партию за историю Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Перебежчики в Оттаве: сколько депутатов сменили партию за историю Канады</div>
+    <div class="card-excerpt">Переход депутата от Новой Шотландии Криса д’Энтремона из консерваторов к либералам стал неожиданностью и снова оживил дискуссию о «перебежчиках» в Палате общин. После этого хода либералам не хватает в</div>
+    <div class="card-meta">
+      <span class="card-date">6 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-05-oppozitsiya-budet-gromko-vozmuschatsya-byudzhetom-karni-no-v/">
+  <div class="card-img"><img src="/photos/photo_1423@05-11-2025_12-58-02.jpg" alt="📉 Оппозиция будет громко возмущаться бюджетом Карни, но всё равно даст ему пройти" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">📉 Оппозиция будет громко возмущаться бюджетом Карни, но всё равно даст ему пройти</div>
+    <div class="card-excerpt">﻿ Скотт Стинсон в Global News пишет, что первый бюджет Марка Карни выглядит как политическая провокация: в нём есть что-то, что раздражает буквально всех.  ﻿ Дефицит более 70 миллиардов долларов? Конс</div>
+    <div class="card-meta">
+      <span class="card-date">5 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-03-national-post-primirenie-zashlo-v-tupik-reshenie-po-delu-cow/">
+  <div class="card-img"><img src="/photos/photo_1411@03-11-2025_17-47-01.jpg" alt="National Post: «Примирение» зашло в тупик — решение по делу Cowichan ставит Канаду под угрозу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">National Post: «Примирение» зашло в тупик — решение по делу Cowichan ставит Канаду под угрозу</div>
+    <div class="card-excerpt">Редакция National Post жёстко раскритиковала нынешнюю политику «примирения» с коренными народами, назвав её «катастрофой» и «рецептом правового хаоса». Поводом стало решение Верховного суда Британской</div>
+    <div class="card-meta">
+      <span class="card-date">3 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-03-pervyy-byudzhet-karni-bolshie-traty-boleznennye-sokrascheniy/">
+  <div class="card-img"><img src="/photos/photo_1405@03-11-2025_09-27-01.jpg" alt="Первый бюджет Карни: большие траты, болезненные сокращения и испытание для правительства меньшинства" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Первый бюджет Карни: большие траты, болезненные сокращения и испытание для правительства меньшинства</div>
+    <div class="card-excerpt">Во вторник премьер-министр Марк Карни представит свой первый федеральный бюджет — и, по его словам, он станет «поколенческим». Министр финансов Франсуа-Филипп Шампань обещает «тяжёлые решения» и «жерт</div>
+    <div class="card-meta">
+      <span class="card-date">3 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-02-opros-zhiteli-kvebeka-vsyo-menshe-doveryayut-gosudarstvu-smi/">
+  <div class="card-img"><img src="/photos/photo_1401@02-11-2025_12-03-59.jpg" alt="Опрос: жители Квебека всё меньше доверяют государству, СМИ — и друг другу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Опрос: жители Квебека всё меньше доверяют государству, СМИ — и друг другу</div>
+    <div class="card-excerpt">Новое исследование Institut de la confiance показало: за последние десять лет уровень доверия в Квебеке резко упал. 65% жителей меньше доверяют правительству, 68% — системе здравоохранения, а 68% — СМ</div>
+    <div class="card-meta">
+      <span class="card-date">2 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-29-kak-kanada-pobedila-kor-v-1998-godu-i-pochemu-teper-riskuet-/">
+  <div class="card-img"><img src="/photos/photo_1365@29-10-2025_12-56-57.jpg" alt="Как Канада победила корь в 1998 году — и почему теперь рискует всё потерять" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Как Канада победила корь в 1998 году — и почему теперь рискует всё потерять</div>
+    <div class="card-excerpt">В 1960-х маленькая Арлин Кинг из Британской Колумбии болела корью — настолько тяжело, что не могла надеть обувь. Её младший брат перенёс судороги от жара. Шестьдесят лет спустя доктор Кинг, ставшая од</div>
+    <div class="card-meta">
+      <span class="card-date">29 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-24-kanadskaya-meditsina-tretya-po-stoimosti-v-mire-no-lish-27-y/">
+  <div class="card-img"><img src="/photos/photo_1332@24-10-2025_13-52-01.jpg" alt="Канадская медицина — третья по стоимости в мире, но лишь 27-я по доступности врачей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Канадская медицина — третья по стоимости в мире, но лишь 27-я по доступности врачей</div>
+    <div class="card-excerpt">Новый отчёт Института Фрейзера показал: Канада тратит на здравоохранение колоссальные суммы, но получает весьма скромные результаты. Среди 31 развитой страны с универсальной системой Канада занимает т</div>
+    <div class="card-meta">
+      <span class="card-date">24 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-23-v-kvebeke-profsoyuz-trebuet-deystviy-posle-uvolneniya-300-ra/">
+  <div class="card-img"><img src="/photos/photo_1323@23-10-2025_11-21-45.jpg" alt="В Квебеке профсоюз требует действий после увольнения 300 рабочих на фоне тарифной войны с США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Квебеке профсоюз требует действий после увольнения 300 рабочих на фоне тарифной войны с США</div>
+    <div class="card-excerpt">Компания PACCAR, производитель грузовиков в городе Сент-Терез (к северу от Лаваля), уволила около 300 работников — ещё один удар по промышленности Квебека, вызванный торговым конфликтом между Канадой</div>
+    <div class="card-meta">
+      <span class="card-date">23 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-22-v-bramptone-otmenili-amber-alert-devochku-nashli-zhivoy-eyo-/">
+  <div class="card-img"><img src="/photos/photo_1311@22-10-2025_11-52-32.jpg" alt="В Брамптоне отменили Amber Alert: девочку нашли живой, её отец разыскивается за убийство" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Брамптоне отменили Amber Alert: девочку нашли живой, её отец разыскивается за убийство</div>
+    <div class="card-excerpt">Однолетняя девочка, похищенная во вторник в Онтарио, найдена живой и невредимой, однако её отец теперь является главным подозреваемым в смертельной стрельбе в Брамптоне, сообщает CBC.   Amber Alert бы</div>
+    <div class="card-meta">
+      <span class="card-date">22 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-20-monreal-podderzhal-dvizhenie-no-kings-protest-protiv-trampa-/">
+  <div class="card-img"><img src="/photos/photo_1300@20-10-2025_10-12-00.jpg" alt="Монреаль поддержал движение «No Kings»: протест против Трампа и за демократию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Монреаль поддержал движение «No Kings»: протест против Трампа и за демократию</div>
+    <div class="card-excerpt">В центре Монреаля в субботу прошёл митинг в поддержку американского движения «No Kings» — антимонархического по названию, но направленного против вполне реального президента: Дональда Трампа.   Сотни</div>
+    <div class="card-meta">
+      <span class="card-date">20 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-19-kanada-stroit-ii-tsentry-a-grazhdane-schitayut-vodu/">
+  <div class="card-img"><img src="/photos/photo_1296@19-10-2025_13-37-11.jpg" alt="Канада строит ИИ-центры, а граждане считают воду" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Канада строит ИИ-центры, а граждане считают воду</div>
+    <div class="card-excerpt">Британская Колумбия, Онтарио, Квебек — по всей Канаде растёт число проектов дата-центров, которые станут инфраструктурой для искусственного интеллекта. Но вместе с миллиардами инвестиций приходят и др</div>
+    <div class="card-meta">
+      <span class="card-date">19 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-18-kakie-provintsii-kanady-silnee-vsego-boykotiruyut-poezdki-v-/">
+  <div class="card-img"><img src="/photos/photo_1290@18-10-2025_15-13-01.jpg" alt="Какие провинции Канады сильнее всего бойкотируют поездки в США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Какие провинции Канады сильнее всего бойкотируют поездки в США</div>
+    <div class="card-excerpt">⠀ Канадцы массово охладели к идее заглянуть за южную границу — и это, похоже, не просто осенняя лень. По данным Statistics Canada, в сентябре жители страны совершили на 35 % меньше поездок в США, чем</div>
+    <div class="card-meta">
+      <span class="card-date">18 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-18-tramp-byot-po-gruzovikam/">
+  <div class="card-img"><img src="/photos/photo_1289@18-10-2025_14-17-01.jpg" alt="Трамп бьёт по грузовикам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Трамп бьёт по грузовикам</div>
+    <div class="card-excerpt">С 1 ноября Дональд Трамп вводит 25-процентную пошлину на импорт средних и тяжёлых грузовиков. Исключение — машины, собранные в рамках североамериканского соглашения CUSMA (бывшее NAFTA): их будут обла</div>
+    <div class="card-meta">
+      <span class="card-date">18 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-17-zabastovka-canada-post-sryvaet-dostavku-izbiratelnyh-kart-i-/">
+  <div class="card-img"><img src="/photos/photo_1279@17-10-2025_11-13-01.jpg" alt="Забастовка Canada Post срывает доставку избирательных карт и бюллетеней по почте" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Забастовка Canada Post срывает доставку избирательных карт и бюллетеней по почте</div>
+    <div class="card-excerpt">В нескольких регионах Канады — от Альберты и Квебека до Юкона и Нунавутa — избирательные комиссии вынуждены срочно менять логистику: забастовка работников Canada Post помешала доставке регистрационных</div>
+    <div class="card-meta">
+      <span class="card-date">17 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-17-politsiya-izyala-35-edinits-oruzhiya-i-narkotikov-na-2-mln-v/">
+  <div class="card-img"><img src="/photos/photo_1278@17-10-2025_10-06-56.jpg" alt="Полиция изъяла 35 единиц оружия и наркотиков на $2 млн в ходе рейдов в Онтарио и Квебеке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Полиция изъяла 35 единиц оружия и наркотиков на $2 млн в ходе рейдов в Онтарио и Квебеке</div>
+    <div class="card-excerpt">Операция с кодовым названием Project FESTER завершилась масштабными обысками в Корнуолле, Оттаве и Аквесасни. По данным полиции Корнуолла, силовики изъяли 35 единиц огнестрельного оружия и более 14 ки</div>
+    <div class="card-meta">
+      <span class="card-date">17 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-16-chto-znachit-zhit-komfortno-v-kanade-novoe-issledovanie/">
+  <div class="card-img"><img src="/photos/photo_1276@16-10-2025_20-09-01.jpg" alt="Что значит «жить комфортно» в Канаде: новое исследование" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Что значит «жить комфортно» в Канаде: новое исследование</div>
+    <div class="card-excerpt">По данным опроса MoneySense и Leger, проведённого среди 9 000 канадцев в 79 городах, для большинства жителей страны комфортная жизнь начинается с годового дохода семьи в 100 000 долларов.  Любопытно,</div>
+    <div class="card-meta">
+      <span class="card-date">16 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-16-sud-kvebeka-oshtrafoval-muzhchinu-na-5-000-za-nepravilnoe-is/">
+  <div class="card-img"><img src="/photos/photo_1275@16-10-2025_15-46-32.jpg" alt="Суд Квебека оштрафовал мужчину на $5 000 за неправильное использование искусственного интеллекта" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Суд Квебека оштрафовал мужчину на $5 000 за неправильное использование искусственного интеллекта</div>
+    <div class="card-excerpt">⠀ Верховный суд Квебека обязал Жана Лапрада выплатить штраф в $5 000 за то, что он использовал искусственный интеллект для подготовки своей защиты и представил суду несуществующие цитаты и судебные ре</div>
+    <div class="card-meta">
+      <span class="card-date">16 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-16-ottava-vydelit-52-mln-na-uluchshenie-dostupa-k-meditsinskim-/">
+  <div class="card-img"><img src="/photos/photo_1272@16-10-2025_12-17-14.jpg" alt="Оттава выделит $52 млн на улучшение доступа к медицинским услугам на английском языке в Квебеке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">montrealgazette.com</div>
+    <div class="card-title">Оттава выделит $52 млн на улучшение доступа к медицинским услугам на английском языке в Квебеке</div>
+    <div class="card-excerpt">⠀ Федеральное правительство Канады объявило о новом пятилетнем вложении $52 миллионов для поддержки англоязычных сообществ Квебека, которым всё сложнее получать медицинскую помощь на родном языке посл</div>
+    <div class="card-meta">
+      <span class="card-date">16 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-13-sarafannoe-radio-srabotalo-v-nyu-bransuike-rasprodayut-ameri/">
+  <div class="card-img"><img src="/photos/photo_1251@13-10-2025_13-39-01.jpg" alt="«Сарафанное радио сработало»: в Нью-Брансуике распродают американский алкоголь, снятый с полок" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">«Сарафанное радио сработало»: в Нью-Брансуике распродают американский алкоголь, снятый с полок</div>
+    <div class="card-excerpt">NB Liquor пытается избавиться от запасов американского алкоголя, которые залежались на складах после начала торговой войны между Канадой и США. Семь месяцев назад провинция присоединилась к бойкоту и</div>
+    <div class="card-meta">
+      <span class="card-date">13 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-12-kanadskaya-mechta-pod-ugrozoy-molodyozh-vsyo-rezhe-zarabatyv/">
+  <div class="card-img"><img src="/photos/photo_1247@12-10-2025_14-09-01.jpg" alt="Канадская мечта под угрозой: молодёжь всё реже зарабатывает больше родителей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Канадская мечта под угрозой: молодёжь всё реже зарабатывает больше родителей</div>
+    <div class="card-excerpt">Молодые канадцы всё чаще сталкиваются с тем, что «социальный лифт» застрял. Новый отчёт Монреальского экономического института (MEI) показывает: в большинстве провинций молодое поколение не может доби</div>
+    <div class="card-meta">
+      <span class="card-date">12 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-12-openai-hochet-dogovor-s-kanadoy-no-ne-prodast-li-ottava-tsif/">
+  <div class="card-img"><img src="/photos/photo_1246@12-10-2025_12-08-01.jpg" alt="OpenAI хочет договор с Канадой. Но не продаст ли Оттава цифровой суверенитет?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">OpenAI хочет договор с Канадой. Но не продаст ли Оттава цифровой суверенитет?</div>
+    <div class="card-excerpt">Одна из крупнейших компаний мира в сфере искусственного интеллекта — OpenAI — стучится в двери Канады. На кону — дешевое электричество, гигантские дата-центры и вопрос: кто будет контролировать канадс</div>
+    <div class="card-meta">
+      <span class="card-date">12 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-09-konservatory-hotyat-otmenit-grazhdanstvo-po-pravu-rozhdeniya/">
+  <div class="card-img"><img src="/photos/photo_1231@09-10-2025_13-17-13.jpg" alt="Консерваторы хотят отменить гражданство по праву рождения для детей временных жителей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Консерваторы хотят отменить гражданство по праву рождения для детей временных жителей</div>
+    <div class="card-excerpt">Консерваторы предлагают ограничить автоматическое канадское гражданство — его больше не должны получать дети, родившиеся в Канаде у родителей без статуса постоянного жителя или гражданина.   Сейчас по</div>
+    <div class="card-meta">
+      <span class="card-date">9 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-06-poslednyaya-hokkeynaya-fabrika-kanady-derzhitsya-iz-posledni/">
+  <div class="card-img"><img src="/photos/photo_1214@06-10-2025_17-36-01.jpg" alt="Последняя хоккейная фабрика Канады держится из последних сил — вопреки тарифам, глобализации и упадку промышленности." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Последняя хоккейная фабрика Канады держится из последних сил — вопреки тарифам, глобализации и упадку промышленности.</div>
+    <div class="card-excerpt">Roustan Hockey в Брантфорде, Онтарио, — единственный оставшийся крупный производитель деревянных клюшек в стране. Завод работает с XIX века и выпускает около 400 тысяч клюшек в год под брендами Christ</div>
+    <div class="card-meta">
+      <span class="card-date">6 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-06-sokrascheniya-v-kanadskoy-pasportnoy-sluzhbe-udarili-prezhde/">
+  <div class="card-img"><img src="/photos/photo_1213@06-10-2025_15-38-01.jpg" alt="Сокращения в канадской паспортной службе ударили прежде всего по сотрудникам из меньшинств и людям с инвалидностью — об этом заявляет профсоюз государственных с" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Сокращения в канадской паспортной службе ударили прежде всего по сотрудникам из меньшинств и людям с инвалидностью — об этом заявляет профсоюз государственных с</div>
+    <div class="card-excerpt">лужащих Union of National Employees (UNE).   Профсоюз подал две жалобы, утверждая, что увольнения нарушают трудовой договор и Канадский закон о правах человека.   В мае 800 временных работников по все</div>
+    <div class="card-meta">
+      <span class="card-date">6 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-05-opros-abacus-liberaly-i-konservatory-idut-nozdrya-v-nozdryu-/">
+  <div class="card-img"><img src="/photos/photo_1205@05-10-2025_14-28-14.jpg" alt="Опрос Abacus: Либералы и консерваторы идут ноздря в ноздрю — недовольство ростом цен растёт" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Опрос Abacus: Либералы и консерваторы идут ноздря в ноздрю — недовольство ростом цен растёт</div>
+    <div class="card-excerpt">Новый опрос Abacus Data показывает: борьба между Марком Карни и Пьером Полиевом становится всё плотнее. Если бы выборы прошли сейчас, консерваторы набрали бы 41%, либералы — 40%. Ошибка измерения — ±2</div>
+    <div class="card-meta">
+      <span class="card-date">5 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-03-parlamentskiy-byudzhetnyy-ofis-kanady-opublikoval-svezhiy-ot/">
+  <div class="card-img"><img src="/photos/photo_1193@03-10-2025_11-47-07.jpg" alt="Парламентский бюджетный офис Канады опубликовал свежий отчёт о доступности жилья — и впервые за долгое время в самых дорогих городах страны ситуация заметно улу" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Парламентский бюджетный офис Канады опубликовал свежий отчёт о доступности жилья — и впервые за долгое время в самых дорогих городах страны ситуация заметно улу</div>
+    <div class="card-excerpt">чшилась.   По данным временного бюджетного омбудсмена Джейсона Жака, разрыв между тем, что семьи реально могут себе позволить, и фактической ценой жилья сократился с 80% в сентябре 2023-го до 34% в ав</div>
+    <div class="card-meta">
+      <span class="card-date">3 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-02-senator-iz-kvebeka-i-kursy-angliyskogo-za-22-tys/">
+  <div class="card-img"><img src="/photos/photo_1191@02-10-2025_14-48-01.jpg" alt="Сенатор из Квебека и курсы английского за $22 тыс." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Сенатор из Квебека и курсы английского за $22 тыс.</div>
+    <div class="card-excerpt">﻿ Сенатор Амина Герба (Квебек, округ Риго) оказалась в центре скандала после того, как выяснилось: за два лета подряд она летала с мужем в Ванкувер на курсы английского, и поездки обошлись налогоплате</div>
+    <div class="card-meta">
+      <span class="card-date">2 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-01-kanadskaya-mozaika-treschit-bolshinstvo-protiv-novoy-immigra/">
+  <div class="card-img"><img src="/photos/photo_1185@01-10-2025_14-24-01.jpg" alt="Канадская «мозаика» трещит: большинство против новой иммиграции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">acs-metropolis.ca</div>
+    <div class="card-title">Канадская «мозаика» трещит: большинство против новой иммиграции</div>
+    <div class="card-excerpt">﻿ Новый опрос Leger для Ассоциации канадских исследований показал: 60% канадцев считают, что стране не нужны новые иммигранты. Наибольшее недовольство фиксируется в Альберте (65%), Онтарио (63%) и Кве</div>
+    <div class="card-meta">
+      <span class="card-date">1 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-01-den-pravdy-i-primireniya-chto-dumayut-kanadtsy/">
+  <div class="card-img"><img src="/photos/photo_1184@01-10-2025_12-04-49.jpg" alt="День правды и примирения: что думают канадцы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">День правды и примирения: что думают канадцы</div>
+    <div class="card-excerpt">﻿ Новый опрос Leger показал: отношение к Дню правды и примирения у канадцев весьма противоречивое.  ﻿ С одной стороны, 69% респондентов заявили, что стали лучше понимать, почему примирение с коренными</div>
+    <div class="card-meta">
+      <span class="card-date">1 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-10-01-minimalka-rastyot-krome-alberty/">
+  <div class="card-img"><img src="/photos/photo_1181@01-10-2025_08-26-42.jpg" alt="Минималка растёт, кроме Альберты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Минималка растёт, кроме Альберты</div>
+    <div class="card-excerpt">﻿ С 1 октября пять провинций подняли минимальную зарплату:  – Онтарио — до $17,60 в час – Новая Шотландия и Остров Принца Эдуарда — до $16,50 – Манитоба — до $16 – Саскачеван — до $15,35  ﻿ Все эти по</div>
+    <div class="card-meta">
+      <span class="card-date">1 окт 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-09-29-pochemu-na-zapade-kanady-rastsvetaet-rynok-nelegalnyh-sigare/">
+  <div class="card-img"><img src="/photos/photo_1176@29-09-2025_17-41-01.jpg" alt="Почему на Западе Канады расцветает рынок нелегальных сигарет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Почему на Западе Канады расцветает рынок нелегальных сигарет</div>
+    <div class="card-excerpt">Пока власти повышают налоги на табак, а пачка легальных сигарет обходится в среднем в $150 за блок, чёрный рынок предлагает ту же коробку за $40. Итог закономерен: по оценкам National Coalition Agains</div>
+    <div class="card-meta">
+      <span class="card-date">29 сен 2025</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb" href="/tag/kvebek/page/3/">←</a><a class="pb" href="/tag/kvebek/">1</a><a class="pb" href="/tag/kvebek/page/2/">2</a><a class="pb" href="/tag/kvebek/page/3/">3</a><a class="pb on" href="/tag/kvebek/page/4/">4</a><a class="pb" href="/tag/kvebek/page/5/">5</a><a class="pb" href="/tag/kvebek/page/6/">6</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/kvebek/page/9/">9</a><a class="pb" href="/tag/kvebek/page/5/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
 </body>
 </html>

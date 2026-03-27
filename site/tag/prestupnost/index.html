@@ -1,898 +1,677 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#преступность | Maple Barrel</title>
-    <style>
-:root {
-    --bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #c53030;
-    --border: #eeeeee;
-    --bg-alt: #f9f9f9;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#преступность — Maple Barrel</title>
+<meta name="description" content="Все материалы по теме «преступность» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<link rel="canonical" href="https://journalists.ca/tag/prestupnost/">
+<meta property="og:title" content="#преступность — Maple Barrel">
+<meta property="og:description" content="Все материалы по теме «преступность» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta property="og:url" content="https://journalists.ca/tag/prestupnost/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="#преступность — Maple Barrel">
+<meta name="twitter:description" content="Все материалы по теме «преступность» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    line-height: 1.6; color: var(--text-main); background: var(--bg); 
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
-a { color: inherit; text-decoration: none; }
-header { 
-    background: #fff; border-bottom: 1px solid var(--border); 
-    padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
 }
-.header-content { 
-    max-width: 800px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; align-items: center;
+
+.tgb:hover{
+  background:#a93226;
 }
-.logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.03em; color: var(--accent); }
-.nav-menu { display: flex; gap: 1.2rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-.nav-menu a:hover { color: var(--accent); }
-.container { max-width: 800px; margin: 2.5rem auto; padding: 0 20px; }
-.post-card { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
-.post-card:last-child { border-bottom: none; }
-.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; font-weight: 500; }
-.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; background: var(--bg-alt); }
-.post-image { width: 100%; height: auto; display: block; }
-.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; color: #222; }
-.post-content b, .post-content strong { font-weight: 700; color: #000; }
-.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { 
-    font-size: 0.75rem; padding: 5px 12px; border-radius: 4px; 
-    background: var(--bg-alt); color: #555; font-weight: 600; border: 1px solid #eee;
+
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
+
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform .15s;
 }
-.person-badge { border-color: #fed7d7; color: var(--accent); }
-.pagination { margin: 4rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
-.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-.page-title { margin-bottom: 3rem; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; }
-footer { text-align: center; padding: 4rem 0; color: #aaa; font-size: 0.75rem; border-top: 1px solid var(--border); }
-@media (max-width: 600px) { .nav-menu { display: none; } }
+.card:hover{
+  transform:translateY(-2px);
+}
+
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
+.tag-hdr p{font-size:13px;color:var(--t3)}
+@media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="/" class="logo">MAPLE BARREL</a>
-            <nav class="nav-menu">
-                <a href="/materials/">Материалы</a>
-                <a href="/longreads/">Лонгриды</a>
-                <a href="/about/">О проекте</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container"><h1 class="page-title">#преступность</h1><article class="post-card">
-        <span class="post-date">2 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2285@02-03-2026_10-03-48.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов
 
-​
-
-<a href="https://www.cbc.ca/news/politics/carney-modi-canada-india-deal-9.7110805">Премьер-министр Марк Карни и глава правительства Индии Нарендра Моди объявили </a>о «новом партнёрстве» — пакете соглашений на 5,5 млрд долларов и намерении подписать соглашение о свободной торговле до конца года. После нескольких лет холодных отношений, скандалов и взаимных обвинений — резкий разворот.
-
-​
-
-Карни заявил, что цель — удвоить двустороннюю торговлю до 70 млрд долларов в год к 2030-му. Для Оттавы это часть стратегии снижения зависимости от США. В центре будущей архитектуры — Comprehensive Economic Partnership Agreement, полноценная зона свободной торговли, которая должна снизить индийские тарифы на канадские товары.
-
-​
-
-Самое крупное соглашение — контракт на 2,6 млрд долларов между индийским правительством и компанией Cameco из Саскатуна. Индия закупит почти 22 млн фунтов урана в 2027–2035 годах. Это серьёзная поддержка для Саскачевана — региона с одними из крупнейших запасов высококачественного урана в мире.
-
-​
-
-Другие договорённости:
-
-– HCL Technologies откроет новые AI-центры в Калгари и Миссиссоге и расширит офис в Ванкувере. Число сотрудников вырастет с 3 000 до 5 250.
-– Jubilant Pharmanova вложит 155 млн долларов в расширение производства инъекционных препаратов в Киркланде (Квебек).
-– Elk Valley Resources поставит Индии 1,2 млн тонн угля.
-– McCain Foods инвестирует 135 млн долларов в расширение завода по переработке картофеля в Гуджарате.
-
-​
-
-Отдельно объявлено о создании совместного центра по бобовым белкам — чувствительная тема, учитывая прошлые торговые споры и индийские пошлины на канадский горох и чечевицу. О смягчении тарифов в пресс-релизе не сказано ни слова.
-
-​
-
-Контекст остаётся сложным. Ранее правительство Джастина Трюдо обвинило индийских агентов в причастности к убийству канадского сикхского активиста Хардипа Сингха Ниджара. RCMP заявляла о случаях вымогательства и насилия на территории Канады. Несколько дипломатов были высланы.
-
-​
-
-Теперь стороны договорились усилить сотрудничество в сфере безопасности и правоохранительной деятельности — борьба с организованной преступностью и поставками прекурсоров фентанила. При этом, по данным канцелярии премьер-министра, Карни отдельно подчеркнул, что Канада продолжит противодействовать транснациональному давлению и преследованию.
-
-​
-
-Это попытка перезапуска отношений — на фоне глобальной нестабильности и поиска новых рынков. Насколько устойчивым окажется этот «прорыв», станет понятно уже к концу года, когда станет ясно, подпишут ли стороны полноценное торговое соглашение.
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">28 февраля 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2273@28-02-2026_11-04-17.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">От энергетики до ИИ: пять ключевых тем миссии Карни в Индию
-
-​
-
-Поездка премьер-министра Марка Карни в Индию — <a href="https://www.cp24.com/news/canada/2026/02/27/from-energy-to-ai-five-big-themes-behind-carneys-mission-to-india/">попытка перезапустить отношения после двух лет острого кризиса.</a>
-
-​
-
-В 2023 и 2024 годах Оттава заявила, что агенты индийского правительства причастны к насилию и вымогательству в отношении канадских сикхов, поддерживающих создание государства Халистан. После этого страны остановили торговые переговоры и сократили дипломатическое присутствие.
-
-​
-
-На фоне непредсказуемой торговой политики Дональда Трампа и его риторики об аннексии Канады Карни делает ставку на восстановление связей с Нью-Дели. Цель — наладить диалог по безопасности и не позволить конфликтным вопросам полностью заблокировать сотрудничество.
-
-​
-
-Вице-президент Азиатско-Тихоокеанского фонда Вина Наджибулла прямо говорит: Канаде придётся «наверстывать упущенное» и заново выстраивать доверие для долгосрочного стратегического партнёрства.
-
-​
-
-Вот пять направлений, которые будут обсуждаться.
-
-​
-
-1) Энергетика
-
-​
-
-Канада — крупный экспортёр энергии, Индия — один из крупнейших мировых потребителей нефти и СПГ. Министр энергетики Тим Ходжсон уже ездил в Индию для возобновления переговоров по традиционной и «зелёной» энергетике.
-
-​
-
-На фоне давления США по сокращению импорта российской нефти Индия ищет новые источники топлива. Возможны долгосрочные соглашения, включая сотрудничество по урану.
-
-​
-
-2) Образование
-
-​
-
-Обе страны хотят расширять академические обмены с акцентом на исследования в сфере искусственного интеллекта и высоких технологий. Объединение «Университеты Канады» недавно направило делегацию в Индию для обсуждения совместных проектов.
-
-​
-
-Канадские вузы пока гораздо реже открывают филиалы за рубежом по сравнению с американскими, британскими и австралийскими учреждениями — здесь тоже видят потенциал роста.
-
-​
-
-3) Технологии
-
-​
-
-В ноябре Канада, Австралия и Индия договорились о запуске партнёрства в сфере технологий и инноваций. Речь идёт о зелёной энергетике, ИИ, критически важных минералах и устойчивых цепочках поставок.
-
-​
-
-Высокий комиссар Индии в Канаде Динеш Патнаик заявил, что страны могут сотрудничать в аэрокосмической отрасли, кинопроизводстве и обороне. Индия также проявляет интерес к канадскому опыту работы в Арктике и даже рассматривает создание исследовательской базы в районе Кембридж-Бей в Нунавуте.
-
-​
-
-4) Преступность и безопасность
-
-​
-
-Вопрос Халистана остаётся главным источником напряжения. Нью-Дели обвиняет Канаду в мягкости по отношению к сикхскому экстремизму. Оттава настаивает: мирные призывы к созданию государства — это свобода слова.
-
-​
-
-После убийства активиста Хардипа Сингха Ниджара в Суррее в 2023 году Канада заявила о возможной причастности индийских агентов. Индия отвергла обвинения.
-
-​
-
-Недавно активист Мониндер Сингх сообщил, что полиция Ванкувера предупредила его о реальной угрозе жизни. Министр общественной безопасности Гэри Анандасангари заявил, что обсуждения по национальной безопасности продолжаются.
-
-​
-
-5) Иммиграция
-
-​
-
-Индия хочет упростить визовый режим для своих специалистов. Нью-Дели считает, что канадские визовые процедуры слишком затянуты.
-
-​
-
-Динеш Патнаик ранее связывал скорость обработки заявлений с дипломатическим присутствием стран. Сейчас, по его словам, кадровые проблемы у дипмиссий решены, но задержки по визам всё ещё есть.
-
-​
-
-Индия также предлагает создать программу доверенных путешественников по типу NEXUS между Канадой и США.
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/energetika/" class="badge">#энергетика</a><a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">31 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2078@31-01-2026_11-05-08.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке
-​
-​
-<a href="https://nationalpost.com/news/politics/pierre-poilievre-speech-conservatives-calgary">Пьер Полиев в пятницу вечером выступил с ключевой речью</a> на съезде консерваторов в Калгари — за несколько часов до голосования по своему лидерству. Его задача была двойной: сплотить партийную базу и одновременно показать, что у него есть план против правительства Марка Карни на следующих выборах.
-​
-​
-Выступление длилось более 40 минут и сочетало привычные для Полиева темы — доступность жизни, преступность, налоги — с более широкой рамкой о состоянии страны. Отдельный акцент он сделал на росте сепаратистских настроений в Альберте и Квебеке, напрямую возложив ответственность за это на федеральных либералов.
-​
-​
-«Мы должны объединить эту страну как никогда раньше, потому что дом, разделённый внутри, не устоит», — заявил он со сцены.
-​
-​
-Речь была выстроена вокруг слов «единство» и «надежда» — именно с таким посланием Полиев обращался к делегатам, которым предстояло решить, сохраняет ли он пост лидера. Зал, где собрались более 2 500 делегатов, неоднократно вставал, скандируя его имя.
-​
-​
-Самый эмоциональный момент прозвучал, когда Полиев перешёл к личному. Он говорил о семье, о своей дочери с аутизмом и о цене, которую платит за политическую жизнь — ночёвках в разъездах и прощаниях по FaceTime. «Почему продолжать?» — задал он риторический вопрос. И сам же ответил: «Потому что мы хотим, чтобы у наших детей было то же обещание, что было у нас».
-​
-​
-Параллельно Полиев попытался закрыть болезненную тему внутри партии — массовые назначения кандидатов «сверху» в ходе прошлой кампании. Он признал, что партия извлекла уроки, и пообещал более ранние, открытые и автономные процедуры выдвижения, назвав местные ассоциации «хребтом партии».
-​
-​
-Лидер консерваторов напомнил делегатам и о том, что считает успехами: рост поддержки среди рабочих и профсоюзных избирателей, победы в округах НДП в Онтарио и на острове Ванкувер, а также выигранные публичные дебаты по налогу на углерод, преступности и наркотической зависимости.
-​
-​
-При этом Полиев старался звучать менее конфронтационно на внешнем контуре. На фоне тревог из-за тарифов и заявлений Дональда Трампа он говорил о необходимости национального единства и готовности сотрудничать с правительством Марк Карни, не упоминая Трампа напрямую.
-​
-​
-Бывший премьер Альберты Джейсон Кенни, комментируя речь, отметил, что она была сильной, но обошла «800-фунтовую гориллу в комнате» — Дональда Трампа, которого, по его словам, многие канадцы ждут услышать напрямую от любого лидера.
-​
-​
-Речь Полиева стала финальным аккордом перед голосованием и попыткой переформатировать его образ: не только бойца, но и объединителя — на фоне растущего регионального напряжения и нестабильной внешней среды.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">20 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1990@20-01-2026_18-02-25.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Убийств стало меньше — но политика живёт в другой реальности.
-
-​⁠
-
-<a href="https://apple.news/AYeDwqn1pQbKEE9MRyFtoFg">Данные полиции показывают резкое снижение </a>числа убийств в ряде крупнейших городов Канады в 2025 году. В Торонто — 44 расследования против 84 годом ранее. В Виннипеге — 21 против 41. Падение почти вдвое. В Йоркском регионе — с 21 до 10. В Калгари и Эдмонтоне тоже минус, пусть и менее драматичный.
-
-​⁠
-
-Картина выбивается из привычного нарратива о «всплеске насилия», на фоне которого политики весь прошлый год обещали ужесточить наказания, сократить доступ к залогу и переписать Уголовный кодекс. Да, были громкие трагедии — таран на фестивале в Ванкувере, гибель ребёнка в Торонто. Но статистика — упрямая вещь.
-
-​⁠
-
-Эксперты отмечают: тенденция к снижению убийств началась не вчера и может означать возвращение к уровням начала 2010-х годов — самым низким за десятилетия. В национальном масштабе пик пришёлся на пандемийный 2022 год, после чего показатели пошли вниз.
-
-​⁠
-
-Бывший федеральный аналитик по криминальной политике Кэтрин Латимер предупреждает: если игнорировать эти данные, законодательство будет строиться на искажённых представлениях о преступности — с ущербом для прав и свобод. Проще говоря, лечить не ту болезнь.
-
-​⁠
-
-Правительство возражает: убийства — лишь часть картины, а индекс тяжести насильственных преступлений за последние годы немного вырос. Но криминологи напоминают: общественное чувство небезопасности и реальные показатели — не одно и то же. В начале 1990-х, по которым сегодня ностальгируют политики, убийств было больше, а не меньше.
-
-​⁠
-
-Есть и международный контекст. В США, где уровень убийств примерно втрое выше канадского, тоже фиксируют историческое падение. Аналитики называют происходящее беспрецедентным и до конца не понимают причин.
-
-​⁠
-
-Парадокс в том, что когда преступность снижается, это почти никто не обсуждает. Страх продаётся лучше статистики. А законы, принятые на волне страха, редко оказываются аккуратными.
-
-​⁠
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">22 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1807@22-12-2025_18-47-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Канада потратила $78 млн на депортации — рекорд со времён Харпера
-​
-​
-В 2024–25 финансовом году Канада выдворила 18 048 человек и потратила на это более $78 млн. <a href="https://www.thestar.com/news/canada/canada-spent-78-million-deporting-18-000-people-in-2024-the-most-since-stephen-harper/article_2ffd3f27-2207-4fc0-880e-c5bbdc6a32a2.html">Это самый высокий показатель депортаций с 2012 года</a> — периода правительства Стивена Харпера. Данные получены Toronto Star от Пограничной службы Канады (CBSA).
-​
-​
-Подавляющее большинство депортированных — это просители убежища, чьи заявки были отклонены. Около 93% всех депортаций связаны с «несоблюдением иммиграционного статуса», а не с преступностью или организованной преступной деятельностью.
-​
-​
-Рост депортаций совпал с резким ужесточением иммиграционной политики:
-– снижением иммиграционных квот
-– ограничениями на разрешения для иностранных студентов
-– сокращением путей от временного статуса к постоянному
-​
-​
-По сравнению с 2019 годом число депортаций выросло примерно на 55%, а расходы — более чем на 50%. Общие траты на выдворения с 2018 года превысили $380 млн.
-​
-​
-Средняя стоимость депортации:
-– без сопровождения — около $3 700
-– с сопровождением — около $12 500
-​
-​
-Юристы и исследователи критикуют приоритеты правительства. По их словам, ресурсы направляются на ускорение депортаций на фоне жилищного и социального кризиса, а не на программы интеграции или легализации.
-​
-​
-Отдельное раздражение вызывает замороженное обещание либерального правительства о «программе регуляризации» для нелегальных работников. Эта инициатива была анонсирована ещё в 2021 году, обсуждалась в 2022-м, но до сих пор не реализована — несмотря на сотни тысяч людей, работающих в Канаде без статуса.
-​
-​
-Эксперты ожидают, что в 2025–26 годах депортаций станет ещё больше: CBSA уже получила дополнительное финансирование и открыто заявляет о планах увеличить темпы выдворений.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">22 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1805@22-12-2025_15-41-36.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Торонто идёт к 50-летнему минимуму по убийствам. Почему же горожанам кажется, что преступности стало больше?
-​⁠
-
-Вопреки устойчивому ощущению «всё становится хуже», <a href="https://www.thestar.com/news/gta/torontos-set-to-hit-a-50-year-low-in-homicides-so-why-do-many-people/article_175ae6eb-9d16-4990-ba47-b2ffa72ae316.html">статистика за 2025 год показывает обратное</a>: Торонто может закончить год с самым низким числом убийств за полвека. По состоянию на 18 декабря — 38 случаев. Для сравнения: в 2024 году было 81. Предыдущий минимум — 49 в 1999-м.
-​⁠
-
-Падают и другие ключевые показатели: нападения, грабежи, угоны, стрельба. Общее число инцидентов с применением огнестрельного оружия снизилось на 43%, сами стрельбы — на 30%.
-​⁠
-
-Но есть парадокс. По октябрьскому опросу Liaison Strategies, около 70% жителей десяти городов Онтарио уверены, что уровень преступности растёт. В Торонто — 76% считают, что убийств стало больше.
-​⁠
-
-Причина — разрыв между цифрами и ощущениями. Криминологи называют это «парадоксом риска и страха»:
-– медиа и соцсети усиливают эффект редких, но шокирующих трагедий;
-– старые всплески преступности (например, автоугоны) запоминаются дольше, чем нынешний спад;
-– политики постоянно говорят о «жёсткой борьбе с преступностью», закрепляя ощущение кризиса.
-​⁠
-
-Полиция признаёт: статистика улучшается, но чувство безопасности — нет. А для избирателей именно ощущение важнее сухих таблиц. С учётом приближающихся муниципальных выборов тема преступности никуда не денется, даже если цифры продолжают идти вниз.
-​⁠
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">20 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1794@20-12-2025_12-57-29.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Вымогатели и «убежище»: как лазейка в системе превращается в фарс
-​
-​
-В Суррее, Британская Колумбия, уже два года продолжается волна вымогательств, направленных в первую очередь против представителей южноазиатской диаспоры. Бизнесменам и семьям угрожают, их дома и рестораны обстреливают, а сами исполнители иногда выкладывают видео с преступлениями в соцсети.
-​
-​
-<a href="https://www.theglobeandmail.com/opinion/article-extortion-suspects-asylum-loophole-farce/">На этом фоне Canada Border Services Agency сообщило</a>, что выявило 103 иностранных гражданина, подозреваемых в причастности к вымогательствам в Британской Колумбии. Но как только проверка началась, 15 из них подали заявки на статус беженца — и тем самым фактически заморозили расследование.
-​
-​
-Из-за огромной очереди в Immigration and Refugee Board эти люди могут легально оставаться в Канаде ещё почти два года. Всё это время налогоплательщики оплачивают им медицинскую помощь и социальные услуги, а сами заявители получают право работать, открывать банковские счета и пользоваться программами поддержки, включая Safe Haven в Британской Колумбии.
-​
-​
-Мэр Суррея Бренда Лок заявила, что возмущена ситуацией и требует «быстрого правосудия». Бывший мэр Даг МакКаллум назвал такие заявления на убежище «фальшивыми» и заявил, что они превращают иммиграционную систему в щит для криминальных сетей, связанных с индийской группировкой Lawrence Bishnoi, которую Оттава признала террористической в сентябре.
-​
-​
-Речь не идёт об отказе в помощи настоящим беженцам — людям, спасающимся от войны и преследований. Проблема в другом: система оказалась не готова к ситуации, когда подозреваемые в серьёзных преступлениях используют статус беженца как последнюю линию обороны от депортации.
-​
-​
-Колумнист The Globe and Mail указывает на ключевой изъян: дела, связанные с угрозами безопасности и организованной преступностью, не могут годами пылиться в очереди. Ассоциация с известной криминальной или террористической структурой, по его мнению, должна автоматически переводить такие заявления в режим немедленного рассмотрения — без ожидания полного уголовного процесса.
-​
-​
-Министр общественной безопасности Гэри Анандасангари говорит о «полной силе иммиграционного и уголовного закона». Но если эта «полная сила» срабатывает через два года, эффект для канадцев близок к нулю. Общество ждёт не заявлений, а быстрых решений — особенно когда речь идёт о людях, которых полиция связывает с вымогательствами и насилием.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1780@19-12-2025_09-22-17.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Майкл Ма: «Вечером я был настоящим консерватором, а утром — уже либералом»
-
-​
-<a href="https://www.ctvnews.ca/toronto/local/york/article/michael-ma-says-he-was-truly-a-conservative-the-night-before-he-crossed-the-floor-to-the-liberals/">Бывший депутат-консерватор Майкл Ма впервые подробно объяснил</a>, почему перешёл в Либеральную партию — и настаивает, что решение было принято буквально в последний момент.
-
-​
-Ма рассказал CP24, что на рождественской вечеринке консерваторов за день до перехода он «искренне был консерватором» и не планировал менять партию. На фото того вечера он стоит рядом с лидером тори Пьером Полиевом.
-
-​
-По словам Ма, всё изменилось после личной встречи с премьер-министром Марком Карни в день объявления перехода. Он заявил, что «прагматичный и центристский» подход Карни полностью совпадает с его взглядами.
-
-​
-Ма утверждает, что его избиратели в округе Markham—Unionville «лучше обслуживаются», когда он находится в правящей партии — из-за прямого доступа к министрам и премьеру. По его версии, это эффективнее, чем «постоянная конфронтация без решений».
-
-​
-Он подчёркивает, что его взгляды якобы не изменились:
-– борьба с преступностью
-– рост экономики
-– «сбалансированная» иммиграционная политика
-– инвестиции в инфраструктуру
-
-​
-Ма называет себя центристом и говорит, что никогда не верил ни в «крайне правых», ни в «крайне левых», добавляя, что большинство канадцев находятся именно в центре политического спектра.
-
-​
-Тем временем реакция избирателей — жёсткая. Петицию с требованием его отставки подписали около 37 000 человек. Основной аргумент: более 27 000 голосов были отданы за кандидата-консерватора, а не за будущего либерала, и никакого общественного мандата на смену партии не было.
-
-​
-Политический эффект очевиден: переход Ма оставил либералов всего в одном мандате от парламентского большинства. На Холме сразу начались разговоры о новых возможных «перебежчиках», но сам Ма утверждает, что не знает о чьих-то аналогичных планах.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1778@18-12-2025_15-19-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Консерваторы пытаются перевернуть страницу после «катастрофы 2025 года»
-​
-
-​
-Год назад Пьер Полиев выглядел почти неизбежным будущим премьер-министром. Консерваторы опережали либералов на 25 пунктов, Джастин Трюдо был на выходе, а внутри партии уже делили портфели.
-​
-
-​
-<a href="https://www.ctvnews.ca/politics/article/conservatives-look-to-turn-the-page-after-terrible-disappointment-of-2025/">Затем всё сломалось</a>. Возвращение Дональда Трампа в Белый дом, отставка Трюдо, резкий разворот либералов и приход Марка Карни превратили выборы в референдум о том, кто способен справиться с США. И в этой гонке Полиев проиграл — причём дважды: партия уступила на национальном уровне, а сам он потерял собственный округ Карлтон.
-​
-
-​
-Бывшие и действующие стратеги консерваторов сегодня признают: в конце 2024 года в партии появилось чувство самоуверенности, почти высокомерия. Считалось, что победа гарантирована. В реальности же Карни сыграл точно по таймингу — отменил потребительский углеродный налог, нейтрализовал ключевой лозунг оппозиции и перехватил повестку.
-​
-
-​
-Дополнительной ошибкой стало давление на НДП осенью, что ослабило левый фланг и сократило эффект «распыления» голосов против либералов. В итоге кампания пошла по сценарию, где у консерваторов почти не осталось пространства для манёвра.
-​
-
-​
-После возвращения Полиева в парламент через довыборы в Альберте партия ненадолго обрела уверенность. Но затем последовали удары по имиджу:
-– два депутата перешли к либералам
-– ещё один объявил об уходе из политики
-– оба перебежчика прямо связали своё решение со стилем руководства лидера
-​
-
-​
-Сегодня Полиев остаётся фигурой, которая поляризует. Его личные рейтинги заметно ниже рейтингов партии — почти зеркальное отражение ситуации с Трюдо год назад. Сторонники лояльны, но за пределами ядра поддержка ограничена.
-​
-
-​
-В партии считают, что он извлёк уроки: стал чаще общаться с «враждебными» медиа, дал интервью Canadian Press впервые с 2022 года. Но менять себя он не намерен — ставка по-прежнему делается на жёсткий стиль и фокус на повседневные темы:
-– преступность
-– иммиграция
-– жильё
-​
-
-​
-Впереди обязательный пересмотр лидерства на съезде в Калгари в январе. Полиев уже мобилизует делегатов и, по ожиданиям, сохранит пост.
-​
-
-​
-Главный вопрос — время. Если Карни удержит парламент и приблизится к большинству, для Полиева оппозиция рискует превратиться в долгую и изматывающую дистанцию.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a><a href="/person/dzhastin-tryudo/" class="badge person-badge">Джастин Трюдо</a> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">3 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1632@03-12-2025_10-07-05.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Крупная операция против оборота фентанила: тысячи задержаний, сотни килограммов изъяты
-
-​
-
-<a href="https://www.cbc.ca/news/politics/canada-fentanyl-bust-sprint-9.7000033">Пяти месяцев хватило, чтобы полиция по всей стране собрала впечатляющую сводку</a>: 386 кг фентанила, почти шесть тысяч килограммов кокаина, свыше тонны метамфетамина и более 13 млн долларов наличными. RCMP представила результаты операции National Fentanyl Sprint 2.0, в которой участвовали свыше ста ведомств.
-
-​
-
-Всего — 8136 задержаний и обвинений. Из них 217 человек торговали фентанилом, находясь под залогом. Правительственный координатор по борьбе с фентанилом Кевин Броссо признал, что не ожидал таких масштабов. По его словам, ситуация проявляется в самых разных населённых пунктах страны.
-
-​
-
-Интересный штрих: несмотря на давление со стороны администрации Дональда Трампа, обвиняющей Канаду в поставках фентанила в США, Ottawa подчёркивает обратное. Представитель CBSA Дэн Энсон сообщил, что во время операции перехвачено всего около 400 граммов вещества, которое пытались переправить через границу — и в северном, и в южном направлении. По его словам, речь идёт о ничтожных объёмах, и проблема остаётся внутренней.
-
-​
-
-Операция проводилась через структуру CIROC — совместный механизм координации борьбы с организованной преступностью, который возглавляют RCMP и Sûreté du Québec. Какие группировки фигурируют в материалах дела, чиновники не уточнили.
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">31 октября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1384@31-10-2025_10-36-50.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Полиев: «Посадим рецидивистов — и Канада станет безопаснее»
-
-​
-<a href="https://www.insauga.com/putting-repeat-offenders-behind-bars-will-keep-canadians-safe-poilievre-says/">Пьер Полиев продолжает свой нескончаемый предвыборный тур по стран</a>е, на этот раз — в Гамильтоне. Главная тема его выступлений — преступность и «развалившееся обещание Канады».
-
-​
-«Когда-то у нас было простое соглашение: работаешь — получаешь дом, мясо с картошкой на ужин и безопасность во дворе. Сейчас всё это разрушено за десять лет либералов», — заявил лидер консерваторов.
-
-​
-Полиев утверждает, что либеральные реформы под Джастином Трюдо и Марком Карни «выпустили хаос на улицы»: мягкие законы об освобождении под залог позволяют опасным преступникам выходить на свободу спустя часы после ареста, а домашний арест для серьёзных нарушителей превращает наказание в шутку.
-
-​
-«Мы отменим либеральные законы о залоге, посадим рецидивистов и выбросим ключ», — сказал он, добавив, что проблема не в количестве преступников, а в том, что «несколько человек совершают сотни преступлений».
-
-​
-По словам Полиева, судьи тут ни при чём — они лишь следуют законам, которые прописали либералы.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">28 октября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1358@28-10-2025_13-42-23.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Преступность в Оттаве выросла на 63% за десятилетие: полиция бьёт тревогу
-
-​
-<a href="https://www.ctvnews.ca/ottawa/article/ottawa-police-reporting-63-per-cent-increase-in-crime-in-last-10-years/?cid=sm%3Atrueanthem%3Actvottawa%3Atwitterpost&taid=68ffba2e1ed01800010b407d&utm_campaign=trueAnthem%3A+Trending+Content&utm_medium=trueAnthem&utm_source=twitter">Полиция Оттавы представила новые данные</a>: уровень преступности в столице вырос на 63% с 2015 по 2024 год. Всего в прошлом году зарегистрировано 50,600 преступлений — больше, чем когда-либо за последние десять лет.
-
-​
-– Насильственные преступления выросли на 58% (8,200 случаев).
-– Преступления против собственности — на 64% (35,800 случаев).
-– Кражи из магазинов подскочили на 384%, до 12,100 инцидентов.
-– Единственное снижение зафиксировано по статье «хулиганство» — минус 13%.
-
-​
-Начальник полиции Эрик Стаббс объясняет: рост касается всего — от организованных групп, грабящих ювелирные бутики, до подростков, ворующих на переменах, и людей, «которые просто не могут позволить себе еду».
-
-​
-Стаббс отметил, что часть роста — статистическая: предприниматели стали чаще сообщать о преступлениях, хотя многие всё ещё не звонят в полицию из-за бюрократии.
-
-«Важно сообщать даже о мелких кражах — тогда мы сможем выявлять постоянных нарушителей и нацеленно работать по ним», — подчеркнул шеф.
-
-​
-Полиция предлагает владельцам магазинов бесплатную программу “Crime Prevention Through Environmental Design” — специалисты анализируют планировку помещения и советуют, как «укрепить» бизнес: переставить кассу, установить камеры, решётки и улучшить обзор.
-
-​
-Но у самих офицеров — проблемы. По данным отчёта, с 2015 года:
-– часы больничных выросли на 34%;
-– переработки — на 226%;
-– раскрываемость преступлений упала с 36% до 26%.
-
-​
-На фоне этих цифр полиция требует увеличить бюджет на 6,5% в 2026 году, ссылаясь на нехватку кадров и рост вызовов (на 11% больше, чем десять лет назад).
-
-​
-«Жители хотят видеть полицию рядом, чтобы она была отзывчивой и человечной, — говорится в отчёте. — Эти ожидания совпадают с нашими приоритетами — районное патрулирование, безопасность движения, благополучие сотрудников и партнёрство с сообществом».
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">23 октября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1327@23-10-2025_16-18-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Разногласия среди консерваторов: выдержит ли Пьер Полиев испытание скандалом с RCMP
-​
-За двадцать минут до того, как он обвинил RCMP в «прикрытии преступлений Джастина Трюдо», Пьер Полиев рассуждал о том, как ему удаётся сохранять единство в своей партии.
-
-​
-Лидер консерваторов уверял, что объединяет разные течения — сторонников «закона и порядка», либертарианцев, фискальных и социальных консерваторов — вокруг общих принципов: низких налогов, малого государства, свободного рынка и жёсткой борьбы с преступностью. «Мы имели мало разногласий за последние три года», — похвалился он.
-
-​
-Но теперь это единство дало трещину. После интервью, где Полиев назвал руководство национальной полиции «отвратительным» и обвинил его в политическом прикрытии скандалов Трюдо, <a href="https://www.cbc.ca/news/politics/poilievre-rcmp-conservatives-analysis-9.6949149">внутри партии заговорили о сомнениях</a>.
-
-​
-Несколько депутатов, как сообщает Radio-Canada, больше не уверены в поддержке лидера. Один из них сказал прямо: «Эти заявления доказывают, что Пьер Полиев никогда не станет премьер-министром».
-
-​
-Бывший директор коммуникаций Стивена Харпера Димитри Судaс обвинил Полиева в разрушении «серьёзной и ответственной партии», которую строил Харпер. «Человек, претендующий на пост премьера, не может бросаться обвинениями в адрес институтов, от которых зависит верховенство права», — заявил он.
-
-​
-Сам Полиев пока не извинился и не отозвал свои слова. Его офис распространил заявление, где утверждалось, что критика была направлена только против бывшей комиссарки Бренды Лакки, хотя в интервью он говорил в настоящем времени, не упоминая имён.
-
-​
-Полиев также отрицал, что говорил о «тюремном сроке» для Трюдо, несмотря на фразу о том, что «многие скандалы эпохи Трюдо должны были закончиться тюрьмой».
-
-​
-Для наблюдателей эта история выглядит типичной для Полиева — он строит карьеру на конфликтах, регулярно атакует независимые институты, от Банка Канады до избирательной комиссии, и делает это намеренно громко.
-
-​
-Пока у него остаётся прочная поддержка внутри партии: по данным опроса Abacus Data, 80% сторонников консерваторов оценивают его положительно, хотя в целом по стране мнения разделились (39% — положительно, 42% — отрицательно).
-
-​
-Тем не менее, его выпад против RCMP стал первым серьёзным внутренним кризисом с момента избрания на пост лидера. И теперь консерваторам придётся решить, насколько далеко они готовы идти вместе с Полиевом — особенно в преддверии январского голосования доверия.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">15 октября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1261@15-10-2025_09-56-54.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Преступность в Канаде всё ближе к уровню США — отчёт StatCan
-
-​⠀
-<a href="https://www.ctvnews.ca/canada/article/canadas-crime-gap-with-the-us-narrows-an-expert-says-policy-policing-may-explain-why/#:~:text=In%202023%2C%20Canada's%20police%2Dreported,gap%20was%2077%20per%20cent">По данным Statistics Canada</a>, разрыв между уровнями преступности в Канаде и США заметно сократился. Хотя в США по-прежнему фиксируется больше насильственных преступлений и убийств, тенденции последних лет противоположны: американские показатели снижаются, канадские — растут.
-
-​⠀
-В 2023 году уровень насильственных преступлений в Канаде составил 252 инцидента на 100 000 человек, а в США — 334. Пятнадцать лет назад разница была почти вдвое больше. В США насилие снизилось на 37% с конца 1990-х, тогда как в Канаде — выросло на 9% с 2009 года.
-
-​⠀
-Рост в Канаде связан прежде всего с серьёзными нападениями — попытками убийства и нападениями с оружием. Их частота за десятилетие выросла в полтора раза. По словам криминолога Лоры Хьюи, ситуация отражает последствия политики последних лет: сокращение полицейских бюджетов и смягчение условий залога «создали комфортную среду для преступников».
-
-​⠀
-Показатели краж и имущественных преступлений теперь даже чуть выше в Канаде, чем в США — 1 995 против 1 906 случаев на 100 000 человек. Особенно выросло число автомобильных краж, связанных с организованными группами.
-
-​⠀
-Разрыв по убийствам остаётся значительным: 5,7 на 100 000 в США против 1,9 в Канаде. Но если исключить случаи с огнестрельным оружием, показатели почти совпадают. В США 76% убийств совершаются с применением оружия, в Канаде — 38%.
-
-​⠀
-Хьюи отмечает, что организованная преступность — от автоугонов до наркоторговли — активно пользуется «хорошими условиями для ведения бизнеса» в Канаде.
-
-​⠀
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">5 октября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1205@05-10-2025_14-28-14.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content"><a href="https://abacusdata.ca/abacus-data-poll-liberals-and-conservatives-locked-in-tight-race-as-cost-of-living-concerns-surge/">Опрос Abacus</a>: Либералы и консерваторы идут ноздря в ноздрю — недовольство ростом цен растёт
-​
-Новый опрос Abacus Data показывает: борьба между Марком Карни и Пьером Полиевом становится всё плотнее. Если бы выборы прошли сейчас, консерваторы набрали бы 41%, либералы — 40%. Ошибка измерения — ±2,5%.
-​
-Главная тревога канадцев — стоимость жизни: 62% ставят рост цен в топ-3 проблем, дальше — здравоохранение (35%) и экономика (35%).
-​
-Одобрение правительства Карни снизилось до 46% (–4 пункта за две недели), а доля тех, кто считает страну «на неверном пути», выросла до 49%. Только 34% уверены, что Канада движется в правильном направлении.
-​
-Личные рейтинги Карни остаются относительно высокими — 48% положительных, 34% отрицательных, но лишь 40% считают, что он оправдал ожидания. Среди либеральных избирателей — 63%. Полиев имеет 40% положительных и 42% отрицательных оценок (–2 в чистом выражении).
-​
-Интересно, что 55% респондентов видят правительство Карни «похожим» на эпоху Трюдо — и среди них 80% готовы голосовать за консерваторов. Те же, кто считает Карни «другим» — в большинстве остаются с либералами. Вывод очевиден: дистанция от Трюдо стала политическим императивом.
-​
-По вопросам, связанным с повседневной жизнью, преимущество у консерваторов:
-– стоимость жизни — +13 пунктов (41% против 28%),
-– преступность — 55% против 20%,
-– экономика — 47% против 33%,
-– жильё — 36% против 26%.
-Либералы ведут лишь по здравоохранению, климату и отношениям с США и Трампом.
-​
-Регионально партии почти делят страну: в Онтарио либералы впереди (45%–42%), в Альберте — консерваторы (57%–25%), в Квебеке либералы держат 37% против 26% у Полиева.
-​
-Как отмечает руководитель Abacus Дэвид Колетто, «Карни сохраняет устойчивость, но ожидания начинают трескаться. Многим он кажется продолжением Трюдо — а не обновлением».
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/ekonomika/" class="badge">#экономика</a><a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">29 сентября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1176@29-09-2025_17-41-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Почему на Западе Канады расцветает рынок нелегальных сигарет
-
-​
-Пока власти повышают налоги на табак, а пачка легальных сигарет обходится в среднем в $150 за блок, чёрный рынок предлагает ту же коробку за $40. Итог закономерен: <a href="https://www.ctvnews.ca/edmonton/article/the-illegal-cigarette-industry-in-western-canada-is-booming-why/">по оценкам National Coalition Against Contraband Tobacco</a>, индустрия нелегального табака уже тянет на миллиарды долларов.
-
-​
-Бывший замглавы полиции Онтарио Рик Барнум прямо говорит: покупая такие сигареты, люди финансируют организованную преступность. Сейчас в Канаде около 150 криминальных групп занимаются этим бизнесом, зачастую параллельно торгуя метамфетамином и фентанилом.
-
-​
-Для провинций это прямая потеря доходов, напоминает полиция Альберты: налоги от табака идут на дороги, школы и больницы. Но разрыв цен слишком велик, и даже часть магазинов идёт на риск и продаёт нелегальный товар.
-
-​
-По данным Alberta Gaming, Liquor and Cannabis, за четыре года изъятия контрабандного табака выросли с 18 тыс. блоков до 240 тыс. Основные поставки идут с территорий в Онтарио и Квебеке, где отдельные производители, имея федеральные лицензии, продают «левые» партии криминальным группам. «Если бы это действительно было “индейским вопросом”, у всех общин было бы чистое питьевое водоснабжение и нормальное жильё», — язвит Барнум.
-
-​
-Опыт Австралии и Новой Зеландии показывает: жёсткие запреты и сверхналоги только подогревают рынок. Там чёрный табак уже сопровождается насилием и даже поджогами.
-
-​
-Барнум считает, что снизить налоги до конкурентного уровня уже нереально, но как минимум стоит перестать повышать их дальше и усиливать местные меры — вроде штрафов, привязанных к стоимости машины или водительским правам, как в Квебеке.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">29 сентября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1171@29-09-2025_11-42-15.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">В Британской Колумбии появятся новые центры принудительного лечения
-
-​
-Премьер Дэвид Эби на съезде муниципальных лидеров в Виктории объявил о строительстве новых учреждений для людей с тяжёлыми психическими расстройствами и зависимостями. В Суррее и Принс-Джордже появится около 100 дополнительных коек.
-
-​
-Эби подчеркнул, что речь идёт не только о борьбе с преступностью, но и о безопасности в сообществе: официальная статистика фиксирует падение преступности на 11%, но «люди должны и чувствовать себя в безопасности».
-
-​
-Параллельно правительство вкладывается в программы для бездомных, поддержку жертв преступлений и надеется на реформу Уголовного кодекса от Оттавы уже этой осенью.
-
-​
-Ещё одно обещание Эби — строительство линии электропередачи North Coast между Принс-Джорджем и Террасом. По его словам, это создаст рабочие места в северных и сельских районах провинции.
-
-​
-Речь премьера прервала акция: один из протестующих выкрикивал «позор» и призывал делегатов выйти в знак солидарности с палестинцами.
-
-​
-На том же съезде выступил федеральный министр жилья и инфраструктуры Грегор Робертсон. Он пообещал, что новые проекты будут размещаться и на федеральных землях в Британской Колумбии, хотя сроки и локации пока не названы. Робертсон признал: именно БК стала эпицентром многолетнего жилищного кризиса, который теперь распространился на всю страну.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">28 сентября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1166@28-09-2025_10-06-26.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Канада — страна №1, куда люди по всему миру мечтают переехать.
-
-​
-
-Согласно опросу Remitly в 26 странах, именно Канада возглавила список самых желанных направлений для эмиграции. Главные причины: качество жизни, образ жизни, рабочие возможности, природное разнообразие и дружелюбные сообщества.
-
-​
-
-Отчёт подчёркивает: доступ к образованию и здравоохранению, безопасность городов и возможность активного отдыха делают Канаду символом стабильности и баланса. А канадская вежливость и «теплота сообществ» оказались в пятёрке главных аргументов.
-
-​
-
-Полный топ-10:
-1. Канада — качество жизни, стиль жизни, работа работа ахахах
-2. Австралия — солнце, расслабленный ритм, работа
-3. Япония — культура, еда, низкая преступность
-4. Великобритания — культура, работа, локация
-5. США — работа, деньги, динамичные города
-6. Италия — еда, культура, природа
-7. Испания — солнце, культура, расслабленный ритм
-8. Швейцария — качество жизни, пейзажи, безопасность
-9. Новая Зеландия — природа, качество жизни, расслабленный ритм
-10. Германия — качество жизни, работа, экономика
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ekonomika/" class="badge">#экономика</a><a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">15 сентября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1078@15-09-2025_12-19-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Полиев обещает жёсткие меры против преступности: «некоторые районы превратились в зоны боевых действий»
-
-​
-Лидер консерваторов Пьер Полиев <a href="https://www.cbc.ca/news/politics/poilievre-crime-crackdown-1.7631381">представил законопроект о реформе залога под громким названием Jail Not Bail Act</a>. Он утверждает, что «преступность выходит из-под контроля» и требует оставить больше обвиняемых за решёткой до суда.
-
-​
-Полиев предлагает:
-– учитывать всю криминальную историю обвиняемого при решении о залоге;
-– запретить выступать поручителем тем, кто сам осуждён за тяжкое преступление;
-– ввести «закон трёх ударов»: три серьёзных преступления — и никакого залога, УДО или домашнего ареста никогда.
-
-​
-Законопроект нацелен на отмену положений либерального Bill C-75, где прописан «принцип сдержанности» — обязанность судей отпускать людей под залог при первой возможности и на минимальных условиях.
-
-​
-Но реальность статистики выглядит куда спокойнее, чем риторика Полиева. По данным StatCan, уровень преступности в Канаде в 2024 году упал на 3,6%. Особенно снизились имущественные и наркопреступления. В Торонто — двузначное снижение числа убийств, перестрелок и угонов авто. Хотя число убийств за десятилетие действительно выросло на 29% (с 613 в 2015-м до 788 в 2024-м).
-
-​
-Либеральное правительство Марка Карни обещает представить свой собственный законопроект об ужесточении правил залога уже этой осенью. Он будет касаться краж автомобилей с насилием, вторжений в жилища, а также торговли людьми.
-
-​
-Министр юстиции Шон Фрейзер, отвечая на инициативы Полиева, язвительно заметил: «Он хочет превратить Канаду в Дикий Запад». Полиев ответил: «Для некоторых районов это не Дикий Запад. Это зона войны».</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 августа 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_941@19-08-2025_10-19-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Пьер Полиев официально возвращается в парламент. На этот раз как депутат от сельского округа Battle River-Crowfoot в Альберте. 
-
-<a href="https://www.ctvnews.ca/calgary/article/poilievres-byelection-win-sets-the-table-for-his-return-to-parliament-this-fall/">Итог допвыборов был предсказуем</a>: это один из самых консервативных округов страны, и поражение там выглядело бы катастрофой для партии.
-
-Полиев фактически перезапустил свою карьеру после весеннего провала в Карлтоне, где он проиграл либералу Брюсу Фанджою, который два года методично готовил кампанию. Всё лето лидер консерваторов провёл в «олдскульном» стиле: родео, ярмарки, встречи с жителями, бизнесами и дверной обход. Такой же тактикой он пользовался ещё в 2004 году, когда впервые стал депутатом.
-
-Теперь перед ним два главных испытания. Первое — осенняя сессия парламента, где 15 сентября он впервые сойдётся в палате с Марком Карни. Второе — внутрипартийный вотум доверия на январском съезде консерваторов в Калгари.
-
-Полиев заранее обозначил приоритеты: закон о «суверенитете Канады», давление на правительство Карни ради строительства двух трубопроводов, LNG-проекта и дороги к месторождению «Кольцо огня» в Онтарио. Оппозиция также продолжит играть на традиционных темах — рост цен, инфляция, преступность, иммиграция.
-
-Внутри партии тоже будут перемены. Эндрю Шир возвращается в кресло лидера оппозиции в палате. Осенью Полиев обновит «теневой кабинет» из 74 депутатов, перераспределив роли в зависимости от слабых мест министров Карни. Ключевая фигура его окружения, Дженни Бирн, по-прежнему остаётся при нём и ежедневно советует по тактике.
-
-Однако у этого «перезапуска» есть и обратная сторона. Лето Полиев провёл в стороне от национальной сцены. Вместо митингов с тысячами людей он сосредоточился на деревенских турне. Это позволило лучше понять настроение своей базы, но оставило его без постоянного внимания федеральных СМИ.</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">29 июля 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_841@29-07-2025_12-46-57.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Автокраж в Канаде стало меньше.
-
-<a href="https://www.cbc.ca/news/canada/toronto/auto-theft-trends-down-equite-report-1.7595080">По данным ассоциации Équité</a>, за первую половину 2025 года уровень угона автомобилей снизился на 19 процентов по сравнению с тем же периодом прошлого года.
-
-Наибольшее падение зафиксировано в Онтарио и Квебеке. Именно там был пик кризиса с угонами в 2021–2023 годах. Сейчас полиция и страховщики называют ситуацию обнадеживающей и связывают улучшение с совместными усилиями всех уровней власти и усилением борьбы с организованной преступностью.
-
-Уровень возврата угнанных машин тоже растет. Сейчас возвращается 56 процентов автомобилей, в прошлом году было 53.
-
-Однако расслабляться не советуют. Представитель ассоциации прямо говорит — это не просто кражи. Деньги от угнанных авто идут в карманы преступных сетей и влияют на безопасность сообществ.
-
-Всплеск угонов начался во время пандемии, когда из-за сбоев в цепочках поставок машин стало меньше, а спрос на чёрном рынке вырос. Главные цели — пикапы, внедорожники и седаны.
-
-Среди эффективных мер — команда по борьбе с угонами в Онтарио, ужесточение правил регистрации, новые технологии отслеживания и обмен данными с Интерполом. Вложено более 200 миллионов федеральных долларов.
-
-В Торонто падение угонов составило 34 процента, в Йорк — 37. Это считают рекордом за последние годы.
-
-Но автоворы тоже не спят. Используют цифровые приёмы, сканируют сигнал ключей, взламывают программное обеспечение. Эксперты советуют относиться к машине как к подключённому девайсу, а не просто к железу. Обновляйте софт, консультируйтесь с дилерами, используйте защитные функции.
-
-И помните — чем больше уровней защиты, тем выше шанс, что угонщик просто уйдёт.</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">9 июля 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_720@09-07-2025_18-52-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Рынок жилья в Торонто окончательно рухнул. Новые рекорды — и все плохие
-
-Свежий отчёт <a href="https://www.blogto.com/real-estate-toronto/2025/07/toronto-housing-market-fallen-off-cliff/">Toronto Regional Real Estate Board (TRREB) </a>за июнь — это сплошная депрессия для продавцов. Продажи падают, цены не спасают, а количество выставленных объектов бьёт исторические рекорды.
-
-– Средняя цена дома: $1,101,691
-– Минус 5,4% к июню прошлого года
-– Продажи: ещё ниже — минус 2,4%
-– Новые объявления: +7,7%
-– Общий объём активных листингов: +30,8%
-– Время на рынке: +40% (!)
-
-Впервые в истории региона — самое большое количество нераспроданных объектов на рынке. В некоторых районах продавцы уже выставляют ниже цены покупки.
-
-TRREB признаёт, что даже снижение цен и ставок пока не вернуло покупателей. Причины очевидны:
-
-– Высокие проценты по ипотеке
-– Экономическая неопределённость
-– Кризис стоимости жизни
-– И даже рост насильственных преступлений в жилых районах (!)
-
-Что может спасти рынок?
-
-– Стабильные отношения с США
-– Ещё минимум два понижения ключевой ставки
-– И, по мнению TRREB, борьба с уличной преступностью: «Невозможно обсуждать рынок жилья в вакууме — канадцы всё чаще сталкиваются с вооружёнными вторжениями и угонами машин прямо у дома».
-
-Покупателей мало. Продавцов — слишком много. Денег — ни у кого. Добро пожаловать в Торонто 2025.</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">7 июня 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_561@07-06-2025_12-46-35.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">🇮🇳🇨🇦 Скандал вокруг приглашения Моди на саммит G7 в Канаде — недовольны даже Либералы.
-
-<a href="https://nationalpost.com/news/canada/liberal-mp-plans-to-raise-concerns-about-modi-visit-to-carney">Депутат от Либералов Сукх Дхаливал (Британская Колумбия) намерен лично поднять перед Марком Карни вопрос о визите премьера Индии Нарендры Моди.</a>
-
-Причина — массовые протесты в его округе: люди звонят, пишут письма, опасаясь за безопасность и требуя справедливости в деле убитого сикхского активиста Хардипа Сингха Ниджара. Напомню, Канада обвинила агентов индийского правительства в его убийстве в 2023 году.
-
-Дхаливал заявил:
-“Люди напуганы. Они не понимают, как можно приглашать Моди без гарантий, что его правительство прекратит вмешательство в дела Канады.”
-
-Фон:
-
-– RCMP ранее связывала правительство Моди не только с убийством Ниджара, но и с организованной преступностью в Канаде.
-– В отчете комиссии по иностранному вмешательству Индия названа одной из главных угроз для канадской демократии.
-
-Тем не менее, Карни настаивает: Индия — 5-я экономика мира, ключевой партнер по многим цепочкам поставок. По его словам, визит Моди согласован с остальными странами G7, “логичен” и необходим для обсуждений по энергетике, критически важным минералам и инфраструктуре.
-
-Консерваторы во главе с Полиевом поддержали приглашение Моди.
-World Sikh Organization заявила, что это решение — “предательство ценностей Канады.”
-
-Дхаливал требует:
-
-– От индийского премьера — публичного обязательства больше не вмешиваться во внутренние дела Канады.
-– Полного содействия расследованию убийства Ниджара.
-
-Карни пока уклонился от прямого ответа, считает некорректным комментировать дело из-за идущих судебных процессов.
-
-Индийская сторона, в свою очередь, отрицает свою причастность к убийству.
-
-Очевидно одно — визит Моди станет тестом для Карни: сможет ли он удержать баланс между экономическими интересами и демократическими принципами, не вызвав ещё большего раскола в собственной партии.</div>
-        <div class="post-footer"> <a href="/tag/ekonomika/" class="badge">#экономика</a><a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">5 мая 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_401@05-05-2025_15-01-41.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content"><b>Карни выиграл страну, но проиграл Онтарио: почему Либералы не дотянули до большинства </b>— <a href="https://nationalpost.com/news/the-liberals-may-have-lost-seats-in-ontario-and-their-majority-because-of-crime-and-trudeau-fatigue">Nationalpost рефлексирует на тему выборов</a>
-
-<i>Новая реальность: Марк Карни стал премьером, но его Либералы не смогли взять большинство — и ключевым фактором стали потери в Онтарио. Сам Карни в своей первой пресс-конференции после выборов признал: «Арифметически, да, именно Онтарио стоило нам большинства».
-</i>
-Несмотря на мощную кампанию и сильный финиш, Либералы потеряли 9 мест в провинции, в то время как Консерваторы прибавили 16. В итоге: 69 мандатов у Либералов, 53 у Консерваторов. Особенно тяжело ударили поражения в регионах 905, Гамильтоне, Виндзоре и Ньягаре — промышленных округах, где чувствуется давление торговой войны с США.
-
-<b>Почему Либералы проиграли в ключевых зонах</b>
-– 📉 "Усталость от Трюдо": несмотря на смену лидера, избиратели в пригородах продолжали ассоциировать партию с прежним курсом.
-– 🔐 Преступность и безопасность: особенно в районах Большого Торонто и Йорка, автоугоны и домашние ограбления стали мощным фактором. Консерваторы умело использовали тему жёсткости к преступникам и необходимость реформы залогов.
-– 🇺🇸 Надежда на страх Трампа не сработала: Либералы сделали ставку на то, что угроза со стороны Трампа мобилизует прогрессивный электорат. Но страх оказался недостаточным, особенно там, где бытовые проблемы были важнее геополитики.
-– ⚖️ Разрыв в левом электорате: крах НДП не привёл к автоматическому переходу голосов к Либералам — часть синдикалистов и «синих воротничков» в итоге проголосовали за Консерваторов, особенно в юго-западном Онтарио.
-
-Пример — Брамптон-Уэст, где министр здравоохранения Камал Кхера проиграла, и Йорк-Сентр, где бывшая министр ментального здоровья Яара Сакс уступила Роману Баберу. Даже Питер Юэн, кандидат с полицейским бэкграундом и официальной статистикой о снижении преступности, не смог удержать округ Маркхэм-Юнионвилль.
-
-Один из действующих либеральных депутатов признал в интервью: «Мы переоценили силу фактора Трампа и недооценили страхи избирателей перед преступностью и иммиграцией».
-
-Тем не менее, у Либералов — четвёртый подряд мандат на управление.
-Победа не абсолютная, но историческая. Карни сумел вернуть Либералов с края пропасти. Тем не менее, потери в Онтарио стали тревожным сигналом: без доверия пригородного избирателя и ответов на бытовые страхи — большинство остаётся недостижимым.</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/prestupnost/" class="badge">#преступность</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">5 мая 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_399@05-05-2025_13-04-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content"><b>Консерваторы готовы поддержать Карни — особенно в борьбе с Трампом
-</b>
-<i>Несмотря на ожесточённую избирательную кампанию,</i><a href="https://www.cbc.ca/news/politics/conservative-support-some-liberal-legislation-1.7526468"> Консервативная партия Канады подаёт неожиданный сигнал</a><i>: готова работать с премьером Марком Карни по ряду ключевых инициатив, включая противостояние торговой агрессии США. Об этом заявил Эндрю Шир — лидер фракции и потенциальный временный глава парламентской группы после поражения Пьера Полиева.
-</i>
-В интервью CBC Шир заявил, что Консерваторы поддержат любые меры, которые защитят экономику Канады в торговой войне с США, включая борьбу за отмену тарифов, уже вызвавших сокращения рабочих мест, например, на заводе GM в Ошаве. Шир добавил: «Мы желаем Карни успеха и надеемся на хорошую сделку для Канады».
-
-Важный сдвиг: партия, которая ещё недавно голосовала против почти всех инициатив Трюдо, теперь открыто рассматривает возможность сотрудничества с Либералами, если те готовы пересмотреть спорные законы — в частности, Bill C-5 (условное наказание) и Bill C-75 (упрощение условий для освобождения под залог).
-
-Консерваторы подчёркивают, что Карни сам во многом вел кампанию против прежних либеральных инициатив, обещая ужесточить уголовное законодательство, нарастить численность RCMP и усложнить условия получения залога для опасных обвиняемых. Если эти обещания воплотятся в законодательстве — Шир даёт понять, что партия поддержит такие шаги.
-
-Карни уже анонсировал, что его приоритет — борьба с преступностью и защита канадской экономики. В свою очередь, внутри Консервативной партии идёт переоценка после поражения, но, как утверждает Шир, никакого мятежа против Полиева нет. Лидер вернётся в парламент после переизбрания в округе Battle River–Crowfoot — место для него освобождает депутат Курек.
-
-Показательно, что Консерваторы видят перспективу не в вражде, а в возможной двухпартийной конкуренции нового типа. Крах НДП создал вакуум, и теперь борьба за власть будет происходить между двумя блоками: обновлёнными Либералами под Карни и Консерваторами, если те сумеют изменить курс.</div>
-        <div class="post-footer"> <a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><div class="pagination"><a href="/tag/prestupnost/page/2/" class="btn">Вперед →</a></div></main>
-    <footer>&copy; 2024–2026 Maple Barrel. Journalists.ca</footer>
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="tag-hdr">
+    <h1>#преступность</h1>
+    <p>195 материалов по теме</p>
+  </div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/">
+  <div class="card-img"><img src="/photos/photo_2463@26-03-2026_18-00-48.jpg" alt="Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div>
+    <div class="card-excerpt">Бывший министр иммиграции, а ныне министр юстиции Шон Фрейзер заявил, что с учётом сегодняшних данных он бы раньше ограничил программу иностранных студентов.   По его словам, федеральное правительство</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-ottava-igraet-s-bezopasnostyu/">
+  <div class="card-img"><img src="/photos/photo_2449@25-03-2026_14-06-44.jpg" alt="Оттава играет с безопасностью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Оттава играет с безопасностью</div>
+    <div class="card-excerpt">Редакция Postmedia утверждает, что федеральное правительство теряет контроль над иммиграционной системой, и это уже вызывает вопросы к безопасности страны.  В центре критики — отчёт аудитора Карен Хог</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-kanada-stanovitsya-ubezhischem-dlya-mezhdunarodnyh-prestupni/">
+  <div class="card-img"><img src="/photos/photo_2448@25-03-2026_13-06-32.jpg" alt="Канада становится «убежищем» для международных преступников и террористов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Канада становится «убежищем» для международных преступников и террористов</div>
+    <div class="card-excerpt">Дэниел Робсон пишет, что проблема в Канаде глубже, чем просто доступ полиции к данным. По его мнению, страна всё чаще используется как удобная точка для преступников — не обязательно как конечное убеж</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-poliev-trebuet-ot-karni-uvolit-ministrov-iz-za-otchyota-audi/">
+  <div class="card-img"><img src="/photos/photo_2447@25-03-2026_12-06-01.jpg" alt="Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">westernstandard.news</div>
+    <div class="card-title">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев призвал премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.   Речь идёт о дей</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-odin-iz-samyh-razyskivaemyh-prestupnikov-v-kanade-zaderzhan-/">
+  <div class="card-img"><img src="/photos/photo_2445@25-03-2026_10-04-12.jpg" alt="Один из самых разыскиваемых преступников в Канаде задержан в США по делу об убийстве в Торонто" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Один из самых разыскиваемых преступников в Канаде задержан в США по делу об убийстве в Торонто</div>
+    <div class="card-excerpt">Полиция Торонто сообщила о задержании Адриана Уокера — одного из самых разыскиваемых преступников страны. Его арестовали в штате Миссисипи.  Уокер проходил по делу о двойной стрельбе в Торонто в мае 2</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-ucheniya-v-arktike-poshli-ne-po-planu-tehnika-zamyorzla-stre/">
+  <div class="card-img"><img src="/photos/photo_2440@24-03-2026_21-01-42.jpg" alt="Учения в Арктике пошли не по плану: техника замёрзла, стрельбы отменили" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">Учения в Арктике пошли не по плану: техника замёрзла, стрельбы отменили</div>
+    <div class="card-excerpt">Охренеть какой красивый оригинал от NY Times  Канада попыталась продемонстрировать военную готовность на Крайнем Севере — и столкнулась с банальной проблемой: всё замёрзло.  Во время учений Operation</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-kanada-ne-otslezhivaet-inostrannyh-studentov-posle-okonchani/">
+  <div class="card-img"><img src="/photos/photo_2435@24-03-2026_14-06-45.jpg" alt="Канада не отслеживает иностранных студентов после окончания виз — аудит" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bloomberg.com</div>
+    <div class="card-title">Канада не отслеживает иностранных студентов после окончания виз — аудит</div>
+    <div class="card-excerpt">Аудитор Канады Карен Хоган выявила серьёзные дыры в системе иностранных студентов: власти фактически не знают, уезжают ли люди после истечения разрешений.  Главные выводы отчёта: – нет надёжной систем</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-dzhastin-king-snova-arestovan-cherez-dve-nedeli-posle-posled/">
+  <div class="card-img"><img src="/photos/photo_2433@24-03-2026_12-06-28.jpg" alt="Джастин Кинг снова арестован через две недели после «последнего шанса» под залог" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Джастин Кинг снова арестован через две недели после «последнего шанса» под залог</div>
+    <div class="card-excerpt">В Ньюфаундленде история с «последним шансом» закончилась предсказуемо: Джастин Кинг снова за решёткой — спустя всего две недели после освобождения под залог.  34-летний обвиняемый ранее проходил по 21</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-20-indiya-i-kanada-perezapuskayut-otnosheniya-s-istoricheskim-s/">
+  <div class="card-img"><img src="/photos/photo_2413@20-03-2026_10-04-18.jpg" alt="Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bbc.com</div>
+    <div class="card-title">Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике</div>
+    <div class="card-excerpt">Канада и Индия объявили о серии договорённостей, включая 10-летнее соглашение в сфере ядерной энергетики, после встречи Марк Карни и Нарендра Моди в Дели.  Ключевой элемент — долгосрочные поставки ура</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-19-deportatsii-po-delam-o-vymogatelstve-vyrosli-do-35-nachaty-s/">
+  <div class="card-img"><img src="/photos/photo_2406@19-03-2026_15-02-36.jpg" alt="Депортации по делам о вымогательстве выросли до 35, начаты сотни расследований" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Депортации по делам о вымогательстве выросли до 35, начаты сотни расследований</div>
+    <div class="card-excerpt">Канадские власти усилили давление на организованные преступные группы. Пограничная служба (CBSA) сообщает: уже 35 человек депортированы по делам, связанным с вымогательством.   Всего зафиксировано 372</div>
+    <div class="card-meta">
+      <span class="card-date">19 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-18-kanadskie-muzhchiny-perezhivayut-postoyannyy-krizis-v-obsche/">
+  <div class="card-img"><img src="/photos/photo_2395@18-03-2026_17-04-57.jpg" alt="Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье</div>
+    <div class="card-excerpt">Профессор Нииган Синклер из University of Manitoba заявил, что в Канаде сформировался устойчивый кризис, связанный со здоровьем мужчин.   По его словам, мужчины в стране живут меньше, чаще страдают от</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-16-ontario-prizyvaet-ottavu-legalizovat-pertsovyy-ballonchik-dl/">
+  <div class="card-img"><img src="/photos/photo_2370@16-03-2026_15-02-51.jpg" alt="Онтарио призывает Оттаву легализовать перцовый баллончик для самообороны" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cp24.com</div>
+    <div class="card-title">Онтарио призывает Оттаву легализовать перцовый баллончик для самообороны</div>
+    <div class="card-excerpt">Правительство Онтарио призывает федеральные власти изменить уголовное законодательство и разрешить гражданам использовать перцовый баллончик для самообороны.   С таким предложением генеральный прокуро</div>
+    <div class="card-meta">
+      <span class="card-date">16 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-13-kogda-kanadskaya-tolerantnost-stalkivaetsya-s-radikalizmom-b/">
+  <div class="card-img"><img src="/photos/photo_2356@13-03-2026_15-03-49.jpg" alt="Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме</div>
+    <div class="card-excerpt">Бывший премьер Британской Колумбии Уджжал Досандж заявил, что канадские власти слишком долго игнорировали экстремистскую активность сторонников создания государства Халистан.   По его словам, политики</div>
+    <div class="card-meta">
+      <span class="card-date">13 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-12-vot-nastoyaschee-dokazatelstvo-v-kanade-rezko-vyroslo-chislo/">
+  <div class="card-img"><img src="/photos/photo_2349@12-03-2026_18-02-05.jpg" alt="«Вот настоящее доказательство»: в Канаде резко выросло число инсценированных аварий ради страховых выплат" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">«Вот настоящее доказательство»: в Канаде резко выросло число инсценированных аварий ради страховых выплат</div>
+    <div class="card-excerpt">Страховые компании и полиция в Канаде фиксируют резкий рост инсценированных автомобильных аварий, которые организуют ради получения страховых выплат.   Журналисты программы W5 рассказали о расследован</div>
+    <div class="card-meta">
+      <span class="card-date">12 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-10-seriynyy-ubiytsa-iz-nyu-bransuika-allan-lezher-umer-v-tyurme/">
+  <div class="card-img"><img src="/photos/photo_2326@10-03-2026_12-06-24.jpg" alt="Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Серийный убийца из Нью-Брансуика Аллан Лежер умер в тюрьме</div>
+    <div class="card-excerpt">Серийный убийца Аллан Лежер, известный как «убийца из Мирамиши», умер в возрасте 78 лет. Об этом сообщила Служба исправительных учреждений Канады, передаёт CBC News.   Лежер умер в понедельник в федер</div>
+    <div class="card-meta">
+      <span class="card-date">10 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-09-evreyskaya-obschina-trebuet-deystviy-posle-strelby-po-sinago/">
+  <div class="card-img"><img src="/photos/photo_2317@09-03-2026_10-03-53.jpg" alt="Еврейская община требует действий после стрельбы по синагогам в районе Торонто" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Еврейская община требует действий после стрельбы по синагогам в районе Торонто</div>
+    <div class="card-excerpt">За последнюю неделю три синагоги в районе Большого Торонто (GTA) подверглись обстрелу — две в Норт-Йорке и одна в Воне. По данным полиции, никто не пострадал, подозреваемые пока не установлены.   Лиде</div>
+    <div class="card-meta">
+      <span class="card-date">9 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-06-v-monreale-zaderzhan-samyy-razyskivaemyy-prestupnik-kanady/">
+  <div class="card-img"><img src="/photos/photo_2305@06-03-2026_09-06-27.jpg" alt="В Монреале задержан самый разыскиваемый преступник Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">В Монреале задержан самый разыскиваемый преступник Канады</div>
+    <div class="card-excerpt">Полиция Монреаля задержала самого разыскиваемого преступника Канады — 24-летнего Брайана Фуэнтеса Грамахо. Его арестовали ночью в среду.   Фуэнтес Грамахо обвиняется в убийстве первой степени по делу</div>
+    <div class="card-meta">
+      <span class="card-date">6 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-05-vankuver-zasluzhivaet-bolshego-chem-lozh-kena-sima/">
+  <div class="card-img"><img src="/photos/photo_2304@05-03-2026_21-03-43.jpg" alt="Ванкувер заслуживает большего, чем ложь Кена Сима" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalobserver.com</div>
+    <div class="card-title">Ванкувер заслуживает большего, чем ложь Кена Сима</div>
+    <div class="card-excerpt">Мэр Ванкувера Кен Сим извинился после того, как публично обвинил оппозиционного муниципального советника в раздаче наркотиков на Рождество — обвинение, которое оказалось полностью ложным.   Автор коло</div>
+    <div class="card-meta">
+      <span class="card-date">5 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-03-belye-natsionalisticheskie-boytsovskie-kluby-predstavlyayut-/">
+  <div class="card-img"><img src="/photos/photo_2294@03-03-2026_18-04-05.jpg" alt="Белые националистические бойцовские клубы представляют риск «экстремального насилия», предупреждает правительственный доклад" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Белые националистические бойцовские клубы представляют риск «экстремального насилия», предупреждает правительственный доклад</div>
+    <div class="card-excerpt">Внутренний брифинг Министерства общественной безопасности Канады, полученный CBC News, предупреждает: движение так называемых «active clubs» — белых националистических групп, маскирующихся под спортив</div>
+    <div class="card-meta">
+      <span class="card-date">3 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-02-per-poliev-zayavil-chto-gotov-poehat-v-ssha-chtoby-otstaivat/">
+  <div class="card-img"><img src="/photos/photo_2286@02-03-2026_12-05-51.jpg" alt="Пьер Полиев заявил, что готов поехать в США, чтобы отстаивать позицию Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Пьер Полиев заявил, что готов поехать в США, чтобы отстаивать позицию Канады</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев заявил, что готов встретиться с американскими политиками, если это поможет урегулировать продолжающийся торговый конфликт с США.    В подкасте The Bridge with Питером М</div>
+    <div class="card-meta">
+      <span class="card-date">2 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-02-mark-karni-i-narendra-modi-podpisali-soglasheniya-na-milliar/">
+  <div class="card-img"><img src="/photos/photo_2285@02-03-2026_10-03-48.jpg" alt="Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни и глава правительства Индии Нарендра Моди объявили о «новом партнёрстве» — пакете соглашений на 5,5 млрд долларов и намерении подписать соглашение о свободной торговле до ко</div>
+    <div class="card-meta">
+      <span class="card-date">2 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-01-kanadskie-universitety-podpisali-13-soglasheniy-s-indiey-vo-/">
+  <div class="card-img"><img src="/photos/photo_2279@01-03-2026_10-03-47.jpg" alt="Канадские университеты подписали 13 соглашений с Индией во время визита Карни" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канадские университеты подписали 13 соглашений с Индией во время визита Карни</div>
+    <div class="card-excerpt">Во время поездки премьер-министра Марка Карни в Индию канадские университеты заключили 13 партнёрств с индийскими вузами. Это часть новой стратегии по развитию талантов и инноваций, нацеленной на углу</div>
+    <div class="card-meta">
+      <span class="card-date">1 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-28-ot-energetiki-do-ii-pyat-klyuchevyh-tem-missii-karni-v-indiy/">
+  <div class="card-img"><img src="/photos/photo_2273@28-02-2026_11-04-17.jpg" alt="От энергетики до ИИ: пять ключевых тем миссии Карни в Индию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cp24.com</div>
+    <div class="card-title">От энергетики до ИИ: пять ключевых тем миссии Карни в Индию</div>
+    <div class="card-excerpt">Поездка премьер-министра Марка Карни в Индию — попытка перезапустить отношения после двух лет острого кризиса.    В 2023 и 2024 годах Оттава заявила, что агенты индийского правительства причастны к на</div>
+    <div class="card-meta">
+      <span class="card-date">28 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-27-ottava-zapuskaet-pervuyu-v-istorii-kanady-strategiyu-po-zdor/">
+  <div class="card-img"><img src="/photos/photo_2270@27-02-2026_22-03-27.jpg" alt="Оттава запускает первую в истории Канады стратегию по здоровью мужчин и мальчиков" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Оттава запускает первую в истории Канады стратегию по здоровью мужчин и мальчиков</div>
+    <div class="card-excerpt">Федеральное правительство начинает общенациональное обсуждение, которое ляжет в основу первой в стране стратегии по физическому и психическому здоровью мужчин и мальчиков. Документ планируют представи</div>
+    <div class="card-meta">
+      <span class="card-date">27 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-27-energogolodnaya-indiya-govorit-karni-my-gotovy-pokupat-vsyo-/">
+  <div class="card-img"><img src="/photos/photo_2267@27-02-2026_14-03-39.jpg" alt="«Энергоголодная Индия говорит Карни: мы готовы покупать всё, что Канада предлагает»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">«Энергоголодная Индия говорит Карни: мы готовы покупать всё, что Канада предлагает»</div>
+    <div class="card-excerpt">Индия заявила, что готова закупать у Канады нефть, газ и уран — в максимально возможных объёмах. Об этом в интервью CBC сообщил верховный комиссар Индии в Канаде Динеш Патнайк накануне визита премьер-</div>
+    <div class="card-meta">
+      <span class="card-date">27 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-27-muzhchine-predyavleny-14-obvineniy-posle-tryoh-pohischeniy-z/">
+  <div class="card-img"><img src="/photos/photo_2265@27-02-2026_12-07-14.jpg" alt="Мужчине предъявлены 14 обвинений после трёх похищений за четыре дня в Metro Vancouver" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Мужчине предъявлены 14 обвинений после трёх похищений за четыре дня в Metro Vancouver</div>
+    <div class="card-excerpt">28-летнему Амритпалу Сингху предъявлены 14 обвинений после серии похищений в Нижнем материковом районе Британской Колумбии в январе.   По данным Ridge Meadows RCMP, инциденты произошли в Питт-Медоуз,</div>
+    <div class="card-meta">
+      <span class="card-date">27 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-26-doktoru-predyavleny-43-obvineniya-v-seksualnyh-prestupleniya/">
+  <div class="card-img"><img src="/photos/photo_2260@26-02-2026_14-05-35.jpg" alt="Доктору предъявлены 43 обвинения в сексуальных преступлениях, включая вуайеризм, сексуальное насилие и изготовление детской порнографии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Доктору предъявлены 43 обвинения в сексуальных преступлениях, включая вуайеризм, сексуальное насилие и изготовление детской порнографии</div>
+    <div class="card-excerpt">Канадскому врачу Дэвиду Эдварду-Ои Пуну предъявлены 43 уголовных обвинения, охватывающих период с 2014 по 2025 год. Речь идёт о сексуальном насилии, тайной съёмке для сексуальных целей и преступлениях</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-26-indiyu-bolshe-ne-schitayut-istochnikom-inostrannogo-vmeshate/">
+  <div class="card-img"><img src="/photos/photo_2258@26-02-2026_12-02-25.jpg" alt="Индию больше не считают источником иностранного вмешательства в Канаде, заявил высокопоставленный чиновник" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Индию больше не считают источником иностранного вмешательства в Канаде, заявил высокопоставленный чиновник</div>
+    <div class="card-excerpt">Канадское правительство больше не считает, что Индия занимается вмешательством во внутренние дела страны, транснациональными репрессиями или насилием на канадской территории — об этом сообщил высокопо</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-24-premer-britanskoy-kolumbii-strelbu-v-tambler-ridzh-mozhno-by/">
+  <div class="card-img"><img src="/photos/photo_2243@24-02-2026_15-04-58.jpg" alt="Премьер Британской Колумбии: стрельбу в Тамблэр Ридж можно было предотвратить, если бы OpenAI предупредила власти раньше" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Премьер Британской Колумбии: стрельбу в Тамблэр Ридж можно было предотвратить, если бы OpenAI предупредила власти раньше</div>
+    <div class="card-excerpt">Премьер Британской Колумбии Дэвид Эби заявил, что трагедию в Тамблэр Ридж, возможно, удалось бы предотвратить, если бы компания OpenAI заранее уведомила канадские власти о подозрительной активности ст</div>
+    <div class="card-meta">
+      <span class="card-date">24 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-22-ostrov-printsa-endryu-v-ontario-pereimenuyut-posle-ego-arest/">
+  <div class="card-img"><img src="/photos/photo_2230@22-02-2026_12-04-06.jpg" alt="Остров Принца Эндрю в Онтарио переименуют после его ареста" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">telegraph.co.uk</div>
+    <div class="card-title">Остров Принца Эндрю в Онтарио переименуют после его ареста</div>
+    <div class="card-excerpt">В муниципалитете Селвин (Онтарио) начали процедуру переименования острова Prince Andrew Island на реке Оттонаби после ареста Эндрю Маунтбеттена-Виндзора.    Остров расположен рядом с Лейкфилдом, где б</div>
+    <div class="card-meta">
+      <span class="card-date">22 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-21-openai-zablokirovala-akkaunt-strelka-iz-tambler-ridzh/">
+  <div class="card-img"><img src="/photos/photo_2228@21-02-2026_17-03-31.jpg" alt="OpenAI заблокировала аккаунт стрелка из Тамблер-Ридж" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">OpenAI заблокировала аккаунт стрелка из Тамблер-Ридж</div>
+    <div class="card-excerpt">Компания OpenAI сообщила, что заблокировала аккаунт, связанный с 17-летней Джесси Ван Рутселар в июне прошлого года.   В ответ на запрос CBC News компания заявила, что активность аккаунта была выявлен</div>
+    <div class="card-meta">
+      <span class="card-date">21 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-19-byvshiy-prints-endryu-arestovan-po-podozreniyu-v-zloupotrebl/">
+  <div class="card-img"><img src="/photos/photo_2212@19-02-2026_12-02-36.jpg" alt="Бывший принц Эндрю арестован по подозрению в злоупотреблении должностными полномочиями" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Бывший принц Эндрю арестован по подозрению в злоупотреблении должностными полномочиями</div>
+    <div class="card-excerpt">Эндрю Маунтбеттен-Виндзор, ранее известный как принц Эндрю, был арестован по подозрению в злоупотреблении служебным положением. Расследование связано с его многолетними контактами с осуждённым америка</div>
+    <div class="card-meta">
+      <span class="card-date">19 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-15-chto-izvestno-i-chego-poka-net-o-oruzhii-ispolzovannom-pri-s/">
+  <div class="card-img"><img src="/photos/photo_2185@15-02-2026_14-04-15.jpg" alt="Что известно — и чего пока нет — о оружии, использованном при стрельбе в Тамблэ Ридж" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Что известно — и чего пока нет — о оружии, использованном при стрельбе в Тамблэ Ридж</div>
+    <div class="card-excerpt">Спустя три дня после одного из самых смертоносных шутингов в современной истории Канады остаётся главный вопрос: откуда у 18-летней Джесси Ван Рутселаар появилось оружие.   RCMP сообщили, что расследу</div>
+    <div class="card-meta">
+      <span class="card-date">15 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-14-premer-karni-i-per-poliev-vzyalis-za-ruki-na-traurnoy-tserem/">
+  <div class="card-img"><img src="/photos/photo_2179@14-02-2026_13-11-59.jpg" alt="Премьер Карни и Пьер Полиев взялись за руки на траурной церемонии в Тамблэ Ридж" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apnews.com</div>
+    <div class="card-title">Премьер Карни и Пьер Полиев взялись за руки на траурной церемонии в Тамблэ Ридж</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни и лидер консерваторов Пьер Полиев вместе почтили память жертв массовой стрельбы в Тамблэ Ридж (Британская Колумбия). Во время молитвы, которую исполнял представитель коренны</div>
+    <div class="card-meta">
+      <span class="card-date">14 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-14-tonna-narkotikov-spryatannyh-sredi-elektrolitnyh-napitkov-i-/">
+  <div class="card-img"><img src="/photos/photo_2177@14-02-2026_10-04-19.jpg" alt="Тонна наркотиков, спрятанных среди электролитных напитков и деталей для пылесосов, перехвачена на границе в Куттсе" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Тонна наркотиков, спрятанных среди электролитных напитков и деталей для пылесосов, перехвачена на границе в Куттсе</div>
+    <div class="card-excerpt">Пограничная служба Канады (CBSA) сообщила об изъятии 1 010 килограммов наркотиков на пограничном пункте Куттс (Альберта) в ноябре и декабре 2025 года. Все партии перевозились коммерческими грузовиками</div>
+    <div class="card-meta">
+      <span class="card-date">14 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-13-do-massovogo-ubiystva-sryvy-psihiki-i-onlayn-radikalizatsiya/">
+  <div class="card-img"><img src="/photos/photo_2170@13-02-2026_14-05-40.jpg" alt="До массового убийства — срывы психики и онлайн-радикализация" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">До массового убийства — срывы психики и онлайн-радикализация</div>
+    <div class="card-excerpt">Расследование The New York Times описывает постепенное погружение 18-летней Джесси Ван Рутселар в кризис психического здоровья и интернет-среды с экстремальным насилием перед трагедией в Тамблер-Ридж,</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-13-tramp-obrushilsya-na-kanadu-poka-palata-predstaviteley-ssha-/">
+  <div class="card-img"><img src="/photos/photo_2167@13-02-2026_11-03-23.jpg" alt="Трамп обрушился на Канаду, пока Палата представителей США приняла символическое голосование против тарифов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Трамп обрушился на Канаду, пока Палата представителей США приняла символическое голосование против тарифов</div>
+    <div class="card-excerpt">Президент США Дональд Трамп назвал Канаду «одной из худших стран в мире для ведения дел» после того, как Палата представителей проголосовала против его тарифов на северного соседа.   Решение носит во</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-12-lyubovnoe-pismo-tamble-ridzh/">
+  <div class="card-img"><img src="/photos/photo_2160@12-02-2026_13-06-02.jpg" alt="Любовное письмо Тамблэ Ридж" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Любовное письмо Тамблэ Ридж</div>
+    <div class="card-excerpt">The Tyee публикует личную колонку Аманды Фоллетт Хосгуд — о городе Тамблэ Ридж, который переживает одни из самых тяжёлых дней в своей истории.   Автор описывает центр города как «почти слишком идеальн</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-12-chto-izvestno-o-strelke-iz-tumbler-ridzh-dzhessi-van-rutsela/">
+  <div class="card-img"><img src="/photos/photo_2157@12-02-2026_10-34-51.jpg" alt="Что известно о стрелке из Тумблер-Ридж Джесси Ван Рутселар" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Что известно о стрелке из Тумблер-Ридж Джесси Ван Рутселар</div>
+    <div class="card-excerpt">В удалённом шесть месяцев назад видео на YouTube Джесси Ван Рутселар написала: «Я была, эм… без цели».   В описании канала говорилось: «В этом нет никакого смысла». На аватаре — аниме-персонаж с винто</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-12-posle-strelby-v-tamble-ridzh-v-seti-rasprostranilis-lozhnye-/">
+  <div class="card-img"><img src="/photos/photo_2156@12-02-2026_09-03-41.jpg" alt="После стрельбы в Тамблэ Ридж в сети распространились ложные заявления о трансгендерных людях" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">После стрельбы в Тамблэ Ридж в сети распространились ложные заявления о трансгендерных людях</div>
+    <div class="card-excerpt">После трагедии в Тамблэ Ридж, где погибли девять человек, включая подозреваемую, и 27 получили ранения, в социальных сетях начали активно распространяться утверждения о якобы «эпидемии» насилия со сто</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb on" href="/tag/prestupnost/">1</a><a class="pb" href="/tag/prestupnost/page/2/">2</a><a class="pb" href="/tag/prestupnost/page/3/">3</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/prestupnost/page/5/">5</a><a class="pb" href="/tag/prestupnost/page/2/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
 </body>
 </html>

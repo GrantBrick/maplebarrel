@@ -1,1164 +1,677 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#выборы | Maple Barrel</title>
-    <style>
-:root {
-    --bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #c53030;
-    --border: #eeeeee;
-    --bg-alt: #f9f9f9;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#выборы — Maple Barrel</title>
+<meta name="description" content="Все материалы по теме «выборы» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<link rel="canonical" href="https://journalists.ca/tag/vybory/">
+<meta property="og:title" content="#выборы — Maple Barrel">
+<meta property="og:description" content="Все материалы по теме «выборы» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta property="og:url" content="https://journalists.ca/tag/vybory/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="#выборы — Maple Barrel">
+<meta name="twitter:description" content="Все материалы по теме «выборы» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    line-height: 1.6; color: var(--text-main); background: var(--bg); 
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
-a { color: inherit; text-decoration: none; }
-header { 
-    background: #fff; border-bottom: 1px solid var(--border); 
-    padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
 }
-.header-content { 
-    max-width: 800px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; align-items: center;
+
+.tgb:hover{
+  background:#a93226;
 }
-.logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.03em; color: var(--accent); }
-.nav-menu { display: flex; gap: 1.2rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-.nav-menu a:hover { color: var(--accent); }
-.container { max-width: 800px; margin: 2.5rem auto; padding: 0 20px; }
-.post-card { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
-.post-card:last-child { border-bottom: none; }
-.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; font-weight: 500; }
-.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; background: var(--bg-alt); }
-.post-image { width: 100%; height: auto; display: block; }
-.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; color: #222; }
-.post-content b, .post-content strong { font-weight: 700; color: #000; }
-.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { 
-    font-size: 0.75rem; padding: 5px 12px; border-radius: 4px; 
-    background: var(--bg-alt); color: #555; font-weight: 600; border: 1px solid #eee;
+
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
+
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform .15s;
 }
-.person-badge { border-color: #fed7d7; color: var(--accent); }
-.pagination { margin: 4rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
-.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-.page-title { margin-bottom: 3rem; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; }
-footer { text-align: center; padding: 4rem 0; color: #aaa; font-size: 0.75rem; border-top: 1px solid var(--border); }
-@media (max-width: 600px) { .nav-menu { display: none; } }
+.card:hover{
+  transform:translateY(-2px);
+}
+
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
+.tag-hdr p{font-size:13px;color:var(--t3)}
+@media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="/" class="logo">MAPLE BARREL</a>
-            <nav class="nav-menu">
-                <a href="/materials/">Материалы</a>
-                <a href="/longreads/">Лонгриды</a>
-                <a href="/about/">О проекте</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container"><h1 class="page-title">#выборы</h1><article class="post-card">
-        <span class="post-date">27 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2043@27-01-2026_12-02-21.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">«Конечно, нет»: Карни отверг разговоры о досрочных выборах
 
-​⁠
-
-<a href="https://www.ctvnews.ca/politics/article/carney-says-federal-government-not-considering-spring-election/">Премьер-министр Марк Карни заявил</a>, что федеральное правительство не рассматривает вариант досрочных выборов весной, несмотря на активизацию парламентской повестки и явно «кампанийный» стиль последних объявлений.
-
-​⁠
-
-Поводом для вопросов стала презентация нового пакета мер по доступности жизни, включая увеличение GST-кредита, объявленного на фоне полок продуктового магазина в Оттаве — формат, больше привычный для избирательной кампании.
-
-​⁠
-
-Отвечая на прямой вопрос журналистов, Карни был предельно категоричен: «Конечно, нет». По его словам, правительство сосредоточено на практических результатах и работе через парламент, а не на политическом манёвре.
-
-​⁠
-
-В ближайшие месяцы либералы планируют продвигать пакет законопроектов, включая бюджетный акт, снижение налогов для среднего класса, продление программы школьного питания и новые инициативы в сфере уголовного права. Карни подчеркнул, что рассчитывает на сотрудничество с оппозицией при их рассмотрении.
-
-​⁠
-
-Политическая арифметика, однако, подогревает слухи. Либералам не хватает всего двух мест до парламентского большинства. После ухода Христи Фриланд из Палаты общин — она заняла должность экономического советника правительства Украины — Карни предстоит назначить довыборы. Возможны и другие вакансии на фоне перехода двух консервативных депутатов к либералам и ожидаемой отставки ещё одного депутата весной.
-
-​⁠
-
-Лидер правительства в Палате общин Стивен Маккиннон также настаивает, что нынешний парламент способен работать. Он напомнил, что мандат Карни был получен всего в апреле и включает диверсификацию торговли, привлечение инвестиций и снижение стоимости жизни.
-
-​⁠
-
-Со стороны консерваторов тон сдержанный. Их парламентский лидер Эндрю Шир заявил, что партия уважает недавний выбор избирателей и готова поддерживать инициативы, которые совпадают с консервативными предложениями.
-
-​⁠
-
-Палата общин возвращается к работе после шестинедельного зимнего перерыва — и, судя по заявлениям сторон, политическая борьба пока будет вестись внутри парламента, а не на избирательных участках.
-
-​⁠
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">24 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2028@24-01-2026_17-05-21.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Если бы голосовала только молодёжь, консерваторы разгромили бы выборы
-​‎​
-
-<a href="https://nationalpost.com/opinion/if-just-young-people-voted-in-the-next-election-it-would-be-a-conservative-blowout">Новый опрос показывает беспрецедентный для Канады </a>раскол по возрасту: молодые избиратели массово уходят к консерваторам, тогда как старшие поколения столь же уверенно поддерживают премьер-министра Марка Карни.
-​‎​
-
-Согласно опросу Abacus Data от 18 января, среди канадцев в возрасте 18–29 лет 50% готовы голосовать за консерваторов и лишь 27% — за либералов. Это был бы не просто выигрыш, а один из самых сокрушительных консервативных результатов в истории страны.
-​‎​
-
-Для сравнения: в легендарных выборах 1984 года прогрессивные консерваторы получили 50% голосов. Сегодня ровно такие цифры показывает молодёжь.
-​‎​
-
-Среди канадцев 60+ картина зеркальная: 52% поддерживают либералов, 32% — консерваторов. Если бы голосовали только пожилые, Карни получил бы практически гарантированную и лёгкую победу.
-​‎​
-
-Из-за более высокой явки старших возрастов текущий баланс всё ещё склоняется в пользу либералов. Моделирование показывает: при выборах сейчас страну, скорее всего, ждёт очередное либеральное меньшинство.
-​‎​
-
-Этот сдвиг ломает историческую модель, существовавшую десятилетиями: раньше молодёжь голосовала прогрессивно, а старшие — консервативно. Перелом начался после прихода Пьер Полиев к руководству Консервативной партией в 2022 году. Его риторика о недоступном жилье и «30-летних, живущих в подвалах родителей», попала точно в болевую точку.
-​‎​
-
-К 2024 году консерваторы впервые в истории получили одну из самых сильных опор именно среди 20-летних. Главные причины — экономика и жильё. Цены на недвижимость фактически выбили целое поколение с рынка, одновременно обогатив тех, кто купил жильё раньше.
-​‎​
-
-В другом опросе Abacus большинство канадцев до 30 лет заявили, что «мечта о собственном доме в Канаде больше не реальна». Ещё сильнее этот пессимизм среди людей в 30–40 лет — тех, кто уже пытался войти на рынок.
-​‎​
-
-Добавляется и рынок труда: молодёжная безработица выросла до многолетних максимумов на фоне резкого роста временной иммиграции. Летний рынок подработок в 2025 году стал самым жёстким за более чем 20 лет.
-​‎​
-
-Различаются и политические приоритеты. Старшие канадцы больше всего беспокоятся о Дональде Трампе и отношениях с США. Молодёжь же почти однозначно ставит на первое место доступность жизни и экономический спад.
-​‎​
-
-Такого устойчивого перекоса, когда молодые канадцы оказываются заметно правее своих родителей и дедов, в истории страны ещё не было.
-​‎​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/ekonomika/" class="badge">#экономика</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1974@19-01-2026_10-05-05.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Пьер Полиев начал кампанию по удержанию лидерства в Консервативной партии
-​
-​
-<a href="https://www.theglobeandmail.com/politics/article-pierre-poilievre-campaigns-for-support-ahead-of-his-leadership-review/">Лидер консерваторов Пьер Полиев и его ближайшее окружение</a> заранее готовятся к голосованию о доверии, которое пройдёт 30 января на партийном съезде в Калгари. Формально его победа почти не вызывает сомнений, но команда решила не полагаться на инерцию.
-​
-​
-В последние недели Полиев проводит закрытые встречи с делегатами по всей стране. Формат — не митинги, а приватные разговоры, где участники могут высказать претензии напрямую, а сам лидер — объяснить, почему именно он должен остаться во главе партии. В Оттаве такие встречи даже оформляют как «мероприятия благодарности консерваторам».
-​
-​
-Параллельно работает и «вторая линия» — люди из внутреннего круга Полиева обзванивают членов партии, собирают недовольство и стараются его нейтрализовать. Среди ключевых фигур — стратег Хэмиш Маршалл и депутат Арпан Ханна, участвовавшие в победе Полиева на лидерских выборах в 2022 году.
-​
-​
-Повод для нервозности понятен. Конституция партии требует обязательного голосования о лидерстве после проигранных выборов. Весной консерваторы выборы проиграли, даже несмотря на рост числа мандатов и высокий процент голосов — аргументы, которые команда Полиева сейчас активно продвигает внутри партии.
-​
-​
-Формально для сохранения поста нужно более 50% голосов. Но в канадской политике этого может оказаться мало: в 2022 году Джейсон Кенни ушёл в отставку, набрав 51,4% на аналогичном голосовании в Альберте. Сам Полиев и его штаб избегают ответа на вопрос, какой результат они сочтут «достаточным».
-​
-​
-Сравнения с прошлым звучат всё чаще. Стивен Харпер после поражения в 2004 году получил 84% поддержки на партийном съезде — и вскоре стал премьер-министром. Тогда, как вспоминают участники кампании, решающим стало сочетание закулисной работы и сильной речи перед голосованием.
-​
-​
-Полиев тоже готовит выступление. Контекст, правда, другой: ещё год назад консерваторы опережали либералов на десятки пунктов, но победу упустили. Именно этот вопрос — что пошло не так и какой план дальше — сейчас больше всего волнует делегатов.
-​
-​
-Съезд в Калгари может пройти при меньшем числе участников, чем обычно. В тот же уикенд проходит конвенция прогрессивных консерваторов Онтарио, а часть партийцев предпочитает сэкономить деньги ради мероприятий в Оттаве, посвящённых 20-летию прихода Харпера к власти.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">15 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1950@15-01-2026_12-04-21.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Премьер-министр Квебека Франсуа Лего объявил об отставке — за несколько месяцев до провинциальных выборов.
-
-​
-<a href="https://www.cbc.ca/news/canada/montreal/legault-resigns-ahead-of-provincial-election-9.7044929?__vfz=medium%3Dsharebar">После восьми лет у власти глава правительства сообщи</a>л, что покидает пост лидера Coalition Avenir Québec. Он останется премьером до тех пор, пока партия не выберет нового руководителя. Выборы в Национальное собрание назначены на 5 октября 2026 года.
-
-​
-Лего признал, что общественный запрос на перемены стал определяющим фактором. По его словам, жители провинции хотят «смены курса — в том числе и смены премьера». Решение принято на фоне затяжного кризиса в правительстве, ухода министров и резкого падения рейтингов.
-
-​
-Согласно свежему опросу Pallas Data, CAQ сейчас поддерживают около 10% избирателей. Более половины респондентов оценивают деятельность Лего «крайне негативно». Уверенно лидирует Parti Québécois, уже трижды отбиравшая округа у CAQ на довыборах с 2023 года.
-
-​
-Осенью правительство потеряло министров здравоохранения и социальных услуг из-за конфликта вокруг реформы оплаты врачей. Несколько депутатов покинули фракцию или были исключены. Несмотря на это, ещё в декабре Лего публично обещал остаться во главе партии.
-
-​
-Реакция политиков оказалась сдержанной. Премьер-министр Канады Марк Карни отметил вклад Лего в государственную службу и бизнес. Лидер PQ Поль Сен-Пьер Пламондон призвал оценивать его путь без оглядки на текущие разногласия. Либералы Квебека также воздержались от критики.
-
-​
-Профсоюзы и представители коренных народов настроены иначе. Крупнейший союз медсестёр заявил, что система здравоохранения осталась в тяжёлом состоянии. Вождь общины Манаван Сипи Фламанд назвал отставку «хорошей новостью» для отношений с Первым нациями, напомнив об отказе правительства признавать системный расизм.
-
-​
-Франсуа Лего возглавлял Квебек с 2018 года и стал первым политиком за полвека, сумевшим разрушить чередование власти между либералами и PQ. Его правление запомнилось жёсткой языковой и секулярной повесткой, управлением пандемией и спорными экономическими проектами — включая провал с инвестициями в Northvolt.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">15 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1948@15-01-2026_10-03-27.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Бонни Кромби больше не лидер Либеральной партии Онтарио — и ушла она немедленно.
-
-​
-<a href="https://www.ctvnews.ca/toronto/politics/queens-park/article/bonnie-crombie-says-she-has-resigned-as-ontario-liberal-leader/">Партия объявила об отставке в среду днём</a>. Формулировка жёсткая и без переходного периода: полномочия Кромби прекращены «effective immediately». Это позволяет либералам назначить временного лидера уже сейчас.
-
-​
-В своём заявлении Кромби сказала, что «начало нового года — правильный момент» для неё и для партии двигаться дальше. Она подчеркнула, что гордится вкладом в «обновление» либералов и хочет взять паузу ради семьи — в том числе в связи с рождением первого внука.
-
-​
-Кромби возглавила партию в 2023 году и повела её на досрочные зимние выборы 2025 года. Формально либералы немного прибавили в мандатах, но остались третьей силой после консерваторов Дага Форда и НДП. Лично Кромби мандат получить не удалось — серьёзный удар по её позиции.
-
-​
-После поражения она поначалу пообещала остаться, но слабая поддержка на партийном съезде осенью изменила ситуацию. Тогда Кромби объявила, что уйдёт после выбора нового лидера. Проблема в том, что за прошедшие месяцы партия так и не смогла даже объявить правила и сроки гонки.
-
-​
-Фактически руководство в парламенте всё это время держал Джон Фрейзер, который уже заявил, что не будет баллотироваться на постоянный пост.
-
-​
-Президент партии Кэтрин Макгэрри поблагодарила Кромби за «критически важную роль» в восстановлении партии и пообещала, что исполнительный совет «быстро» объявит детали лидерской кампании. Это обещание звучит не впервые.
-
-​
-Политическая реальность для либералов остаётся тяжёлой. С 2018 года партия не у власти и сейчас имеет лишь 14 мест в Куинс-Парке. Свежий опрос показывает отставание от прогрессивных консерваторов примерно на девять пунктов. НДП стабильно держится третьей, а «зелёные» остаются на периферии.
-
-​
-На фоне ухода Кромби снова всплывают старые имена. Федерал Нат Эрскин-Смит не исключает повторного похода за лидерством. Интерес также проявляют несколько действующих MPP. Пока же партия снова входит в период неопределённости — уже без формального лидера.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">14 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1943@14-01-2026_13-04-28.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Карни в Пекине: осторожный перезапуск с Китаем
-​
-​
-<a href="https://www.ctvnews.ca/politics/article/carney-arrives-in-beijing-today-ahead-of-highly-anticipated-meeting-with-xi/">Премьер-министр Марк Карни прибыл в Пекин с кратким,</a> но политически чувствительным визитом. Впереди встречи с руководством КНР и переговоры с Си Цзиньпином — первые на таком уровне за восемь лет.
-​
-​
-Оттава подаёт поездку как пример «прагматичной внешней политики» и попытку снизить зависимость от США, удвоив торговлю с другими странами к 2035 году.
-​
-​
-Фон тяжёлый: задержание «двух канадцев», обвинения во вмешательстве в выборы, права уйгуров, Гонконг, военная активность Китая. В 2022 году либералы называли КНР «дестабилизирующей силой», теперь риторика смягчена до «стратегического партнёрства».
-​
-​
-Эксперты считают, что Пекин заинтересован в разрядке на фоне жёсткой политики Вашингтона и собственных экономических проблем. Ожидаются ограниченные соглашения и аккуратные формулы о «перезапуске» отношений — но с ожиданием, что Канада будет менее публично конфликтной.
-​
-​
-Отдельный узел — торговля. Китай ввёл жёсткие тарифы на канадскую канолу, свинину и морепродукты после ответных пошлин Оттавы на китайские электромобили и металл. Провинции надеются на смягчение, Онтарио опасается удара по автопрому.
-​
-​
-В Оттаве понимают: Пекин попытается использовать визит как дипломатическую победу и контрастировать себя с США. В Вашингтоне за поездкой следят внимательно — накануне переговоров по североамериканскому торговому соглашению.
-​
-​
-Иллюзий мало: глубокие разногласия никуда не делись. Речь идёт не о дружбе, а о проверке — возможна ли холодная, ограниченная нормализация без уступок по безопасности.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/ontario/" class="badge">#Онтарио</a></div>
-    </article><article class="post-card">
-        <span class="post-date">8 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1902@08-01-2026_17-35-46.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Венесуэла показала цели Трампа: Карни пора обратить внимание
-
-<a href="https://nationalpost.com/opinion/tasha-kheiriddin-venezuela-proves-trump-wants-china-out-carney-better-take-notice">Таша Хейриддин из National Post пишет</a>, что история с Венесуэлой — это не просто очередной кризис, а наглядное доказательство того, чего на самом деле добивается Дональд Трамп. И Марку Карни стоит внимательно это прочитать.
-​
-​
-Николас Мадуро — в тюремной камере в Нью-Йорке. Трамп — в позиции силы в Вашингтоне. А Карни — на канате в Оттаве, пытаясь выстроить отношения с союзником, который всё чаще ведёт себя как геополитический хищник.
-​
-​
-Сегодня Каракас, завтра — Гренландия. Автор считает, что сомнений почти не осталось: Трамп ускоренно закрепляет доминирование США в Западном полушарии. Для Канады это означает прямые и неприятные последствия.
-​
-​
-Формально Белый дом объясняет операцию в Венесуэле четырьмя целями: доступ к нефти, борьба с наркотрафиком, ограничение нелегальной миграции и «восстановление демократии». Первые три пункта напрямую касаются Канады. Венесуэльская нефть конкурирует с канадской тяжёлой нефтью, а аргументы про наркотики и миграцию уже использовались Трампом для давления и тарифных угроз в адрес Оттавы.
-​
-​
-Пьер Полиев отреагировал ожидаемо — потребовал срочно ускорить строительство трубопроводов к Тихому океану, чтобы снизить зависимость от США. Правительство, со своей стороны, рапортует об усилении границы и борьбе с контрабандой: более тысячи фунтов фентанила перехвачены, нелегальные переходы в США сократились почти на 98%.
-​
-​
-Но, по мнению Хейриддин, всё это — вторично. Настоящая причина действий Трампа — вытеснение чужих держав из «американского двора». Это логика доктрины Монро в версии XXI века: никакого Китая, Ирана и России в Латинской Америке.
-​
-​
-Каракас давно стал узлом их интересов. Китай скупает большую часть венесуэльской нефти, иранские структуры используют наркоторговлю для финансирования прокси-групп, а Москва оформила с режимом Мадуро стратегическое партнёрство. Устранение Мадуро обрывает эту связку — особенно болезненно для Пекина, который уже стал главным торговым партнёром Южной Америки.
-​
-​
-Отсюда и главный вывод для Оттавы: если это реальная стратегия США, Канаде пора заняться тем, что она десятилетиями откладывала — системным подавлением иностранного влияния внутри страны.
-​
-​
-Автор напоминает: Пекин годами вмешивался в выборы, выстраивал «элитный захват» и давил на китайскую диаспору. Иранские представители действовали в Канаде почти без ограничений, запугивая эмигрантов и разжигая ненависть. Российские сети работали против поддержки Украины — прямо на канадской территории.
-​
-​
-Первые признаки реакции есть: опубликованы правила реестра иностранного влияния со штрафами до миллиона долларов. Но этот механизм запоздал на годы.
-​
-​
-Карни не грозит ночной рейд спецназа. Зато ему грозит экономический рычаг Трампа. В этом году под пересмотром — CUSMA, соглашение, благодаря которому 85% канадского экспорта в США идёт без пошлин. Потеря этого щита ударит по экономике сильнее любой дипломатической ноты.
-​
-​
-Хейриддин пишет прямо: зачистка иностранного влияния — это не только защита суверенитета, но и способ снизить уязвимость перед американским давлением. Канада слишком долго исходила из предположения, что Вашингтон всегда будет другом. Теперь это допущение больше не работает.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">7 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1895@07-01-2026_21-09-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content"><a href="https://www.ctvnews.ca/politics/article/sharan-kaur-by-cheering-on-trumps-venezuela-raid-poilievre-undermines-our-rule-of-law/">Шаран Каур из Observer пишет</a>, что реакция Пьера Полиева на арест Николаса Мадуро — это не просто эмоциональный жест, а опасный сигнал о том, куда может свернуть канадская внешняя политика.
-​
-​
-По её словам, в эпоху популизма ценится один актив — демонстративная решительность. Дональд Трамп показал её, отправив спецназ в Каракас и доставив Мадуро в тюрьму Нью-Йорка. Пьер Полиев немедленно поддержал операцию, поздравив Трампа и назвав Мадуро «наркотеррористом». Тем самым, утверждает автор, он фактически одобрил подрыв международного порядка, на котором держится безопасность таких стран, как Канада.
-​
-​
-Каур подчёркивает: критика Полиева — не защита Мадуро. Его режим — это фальсифицированные выборы, пытки и гуманитарная катастрофа, вынудившая миллионы людей покинуть страну. Среди них — будущая жена Полиева. Личный опыт объясняет его реакцию, но не оправдывает её. Два нарушения закона — диктатура Мадуро и силовой захват Трампом — не делают мир справедливее, только опаснее.
-​
-​
-Автор вводит термин «доктрина Дон-ро» — современная версия доктрины Монро, где Западное полушарие рассматривается как зона американского произвола. Под прикрытием разговоров о демократии США, по мнению Каур, просто нацелились на венесуэльскую нефть. Это не торжество права, а рейдерский захват государства.
-​
-​
-Главный риск — прецедент. Если сверхдержава может вторгаться в суверенную страну для исполнения собственных ордеров, международное право теряет смысл. Сегодня — Каракас, завтра — Тайбэй. Поддерживая такое мышление, Полиев, пишет Каур, подрывает моральное право Канады осуждать агрессию России против Украины.
-​
-​
-Для канадцев тревожно то, что этот эпизод говорит о политических инстинктах лидера консерваторов. Вместо традиционного для Канады курса на многосторонние институты он выбирает риторику «сильной руки» и быстрые аплодисменты. Это не просто корректировка внешней политики, а дрейф к миру, где нормы считаются слабостью, а сила — единственным аргументом.
-​
-​
-Каур резюмирует: можно одновременно признавать, что Мадуро должен предстать перед судом, и отвергать незаконный военный захват как способ добиться этого. Настоящее лидерство требует уметь сказать даже ближайшему союзнику «нет», а не подыгрывать ему. В этом выборе Полиев, по мнению автора, уже показал, на чьей он стороне.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">5 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1876@05-01-2026_13-32-54.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">В Венесуэле «доктрина Донроу» Трампа уже работает. Канаде пора перестать отсиживаться
-
-​
-
-<a href="https://www.thestar.com/opinion/star-columnists/in-venezuela-trumps-donroe-doctrine-is-now-in-action-canada-cant-sit-on-its-hands/article_68ab8694-4c0e-46b8-9717-c88425f016bc.html">Джастин Линг пишет</a>, что США официально вернулись к смене режимов в Латинской Америке — и Канада больше не может делать вид, что это её не касается.
-
-​
-
-В ночь на пятницу американские удары по военным объектам Венесуэлы и операция спецназа в Каракасе завершились захватом диктатора Николаса Мадуро. Это — практическая реализация так называемой «корреляции Трампа» к доктрине Монро: силовое вмешательство под лозунгом наведения порядка в «заднем дворе».
-
-​
-
-Автор подчёркивает: происходящее не является ни нормальным, ни законным. Более того, президент США Дональд Трамп уже даёт понять, что власть не будет возвращена венесуэльцам до тех пор, пока Америка не получит желаемое.
-
-​
-
-Формально операция прошла «успешно»: режим Мадуро пал, он вывезен в США и должен предстать перед судом. Ситуацию сравнивают с вторжением США в Панаму в 1989 году, когда был свергнут Мануэль Норьега. Тогда, при всех трагических последствиях, Вашингтон быстро передал власть избранному правительству, демилитаризовал страну и вложил миллиарды долларов в восстановление.
-
-​
-
-Венесуэла, по мнению автора, имеет шанс на похожий сценарий. На выборах 2024 года, по независимым оценкам, победу одержал оппозиционный кандидат Эдмундо Гонсалес. Однако режим Мадуро сфальсифицировал итоги, подавил массовые протесты и вынудил оппозицию работать из изгнания. Среди лидеров демократического движения — лауреат Нобелевской премии Мария Корина Мачадо.
-
-​
-
-На Галифакском форуме по международной безопасности один из лидеров оппозиции Давид Смолянский прямо заявил: «Смена режима в Венесуэле уже произошла» — ещё в 2024 году, когда у народа украли выборы. По данным оппозиции, после протестов были похищены, арестованы или исчезли около 2 300 человек.
-
-​
-
-Изначально оппозиция рассчитывала, что давление и расследования наркотрафика вынудят Мадуро уйти. Но Трамп решил действовать силой — и теперь главный вопрос в том, кто будет управлять страной дальше.
-
-​
-
-Проблема в том, что Трамп не демонстрирует намерения передать власть демократическому правительству без условий. Он уже заявил, что США фактически «будут управлять Венесуэлой», пока не состоится «правильный переход». При этом он открыто даёт понять, что ключевой интерес — нефть.
-
-​
-
-Белый дом называет национализацию нефтяной отрасли 2007 года «кражей американского богатства». Трамп прямо заявил, что американские нефтяные компании готовы зайти в страну и «вернуть нефть, которую следовало забрать давно».
-
-​
-
-Автор предупреждает: если США превратят Венесуэлу в де-факто клиентское государство ради нефтяных концессий, это будет повторением классического американского империализма — того самого, который и привёл к появлению таких фигур, как Уго Чавес.
-
-​
-
-Россия и Китай, лишившиеся ключевого союзника в регионе, вряд ли останутся в стороне. Жёсткий американский «развод» Венесуэлы даст им аргументы для дестабилизации ситуации ближе к Северной Америке.
-
-​
-
-Именно здесь, пишет Линг, появляется роль Канады.
-
-​
-
-Пока что Оттава ограничилась расплывчатым заявлением с призывом «соблюдать международное право», не упомянув даже принцип венесуэльского самоуправления. Автор называет такую позицию уклончивой и недостойной.
-
-​
-
-Канада, считает он, должна объединить союзников — прежде всего Мексику и страны региона — и потребовать немедленной передачи власти от США временному демократическому правительству Венесуэлы.
-
-​
-
-Канада не может отменить смену режима, поддержанную США. Но она может сделать так, чтобы венесуэльцам не пришлось менять одного клептократа на другого — просто с американским флагом.
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">4 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1872@04-01-2026_18-02-54.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">r/Canada — итоги 2025 года: цифры, политика и усталость модераторов
-​
-​
-​
-<a href="https://www.reddit.com/r/canada/comments/1q37b75/rcanada_2025_a_year_in_review/">Модераторы сабреддита r/Canada опубликовали</a> большой отчёт по итогам 2025 года — и он хорошо показывает, во что превратился крупнейший канадский сабреддит.
-​
-​
-​
-Ключевые цифры:
-​
-– 4,3 млн участников (+237 тыс. за год)
-– 517 млн просмотров (+343 млн)
-– 73,8 тыс. постов (+48,5 тыс.)
-– 12,6 млн комментариев (+8,8 млн)
-​
-​
-​
-Наиболее активный день — 4 марта. Новости и политика полностью доминируют: чаще всего публиковались материалы CBC, CTV, Globe and Mail, National Post и Toronto Star.
-​
-​
-​
-Самые популярные посты года — почти все про США и Трампа:
-​
-– отмена поездок канадцев в США
-– возможное влияние Трампа на канадские выборы
-– освистывание гимна США на хоккее
-– тарифы, «51-й штат» и публичные заявления американских инфлюенсеров
-​
-​
-​
-Самый просматриваемый пост — отставка Джастина Трюдо с поста лидера либералов (3,3 млн просмотров).
-​
-​
-​
-Модерация — отдельная боль:
-​
-– удалено 44,5 тыс. постов
-– 508 тыс. комментариев снесены модераторами
-– ещё 87,9 тыс. — администрацией Reddit
-​
-​
-​
-Основные причины жалоб:
-– грубость и агрессия
-– троллинг
-– хейт по признаку идентичности
-– дезинформация
-​
-​
-​
-Модераторы прямо признают: уровень токсичности растёт, боты и AI-аккаунты становятся всё заметнее, а выборы делают ситуацию ещё хуже.
-​
-​
-​
-Что обещают в 2026 году:
-​
-– переписать правила «человеческим языком»
-– усилить автоматическую модерацию
-– расширить команду модераторов
-– лучше объяснять, за что и почему удаляется контент
-​
-​
-​
-Отдельный штрих — личные признания модов. Кто-то выгорел, кто-то лечил ментальное здоровье, кто-то просто «провёл слишком много времени на Reddit». Общий мотив один: усталость, но желание сохранить площадку для вменяемых дискуссий.
-​
-​
-​
-Если коротко: r/Canada в 2025 году — это политика, США, Трамп, выборы, много злости, много работы для модераторов и постоянная борьба за то, чтобы обсуждение не скатилось в помойку.
-​
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">4 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1870@04-01-2026_12-06-38.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Карни о захвате Мадуро: «Канада приветствует шанс на свободу для Венесуэлы»
-​
-​
-​
-<a href="https://www.thecanadianpressnews.ca/national/carney-says-canada-welcomes-the-opportunity-for-freedom-after-maduros-capture/article_32e137de-a11c-527f-b502-99529392511c.html">Премьер-министр Канады Марк Карни отреагировал</a> на силовую операцию США в Венесуэле, в результате которой президент страны Николас Мадуро и его супруга были вывезены американскими военными в Нью-Йорк.
-​
-​
-​
-В заявлении Карни напомнил, что Канада не признаёт режим Мадуро с 2018 года, считая президентские выборы украденными, а одним из первых шагов его правительства весной стали дополнительные санкции против «жестокого и преступного режима».
-​
-​
-​
-«Канадское правительство приветствует возможность для свободы, демократии, мира и процветания венесуэльского народа», — написал Карни, подчеркнув при этом, что Оттава по-прежнему выступает за мирный, согласованный и венесуэльцами управляемый переход власти с соблюдением международного права.
-​
-​
-​
-Министр иностранных дел Анита Ананд также заявила о необходимости уважения международных норм всеми сторонами. Канада, по словам правительства, поддерживает суверенное право венесуэльцев самим определять своё будущее.
-​
-​
-​
-Лидер консерваторов Пьер Полиев занял более жёсткую позицию и публично поздравил Дональда Трампа, назвав Мадуро «террористом и социалистическим диктатором», которому место в тюрьме.
-​
-​
-​
-В то же время Зелёная партия Канады осудила действия США, назвав операцию нарушением международного права и фактическим похищением.
-​
-​
-​
-Мадуро и его жена Силия Флорес, по заявлению американской стороны, предстанут перед судом по обвинениям, связанным с наркотрафиком и «наркотерроризмом». Эти обвинения были выдвинуты против венесуэльских властей ещё в 2020 году.
-​
-​
-​
-На фоне событий Global Affairs Canada выпустило экстренное предупреждение: канадцам рекомендовано воздержаться от поездок в Венесуэлу из-за насилия, политической нестабильности и риска произвольных задержаний.
-​
-​
-​
-Эксперты при этом предупреждают, что устранение Мадуро создаёт опасный вакуум власти. По словам главы Canadian Council for the Americas Кеннета Франкела, пока никто не понимает, «что произойдёт на второй и третий день», и какую роль США намерены играть в регионе, особенно с учётом заявлений Трампа о венесуэльской нефти.
-​
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">30 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1850@30-12-2025_15-04-57.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Что дальше в канадской политике: пять сюжетов, за которыми будут следить в 2026 году
-
-​⁠
-
-<a href="https://www.cbc.ca/news/politics/five-key-stories-canadian-politics-carney-poilievre-trump-trade-canada-9.7028865">2025-й закончился максимально нервно</a>: уход Джастина Трюдо, приход Марка Карни, перебежчики из Консервативной партии и торговая война США. 2026-й обещает быть не менее насыщенным — с давлением из Вашингтона и внутренними разборками в оппозиции.
-
-​⁠
-
-1. Пересмотр торгового соглашения с США и Мексикой (CUSMA)
-
-​⁠
-
-В 2026 году стартует обязательный пересмотр CUSMA. Переговоры с США начнутся уже в январе. Дональд Трамп и его команда требуют:
-
-– большего доступа США к канадскому рынку молочной продукции
-– отмены региональных запретов на американский алкоголь
-– пересмотра Online Streaming Act и Online News Act
-– уступок по энергетике и госзакупкам
-
-Тарифы на сталь, алюминий, автомобили и древесину продолжают бить по канадской экономике. Дополнительная интрига — возможное решение Верховного суда США о законности «чрезвычайных» тарифов Трампа.
-
-​⁠
-
-2. Лидерство Пьера Полиева под вопросом
-
-​⁠
-
-В конце января консерваторы соберутся в Калгари на обязательный лидерский пересмотр. Формально Пьер Полиев уверен в победе, но:
-
-– партия проиграла выборы
-– два депутата уже перешли к либералам
-– внутри фракции звучат обвинения в токсичной атмосфере
-
-Полиев усиливает штаб и меняет стратегов, но вопрос его будущего в партии в 2026 году никуда не исчезнет.
-
-​⁠
-
-3. Либералы в одном шаге от большинства
-
-​⁠
-
-Правительство Марка Карни не хватает всего одного депутата до большинства. После двух переходов из Консервативной партии либералы открыто намекают: желающие есть ещё.
-
-Министры признают, что получают «много запросов». Оппозиция обвиняет Карни в закулисных договорённостях, но сам премьер говорит о «личных решениях депутатов».
-
-Каждый новый перебежчик может радикально изменить баланс сил в парламенте.
-
-​⁠
-
-4. Гонка за лидерство в НДП
-
-​⁠
-
-Новая демократическая партия переживает худший результат в истории — всего семь мест. В марте партия выберет нового лидера.
-
-Пять кандидатов, ни один из которых не владеет французским языком на рабочем уровне, что серьёзно осложняет перспективы в Квебеке.
-
-Внутренний отчёт НДП прямо признаёт: партия не смогла навязать собственную повестку и потерялась между Трампом, Полиевом и Карни.
-
-​⁠
-
-5. Пограничные законы и спорные полномочия государства
-
-​⁠
-
-Либералы продолжают проталкивать реформы пограничной и миграционной политики:
-
-– усиление контроля
-– борьба с отмыванием денег
-– ограничения на подачу беженских заявок
-– расширение обмена персональными данными
-
-После критики законопроект разделили на части. Один из них уже в Сенате, но окончательное принятие ожидается не раньше февраля.
-
-Дополнительно в парламенте зависли налоговые изменения и крупная реформа уголовного законодательства.
-
-​⁠
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">29 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1841@29-12-2025_15-35-53.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">338 Canada: финальные опросы 2025 показывают трещины в поддержке либералов
-​
-​
-<a href="https://www.338canada.ca/p/338-sunday-update-final-2025-polls">Финальные федеральные опросы</a> уходящего года рисуют для либералов Марка Карни картину куда менее комфортную, чем ещё пару месяцев назад. Под конец декабря поддержка правительства просела — и сразу несколько социологических компаний зафиксировали один и тот же тренд.
-​
-​
-Опросы, проведённые в середине декабря, дали почти идентичный результат:
-– Mainstreet Research — минимальное преимущество консерваторов
-– Nanos Research и Liaison Strategies — полная статистическая ничья
-– Pallas Data и Ipsos — преимущество либералов всего в 3 пункта
-​
-​
-В сумме 2025 год заканчивается фактическим паритетом. Это особенно показательно на фоне того, что Пьер Полиев за год пережил серию тяжёлых ударов: потерял почти гарантированное лидерство, проиграл выборы и лишился собственного мандата в Карлтоне.
-​
-​
-Тем не менее, даже после такого года Консервативная партия остаётся на расстоянии вытянутой руки от власти. Для либералов это тревожный сигнал — особенно с учётом ослабления позиций в Квебеке и Британской Колумбии и снижения личного рейтинга правительства.
-​
-​
-Автор 338 Canada Филипп Ж. Фурнье отдельно отмечает, что декабрьские опросы всегда сложны для интерпретации из-за праздничного периода. Если в начале 2026 года цифры резко отскочат вверх, это станет отдельной темой для анализа. Пока же — перед нами редкий момент, когда страна входит в новый год без явного фаворита.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">28 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1836@28-12-2025_20-49-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Ушёл, пришёл, удержался: турбулентный год для Трюдо, Карни и Полиева
-​⁠ ​
-
-<a href="https://www.thestar.com/politics/federal/in-out-and-just-hanging-on-a-tumultuous-year-in-politics-for-justin-trudeau-mark/article_03dc61dd-bb6c-446e-83e9-ffe25207d39a.html">2025 год в канадской политике оказался таким</a>, что любые выводы устаревают быстрее новостной ленты. Смена лидеров, торговая война с США, раскол оппозиции и дрейф Либералов к большинству — всё это произошло за двенадцать месяцев, которые ещё долго будут разбирать по деталям.
-​⁠ ​
-
-Прощание с Джастином Трюдо
-
-​⁠ ​
-
-Фактически всё началось ещё в декабре 2024 года — с громкой отставки министра финансов Христи Фриланд. Это стало сигналом, что внутри Либеральной партии доверие к лидерству Джастин Трюдо исчерпано.
-​⁠ ​
-
-6 января Трюдо объявил о намерении уйти, приостановил работу парламента и дал партии всего пару месяцев на поиск преемника. Так завершилось почти десятилетие его правления — с наследием, которое вызывало и восторг, и ярость.
-​⁠ ​
-
-Здравствуйте, Марк Карни
-
-​⁠ ​
-
-Бывший глава Банка Канады и Банка Англии Марк Карни стремительно стал фаворитом гонки за лидерство у либералов. Его образ — технократ, кризисный менеджер, человек экономики — идеально ложился на момент.
-​⁠ ​
-
-9 марта Карни выиграл лидерство с результатом более 86%, а уже через несколько дней стал 24-м премьер-министром Канады, не имея за плечами ни одного избрания. Он сразу дал понять: эпоха Трюдо закончена — от углеродного налога до климатической политики.
-​⁠ ​
-
-Фактор Трампа и «51-й штат»
-
-​⁠ ​
-
-Возвращение Дональд Трамп в Белый дом резко изменило контекст. Угрозы тарифов, разговоры об «экономическом принуждении» и торговые удары по стали, авто и лесу сделали отношения с США центральной темой канадской политики.
-​⁠ ​
-
-Карни пришлось доказывать, что именно он способен вести страну через конфликт с Вашингтоном. Лозунг «Elbows Up» стал символом кампании.
-​⁠ ​
-
-Выборы и провал оппозиции
-
-​⁠ ​
-
-На выборах 28 апреля либералы не взяли большинство, но сохранили власть — четвёртый раз подряд.
-​⁠ ​
-
-НДП показала худший результат в истории, а её лидер Джагмит Сингх ушёл в отставку.
-​⁠ ​
-
-Для консерваторов выборы тоже стали ударом: несмотря на рост голосов, партия снова проиграла. Лидер Пьер Полиев потерял свой округ в Оттаве и был вынужден вернуться в парламент через безопасный округ в Альберте.
-​⁠ ​
-
-Больше власти для Оттавы
-
-​⁠ ​
-
-Получив мандат, Карни взялся за масштабные обещания: ускорение строительства жилья, экономическую перестройку, рост военных расходов и «победу» в торговой войне с США.
-​⁠ ​
-
-Законопроект Bill C-5 дал правительству право временно приостанавливать действие законов ради проектов «национального значения». Критики заговорили о чрезмерной концентрации власти и игнорировании прав коренных народов.
-​⁠ ​
-
-Разворот в климате и сделка с Альбертой
-
-​⁠ ​
-
-Осенью Карни подписал меморандум с премьером Альберты Даниэль Смит — шаг, который ещё недавно казался невозможным. Отказ от потолка выбросов для нефтегаза, пауза в «зелёных» правилах и переговоры о новом трубопроводе стали символом разворота либералов.
-​⁠ ​
-
-Это вызвало отставку Стивена Гильбо и тревогу внутри партии.
-​⁠ ​
-
-Медленное движение к большинству
-
-​⁠ ​
-
-Конец года ознаменовался переходами депутатов-консерваторов в лагерь либералов. После Майкла Ма и Криса д’Энтремона у правительства теперь 171 мандат — всего один до большинства.
-​⁠ ​
-
-Каждый новый перебежчик усиливает давление на Полиева и откладывает перспективу досрочных выборов.
-​⁠ ​
-
-2026 год всё расставит по местам. Но 2025-й уже стал поворотным.
-​⁠ ​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a><a href="/person/dzhastin-tryudo/" class="badge person-badge">Джастин Трюдо</a><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">25 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1828@25-12-2025_15-12-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Либералы Карни заканчивают 2025 год с минимальным преимуществом над консерваторами — опрос
-​
-​
-Либеральная партия под руководством Марк Карни сохраняет узкое лидерство над консерваторами к концу 2025 года, <a href="https://globalnews.ca/news/11580052/carney-liberals-conservatives-ipsos-poll-2025/">показывают новые данные опроса Ipsos для Global News</a>.
-​
-​
-Если бы федеральные выборы прошли сейчас, за либералов проголосовали бы 40% канадцев, за консерваторов — 37%. Разрыв в пределах статистической погрешности и почти не отличается от картины последних выборов.
-​
-​
-Примечательно другое: личный рейтинг Карни заметно выше рейтинга его партии. Одобрение работы правительства под его руководством составляет 55% — на 15 пунктов выше поддержки самих либералов.
-​
-​
-Глава Ipsos Public Affairs Даррелл Брикер отмечает, что эффект Карни во многом персональный. Его образ работает лучше, чем партийный бренд, что даёт премьеру преимущество в эпоху «политики лидеров», но не гарантирует роста поддержки партии в целом.
-​
-​
-Одновременно усиливаются НДП и Квебекский блок — обе партии прибавили по два пункта с сентября и сейчас имеют по 9%. Этот переток идёт в основном за счёт либералов, а не консерваторов.
-​
-​
-Вопрос о новых выборах в 2026 году разделил страну почти поровну:
-– 40% канадцев хотели бы снова пойти на выборы
-– 38% выступают против
-– 22% не определились
-​
-​
-Самыми заинтересованными в новом голосовании остаются сторонники консерваторов (71%), молодёжь 18–34 лет (54%) и жители Альберты (52%).
-​
-​
-Для консерваторов данные опроса тоже тревожны. Лидер партии Пьер Полиев идёт к январскому пересмотру лидерства на фоне внутренних проблем: переходов депутатов к либералам и анонсированных отставок. При этом разрыв с либералами так и не сокращается.
-​
-​
-По словам аналитиков, поддержка консерваторов сегодня строится не столько вокруг личности лидера, сколько вокруг запроса на перемены после десяти лет либерального правления.
-​
-​
-Опрос Ipsos проводился онлайн с 8 по 15 декабря среди 1 502 канадцев. Погрешность составляет ±3,1 процентного пункта.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">22 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1804@22-12-2025_13-52-20.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Первые депутаты поколения Z в парламенте Канады набирают влияние
-​
-​
-Весенние федеральные выборы <a href="https://www.ctvnews.ca/politics/article/four-young-mps-born-in-the-2000s-say-they-want-to-be-a-voice-for-canadas-youth/">впервые привели в Палату общин депутатов, родившихся в 2000-х годах.</a> Либеральные депутаты Фарес Аль Сауд, Амандип Содхи, Джейк Саватцки и Татьяна Огюст стали первыми представителями поколения Z в федеральном парламенте.
-​
-​
-Спустя восемь месяцев после избрания они заявляют, что уже начинают влиять на повестку и хотят последовательно продвигать «молодёжную перспективу» в Оттаве.
-​
-​
-Среди ключевых тем — доступное жильё, рост стоимости жизни, психическое здоровье, занятость и влияние AI на молодых канадцев. Для этого депутаты запустили внутри Либеральной партии отдельный молодёжный кокус, нацеленный на вовлечение молодёжи в политику и системное продвижение этих вопросов.
-​
-​
-По их словам, без прямого участия молодых депутатов решения о будущем страны рискуют приниматься без учёта интересов поколения, которое будет жить с их последствиями дольше всех.
-​
-Подписывайтесь на @maplebarrel — Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1787@19-12-2025_18-35-04.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Будущее Пьера Полиева решит одна речь — на съезде консерваторов в Калгари
-
-​
-Судьба лидерства Пьера Полиева в Консервативной партии будет зависеть от того, что именно он скажет делегатам на съезде партии в Калгари в конце января. <a href="https://www.hilltimes.com/story/2025/12/19/poilievres-future-rests-on-what-he-tells-delegates-at-leadership-review-convention-next-month-says-senior-party-veteran/486314/">Об этом The Hill Times заявил</a> ветеран партии и бывший глава аппарата Стивена Харпера Иэн Броди.
-
-​
-По словам Броди, сама речь Полиева перед голосованием по лидерству станет ключевым моментом:
-«Это его последний шанс убедить людей и зафиксировать поддержку. То, что он скажет, реально имеет значение».
-
-​
-Формально шансы Полиева сохранить лидерство высоки. Согласно опросу Leger, 78% сторонников консерваторов довольны его работой. Кроме того, с момента последних выборов прошло меньше года, а сам Полиев оказался в парламенте только после августовских довыборов.
-
-​
-Но проблема глубже. Броди подчёркивает: делегаты уже хорошо знают Полиева — его риторику о стоимости жизни, преступности, «маленьком человеке против системы», жёсткий стиль и конфронтационный тон. Всё это — «принято, понятно, услышано».
-
-​
-Главный вопрос съезда будет другим:
-как именно Полиев собирается выиграть следующие выборы.
-
-​
-Разочарование внутри партии остаётся сильным. Ещё год назад консерваторы опережали либералов на 26 пунктов, но затем рейтинг обвалился, и выборы были проиграны. Для партийного актива это стало психологическим ударом.
-
-​
-Броди считает, что менять тон Полиева бессмысленно:
-«Он будет тем, кто он есть».
-Проблема не в идеологических расколах — ни между фискальными и социальными консерваторами, ни между Востоком и Западом. Проблема в электоральной стратегии.
-
-​
-По оценке Броди, Полиев потерял сразу две ключевые группы:
-– избирателей 65+, домовладельцев и пенсионеров, которые ушли к Карни, и которым консерваторы не предложили защиты от Трампа, ИИ и культурных войн
-– молодых людей без жилья и накоплений, которых Полиев частично мобилизовал, но не в достаточной степени
-
-​
-Личное восприятие лидера остаётся слабым: рейтинг антипатии к Полиеву — около 60%, примерно на том же уровне, что и во время проигранных выборов. При этом партия получила 41% голосов — всего на три пункта меньше либералов.
-
-​
-Броди проводит прямую параллель со Стивеном Харпером. В 2005 году Харперу на лидерском съезде пришлось доказать делегатам, что он готов сделать всё необходимое для победы. Через год консерваторы сформировали правительство.
-
-​
-В Калгари Полиеву зададут тот же вопрос, что Харперу 20 лет назад:
-«Как ты собираешься выиграть следующие выборы?»
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1785@19-12-2025_15-46-21.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Есть ли «неправильный» способ получить парламентское большинство?
-
-​
-После перехода депутата Майкла Ма к либералам <a href="https://www.cbc.ca/news/politics/poilievre-carney-floor-crossing-majority-analysis-9.7021158">Пьер Полиев обвинил премьер-министра Марка Карни в попытке «проманипулировать»</a> большинством через закулисные сделки, а не через выборы. Карни в ответ спокойно заявил: его устраивает любое большинство, которое опирается на доверие Палаты общин.
-
-​
-Формально Полиев апеллирует к интуитивно понятному аргументу: избиратели не голосовали за либеральное большинство. Но канадская парламентская система работает иначе. Граждане выбирают не «большинство» и не «меньшинство», а отдельных депутатов. А уже депутаты решают, кто формирует правительство.
-
-​
-Ключевой критерий — доверие Палаты общин. Пока Карни его стабильно получает. Если либеральная фракция вырастет до 172 депутатов, это просто упростит математику голосований, но не изменит принцип.
-
-​
-История парламента не знает партий без «закулисных» переходов. Консерваторы сами принимали бывших либералов:
-– Дэвид Эмерсон (2006)
-– Ваджид Хан (2007)
-– Джо Коммуцци (2007)
-– Леона Аллеслев (2018)
-
-​
-Более того, в 2012 году консерваторы, включая самого Полиева, проголосовали против законопроекта НДП, который требовал бы от перебежчиков переизбираться на дополнительных выборах.
-
-​
-Стивен Харпер в 2006 году прямо защищал право депутатов менять партию, подчёркивая, что ответственность наступает на следующих выборах, а не в момент перехода.
-
-​
-Аргумент, что «сейчас всё иначе», строится на одном факте: потенциально либералы могут получить большинство именно за счёт перебежчиков. Прецедентов на федеральном уровне почти нет, но и прямого запрета — тоже.
-
-​
-Ближайший аналог — соглашение либералов Трюдо с НДП в прошлом парламенте. Формально это было меньшинство, по факту — стабильное большинство голосов. Консерваторы критиковали сделку, но не могли назвать её недемократичной.
-
-​
-Разница сейчас — в репутационном эффекте. Депутаты, которые ещё вчера резко критиковали либералов, сегодня сидят в их фракции. Это закономерно вызывает вопросы к искренности и подрывает доверие избирателей.
-
-​
-В то же время сами перебежчики утверждают, что действуют по убеждениям, а не по партийной дисциплине. Карни говорит, что депутатов «привлекает» курс его правительства. Часть из них прямо связывает уход с несогласием с руководством Полиева.
-
-​
-В канадской системе ответ один: и депутаты, и лидеры партий будут отвечать за свои решения на следующих выборах — так же, как и за любые другие нарушения обещаний.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1778@18-12-2025_15-19-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Консерваторы пытаются перевернуть страницу после «катастрофы 2025 года»
-​
-
-​
-Год назад Пьер Полиев выглядел почти неизбежным будущим премьер-министром. Консерваторы опережали либералов на 25 пунктов, Джастин Трюдо был на выходе, а внутри партии уже делили портфели.
-​
-
-​
-<a href="https://www.ctvnews.ca/politics/article/conservatives-look-to-turn-the-page-after-terrible-disappointment-of-2025/">Затем всё сломалось</a>. Возвращение Дональда Трампа в Белый дом, отставка Трюдо, резкий разворот либералов и приход Марка Карни превратили выборы в референдум о том, кто способен справиться с США. И в этой гонке Полиев проиграл — причём дважды: партия уступила на национальном уровне, а сам он потерял собственный округ Карлтон.
-​
-
-​
-Бывшие и действующие стратеги консерваторов сегодня признают: в конце 2024 года в партии появилось чувство самоуверенности, почти высокомерия. Считалось, что победа гарантирована. В реальности же Карни сыграл точно по таймингу — отменил потребительский углеродный налог, нейтрализовал ключевой лозунг оппозиции и перехватил повестку.
-​
-
-​
-Дополнительной ошибкой стало давление на НДП осенью, что ослабило левый фланг и сократило эффект «распыления» голосов против либералов. В итоге кампания пошла по сценарию, где у консерваторов почти не осталось пространства для манёвра.
-​
-
-​
-После возвращения Полиева в парламент через довыборы в Альберте партия ненадолго обрела уверенность. Но затем последовали удары по имиджу:
-– два депутата перешли к либералам
-– ещё один объявил об уходе из политики
-– оба перебежчика прямо связали своё решение со стилем руководства лидера
-​
-
-​
-Сегодня Полиев остаётся фигурой, которая поляризует. Его личные рейтинги заметно ниже рейтингов партии — почти зеркальное отражение ситуации с Трюдо год назад. Сторонники лояльны, но за пределами ядра поддержка ограничена.
-​
-
-​
-В партии считают, что он извлёк уроки: стал чаще общаться с «враждебными» медиа, дал интервью Canadian Press впервые с 2022 года. Но менять себя он не намерен — ставка по-прежнему делается на жёсткий стиль и фокус на повседневные темы:
-– преступность
-– иммиграция
-– жильё
-​
-
-​
-Впереди обязательный пересмотр лидерства на съезде в Калгари в январе. Полиев уже мобилизует делегатов и, по ожиданиям, сохранит пост.
-​
-
-​
-Главный вопрос — время. Если Карни удержит парламент и приблизится к большинству, для Полиева оппозиция рискует превратиться в долгую и изматывающую дистанцию.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a><a href="/person/dzhastin-tryudo/" class="badge person-badge">Джастин Трюдо</a> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/prestupnost/" class="badge">#преступность</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1774@18-12-2025_10-09-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content"><a href="https://montrealgazette.com/opinion/op_eds/opinion-poilievres-unpopularity-is-untenable-he-needs-to-go">Sandy White из Montreal Gazette пишет</a>, что политическая токсичность Пьера Полиева стала для консерваторов невыносимой — и партия платит за это прямую цену.
-​
-
-​
-За месяц — два перехода депутатов от консерваторов к либералам. Сначала ветеран из Новой Шотландии Крис д’Энтремон, затем онтарийский депутат Майкл Ма. Для лидера оппозиции это уже не случайность, а системный сигнал.
-​
-
-​
-Полиев проиграл апрельские выборы, потерял собственный мандат и теперь наблюдает, как Марк Карни забирает не только его повестку, но и людей. В момент, когда партия должна сплачиваться, она теряет кадры — и это напрямую связано со стилем руководства.
-​
-
-​
-Автор напоминает: агрессивность и постоянный конфликт сделали Полиева ярким оппозиционером, но тот же стиль разрушает его как лидера партии. Внутри фракции — ощущение «одноместного шоу», где для депутатов нет ни диалога, ни влияния.
-​
-
-​
-Опросы лишь усугубляют картину. Консерваторы как партия держатся близко к либералам, но сам Полиев заметно менее популярен — он тянет рейтинг вниз. Это не вопрос имиджа или формы, а проблема доверия и отторжения.
-​
-
-​
-На фоне этого либералы находятся всего в одном шаге от большинства. Если Карни доберёт ещё одного депутата, страна может надолго остаться без выборов, а консерваторам придётся годами смотреть на «повторы шоу Полиева» — интерес к которому у избирателей стремительно угасает.
-​
-
-​
-Вывод автора жёсткий и однозначный: лидерство — это не только мобилизация базы, но и способность удерживать собственную команду и говорить с широкой страной. Когда твои депутаты уходят к сопернику, вопрос о смене лидера становится неизбежным.
-​
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">11 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1719@11-12-2025_16-06-09.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">В Альберте одобрили ещё одну инициативу на отзыв депутата — теперь под угрозой сама Даниэль Смит
-
-​
-
-Премьер Альберты Даниэль Смит <a href="https://www.cbc.ca/news/canada/calgary/danielle-smith-recall-petition-approved-9.7001541">официально стала объектом кампании по отзыву депутата</a> в своём округе Brooks–Medicine Hat. Elections Alberta в среду утвердила петиции против неё, а также против министра окружающей среды Ребекки Шульц и министра технологий Нейта Глубиша.
-
-​
-
-Всего теперь 21 член легислатуры сталкивается с попытками лишить их мандатов — 20 из UCP и один из НДП. Масштаб кампании уже трудно списать на случайность.
-
-​
-
-Инициатор отзыва Смит, Хизер ВанСник, заявила, что премьер не живёт в сообществе и не участвует в жизни округа. По её словам, жители ощущают себя брошенными.
-
-​
-
-Смит на это ответила жёстко: округ давно перестал быть «забытым уголком», и за последние годы там продвинулись крупные проекты — дороги, школы, модернизация медучреждений. Она подчеркнула, что регулярно проводит встречи с избирателями, включая очередные общественные слушания в Бассано.
-
-​
-
-Премьер утверждает: механизм отзыва используют в качестве политического оружия. По её словам, речь идёт о попытке дискредитировать систему, а не о добросовестной работе над ошибками избранных представителей.
-
-​
-
-В UCP заявили то же самое: процедура отзыва не должна подменять собой выборы и запускаться из-за несогласия с политикой правительства. Она предназначена для случаев нарушения доверия или грубого неисполнения обязанностей.
-
-​
-
-Юридическая планка для успеха таких петиций высокая: за три месяца нужно собрать подписи 60% избирателей, голосовавших в округе на выборах 2023 года. В Brooks–Medicine Hat это 12 070 подписей. Если порог преодолён — проводится голосование за снятие депутата, а затем возможны промежуточные выборы.
-
-​
-
-Политолог Джим Грум считает, что сама кампания уже служит сигналом недовольства, независимо от результата. И напоминает: любому партийцу-лидеру приходится разрываться между столицей и округом — критика в обе стороны неизбежна.
-
-​
-
-Многие инициаторы петиций называют среди причин раздражение из-за использования правительством оговорки о неприменении Хартии, другие — потерю связи депутата с местной повесткой. Большинство MLA уже ответили, перечисляя достижения у себя в округах и отрицая, что игнорируют избирателей.
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">11 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1718@11-12-2025_14-04-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Эндрю Койн: с канадской демократией что-то происходит
-
-​
-
-<a href="https://www.theglobeandmail.com/opinion/article-canadian-democracy-electoral-system-notwithstanding-clause-carney/">Колонка Эндрю Койна в The Globe and Mail </a>— тяжёлое чтение, но пройти мимо уже нельзя: по всей стране накапливаются признаки разложения демократических норм, и всё это начинает складываться в тревожную картину.
-
-​
-
-Койн начинает с законопроекта C-15 — 634 страниц, десятки поправок, от криптоактивов до рыбы. Типичный «комбайн», который депутаты должны проглотить одним глотком. Но куда хуже спрятанный внутри пункт, позволяющий любому министру освободить любую структуру от любого закона, находящегося в зоне его ответственности, сроком до трёх лет (с возможностью продления до шести). Исключение — только Уголовный кодекс.
-
-​
-
-Формальное объяснение — поддержка «инноваций». Фактическое содержание — предоставление министрам права игнорировать решения парламента. Такие положения в Вестминстерской системе называют «клаузулой Генри VIII», и они считаются опасными по определению.
-
-​
-
-Но C-15 — лишь одно звено цепи. Правительство Карни продвигает сразу несколько объёмных законопроектов, которые смешивают в себе несвязанные меры и встраивают положения, серьёзно расширяющие полномочия исполнительной власти:
-
-– C-2 в исходном виде одновременно ограничивал права беженцев и позволял полиции получать клиентские данные у интернет- и телеком-провайдеров без ордера.
-– C-4 совмещает снижение подоходного налога с изъятием политических партий из-под действия законов о приватности.
-– C-5 уже принят: он открывает межпровинциальную торговлю, но в том же документе вновь появляется право министров освобождать проекты от регуляций.
-– C-9 расширяет инструменты уголовного преследования по расплывчатым составам «hate crimes», и оппозиция требует сделать его ещё жёстче.
-
-​
-
-И дело не только в Оттаве. В Альберте Даниэль Смит вносит законы, ограничивающие защиту транс-людей и пытающиеся предотвратить судебное решение по спорному референдумному вопросу сепаратистской группы.
-
-​
-
-В Британской Колумбии консервативная партия оказалась парализована лидером, потерявшим поддержку большинства, но не желавшим уходить — знакомая картина для Койна, который напоминает о затянувшихся уходах Трюдо и Крэтьяна.
-
-​
-
-В Квебеке Parti Québécois идёт к возможному «мега-большинству», имея около трети голосов. При нынешней системе это вполне достижимо: пять партий с примерно равным уровнем поддержки превращают выборы в арифметический перекос, способный запустить очередной цикл кризиса единства.
-
-​
-
-Итог, по мнению Койна: парламент утрачивает способность контролировать правительство; лидеры партий удерживаются вопреки воле собственных депутатов; Хартия прав и суды становятся целями политических манёвров; избирательная система только усугубляет диспаритеты. Всё это — не отдельные инциденты, а системный дрейф.
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">2 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1629@02-12-2025_18-05-18.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Уэйн Гретцки снова на гольфе с Трампом  и снова под огнём критики в Канаде
-
-​‌﻿
-
-Легенда НХЛ Уэйн Гретцки провёл День благодарения в компании Дональда Трампа — и канадская аудитория вновь взорвалась. <a href="https://www.ctvnews.ca/world/article/wayne-gretzky-seen-smiling-on-the-golf-course-with-donald-trump-fox-news-host/">Президент США опубликовал фото и видео с поля</a>: рядом с ним Гретцки, гольфист Брукс Кёпка и ведущий Fox News Брет Бэйер.
-
-​‌﻿
-
-Трамп в красной кепке «America is back!» сияет перед камерой, а Гретцки, как видно, не намерен дистанцироваться от давнего приятеля — несмотря на то, что отношения между Канадой и США при Трампе явно не тёплые.
-
-​‌﻿
-
-В Канаде же к «Великому» давно накопились вопросы: от участия в американских мероприятиях до эпизода на турнире 4 Nations, где он вышел на лёд через американский вход и отказался надеть канадскую форму на церемонии. Для многих это выглядело как демонстративная лояльность южным соседям.
-
-​‌﻿
-
-Гретцки недавно попытался погасить раздражение. В подкасте 100% Hockey он сказал, что понимает недовольство фанатов, но подчёркивает: он канадец и останется им. «Люди будут думать что угодно. Я знаю, кто я», — сказал он.
-
-​‌﻿
-
-Тем временем Трамп продолжает публично превозносить друга. В феврале он уже писал, что Гретцки мог бы «выиграть любые выборы в Канаде», и опять пустился в свои тирады о «51-м штате». Гретцки появлялся и на инаугурации Трампа, и на вечеринке по случаю его победы на выборах.
-
-​‌﻿
-
-История вряд ли закончится: Гретцки живёт во Флориде, Трамп охотно использует его образ, а канадская публика каждый раз воспринимает это болезненно.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 ноября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1531@19-11-2025_13-05-35.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Опрос Angus Reid: Полиев проваливается, Карни растёт
-​
-
-<a href="https://angusreid.org/federal-politics-poilievre-favourability-hits-lowest-point-of-his-leadership-carney-approval/">Свежие данные Angus Reid Institute</a> — и картина для Пьера Полиева становится ещё более неприятной. Его персональный рейтинг обвалился до худшего уровня с момента, как он возглавил Консервативную партию. Всего 34 процента относятся к нему положительно, 60 — отрицательно.
-
-​
-
-При этом Марк Карни, несмотря на освистывание на Grey Cup, удерживает поддержку 52 процентов канадцев. Его баланс по-прежнему в плюсе, и это заметно выделяет его на фоне оппонента.
-
-​
-
-У Полиева сейчас две проблемы. Первая — внутрипартийная: переход одного консерваторов к Либералам и недавняя отставка другого депутата. В январе его ждёт обязательный пересмотр лидерства, и нервозность нарастает. Вторая — общенациональная: за пределами консервативного ядра он раздражает практически всех.
-
-​
-
-Да, среди своих он остаётся любимцем — 78 процентов сторонников КПК его поддерживают. Это единственный сегмент, где он выглядит уверенно.
-
-​
-
-Карни же собирает поддержку куда шире. Среди либеральных избирателей одобрение достигает 87 процентов; среди недавних сторонников НДП — 61 процент; среди блокистов — 52. Даже среди консервативного электората у Карни 18 процентов позитивных оценок — и это всё равно выше, чем у Полиева среди либералов, где он набирает жалкие 5 процентов.
-
-​
-
-Региональная карта складывается предсказуемо: Полиев удерживает преимущество в Альберте и Саскачеване. Во всех остальных регионах вверх выходит Карни, особенно сильно — на востоке страны.
-
-​
-
-Несмотря на такой контраст, партии идут почти ноздря в ноздрю: 40 процентов готовы поддержать Либералов, 38 — Консерваторов. НДП и Блок остаются ниже десяти.
-
-​
-
-И ещё одна важная деталь: 69 процентов канадцев считают, что сейчас выборы вообще не нужны. Даже среди консерваторов треть предпочла бы подождать.
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 ноября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1530@19-11-2025_12-02-13.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Крис Селли: гонка за лидерство в федеральном НДП выглядит как затяжной поход к обрыву
-​
-
-<a href="https://nationalpost.com/opinion/chris-selley-the-ndp-leadership-race-looks-more-like-a-death-march">Постмедиа публикует разбор Криса Селли о том</a>, как партия, потерявшая официальное признание в Палате общин, пытается выбрать нового лидера — и почему всё это напоминает мучительное затухание, а не обновление.
-
-​
-
-Ситуация проста: досрочные выборы сейчас не выгодны ни Либералам, ни, по большому счёту, Консерваторам. Пьер Полиев может захотеть ускорить процесс, если почувствует угрозу своему январскому вотуму доверия, но сама партия предпочла бы подождать. На этом фоне НДП выглядит слабее всех: только два из семи её депутатов победили с хотя бы минимальным преимуществом.
-
-​
-
-По Селли, лучший шаг для Донa Дейвиса — спокойно заявить, что НДП удержит правительство Карни на плаву до выборов лидера в марте 2026 года. Но вместо чёткости — вялые колебания.
-
-​
-
-Дальше — хуже. Кандидаты в лидеры производят впечатление людей, которые потеряли связь с реальностью 2025 года.
-
-– Роб Эштон предлагает гарантировать работу каждому желающему, причём «хорошо оплачиваемую» и преимущественно в госсекторе.
-– Ави Льюис мечтает о сети государственных супермаркетов, где продукты «будут лучше и дешевле».
-– Хезер Макферсон выдвигает набор лозунгов по жилью: никаких «жирующих» застройщиков, больше госстроек и очередное обещание ликвидировать бездомность.
-
-​
-
-Селли отмечает: такие обещания когда-то могли звучать привлекательно, но после восьми лет кризиса аренды и ипотек, после разочарования молодых в политиках, доверия к простым рецептам почти не осталось.
-
-​
-
-Макферсон хотя бы говорит вслух, что партия обязана стремиться к победе. У неё сильная поддержка дома, но общенациональная картина удручающая. Провинциальные отделения НДП в Британской Колумбии, Альберте, Саскачеване и Манитобе умеют побеждать, предлагая умеренный курс в дуэли с правыми. На федеральной арене эта ниша занята Либералами, и НДП так и не нашла для себя новую.
-
-​
-
-И главный вопрос Селли: а есть ли у НДП вообще ответ — кто они и зачем нужны стране в 2026 году? Сегодня всё больше похоже, что нет.
-
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a></div>
-    </article><div class="pagination"><a href="/tag/vybory/" class="btn">← Назад</a><a href="/tag/vybory/page/3/" class="btn">Вперед →</a></div></main>
-    <footer>&copy; 2024–2026 Maple Barrel. Journalists.ca</footer>
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="tag-hdr">
+    <h1>#выборы</h1>
+    <p>485 материалов по теме</p>
+  </div>
+  <div class="tag-grid"><a class="card" href="/post/2026-02-13-tramp-obrushilsya-na-kanadu-poka-palata-predstaviteley-ssha-/">
+  <div class="card-img"><img src="/photos/photo_2167@13-02-2026_11-03-23.jpg" alt="Трамп обрушился на Канаду, пока Палата представителей США приняла символическое голосование против тарифов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Трамп обрушился на Канаду, пока Палата представителей США приняла символическое голосование против тарифов</div>
+    <div class="card-excerpt">Президент США Дональд Трамп назвал Канаду «одной из худших стран в мире для ведения дел» после того, как Палата представителей проголосовала против его тарифов на северного соседа.   Решение носит во</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-12-liberaly-ontario-razreshili-vremennym-rezidentam-golosovat-v/">
+  <div class="card-img"><img src="/photos/photo_2164@12-02-2026_17-03-06.jpg" alt="Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ipolitics.ca</div>
+    <div class="card-title">Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии</div>
+    <div class="card-excerpt">Провинциальная Либеральная партия Онтарио не изменила правила участия в выборах нового лидера. Согласно уставу партии, голосовать могут все её члены, проживающие в Онтарио, включая неграждан, иностран</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-12-palata-predstaviteley-ssha-podderzhala-rezolyutsiyu-ob-otmen/">
+  <div class="card-img"><img src="/photos/photo_2159@12-02-2026_12-03-24.jpg" alt="Палата представителей США поддержала резолюцию об отмене тарифов Трампа против Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Палата представителей США поддержала резолюцию об отмене тарифов Трампа против Канады</div>
+    <div class="card-excerpt">Палата представителей США одобрила резолюцию, направленную на отмену тарифов Дональда Трампа против Канады. Решение носит в основном символический характер, но демонстрирует раскол среди республиканце</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-09-karni-i-ford-obsuzhdali-ideyu-dosrochnyh-federalnyh-vyborov-/">
+  <div class="card-img"><img src="/photos/photo_2126@09-02-2026_10-05-14.jpg" alt="Карни и Форд обсуждали идею досрочных федеральных выборов для получения большинства — источники" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Карни и Форд обсуждали идею досрочных федеральных выборов для получения большинства — источники</div>
+    <div class="card-excerpt">Премьер-министр Канады Марк Карни и премьер Онтарио Даг Форд в неформальных разговорах обсуждали возможность досрочных федеральных выборов как способ получить устойчивое парламентское большинство на ф</div>
+    <div class="card-meta">
+      <span class="card-date">9 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-07-prizyvy-sozdat-spetsialnyy-put-dlya-postoyannogo-prozhivaniy/">
+  <div class="card-img"><img src="/photos/photo_2124@07-02-2026_19-03-40.jpg" alt="Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде</div>
+    <div class="card-excerpt">‌  Тысячи украинцев, бежавших от войны и начавших новую жизнь в Канаде, сейчас сталкиваются с неопределённым будущим. Об этом предупреждают общественные организации, призывая федеральные власти срочно</div>
+    <div class="card-meta">
+      <span class="card-date">7 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-07-kak-ultrapravye-pytayutsya-vliyat-na-kanadskie-politicheskie/">
+  <div class="card-img"><img src="/photos/photo_2123@07-02-2026_18-05-25.jpg" alt="Как ультраправые пытаются влиять на канадские политические партии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thetyee.ca</div>
+    <div class="card-title">Как ультраправые пытаются влиять на канадские политические партии</div>
+    <div class="card-excerpt">‌  Аудиозапись закрытого обсуждения в X показывает, как представители ультраправых и откровенно расистских групп обсуждали стратегии давления на мейнстримные консервативные партии Канады. Цель — продв</div>
+    <div class="card-meta">
+      <span class="card-date">7 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-06-mnenie-argumentov-za-otmenu-sistemy-upravleniya-postavkami-s/">
+  <div class="card-img"><img src="/photos/photo_2116@06-02-2026_12-02-28.jpg" alt="Мнение: аргументов за отмену системы управления поставками становится всё больше" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">financialpost.com</div>
+    <div class="card-title">Мнение: аргументов за отмену системы управления поставками становится всё больше</div>
+    <div class="card-excerpt">‎  Herbert Grubel из Financial Post пишет, что система управления сельхозпоставками обходится канадским потребителям слишком дорого — и момент для её демонтажа может оказаться ближе, чем кажется. ‎  С</div>
+    <div class="card-meta">
+      <span class="card-date">6 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-04-dzhastin-tryudo-vysmeivaet-vypad-donalda-trampa-pro-gubernat/">
+  <div class="card-img"><img src="/photos/photo_2105@04-02-2026_18-01-54.jpg" alt="Джастин Трюдо высмеивает выпад Дональда Трампа про «губернатора» в трейлере хоккейного докфильма" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">hollywoodreporter.com</div>
+    <div class="card-title">Джастин Трюдо высмеивает выпад Дональда Трампа про «губернатора» в трейлере хоккейного докфильма</div>
+    <div class="card-excerpt">Бывший премьер-министр Канады Джастин Трюдо с иронией отреагировал на насмешки Дональда Трампа времён кампании 2024 года, когда тот называл Канаду «великим штатом», а Трюдо — его «губернатором». Этот</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-04-kanadtsy-razdelilis-vo-mnenii-dolzhny-li-deputaty-sdavat-man/">
+  <div class="card-img"><img src="/photos/photo_2103@04-02-2026_15-05-20.jpg" alt="Канадцы разделились во мнении: должны ли депутаты сдавать мандат при смене партии — опрос Nanos" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадцы разделились во мнении: должны ли депутаты сдавать мандат при смене партии — опрос Nanos</div>
+    <div class="card-excerpt">Новый опрос Nanos Research показывает почти идеальный раскол общественного мнения по вопросу так называемых «перебежчиков» в парламенте.   33% канадцев считают, что депутат, решивший сменить партию, о</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-04-per-poliev-menyaet-strategiyu-pered-srochnoy-vstrechey-s-mar/">
+  <div class="card-img"><img src="/photos/photo_2102@04-02-2026_14-06-24.jpg" alt="Пьер Полиев меняет стратегию перед «срочной встречей» с Марком Карни" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Пьер Полиев меняет стратегию перед «срочной встречей» с Марком Карни</div>
+    <div class="card-excerpt">Пьер Полиев после уверенной победы на партийном съезде пытается показать Консервативную партию не как силу постоянного сопротивления, а как политиков, готовых действовать и договариваться. Уже на этой</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-04-rossiya-vsyo-uspeshnee-vedyot-informatsionnuyu-voynu-protiv-/">
+  <div class="card-img"><img src="/photos/photo_2101@04-02-2026_13-02-50.jpg" alt="Россия всё успешнее ведёт информационную войну против Канады — предупреждает советник по безопасности" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Россия всё успешнее ведёт информационную войну против Канады — предупреждает советник по безопасности</div>
+    <div class="card-excerpt">Россия добивается всё большего успеха в информационном воздействии на канадское общество, и последствия уже заметны, заявила уходящая советница по национальной безопасности и разведке при правительств</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-02-smit-deputaty-mogut-podpisyvat-lyubye-petitsii-dazhe-za-otde/">
+  <div class="card-img"><img src="/photos/photo_2087@02-02-2026_10-05-24.jpg" alt="Смит: депутаты могут подписывать любые петиции — даже за отделение Альберты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Смит: депутаты могут подписывать любые петиции — даже за отделение Альберты</div>
+    <div class="card-excerpt">Премьер Альберты Даниэль Смит заявила, что не собирается контролировать, какие петиции подписывают депутаты её фракции — включая инициативы о референдуме по выходу провинции из состава Канады. Об этом</div>
+    <div class="card-meta">
+      <span class="card-date">2 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-01-indiyskie-bandy-zapugivayut-kanadu/">
+  <div class="card-img"><img src="/photos/photo_2085@01-02-2026_20-36-01.jpg" alt="Индийские банды запугивают Канаду" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">spectator.com</div>
+    <div class="card-title">Индийские банды запугивают Канаду</div>
+    <div class="card-excerpt">⁠  Южноазиатские общины по всей Канаде сталкиваются с волной вымогательств и насилия. В Суррее (Британская Колумбия) власти уже требуют от Оттавы объявить общенациональное чрезвычайное положение. Речь</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-01-dag-ford-zayavil-chto-poydyot-na-chetvyortyy-srok-ispolzuya-/">
+  <div class="card-img"><img src="/photos/photo_2084@01-02-2026_14-04-32.jpg" alt="Даг Форд заявил, что пойдёт на четвёртый срок, используя свою жёсткую позицию по Трампу на съезде ПК" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Даг Форд заявил, что пойдёт на четвёртый срок, используя свою жёсткую позицию по Трампу на съезде ПК</div>
+    <div class="card-excerpt">‌ ‌ Премьер Онтарио Даг Форд заявил, что намерен возглавить Прогрессивно-консервативную партию на следующих выборах и побороться за четвёртое подряд правительство большинства. Об этом он сказал, высту</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-01-daniel-smit-v-kalgari-udary-po-starym-vragam-i-molchanie-o-s/">
+  <div class="card-img"><img src="/photos/photo_2083@01-02-2026_13-02-31.jpg" alt="Даниэль Смит в Калгари: удары по старым врагам и молчание о сепаратизме" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Даниэль Смит в Калгари: удары по старым врагам и молчание о сепаратизме</div>
+    <div class="card-excerpt">На родной площадке в Калгари премьер Альберты Даниэль Смит выступила перед делегатами федерального съезда Консервативной партии, получив тёплый приём и серию оваций — при этом аккуратно обойдя тему се</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-31-abort-maid-immigratsiya-i-cbc-o-chyom-sporyat-konservatory-v/">
+  <div class="card-img"><img src="/photos/photo_2079@31-01-2026_13-04-01.jpg" alt="Аборт, MAID, иммиграция и CBC: о чём спорят консерваторы в Калгари" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalnewswatch.com</div>
+    <div class="card-title">Аборт, MAID, иммиграция и CBC: о чём спорят консерваторы в Калгари</div>
+    <div class="card-excerpt">На национальном съезде Консервативной партии в Калгари делегаты обсуждают серию резонансных политических предложений — от абортов и эвтаназии до иммиграции и будущего CBC. Формально эти инициативы не</div>
+    <div class="card-meta">
+      <span class="card-date">31 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-31-poliev-prizyvaet-k-nadezhde-i-byot-po-separatizmu-v-alberte-/">
+  <div class="card-img"><img src="/photos/photo_2078@31-01-2026_11-05-08.jpg" alt="Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке</div>
+    <div class="card-excerpt">Пьер Полиев в пятницу вечером выступил с ключевой речью на съезде консерваторов в Калгари — за несколько часов до голосования по своему лидерству. Его задача была двойной: сплотить партийную базу и од</div>
+    <div class="card-meta">
+      <span class="card-date">31 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-31-per-poliev-poluchil-874-i-sohranil-liderstvo-u-konservatorov/">
+  <div class="card-img"><img src="/photos/photo_2077@31-01-2026_09-02-53.jpg" alt="Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов</div>
+    <div class="card-excerpt">Лидер Консервативной партии Пьер Полиев уверенно прошёл проверку на съезде в Калгари. По итогам голосования 87,4% делегатов высказались за сохранение его на посту. Явка составила 95% — проголосовали 2</div>
+    <div class="card-meta">
+      <span class="card-date">31 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-30-vozhdi-korennyh-narodov-alberty-vysmeyali-ideyu-luchshey-zhi/">
+  <div class="card-img"><img src="/photos/photo_2076@30-01-2026_15-02-54.jpg" alt="Вожди коренных народов Альберты высмеяли идею «лучшей жизни» при отделении провинции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">edmontonjournal.com</div>
+    <div class="card-title">Вожди коренных народов Альберты высмеяли идею «лучшей жизни» при отделении провинции</div>
+    <div class="card-excerpt">⁠  Лидеры коренных народов, представляющие договоры №6, 7 и 8, публично отвергли заявления сторонников отделения Альберты о том, что независимая провинция якобы улучшит положение Indigenous-сообществ.</div>
+    <div class="card-meta">
+      <span class="card-date">30 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-30-dumaete-pokupaete-kanadskoe-na-samom-dele-ssha/">
+  <div class="card-img"><img src="/photos/photo_2075@30-01-2026_14-04-38.jpg" alt="Думаете, покупаете канадское? На самом деле — США" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Думаете, покупаете канадское? На самом деле — США</div>
+    <div class="card-excerpt">⁠  Расследование CBC Marketplace показало, как продукты с кленовыми листьями и патриотическими слоганами на упаковке на деле оказываются американского происхождения — иногда формально, иногда откровен</div>
+    <div class="card-meta">
+      <span class="card-date">30 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-30-per-poliev-vyhodit-na-reshayuschee-golosovanie-za-liderstvo/">
+  <div class="card-img"><img src="/photos/photo_2074@30-01-2026_12-03-16.jpg" alt="Пьер Полиев выходит на решающее голосование за лидерство" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Пьер Полиев выходит на решающее голосование за лидерство</div>
+    <div class="card-excerpt">Сегодня вечером в Калгари Пьер Полиев выступит с речью, которая фактически станет отчётом за его лидерство и прологом к голосованию о будущем главы Консервативной партии. Сразу после выступления делег</div>
+    <div class="card-meta">
+      <span class="card-date">30 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-29-feykovye-video-v-sotssetyah-zamanivayut-turistov-v-kanadu-po/">
+  <div class="card-img"><img src="/photos/photo_2069@29-01-2026_21-09-01.jpg" alt="Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»</div>
+    <div class="card-excerpt">В преддверии чемпионата мира по футболу 2026 года в TikTok и Instagram массово распространяются видео с ложной информацией об иммиграционных правилах Канады. Как выяснило CBC News, такие ролики нацеле</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-28-druzheskiy-sovet-peru-polievu-ot-byvshego-lidera-konservator/">
+  <div class="card-img"><img src="/photos/photo_2058@28-01-2026_18-03-21.jpg" alt="Дружеский совет Пьеру Полиеву от бывшего лидера консерваторов: «включи Рузвельта»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thewalrus.ca</div>
+    <div class="card-title">Дружеский совет Пьеру Полиеву от бывшего лидера консерваторов: «включи Рузвельта»</div>
+    <div class="card-excerpt">Эрин О’Тул пишет, что для Консервативной партии 2025 год стал катастрофическим. Ошибки стратегии, потеря связи с ключевыми темами общественной повестки и провал в борьбе за доверие избирателей дорого</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-28-liberaly-vyhodyat-na-47-posle-davosa-i-poezdki-karni-v-kitay/">
+  <div class="card-img"><img src="/photos/photo_2057@28-01-2026_15-21-32.jpg" alt="Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger</div>
+    <div class="card-excerpt">⁠ Либеральная партия резко усилила позиции после международных поездок премьер-министра Марк Карни. Согласно опросу Postmedia–Leger, 47% канадцев готовы проголосовать за либералов, если выборы состоял</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-28-elections-alberta-petitsionnaya-kampaniya-za-referendum-o-vy/">
+  <div class="card-img"><img src="/photos/photo_2055@28-01-2026_12-04-01.jpg" alt="Elections Alberta: петиционная кампания за референдум о выходе провинции «защищена от вмешательства»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">edmontonjournal.com</div>
+    <div class="card-title">Elections Alberta: петиционная кампания за референдум о выходе провинции «защищена от вмешательства»</div>
+    <div class="card-excerpt">Elections Alberta заявляет, что процесс сбора подписей за проведение референдума о выходе Альберты из состава Канады проходит без иностранного влияния и находится под надёжным контролем. В ведомстве у</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-27-v-kalgari-vystroilis-ocheredi-za-podpisyu-pod-petitsiey-o-vy/">
+  <div class="card-img"><img src="/photos/photo_2049@27-01-2026_20-01-25.jpg" alt="В Калгари выстроились очереди за подписью под петицией о выходе Альберты из Канады" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В Калгари выстроились очереди за подписью под петицией о выходе Альберты из Канады</div>
+    <div class="card-excerpt">В Альберте набирает обороты кампания за проведение референдума о выходе провинции из состава Канады. В последние недели сбор подписей проходил в небольших городах и сельских общинах, а накануне впервы</div>
+    <div class="card-meta">
+      <span class="card-date">27 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-27-vankuver-trebuet-ogranichit-yarkost-led-far-na-federalnom-ur/">
+  <div class="card-img"><img src="/photos/photo_2047@27-01-2026_17-00-36.jpg" alt="Ванкувер требует ограничить яркость LED-фар на федеральном уровне" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Ванкувер требует ограничить яркость LED-фар на федеральном уровне</div>
+    <div class="card-excerpt">⁠  Городской совет Ванкувера единогласно принял редкое для себя решение: обратиться к федеральному правительству с требованием ввести чёткие и обязательные нормы по яркости автомобильных LED-фар.  ⁠</div>
+    <div class="card-meta">
+      <span class="card-date">27 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-27-konechno-net-karni-otverg-razgovory-o-dosrochnyh-vyborah/">
+  <div class="card-img"><img src="/photos/photo_2043@27-01-2026_12-02-21.jpg" alt="«Конечно, нет»: Карни отверг разговоры о досрочных выборах" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">«Конечно, нет»: Карни отверг разговоры о досрочных выборах</div>
+    <div class="card-excerpt">⁠  Премьер-министр Марк Карни заявил, что федеральное правительство не рассматривает вариант досрочных выборов весной, несмотря на активизацию парламентской повестки и явно «кампанийный» стиль последн</div>
+    <div class="card-meta">
+      <span class="card-date">27 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-26-odna-i-ta-zhe-firma-vela-kampaniyu-za-spasenie-cbc-i-kampani/">
+  <div class="card-img"><img src="/photos/photo_2039@26-01-2026_13-04-21.jpg" alt="Одна и та же фирма вела кампанию за спасение CBC — и кампанию Canada Proud за её ликвидацию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalobserver.com</div>
+    <div class="card-title">Одна и та же фирма вела кампанию за спасение CBC — и кампанию Canada Proud за её ликвидацию</div>
+    <div class="card-excerpt">Прошлой весной канадцы одновременно видели в соцсетях два прямо противоположных месседжа. Один — от профсоюза журналистов Canadian Media Guild, представляющего в основном сотрудников CBC: «Местная жур</div>
+    <div class="card-meta">
+      <span class="card-date">26 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-26-federalnyy-treker-liberaly-uvelichili-otryv-do-8-punktov-42-/">
+  <div class="card-img"><img src="/photos/photo_2038@26-01-2026_11-07-11.jpg" alt="Федеральный трекер: либералы увеличили отрыв до 8 пунктов — 42% против 34%" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">press.liaisonstrategies.ca</div>
+    <div class="card-title">Федеральный трекер: либералы увеличили отрыв до 8 пунктов — 42% против 34%</div>
+    <div class="card-excerpt">Новый национальный опрос Liaison Strategies показывает, что либералы продолжают уходить вперёд. Среди определившихся и склоняющихся избирателей они набирают 42%, консерваторы — 34%. НДП остаётся на ур</div>
+    <div class="card-meta">
+      <span class="card-date">26 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-25-ssha-pytayutsya-sygrat-na-albertskom-separatizme-chtoby-rask/">
+  <div class="card-img"><img src="/photos/photo_2030@25-01-2026_12-02-41.jpg" alt="США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">lemonde.fr</div>
+    <div class="card-title">США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре.</div>
+    <div class="card-excerpt">После ослабления риторики вокруг Гренландии администрация Дональда Трампа сместила фокус внимания на Канаду — точнее, на Альберту. Нефтедобывающая провинция, обеспечивающая около 90% канадской нефти,</div>
+    <div class="card-meta">
+      <span class="card-date">25 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-24-karni-vypustil-video-pokupay-kanadskoe-bez-upominaniya-ssha-/">
+  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
+  <div class="card-body">
+    <div class="card-src">x.com</div>
+    <div class="card-title">Карни выпустил видео «Покупай канадское» — без упоминания США, но с очевидным адресатом</div>
+    <div class="card-excerpt">‎  Премьер-министр Марк Карни опубликовал в соцсетях короткое, заранее записанное видео в стиле предвыборной кампании, посвящённое идее «покупать и строить канадское» как ответ на внешние экономически</div>
+    <div class="card-meta">
+      <span class="card-date">24 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-24-esli-by-golosovala-tolko-molodyozh-konservatory-razgromili-b/">
+  <div class="card-img"><img src="/photos/photo_2028@24-01-2026_17-05-21.jpg" alt="Если бы голосовала только молодёжь, консерваторы разгромили бы выборы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Если бы голосовала только молодёжь, консерваторы разгромили бы выборы</div>
+    <div class="card-excerpt">‎  Новый опрос показывает беспрецедентный для Канады раскол по возрасту: молодые избиратели массово уходят к консерваторам, тогда как старшие поколения столь же уверенно поддерживают премьер-министра</div>
+    <div class="card-meta">
+      <span class="card-date">24 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-22-karni-krizisnyy-menedzher-kotoryy-seychas-nuzhen-kanade/">
+  <div class="card-img"><img src="/photos/photo_2015@22-01-2026_22-04-01.jpg" alt="Карни — кризисный менеджер, который сейчас нужен Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">Карни — кризисный менеджер, который сейчас нужен Канаде</div>
+    <div class="card-excerpt">Стивен Махер из Maclean’s пишет, что речь Марка Карни в Давосе показала: именно он — кризисный менеджер, который сейчас нужен Канаде ‎  Автор признаётся, что раньше видел в Карни не только выдающегося</div>
+    <div class="card-meta">
+      <span class="card-date">22 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-21-eto-nepriemlemo-dag-ford-zhyostko-otvetil-trampu-na-novye-za/">
+  <div class="card-img"><img src="/photos/photo_2002@21-01-2026_16-40-53.jpg" alt="«Это неприемлемо»: Даг Форд жёстко ответил Трампу на новые заявления о Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">«Это неприемлемо»: Даг Форд жёстко ответил Трампу на новые заявления о Канаде</div>
+    <div class="card-excerpt">⁠  Премьер Онтарио Даг Форд резко раскритиковал президента США Дональда Трампа после его выступления на Всемирном экономическом форуме в Давосе, где тот вновь заговорил о контроле над Гренландией и за</div>
+    <div class="card-meta">
+      <span class="card-date">21 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-19-per-poliev-nachal-kampaniyu-po-uderzhaniyu-liderstva-v-konse/">
+  <div class="card-img"><img src="/photos/photo_1974@19-01-2026_10-05-05.jpg" alt="Пьер Полиев начал кампанию по удержанию лидерства в Консервативной партии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Пьер Полиев начал кампанию по удержанию лидерства в Консервативной партии</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев и его ближайшее окружение заранее готовятся к голосованию о доверии, которое пройдёт 30 января на партийном съезде в Калгари. Формально его победа почти не вызывает сом</div>
+    <div class="card-meta">
+      <span class="card-date">19 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-17-tramp-trebuet-ot-kanady-snyat-boykot-amerikanskogo-alkogolya/">
+  <div class="card-img"><img src="/photos/photo_1967@17-01-2026_14-06-45.jpg" alt="Трамп требует от Канады снять бойкот американского алкоголя" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ttnews.com</div>
+    <div class="card-title">Трамп требует от Канады снять бойкот американского алкоголя</div>
+    <div class="card-excerpt">Администрация Дональда Трампа усиливает давление на Оттаву, добиваясь отмены провинциального бойкота американского вина и крепкого алкоголя. Но общественное мнение в Канаде остаётся жёстким — большинс</div>
+    <div class="card-meta">
+      <span class="card-date">17 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-15-premer-ministr-kvebeka-fransua-lego-obyavil-ob-otstavke-za-n/">
+  <div class="card-img"><img src="/photos/photo_1950@15-01-2026_12-04-21.jpg" alt="Премьер-министр Квебека Франсуа Лего объявил об отставке — за несколько месяцев до провинциальных выборов." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Премьер-министр Квебека Франсуа Лего объявил об отставке — за несколько месяцев до провинциальных выборов.</div>
+    <div class="card-excerpt">После восьми лет у власти глава правительства сообщил, что покидает пост лидера Coalition Avenir Québec. Он останется премьером до тех пор, пока партия не выберет нового руководителя. Выборы в Национа</div>
+    <div class="card-meta">
+      <span class="card-date">15 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-15-bonni-krombi-bolshe-ne-lider-liberalnoy-partii-ontario-i-ush/">
+  <div class="card-img"><img src="/photos/photo_1948@15-01-2026_10-03-27.jpg" alt="Бонни Кромби больше не лидер Либеральной партии Онтарио — и ушла она немедленно." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Бонни Кромби больше не лидер Либеральной партии Онтарио — и ушла она немедленно.</div>
+    <div class="card-excerpt">Партия объявила об отставке в среду днём. Формулировка жёсткая и без переходного периода: полномочия Кромби прекращены «effective immediately». Это позволяет либералам назначить временного лидера уже</div>
+    <div class="card-meta">
+      <span class="card-date">15 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-14-karni-v-pekine-ostorozhnyy-perezapusk-s-kitaem/">
+  <div class="card-img"><img src="/photos/photo_1943@14-01-2026_13-04-28.jpg" alt="Карни в Пекине: осторожный перезапуск с Китаем" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Карни в Пекине: осторожный перезапуск с Китаем</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни прибыл в Пекин с кратким, но политически чувствительным визитом. Впереди встречи с руководством КНР и переговоры с Си Цзиньпином — первые на таком уровне за восемь лет.   От</div>
+    <div class="card-meta">
+      <span class="card-date">14 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb" href="/tag/vybory/">←</a><a class="pb" href="/tag/vybory/">1</a><a class="pb on" href="/tag/vybory/page/2/">2</a><a class="pb" href="/tag/vybory/page/3/">3</a><a class="pb" href="/tag/vybory/page/4/">4</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/vybory/page/13/">13</a><a class="pb" href="/tag/vybory/page/3/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
 </body>
 </html>

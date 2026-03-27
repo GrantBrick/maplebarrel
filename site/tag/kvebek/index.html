@@ -1,1337 +1,677 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#Квебек | Maple Barrel</title>
-    <style>
-:root {
-    --bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #c53030;
-    --border: #eeeeee;
-    --bg-alt: #f9f9f9;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#Квебек — Maple Barrel</title>
+<meta name="description" content="Все материалы по теме «Квебек» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<link rel="canonical" href="https://journalists.ca/tag/kvebek/">
+<meta property="og:title" content="#Квебек — Maple Barrel">
+<meta property="og:description" content="Все материалы по теме «Квебек» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta property="og:url" content="https://journalists.ca/tag/kvebek/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="#Квебек — Maple Barrel">
+<meta name="twitter:description" content="Все материалы по теме «Квебек» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    line-height: 1.6; color: var(--text-main); background: var(--bg); 
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
-a { color: inherit; text-decoration: none; }
-header { 
-    background: #fff; border-bottom: 1px solid var(--border); 
-    padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
 }
-.header-content { 
-    max-width: 800px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; align-items: center;
+
+.tgb:hover{
+  background:#a93226;
 }
-.logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.03em; color: var(--accent); }
-.nav-menu { display: flex; gap: 1.2rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-.nav-menu a:hover { color: var(--accent); }
-.container { max-width: 800px; margin: 2.5rem auto; padding: 0 20px; }
-.post-card { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
-.post-card:last-child { border-bottom: none; }
-.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; font-weight: 500; }
-.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; background: var(--bg-alt); }
-.post-image { width: 100%; height: auto; display: block; }
-.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; color: #222; }
-.post-content b, .post-content strong { font-weight: 700; color: #000; }
-.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { 
-    font-size: 0.75rem; padding: 5px 12px; border-radius: 4px; 
-    background: var(--bg-alt); color: #555; font-weight: 600; border: 1px solid #eee;
+
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
+
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform .15s;
 }
-.person-badge { border-color: #fed7d7; color: var(--accent); }
-.pagination { margin: 4rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
-.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-.page-title { margin-bottom: 3rem; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; }
-footer { text-align: center; padding: 4rem 0; color: #aaa; font-size: 0.75rem; border-top: 1px solid var(--border); }
-@media (max-width: 600px) { .nav-menu { display: none; } }
+.card:hover{
+  transform:translateY(-2px);
+}
+
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
+.tag-hdr p{font-size:13px;color:var(--t3)}
+@media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="/" class="logo">MAPLE BARREL</a>
-            <nav class="nav-menu">
-                <a href="/materials/">Материалы</a>
-                <a href="/longreads/">Лонгриды</a>
-                <a href="/about/">О проекте</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container"><h1 class="page-title">#Квебек</h1><article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2462@26-03-2026_17-03-18.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Глава Air Canada снова «промахнулся» с двуязычием
 
-​
-<a href="https://apple.news/A8JId04GNR_KX_-4Xfxkh_A">Колумнист Конрад Якабуски пишет,</a> что глава Air Canada Майкл Руссо вновь оказался в центре скандала из-за игнорирования французского языка.
-
-​
-Поводом стало видеообращение после крушения самолёта в Нью-Йорке: Руссо выступил почти полностью на английском, ограничившись «bonjour» и «merci», добавив лишь французские субтитры.
-
-​
-Это вызвало резкую реакцию в Квебеке, где соблюдение закона о официальных языках давно считается хронической проблемой для авиакомпании.
-
-​
-Автор отмечает, что жалобы на Air Canada регулярно занимают первое место у комиссара по официальным языкам, а прогресса почти нет.
-
-​
-Ситуация особенно чувствительна, поскольку рейс вылетел из Монреаля, а среди экипажа и пассажиров были франкофоны, включая одного из погибших пилотов.
-
-​
-Премьер-министр Марк Карни ранее напоминал, что французский язык — ключевая часть канадской идентичности и международной роли страны.
-
-​
-На этом фоне поведение Руссо выглядит как демонстративное игнорирование двуязычия.
-
-​
-Якабуски также указывает на более широкую проблему: доля франкофонов в Канаде снижается, а уровень владения французским вне Квебека остаётся слабым.
-
-​
-При этом глобально французский язык растёт, особенно в Африке, и его значение в мире увеличивается.
-
-​
-Автор считает, что Air Canada могла бы использовать двуязычие как конкурентное преимущество, но руководство компании этим не пользуется.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">24 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2439@24-03-2026_19-04-04.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Жилищный трибунал Квебека признал запрет на животных нарушением Хартии прав
-​
-В Квебеке произошло решение, которое может серьёзно изменить рынок аренды: <a href="https://www.cbc.ca/news/canada/montreal/quebec-no-pets-clause-rental-housing-tenants-landlords-9.7138728">Tribunal administratif du logement признал</a>, что пункт в договоре аренды о запрете животных может нарушать Хартию прав и свобод.
-​
-Поводом стало дело арендатора Дежардена, которого пытались выселить из-за собаки. Судья Сюзанна Гевремон отказала арендодателю и разрешила ему остаться в квартире.
-​
-Ключевой вывод:
-полный запрет на животных — это вмешательство в частную и семейную жизнь человека в его собственном доме.
-​
-Решение опирается на положения Хартии Квебека о:
-– праве на личную свободу
-– праве на частную жизнь
-​
-Что это меняет:
-– запреты на животных не исчезают автоматически
-– но теперь их можно оспаривать
-– суд будет рассматривать каждую ситуацию отдельно
-​
-Иначе говоря: сам факт наличия пункта в договоре больше не гарантирует, что его можно применить.
-​
-Для арендодателей это означает новую реальность — придётся доказывать, что запрет обоснован (например, ущерб или нарушения).
-​
-Для арендаторов — серьёзный юридический инструмент, особенно на фоне жилищного кризиса.
-​
-Зоозащитники отмечают, что проблема масштабная:
-многие люди вынуждены отказываться от питомцев из-за невозможности найти жильё.
-​
-Министр жилищной политики Каролин Пру подчеркнула, что решение касается конкретного случая — но давление на изменение закона уже растёт.
-​
-Фактически суд впервые прямо связал запрет на животных с нарушением фундаментальных прав — и это может стать прецедентом для будущих дел.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">24 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2432@24-03-2026_10-01-56.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Пожилые канадцы остаются главной опорой Карни — опрос
-​
-<a href="https://torontosun.com/news/national/older-canadians-still-mark-carneys-biggest-support-base-poll">Новый опрос Liaison Strategies показывает:</a> лидерство Марк Карни держится не на молодёжи, а на избирателях старшего возраста.
-​
-Либералы сохраняют серьёзный отрыв от консерваторов — 41% против 27% у команды Пьер Полиев.
-​
-Но если копнуть глубже, видно чёткое разделение по возрасту:
-– 50–64 года: 48% за либералов
-– 65+: 41%
-– 35–49: 40%
-– 18–34: всего 36%
-​
-Среди молодых картина уже другая — там консерваторы фактически на равных с либералами, а в группе до 35 лет даже показывают сильнейший результат (34%).
-​
-Иначе говоря:
-старшее поколение тянет Карни вверх, молодёжь — балансирует ситуацию.
-​
-Регионально:
-– Атлантическая Канада — 46% за либералов
-– Британская Колумбия — 47%
-– Онтарио — 44%
-​
-База консерваторов:
-– Альберта — 42%
-– Манитоба и Саскачеван — 34%
-​
-Отдельный сигнал — крах НДП:
-всего 6% поддержки, на уровне Блока Квебекуа.
-​
-И при этом 14% избирателей всё ещё не определились — немалый резерв, который может качнуть баланс.
-​
-Фактически формируется классическая линия раскола: возраст против возраста.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">23 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2427@23-03-2026_14-01-43.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">В США резко вырос спрос на канадское гражданство после изменения закона
-
-​
-<a href="https://www.ctvnews.ca/canada/article/more-americans-are-applying-for-proof-of-canadian-citizenship-since-law-passed-lawyer/?taid=69c03e92a072250001e9c77f&utm_campaign=trueAnthem%3A+Trending+Content&utm_medium=trueAnthem&utm_source=twitter">После изменения закона о гражданстве в Канаде резко увеличилось </a>число заявок от американцев, желающих подтвердить своё право на канадский паспорт.
-
-​
-Речь идёт о законе Bill C-3, принятом в декабре 2025 года. Он отменил прежнее ограничение «первого поколения», которое не позволяло передавать гражданство дальше детей, родившихся за пределами страны.
-
-​
-Теперь подавать на подтверждение гражданства могут потомки канадцев без ограничений по поколению — если они родились до 15 декабря 2025 года.
-
-​
-Иммиграционный юрист Кассандра Фулц говорит, что спрос «буквально взорвался». По её словам, поток заявок начал расти ещё до принятия закона — на фоне временных мер.
-
-​
-Важно: гражданство не выдаётся автоматически. Нужно пройти процедуру подтверждения, собрать документы и доказать происхождение.
-
-​
-Тем не менее, по словам юриста, «дверь теперь полностью открыта» для всех, кто подпадает под новые правила.
-
-​
-Заявки идут со всей территории США — от северо-востока (потомки выходцев из Квебека XIX–XX веков) до юга (потомки акадийцев, депортированных в XVIII веке), а также западных штатов вроде Калифорнии и Орегона.
-
-​
-Фактически, интерес к канадскому гражданству сейчас не ограничен ни географией, ни поколением — если есть хоть какая-то связь с Канадой, люди пытаются её использовать.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2410@19-03-2026_19-04-01.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Канада опустилась на 25-е место в рейтинге счастья — худший результат в истории
-
-​
-Канада больше не в клубе «самых счастливых». <a href="https://www.theglobeandmail.com/life/article-canada-happiness-report-25th-out-of-147-countries/">В новом World Happiness Report страна заняла </a>лишь 25-е место из 147 — ещё десять лет назад она была шестой, рядом со скандинавскими лидерами.
-
-​
-Но главный провал — не общий рейтинг, а ситуация среди молодёжи.
-
-​
-Если смотреть только на людей до 25 лет, Канада падает на 71-е место. Это один из самых резких спадов в мире за десятилетие. Молодые канадцы, которые раньше считались самой счастливой группой, теперь — самая недовольная.
-
-​
-Парадокс в том, что в большинстве стран мира ситуация обратная. Даже там, где условия жизни хуже, уровень удовлетворённости среди молодёжи растёт. Канада и другие западные страны идут в противоположном направлении.
-
-​
-Причины выглядят вполне приземлённо. Рост цен на жильё и еду, снижение доступности образования, ощущение, что «нормальная жизнь» становится недостижимой. К этому добавляются страхи по поводу ИИ, климата, войны и общее чувство нестабильности.
-
-​
-Отдельная проблема — падение доверия к институтам. За 10 лет Канада резко просела по ощущению свободы выбора в жизни: с 12-го места до 58-го. Люди всё чаще чувствуют, что не контролируют собственное будущее.
-
-​
-Есть и культурный фактор. Молодые канадцы сравнивают себя с предыдущими поколениями и ожиданиями общества — и видят разрыв. Когда цели вроде покупки жилья кажутся недостижимыми, меняется и поведение.
-
-​
-На этом фоне Квебек выглядит исключением. Если бы он был отдельной страной, занял бы 5-е место в мире. Объяснение простое: более доступное образование, дешёвый детский уход и сильные социальные программы.
-
-​
-В итоге разрыв очевиден. Страна остаётся богатой и стабильной, но субъективное ощущение жизни — особенно у молодых — стремительно ухудшается.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">19 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2402@19-03-2026_10-03-44.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Население Канады сократилось на 100 тысяч к концу 2025 года. Вот почему
-
-​
-<a href="https://www.ctvnews.ca/canada/article/population-dropped-in-closing-months-of-2025-due-to-immigration-slowdown-statcan/">Канада неожиданно ушла в минус по численности населения </a>— минус более 100 тысяч человек за последние три месяца 2025 года, по предварительным данным Статистического управления.
-
-​
-Главная причина — резкое сокращение числа временных жителей.
-
-​
-– Минус 171 тысяча non-permanent residents
-Речь о людях с учебными и рабочими визами. Именно их отток стал ключевым фактором падения.
-
-​
-– Иммиграция уже не спасает
-Да, страна приняла около 83 тысяч постоянных резидентов. Но это на 19% меньше, чем годом ранее — и этого недостаточно, чтобы компенсировать потери.
-
-​
-– Естественная убыль населения
-С октября по январь смертей было больше, чем рождений (минус 781). То есть без миграции население вообще сокращается.
-
-​
-– Резкое замедление роста
-Для сравнения:
-– в конце 2024 года население выросло на 80 тысяч
-– в конце 2023 — сразу на 257 тысяч
-
-Теперь — падение.
-
-​
-– Причина в политике
-Снижение числа временных резидентов связано с ужесточением правил по студенческим и рабочим визам.
-
-​
-– Попытка исправить ситуацию
-Правительство уже объявило ускоренный переход примерно 33 тысяч держателей work permit в статус постоянных резидентов (в основном в Квебеке).
-
-​
-Статистика предупреждает: цифры могут пересмотреть, так как сейчас растёт число продлений виз. Но сам тренд очевиден — прежний миграционный рост сбавил ход.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2401@18-03-2026_22-00-28.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Население Канады сокращается — впервые за последние годы
-
-​
-<a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260318/dq260318b-eng.htm">Новые данные Statistics Canada показывают</a>: рост населения страны резко замедлился и перешёл в спад.
-
-​
-По состоянию на 1 января 2026 года население составило 41,47 млн человек.
-
-​
-За последний квартал 2025 года:
-
-– минус 103 504 человека
-– снижение на 0,2%
-
-​
-Это резкий контраст с предыдущими годами:
-
-– 2024: +80 тыс.
-– 2023: +256 тыс.
-
-​
-Главная причина — падение числа временных жителей.
-
-​
-Их количество сократилось сразу на 171 тыс. за квартал и опустилось до 2,67 млн.
-
-​
-Снижение связано с уменьшением числа:
-
-– студентов
-– работников по временным визам
-
-​
-Иммиграция остаётся единственным фактором роста, но и она падает:
-
-– 83 168 новых постоянных жителей
-– минус почти 20% к прошлому году
-
-​
-При этом естественный прирост стал отрицательным:
-
-– смертей больше, чем рождений
-
-​
-То есть без иммиграции население уже сокращается.
-
-​
-По регионам:
-
-– крупнейшее падение — Британская Колумбия, Онтарио и Квебек
-– единственный рост — Альберта (+0,1%)
-
-​
-Альберта продолжает притягивать людей из других провинций уже 14 кварталов подряд.
-
-​
-Онтарио и Квебек, наоборот, теряют население за счёт внутренней миграции.
-
-​
-В целом за 2025 год:
-
-– минус 102 тыс. человек
-
-​
-Но есть нюанс: статистика предварительная.
-
-Продления виз и разрешений могут частично изменить цифры позже.
-
-​
-Тем не менее тренд очевиден — Канада впервые за долгое время сталкивается не с ростом, а с сокращением населения.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2397@18-03-2026_20-00-41.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Более «дешёвая» провинция? В Канаде это не так просто
-
-<a href="https://www.cbc.ca/news/canada/affordability-canada-provinces-factors-9.7126052">Обязательно гляньте оригинал, там огромный материал с таблицами по провинциям </a>
-​
-Новый разбор от CBC News показывает: идея «переехать туда, где дешевле» часто не работает так, как ожидают.
-
-​
-На бумаге всё выглядит просто:
-
-– Альберта — дешёвое жильё и низкие налоги
-– Квебек — высокие налоги
-– Британская Колумбия — дорого
-
-​
-На практике — совсем другая картина.
-
-​
-Например, одна семья переехала из Ванкувера в Калгари ради экономии — и в итоге ушла в долги. Позже переезд в Монреаль помог стабилизировать финансы, несмотря на более высокие налоги.
-
-​
-Другие, наоборот, выиграли от переезда в Альберту — всё зависит от дохода, состава семьи и образа жизни.
-
-​
-Главный показатель — так называемая «потребительская корзина».
-
-В 2024 году для базовой жизни нужно было:
-
-– Квебек — ~$47 тыс.
-– Онтарио — ~$55 тыс.
-– Альберта — ~$55 тыс.
-– Британская Колумбия — ~$56 тыс.
-
-​
-Но это средние цифры, которые скрывают огромную разницу между городами и регионами.
-
-​
-Ключевой фактор — доходы.
-
-В Альберте зарплаты выше, что частично компенсирует высокие расходы. Но это преимущество быстро сокращается.
-
-​
-Жильё остаётся главной статьёй расходов.
-
-– Торонто и Ванкувер — самые дорогие
-– Калгари и Эдмонтон — относительно доступные
-
-​
-Но даже «дешёвые» города дорожают.
-
-Например, аренда в Галифаксе превысила $2 200, а в небольшом Гуэлфе — уже около $3 100 в месяц.
-
-​
-Еда дорожает по всей стране без сильной разницы между регионами.
-
-При этом в Атлантике и северных территориях продукты часто дороже из-за логистики.
-
-​
-Неожиданный фактор — транспорт:
-
-– в больших городах можно жить без машины
-– в небольших — автомобиль становится обязательным расходом
-
-​
-Страховка, например, в Онтарио почти вдвое дороже, чем в некоторых других провинциях.
-
-​
-Налоги — ещё один миф.
-
-Да, в Альберте ниже налоги и нет провинциального НДС.
-
-Но в Квебеке семьи с детьми получают больше льгот, что может перекрывать налоговую нагрузку.
-
-​
-Коммунальные услуги тоже сильно различаются:
-
-– Квебек — самые низкие цены на электричество
-– Альберта — более высокие и нестабильные тарифы
-
-​
-Итог, который всё чаще подтверждают реальные истории:
-
-переезд в «дешёвую» провинцию не гарантирует экономию.
-
-Слишком много переменных — от зарплаты до стоимости транспорта и даже отопления.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/tarify/" class="badge">#тарифы</a><a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2396@18-03-2026_19-03-47.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">«Здоровье канадцев ухудшается — сильнее всего у молодых до 35 лет»
-
-​
-<a href="https://globalnews.ca/news/11734772/functional-health-declining-canadians-under-35/">Новый отчёт Statistics Canada показывает заметное ухудшение состояния здоровья канадцев </a>за последнее десятилетие.
-
-​
-Доля взрослых, оценивающих своё здоровье как «очень хорошее» или «идеальное», снизилась с 68,6% в 2015 году до 56,4% в 2024-м.
-
-​
-Речь идёт о так называемом «функциональном здоровье» — показателе, который учитывает:
-
-– зрение, слух и речь
-– когнитивные способности
-– подвижность и ловкость
-– эмоциональное состояние и боль
-
-​
-Главный провал — именно в эмоциональном состоянии и росте хронической боли.
-
-​
-Самое резкое ухудшение — у молодых:
-
-– 18–34 года: падение с 73,4% до 60,1%
-– 35–49 лет: с 73% до 60,4%
-
-​
-Для сравнения: у пожилых старше 75 лет показатели почти не изменились.
-
-​
-Отдельно отмечается:
-
-– женщины в среднем чувствуют себя хуже мужчин
-– но при этом мужчины реже сообщают, что довольны жизнью
-
-​
-Эмоциональное состояние просело особенно сильно:
-
-– 78,3% в 2015 году чувствовали себя счастливыми и заинтересованными жизнью
-– 61,2% в 2024 году
-
-​
-И теперь именно молодые показывают худшие результаты, тогда как раньше разницы между возрастами почти не было.
-
-​
-Также выросла распространённость боли:
-
-– без боли в 2015: 77,9%
-– в 2024: 72%
-
-​
-По регионам ситуация различается:
-
-– худшие показатели — Новая Шотландия и Нью-Брансуик
-– лучшие — Квебек
-
-​
-Фактически, данные ломают прежнюю картину: раньше здоровье молодых оставалось стабильным, а пожилые даже показывали улучшение. Теперь всё наоборот — именно молодое поколение теряет позиции быстрее всего.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2395@18-03-2026_17-04-57.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье
-
-​
-<a href="https://www.ctvnews.ca/health/article/why-is-mens-health-becoming-a-national-conversation/">Профессор Нииган Синклер из University of Manitoba заявил</a>, что в Канаде сформировался устойчивый кризис, связанный со здоровьем мужчин.
-
-​
-По его словам, мужчины в стране живут меньше, чаще страдают от сердечно-сосудистых заболеваний, рака и ожирения. Особенно тяжелая ситуация наблюдается среди коренных народов и иммигрантов.
-
-​
-– Канадские мужчины умирают раньше и болеют чаще других, – отметил он.
-
-​
-Федеральное правительство уже начало обсуждение национальной стратегии по мужскому здоровью, запустив общенациональный опрос. Это стало поводом для более широкой дискуссии — от психического здоровья до роли так называемой «маскулинности».
-
-​
-Синклер выделяет две ключевые причины:
-
-– нехватка доступных медицинских и социальных услуг для мужчин
-– культура, в которой мужчины избегают обращаться за помощью
-
-​
-Особенно это заметно в уязвимых группах, где доступ к медицине и так ограничен.
-
-​
-Отдельные данные показывают резкий разрыв по регионам: в Нунавуте — самые высокие показатели преждевременной смертности среди мужчин, в Квебеке — самые низкие.
-
-​
-Среди факторов, усиливающих проблему:
-
-– хронические заболевания, связанные с образом жизни
-– ограниченный доступ к медицине
-– несчастные случаи и рискованное поведение
-– высокий уровень самоубийств
-
-​
-Синклер прямо называет происходящее «национальным кризисом» и подчеркивает: игнорирование мужского психического здоровья бьет по семьям и обществу в целом.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2393@18-03-2026_14-05-42.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Премьер Британской Колумбии против расширения программы временных иностранных работников
-
-​
-<a href="https://www.cbc.ca/news/canada/british-columbia/temporary-foreign-workers-sechelt-sunshine-coast-rural-cap-9.7131396">Премьер провинции Дэвид Эби дал понять</a>, что не поддержит инициативу федерального правительства по расширению программы временных иностранных работников.
-
-​
-Речь идет о решении Оттавы увеличить долю низкооплачиваемых временных работников в сельских районах с 10% до 15%. Мера временная — до марта 2027 года — и сопровождается автоматическим продлением разрешений на работу на один год.
-
-​
-Эби открыто заявил: проблема не решается такими мерами. По его словам, программа делает работников зависимыми от работодателей и создает условия для эксплуатации.
-
-​
-– Людей завозят, а через пару лет отправляют обратно. Как это помогает экономике? – фактически задал он вопрос.
-
-​
-Позиция провинции простая: вместо временных схем нужен путь к постоянному статусу. Эби требует, чтобы Британская Колумбия получила больше полномочий по предоставлению ПМЖ — как это уже есть у Квебека.
-
-​
-Интересно, что в этом вопросе он совпадает с критикой со стороны лидера консерваторов Пьер Полиев, который ранее выступал против самой концепции программы.
-
-​
-При этом на местах — совсем другая картина. Мэр города Сешелт Джон Хендерсон прямо говорит о нехватке рабочих рук и требует ясности от федеральных властей:
-
-​
-– Люди не могут планировать. Бизнес не может планировать. Это уже выглядит жестоко.
-
-​
-Местный либеральный депутат Патрик Вейлер поддержал изменения, заявив, что без иностранных работников сельские регионы просто не справятся с дефицитом кадров.
-
-​
-Но даже он признал: нынешние меры — временное латание дыр, а не долгосрочное решение.
-
-​
-Главный конфликт очевиден:
-– провинция требует иммиграции и стабильности
-– Оттава предлагает временную рабочую силу
-– бизнесу нужны люди уже сейчас
-
-​
-И пока политики спорят, реальные семьи рискуют потерять право остаться в стране — вместе с работой и будущим.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">18 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2390@18-03-2026_12-03-05.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">«Бывший депутат Блока Квебекуа обвинён в сексуальных преступлениях против несовершеннолетних»
-
-​
-<a href="https://www.cbc.ca/news/canada/montreal/former-mp-arrested-sex-crimes-9.7132203">Бывший депутат от Блок Квебекуа Паскаль-Пьер Пайе предстал перед судом</a> в Квебеке по обвинениям в сексуальных преступлениях против несовершеннолетних.
-
-​
-47-летний Пайе, который работал учителем до и после своей политической карьеры, был освобождён под строгие условия:
-
-– запрет посещать парки, детские площадки и детсады
-– запрет занимать любые должности, связанные с детьми
-
-​
-По данным полиции Квебека, речь идёт о двух эпизодах:
-
-– первый — в 2006 году, когда он, находясь в позиции доверия, якобы совершил преступления против подростка
-– второй — в августе 2024 года, где фигурирует лицо младше 16 лет
-
-​
-Пайе представлял округ Луи-Эбер в парламенте с 2008 по 2011 год.
-
-​
-Его работодатель, Centre de services scolaire de la Capitale, подтвердил, что он отстранён от преподавания с февраля.
-
-​
-Дело охватывает почти два десятилетия — от периода до его избрания в парламент до относительно недавних событий.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">16 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2372@16-03-2026_19-00-49.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Новый опрос Abacus: либералы увеличивают отрыв до 11 пунктов, одобрение правительства на максимуме
-
-​
-<a href="https://abacusdata.ca/new-abacus-poll-liberal-lead-widens-to-11-as-government-approval-hits-new-high/">Свежий опрос Abacus Data показывает</a>, что спустя год после прихода к власти правительства Марка Карни позиции либералов заметно укрепились.
-
-​
-Если федеральные выборы прошли бы сейчас, либералы получили бы 46% голосов среди определившихся избирателей. Консерваторы во главе с Пьером Полиевом набирают 35%.
-
-​
-Остальные партии значительно отстают:
-– Новая демократическая партия — 7%
-– Блок Квебекуа — 7%
-– Зелёные — 3%
-– Народная партия — 1%
-
-​
-Таким образом, национальный отрыв либералов составляет примерно 11 пунктов — это самый большой разрыв в опросах Abacus с августа 2021 года.
-
-​
-Одобрение работы федерального правительства также достигло максимума за всё время премьерства Карни. Сейчас 56% канадцев одобряют работу правительства, а 28% — не одобряют.
-
-​
-За год поддержка выросла значительно:
-– март 2025 года — 41% одобряют
-– март 2026 года — 56% одобряют
-
-​
-Личный рейтинг Марка Карни также остаётся сильным. Положительное мнение о нём имеют 53% канадцев, отрицательное — 28%.
-
-​
-У Пьера Полиева картина более полярная:
-– положительное мнение — 36%
-– отрицательное — 44%
-
-​
-Опрос также показывает изменение настроений в стране.
-
-​
-42% канадцев считают, что страна движется в правильном направлении, а 43% — что в неправильном.
-
-​
-При этом взгляды на мировую ситуацию гораздо более пессимистичны:
-– только 12% считают, что мир движется в правильном направлении
-– 79% считают, что мир идёт по неправильному пути
-
-​
-Похожее отношение и к США — лишь 13% считают, что страна движется в правильном направлении.
-
-​
-Главной проблемой для канадцев остаётся стоимость жизни. Её называют среди трёх главных вопросов 65% респондентов.
-
-​
-Далее идут:
-– Дональд Трамп и политика США — 41%
-– экономика — 39%
-– здравоохранение — 31%
-– доступность жилья — 31%
-– иммиграция — 28%
-
-​
-Особенно заметно преимущество либералов среди людей, которые считают политику Дональда Трампа важнейшей проблемой: среди них 58% считают, что именно либералы лучше справятся с этой темой, и только 18% — что консерваторы.
-
-​
-Впервые за время наблюдений Abacus больше канадцев считают, что либералы заслуживают переизбрания, чем тех, кто уверен, что стране нужна смена власти и существует хорошая альтернатива.
-
-​
-40% респондентов говорят, что либералы заслуживают нового мандата.
-36% считают, что стране нужна смена власти и есть достойная альтернатива.
-25% хотят перемен, но не видят убедительной альтернативы.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/donald-tramp/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/immigratsiya/" class="badge">#иммиграция</a><a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/ekonomika/" class="badge">#экономика</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">15 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2365@15-03-2026_13-03-44.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Парки Канады планируют отстрел десятков оленей на историческом острове в Квебеке
-
-​
-<a href="https://www.cbc.ca/news/politics/parks-canada-deer-grosse-ile-9.7127828">Федеральное агентство Parks Canada</a> собирается резко сократить популяцию белохвостых оленей на острове Гросс-Иль в реке Святого Лаврентия, примерно в 48 километрах от Квебек-Сити. По данным ведомства, животные представляют угрозу для редких растений и создают опасность для самолётов, которые приземляются на островной взлётно-посадочной полосе.
-
-​
-Попытки отпугивать оленей — шумом, патрулями на вездеходах и маркерами с меловыми шарами — результата не дали. В Parks Canada признают: животные почти перестали реагировать на эти меры и возвращаются к полосе сразу после ухода сотрудников.
-
-​
-По оценке агентства, на острове площадью всего 1,8 км² сейчас живёт около 89–95 оленей. Экосистема при этом способна выдержать примерно восемь животных. Отсутствие хищников и запрет охоты привели к резкому росту популяции.
-
-​
-Исследование Parks Canada показало, что из-за чрезмерного выпаса и вытаптывания страдает редкая флора острова. Там растут два эндемичных вида Квебека — горечавка Викторена и водяной болиголов Викторена, а также исчезающий орех буттернат и ещё более десятка уязвимых видов растений.
-
-​
-Остров Гросс-Иль имеет особое историческое значение. В 1832 году здесь открыли карантинную станцию для иммигрантов, прибывающих в Квебек. В 1847 году тысячи ирландцев, спасавшихся от голода, прошли через этот пункт — 5 424 человека умерли и были похоронены на острове.
-
-​
-Позднее, во время Второй мировой войны, объект использовался как секретная исследовательская лаборатория, где проводились эксперименты с бактериями, включая сибирскую язву. В 1974 году место получило статус национального исторического памятника.
-
-​
-Защитники животных выступают против массового отстрела. Софи Гайяр из Монреальского общества защиты животных заявила, что власти слишком часто выбирают летальные методы и должны рассмотреть альтернативы — ограждения или стерилизацию.
-
-​
-Лидер Партии зелёных Элизабет Мэй считает, что сокращение численности иногда необходимо для баланса экосистемы. По её мнению, участие местных коренных народов, имеющих право на охоту, могло бы стать более приемлемым вариантом.
-
-​
-Общественные консультации по проекту продлятся 30 дней — до 6 апреля.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">14 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2360@14-03-2026_11-06-39.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Жестокий удар по рынку труда: Канада потеряла 84 000 рабочих мест в феврале, безработица выросла до 6,7 %
-
-
-​
-<a href="https://ca.finance.yahoo.com/news/simply-brutal-canada-lost-84k-jobs-in-february-unemployment-rises-to-67-123843924.html">Свежий отчёт Statistics Canada показал резкое ухудшение на рынке труда</a>: в феврале экономика Канады потеряла около 83 900 рабочих мест, а уровень безработицы вырос до 6,7 %.
-
-​
-Основной удар пришёлся по полной занятости. За месяц исчезло около 108 000 полноценных рабочих мест, из них примерно 73 000 — в частном секторе.
-
-​
-Главный экономист BMO Financial Group Дуглас Портер назвал отчёт «просто жестоким результатом» и одним из худших месяцев для занятости вне пандемии. По его словам, если данные отражают реальное состояние экономики, Bank of Canada вряд ли будет рассматривать повышение процентных ставок в этом году.
-
-​
-Экономист CIBC Кэтрин Джадж считает отчёт тревожным сигналом: рынок труда ослабевает на фоне неопределённости в торговле и замедления деловой активности.
-
-​
-Особенно заметно выросла безработица среди молодёжи. В группе 15–24 лет исчезло около 47 000 рабочих мест, а уровень безработицы поднялся до 14,1 %.
-
-​
-По отраслям сокращения оказались масштабными. В секторе услуг исчезло около 56 000 рабочих мест, в производственных и ресурсных отраслях — около 28 000.
-
-​
-Самое сильное падение занятости зафиксировано в Квебеке: минус 57 000 рабочих мест. Значительное сокращение произошло и в Британской Колумбии, где исчезло около 20 000 позиций.
-
-​
-Средняя почасовая зарплата выросла на 3,9 % за год. Экономисты отмечают, что часть этого роста объясняется статистическим эффектом: сокращения затронули главным образом низкооплачиваемые позиции, что автоматически повышает средний показатель.
-
-​
-Аналитики предупреждают, что ситуация на рынке труда может ухудшиться. На бизнес влияет торговая напряжённость с США и неопределённость вокруг соглашения о свободной торговле в Северной Америке.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ekonomika/" class="badge">#экономика</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">12 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2348@12-03-2026_17-01-29.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Опрос Leger: канадцы поддерживают ужесточение иммиграции и сокращение госрасходов
-
-​
-Большинство канадцев выступают за более жёсткие правила иммиграции, сокращение государственных расходов и более строгие требования к работе федеральных госслужащих. <a href="https://leger360.com/in-the-news-canada-politics-canadians-back-stricter-immigration-measures-and-spending-restraint/">Об этом говорится в новом национальном опросе компании Leger</a>, проведённом с 27 февраля по 2 марта 2026 года.
-
-​
-Исследование показало, что общественное мнение в стране становится заметно более жёстким по нескольким ключевым политическим вопросам.
-
-​
-65 процентов опрошенных поддерживают передачу провинциям значительно большего контроля над уровнем иммиграции и критериями отбора мигрантов. Поддержка особенно высока в Квебеке и среди сторонников Консервативной партии.
-
-​
-Также большинство канадцев поддерживают дополнительные ограничения:
-
-– 72% считают, что временные резиденты должны прожить в провинции минимум 12 месяцев, прежде чем получать доступ к финансируемым провинцией социальным программам
-– 69% поддерживают введение платы для временных резидентов за государственное здравоохранение и образование
-– 73% выступают за прекращение дополнительных медицинских льгот для просителей убежища, чьи заявки не одобрены
-
-​
-Сильную обеспокоенность вызывает и рост государственных долгов.
-
-71 процент канадцев заявили, что их тревожит нынешний уровень бюджетных дефицитов федерального и провинциальных правительств. При этом 31 процент назвали свою обеспокоенность «очень высокой».
-
-​
-На вопрос о том, кто в итоге будет платить за погашение долга, мнения разделились:
-
-– 29% считают, что нагрузка ляжет на средний класс
-– 25% — на будущие поколения
-– 24% — на самые богатые 10% населения
-– 22% — на крупные корпорации
-
-​
-Когда речь заходит о способах борьбы с дефицитом, большинство выбирает сокращение расходов, а не повышение налогов.
-
-– 30% поддерживают сокращение числа государственных служащих
-– 30% выступают за значительное сокращение государственных программ
-– 26% предлагают заморозить или резко ограничить рост зарплат в госслужбе
-– только 14% поддерживают повышение налогов
-
-​
-Отдельный вопрос касался удалённой работы федеральных госслужащих.
-
-65 процентов канадцев поддерживают требование правительства о работе в офисе четыре дня в неделю. При этом 66 процентов считают, что сотрудники работают продуктивнее именно в офисе.
-
-​
-При этом взгляды сильно зависят от формата работы самих респондентов: люди, работающие из дома, чаще поддерживают удалённый формат, а офисные работники значительно чаще выступают за возвращение в офис.
-
-​
-Опрос проводился среди 1627 канадцев старше 18 лет. Результаты были скорректированы по возрасту, полу, региону, образованию и другим демографическим показателям, чтобы отразить структуру населения страны.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">12 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2342@12-03-2026_11-03-12.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Что будет, если либералы Марка Карни получат большинство в парламенте
-
-​
-<a href="https://www.cbc.ca/news/politics/carney-idlout-majority-poilievre-ndp-analysis-9.7124771">Правительство Марка Карни может вскоре получить большинство в Палате общин </a>— и если это произойдёт, это станет одним из самых необычных парламентских большинств в истории Канады.
-
-​
-Большинство может сложиться из 166 депутатов-либералов, избранных на прошлых выборах, нескольких депутатов, перешедших из других партий, а также возможных побед на довыборах.
-
-​
-Ситуацию резко изменил переход депутата от НДП Лори Идлут в Либеральную партию. До неё к либералам уже присоединились несколько депутатов, включая бывших консерваторов.
-
-​
-В результате в одной фракции теперь могут оказаться политики, ранее представлявшие совершенно противоположные партии — например, бывший консерватор Мэтт Дженеру и бывшая депутат НДП от Нунавутa Лори Идлут.
-
-​
-Теперь всё зависит от трёх довыборов. Победы либералов в округах University—Rosedale и Scarborough Southwest в Торонто практически гарантируют правительству 172 места — минимальное большинство в парламенте.
-
-​
-Если партия выиграет ещё и довыборы в Terrebonne в Квебеке, либералы получат 173 места и смогут контролировать парламентские комитеты, значительно упрощая принятие законов без переговоров с оппозицией.
-
-​
-Для НДП переход Идлут стал серьёзным ударом. Партия, которая в 2011 году имела 103 депутата, теперь может остаться всего с пятью или шестью членами фракции.
-
-​
-Лидер консерваторов Пьер Полиев обвинил Карни в попытке добиться большинства «закулисными сделками».
-
-​
-«Марк Карни использует закулисные договорённости, чтобы получить дорогостоящее большинство, которое избиратели отвергли», — заявил Полиев.
-
-​
-При этом большинство может изменить поведение оппозиции. В парламенте без большинства партии иногда вынуждены сотрудничать, чтобы избежать досрочных выборов. При большинстве правительство уже не зависит от поддержки других партий.
-
-​
-Вопрос теперь в другом — что Карни сделает с этим большинством.
-
-​
-История показывает, что после получения большинства правительства нередко начинают действовать гораздо решительнее. Так произошло с правительством Стивена Харпера после победы консерваторов в 2011 году, когда были проведены масштабные изменения в пенсионной системе и экологическом регулировании.
-
-​
-Однако даже небольшое большинство остаётся уязвимым. Если либералы будут иметь около 173–174 мест, всего несколько недовольных депутатов внутри партии могут поставить под угрозу принятие законов.
-
-​
-Кроме того, большинство может быстро уменьшиться из-за отставок или довыборов, которые регулярно происходят в течение срока работы парламента.
-
-​
-Тем не менее, если либералам удастся получить большинство, это станет заметным политическим успехом Марка Карни — особенно с учётом того, что ещё около полутора лет назад он не занимал никакой политической должности, а либералы серьёзно отставали в опросах от консерваторов.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a><a href="/person/per-poliev/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/kvebek/" class="badge">#Квебек</a><a href="/tag/toronto/" class="badge">#Торонто</a></div>
-    </article><article class="post-card">
-        <span class="post-date">11 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2340@11-03-2026_20-02-09.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Минимальная зарплата в Канаде снова растёт — но до «зарплаты для жизни» всё равно далеко
-​
-<a href="https://dailydive.ca/news/canada/canada-minimum-wage-increases-2026-living-wage-gap/">В нескольких провинциях Канады с 1 апреля 2026 года повышается</a> минимальная почасовая оплата. Повышения затронут Новую Шотландию, Остров Принца Эдуарда, Нью-Брансуик, Ньюфаундленд и Лабрадор, а также Юкон.
-
-​
-Новая Шотландия увеличит ставку с $16.50 до $16.75 в час (ещё одно повышение до $17 запланировано на октябрь).
-Остров Принца Эдуарда поднимет минимальную зарплату до $17 в час — это будет самая высокая ставка в Атлантической Канаде.
-Нью-Брансуик повысит оплату с $15.65 до $15.90.
-Ньюфаундленд и Лабрадор — с $16 до $16.35.
-Юкон увеличит минимальную ставку примерно до $18.51.
-
-​
-Федеральная минимальная зарплата для работников регулируемых отраслей — банков, телекоммуникаций и межпровинциального транспорта — тоже вырастет: с $17.75 до примерно $18.10 в час.
-
-​
-Позже в 2026 году повышение ожидается и в крупных провинциях.
-– Британская Колумбия: с $17.85 до $18.25 (1 июня)
-– Онтарио: около $18 (1 октября)
-– Квебек: до $16.60 (1 мая)
-
-​
-Но даже после повышения минимальная зарплата остаётся значительно ниже так называемой «зарплаты для жизни» — суммы, которая позволяет покрывать базовые расходы без государственной помощи.
-
-​
-Для примера:
-– Остров Принца Эдуарда — около $22.77 в час
-– Ньюфаундленд и Лабрадор — примерно $25.31
-– Новая Шотландия — около $27.60
-
-​
-Разрыв между минимальной и «жизненной» зарплатой достигает десятков процентов. В Новой Шотландии, например, минимальная ставка после октябрьского повышения будет около $17 — почти на 60% ниже уровня, который считают необходимым для нормальной жизни.
-
-​
-Альберта остаётся исключением: минимальная зарплата там заморожена на уровне $15 в час с 2018 года. Правительство Объединённой консервативной партии объясняет это высоким уровнем безработицы среди молодёжи — 16.5% против 12.8% по стране.
-
-​
-Власти утверждают, что повышение зарплаты при правительстве НДП привело к потере примерно 21 000 рабочих мест среди молодых работников. При этом даже отчёт правительства Альберты признавал: общая занятость в тот период всё равно росла.
-
-​
-Экономисты отмечают, что умеренные повышения минимальной зарплаты обычно мало влияют на общий уровень занятости, зато часто сжимают зарплатную сетку — когда работники чуть выше минимума получают очень небольшие прибавки.
-
-​
-Многие провинции теперь привязывают минимальную зарплату к инфляции через индекс потребительских цен. Такой механизм уже действует, например, в Британской Колумбии и Новой Шотландии.
-
-​
-Но главный факт остаётся прежним: даже после очередных повышений минимальная зарплата в Канаде во многих регионах всё ещё не покрывает базовые расходы на жильё, питание, транспорт и уход за детьми.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/zhilyo/" class="badge">#жильё</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">10 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2329@10-03-2026_17-01-17.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Канада — не «средняя держава», а будущая великая держава
-​
-<a href="https://www.theglobeandmail.com/opinion/article-canada-us-middle-power-usmca-carney-trump/">Ирвин Студин в The Globe and Mail утверждает:</a> Канада ошибочно описывает себя как «среднюю державу». По его мнению, перед страной стоит куда более жёсткий выбор — стать вассалом крупных держав или со временем превратиться в одну из них.
-
-​
-Автор критикует риторику премьер-министра Марка Карни, который на форуме в Давосе говорил о роли Канады как «middle power». Студин считает эту концепцию логически противоречивой и политически вредной.
-
-​
-Он напоминает о соглашении USMCA между США, Канадой и Мексикой. По его мнению, этот договор фактически ограничил экономическую самостоятельность Канады.
-
-​
-Особое внимание он уделяет статье 32.10, которая даёт Вашингтону возможность влиять на торговые соглашения Канады с другими крупными экономиками. В результате, пишет Студин, страна оказалась в положении зависимого партнёра.
-
-​
-На этом фоне возвращение Дональда Трампа в Белый дом он описывает как серьёзный стратегический вызов.
-
-​
-По мнению автора, Трамп считает, что США уже добились политического и экономического подчинения Канады. Поэтому Вашингтон может использовать предстоящий пересмотр USMCA для давления на Оттаву.
-
-​
-Студин утверждает, что задача правительства Карни должна заключаться не в поддержании образа «средней державы», а в восстановлении стратегической самостоятельности страны.
-
-​
-Он формулирует дилемму предельно жёстко:
-– либо Канада станет ещё более зависимой от других держав
-– либо сумеет превратиться в самостоятельную «великую державу»
-
-​
-Возможный провал переговоров с администрацией Трампа, по его мнению, может привести к дальнейшему ослаблению канадского суверенитета — включая давление по вопросам ресурсов, военных баз, внешней политики или внутренних реформ.
-
-​
-Студин предупреждает, что попытки дестабилизации могут проявляться и через поддержку сепаратистских движений в Альберте, Квебеке или других регионах.
-
-​
-Но есть и другой сценарий. Если Канада сумеет выдержать давление, это может стать толчком к укреплению её глобальной роли.
-
-​
-Автор предлагает рассматривать геополитику Канады через формулу «ACRE»:
-– Америка
-– Китай
-– Россия
-– Европа
-
-​
-Канада находится между этими четырьмя центрами силы: США на юге, Китай через Тихий океан, Россия через Арктику и Европа через Атлантику. Все они — ядерные державы.
-
-​
-В такой среде, утверждает Студин, страна не может долго оставаться «средней державой». Она либо окажется зависимой от более сильных игроков, либо сама станет крупной геополитической силой.
-
-​
-Отдельное внимание он уделяет Арктике. По его словам, США не являются полноценной арктической державой, тогда как Канада — да. Поэтому любые попытки Вашингтона усилить контроль над арктическими территориями — включая угрозы аннексии Гренландии или разговоры о Канаде — имеют долгосрочные последствия.
-
-​
-В этом контексте сопротивление внешнему давлению автор рассматривает как вопрос будущего страны.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ekonomika/" class="badge">#экономика</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">10 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2327@10-03-2026_13-04-28.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Сепаратисты Альберты застряли на первой передаче
-​
-<a href="https://apple.news/AwJauCS2HSbq_DcodTCDSHQ">Колумнистка Toronto Star Джиллиан Стюард пишет,</a> что движение за независимость Альберты пока не набирает обороты — даже несмотря на политические уступки со стороны премьера провинции Даниэль Смит.
-
-​
-Два свежих опроса показывают одну и ту же картину: большинство жителей Альберты не хотят выходить из состава Канады.
-
-​
-По данным опроса Abacus Data, проведённого среди 1000 взрослых жителей провинции 20–25 февраля, около 65% выступают против отделения.
-9% не определились,
-26% заявили, что поддерживают независимость в той или иной степени.
-
-​
-Похожий результат показал и опрос института Angus Reid: те же 65% сказали, что проголосовали бы за сохранение Альберты в составе Канады или склоняются к такому варианту.
-
-​
-Опрос Abacus выявил ещё одну интересную деталь.
-53% жителей Альберты считают, что сама Даниэль Смит на референдуме проголосовала бы за отделение.
-
-​
-То есть большинство граждан не поддерживают независимость — но при этом уверены, что премьер придерживается противоположной позиции.
-
-​
-Причины такого восприятия понятны. Смит фактически облегчила жизнь сепаратистским активистам:
-– приняла законодательство, упрощающее проведение референдума
-– остановила судебный процесс, который мог признать вопрос о независимости неконституционным
-– отказалась прямо сказать, поддерживает ли она отделение
-
-​
-Сейчас активисты собирают подписи, чтобы включить вопрос о независимости в возможный референдум. Основная дата голосования уже объявлена — 19 октября. Формально речь идёт о девяти вопросах о перераспределении полномочий между Альбертой и федеральным правительством. Вопрос об отделении может стать десятым.
-
-​
-Но, как показывает опрос, большинство жителей провинции думают о совсем других вещах.
-
-​
-53% называют главным вопросом стоимость жизни.
-Здравоохранение и состояние экономики занимают более высокие позиции в списке проблем, чем конституционные споры и разговоры о независимости.
-
-​
-Глава сепаратистской организации Alberta Prosperity Project Митч Сильвестр отверг результаты опросов. По его словам, сторонники независимости якобы не хотят делиться своим мнением с социологами, поэтому опросы «не имеют значения».
-
-​
-По мнению Стюард, Даниэль Смит оказалась в сложной политической ситуации. С одной стороны — большинство жителей провинции против отделения. С другой — внутри её собственной партии сильное давление со стороны сепаратистов.
-
-​
-При этом большинство канадцев тоже не поддерживают идею распада страны. Опрос Angus Reid показывает, что 79% граждан Канады проголосовали бы против выхода Альберты из конфедерации. Для сравнения, 71% выступили бы против отделения Квебека.
-
-​
-В итоге Смит остаётся почти в одиночестве: между настроениями большинства жителей Альберты, позицией остальной Канады и давлением сепаратистского крыла в собственной партии.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">9 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2321@09-03-2026_15-03-45.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Опросы показывают зимний всплеск поддержки либералов
-
-​<a href="https://www.338canada.ca/p/338-sunday-update-major-winter-surge"> Новые опросы компаний Léger, Nanos, Ipsos, Liaison и Abacus Data</a> показывают рост поддержки Либеральной партии Канады во главе с Марком Карни.
-
-​
-Согласно последнему опросу Léger:
-
-– 49 % готовы голосовать за либералов
-– 35 % — за консерваторов Пьера Полиева
-
-​
-Разрыв между партиями увеличился с 9 до 14 пунктов всего за месяц.
-
-​
-По регионам либералы тоже лидируют:
-
-– Онтарио: 52 % либералы, 36 % консерваторы
-– Квебек: 48 % либералы, 25 % Блок Квебекуа
-– Британская Колумбия: либералы опережают консерваторов на 13 пунктов
-– НДП в Британской Колумбии падает примерно до 7 %
-
-​
-Растёт и одобрение правительства.
-
-По данным Léger:
-
-– 61 % канадцев одобряют работу правительства Карни
-– 31 % не одобряют
-
-​
-Положительный баланс одобрения наблюдается во всех регионах страны, включая Альберту.
-
-​
-Интересно, что поддержку правительству выражают даже некоторые избиратели других партий:
-
-– около 25 % сторонников консерваторов
-– почти половина сторонников Блока
-– большинство сторонников НДП
-
-​
-При этом опросы показывают ещё одну тенденцию — канадцы не хотят скорых выборов, особенно избиратели либералов.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">7 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2316@07-03-2026_15-05-12.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Лиллей: опросы показывают, почему консерваторы не хотят выборов
-
-​
-<a href="https://torontosun.com/opinion/columnists/polls-show-why-conservatives-dont-want-election-now">Колумнист National Post Брайан Лиллей пишет,</a> что Консервативная партия Канады во главе с Пьером Полиевым не спешит идти на выборы — и причина может быть в опросах.
-
-​
-Согласно опросу Leger для Postmedia:
-
-– 49 % готовы голосовать за либералов Марка Карни
-– 35 % — за консерваторов Пьера Полиева
-
-​
-Такой разрыв в 14 пунктов потенциально может дать либералам крупное большинство в парламенте.
-
-​
-Либералы лидируют почти во всех регионах страны:
-
-– 68 % в Атлантической Канаде
-– 48 % в Квебеке
-– 52 % в Онтарио
-– 50 % в Британской Колумбии
-
-​
-Консерваторы впереди только в прерийных провинциях.
-
-​
-Опрос показывает лидерство либералов во всех демографических группах, включая:
-
-– мужчин (46 % против 40 %)
-– женщин (53 % против 31 %)
-– все возрастные категории
-
-​
-Национальная поддержка других партий остаётся низкой:
-
-– НДП — 5 %
-– Блок Квебекуа — 25 % в Квебеке
-
-​
-По мнению Лиллея, рост поддержки либералов связан в том числе с реакцией канадцев на политику президента США Дональда Трампа.
-
-​
-Он пишет, что когда в новостях доминируют темы, связанные с Трампом — торговые конфликты, действия США или международные кризисы — поддержка либералов растёт, а консерваторов падает.
-
-​
-При этом, отмечает Лиллей, опросы могут быстро меняться, и ситуация в политике способна резко измениться к моменту выборов.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/vybory/" class="badge">#выборы</a><a href="/tag/ontario/" class="badge">#Онтарио</a><a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">7 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2315@07-03-2026_14-03-43.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Верховный суд: просители убежища имеют право на субсидированные детсады в Квебеке
-
-​
-<a href="https://globalnews.ca/news/11719178/asylum-seekers-quebec-daycare/">Верховный суд Канады постановил</a>, что правительство Квебека дискриминировало женщин-просителей убежища, отказав им в доступе к субсидированным детским садам.
-
-​
-Решение принято большинством 8 против 1. Судьи заявили, что такой запрет нарушает Хартию прав и свобод и фактически вытесняет просителей убежища из общественной жизни.
-
-​
-Это уже третье судебное решение против правительства Квебека по этому вопросу.
-
-​
-Дело началось с иска женщины из Демократической Республики Конго, которая подала заявление на убежище и получила разрешение на работу в Канаде. Провинция отказала её трём детям в месте в системе детских садов.
-
-​
-По правилам Квебека доступ к системе был возможен только после официального получения статуса беженца, который выдаёт федеральное правительство.
-
-​
-Места в сети субсидированных детсадов Квебека стоят примерно 9 долларов в день, поэтому они пользуются большим спросом.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">6 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2310@06-03-2026_15-04-20.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Канада запускает новую программу, чтобы дать постоянный статус 33 000 иностранным работникам — сообщает министр иммиграции
-
-​
-<a href="https://www.thestar.com/news/canada/ottawa-has-launched-program-to-grant-33000-foreign-workers-pr/article_3f788d97-9446-4377-ae78-54f42ee686ca.html">Министр иммиграции Канады Лена Метледж Диаб заявила</a>, что правительство уже тихо запустило новую программу, которая позволит 33 000 временным иностранным работникам получить постоянное место жительства.
-
-​
-По словам министра, программа рассчитана на два года и ориентирована на квалифицированных работников в секторах с нехваткой кадров. О ней объявили ещё в ноябре, но с тех пор почти не было подробностей.
-
-​
-«Мы уже её запустили», — сказала Диаб в интервью Toronto Star. Точное число участников пока не раскрывается. Больше информации правительство обещает предоставить в апреле.
-
-​
-Причина запуска — огромный поток людей, у которых заканчивается временный статус.
-
-– В 2025 году истекли разрешения у 2 125 035 временных резидентов
-– В 2026 году срок закончится ещё у 1 938 805 человек
-
-​
-Эти цифры вызывают серьёзные опасения, что в стране может резко вырасти число людей без легального статуса.
-
-​
-Премьер-министр Марк Карни пообещал сократить долю временных жителей до менее 5 % населения к 2027 году. Сейчас она составляет 6,8 %.
-
-​
-Один из способов — переводить людей из временного статуса в постоянный. В 2025 году более половины из 395 000 новых постоянных жителей уже находились в Канаде по временным визам.
-
-​
-При этом Диаб подчеркнула: если человек остаётся в стране после окончания разрешения, он обязан либо продлить статус, либо уехать.
-
-– если подана заявка на продление — её могут одобрить или отклонить
-– если продление отклонено — человек должен покинуть Канаду
-
-​
-Параллельно правительство пытается провести через парламент законопроект C-12, который даст иммиграционным властям право приостанавливать или отменять документы и заявки, если это «в общественных интересах».
-
-​
-Диаб утверждает, что это исключительные полномочия, и они не будут использоваться для ускоренного закрытия иммиграционных очередей.
-
-​
-Среди ключевых целей правительства Карни:
-
-– сократить число временных жителей
-– удерживать уровень иммиграции ниже 1 % населения после 2027 года
-– добиться, чтобы 12 % новых постоянных жителей были франкофонами вне Квебека к 2029 году
-– запустить стратегию привлечения международных талантов
-
-​
-Одновременно правительство сталкивается с противоречиями.
-
-Политики требуют ограничить программу временных иностранных работников. Но бизнес-сообщество заявляет, что во многих секторах просто не хватает канадских работников.
-
-​
-Особенно это касается:
-
-– сельского хозяйства
-– строительства
-– гостиничного и ресторанного бизнеса
-
-​
-При этом правительство резко сокращает число иностранных студентов — почти вдвое. Это уже привело к тому, что многие колледжи и университеты закрывают программы и увольняют сотрудников.
-
-​
-Диаб признала, что вокруг её работы много критики. Её обвиняют в том, что она почти не появляется в публичном пространстве и редко комментирует иммиграционную политику.
-
-​
-На вопрос, зачем она согласилась занять один из самых спорных постов в правительстве, министр ответила:
-
-«Я задаю себе этот вопрос каждый день, когда просыпаюсь и перед сном. Но я люблю Канаду и хочу служить людям».
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/mark-karni/" class="badge person-badge">Марк Карни</a> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><article class="post-card">
-        <span class="post-date">6 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2309@06-03-2026_14-06-24.jpg" class="post-image" loading="lazy"></div>
-        <div class="post-content">Джефф Расс: Обращение Пьера Полиева к английским корням — именно то, что нужно Канаде сейчас
-
-​
-<a href="https://apple.news/AT1F-kBsQTE6AQFQwc5Vxcw">Колумнист National Post Джефф Расс пишет</a>, что визит лидера консерваторов Пьера Полиева в Великобританию и его слова о значении Magna Carta стали напоминанием о британских корнях канадской политической системы.
-
-​
-Во время визита в Раннимид на берегу Темзы Полиев заявил, что Великая хартия вольностей стала началом принципа, согласно которому даже король не стоит выше закона.
-
-​
-Magna Carta была подписана в 1215 году королём Джоном после давления со стороны английских баронов. Документ закрепил идею ограничения власти монарха и принцип равенства перед законом.
-
-​
-Позднее из этих принципов сформировались парламентская система и демократия в британской традиции.
-
-​
-Автор считает, что свободы, которыми сегодня пользуются канадцы, напрямую связаны с этим наследием. По его мнению, идея свободы не является исключительно американской, как иногда утверждают прогрессивные политики.
-
-​
-Расс отмечает, что на протяжении веков Англия оставалась относительно стабильной страной на фоне религиозных и политических конфликтов в Европе.
-
-​
-Канада, возникшая как часть Британской империи, также унаследовала эту политическую традицию.
-
-​
-Во время создания конфедерации в 1867 году канадские политические лидеры стремились максимально сохранить британские институты. Основатель Либеральной партии Джордж Браун после поездки в Великобританию писал о необходимости единства канадцев, вдохновлённого британским примером.
-
-​
-Автор напоминает, что даже во время референдума о независимости Квебека в 1995 году премьер провинции Жак Паризо подготовил речь, в которой собирался подчеркнуть уважение к британским институтам и традициям, унаследованным Квебеком.
-
-​
-В статье также утверждается, что Американская революция первоначально рассматривалась её участниками не как отказ от английского наследия, а как попытка защитить «права англичан».
-
-​
-По мнению ряда американских консервативных мыслителей, включая Мела Брэдфорда и Рассела Кирка, политическая культура США также во многом основана на британских традициях.
-
-​
-Расс считает, что современная Канада частично отдаляется от этого наследия. В статье критикуется политика мультикультурализма и влияние американской культурной модели.
-
-​
-По мнению автора, Канада не должна забывать собственные исторические корни.
-
-​
-В этом контексте он положительно оценивает заявления Марка Карни о «гордом британском наследии» страны и интерес Пьера Полиева к английской политической традиции.
-
-​
-Полиев во время выступления в Раннимиде заявил, что идеи Magna Carta продолжают влиять на канадское законодательство спустя более чем 800 лет.
-
-​
-Автор также отмечает, что современная Великобритания сталкивается с экономическими и социальными трудностями, но британская культура продолжает оказывать глобальное влияние.
-
-​
-В качестве примеров он приводит музыку The Beatles, книги J.K. Rowling о Гарри Поттере, экранизации The Lord of the Rings, а также постоянные театральные постановки пьес Уильяма Шекспира.
-
-​
-По мнению автора, принадлежность к миру англоязычных стран остаётся важной частью канадской идентичности.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/kvebek/" class="badge">#Квебек</a></div>
-    </article><div class="pagination"><a href="/tag/kvebek/page/2/" class="btn">Вперед →</a></div></main>
-    <footer>&copy; 2024–2026 Maple Barrel. Journalists.ca</footer>
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="tag-hdr">
+    <h1>#Квебек</h1>
+    <p>340 материалов по теме</p>
+  </div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-26-glava-air-canada-snova-promahnulsya-s-dvuyazychiem/">
+  <div class="card-img"><img src="/photos/photo_2462@26-03-2026_17-03-18.jpg" alt="Глава Air Canada снова «промахнулся» с двуязычием" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Глава Air Canada снова «промахнулся» с двуязычием</div>
+    <div class="card-excerpt">Колумнист Конрад Якабуски пишет, что глава Air Canada Майкл Руссо вновь оказался в центре скандала из-за игнорирования французского языка.   Поводом стало видеообращение после крушения самолёта в Нью-</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-zhilischnyy-tribunal-kvebeka-priznal-zapret-na-zhivotnyh-nar/">
+  <div class="card-img"><img src="/photos/photo_2439@24-03-2026_19-04-04.jpg" alt="Жилищный трибунал Квебека признал запрет на животных нарушением Хартии прав" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Жилищный трибунал Квебека признал запрет на животных нарушением Хартии прав</div>
+    <div class="card-excerpt">В Квебеке произошло решение, которое может серьёзно изменить рынок аренды: Tribunal administratif du logement признал, что пункт в договоре аренды о запрете животных может нарушать Хартию прав и свобо</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-pozhilye-kanadtsy-ostayutsya-glavnoy-oporoy-karni-opros/">
+  <div class="card-img"><img src="/photos/photo_2432@24-03-2026_10-01-56.jpg" alt="Пожилые канадцы остаются главной опорой Карни — опрос" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Пожилые канадцы остаются главной опорой Карни — опрос</div>
+    <div class="card-excerpt">Новый опрос Liaison Strategies показывает: лидерство Марк Карни держится не на молодёжи, а на избирателях старшего возраста.  Либералы сохраняют серьёзный отрыв от консерваторов — 41% против 27% у ком</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-23-v-ssha-rezko-vyros-spros-na-kanadskoe-grazhdanstvo-posle-izm/">
+  <div class="card-img"><img src="/photos/photo_2427@23-03-2026_14-01-43.jpg" alt="В США резко вырос спрос на канадское гражданство после изменения закона" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В США резко вырос спрос на канадское гражданство после изменения закона</div>
+    <div class="card-excerpt">После изменения закона о гражданстве в Канаде резко увеличилось число заявок от американцев, желающих подтвердить своё право на канадский паспорт.   Речь идёт о законе Bill C-3, принятом в декабре 202</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-19-kanada-opustilas-na-25-e-mesto-v-reytinge-schastya-hudshiy-r/">
+  <div class="card-img"><img src="/photos/photo_2410@19-03-2026_19-04-01.jpg" alt="Канада опустилась на 25-е место в рейтинге счастья — худший результат в истории" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канада опустилась на 25-е место в рейтинге счастья — худший результат в истории</div>
+    <div class="card-excerpt">Канада больше не в клубе «самых счастливых». В новом World Happiness Report страна заняла лишь 25-е место из 147 — ещё десять лет назад она была шестой, рядом со скандинавскими лидерами.   Но главный</div>
+    <div class="card-meta">
+      <span class="card-date">19 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-19-naselenie-kanady-sokratilos-na-100-tysyach-k-kontsu-2025-god/">
+  <div class="card-img"><img src="/photos/photo_2402@19-03-2026_10-03-44.jpg" alt="Население Канады сократилось на 100 тысяч к концу 2025 года. Вот почему" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Население Канады сократилось на 100 тысяч к концу 2025 года. Вот почему</div>
+    <div class="card-excerpt">Канада неожиданно ушла в минус по численности населения — минус более 100 тысяч человек за последние три месяца 2025 года, по предварительным данным Статистического управления.   Главная причина — рез</div>
+    <div class="card-meta">
+      <span class="card-date">19 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-18-naselenie-kanady-sokraschaetsya-vpervye-za-poslednie-gody/">
+  <div class="card-img"><img src="/photos/photo_2401@18-03-2026_22-00-28.jpg" alt="Население Канады сокращается — впервые за последние годы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">www150.statcan.gc.ca</div>
+    <div class="card-title">Население Канады сокращается — впервые за последние годы</div>
+    <div class="card-excerpt">Новые данные Statistics Canada показывают: рост населения страны резко замедлился и перешёл в спад.   По состоянию на 1 января 2026 года население составило 41,47 млн человек.   За последний квартал 2</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-18-bolee-deshyovaya-provintsiya-v-kanade-eto-ne-tak-prosto/">
+  <div class="card-img"><img src="/photos/photo_2397@18-03-2026_20-00-41.jpg" alt="Более «дешёвая» провинция? В Канаде это не так просто" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Более «дешёвая» провинция? В Канаде это не так просто</div>
+    <div class="card-excerpt">Обязательно гляньте оригинал, там огромный материал с таблицами по провинциям   Новый разбор от CBC News показывает: идея «переехать туда, где дешевле» часто не работает так, как ожидают.   На бумаге</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-18-zdorove-kanadtsev-uhudshaetsya-silnee-vsego-u-molodyh-do-35-/">
+  <div class="card-img"><img src="/photos/photo_2396@18-03-2026_19-03-47.jpg" alt="«Здоровье канадцев ухудшается — сильнее всего у молодых до 35 лет»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">«Здоровье канадцев ухудшается — сильнее всего у молодых до 35 лет»</div>
+    <div class="card-excerpt">Новый отчёт Statistics Canada показывает заметное ухудшение состояния здоровья канадцев за последнее десятилетие.   Доля взрослых, оценивающих своё здоровье как «очень хорошее» или «идеальное», снизил</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-18-kanadskie-muzhchiny-perezhivayut-postoyannyy-krizis-v-obsche/">
+  <div class="card-img"><img src="/photos/photo_2395@18-03-2026_17-04-57.jpg" alt="Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье</div>
+    <div class="card-excerpt">Профессор Нииган Синклер из University of Manitoba заявил, что в Канаде сформировался устойчивый кризис, связанный со здоровьем мужчин.   По его словам, мужчины в стране живут меньше, чаще страдают от</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-18-premer-britanskoy-kolumbii-protiv-rasshireniya-programmy-vre/">
+  <div class="card-img"><img src="/photos/photo_2393@18-03-2026_14-05-42.jpg" alt="Премьер Британской Колумбии против расширения программы временных иностранных работников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Премьер Британской Колумбии против расширения программы временных иностранных работников</div>
+    <div class="card-excerpt">Премьер провинции Дэвид Эби дал понять, что не поддержит инициативу федерального правительства по расширению программы временных иностранных работников.   Речь идет о решении Оттавы увеличить долю низ</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-18-byvshiy-deputat-bloka-kvebekua-obvinyon-v-seksualnyh-prestup/">
+  <div class="card-img"><img src="/photos/photo_2390@18-03-2026_12-03-05.jpg" alt="«Бывший депутат Блока Квебекуа обвинён в сексуальных преступлениях против несовершеннолетних»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">«Бывший депутат Блока Квебекуа обвинён в сексуальных преступлениях против несовершеннолетних»</div>
+    <div class="card-excerpt">Бывший депутат от Блок Квебекуа Паскаль-Пьер Пайе предстал перед судом в Квебеке по обвинениям в сексуальных преступлениях против несовершеннолетних.   47-летний Пайе, который работал учителем до и по</div>
+    <div class="card-meta">
+      <span class="card-date">18 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-16-novyy-opros-abacus-liberaly-uvelichivayut-otryv-do-11-punkto/">
+  <div class="card-img"><img src="/photos/photo_2372@16-03-2026_19-00-49.jpg" alt="Новый опрос Abacus: либералы увеличивают отрыв до 11 пунктов, одобрение правительства на максимуме" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">abacusdata.ca</div>
+    <div class="card-title">Новый опрос Abacus: либералы увеличивают отрыв до 11 пунктов, одобрение правительства на максимуме</div>
+    <div class="card-excerpt">Свежий опрос Abacus Data показывает, что спустя год после прихода к власти правительства Марка Карни позиции либералов заметно укрепились.   Если федеральные выборы прошли бы сейчас, либералы получили</div>
+    <div class="card-meta">
+      <span class="card-date">16 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-15-parki-kanady-planiruyut-otstrel-desyatkov-oleney-na-istorich/">
+  <div class="card-img"><img src="/photos/photo_2365@15-03-2026_13-03-44.jpg" alt="Парки Канады планируют отстрел десятков оленей на историческом острове в Квебеке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Парки Канады планируют отстрел десятков оленей на историческом острове в Квебеке</div>
+    <div class="card-excerpt">Федеральное агентство Parks Canada собирается резко сократить популяцию белохвостых оленей на острове Гросс-Иль в реке Святого Лаврентия, примерно в 48 километрах от Квебек-Сити. По данным ведомства,</div>
+    <div class="card-meta">
+      <span class="card-date">15 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-14-zhestokiy-udar-po-rynku-truda-kanada-poteryala-84-000-raboch/">
+  <div class="card-img"><img src="/photos/photo_2360@14-03-2026_11-06-39.jpg" alt="Жестокий удар по рынку труда: Канада потеряла 84 000 рабочих мест в феврале, безработица выросла до 6,7 %" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ca.finance.yahoo.com</div>
+    <div class="card-title">Жестокий удар по рынку труда: Канада потеряла 84 000 рабочих мест в феврале, безработица выросла до 6,7 %</div>
+    <div class="card-excerpt">Свежий отчёт Statistics Canada показал резкое ухудшение на рынке труда: в феврале экономика Канады потеряла около 83 900 рабочих мест, а уровень безработицы вырос до 6,7 %.   Основной удар пришёлся по</div>
+    <div class="card-meta">
+      <span class="card-date">14 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-12-opros-leger-kanadtsy-podderzhivayut-uzhestochenie-immigratsi/">
+  <div class="card-img"><img src="/photos/photo_2348@12-03-2026_17-01-29.jpg" alt="Опрос Leger: канадцы поддерживают ужесточение иммиграции и сокращение госрасходов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">leger360.com</div>
+    <div class="card-title">Опрос Leger: канадцы поддерживают ужесточение иммиграции и сокращение госрасходов</div>
+    <div class="card-excerpt">Большинство канадцев выступают за более жёсткие правила иммиграции, сокращение государственных расходов и более строгие требования к работе федеральных госслужащих. Об этом говорится в новом националь</div>
+    <div class="card-meta">
+      <span class="card-date">12 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-12-chto-budet-esli-liberaly-marka-karni-poluchat-bolshinstvo-v-/">
+  <div class="card-img"><img src="/photos/photo_2342@12-03-2026_11-03-12.jpg" alt="Что будет, если либералы Марка Карни получат большинство в парламенте" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Что будет, если либералы Марка Карни получат большинство в парламенте</div>
+    <div class="card-excerpt">Правительство Марка Карни может вскоре получить большинство в Палате общин — и если это произойдёт, это станет одним из самых необычных парламентских большинств в истории Канады.   Большинство может с</div>
+    <div class="card-meta">
+      <span class="card-date">12 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-11-minimalnaya-zarplata-v-kanade-snova-rastyot-no-do-zarplaty-d/">
+  <div class="card-img"><img src="/photos/photo_2340@11-03-2026_20-02-09.jpg" alt="Минимальная зарплата в Канаде снова растёт — но до «зарплаты для жизни» всё равно далеко" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">dailydive.ca</div>
+    <div class="card-title">Минимальная зарплата в Канаде снова растёт — но до «зарплаты для жизни» всё равно далеко</div>
+    <div class="card-excerpt">В нескольких провинциях Канады с 1 апреля 2026 года повышается минимальная почасовая оплата. Повышения затронут Новую Шотландию, Остров Принца Эдуарда, Нью-Брансуик, Ньюфаундленд и Лабрадор, а также Ю</div>
+    <div class="card-meta">
+      <span class="card-date">11 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-10-kanada-ne-srednyaya-derzhava-a-buduschaya-velikaya-derzhava/">
+  <div class="card-img"><img src="/photos/photo_2329@10-03-2026_17-01-17.jpg" alt="Канада — не «средняя держава», а будущая великая держава" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канада — не «средняя держава», а будущая великая держава</div>
+    <div class="card-excerpt">Ирвин Студин в The Globe and Mail утверждает: Канада ошибочно описывает себя как «среднюю державу». По его мнению, перед страной стоит куда более жёсткий выбор — стать вассалом крупных держав или со в</div>
+    <div class="card-meta">
+      <span class="card-date">10 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-10-separatisty-alberty-zastryali-na-pervoy-peredache/">
+  <div class="card-img"><img src="/photos/photo_2327@10-03-2026_13-04-28.jpg" alt="Сепаратисты Альберты застряли на первой передаче" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Сепаратисты Альберты застряли на первой передаче</div>
+    <div class="card-excerpt">Колумнистка Toronto Star Джиллиан Стюард пишет, что движение за независимость Альберты пока не набирает обороты — даже несмотря на политические уступки со стороны премьера провинции Даниэль Смит.   Дв</div>
+    <div class="card-meta">
+      <span class="card-date">10 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-09-oprosy-pokazyvayut-zimniy-vsplesk-podderzhki-liberalov/">
+  <div class="card-img"><img src="/photos/photo_2321@09-03-2026_15-03-45.jpg" alt="Опросы показывают зимний всплеск поддержки либералов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">338canada.ca</div>
+    <div class="card-title">Опросы показывают зимний всплеск поддержки либералов</div>
+    <div class="card-excerpt">Новые опросы компаний Léger, Nanos, Ipsos, Liaison и Abacus Data показывают рост поддержки Либеральной партии Канады во главе с Марком Карни.   Согласно последнему опросу Léger:  – 49 % готовы голосов</div>
+    <div class="card-meta">
+      <span class="card-date">9 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-07-lilley-oprosy-pokazyvayut-pochemu-konservatory-ne-hotyat-vyb/">
+  <div class="card-img"><img src="/photos/photo_2316@07-03-2026_15-05-12.jpg" alt="Лиллей: опросы показывают, почему консерваторы не хотят выборов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Лиллей: опросы показывают, почему консерваторы не хотят выборов</div>
+    <div class="card-excerpt">Колумнист National Post Брайан Лиллей пишет, что Консервативная партия Канады во главе с Пьером Полиевым не спешит идти на выборы — и причина может быть в опросах.   Согласно опросу Leger для Postmedi</div>
+    <div class="card-meta">
+      <span class="card-date">7 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-07-verhovnyy-sud-prositeli-ubezhischa-imeyut-pravo-na-subsidiro/">
+  <div class="card-img"><img src="/photos/photo_2315@07-03-2026_14-03-43.jpg" alt="Верховный суд: просители убежища имеют право на субсидированные детсады в Квебеке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Верховный суд: просители убежища имеют право на субсидированные детсады в Квебеке</div>
+    <div class="card-excerpt">Верховный суд Канады постановил, что правительство Квебека дискриминировало женщин-просителей убежища, отказав им в доступе к субсидированным детским садам.   Решение принято большинством 8 против 1.</div>
+    <div class="card-meta">
+      <span class="card-date">7 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-06-kanada-zapuskaet-novuyu-programmu-chtoby-dat-postoyannyy-sta/">
+  <div class="card-img"><img src="/photos/photo_2310@06-03-2026_15-04-20.jpg" alt="Канада запускает новую программу, чтобы дать постоянный статус 33 000 иностранным работникам — сообщает министр иммиграции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Канада запускает новую программу, чтобы дать постоянный статус 33 000 иностранным работникам — сообщает министр иммиграции</div>
+    <div class="card-excerpt">Министр иммиграции Канады Лена Метледж Диаб заявила, что правительство уже тихо запустило новую программу, которая позволит 33 000 временным иностранным работникам получить постоянное место жительства</div>
+    <div class="card-meta">
+      <span class="card-date">6 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-06-dzheff-rass-obraschenie-pera-polieva-k-angliyskim-kornyam-im/">
+  <div class="card-img"><img src="/photos/photo_2309@06-03-2026_14-06-24.jpg" alt="Джефф Расс: Обращение Пьера Полиева к английским корням — именно то, что нужно Канаде сейчас" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Джефф Расс: Обращение Пьера Полиева к английским корням — именно то, что нужно Канаде сейчас</div>
+    <div class="card-excerpt">Колумнист National Post Джефф Расс пишет, что визит лидера консерваторов Пьера Полиева в Великобританию и его слова о значении Magna Carta стали напоминанием о британских корнях канадской политической</div>
+    <div class="card-meta">
+      <span class="card-date">6 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-05-liberaly-poluchayut-49-podderzhki-izbirateley-krupneyshiy-ot/">
+  <div class="card-img"><img src="/photos/photo_2302@05-03-2026_17-02-21.jpg" alt="Либералы получают 49% поддержки избирателей — крупнейший отрыв партии за 10 лет: опрос Leger" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Либералы получают 49% поддержки избирателей — крупнейший отрыв партии за 10 лет: опрос Leger</div>
+    <div class="card-excerpt">Почти половина канадцев заявили, что проголосовали бы за Либеральную партию, если бы федеральные выборы состоялись сегодня. Это даёт партии премьер-министра Марка Карни самый большой перевес над сопер</div>
+    <div class="card-meta">
+      <span class="card-date">5 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-05-kanadtsy-hotyat-chtoby-deputaty-menyayuschie-partiyu-avtomat/">
+  <div class="card-img"><img src="/photos/photo_2300@05-03-2026_14-02-28.jpg" alt="Канадцы хотят, чтобы депутаты, меняющие партию, автоматически шли на довыборы — опрос" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Канадцы хотят, чтобы депутаты, меняющие партию, автоматически шли на довыборы — опрос</div>
+    <div class="card-excerpt">Большинство канадцев считают, что депутаты парламента не должны свободно переходить из одной партии в другую после выборов. Если такой переход происходит, он должен автоматически приводить к немедленн</div>
+    <div class="card-meta">
+      <span class="card-date">5 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-03-belye-vorotnichki-bolshe-ne-v-poryadke-kak-novaya-ekonomika-/">
+  <div class="card-img"><img src="/photos/photo_2296@03-03-2026_21-04-35.jpg" alt="«Белые воротнички» больше не в порядке: как новая экономика перевернула рынок труда" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">«Белые воротнички» больше не в порядке: как новая экономика перевернула рынок труда</div>
+    <div class="card-excerpt">Роскошный материал McLean's  Инженеры с дипломами расставляют товары в Walmart. Разработчиков массово увольняют. ИИ — повсюду. Так выглядит новый рынок труда, в котором образование больше не гарантиру</div>
+    <div class="card-meta">
+      <span class="card-date">3 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-02-mark-karni-i-narendra-modi-podpisali-soglasheniya-na-milliar/">
+  <div class="card-img"><img src="/photos/photo_2285@02-03-2026_10-03-48.jpg" alt="Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Марк Карни и Нарендра Моди подписали соглашения на миллиарды долларов</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни и глава правительства Индии Нарендра Моди объявили о «новом партнёрстве» — пакете соглашений на 5,5 млрд долларов и намерении подписать соглашение о свободной торговле до ко</div>
+    <div class="card-meta">
+      <span class="card-date">2 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-28-kanadskie-uchitelya-soobschayut-o-roste-stressa-iz-za-stremi/">
+  <div class="card-img"><img src="/photos/photo_2274@28-02-2026_13-06-07.jpg" alt="Канадские учителя сообщают о росте стресса из-за стремительного внедрения ИИ — исследование" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">hcamag.com</div>
+    <div class="card-title">Канадские учителя сообщают о росте стресса из-за стремительного внедрения ИИ — исследование</div>
+    <div class="card-excerpt">Более трёх четвертей канадских педагогов считают, что быстрый запуск инструментов искусственного интеллекта в школах вызывает у них стресс. Об этом говорится в национальном исследовании компании Educa</div>
+    <div class="card-meta">
+      <span class="card-date">28 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-27-liberaly-perezhili-golosovanie-po-omnibusnomu-byudzhetnomu-z/">
+  <div class="card-img"><img src="/photos/photo_2263@27-02-2026_09-05-14.jpg" alt="Либералы пережили голосование по омнибусному бюджетному законопроекту" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouver.citynews.ca</div>
+    <div class="card-title">Либералы пережили голосование по омнибусному бюджетному законопроекту</div>
+    <div class="card-excerpt">Федеральные либералы успешно провели через Палату общин закон о реализации бюджета — Budget Implementation Act.   Законопроект C-15 был принят «на разделении» (carried on division) — без поимённого го</div>
+    <div class="card-meta">
+      <span class="card-date">27 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-26-ottava-znala-o-skorom-ischerpanii-subsidiy-na-elektromobili-/">
+  <div class="card-img"><img src="/photos/photo_2261@26-02-2026_15-02-40.jpg" alt="Оттава знала о скором исчерпании субсидий на электромобили за месяцы до уведомления общественности — свидетельствуют документы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Оттава знала о скором исчерпании субсидий на электромобили за месяцы до уведомления общественности — свидетельствуют документы</div>
+    <div class="card-excerpt">Чиновники Transport Canada были осведомлены ещё в ноябре 2024 года, что финансирование популярной программы субсидий на электромобили iZEV может закончиться в конце декабря или начале января. Однако п</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-26-popytka-konservatorov-peresmotret-dostup-prositeley-ubezhisc/">
+  <div class="card-img"><img src="/photos/photo_2259@26-02-2026_13-07-08.jpg" alt="Попытка консерваторов пересмотреть доступ просителей убежища к медицине провалилась" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Попытка консерваторов пересмотреть доступ просителей убежища к медицине провалилась</div>
+    <div class="card-excerpt">Палата общин отклонила инициативу консерваторов о пересмотре медицинских льгот для просителей убежища. За предложение проголосовали 134 депутата, против — 198. Поддержали его только консерваторы; либе</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-25-kanadtsy-schitayut-chto-dlya-vyhoda-na-pensiyu-im-nuzhno-17-/">
+  <div class="card-img"><img src="/photos/photo_2255@25-02-2026_20-00-48.jpg" alt="Канадцы считают, что для выхода на пенсию им нужно 1,7 млн долларов — опрос BMO" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bnnbloomberg.ca</div>
+    <div class="card-title">Канадцы считают, что для выхода на пенсию им нужно 1,7 млн долларов — опрос BMO</div>
+    <div class="card-excerpt">Канадцы уверены, что для комфортной пенсии им в среднем потребуется 1,7 млн долларов. Такие данные приводит ежегодный опрос банка BMO. Год назад оценка составляла около 1,54 млн — рост заметный.   При</div>
+    <div class="card-meta">
+      <span class="card-date">25 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-25-gde-ministr-immigratsii-kanady-obschestvennye-organizatsii-z/">
+  <div class="card-img"><img src="/photos/photo_2252@25-02-2026_15-03-06.jpg" alt="Где министр иммиграции Канады? Общественные организации задают вопросы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Где министр иммиграции Канады? Общественные организации задают вопросы</div>
+    <div class="card-excerpt">Назначение Лены Метледж Диаб на пост министра иммиграции вызвало высокие ожидания. Дочь иммигрантов, бывший министр в правительстве Новой Шотландии, она должна была стать сильным голосом в одном из са</div>
+    <div class="card-meta">
+      <span class="card-date">25 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-21-kak-tramp-nameren-prodolzhat-torgovuyu-voynu-s-kanadoy-bez-i/">
+  <div class="card-img"><img src="/photos/photo_2226@21-02-2026_12-04-36.jpg" alt="Как Трамп намерен продолжать торговую войну с Канадой без IEEPA" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Как Трамп намерен продолжать торговую войну с Канадой без IEEPA</div>
+    <div class="card-excerpt">После того как Верховный суд США ограничил использование чрезвычайных полномочий для введения тарифов, Дональд Трамп пообещал усилить другие инструменты давления — прежде всего секторальные пошлины. Д</div>
+    <div class="card-meta">
+      <span class="card-date">21 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-20-gosudarstvennye-plany-lekarstvennogo-obespecheniya-ne-dolzhn/">
+  <div class="card-img"><img src="/photos/photo_2221@20-02-2026_13-06-05.jpg" alt="Государственные планы лекарственного обеспечения не должны покрывать новый препарат от болезни Альцгеймера, считает агентство" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Государственные планы лекарственного обеспечения не должны покрывать новый препарат от болезни Альцгеймера, считает агентство</div>
+    <div class="card-excerpt">Канадское агентство по лекарственным средствам рекомендовало не включать препарат леканемаб (торговое название Leqembi) в государственные программы возмещения стоимости лекарств.    Леканемаб — это ла</div>
+    <div class="card-meta">
+      <span class="card-date">20 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-19-olimpiada-2026-kanadskie-short-trekisty-berut-zoloto-i-bronz/">
+  <div class="card-img"><img src="/photos/photo_2210@19-02-2026_09-04-59.jpg" alt="Олимпиада-2026: канадские шорт-трекисты берут золото и бронзу в один день" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Олимпиада-2026: канадские шорт-трекисты берут золото и бронзу в один день</div>
+    <div class="card-excerpt">Сборная Канады увеличила медальный счёт до 14 наград после яркого дня на шорт-треке.   28-летний Стивен Дюбуа из Квебека выиграл финал на 500 метров и принёс стране четвёртое золото этих Игр. Дюбуа ув</div>
+    <div class="card-meta">
+      <span class="card-date">19 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-18-liberalnoe-pravitelstvo-rasshiryaet-programmu-express-entry-/">
+  <div class="card-img"><img src="/photos/photo_2209@18-02-2026_19-01-01.jpg" alt="Либеральное правительство расширяет программу Express Entry для ряда квалифицированных работников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Либеральное правительство расширяет программу Express Entry для ряда квалифицированных работников</div>
+    <div class="card-excerpt">Правительство либералов объявило о расширении иммиграционной программы Express Entry. Новые приоритетные категории нацелены на специалистов в аэрокосмической отрасли, научных исследованиях и военной с</div>
+    <div class="card-meta">
+      <span class="card-date">18 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-18-per-poliev-zayavil-chto-dzheneru-predal-svoih-izbirateley/">
+  <div class="card-img"><img src="/photos/photo_2207@18-02-2026_17-03-21.jpg" alt="Пьер Полиев заявил, что Дженеру «предал» своих избирателей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Пьер Полиев заявил, что Дженеру «предал» своих избирателей</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев обвинил депутата Мэтта Дженеру в предательстве после того, как тот покинул фракцию и присоединился к либералам.   Премьер-министр Марк Карни объявил о переходе в среду</div>
+    <div class="card-meta">
+      <span class="card-date">18 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb on" href="/tag/kvebek/">1</a><a class="pb" href="/tag/kvebek/page/2/">2</a><a class="pb" href="/tag/kvebek/page/3/">3</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/kvebek/page/9/">9</a><a class="pb" href="/tag/kvebek/page/2/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
 </body>
 </html>
