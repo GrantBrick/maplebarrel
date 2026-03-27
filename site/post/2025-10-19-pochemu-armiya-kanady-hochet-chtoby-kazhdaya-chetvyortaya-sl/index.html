@@ -18,22 +18,20 @@
 <meta name="twitter:image" content="https://journalists.ca/photos/(File not included. Change data exporting settings to download.)">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --t:#111;
-  --t2:#555;
-  --t3:#888;
-  --br:#e5e5e5;
---serif:'Playfair Display', Georgia, serif;
---sans:'Golos Text', system-ui, sans-serif;
-}
-
-body{
-  background:#ffffff;
-  color:#111;
-  font-family:var(--sans);
+  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
+  --br:#e2ddd4;--br2:#ccc7bc;
+  --card:#ffffff;--card-hover:#faf8f4;
+  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
+  --ac:#c0392b;--ac2:#c0392b;--ac3:#e05240;
+  --gold:#9a6f20;--gold2:#c9963a;
+  --tg:#2b6cb0;--tg2:#1a56a0;
+  --maple:#c0392b;
+  --shadow:0 2px 12px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -42,137 +40,117 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ── NAV ── */
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:1px}
 .nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--cream);background:var(--bg3)}
-.nl.on{color:var(--cream);background:var(--bg3)}
+.nl:hover{color:var(--t);background:var(--bg4)}
+.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.2)}
-.tgb{
-  background:#c0392b;
-  color:#fff;
-  border-radius:6px;
-  padding:6px 14px;
-  font-weight:600;
-  font-size:13px;
-  border:none;
-}
-
-.tgb:hover{
-  background:#a93226;
-}
+/* Telegram — prominent button */
+.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:all .2s;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.tgb:hover{background:var(--tg);box-shadow:0 2px 8px rgba(26,86,160,.4)}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
 
 .wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
+/* ── SOURCE BADGE (red) ── */
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap}
+
 /* ── CARD SYSTEM ── */
-/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:6px;
-  overflow:hidden;
-  transition:transform .15s;
-}
-.card:hover{
-  transform:translateY(-2px);
-}
+.card{background:var(--card);border-radius:8px;overflow:hidden;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-/* Image container — always 16:9, consistent shadow on image */
-.card-img{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:var(--bg4);
-  flex-shrink:0;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-
+/* Image — fixed 16:9, cover, contained */
+.card-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+.card-img .emoji-fallback{font-size:28px;color:var(--t4)}
 
-/* Card body — cream-tinted text on dark */
-.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#c0392b;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.35;
-  color:#111;
-}
+/* Card body */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:15px}
 .card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-.card-date{font-size:10px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap;border-top:1px solid var(--br)}
+.card-date{font-size:11px;color:var(--t3)}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+/* Read more link */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:4px}
+.card:hover .card-read{text-decoration:underline}
 
-/* Tags — topic-colored by category */
-.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+/* ── TAG CHIPS ── */
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;transition:opacity .12s;letter-spacing:.2px}
 .tag:hover{opacity:.8}
-/* politics/elections */
-.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-/* economy/tariffs */
-.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-/* immigration */
-.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-/* regions */
-.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-/* longreads */
-.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-/* default */
-.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
-
-/* Tag category mapping */
-.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+/* Politics — red */
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+/* Economy — amber */
+.tag-eco{background:#fef3c7;color:#78350f}
+/* Immigration — blue */
+.tag-imm{background:#dbeafe;color:#1e40af}
+/* Regions — green */
+.tag-reg{background:#d1fae5;color:#065f46}
+/* Stats — purple */
+.tag-stat{background:#ede9fe;color:#4c1d95}
+/* Default — gray */
+.tag-def{background:var(--bg4);color:var(--t3)}
 
 /* ── PAGINATION ── */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
 /* ── TAG FILTER BAR ── */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
 .fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
 .fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--cream)}
+.fcol a:hover{color:var(--t)}
 .fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* ── TG CTA ── */
-.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+/* ── TG CTA (bottom of post) ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
 .tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
 .csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
-.ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+.ctgp a{color:var(--tg2)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.cbtn2:hover{background:var(--tg)}
+
+/* ── CARD PLACEHOLDER ── */
+.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.card-placeholder span{font-size:13px;font-weight:700;letter-spacing:.5px;opacity:.9}
+/* Consistent card-img — always 16:9, photo is decorative */
+.card-img{position:relative}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Read more */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:2px}
+
+/* ci-badge smaller */
+.ci-badge{font-size:9px!important;padding:1px 6px!important}
+
+/* lr-card */
+.lr-card{display:flex;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:80px;min-width:80px;height:80px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lr-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lr-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:5px;min-width:0}
+.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
@@ -180,117 +158,39 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
 
 .art-layout{display:grid;grid-template-columns:1fr 300px;gap:52px}
 .art-src-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
-.art-src{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
 .art-pers{display:flex;gap:6px;flex-wrap:wrap}
-.art-per{font-size:11px;color:var(--gold);background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.2);padding:2px 9px;border-radius:8px}
-.art-title{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1.2;margin-bottom:16px;color:var(--cream)}
+.art-per{font-size:11px;color:var(--tg2);background:rgba(43,108,176,.08);border:1px solid rgba(43,108,176,.2);padding:2px 9px;border-radius:8px}
+.art-title{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1.2;margin-bottom:18px;color:var(--t)}
 .art-hero{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);margin-bottom:20px;border-radius:8px;box-shadow:var(--shadow)}
-.art-hero-emoji{display:flex;align-items:center;justify-content:center;font-size:64px;color:var(--t4)}
+.art-hero img{width:100%;height:100%;object-fit:cover}
+.art-hero-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .art-metabar{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--br);border-bottom:1px solid var(--br);padding:11px 0;margin-bottom:28px;gap:10px;flex-wrap:wrap}
 .art-date{font-size:13px;color:var(--t3)}
 .art-tags{display:flex;gap:5px;flex-wrap:wrap}
-/* Article body — the readable cream area */
-.art-body-wrap{background:var(--card);border-radius:8px;padding:28px 32px;box-shadow:var(--shadow-sm)}
-.art-body{font-family:var(--bserif);font-size:18px;line-height:1.85;color:var(--cream2)}
+.art-body-wrap{background:#fff;border-radius:8px;padding:28px 32px;box-shadow:var(--shadow-sm);border:1px solid var(--br)}
+.art-body{font-family:var(--bserif);font-size:18px;line-height:1.85;color:var(--t)}
 .art-body p{margin-bottom:1.2em}
-.src-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--t3);border:1px solid var(--br);padding:7px 14px;border-radius:5px;margin-top:24px;background:var(--bg3);transition:all .15s}
-.src-link:hover{color:var(--cream);border-color:var(--br2)}
-.art-sb .sbt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);padding-bottom:10px;border-bottom:1px solid var(--br);margin-bottom:14px}
-.rel-item{display:flex;flex-direction:column;gap:4px;padding:11px 0;border-bottom:1px solid var(--br);transition:opacity .12s}
-.rel-item:hover{opacity:.7}
-.rel-src{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac2)}
-.rel-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--cream)}
-.rel-date{font-size:10px;color:var(--t3)}
+.src-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--t3);border:1px solid var(--br);padding:7px 14px;border-radius:5px;margin-top:20px;background:#fff;transition:all .15s}
+.src-link:hover{color:var(--t);border-color:var(--br2)}
+.art-sb .sbt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);padding-bottom:10px;border-bottom:2px solid var(--br);margin-bottom:14px}
+.rel-posts{display:flex;flex-direction:column;gap:8px}
 .bk{display:inline-flex;align-items:center;gap:5px;color:var(--t3);font-size:13px;margin-bottom:24px;transition:color .15s}
-.bk:hover{color:var(--cream)}
+.bk:hover{color:var(--t)}
 @media(max-width:900px){.art-layout{grid-template-columns:1fr}.art-sb{display:none}.art-title{font-size:22px}.art-body-wrap{padding:20px 18px}}
 </style>
 </head>
 <body>
-
-<nav style="background:#fff;border-bottom:1px solid #eee;">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
-
-    <!-- LEFT -->
-    <div style="display:flex;gap:16px;font-size:14px;color:#555">
-      <a href="/" style="color:#000">Новости</a>
-      <a href="/materials/">Материалы</a>
-      <a href="/longreads/">Лонгриды</a>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
-      Maple <span style="color:#d44">🍁</span> Barrel
-    </div>
-
-    <!-- RIGHT -->
-    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
-      <a href="/about/">О проекте</a>
-      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
-    </div>
-
-  </div>
-</nav>
-
-<div class="wrap">
-  <a class="bk" href="javascript:history.back()">← Назад</a>
-  <div class="art-layout">
-    <div>
-      <div class="art-src-row">
-        <span class="art-src">espritdecorps.ca</span>
-        <div class="art-pers"></div>
-      </div>
-      <h1 class="art-title">Почему армия Канады хочет, чтобы каждая четвёртая служащая была женщиной</h1>
-      <div class="art-hero"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Почему армия Канады хочет, чтобы каждая четвёртая служащая была женщиной" loading="eager"></div>
-      <div class="art-metabar">
-        <span class="art-date">19 октября 2025</span>
-        <div class="art-tags"><a class="ptag" href="/tag/korennye-narody/">#коренные народы</a></div>
-      </div>
-      <div class="art-body-wrap">
-        <div class="art-body"><p>Канадские вооружённые силы (CAF) подходят к дедлайну: к 2026 году женщины должны составлять 25% личного состава. Цель кажется произвольной, но на самом деле она основана на десятилетиях законов о равенстве, решениях судов по правам человека и опыте союзников.</p><p>До 1965 года число женщин в армии Канады вообще ограничивалось — максимум 1500 человек, то есть полтора процента от общей численности. После снятия лимита их по-прежнему было мало, потому что большинство профессий оставались закрытыми. Только в 1989 году трибунал по правам человека обязал CAF открыть все специальности для женщин.</p><p>В 2002 году действие закона о равенстве в трудоустройстве распространили и на военных. CAF пришлось установить целевые показатели для женщин, коренных народов, расовых меньшинств и людей с инвалидностью. Это были не квоты, а ориентиры, призванные устранить системные барьеры и сделать армию более отражающей общество.</p><p>После застоя в 2000-х военные решили установить конкретную цель. В 2010 году был утверждён показатель 25,1% — «амбициозный, но достижимый». Анализ показал, что добиться абсолютного равенства полов (50/50) нереалистично из-за ограничений по набору, интересу к службе и сложности удержания персонала.</p><p>Дальнейшие исследования подтвердили реальность цели. Проект Behavioural Insights Канцелярии премьер-министра (2015) и отчёт Earnscliffe Strategy Group (2016) показали, что при улучшении условий, наставничества и культуры службы 25% — вполне достижимый уровень.</p><p>Политическая дорожная карта появилась в оборонной стратегии Strong, Secure, Engaged (2017): увеличить долю женщин с 15% до 25% к 2026 году. В 2019-м этот пункт вошёл и в поручение министра обороны.</p><p>Для ориентира Канада смотрит на союзников:</p><p>– Австралия — 22%</p><p>– Новая Зеландия — 21%</p><p>– США — 17,7%</p><p>– Великобритания — 11,7% (планирует 30% к 2030-му)</p><p>На конец 2024 года в Канаде женщины составляли 16,6% армии и резерва. В ВМФ и ВВС показатель около 20%, в сухопутных войсках — лишь 14%. Главные препятствия — устаревшая культура, конкуренция с гражданским рынком и физическая специфика армейской службы.</p><p>Цель в 25% — не про «пиар» и не про символизм. Это шаг к более эффективной армии, использующей потенциал всех граждан. Ведь готовность CAF зависит не только от техники, но и от того, насколько она отражает общество, которое защищает.</p><p>Может, пора идти дальше и, как Британия, нацелиться на 30% женщин к 2030 году?</p></div>
-      </div>
-      <a class="src-link" href="https://www.espritdecorps.ca/military-woman/why-the-military-wants-one-in-four-members-to-be-a-woman" target="_blank" rel="noopener">Читать оригинал на espritdecorps.ca →</a>
-      <div class="tgcta">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
-        <div class="ctxt">
-          <div class="ctit">Читайте Maple Barrel в Telegram</div>
-          <div class="csub">Новые материалы каждый день — прямо в мессенджере</div>
-          <div class="ctgp">Этот пост в Telegram: <a href="https://t.me/maplebarrel/1534" target="_blank" rel="noopener">https://t.me/maplebarrel/1534</a></div>
-        </div>
-        <a class="cbtn2" href="https://t.me/maplebarrel" target="_blank" rel="noopener">Подписаться</a>
-      </div>
-    </div>
-    <div class="art-sb">
-      <div class="sbt">Читайте также</div>
-      <a class="rel-item" href="/post/2026-03-24-panika-vokrug-primireniya-v-kanade/">
-      <div class="rel-src">macleans.ca</div>
-      <div class="rel-title">Паника вокруг примирения в Канаде</div>
-      <div class="rel-date">24 мар 2026</div>
-    </a><a class="rel-item" href="/post/2026-03-23-ford-obyavit-aeroport-billi-bishop-osoboy-ekonomicheskoy-zon/">
-      <div class="rel-src">theglobeandmail.com</div>
-      <div class="rel-title">Форд объявит аэропорт Билли Бишоп «особой экономической зоной», чтобы разрешить реактивные самолёты</div>
-      <div class="rel-date">23 мар 2026</div>
-    </a><a class="rel-item" href="/post/2026-03-18-kanadskie-muzhchiny-perezhivayut-postoyannyy-krizis-v-obsche/">
-      <div class="rel-src">ctvnews.ca</div>
-      <div class="rel-title">Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье</div>
-      <div class="rel-date">18 мар 2026</div>
-    </a><a class="rel-item" href="/post/2026-03-15-parki-kanady-planiruyut-otstrel-desyatkov-oleney-na-istorich/">
-      <div class="rel-src">cbc.ca</div>
-      <div class="rel-title">Парки Канады планируют отстрел десятков оленей на историческом острове в Квебеке</div>
-      <div class="rel-date">15 мар 2026</div>
-    </a><a class="rel-item" href="/post/2026-02-14-premer-karni-i-per-poliev-vzyalis-za-ruki-na-traurnoy-tserem/">
-      <div class="rel-src">apnews.com</div>
-      <div class="rel-title">Премьер Карни и Пьер Полиев взялись за руки на траурной церемонии в Тамблэ Ридж</div>
-      <div class="rel-date">14 фев 2026</div>
-    </a><a class="rel-item" href="/post/2026-02-14-kanadtsy-s-vami-my-vsegda-budem-s-vami-premer-vystupil-na-tr/">
-      <div class="rel-src">cbc.ca</div>
-      <div class="rel-title">«Канадцы с вами. Мы всегда будем с вами»: премьер выступил на траурной церемонии в Тамблэ Ридж</div>
-      <div class="rel-date">14 фев 2026</div>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
     </a>
-    </div>
   </div>
-</div>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Почему армия Канады хочет, чтобы каждая четвёртая служащая была женщиной", "datePublished": "2025-10-19", "publisher": {"@type": "Organization", "name": "Maple Barrel", "url": "https://journalists.ca"}, "url": "https://journalists.ca/post/2025-10-19-pochemu-armiya-kanady-hochet-chtoby-kazhdaya-chetvyortaya-sl/", "description": "Канадские вооружённые силы (CAF) подходят к дедлайну: к 2026 году женщины должны составлять 25% личного состава. Цель кажется произвольной, но на самом деле она"}</script>
+</div></nav>
+<div class="wrap"><a class="bk" href="javascript:history.back()">← Назад</a><div class="art-layout"><div><div class="art-src-row"><span class="src-badge">espritdecorps.ca</span><div class="art-pers"></div></div><h1 class="art-title">Почему армия Канады хочет, чтобы каждая четвёртая служащая была женщиной</h1><div class="art-hero"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="eager" onerror="this.parentNode.innerHTML='<div class=art-hero-ph style=background:#4a4740><span style=color:#fff;font-size:24px;font-weight:700>ESPR</span></div>'"></div><div class="art-metabar"><span class="art-date">19 октября 2025</span><div class="art-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="art-body-wrap"><div class="art-body"><p>Канадские вооружённые силы (CAF) подходят к дедлайну: к 2026 году женщины должны составлять 25% личного состава. Цель кажется произвольной, но на самом деле она основана на десятилетиях законов о равенстве, решениях судов по правам человека и опыте союзников.</p><p>До 1965 года число женщин в армии Канады вообще ограничивалось — максимум 1500 человек, то есть полтора процента от общей численности. После снятия лимита их по-прежнему было мало, потому что большинство профессий оставались закрытыми. Только в 1989 году трибунал по правам человека обязал CAF открыть все специальности для женщин.</p><p>В 2002 году действие закона о равенстве в трудоустройстве распространили и на военных. CAF пришлось установить целевые показатели для женщин, коренных народов, расовых меньшинств и людей с инвалидностью. Это были не квоты, а ориентиры, призванные устранить системные барьеры и сделать армию более отражающей общество.</p><p>После застоя в 2000-х военные решили установить конкретную цель. В 2010 году был утверждён показатель 25,1% — «амбициозный, но достижимый». Анализ показал, что добиться абсолютного равенства полов (50/50) нереалистично из-за ограничений по набору, интересу к службе и сложности удержания персонала.</p><p>Дальнейшие исследования подтвердили реальность цели. Проект Behavioural Insights Канцелярии премьер-министра (2015) и отчёт Earnscliffe Strategy Group (2016) показали, что при улучшении условий, наставничества и культуры службы 25% — вполне достижимый уровень.</p><p>Политическая дорожная карта появилась в оборонной стратегии Strong, Secure, Engaged (2017): увеличить долю женщин с 15% до 25% к 2026 году. В 2019-м этот пункт вошёл и в поручение министра обороны.</p><p>Для ориентира Канада смотрит на союзников:</p><p>– Австралия — 22%</p><p>– Новая Зеландия — 21%</p><p>– США — 17,7%</p><p>– Великобритания — 11,7% (планирует 30% к 2030-му)</p><p>На конец 2024 года в Канаде женщины составляли 16,6% армии и резерва. В ВМФ и ВВС показатель около 20%, в сухопутных войсках — лишь 14%. Главные препятствия — устаревшая культура, конкуренция с гражданским рынком и физическая специфика армейской службы.</p><p>Цель в 25% — не про «пиар» и не про символизм. Это шаг к более эффективной армии, использующей потенциал всех граждан. Ведь готовность CAF зависит не только от техники, но и от того, насколько она отражает общество, которое защищает.</p><p>Может, пора идти дальше и, как Британия, нацелиться на 30% женщин к 2030 году?</p></div></div><a class="src-link" href="https://www.espritdecorps.ca/military-woman/why-the-military-wants-one-in-four-members-to-be-a-woman" target="_blank" rel="noopener">Читать оригинал на espritdecorps.ca →</a><div class="tgcta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg><div class="ctxt"><div class="ctit">Читайте Maple Barrel в Telegram</div><div class="csub">Новые материалы каждый день — прямо в мессенджере</div><div class="ctgp">Этот пост в Telegram: <a href="https://t.me/maplebarrel/1534" target="_blank" rel="noopener">https://t.me/maplebarrel/1534</a></div></div><a class="cbtn2" href="https://t.me/maplebarrel" target="_blank" rel="noopener">Подписаться</a></div></div><div class="art-sb"><div class="sbt">Читайте также</div><div class="rel-posts"><a class="lr-card" href="/post/2026-03-27-liberaly-uzhestochayut-izbiratelnye-zakony-dipfeyki-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.style.background='#003087';this.remove()"></div><div class="lr-body"><span class="src-badge" style="font-size:9px">National Post</span><div class="lr-title">Либералы ужесточают избирательные законы: дипфейки, иностранное вмешательство и «длинные бюллетени»</div><div class="card-date" style="font-size:10px;margin-top:4px">27 мар 2026</div></div></a><a class="lr-card" href="/post/2026-03-27-pereshedshiy-k-liberalam-deputat-izvinilsya-za-povedenie-na-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.style.background='#cc0000';this.remove()"></div><div class="lr-body"><span class="src-badge" style="font-size:9px">CBC</span><div class="lr-title">Перешедший к либералам депутат извинился за поведение на слушаниях по китайским электромобилям</div><div class="card-date" style="font-size:10px;margin-top:4px">27 мар 2026</div></div></a><a class="lr-card" href="/post/2026-03-27-kanada-dostigla-tseli-nato-po-voennym-rashodam/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.style.background='#005eb8';this.remove()"></div><div class="lr-body"><span class="src-badge" style="font-size:9px">CTV News</span><div class="lr-title">Канада достигла цели НАТО по военным расходам</div><div class="card-date" style="font-size:10px;margin-top:4px">27 мар 2026</div></div></a><a class="lr-card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.style.background='#cc0000';this.remove()"></div><div class="lr-body"><span class="src-badge" style="font-size:9px">CBC</span><div class="lr-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div><div class="card-date" style="font-size:10px;margin-top:4px">26 мар 2026</div></div></a></div></div></div></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Почему армия Канады хочет, чтобы каждая четвёртая служащая была женщиной", "datePublished": "2025-10-19", "publisher": {"@type": "Organization", "name": "Maple Barrel", "url": "https://journalists.ca"}, "url": "https://journalists.ca/post/2025-10-19-pochemu-armiya-kanady-hochet-chtoby-kazhdaya-chetvyortaya-sl/", "description": "Канадские вооружённые силы (CAF) подходят к дедлайну: к 2026 году женщины должны составлять 25% личного состава. Цель кажется произвольной, но на самом деле она"}</script>
 <footer>
 <div class="fi">
   <div>
@@ -298,8 +198,8 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
     <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
     <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
   </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/politika/">#Политика</a><a href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a href="/tag/ekonomika/">#Экономика</a><a href="/tag/zhilyo/">#Жильё</a><a href="/tag/transport/">#Транспорт</a><a href="/tag/rynok-truda/">#Рынок труда</a><a href="/tag/prestupnost/">#Преступность</a><a href="/tag/prava-i-svobody/">#Права и свободы</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/daniel-smit/">Даниэль Смит</a><a href="/person/melani-zholi/">Мелани Жоли</a><a href="/person/anita-anand/">Анита Ананд</a></div>
 </div>
 <div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
 </footer>

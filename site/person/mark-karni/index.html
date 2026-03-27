@@ -18,22 +18,20 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --t:#111;
-  --t2:#555;
-  --t3:#888;
-  --br:#e5e5e5;
---serif:'Playfair Display', Georgia, serif;
---sans:'Golos Text', system-ui, sans-serif;
-}
-
-body{
-  background:#ffffff;
-  color:#111;
-  font-family:var(--sans);
+  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
+  --br:#e2ddd4;--br2:#ccc7bc;
+  --card:#ffffff;--card-hover:#faf8f4;
+  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
+  --ac:#c0392b;--ac2:#c0392b;--ac3:#e05240;
+  --gold:#9a6f20;--gold2:#c9963a;
+  --tg:#2b6cb0;--tg2:#1a56a0;
+  --maple:#c0392b;
+  --shadow:0 2px 12px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -42,137 +40,117 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ── NAV ── */
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:1px}
 .nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--cream);background:var(--bg3)}
-.nl.on{color:var(--cream);background:var(--bg3)}
+.nl:hover{color:var(--t);background:var(--bg4)}
+.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.2)}
-.tgb{
-  background:#c0392b;
-  color:#fff;
-  border-radius:6px;
-  padding:6px 14px;
-  font-weight:600;
-  font-size:13px;
-  border:none;
-}
-
-.tgb:hover{
-  background:#a93226;
-}
+/* Telegram — prominent button */
+.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:all .2s;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.tgb:hover{background:var(--tg);box-shadow:0 2px 8px rgba(26,86,160,.4)}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
 
 .wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
+/* ── SOURCE BADGE (red) ── */
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap}
+
 /* ── CARD SYSTEM ── */
-/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:6px;
-  overflow:hidden;
-  transition:transform .15s;
-}
-.card:hover{
-  transform:translateY(-2px);
-}
+.card{background:var(--card);border-radius:8px;overflow:hidden;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-/* Image container — always 16:9, consistent shadow on image */
-.card-img{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:var(--bg4);
-  flex-shrink:0;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-
+/* Image — fixed 16:9, cover, contained */
+.card-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+.card-img .emoji-fallback{font-size:28px;color:var(--t4)}
 
-/* Card body — cream-tinted text on dark */
-.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#c0392b;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.35;
-  color:#111;
-}
+/* Card body */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:15px}
 .card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-.card-date{font-size:10px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap;border-top:1px solid var(--br)}
+.card-date{font-size:11px;color:var(--t3)}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+/* Read more link */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:4px}
+.card:hover .card-read{text-decoration:underline}
 
-/* Tags — topic-colored by category */
-.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+/* ── TAG CHIPS ── */
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;transition:opacity .12s;letter-spacing:.2px}
 .tag:hover{opacity:.8}
-/* politics/elections */
-.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-/* economy/tariffs */
-.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-/* immigration */
-.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-/* regions */
-.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-/* longreads */
-.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-/* default */
-.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
-
-/* Tag category mapping */
-.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+/* Politics — red */
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+/* Economy — amber */
+.tag-eco{background:#fef3c7;color:#78350f}
+/* Immigration — blue */
+.tag-imm{background:#dbeafe;color:#1e40af}
+/* Regions — green */
+.tag-reg{background:#d1fae5;color:#065f46}
+/* Stats — purple */
+.tag-stat{background:#ede9fe;color:#4c1d95}
+/* Default — gray */
+.tag-def{background:var(--bg4);color:var(--t3)}
 
 /* ── PAGINATION ── */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
 /* ── TAG FILTER BAR ── */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
 .fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
 .fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--cream)}
+.fcol a:hover{color:var(--t)}
 .fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* ── TG CTA ── */
-.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+/* ── TG CTA (bottom of post) ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
 .tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
 .csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
-.ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+.ctgp a{color:var(--tg2)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.cbtn2:hover{background:var(--tg)}
+
+/* ── CARD PLACEHOLDER ── */
+.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.card-placeholder span{font-size:13px;font-weight:700;letter-spacing:.5px;opacity:.9}
+/* Consistent card-img — always 16:9, photo is decorative */
+.card-img{position:relative}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Read more */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:2px}
+
+/* ci-badge smaller */
+.ci-badge{font-size:9px!important;padding:1px 6px!important}
+
+/* lr-card */
+.lr-card{display:flex;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:80px;min-width:80px;height:80px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lr-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lr-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:5px;min-width:0}
+.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
@@ -188,477 +166,22 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
 </style>
 </head>
 <body>
-
-<nav style="background:#fff;border-bottom:1px solid #eee;">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
-
-    <!-- LEFT -->
-    <div style="display:flex;gap:16px;font-size:14px;color:#555">
-      <a href="/" style="color:#000">Новости</a>
-      <a href="/materials/">Материалы</a>
-      <a href="/longreads/">Лонгриды</a>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
-      Maple <span style="color:#d44">🍁</span> Barrel
-    </div>
-
-    <!-- RIGHT -->
-    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
-      <a href="/about/">О проекте</a>
-      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
-    </div>
-
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
   </div>
-</nav>
-
+</div></nav>
 <div class="wrap">
   <div class="tag-hdr">
     <h1>Марк Карни</h1>
     <p>782 материалов</p>
   </div>
-  <div class="tag-grid"><a class="card" href="/post/2026-03-27-liberaly-uzhestochayut-izbiratelnye-zakony-dipfeyki-inostran/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы ужесточают избирательные законы: дипфейки, иностранное вмешательство и «длинные бюллетени»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Либералы ужесточают избирательные законы: дипфейки, иностранное вмешательство и «длинные бюллетени»</div>
-    <div class="card-excerpt">Правительство Марка Карни представило законопроект C-25 — масштабную реформу избирательного законодательства. Формальная цель — защитить выборы от вмешательства, манипуляций и новых технологических ри</div>
-    <div class="card-meta">
-      <span class="card-date">27 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-27-kanada-dostigla-tseli-nato-po-voennym-rashodam/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада достигла цели НАТО по военным расходам" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Канада достигла цели НАТО по военным расходам</div>
-    <div class="card-excerpt">Канада впервые за десятилетия вышла на целевой уровень НАТО — 2% ВВП на оборону. По данным альянса, в 2025 году страна потратила более $60 млрд.   Премьер-министр Марк Карни заявил, что это самый высо</div>
-    <div class="card-meta">
-      <span class="card-date">27 мар 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div>
-    <div class="card-excerpt">Бывший министр иммиграции, а ныне министр юстиции Шон Фрейзер заявил, что с учётом сегодняшних данных он бы раньше ограничил программу иностранных студентов.   По его словам, федеральное правительство</div>
-    <div class="card-meta">
-      <span class="card-date">26 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-26-glava-air-canada-snova-promahnulsya-s-dvuyazychiem/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Глава Air Canada снова «промахнулся» с двуязычием" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Глава Air Canada снова «промахнулся» с двуязычием</div>
-    <div class="card-excerpt">Колумнист Конрад Якабуски пишет, что глава Air Canada Майкл Руссо вновь оказался в центре скандала из-за игнорирования французского языка.   Поводом стало видеообращение после крушения самолёта в Нью-</div>
-    <div class="card-meta">
-      <span class="card-date">26 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-25-liberaly-obsudyat-vozrastnye-ogranicheniya-dlya-sotssetey-i-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы обсудят возрастные ограничения для соцсетей и ИИ-чатботов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">toronto.citynews.ca</div>
-    <div class="card-title">Либералы обсудят возрастные ограничения для соцсетей и ИИ-чатботов</div>
-    <div class="card-excerpt">На съезде Либеральной партии в Монреале в апреле обсудят идею ограничить доступ подростков к соцсетям и ИИ — вплоть до жёстких запретов.  Один из предложенных пунктов — запретить использование ИИ-чатб</div>
-    <div class="card-meta">
-      <span class="card-date">25 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-25-poliev-trebuet-ot-karni-uvolit-ministrov-iz-za-otchyota-audi/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">westernstandard.news</div>
-    <div class="card-title">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам</div>
-    <div class="card-excerpt">Лидер консерваторов Пьер Полиев призвал премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.   Речь идёт о дей</div>
-    <div class="card-meta">
-      <span class="card-date">25 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-25-kak-mark-karni-prodal-kanadu-kitayu/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Как Марк Карни «продал» Канаду Китаю" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">spectator.com</div>
-    <div class="card-title">Как Марк Карни «продал» Канаду Китаю</div>
-    <div class="card-excerpt">Джейн Стэннус пишет, что правительство Марка Карни резко смягчило риторику в отношении Си Цзиньпина и перешло к активному сотрудничеству.  Во время визита в Пекин подписали соглашения по торговле, эне</div>
-    <div class="card-meta">
-      <span class="card-date">25 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-24-zachem-liberaly-rasshiryayut-programmu-vremennyh-inostrannyh/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Зачем либералы расширяют программу временных иностранных работников?" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">torontosun.com</div>
-    <div class="card-title">Зачем либералы расширяют программу временных иностранных работников?</div>
-    <div class="card-excerpt">Брайан Лилли пишет, что правительство Марк Карни идёт в противоположную сторону от логики рынка труда: безработица растёт — а доступ к дешёвой иностранной рабочей силе расширяют.  По данным Statistics</div>
-    <div class="card-meta">
-      <span class="card-date">24 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-24-pozhilye-kanadtsy-ostayutsya-glavnoy-oporoy-karni-opros/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Пожилые канадцы остаются главной опорой Карни — опрос" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">torontosun.com</div>
-    <div class="card-title">Пожилые канадцы остаются главной опорой Карни — опрос</div>
-    <div class="card-excerpt">Новый опрос Liaison Strategies показывает: лидерство Марк Карни держится не на молодёжи, а на избирателях старшего возраста.  Либералы сохраняют серьёзный отрыв от консерваторов — 41% против 27% у ком</div>
-    <div class="card-meta">
-      <span class="card-date">24 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-24-pravitelstvo-karni-priznalo-oshibku-prava-cheloveka-vsyo-tak/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Правительство Карни признало «ошибку»: права человека всё-таки обсуждали с Си" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nsnews.com</div>
-    <div class="card-title">Правительство Карни признало «ошибку»: права человека всё-таки обсуждали с Си</div>
-    <div class="card-excerpt">Правительство Марк Карни внезапно «исправило» собственные данные, поданные в парламент, — теперь утверждает, что тема прав человека всё же поднималась на встрече с Си Цзиньпин.  Ранее официальный доку</div>
-    <div class="card-meta">
-      <span class="card-date">24 мар 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-23-menedzher-kampanii-konservatorov-otmahnulsya-ot-oprosov-s-bo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Менеджер кампании консерваторов отмахнулся от опросов с большим отрывом либералов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Менеджер кампании консерваторов отмахнулся от опросов с большим отрывом либералов</div>
-    <div class="card-excerpt">Федеральные консерваторы не собираются паниковать из-за опросов, где либералы опережают их на 10+ пунктов. Руководитель кампании партии Стив Аутхаус прямо сказал: «опросы — это просто опросы».   По ег</div>
-    <div class="card-meta">
-      <span class="card-date">23 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-22-oprosy-amerikantsy-huzhe-otnosyatsya-k-kanade-i-eto-plohaya-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Опросы: американцы хуже относятся к Канаде — и это плохая новость для торговой войны" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Опросы: американцы хуже относятся к Канаде — и это плохая новость для торговой войны</div>
-    <div class="card-excerpt">Свежие данные показывают редкую ситуацию: ухудшились не только настроения канадцев к США, но и наоборот.   По данным Gallup, доля американцев с положительным отношением к Канаде упала с 91% до 80% — м</div>
-    <div class="card-meta">
-      <span class="card-date">22 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-22-vzglyad-na-kanadu-v-tsifrah/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Взгляд на Канаду — в цифрах" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">niagaraindependent.ca</div>
-    <div class="card-title">Взгляд на Канаду — в цифрах</div>
-    <div class="card-excerpt">Крис Джордж из National Post собирает сухую статистику — и картина выходит довольно мрачная.   Экономика  – 0,5%: худший рост в G7 за 10 лет – разрыв с США по ВВП на душу населения вырос с ~20% до 40%</div>
-    <div class="card-meta">
-      <span class="card-date">22 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-22-poliev-sam-dogovorilsya-o-podkaste-dzho-rogana/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Полиев сам договорился о подкасте Джо Рогана" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Полиев сам договорился о подкасте Джо Рогана</div>
-    <div class="card-excerpt">Глава кампании консерваторов Стив Оутхаус рассказал, что Пьер Полиев лично договорился о своем участии в подкасте Джо Рогана — без посредников и долгих переговоров.   По его словам, Полиев и Роган про</div>
-    <div class="card-meta">
-      <span class="card-date">22 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-20-ottava-rezhet-rashody-pod-nozh-idut-nauka-turizm-i-inostrann/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Оттава режет расходы: под нож идут наука, туризм и иностранная помощь" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">Оттава режет расходы: под нож идут наука, туризм и иностранная помощь</div>
-    <div class="card-excerpt">Правительство Марк Карни запускает масштабное сокращение расходов — и список попавших под урезание программ выглядит довольно показательно.  Согласно бюджетным планам на 2026–2027 годы, федеральные ве</div>
-    <div class="card-meta">
-      <span class="card-date">20 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-20-shest-vyvodov-iz-poyavleniya-pera-polieva-v-podkaste-dzho-ro/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Шесть выводов из появления Пьера Полиева в подкасте Джо Рогана" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Шесть выводов из появления Пьера Полиева в подкасте Джо Рогана</div>
-    <div class="card-excerpt">Лидер консерваторов Пьер Полиев провёл почти 2,5 часа в подкасте Джо Роган — и это был не просто разговор, а полноценная политическая заявка на аудиторию за пределами Канады.  Вот что из этого получил</div>
-    <div class="card-meta">
-      <span class="card-date">20 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-20-indiya-i-kanada-perezapuskayut-otnosheniya-s-istoricheskim-s/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">bbc.com</div>
-    <div class="card-title">Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике</div>
-    <div class="card-excerpt">Канада и Индия объявили о серии договорённостей, включая 10-летнее соглашение в сфере ядерной энергетики, после встречи Марк Карни и Нарендра Моди в Дели.  Ключевой элемент — долгосрочные поставки ура</div>
-    <div class="card-meta">
-      <span class="card-date">20 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-19-prekratite-etu-hren-poliev-v-podkaste-dzho-rogana-raskritiko/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Прекратите эту хрень» — Полиев в подкасте Джо Рогана раскритиковал заявления Трампа о «51-м штате»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">youtube.com</div>
-    <div class="card-title">«Прекратите эту хрень» — Полиев в подкасте Джо Рогана раскритиковал заявления Трампа о «51-м штате»</div>
-    <div class="card-excerpt">ПОЛНЫЙ ПОДКАСТ ТУТ   Лидер консерваторов Пьер Полиев использовал участие в подкасте Джо Роган, чтобы напрямую пройтись по заявлениям Дональд Трамп о превращении Канады в «51-й штат».  Полиев назвал та</div>
-    <div class="card-meta">
-      <span class="card-date">19 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-19-ot-provala-k-dominirovaniyu-kak-liberaly-karni-perepisali-po/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="От провала к доминированию: как либералы Карни переписали политику Канады за год" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ekospolitics.com</div>
-    <div class="card-title">От провала к доминированию: как либералы Карни переписали политику Канады за год</div>
-    <div class="card-excerpt">В конце 2024 года либералы отставали от консерваторов на 25 пунктов. Сегодня — опережают примерно на 20. Разворот почти на 45 пунктов за один год.   Это не просто колебание рейтингов. Это один из самы</div>
-    <div class="card-meta">
-      <span class="card-date">19 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-19-glavnye-rychagi-kanady-v-torgovyh-peregovorah-s-ssha/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Главные рычаги Канады в торговых переговорах с США" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Главные рычаги Канады в торговых переговорах с США</div>
-    <div class="card-excerpt">Несмотря на заявления Дональда Трампа о том, что США «ничего не нужно от Канады», эксперты говорят обратное. Да, зависимость асимметрична: около 76% канадского экспорта идёт в США, тогда как для амери</div>
-    <div class="card-meta">
-      <span class="card-date">19 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-18-liberaly-dostigli-rekordnoy-podderzhki-cherez-god-posle-prih/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы достигли рекордной поддержки через год после прихода Карни к власти" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">338canada.ca</div>
-    <div class="card-title">Либералы достигли рекордной поддержки через год после прихода Карни к власти</div>
-    <div class="card-excerpt">Новый опрос Nanos Research показывает: спустя год после назначения Марк Карни рейтинг либералов достиг исторического максимума.   Согласно последним данным:  – либералы — 47,6% – консерваторы — 31,1%</div>
-    <div class="card-meta">
-      <span class="card-date">18 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-16-novyy-opros-abacus-liberaly-uvelichivayut-otryv-do-11-punkto/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Новый опрос Abacus: либералы увеличивают отрыв до 11 пунктов, одобрение правительства на максимуме" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">abacusdata.ca</div>
-    <div class="card-title">Новый опрос Abacus: либералы увеличивают отрыв до 11 пунктов, одобрение правительства на максимуме</div>
-    <div class="card-excerpt">Свежий опрос Abacus Data показывает, что спустя год после прихода к власти правительства Марка Карни позиции либералов заметно укрепились.   Если федеральные выборы прошли бы сейчас, либералы получили</div>
-    <div class="card-meta">
-      <span class="card-date">16 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-16-kanadskie-konservatory-hotyat-zakryt-dostup-kitayskim-elektr/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадские консерваторы хотят закрыть доступ китайским электромобилям и запретить их программное обеспечение" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">eletric-vehicles.com</div>
-    <div class="card-title">Канадские консерваторы хотят закрыть доступ китайским электромобилям и запретить их программное обеспечение</div>
-    <div class="card-excerpt">Лидер консерваторов Пьер Полиев представил в Виндзоре план, который, по его словам, должен удвоить производство автомобилей в Канаде — с нынешних примерно 1,2 миллиона до двух миллионов машин.   Главн</div>
-    <div class="card-meta">
-      <span class="card-date">16 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-15-god-u-vlasti-marka-karni-otsenki-smeshannye-mnogie-zhdut-rea/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Год у власти Марка Карни: оценки смешанные, многие ждут реальных результатов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Год у власти Марка Карни: оценки смешанные, многие ждут реальных результатов</div>
-    <div class="card-excerpt">Газета National Post опубликовала своеобразный «табель успеваемости» премьер-министра Марка Карни спустя год после его прихода к власти. Итог получился неоднозначным: правительство активно действует,</div>
-    <div class="card-meta">
-      <span class="card-date">15 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-15-karni-i-premer-norvegii-prizvali-k-stabilnosti-neftyanogo-ry/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни и премьер Норвегии призвали к стабильности нефтяного рынка на фоне войны на Ближнем Востоке" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Карни и премьер Норвегии призвали к стабильности нефтяного рынка на фоне войны на Ближнем Востоке</div>
-    <div class="card-excerpt">Премьер-министр Канады Марк Карни и премьер Норвегии Йонас Гар Стёре во время встречи в Осло заявили о необходимости стабилизировать мировой нефтяной рынок, который оказался под давлением войны между</div>
-    <div class="card-meta">
-      <span class="card-date">15 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-14-karni-rynok-truda-kanady-vsyo-ravno-silnee-amerikanskogo-daz/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни: рынок труда Канады всё равно сильнее американского — даже после потери 84 тысяч рабочих мест" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Карни: рынок труда Канады всё равно сильнее американского — даже после потери 84 тысяч рабочих мест</div>
-    <div class="card-excerpt">Экономика Канады потеряла 84 000 рабочих мест в феврале — крупнейшее месячное сокращение занятости за четыре года. Но премьер-министр Марк Карни считает, что общая картина всё равно выглядит лучше, че</div>
-    <div class="card-meta">
-      <span class="card-date">14 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-13-ya-pogovorila-s-bolee-chem-30-istochnikami-o-pervom-gode-mar/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Я поговорила с более чем 30 источниками о первом годе Марка Карни на посту премьер-министра. Вот что они рассказали" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Я поговорила с более чем 30 источниками о первом годе Марка Карни на посту премьер-министра. Вот что они рассказали</div>
-    <div class="card-excerpt">Альтия Радж из Toronto Star пишет, что первый год Марка Карни у власти показал противоречивую картину: премьер сосредоточен на экономике и быстрых решениях, но его стиль управления вызывает всё больше</div>
-    <div class="card-meta">
-      <span class="card-date">13 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-13-kogda-kanadskaya-tolerantnost-stalkivaetsya-s-radikalizmom-b/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">vancouversun.com</div>
-    <div class="card-title">Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме</div>
-    <div class="card-excerpt">Бывший премьер Британской Колумбии Уджжал Досандж заявил, что канадские власти слишком долго игнорировали экстремистскую активность сторонников создания государства Халистан.   По его словам, политики</div>
-    <div class="card-meta">
-      <span class="card-date">13 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-13-karni-obyavil-o-35-mlrd-na-oboronu-i-infrastrukturu-na-sever/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни объявил о $35 млрд на оборону и инфраструктуру на Севере Канады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Карни объявил о $35 млрд на оборону и инфраструктуру на Севере Канады</div>
-    <div class="card-excerpt">Премьер-министр Марк Карни объявил о масштабной программе стоимостью $35 млрд для расширения военного присутствия Канады в Арктике и модернизации инфраструктуры на Севере.   Основная часть средств — о</div>
-    <div class="card-meta">
-      <span class="card-date">13 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-12-chto-budet-esli-liberaly-marka-karni-poluchat-bolshinstvo-v-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Что будет, если либералы Марка Карни получат большинство в парламенте" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Что будет, если либералы Марка Карни получат большинство в парламенте</div>
-    <div class="card-excerpt">Правительство Марка Карни может вскоре получить большинство в Палате общин — и если это произойдёт, это станет одним из самых необычных парламентских большинств в истории Канады.   Большинство может с</div>
-    <div class="card-meta">
-      <span class="card-date">12 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-11-u-kanady-est-to-chto-nuzhno-miru-ostalos-nauchitsya-eto-prod/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="У Канады есть то, что нужно миру — осталось научиться это продавать" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">У Канады есть то, что нужно миру — осталось научиться это продавать</div>
-    <div class="card-excerpt">Колумнист Toronto Star Дэвид Олив пишет, что на фоне мировых конфликтов Канада может сыграть гораздо более важную роль в мировой экономике.   Война на Ближнем Востоке и продолжающаяся война России про</div>
-    <div class="card-meta">
-      <span class="card-date">11 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-11-liberaly-uvelichivayut-otryv-do-13-punktov-novyy-opros-nanos/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы увеличивают отрыв до 13 пунктов — новый опрос Nanos" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nanos.co</div>
-    <div class="card-title">Либералы увеличивают отрыв до 13 пунктов — новый опрос Nanos</div>
-    <div class="card-excerpt">Новый трекинговый опрос компании Nanos Research показывает заметное преимущество либералов на федеральном уровне.   Если бы выборы состоялись сейчас, распределение голосов выглядело бы так: – Либераль</div>
-    <div class="card-meta">
-      <span class="card-date">11 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-10-kanada-ne-srednyaya-derzhava-a-buduschaya-velikaya-derzhava/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада — не «средняя держава», а будущая великая держава" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Канада — не «средняя держава», а будущая великая держава</div>
-    <div class="card-excerpt">Ирвин Студин в The Globe and Mail утверждает: Канада ошибочно описывает себя как «среднюю державу». По его мнению, перед страной стоит куда более жёсткий выбор — стать вассалом крупных держав или со в</div>
-    <div class="card-meta">
-      <span class="card-date">10 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-10-nalog-kak-papin-nalog-kak-nalogi-menyayut-povedenie-k-luchsh/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Налог как «папин налог»: как налоги меняют поведение — к лучшему и к худшему" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Налог как «папин налог»: как налоги меняют поведение — к лучшему и к худшему</div>
-    <div class="card-excerpt">Ким Муди в Financial Post пишет, что налоги почти всегда меняют поведение людей — иногда ожидаемо, иногда с довольно странными последствиями.   Он вспоминает семейную шутку: когда дети заказывали еду</div>
-    <div class="card-meta">
-      <span class="card-date">10 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-10-port-vankuvera-obrabotal-rekordnyy-obyom-gruzov-na-fone-rost/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Порт Ванкувера обработал рекордный объём грузов на фоне роста торговли с Китаем" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Порт Ванкувера обработал рекордный объём грузов на фоне роста торговли с Китаем</div>
-    <div class="card-excerpt">Порт Ванкувера установил новый рекорд по объёму грузов. Как сообщает The Globe and Mail, в 2025 году крупнейший порт Канады обработал 170,4 миллиона тонн импортных и экспортных товаров.   Это заметно</div>
-    <div class="card-meta">
-      <span class="card-date">10 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-10-tiktok-ostanetsya-v-kanade-posle-novogo-resheniya-pravitelst/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="TikTok останется в Канаде после нового решения правительства" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">TikTok останется в Канаде после нового решения правительства</div>
-    <div class="card-excerpt">Правительство Канады разрешило TikTok продолжить работу в стране после нового расследования по вопросам национальной безопасности. Как сообщает Global News, решение было принято при условии введения д</div>
-    <div class="card-meta">
-      <span class="card-date">10 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-09-kanada-delaet-stavku-na-sputniki-dlya-tehnologicheskogo-i-vo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада делает ставку на спутники для технологического и военного суверенитета" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">Канада делает ставку на спутники для технологического и военного суверенитета</div>
-    <div class="card-excerpt">Правительство Марка Карни планирует запуск сотен канадских спутников на низкой околоземной орбите, чтобы укрепить независимость страны в сфере связи и безопасности.   Речь идёт о проекте Telesat Light</div>
-    <div class="card-meta">
-      <span class="card-date">9 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-09-oprosy-pokazyvayut-zimniy-vsplesk-podderzhki-liberalov/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Опросы показывают зимний всплеск поддержки либералов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">338canada.ca</div>
-    <div class="card-title">Опросы показывают зимний всплеск поддержки либералов</div>
-    <div class="card-excerpt">Новые опросы компаний Léger, Nanos, Ipsos, Liaison и Abacus Data показывают рост поддержки Либеральной партии Канады во главе с Марком Карни.   Согласно последнему опросу Léger:  – 49 % готовы голосов</div>
-    <div class="card-meta">
-      <span class="card-date">9 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-09-pochemu-deputaty-prinimayut-zakony-bez-golosovaniya/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Почему депутаты принимают законы без голосования" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Почему депутаты принимают законы без голосования</div>
-    <div class="card-excerpt">В канадской Палате общин всё чаще принимают законы без официального подсчёта голосов. Около половины законопроектов в этой парламентской сессии прошли третье чтение именно так.   Механизм называется “</div>
-    <div class="card-meta">
-      <span class="card-date">9 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-07-lilley-oprosy-pokazyvayut-pochemu-konservatory-ne-hotyat-vyb/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Лиллей: опросы показывают, почему консерваторы не хотят выборов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">torontosun.com</div>
-    <div class="card-title">Лиллей: опросы показывают, почему консерваторы не хотят выборов</div>
-    <div class="card-excerpt">Колумнист National Post Брайан Лиллей пишет, что Консервативная партия Канады во главе с Пьером Полиевым не спешит идти на выборы — и причина может быть в опросах.   Согласно опросу Leger для Postmedi</div>
-    <div class="card-meta">
-      <span class="card-date">7 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-27-liberaly-uzhestochayut-izbiratelnye-zakony-dipfeyki-inostran/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Либералы ужесточают избирательные законы: дипфейки, иностранное вмешательство и «длинные бюллетени»</div><div class="card-excerpt">Правительство Марка Карни представило законопроект C-25 — масштабную реформу избирательного законодательства. Формальная цель — защитить выборы от вмешательства, манипуляций и новых технологических ри</div><div class="card-meta"><span class="card-date">27 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-27-kanada-dostigla-tseli-nato-po-voennym-rashodam/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Канада достигла цели НАТО по военным расходам</div><div class="card-excerpt">Канада впервые за десятилетия вышла на целевой уровень НАТО — 2% ВВП на оборону. По данным альянса, в 2025 году страна потратила более $60 млрд.   Премьер-министр Марк Карни заявил, что это самый высо</div><div class="card-meta"><span class="card-date">27 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div><div class="card-excerpt">Бывший министр иммиграции, а ныне министр юстиции Шон Фрейзер заявил, что с учётом сегодняшних данных он бы раньше ограничил программу иностранных студентов.   По его словам, федеральное правительство</div><div class="card-meta"><span class="card-date">26 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-26-glava-air-canada-snova-promahnulsya-s-dvuyazychiem/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Глава Air Canada снова «промахнулся» с двуязычием</div><div class="card-excerpt">Колумнист Конрад Якабуски пишет, что глава Air Canada Майкл Руссо вновь оказался в центре скандала из-за игнорирования французского языка.   Поводом стало видеообращение после крушения самолёта в Нью-</div><div class="card-meta"><span class="card-date">26 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/transport/">#Транспорт</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-25-liberaly-obsudyat-vozrastnye-ogranicheniya-dlya-sotssetey-i-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>TORO</span></div>'"></div><div class="card-body"><div><span class="src-badge">toronto.citynews.ca</span></div><div class="card-title">Либералы обсудят возрастные ограничения для соцсетей и ИИ-чатботов</div><div class="card-excerpt">На съезде Либеральной партии в Монреале в апреле обсудят идею ограничить доступ подростков к соцсетям и ИИ — вплоть до жёстких запретов.  Один из предложенных пунктов — запретить использование ИИ-чатб</div><div class="card-meta"><span class="card-date">25 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-25-poliev-trebuet-ot-karni-uvolit-ministrov-iz-za-otchyota-audi/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#8b0000><span style=color:#fff>WStd</span></div>'"></div><div class="card-body"><div><span class="src-badge">Western Standard</span></div><div class="card-title">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам</div><div class="card-excerpt">Лидер консерваторов Пьер Полиев призвал премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.   Речь идёт о дей</div><div class="card-meta"><span class="card-date">25 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-25-kak-mark-karni-prodal-kanadu-kitayu/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>Spectator</span></div>'"></div><div class="card-body"><div><span class="src-badge">Spectator</span></div><div class="card-title">Как Марк Карни «продал» Канаду Китаю</div><div class="card-excerpt">Джейн Стэннус пишет, что правительство Марка Карни резко смягчило риторику в отношении Си Цзиньпина и перешло к активному сотрудничеству.  Во время визита в Пекин подписали соглашения по торговле, эне</div><div class="card-meta"><span class="card-date">25 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-24-zachem-liberaly-rasshiryayut-programmu-vremennyh-inostrannyh/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#e8000d><span style=color:#fff>Sun</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Sun</span></div><div class="card-title">Зачем либералы расширяют программу временных иностранных работников?</div><div class="card-excerpt">Брайан Лилли пишет, что правительство Марк Карни идёт в противоположную сторону от логики рынка труда: безработица растёт — а доступ к дешёвой иностранной рабочей силе расширяют.  По данным Statistics</div><div class="card-meta"><span class="card-date">24 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-24-pozhilye-kanadtsy-ostayutsya-glavnoy-oporoy-karni-opros/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#e8000d><span style=color:#fff>Sun</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Sun</span></div><div class="card-title">Пожилые канадцы остаются главной опорой Карни — опрос</div><div class="card-excerpt">Новый опрос Liaison Strategies показывает: лидерство Марк Карни держится не на молодёжи, а на избирателях старшего возраста.  Либералы сохраняют серьёзный отрыв от консерваторов — 41% против 27% у ком</div><div class="card-meta"><span class="card-date">24 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-24-pravitelstvo-karni-priznalo-oshibku-prava-cheloveka-vsyo-tak/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NSNE</span></div>'"></div><div class="card-body"><div><span class="src-badge">nsnews.com</span></div><div class="card-title">Правительство Карни признало «ошибку»: права человека всё-таки обсуждали с Си</div><div class="card-excerpt">Правительство Марк Карни внезапно «исправило» собственные данные, поданные в парламент, — теперь утверждает, что тема прав человека всё же поднималась на встрече с Си Цзиньпин.  Ранее официальный доку</div><div class="card-meta"><span class="card-date">24 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-23-menedzher-kampanii-konservatorov-otmahnulsya-ot-oprosov-s-bo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Менеджер кампании консерваторов отмахнулся от опросов с большим отрывом либералов</div><div class="card-excerpt">Федеральные консерваторы не собираются паниковать из-за опросов, где либералы опережают их на 10+ пунктов. Руководитель кампании партии Стив Аутхаус прямо сказал: «опросы — это просто опросы».   По ег</div><div class="card-meta"><span class="card-date">23 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-22-oprosy-amerikantsy-huzhe-otnosyatsya-k-kanade-i-eto-plohaya-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Опросы: американцы хуже относятся к Канаде — и это плохая новость для торговой войны</div><div class="card-excerpt">Свежие данные показывают редкую ситуацию: ухудшились не только настроения канадцев к США, но и наоборот.   По данным Gallup, доля американцев с положительным отношением к Канаде упала с 91% до 80% — м</div><div class="card-meta"><span class="card-date">22 мар 2026</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-22-vzglyad-na-kanadu-v-tsifrah/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NIAG</span></div>'"></div><div class="card-body"><div><span class="src-badge">niagaraindependent.ca</span></div><div class="card-title">Взгляд на Канаду — в цифрах</div><div class="card-excerpt">Крис Джордж из National Post собирает сухую статистику — и картина выходит довольно мрачная.   Экономика  – 0,5%: худший рост в G7 за 10 лет – разрыв с США по ВВП на душу населения вырос с ~20% до 40%</div><div class="card-meta"><span class="card-date">22 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-22-poliev-sam-dogovorilsya-o-podkaste-dzho-rogana/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Полиев сам договорился о подкасте Джо Рогана</div><div class="card-excerpt">Глава кампании консерваторов Стив Оутхаус рассказал, что Пьер Полиев лично договорился о своем участии в подкасте Джо Рогана — без посредников и долгих переговоров.   По его словам, Полиев и Роган про</div><div class="card-meta"><span class="card-date">22 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-20-ottava-rezhet-rashody-pod-nozh-idut-nauka-turizm-i-inostrann/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>Global</span></div>'"></div><div class="card-body"><div><span class="src-badge">Global News</span></div><div class="card-title">Оттава режет расходы: под нож идут наука, туризм и иностранная помощь</div><div class="card-excerpt">Правительство Марк Карни запускает масштабное сокращение расходов — и список попавших под урезание программ выглядит довольно показательно.  Согласно бюджетным планам на 2026–2027 годы, федеральные ве</div><div class="card-meta"><span class="card-date">20 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-20-shest-vyvodov-iz-poyavleniya-pera-polieva-v-podkaste-dzho-ro/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Шесть выводов из появления Пьера Полиева в подкасте Джо Рогана</div><div class="card-excerpt">Лидер консерваторов Пьер Полиев провёл почти 2,5 часа в подкасте Джо Роган — и это был не просто разговор, а полноценная политическая заявка на аудиторию за пределами Канады.  Вот что из этого получил</div><div class="card-meta"><span class="card-date">20 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-20-indiya-i-kanada-perezapuskayut-otnosheniya-s-istoricheskim-s/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>BBC.</span></div>'"></div><div class="card-body"><div><span class="src-badge">bbc.com</span></div><div class="card-title">Индия и Канада перезапускают отношения с «историческим» соглашением по ядерной энергетике</div><div class="card-excerpt">Канада и Индия объявили о серии договорённостей, включая 10-летнее соглашение в сфере ядерной энергетики, после встречи Марк Карни и Нарендра Моди в Дели.  Ключевой элемент — долгосрочные поставки ура</div><div class="card-meta"><span class="card-date">20 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-19-prekratite-etu-hren-poliev-v-podkaste-dzho-rogana-raskritiko/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>YOUT</span></div>'"></div><div class="card-body"><div><span class="src-badge">youtube.com</span></div><div class="card-title">«Прекратите эту хрень» — Полиев в подкасте Джо Рогана раскритиковал заявления Трампа о «51-м штате»</div><div class="card-excerpt">ПОЛНЫЙ ПОДКАСТ ТУТ   Лидер консерваторов Пьер Полиев использовал участие в подкасте Джо Роган, чтобы напрямую пройтись по заявлениям Дональд Трамп о превращении Канады в «51-й штат».  Полиев назвал та</div><div class="card-meta"><span class="card-date">19 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-19-ot-provala-k-dominirovaniyu-kak-liberaly-karni-perepisali-po/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>EKOS</span></div>'"></div><div class="card-body"><div><span class="src-badge">ekospolitics.com</span></div><div class="card-title">От провала к доминированию: как либералы Карни переписали политику Канады за год</div><div class="card-excerpt">В конце 2024 года либералы отставали от консерваторов на 25 пунктов. Сегодня — опережают примерно на 20. Разворот почти на 45 пунктов за один год.   Это не просто колебание рейтингов. Это один из самы</div><div class="card-meta"><span class="card-date">19 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-19-glavnye-rychagi-kanady-v-torgovyh-peregovorah-s-ssha/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Главные рычаги Канады в торговых переговорах с США</div><div class="card-excerpt">Несмотря на заявления Дональда Трампа о том, что США «ничего не нужно от Канады», эксперты говорят обратное. Да, зависимость асимметрична: около 76% канадского экспорта идёт в США, тогда как для амери</div><div class="card-meta"><span class="card-date">19 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-18-liberaly-dostigli-rekordnoy-podderzhki-cherez-god-posle-prih/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>338C</span></div>'"></div><div class="card-body"><div><span class="src-badge">338canada.ca</span></div><div class="card-title">Либералы достигли рекордной поддержки через год после прихода Карни к власти</div><div class="card-excerpt">Новый опрос Nanos Research показывает: спустя год после назначения Марк Карни рейтинг либералов достиг исторического максимума.   Согласно последним данным:  – либералы — 47,6% – консерваторы — 31,1%</div><div class="card-meta"><span class="card-date">18 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-16-novyy-opros-abacus-liberaly-uvelichivayut-otryv-do-11-punkto/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>ABAC</span></div>'"></div><div class="card-body"><div><span class="src-badge">abacusdata.ca</span></div><div class="card-title">Новый опрос Abacus: либералы увеличивают отрыв до 11 пунктов, одобрение правительства на максимуме</div><div class="card-excerpt">Свежий опрос Abacus Data показывает, что спустя год после прихода к власти правительства Марка Карни позиции либералов заметно укрепились.   Если федеральные выборы прошли бы сейчас, либералы получили</div><div class="card-meta"><span class="card-date">16 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-16-kanadskie-konservatory-hotyat-zakryt-dostup-kitayskim-elektr/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>ELET</span></div>'"></div><div class="card-body"><div><span class="src-badge">eletric-vehicles.com</span></div><div class="card-title">Канадские консерваторы хотят закрыть доступ китайским электромобилям и запретить их программное обеспечение</div><div class="card-excerpt">Лидер консерваторов Пьер Полиев представил в Виндзоре план, который, по его словам, должен удвоить производство автомобилей в Канаде — с нынешних примерно 1,2 миллиона до двух миллионов машин.   Главн</div><div class="card-meta"><span class="card-date">16 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-15-god-u-vlasti-marka-karni-otsenki-smeshannye-mnogie-zhdut-rea/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Год у власти Марка Карни: оценки смешанные, многие ждут реальных результатов</div><div class="card-excerpt">Газета National Post опубликовала своеобразный «табель успеваемости» премьер-министра Марка Карни спустя год после его прихода к власти. Итог получился неоднозначным: правительство активно действует,</div><div class="card-meta"><span class="card-date">15 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-15-karni-i-premer-norvegii-prizvali-k-stabilnosti-neftyanogo-ry/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Карни и премьер Норвегии призвали к стабильности нефтяного рынка на фоне войны на Ближнем Востоке</div><div class="card-excerpt">Премьер-министр Канады Марк Карни и премьер Норвегии Йонас Гар Стёре во время встречи в Осло заявили о необходимости стабилизировать мировой нефтяной рынок, который оказался под давлением войны между</div><div class="card-meta"><span class="card-date">15 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-14-karni-rynok-truda-kanady-vsyo-ravno-silnee-amerikanskogo-daz/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Карни: рынок труда Канады всё равно сильнее американского — даже после потери 84 тысяч рабочих мест</div><div class="card-excerpt">Экономика Канады потеряла 84 000 рабочих мест в феврале — крупнейшее месячное сокращение занятости за четыре года. Но премьер-министр Марк Карни считает, что общая картина всё равно выглядит лучше, че</div><div class="card-meta"><span class="card-date">14 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-13-ya-pogovorila-s-bolee-chem-30-istochnikami-o-pervom-gode-mar/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Я поговорила с более чем 30 источниками о первом годе Марка Карни на посту премьер-министра. Вот что они рассказали</div><div class="card-excerpt">Альтия Радж из Toronto Star пишет, что первый год Марка Карни у власти показал противоречивую картину: премьер сосредоточен на экономике и быстрых решениях, но его стиль управления вызывает всё больше</div><div class="card-meta"><span class="card-date">13 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-13-kogda-kanadskaya-tolerantnost-stalkivaetsya-s-radikalizmom-b/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>VANC</span></div>'"></div><div class="card-body"><div><span class="src-badge">vancouversun.com</span></div><div class="card-title">Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме</div><div class="card-excerpt">Бывший премьер Британской Колумбии Уджжал Досандж заявил, что канадские власти слишком долго игнорировали экстремистскую активность сторонников создания государства Халистан.   По его словам, политики</div><div class="card-meta"><span class="card-date">13 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-13-karni-obyavil-o-35-mlrd-na-oboronu-i-infrastrukturu-na-sever/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Карни объявил о $35 млрд на оборону и инфраструктуру на Севере Канады</div><div class="card-excerpt">Премьер-министр Марк Карни объявил о масштабной программе стоимостью $35 млрд для расширения военного присутствия Канады в Арктике и модернизации инфраструктуры на Севере.   Основная часть средств — о</div><div class="card-meta"><span class="card-date">13 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/transport/">#Транспорт</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-12-chto-budet-esli-liberaly-marka-karni-poluchat-bolshinstvo-v-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Что будет, если либералы Марка Карни получат большинство в парламенте</div><div class="card-excerpt">Правительство Марка Карни может вскоре получить большинство в Палате общин — и если это произойдёт, это станет одним из самых необычных парламентских большинств в истории Канады.   Большинство может с</div><div class="card-meta"><span class="card-date">12 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-11-u-kanady-est-to-chto-nuzhno-miru-ostalos-nauchitsya-eto-prod/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">У Канады есть то, что нужно миру — осталось научиться это продавать</div><div class="card-excerpt">Колумнист Toronto Star Дэвид Олив пишет, что на фоне мировых конфликтов Канада может сыграть гораздо более важную роль в мировой экономике.   Война на Ближнем Востоке и продолжающаяся война России про</div><div class="card-meta"><span class="card-date">11 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-11-liberaly-uvelichivayut-otryv-do-13-punktov-novyy-opros-nanos/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NANO</span></div>'"></div><div class="card-body"><div><span class="src-badge">nanos.co</span></div><div class="card-title">Либералы увеличивают отрыв до 13 пунктов — новый опрос Nanos</div><div class="card-excerpt">Новый трекинговый опрос компании Nanos Research показывает заметное преимущество либералов на федеральном уровне.   Если бы выборы состоялись сейчас, распределение голосов выглядело бы так: – Либераль</div><div class="card-meta"><span class="card-date">11 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-10-kanada-ne-srednyaya-derzhava-a-buduschaya-velikaya-derzhava/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Канада — не «средняя держава», а будущая великая держава</div><div class="card-excerpt">Ирвин Студин в The Globe and Mail утверждает: Канада ошибочно описывает себя как «среднюю державу». По его мнению, перед страной стоит куда более жёсткий выбор — стать вассалом крупных держав или со в</div><div class="card-meta"><span class="card-date">10 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-10-nalog-kak-papin-nalog-kak-nalogi-menyayut-povedenie-k-luchsh/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Налог как «папин налог»: как налоги меняют поведение — к лучшему и к худшему</div><div class="card-excerpt">Ким Муди в Financial Post пишет, что налоги почти всегда меняют поведение людей — иногда ожидаемо, иногда с довольно странными последствиями.   Он вспоминает семейную шутку: когда дети заказывали еду</div><div class="card-meta"><span class="card-date">10 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-10-port-vankuvera-obrabotal-rekordnyy-obyom-gruzov-na-fone-rost/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Порт Ванкувера обработал рекордный объём грузов на фоне роста торговли с Китаем</div><div class="card-excerpt">Порт Ванкувера установил новый рекорд по объёму грузов. Как сообщает The Globe and Mail, в 2025 году крупнейший порт Канады обработал 170,4 миллиона тонн импортных и экспортных товаров.   Это заметно</div><div class="card-meta"><span class="card-date">10 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-10-tiktok-ostanetsya-v-kanade-posle-novogo-resheniya-pravitelst/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>Global</span></div>'"></div><div class="card-body"><div><span class="src-badge">Global News</span></div><div class="card-title">TikTok останется в Канаде после нового решения правительства</div><div class="card-excerpt">Правительство Канады разрешило TikTok продолжить работу в стране после нового расследования по вопросам национальной безопасности. Как сообщает Global News, решение было принято при условии введения д</div><div class="card-meta"><span class="card-date">10 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-09-kanada-delaet-stavku-na-sputniki-dlya-tehnologicheskogo-i-vo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>Global</span></div>'"></div><div class="card-body"><div><span class="src-badge">Global News</span></div><div class="card-title">Канада делает ставку на спутники для технологического и военного суверенитета</div><div class="card-excerpt">Правительство Марка Карни планирует запуск сотен канадских спутников на низкой околоземной орбите, чтобы укрепить независимость страны в сфере связи и безопасности.   Речь идёт о проекте Telesat Light</div><div class="card-meta"><span class="card-date">9 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-reg" href="/tag/arktika-i-sever/">#Арктика и Север</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-09-oprosy-pokazyvayut-zimniy-vsplesk-podderzhki-liberalov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>338C</span></div>'"></div><div class="card-body"><div><span class="src-badge">338canada.ca</span></div><div class="card-title">Опросы показывают зимний всплеск поддержки либералов</div><div class="card-excerpt">Новые опросы компаний Léger, Nanos, Ipsos, Liaison и Abacus Data показывают рост поддержки Либеральной партии Канады во главе с Марком Карни.   Согласно последнему опросу Léger:  – 49 % готовы голосов</div><div class="card-meta"><span class="card-date">9 мар 2026</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-09-pochemu-deputaty-prinimayut-zakony-bez-golosovaniya/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Почему депутаты принимают законы без голосования</div><div class="card-excerpt">В канадской Палате общин всё чаще принимают законы без официального подсчёта голосов. Около половины законопроектов в этой парламентской сессии прошли третье чтение именно так.   Механизм называется “</div><div class="card-meta"><span class="card-date">9 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-07-lilley-oprosy-pokazyvayut-pochemu-konservatory-ne-hotyat-vyb/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#e8000d><span style=color:#fff>Sun</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Sun</span></div><div class="card-title">Лиллей: опросы показывают, почему консерваторы не хотят выборов</div><div class="card-excerpt">Колумнист National Post Брайан Лиллей пишет, что Консервативная партия Канады во главе с Пьером Полиевым не спешит идти на выборы — и причина может быть в опросах.   Согласно опросу Leger для Postmedi</div><div class="card-meta"><span class="card-date">7 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a></div>
   <div class="pgn"><a class="pb on" href="/person/mark-karni/">1</a><a class="pb" href="/person/mark-karni/page/2/">2</a><a class="pb" href="/person/mark-karni/page/3/">3</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/person/mark-karni/page/20/">20</a><a class="pb" href="/person/mark-karni/page/2/">→</a></div>
 </div>
 <footer>
@@ -668,8 +191,8 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
     <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
     <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
   </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/politika/">#Политика</a><a href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a href="/tag/ekonomika/">#Экономика</a><a href="/tag/zhilyo/">#Жильё</a><a href="/tag/transport/">#Транспорт</a><a href="/tag/rynok-truda/">#Рынок труда</a><a href="/tag/prestupnost/">#Преступность</a><a href="/tag/prava-i-svobody/">#Права и свободы</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/daniel-smit/">Даниэль Смит</a><a href="/person/melani-zholi/">Мелани Жоли</a><a href="/person/anita-anand/">Анита Ананд</a></div>
 </div>
 <div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
 </footer>

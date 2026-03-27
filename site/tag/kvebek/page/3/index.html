@@ -18,22 +18,20 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --t:#111;
-  --t2:#555;
-  --t3:#888;
-  --br:#e5e5e5;
---serif:'Playfair Display', Georgia, serif;
---sans:'Golos Text', system-ui, sans-serif;
-}
-
-body{
-  background:#ffffff;
-  color:#111;
-  font-family:var(--sans);
+  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
+  --br:#e2ddd4;--br2:#ccc7bc;
+  --card:#ffffff;--card-hover:#faf8f4;
+  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
+  --ac:#c0392b;--ac2:#c0392b;--ac3:#e05240;
+  --gold:#9a6f20;--gold2:#c9963a;
+  --tg:#2b6cb0;--tg2:#1a56a0;
+  --maple:#c0392b;
+  --shadow:0 2px 12px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -42,137 +40,117 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ── NAV ── */
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:1px}
 .nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--cream);background:var(--bg3)}
-.nl.on{color:var(--cream);background:var(--bg3)}
+.nl:hover{color:var(--t);background:var(--bg4)}
+.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.2)}
-.tgb{
-  background:#c0392b;
-  color:#fff;
-  border-radius:6px;
-  padding:6px 14px;
-  font-weight:600;
-  font-size:13px;
-  border:none;
-}
-
-.tgb:hover{
-  background:#a93226;
-}
+/* Telegram — prominent button */
+.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:all .2s;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.tgb:hover{background:var(--tg);box-shadow:0 2px 8px rgba(26,86,160,.4)}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
 
 .wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
+/* ── SOURCE BADGE (red) ── */
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap}
+
 /* ── CARD SYSTEM ── */
-/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:6px;
-  overflow:hidden;
-  transition:transform .15s;
-}
-.card:hover{
-  transform:translateY(-2px);
-}
+.card{background:var(--card);border-radius:8px;overflow:hidden;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-/* Image container — always 16:9, consistent shadow on image */
-.card-img{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:var(--bg4);
-  flex-shrink:0;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-
+/* Image — fixed 16:9, cover, contained */
+.card-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+.card-img .emoji-fallback{font-size:28px;color:var(--t4)}
 
-/* Card body — cream-tinted text on dark */
-.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#c0392b;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.35;
-  color:#111;
-}
+/* Card body */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:15px}
 .card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-.card-date{font-size:10px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap;border-top:1px solid var(--br)}
+.card-date{font-size:11px;color:var(--t3)}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+/* Read more link */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:4px}
+.card:hover .card-read{text-decoration:underline}
 
-/* Tags — topic-colored by category */
-.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+/* ── TAG CHIPS ── */
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;transition:opacity .12s;letter-spacing:.2px}
 .tag:hover{opacity:.8}
-/* politics/elections */
-.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-/* economy/tariffs */
-.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-/* immigration */
-.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-/* regions */
-.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-/* longreads */
-.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-/* default */
-.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
-
-/* Tag category mapping */
-.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+/* Politics — red */
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+/* Economy — amber */
+.tag-eco{background:#fef3c7;color:#78350f}
+/* Immigration — blue */
+.tag-imm{background:#dbeafe;color:#1e40af}
+/* Regions — green */
+.tag-reg{background:#d1fae5;color:#065f46}
+/* Stats — purple */
+.tag-stat{background:#ede9fe;color:#4c1d95}
+/* Default — gray */
+.tag-def{background:var(--bg4);color:var(--t3)}
 
 /* ── PAGINATION ── */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
 /* ── TAG FILTER BAR ── */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
 .fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
 .fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--cream)}
+.fcol a:hover{color:var(--t)}
 .fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* ── TG CTA ── */
-.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+/* ── TG CTA (bottom of post) ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
 .tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
 .csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
-.ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+.ctgp a{color:var(--tg2)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.cbtn2:hover{background:var(--tg)}
+
+/* ── CARD PLACEHOLDER ── */
+.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.card-placeholder span{font-size:13px;font-weight:700;letter-spacing:.5px;opacity:.9}
+/* Consistent card-img — always 16:9, photo is decorative */
+.card-img{position:relative}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Read more */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:2px}
+
+/* ci-badge smaller */
+.ci-badge{font-size:9px!important;padding:1px 6px!important}
+
+/* lr-card */
+.lr-card{display:flex;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:80px;min-width:80px;height:80px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lr-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lr-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:5px;min-width:0}
+.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
@@ -188,478 +166,23 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
 </style>
 </head>
 <body>
-
-<nav style="background:#fff;border-bottom:1px solid #eee;">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
-
-    <!-- LEFT -->
-    <div style="display:flex;gap:16px;font-size:14px;color:#555">
-      <a href="/" style="color:#000">Новости</a>
-      <a href="/materials/">Материалы</a>
-      <a href="/longreads/">Лонгриды</a>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
-      Maple <span style="color:#d44">🍁</span> Barrel
-    </div>
-
-    <!-- RIGHT -->
-    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
-      <a href="/about/">О проекте</a>
-      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
-    </div>
-
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
   </div>
-</nav>
-
+</div></nav>
 <div class="wrap">
   <div class="tag-hdr">
     <h1>#Квебек</h1>
-    <p>342 материалов по теме</p>
+    <p>160 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="card" href="/post/2025-12-29-338-canada-finalnye-oprosy-2025-pokazyvayut-treschiny-v-podd/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="338 Canada: финальные опросы 2025 показывают трещины в поддержке либералов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">338canada.ca</div>
-    <div class="card-title">338 Canada: финальные опросы 2025 показывают трещины в поддержке либералов</div>
-    <div class="card-excerpt">Финальные федеральные опросы уходящего года рисуют для либералов Марка Карни картину куда менее комфортную, чем ещё пару месяцев назад. Под конец декабря поддержка правительства просела — и сразу неск</div>
-    <div class="card-meta">
-      <span class="card-date">29 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-29-dva-mesta-v-kanade-voshli-v-spisok-luchshih-napravleniy-mira/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Два места в Канаде вошли в список лучших направлений мира на 2026 год" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Два места в Канаде вошли в список лучших направлений мира на 2026 год</div>
-    <div class="card-excerpt">⁠ Американское издание U.S. News опубликовало рейтинг 30 лучших мест в мире для путешествий в 2026 году — и сразу два канадских направления оказались в списке.  ⁠ Quebec City занял 28-е место. Город о</div>
-    <div class="card-meta">
-      <span class="card-date">29 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-25-zapret-smartfonov-v-shkolah-kvebeka-dal-ogromnyy-effekt-spus/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Запрет смартфонов в школах Квебека дал «огромный эффект» — спустя четыре месяца" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">reddit.com</div>
-    <div class="card-title">Запрет смартфонов в школах Квебека дал «огромный эффект» — спустя четыре месяца</div>
-    <div class="card-excerpt">Четыре месяца спустя после полного запрета мобильных телефонов в начальных и средних школах Квебека директора и учителя почти единодушны: изменения заметны и в поведении, и в атмосфере, и в учебе.  В</div>
-    <div class="card-meta">
-      <span class="card-date">25 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-25-liberaly-karni-zakanchivayut-2025-god-s-minimalnym-preimusch/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы Карни заканчивают 2025 год с минимальным преимуществом над консерваторами — опрос" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">Либералы Карни заканчивают 2025 год с минимальным преимуществом над консерваторами — опрос</div>
-    <div class="card-excerpt">Либеральная партия под руководством Марк Карни сохраняет узкое лидерство над консерваторами к концу 2025 года, показывают новые данные опроса Ipsos для Global News.   Если бы федеральные выборы прошли</div>
-    <div class="card-meta">
-      <span class="card-date">25 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-24-ministr-alberty-trebuet-ot-ottavy-zhyostkih-mer-protiv-moshe/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Министр Альберты требует от Оттавы жёстких мер против мошенничества в грузоперевозках" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Министр Альберты требует от Оттавы жёстких мер против мошенничества в грузоперевозках</div>
-    <div class="card-excerpt">⁠ ⁠ Министр транспорта Альберты Devin Dreeshen призвал федеральное правительство усилить контроль над иммиграционными злоупотреблениями в сфере коммерческих перевозок, заявив, что бездействие напрямую</div>
-    <div class="card-meta">
-      <span class="card-date">24 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-23-liberaly-i-konservatory-sravnyalis-po-38/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы и консерваторы сравнялись: по 38%" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">press.liaisonstrategies.ca</div>
-    <div class="card-title">Либералы и консерваторы сравнялись: по 38%</div>
-    <div class="card-excerpt">Новый общенациональный опрос компании Liaison Strategies показывает, что Либеральная партия Марка Карни продолжает терять поддержку и теперь делит первое место с консерваторами — по 38%.   Опрос прово</div>
-    <div class="card-meta">
-      <span class="card-date">23 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-23-karni-naznachil-blizkogo-druga-i-eks-bankira-poslom-kanady-v/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни назначил близкого друга и экс-банкира послом Канады в США" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalnewswatch.com</div>
-    <div class="card-title">Карни назначил близкого друга и экс-банкира послом Канады в США</div>
-    <div class="card-excerpt">Премьер-министр Марк Карни назначил Марка Уайзмана новым послом Канады в Вашингтоне. Он вступит в должность 15 февраля и будет курировать переговоры с США по пересмотру континентального торгового согл</div>
-    <div class="card-meta">
-      <span class="card-date">23 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-22-posle-legalizatsii-kannabisa-politsiya-kanady-stala-chasche-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="После легализации каннабиса полиция Канады стала чаще ловить пьяных водителей" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">После легализации каннабиса полиция Канады стала чаще ловить пьяных водителей</div>
-    <div class="card-excerpt">После легализации каннабиса в октябре 2018 года ожидали всплеска «накуренных» водителей. Однако полицейская статистика показывает более сложную картину.   Исследование охватывает 2009–2023 годы и осно</div>
-    <div class="card-meta">
-      <span class="card-date">22 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-22-v-monreale-muzhchina-osparivaet-zakon-kvebeka-o-konfiskatsii/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Монреале мужчина оспаривает закон Квебека о конфискации после изъятия $2 млн" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">montrealgazette.com</div>
-    <div class="card-title">В Монреале мужчина оспаривает закон Квебека о конфискации после изъятия $2 млн</div>
-    <div class="card-excerpt">75-летний бизнесмен Андре Леви подал конституционный иск против гражданского закона Квебека о конфискации имущества после того, как полиция изъяла у него более $2,1 млн наличными — при том, что ему та</div>
-    <div class="card-meta">
-      <span class="card-date">22 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-20-samye-zagruzhennye-dni-puteshestviy-v-godu-uzhe-zdes-haos-il/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Самые загруженные дни путешествий в году уже здесь. Хаос или спокойствие?" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Самые загруженные дни путешествий в году уже здесь. Хаос или спокойствие?</div>
-    <div class="card-excerpt">Конец декабря — традиционно пик путешествий в Канаде. В ближайшие дни аэропорты, вокзалы и трассы будут работать на пределе: это самые загруженные даты всего 2025 года. Вопрос, который волнует всех —</div>
-    <div class="card-meta">
-      <span class="card-date">20 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-19-v-ontario-i-kvebeke-nakryli-krupnuyu-set-krazh-iz-shoppers-d/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Онтарио и Квебеке накрыли крупную сеть краж из Shoppers Drug Mart" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">В Онтарио и Квебеке накрыли крупную сеть краж из Shoppers Drug Mart</div>
-    <div class="card-excerpt">Полиция Хэмилтона сообщила о ликвидации организованной преступной группы, причастной к сотням краж из магазинов Shoppers Drug Mart в Онтарио и Квебеке. Ущерб — свыше $1 млн.   В рамках расследования P</div>
-    <div class="card-meta">
-      <span class="card-date">19 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-19-environment-canada-nazvala-10-glavnyh-pogodnyh-sobytiy-2025-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Environment Canada назвала 10 главных погодных событий 2025 года" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cheknews.ca</div>
-    <div class="card-title">Environment Canada назвала 10 главных погодных событий 2025 года</div>
-    <div class="card-excerpt">Федеральная метеослужба опубликовала ежегодный список самых значимых погодных явлений. 2025 год стал наглядным примером того, как экстремальные условия перестают быть исключением и превращаются в норм</div>
-    <div class="card-meta">
-      <span class="card-date">19 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-18-dannye-roddomov-ukazyvayut-na-rost-rodilnogo-turizma-v-kanad/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Данные роддомов указывают на рост «родильного туризма» в Канаде" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Данные роддомов указывают на рост «родильного туризма» в Канаде</div>
-    <div class="card-excerpt">Роды у иностранок без постоянного статуса в Канаде снова растут — к такому выводу пришёл эксперт по иммиграционной статистике Эндрю Гриффит, проанализировав свежие данные канадских больниц. Его исслед</div>
-    <div class="card-meta">
-      <span class="card-date">18 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-18-glavnyy-sanitarnyy-vrach-kvebeka-preduprezhdaet-gripp-raspro/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Главный санитарный врач Квебека предупреждает: грипп распространяется «почти как пожар»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Главный санитарный врач Квебека предупреждает: грипп распространяется «почти как пожар»</div>
-    <div class="card-excerpt">Педиатрические больницы Монреаля переполнены накануне праздников из-за резкого всплеска сезонных вирусов. Власти просят родителей не обращаться в приёмные покои без острой необходимости.    Глава обще</div>
-    <div class="card-meta">
-      <span class="card-date">18 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-18-tramp-vydvinul-usloviya-kanade-dlya-prodleniya-cusma-pivo-mo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг</div>
-    <div class="card-excerpt">Администрация Дональда Трампа впервые публично обозначила, что именно Канада должна изменить, чтобы сохранить торговое соглашение CUSMA после пересмотра в 2026 году. Об этом в Конгрессе заявил торговы</div>
-    <div class="card-meta">
-      <span class="card-date">18 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-18-zakon-o-poteryannyh-kanadtsah-vstupil-v-silu/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Закон о «потерянных канадцах» вступил в силу" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">bbc.com</div>
-    <div class="card-title">Закон о «потерянных канадцах» вступил в силу</div>
-    <div class="card-excerpt">Канада изменила правила гражданства по происхождению: теперь автоматическое гражданство получают дети, рождённые или усыновлённые за границей, если их канадский родитель тоже родился за пределами стра</div>
-    <div class="card-meta">
-      <span class="card-date">18 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-17-alberta-snova-govorit-o-vyhode-iz-kanady-separatisty-podali-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">edmonton.citynews.ca</div>
-    <div class="card-title">Альберта снова говорит о выходе из Канады: сепаратисты подали новую петицию</div>
-    <div class="card-excerpt">‎  В Альберте сделан ещё один формальный шаг к возможному референдуму о выходе из состава Канады. Сепаратистское движение подало новую гражданскую инициативу в Elections Alberta, а депутаты провинциал</div>
-    <div class="card-meta">
-      <span class="card-date">17 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-15-znamenitye-amerikantsy-mogut-poluchit-kanadskoe-grazhdanstvo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Знаменитые американцы могут получить канадское гражданство по новому закону" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Знаменитые американцы могут получить канадское гражданство по новому закону</div>
-    <div class="card-excerpt">Новый федеральный законопроект C-3, который должен вступить в силу в начале 2026 года, может открыть путь к канадскому гражданству для десятков тысяч людей по всему миру — включая ряд известных америк</div>
-    <div class="card-meta">
-      <span class="card-date">15 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-13-kanadtsy-stali-zhertvovat-menshe-minimum-za-20-let/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадцы стали жертвовать меньше — минимум за 20 лет" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Канадцы стали жертвовать меньше — минимум за 20 лет</div>
-    <div class="card-excerpt">Доля канадцев, делающих пожертвования благотворительным организациям, упала до самого низкого уровня за последние два десятилетия. Об этом говорится в новом исследовании Fraser Institute, основанном н</div>
-    <div class="card-meta">
-      <span class="card-date">13 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-12-kvebek-reshil-zanyatsya-svetskostyu-cherez-menyu-bill-9-puga/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Квебек решил заняться светскостью через меню: Bill 9 пугает детсады и больницы с халялем и кошером" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Квебек решил заняться светскостью через меню: Bill 9 пугает детсады и больницы с халялем и кошером</div>
-    <div class="card-excerpt">‌﻿ В Квебеке обсуждают Bill 9 — новый законопроект CAQ «об укреплении светскости». Среди прочего он запрещает госучреждениям «предлагать исключительно рацион, основанный на религиозном предписании или</div>
-    <div class="card-meta">
-      <span class="card-date">12 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-11-endryu-koyn-s-kanadskoy-demokratiey-chto-to-proishodit/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Эндрю Койн: с канадской демократией что-то происходит" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Эндрю Койн: с канадской демократией что-то происходит</div>
-    <div class="card-excerpt">Колонка Эндрю Койна в The Globe and Mail — тяжёлое чтение, но пройти мимо уже нельзя: по всей стране накапливаются признаки разложения демократических норм, и всё это начинает складываться в тревожную</div>
-    <div class="card-meta">
-      <span class="card-date">11 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-11-v-kvebeke-antikorruptsionnoe-byuro-nachalo-ugolovnoe-rassled/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Квебеке антикоррупционное бюро начало уголовное расследование против Либеральной партии" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">В Квебеке антикоррупционное бюро начало уголовное расследование против Либеральной партии</div>
-    <div class="card-excerpt">UPAC, антикоррупционная служба Квебека, объявила об официальном запуске уголовного расследования в отношении Либеральной партии провинции. Это новый виток кризиса, который трясёт либералов последние н</div>
-    <div class="card-meta">
-      <span class="card-date">11 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-10-opros-polovina-kanadtsev-podderzhivaet-novyy-bitumnyy-trubop/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Опрос: половина канадцев поддерживает новый битумный трубопровод между Альбертой и Британской Колумбией" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Опрос: половина канадцев поддерживает новый битумный трубопровод между Альбертой и Британской Колумбией</div>
-    <div class="card-excerpt">‌﻿   Половина жителей страны готова одобрить строительство частного трубопровода от Альберты к тихоокеанскому побережью Британской Колумбии. Прямые противники — менее 20%. Такие данные приводит Leger</div>
-    <div class="card-meta">
-      <span class="card-date">10 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-08-antiheytovyy-zakonoproekt-zavis-posle-sdelki-ofisa-freyzera-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Антихейтовый законопроект завис после сделки офиса Фрейзера с Блоком без одобрения офиса премьера" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Антихейтовый законопроект завис после сделки офиса Фрейзера с Блоком без одобрения офиса премьера</div>
-    <div class="card-excerpt">﻿  Канадские либералы опять запутались в собственных договорённостях. По данным CBC News, будущее законопроекта C-9 оказалось под вопросом после того, как команда министра юстиции Шона Фрейзера соглас</div>
-    <div class="card-meta">
-      <span class="card-date">8 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-07-budet-li-kanada-perezhivat-samyy-silnyy-holod-na-planete/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Будет ли Канада переживать «самый сильный холод на планете»?" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Будет ли Канада переживать «самый сильный холод на планете»?</div>
-    <div class="card-excerpt">‌  Прогноз американского климатолога Джуды Коэна из MIT всколыхнул соцсети: его модель показала, что в середине декабря зона наиболее резкого похолодания на Земле растянется от канадских прерий до Вос</div>
-    <div class="card-meta">
-      <span class="card-date">7 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-05-kanadtsy-platyat-do-5-000-iz-svoego-karmana-lish-by-ne-sveti/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадцы платят до $5 000 из своего кармана, лишь бы не светить ДТП перед страховщиками" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Канадцы платят до $5 000 из своего кармана, лишь бы не светить ДТП перед страховщиками</div>
-    <div class="card-excerpt">Globe and Mail опубликовал данные опроса, от которых даже ветераны отрасли были ошарашены: большинство водителей предпочитают не обращаться в страховые после аварий — даже если это означает тратить ты</div>
-    <div class="card-meta">
-      <span class="card-date">5 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-04-provintsii-vsyo-chasche-prikryvayutsya-ogovorkoy-o-neprimene/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Провинции всё чаще прикрываются оговоркой о неприменении. В Квебеке это уже стало нормой" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Провинции всё чаще прикрываются оговоркой о неприменении. В Квебеке это уже стало нормой</div>
-    <div class="card-excerpt">⁠  Квебекские власти продолжают продавливать политику жёсткой секуляризации, используя самый тяжёлый инструмент в Канадской хартии — оговорку о неприменении. Очередной пример — законопроект 9. Он запр</div>
-    <div class="card-meta">
-      <span class="card-date">4 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-01-ottava-i-provintsii-davyat-na-verhovnyy-sud-pravilo-jordan-s/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Оттавa и провинции давят на Верховный суд: “правило Jordan” срывает тысячи дел" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Оттавa и провинции давят на Верховный суд: “правило Jordan” срывает тысячи дел</div>
-    <div class="card-excerpt">﻿  Каждый год около 10 тысяч уголовных дел в Канаде разваливаются из-за процессуальных сроков, и среди них — сотни дел о сексуальном насилии и несколько убийств. Это последствия решения Jordan, принят</div>
-    <div class="card-meta">
-      <span class="card-date">1 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-01-karni-provodit-perestanovki-v-kabinete-i-vozvraschaet-marka-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни проводит перестановки в кабинете и возвращает Марка Миллера" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Карни проводит перестановки в кабинете и возвращает Марка Миллера</div>
-    <div class="card-excerpt">После ухода Стивена Гийбо премьер-министр Марк Карни объявил о точечных изменениях в составе правительства. Самое заметное — возвращение Марка Миллера, давно знакомого по периоду Джастина Трюдо. Тогда</div>
-    <div class="card-meta">
-      <span class="card-date">1 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-29-geraedts-gidroenergiya-bolshe-ne-vytyanet-kanade-pora-prizna/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Гераедтс: Гидроэнергия больше не вытянет — Канаде пора признать очевидное" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">financialpost.com</div>
-    <div class="card-title">Гераедтс: Гидроэнергия больше не вытянет — Канаде пора признать очевидное</div>
-    <div class="card-excerpt">‌﻿  Генри Гераедтс в Financial Post пишет, что Канада стоит на пороге серьёзного провала по электрогенерации. Причина банальна: страна почти целиком сидит на гидроресурсах, которые уже не справляются</div>
-    <div class="card-meta">
-      <span class="card-date">29 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-29-v-kanade-v-2024-godu-cherez-maid-ushli-iz-zhizni-bolee-16-00/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Канаде в 2024 году через MAID ушли из жизни более 16 000 человек — около 5% всех смертей" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">В Канаде в 2024 году через MAID ушли из жизни более 16 000 человек — около 5% всех смертей</div>
-    <div class="card-excerpt">‌﻿  Очередной отчёт Health Canada показывает: почти десятилетие после легализации врачебного содействия смерти страна выходит на фазу стабилизации. В 2024 году зафиксировано 16 499 случаев MAID — рост</div>
-    <div class="card-meta">
-      <span class="card-date">29 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-29-kvebek-rasshiryaet-zakony-o-sekulyarizme-kritiki-govoryat-o-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Квебек расширяет законы о секуляризме: критики говорят о прямом ударе по меньшинствам" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">montrealgazette.com</div>
-    <div class="card-title">Квебек расширяет законы о секуляризме: критики говорят о прямом ударе по меньшинствам</div>
-    <div class="card-excerpt">‌﻿  Правительство Франсуа Лего представило новый законопроект о секуляризме — Bill 9. Он накладывается на действующий Bill 21 и предлагает новые запреты: ношение религиозных символов и закрытых лиц в</div>
-    <div class="card-meta">
-      <span class="card-date">29 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-26-kanada-raskryla-svezhie-dannye-o-nalogah-na-kannabis-s-oktya/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада раскрыла свежие данные о налогах на каннабис: с октября 2018 года собрано свыше $5,4 млрд." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Канада раскрыла свежие данные о налогах на каннабис: с октября 2018 года собрано свыше $5,4 млрд.</div>
-    <div class="card-excerpt">Из них Оттава получила только $1,2 млрд, всё остальное — $4,2 млрд — ушло провинциям. Такие цифры правительство передало в Палату общин по запросу консерватора Люка Берто.   По договорённостям с CRA п</div>
-    <div class="card-meta">
-      <span class="card-date">26 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-22-liberaly-hotyat-uskorit-stroitelstvo-vysokoskorostnoy-magist/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы хотят ускорить строительство высокоскоростной магистрали Торонто–Квебек: законопроект даёт правительству почти неограниченные полномочия" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Либералы хотят ускорить строительство высокоскоростной магистрали Торонто–Квебек: законопроект даёт правительству почти неограниченные полномочия</div>
-    <div class="card-excerpt">‌﻿   В закон о реализации бюджета Карни спрятали новый High-Speed Rail Network Act. Он фактически выводит проект Торонто–Квебек Сити из-под транспортного регулирования и сразу считает его одобренным.</div>
-    <div class="card-meta">
-      <span class="card-date">22 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-21-amazon-zakryla-operatsii-v-kvebeke-srazu-posle-sozdaniya-per/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Amazon закрыла операции в Квебеке сразу после создания первого профсоюза — теперь дело разбирает трудовой трибунал. Но даже если компанию признают виновной, ито" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Amazon закрыла операции в Квебеке сразу после создания первого профсоюза — теперь дело разбирает трудовой трибунал. Но даже если компанию признают виновной, ито</div>
-    <div class="card-excerpt">г может разочаровать рабочих  ‌  CBC News подробно разбирает, что ждёт Amazon и работников, уволенных весной, когда компания внезапно закрыла семь объектов и ликвидировала тысячи рабочих мест именно в</div>
-    <div class="card-meta">
-      <span class="card-date">21 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-21-karni-v-abu-dabi-investitsionnoe-soglashenie-podpisano-start/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни в Абу-Даби: инвестиционное соглашение подписано, старт торговых переговоров дан — но тень Судана никуда не делась" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Карни в Абу-Даби: инвестиционное соглашение подписано, старт торговых переговоров дан — но тень Судана никуда не делась</div>
-    <div class="card-excerpt">‌  CBC / The Canadian Press сообщают, что визит Пьера Карни в ОАЭ принёс первый результат: подписано соглашение о защите инвестиций и запущены переговоры о полноценном торговом договоре. Для Оттавы эт</div>
-    <div class="card-meta">
-      <span class="card-date">21 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-19-opros-kanadtsy-vsyo-menshe-doveryayut-bezhentsam-i-zametnee-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Опрос: канадцы всё меньше доверяют беженцам — и заметнее всего это среди иммигрантов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Опрос: канадцы всё меньше доверяют беженцам — и заметнее всего это среди иммигрантов</div>
-    <div class="card-excerpt">Новый опрос Leger для Ассоциации канадских исследований показывает резкий контраст в отношении жителей страны к разным группам приезжих. Беженцам доверяют лишь 36 процентов респондентов, недоверяют —</div>
-    <div class="card-meta">
-      <span class="card-date">19 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-19-lego-nikakih-isklyucheniy-dlya-zayaviteley-peq-protesty-immi/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Лего: никаких исключений для заявителей PEQ, протесты иммигрантов не помогли" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Лего: никаких исключений для заявителей PEQ, протесты иммигрантов не помогли</div>
-    <div class="card-excerpt">Правительство Квебека окончательно закрывает популярный путь к ПМЖ — Programme de l’expérience québécoise (PEQ). С 19 ноября единственный экономический маршрут — новая система отбора PSTQ.    Франсуа</div>
-    <div class="card-meta">
-      <span class="card-date">19 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-19-canada-post-zayavlyaet-o-fakticheskom-bankrotstve-i-gotovits/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Canada Post заявляет о фактическом банкротстве и готовится к массовому сокращению штата" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Canada Post заявляет о фактическом банкротстве и готовится к массовому сокращению штата</div>
-    <div class="card-excerpt">На годовом публичном собрании руководство Canada Post выступило с самым мрачным отчётом за всю историю корпорации. Финансовый директор Риндала Эль-Хадж прямо сказала: компания «фактически неплатёжеспо</div>
-    <div class="card-meta">
-      <span class="card-date">19 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-15-ministr-immigratsii-kvebeka-snova-grozit-urezat-posobiya-bez/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Министр иммиграции Квебека снова грозит урезать пособия беженцам" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Министр иммиграции Квебека снова грозит урезать пособия беженцам</div>
-    <div class="card-excerpt">Жан-Франсуа Роберж поднял ставку в споре с Оттавой: если федеральное правительство не компенсирует расходы, связанные с притоком заявителей убежища, провинция готова сократить соцвыплаты этой группе.</div>
-    <div class="card-meta">
-      <span class="card-date">15 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a></div>
-  <div class="pgn"><a class="pb" href="/tag/kvebek/page/2/">←</a><a class="pb" href="/tag/kvebek/">1</a><a class="pb" href="/tag/kvebek/page/2/">2</a><a class="pb on" href="/tag/kvebek/page/3/">3</a><a class="pb" href="/tag/kvebek/page/4/">4</a><a class="pb" href="/tag/kvebek/page/5/">5</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/kvebek/page/9/">9</a><a class="pb" href="/tag/kvebek/page/4/">→</a></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-10-16-ottava-vydelit-52-mln-na-uluchshenie-dostupa-k-meditsinskim-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>MONT</span></div>'"></div><div class="card-body"><div><span class="src-badge">montrealgazette.com</span></div><div class="card-title">Оттава выделит $52 млн на улучшение доступа к медицинским услугам на английском языке в Квебеке</div><div class="card-excerpt">⠀ Федеральное правительство Канады объявило о новом пятилетнем вложении $52 миллионов для поддержки англоязычных сообществ Квебека, которым всё сложнее получать медицинскую помощь на родном языке посл</div><div class="card-meta"><span class="card-date">16 окт 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-10-13-sarafannoe-radio-srabotalo-v-nyu-bransuike-rasprodayut-ameri/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>Global</span></div>'"></div><div class="card-body"><div><span class="src-badge">Global News</span></div><div class="card-title">«Сарафанное радио сработало»: в Нью-Брансуике распродают американский алкоголь, снятый с полок</div><div class="card-excerpt">NB Liquor пытается избавиться от запасов американского алкоголя, которые залежались на складах после начала торговой войны между Канадой и США. Семь месяцев назад провинция присоединилась к бойкоту и</div><div class="card-meta"><span class="card-date">13 окт 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-10-09-konservatory-hotyat-otmenit-grazhdanstvo-po-pravu-rozhdeniya/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Консерваторы хотят отменить гражданство по праву рождения для детей временных жителей</div><div class="card-excerpt">Консерваторы предлагают ограничить автоматическое канадское гражданство — его больше не должны получать дети, родившиеся в Канаде у родителей без статуса постоянного жителя или гражданина.   Сейчас по</div><div class="card-meta"><span class="card-date">9 окт 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-10-07-komu-dostalis-guglovskie-100-millionov-kto-vyigryvaet-ot-nov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>REUT</span></div>'"></div><div class="card-body"><div><span class="src-badge">reutersinstitute.politics.ox.ac.uk</span></div><div class="card-title">Кому достались гугловские 100 миллионов: кто выигрывает от новой системы поддержки медиа в Канаде</div><div class="card-excerpt">С мая 2025 года канадские СМИ начали получать свою долю из ежегодных 100 миллионов канадских долларов, которые Google обязался выплачивать в обмен на освобождение от требований закона об онлайн-новост</div><div class="card-meta"><span class="card-date">7 окт 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-10-06-sokrascheniya-v-kanadskoy-pasportnoy-sluzhbe-udarili-prezhde/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Сокращения в канадской паспортной службе ударили прежде всего по сотрудникам из меньшинств и людям с инвалидностью — об этом заявляет профсоюз государственных с</div><div class="card-excerpt">лужащих Union of National Employees (UNE).   Профсоюз подал две жалобы, утверждая, что увольнения нарушают трудовой договор и Канадский закон о правах человека.   В мае 800 временных работников по все</div><div class="card-meta"><span class="card-date">6 окт 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-25-konkordiya-i-studencheskiy-spravochnik-nenavisti/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Конкордия и «студенческий справочник ненависти»</div><div class="card-excerpt">Concordia University получила новую головную боль: студенческий союз выпустил справочник-ежедневник на 2025/26 год, который вместо календаря и учебных дат превратился в политический манифест.    В нём</div><div class="card-meta"><span class="card-date">25 сен 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-23-skandal-s-otkupom-oruzhiya-ministr-priznalsya-v-provale-no-k/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Скандал с “откупом оружия”: министр признался в провале, но Карни не отступает ради Квебека</div><div class="card-excerpt">В сеть утекла аудиозапись, где министр общественной безопасности Гэри Анандасангари признаётся: у полиции просто нет ресурсов, чтобы заставить владельцев сдавать запрещённое оружие в рамках либерально</div><div class="card-meta"><span class="card-date">23 сен 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-21-vkus-kvebeka-meteorit-gastronomiya-i-nemnogo-instinktivnoy-k/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>NYT</span></div>'"></div><div class="card-body"><div><span class="src-badge">NY Times</span></div><div class="card-title">Вкус Квебека: метеорит, гастрономия и немного «инстинктивной кухни»</div><div class="card-excerpt">Неожиданно классный и абсолютно рекламный материал про Квебек от The New York Times  400 миллионов лет назад в Шарлевуа врезался гигантский метеор. Сегодня именно этот кратер с плодородной почвой стал</div><div class="card-meta"><span class="card-date">21 сен 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/turizm/">#Туризм</a><a class="tag tag-reg" href="/tag/arktika-i-sever/">#Арктика и Север</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-20-kvebek-obyazyvaet-immigrantov-prinimat-obschie-tsennosti-pro/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Квебек обязывает иммигрантов принимать «общие ценности» провинции</div><div class="card-excerpt">Законодательное собрание Квебека приняло закон, который требует от иммигрантов «разделять общую культуру» провинции.   Среди обязательных ценностей — равенство полов, секуляризм и защита французского</div><div class="card-meta"><span class="card-date">20 сен 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-19-begstvo-v-kanadu-potok-bezhentsev-cherez-kvebek-vyros-na-263/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>INDE</span></div>'"></div><div class="card-body"><div><span class="src-badge">independent.co.uk</span></div><div class="card-title">Бегство в Канаду: поток беженцев через Квебек вырос на 263%</div><div class="card-excerpt">После массовых рейдов ICE по указанию администрации Дональда Трампа число людей, пересекающих границу США и Канады в поисках убежища, резко выросло.   По данным Канадского агентства пограничных служб,</div><div class="card-meta"><span class="card-date">19 сен 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-17-cd-howe-institute-kanade-stoit-eschyo-silnee-urezat-immigrat/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003366><span style=color:#fff>FinPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">Financial Post</span></div><div class="card-title">C.D. Howe Institute: Канаде стоит ещё сильнее урезать иммиграцию</div><div class="card-excerpt">Правительство Марка Карни уже снизило цели по приёму постоянных резидентов: 395 тысяч в 2025 году, 380 тысяч в 2026-м и 365 тысяч в 2027-м вместо прежних 485 тысяч. Но аналитический центр C.D. Howe In</div><div class="card-meta"><span class="card-date">17 сен 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-14-opros-ipsos-pravitelstvo-karni-nachinaet-osennyuyu-sessiyu-s/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>Global</span></div>'"></div><div class="card-body"><div><span class="src-badge">Global News</span></div><div class="card-title">Опрос Ipsos: правительство Карни начинает осеннюю сессию с рекордным рейтингом</div><div class="card-excerpt">﻿ Перед возвращением парламента кабинет Марка Карни получил уровень одобрения, которого Канада не видела почти десять лет. По данным Ipsos, проведённым для Global News, рейтинг правительства вырос на</div><div class="card-meta"><span class="card-date">14 сен 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-09-priostanovka-federalnogo-mandata-na-prodazhi-elektromobiley-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Приостановка федерального мандата на продажи электромобилей: катастрофа или шанс?</div><div class="card-excerpt">Правительство Канады объявило о 60-дневной «паузе» в реализации стандарта Electric Vehicle Availability Standard, который должен был обязать автопроизводителей продавать 20% электромобилей (включая ги</div><div class="card-meta"><span class="card-date">9 сен 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-08-vosem-let-ucheby-nol-predlozheniy-o-rabote/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c8102e><span style=color:#fff>Maclean's</span></div>'"></div><div class="card-body"><div><span class="src-badge">Maclean's</span></div><div class="card-title">Восемь лет учебы. Ноль предложений о работе</div><div class="card-excerpt">﻿ Текст в Maclean’s звучит как коллективный крик целого поколения канадских выпускников. Автор Садра Йеганех, дважды магистр с отличной успеваемостью, опытом работы и сотней поданных заявок, до сих по</div><div class="card-meta"><span class="card-date">8 сен 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-01-dve-nedeli-chtoby-sobrat-veschi-semyu-iz-kvebeka-posle-15-le/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">«Две недели, чтобы собрать вещи»: семью из Квебека после 15 лет жизни высылают в США</div><div class="card-excerpt">Семья Фигг из Восточных канадских канто́нов получила ультиматум: к 8 сентября они должны покинуть Канаду, где прожили последние 15 лет.   Для 15-летней Стеллы Фигг воскресный матч по футболу мог стать</div><div class="card-meta"><span class="card-date">1 сен 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-08-27-kvebek-nachinaet-novyy-uchebnyy-god-bez-telefonov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Квебек начинает новый учебный год без телефонов.</div><div class="card-excerpt">С осени в школах провинции действует полный запрет на использование мобильных и персональных устройств в течение всего дня — от первого до последнего звонка. Нельзя не только смартфоны, но и наушники,</div><div class="card-meta"><span class="card-date">27 авг 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-08-14-besplatnye-natsparki-kanady-etim-letom-radost-dlya-turistov-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Бесплатные нацпарки Канады этим летом: радость для туристов или головная боль для местных?</div><div class="card-excerpt">Летом-2025 федеральное правительство запустило Canada Strong Pass — бесплатный вход в нацпарки и 25% скидка на кемпинги с 20 июня по 2 сентября. Идея — «дать канадцам возможность исследовать страну».</div><div class="card-meta"><span class="card-date">14 авг 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-08-12-kanada-ubivaet-sebya-devyat-let-evtanazii-ot-strogih-ramok-d/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#bf0000><span style=color:#fff>Atlantic</span></div>'"></div><div class="card-body"><div><span class="src-badge">The Atlantic</span></div><div class="card-title">Канада убивает себя. Девять лет эвтаназии: от «строгих рамок» до мирового рекорда</div><div class="card-excerpt">Охренеть какая статья в The Atlantic.  В 2016 году парламент легализовал медицинскую помощь при добровольном уходе из жизни (MAID). Изначально это было только для безнадёжно больных с близкой смертью,</div><div class="card-meta"><span class="card-date">12 авг 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-08-09-chernokozhemu-muzhchine-v-kvebeke-sokratili-srok-iz-za-rasov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Чернокожему мужчине в Квебеке сократили срок из-за расовой дискриминации</div><div class="card-excerpt">52-летний Фрэнк Парис признал себя виновным в торговле каннабисом и гашишем. Корона требовала четыре года тюрьмы, но судья Магали Лепаж назначила два года, признав влияние системного расизма и историч</div><div class="card-meta"><span class="card-date">9 авг 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-08-05-v-kvebeke-zaderzhan-gruzovik-s-44-nelegalnymi-migrantami/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">В Квебеке задержан грузовик с 44 нелегальными мигрантами</div><div class="card-excerpt">44 мигранта, включая беременную женщину и детей от 4 лет, были обнаружены в «ужасных условиях» внутри грузовика неподалёку от города Станстед (Квебек) — прямо на границе с США. Машину перехватили в но</div><div class="card-meta"><span class="card-date">5 авг 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-08-04-redaktsiya-globe-and-mail-svoboda-slova-eto-pravo-govorit-ot/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Редакция Globe and Mail: свобода слова  это право говорить отвратительные вещи</div><div class="card-excerpt">Местные власти по всей Канаде массово отменяют мероприятия с участием американского проповедника и музыканта Шона Фойхта, сторонника Трампа и христианского национализма.   Среди городов, где были отоз</div><div class="card-meta"><span class="card-date">4 авг 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-08-02-naselenie-kvebeka-nachnyot-sokraschatsya-vinovaty-immigratsi/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Население Квебека начнёт сокращаться. Виноваты иммиграционные ограничения и низкая рождаемость</div><div class="card-excerpt">Институт статистики Квебека опубликовал прогноз: к 2030 году население провинции сократится примерно на 80 тысяч человек. Это первый негативный демографический сценарий за последние годы, и связан он</div><div class="card-meta"><span class="card-date">2 авг 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-31-na-fone-snizheniya-obschego-chisla-bezhentsev-po-vsey-strane/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">На фоне снижения общего числа беженцев по всей стране, на границе в Квебеке — резкий скачок.</div><div class="card-excerpt">По данным Канадского агентства пограничной службы, на контрольно-пропускном пункте Сен-Бернар-де-Лаколь к 27 июля зарегистрировано 10 724 запроса на убежище. В прошлом году за этот же период было в дв</div><div class="card-meta"><span class="card-date">31 июл 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-21-alberta-rezko-snizila-potreblenie-alkogolya-i-vyshla-v-lider/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Алберта резко снизила потребление алкоголя и вышла в лидеры по тратам на марихуану. Но напрямую эти два факта между собой не связаны.</div><div class="card-excerpt">В 2008 году Алберта была первой в стране по потреблению алкоголя — 9,7 литра чистого спирта на человека в год. Сейчас это 7,6 литра. Спад — один из самых резких в Канаде. Для сравнения: это минус 107</div><div class="card-meta"><span class="card-date">21 июл 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-21-v-kvebekskoy-tyurme-ubit-lider-bandy-arab-power/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">В Квебекской тюрьме убит лидер банды Arab Power</div><div class="card-excerpt">В воскресенье утром в тюрьме максимальной безопасности Donnacona (пригород Квебека) был убит 26-летний Сильвен Каббуши — один из главарей уличной группировки Arab Power.  – По данным полиции Квебека (</div><div class="card-meta"><span class="card-date">21 июл 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-20-rebyonok-v-kanade-oboydyotsya-v-17-000-v-god-i-eto-ne-shutka/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Ребёнок в Канаде обойдётся в $17 000 в год — и это не шутка</div><div class="card-excerpt">Средняя стоимость воспитания одного ребёнка в Канаде (до 17 лет):  $293 000 или по $17 235 в год  Что входит в расходы:  – Детский сад: до $7 500 в год вне Квебека – Няня: от $10 до $20/час – Частные</div><div class="card-meta"><span class="card-date">20 июл 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-20-23-biznesmena-iz-kvebeka-podayut-v-sud-na-federalnoe-pravite/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">23 бизнесмена из Квебека подают в суд на федеральное правительство и требуют $300 млн</div><div class="card-excerpt">Компании из разных секторов — от стали до авиадеталей — заявили, что сокращение разрешений на временных иностранных рабочих грозит им банкротством. Без этой рабочей силы, по их словам, им не выжить.</div><div class="card-meta"><span class="card-date">20 июл 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-03-kanadtsy-vsyo-menshe-doveryayut-ssha-i-chuvstvuyut-sebya-tam/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Канадцы всё меньше доверяют США и чувствуют себя там нежеланными гостями — свежий опрос Leger:</div><div class="card-excerpt">– 53% не доверяют Америке как государству – 55% чувствуют себя в США негостеприимно – 45% не считают США надёжным партнёром по безопасности – 75% уверены, что американские торговые правила несправедли</div><div class="card-meta"><span class="card-date">3 июл 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-26-uchyonye-dokazali-samye-drevnie-porody-zemli-v-kanade/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Учёные доказали: самые древние породы Земли — в Канаде</div><div class="card-excerpt">Спустя 17 лет споров и перепроверок, геологи из Оттавы официально подтвердили: камни в регионе Нунавик на севере Квебека — старейшие на планете. Возраст: более 4,3 миллиарда лет, эпоха — Гадей, когда</div><div class="card-meta"><span class="card-date">26 июн 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-25-detskiy-sad-za-7-v-den-da-esli-vy-v-kvebeke/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005689><span style=color:#fff>Guardian</span></div>'"></div><div class="card-body"><div><span class="src-badge">The Guardian</span></div><div class="card-title">👶 Детский сад за $7 в день? Да, если вы в Квебеке</div><div class="card-excerpt">Пока США тонут в кризисе ухода за детьми, Квебек уже 28 лет показывает, как должна работать система: государственные CPE (центры раннего развития) предлагают качественное образование, еду и поддержку</div><div class="card-meta"><span class="card-date">25 июн 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-12-v-kvebeke-troe-priznali-vinu-v-krupneyshey-sheme-ekspluatats/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">В Квебеке трое признали вину в крупнейшей схеме эксплуатации беженцев</div><div class="card-excerpt">В Квебеке трое обвиняемых признали вину по делу о мошеннических кадровых агентствах, которые эксплуатировали уязвимых соискателей убежища и скрывали несчастный случай на производстве — дело раскрыто п</div><div class="card-meta"><span class="card-date">12 июн 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-12-kanadtsa-ekstradirovali-v-ssha-po-obvineniyu-v-podgotovke-te/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Канадца экстрадировали в США по обвинению в подготовке теракта против еврейского центра в Нью-Йорке</div><div class="card-excerpt">Мухаммад Шахзеб Хан, гражданин Пакистана, проживавший в Канаде, экстрадирован в США — его обвиняют в подготовке массового расстрела в еврейском центре Бруклина по мотивам, вдохновлённым ИГИЛ.  Факты д</div><div class="card-meta"><span class="card-date">12 июн 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-06-otnoshenie-kanadtsev-k-ssha-na-istoricheskom-minimume/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">🤬 Отношение канадцев к США — на историческом минимуме.</div><div class="card-excerpt">Свежий опрос Environics Institute показывает: у канадцев резко ухудшилось мнение о южном соседе после возвращения Трампа в Белый дом.  «Это худшие показатели за всю историю наших наблюдений за последн</div><div class="card-meta"><span class="card-date">6 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-06-v-kvebeke-obsuzhdayut-sokraschenie-uslug-dlya-vremennyh-immi/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">В Квебеке обсуждают сокращение услуг для временных иммигрантов.</div><div class="card-excerpt">Министр иммиграции Квебека Жан-Франсуа Роберж заявил, что правительство рассматривает возможность урезать услуги для временно проживающих, если Оттава не снизит свои иммиграционные квоты вдвое.  На бр</div><div class="card-meta"><span class="card-date">6 июн 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-02-kvebek-trebuet-ot-immigrantov-razdelyat-obschie-tsennosti/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">🔻 Квебек требует от иммигрантов «разделять общие ценности»</div><div class="card-excerpt">Провинция официально приняла закон, обязывающий иммигрантов «принимать общую культуру Квебека» — с акцентом на светскость, равенство полов и защиту французского языка.  – Закон продвигает идея «социал</div><div class="card-meta"><span class="card-date">2 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-05-30-amerikanskiy-turbiznes-v-panike-kanadtsy-massovo-otkazyvayut/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">🧳 Американский турбизнес в панике: канадцы массово отказываются от поездок в США из-за Трампа</div><div class="card-excerpt">(CBC News, 30 мая)  Канадские туристы — крупнейшая группа иностранных посетителей США. В 2024 году они потратили там $20,5 млрд. Но теперь эта золотая жила проседает: по данным за апрель, поездки из К</div><div class="card-meta"><span class="card-date">30 май 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/turizm/">#Туризм</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-05-29-tesla-teryaet-kanadu/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>ELEC</span></div>'"></div><div class="card-body"><div><span class="src-badge">electrek.co</span></div><div class="card-title">⚡️ Tesla теряет Канаду</div><div class="card-excerpt">Продажи компании в Квебеке упали на 87% в первом квартале 2025 года. Это — катастрофа на ключевом для электромобилей рынке страны.  По данным SAAQ (дорожная служба Квебека):  – За весь Q1 2025 Tesla п</div><div class="card-meta"><span class="card-date">29 май 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-05-26-srochno-v-nomer-fransis-skarpaledzhia-izbran-novym-spikerom-/"><div class="card-img"><div class="card-placeholder" style="background:#4a4740"><span style="color:#fff">?</span></div></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">СРОЧНО В НОМЕР: Франсис Скарпаледжиа избран новым спикером Палаты общин</div><div class="card-excerpt">Либеральный депутат Франсис Скарпаледжиа, представляющий Квебекский округ Лак-Сен-Луи, избран новым спикером Палаты общин. Теперь именно он будет следить за порядком в палате и модерировать, как говор</div><div class="card-meta"><span class="card-date">26 май 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-05-21-kanadskaya-marihuana-na-eksport-kak-legalizatsiya-obernulas-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">🇨🇦 Канадская марихуана на экспорт: как легализация обернулась международным скандалом</div><div class="card-excerpt">Канада первой среди индустриальных стран легализовала рекреационную марихуану в 2018 году. Сегодня она стала одним из главных источников нелегального каннабиса в мире — от Европы до Карибов и Африки.</div><div class="card-meta"><span class="card-date">21 май 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-05-20-kanadtsy-ne-hotyat-novyh-vyborov-pust-partii-rabotayut-vmest/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Канадцы не хотят новых выборов — пусть партии работают вместе</div><div class="card-excerpt">Согласно новому опросу Nanos для Globe and Mail, подавляющее большинство канадцев не желают видеть очередные федеральные выборы в ближайший год. Хватит этого цирка.  🔻 Главные цифры:  – 80% канадцев х</div><div class="card-meta"><span class="card-date">20 май 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a></div>
+  <div class="pgn"><a class="pb" href="/tag/kvebek/page/2/">←</a><a class="pb" href="/tag/kvebek/">1</a><a class="pb" href="/tag/kvebek/page/2/">2</a><a class="pb on" href="/tag/kvebek/page/3/">3</a><a class="pb" href="/tag/kvebek/page/4/">4</a><a class="pb" href="/tag/kvebek/page/4/">→</a></div>
 </div>
 <footer>
 <div class="fi">
@@ -668,8 +191,8 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
     <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
     <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
   </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/politika/">#Политика</a><a href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a href="/tag/ekonomika/">#Экономика</a><a href="/tag/zhilyo/">#Жильё</a><a href="/tag/transport/">#Транспорт</a><a href="/tag/rynok-truda/">#Рынок труда</a><a href="/tag/prestupnost/">#Преступность</a><a href="/tag/prava-i-svobody/">#Права и свободы</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/daniel-smit/">Даниэль Смит</a><a href="/person/melani-zholi/">Мелани Жоли</a><a href="/person/anita-anand/">Анита Ананд</a></div>
 </div>
 <div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
 </footer>

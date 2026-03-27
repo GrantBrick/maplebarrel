@@ -18,22 +18,20 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --t:#111;
-  --t2:#555;
-  --t3:#888;
-  --br:#e5e5e5;
---serif:'Playfair Display', Georgia, serif;
---sans:'Golos Text', system-ui, sans-serif;
-}
-
-body{
-  background:#ffffff;
-  color:#111;
-  font-family:var(--sans);
+  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
+  --br:#e2ddd4;--br2:#ccc7bc;
+  --card:#ffffff;--card-hover:#faf8f4;
+  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
+  --ac:#c0392b;--ac2:#c0392b;--ac3:#e05240;
+  --gold:#9a6f20;--gold2:#c9963a;
+  --tg:#2b6cb0;--tg2:#1a56a0;
+  --maple:#c0392b;
+  --shadow:0 2px 12px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -42,137 +40,117 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ── NAV ── */
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:1px}
 .nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--cream);background:var(--bg3)}
-.nl.on{color:var(--cream);background:var(--bg3)}
+.nl:hover{color:var(--t);background:var(--bg4)}
+.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.2)}
-.tgb{
-  background:#c0392b;
-  color:#fff;
-  border-radius:6px;
-  padding:6px 14px;
-  font-weight:600;
-  font-size:13px;
-  border:none;
-}
-
-.tgb:hover{
-  background:#a93226;
-}
+/* Telegram — prominent button */
+.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:all .2s;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.tgb:hover{background:var(--tg);box-shadow:0 2px 8px rgba(26,86,160,.4)}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
 
 .wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
+/* ── SOURCE BADGE (red) ── */
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap}
+
 /* ── CARD SYSTEM ── */
-/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:6px;
-  overflow:hidden;
-  transition:transform .15s;
-}
-.card:hover{
-  transform:translateY(-2px);
-}
+.card{background:var(--card);border-radius:8px;overflow:hidden;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-/* Image container — always 16:9, consistent shadow on image */
-.card-img{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:var(--bg4);
-  flex-shrink:0;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-
+/* Image — fixed 16:9, cover, contained */
+.card-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+.card-img .emoji-fallback{font-size:28px;color:var(--t4)}
 
-/* Card body — cream-tinted text on dark */
-.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#c0392b;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.35;
-  color:#111;
-}
+/* Card body */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:15px}
 .card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-.card-date{font-size:10px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap;border-top:1px solid var(--br)}
+.card-date{font-size:11px;color:var(--t3)}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+/* Read more link */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:4px}
+.card:hover .card-read{text-decoration:underline}
 
-/* Tags — topic-colored by category */
-.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+/* ── TAG CHIPS ── */
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;transition:opacity .12s;letter-spacing:.2px}
 .tag:hover{opacity:.8}
-/* politics/elections */
-.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-/* economy/tariffs */
-.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-/* immigration */
-.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-/* regions */
-.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-/* longreads */
-.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-/* default */
-.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
-
-/* Tag category mapping */
-.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+/* Politics — red */
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+/* Economy — amber */
+.tag-eco{background:#fef3c7;color:#78350f}
+/* Immigration — blue */
+.tag-imm{background:#dbeafe;color:#1e40af}
+/* Regions — green */
+.tag-reg{background:#d1fae5;color:#065f46}
+/* Stats — purple */
+.tag-stat{background:#ede9fe;color:#4c1d95}
+/* Default — gray */
+.tag-def{background:var(--bg4);color:var(--t3)}
 
 /* ── PAGINATION ── */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
 /* ── TAG FILTER BAR ── */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
 .fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
 .fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--cream)}
+.fcol a:hover{color:var(--t)}
 .fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* ── TG CTA ── */
-.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+/* ── TG CTA (bottom of post) ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
 .tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
 .csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
-.ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+.ctgp a{color:var(--tg2)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.cbtn2:hover{background:var(--tg)}
+
+/* ── CARD PLACEHOLDER ── */
+.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.card-placeholder span{font-size:13px;font-weight:700;letter-spacing:.5px;opacity:.9}
+/* Consistent card-img — always 16:9, photo is decorative */
+.card-img{position:relative}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Read more */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:2px}
+
+/* ci-badge smaller */
+.ci-badge{font-size:9px!important;padding:1px 6px!important}
+
+/* lr-card */
+.lr-card{display:flex;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:80px;min-width:80px;height:80px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lr-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lr-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:5px;min-width:0}
+.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
@@ -188,478 +166,23 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
 </style>
 </head>
 <body>
-
-<nav style="background:#fff;border-bottom:1px solid #eee;">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
-
-    <!-- LEFT -->
-    <div style="display:flex;gap:16px;font-size:14px;color:#555">
-      <a href="/" style="color:#000">Новости</a>
-      <a href="/materials/">Материалы</a>
-      <a href="/longreads/">Лонгриды</a>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
-      Maple <span style="color:#d44">🍁</span> Barrel
-    </div>
-
-    <!-- RIGHT -->
-    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
-      <a href="/about/">О проекте</a>
-      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
-    </div>
-
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
   </div>
-</nav>
-
+</div></nav>
 <div class="wrap">
   <div class="tag-hdr">
     <h1>#Торонто</h1>
-    <p>275 материалов по теме</p>
+    <p>128 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="card" href="/post/2026-03-27-kazhdyy-kanadets-stoit-dvuh-amerikantsev-v-los-kabose-podsch/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</div>
-    <div class="card-excerpt">Канадцы стали самым быстрорастущим потоком туристов в мексиканский Лос-Кабос — и одновременно самым выгодным.   По данным местной туристической индустрии, в 2025 году регион посетили более 215 тысяч к</div>
-    <div class="card-meta">
-      <span class="card-date">27 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-25-retsessiya-rubezhey-lishaet-molodyh-kanadtsev-buduschego/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Рецессия рубежей лишает молодых канадцев будущего" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thehub.ca</div>
-    <div class="card-title">Рецессия рубежей лишает молодых канадцев будущего</div>
-    <div class="card-excerpt">Обязательно зацените оригинал, прекрасно оформлен и куча даннных  Эрик Ломбарди пишет, что Канада столкнулась с новой формой кризиса — не классической рецессией, а затяжным сбоем, при котором молодые</div>
-    <div class="card-meta">
-      <span class="card-date">25 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-25-odin-iz-samyh-razyskivaemyh-prestupnikov-v-kanade-zaderzhan-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Один из самых разыскиваемых преступников в Канаде задержан в США по делу об убийстве в Торонто" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Один из самых разыскиваемых преступников в Канаде задержан в США по делу об убийстве в Торонто</div>
-    <div class="card-excerpt">Полиция Торонто сообщила о задержании Адриана Уокера — одного из самых разыскиваемых преступников страны. Его арестовали в штате Миссисипи.  Уокер проходил по делу о двойной стрельбе в Торонто в мае 2</div>
-    <div class="card-meta">
-      <span class="card-date">25 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-23-ford-obyavit-aeroport-billi-bishop-osoboy-ekonomicheskoy-zon/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Форд объявит аэропорт Билли Бишоп «особой экономической зоной», чтобы разрешить реактивные самолёты" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Форд объявит аэропорт Билли Бишоп «особой экономической зоной», чтобы разрешить реактивные самолёты</div>
-    <div class="card-excerpt">Премьер Онтарио Даг Форд решил пойти ва-банк: он планирует объявить аэропорт Билли Бишоп в Торонто «особой экономической зоной», чтобы обойти муниципальные и провинциальные ограничения и расширить взл</div>
-    <div class="card-meta">
-      <span class="card-date">23 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-19-aeroport-vankuvera-priznan-luchshim-v-severnoy-amerike-i-vos/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Аэропорт Ванкувера признан лучшим в Северной Америке и вошёл в топ-10 мира" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Аэропорт Ванкувера признан лучшим в Северной Америке и вошёл в топ-10 мира</div>
-    <div class="card-excerpt">Аэропорт Ванкувера (YVR) снова на вершине — уже в 15-й раз за 17 лет он признан лучшим в Северной Америке по версии Skytrax.   В глобальном рейтинге он занял 10-е место, поднявшись на три позиции по с</div>
-    <div class="card-meta">
-      <span class="card-date">19 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-16-kanadskaya-kompaniya-hochet-vypustit-otechestvennyy-analog-p/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадская компания хочет выпустить отечественный аналог препарата Ozempic" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Канадская компания хочет выпустить отечественный аналог препарата Ozempic</div>
-    <div class="card-excerpt">Новая фармацевтическая компания из Торонто Vimy Pharma пытается выйти на рынок с более дешёвой версией одного из самых известных препаратов в мире — Ozempic.   Компания была основана в 2024 году двумя</div>
-    <div class="card-meta">
-      <span class="card-date">16 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-16-dazhe-zayomschiki-s-horoshey-kreditnoy-istoriey-nachinayut-p/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Даже заёмщики с хорошей кредитной историей начинают пропускать платежи по ипотеке" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Даже заёмщики с хорошей кредитной историей начинают пропускать платежи по ипотеке</div>
-    <div class="card-excerpt">В Канаде растёт число домовладельцев с относительно хорошими кредитными рейтингами, которые перестают вовремя платить по ипотеке. Новые данные Equifax Canada показывают: финансовое давление всё сильне</div>
-    <div class="card-meta">
-      <span class="card-date">16 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-12-vot-nastoyaschee-dokazatelstvo-v-kanade-rezko-vyroslo-chislo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Вот настоящее доказательство»: в Канаде резко выросло число инсценированных аварий ради страховых выплат" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">«Вот настоящее доказательство»: в Канаде резко выросло число инсценированных аварий ради страховых выплат</div>
-    <div class="card-excerpt">Страховые компании и полиция в Канаде фиксируют резкий рост инсценированных автомобильных аварий, которые организуют ради получения страховых выплат.   Журналисты программы W5 рассказали о расследован</div>
-    <div class="card-meta">
-      <span class="card-date">12 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-12-chto-budet-esli-liberaly-marka-karni-poluchat-bolshinstvo-v-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Что будет, если либералы Марка Карни получат большинство в парламенте" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Что будет, если либералы Марка Карни получат большинство в парламенте</div>
-    <div class="card-excerpt">Правительство Марка Карни может вскоре получить большинство в Палате общин — и если это произойдёт, это станет одним из самых необычных парламентских большинств в истории Канады.   Большинство может с</div>
-    <div class="card-meta">
-      <span class="card-date">12 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-11-v-kanade-usilivaetsya-bebi-retsessiya-rozhdaemost-padaet-vo-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Канаде усиливается «бэби-рецессия» — рождаемость падает во всех крупных городах" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">В Канаде усиливается «бэби-рецессия» — рождаемость падает во всех крупных городах</div>
-    <div class="card-excerpt">Новые демографические данные показывают резкое снижение рождаемости в Канаде. Как сообщает The Globe and Mail, за последние пять лет все 42 крупнейших города страны зафиксировали падение коэффициента</div>
-    <div class="card-meta">
-      <span class="card-date">11 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-10-remont-svoimi-rukami-kanadtsy-ekonomyat-no-riski-ostayutsya/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Ремонт своими руками: канадцы экономят, но риски остаются" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Ремонт своими руками: канадцы экономят, но риски остаются</div>
-    <div class="card-excerpt">Многие владельцы жилья в Канаде всё чаще берутся за ремонт самостоятельно. Причина проста: стоимость строительных и ремонтных работ продолжает расти, и отказ от услуг подрядчиков может заметно сократи</div>
-    <div class="card-meta">
-      <span class="card-date">10 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-09-evreyskaya-obschina-trebuet-deystviy-posle-strelby-po-sinago/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Еврейская община требует действий после стрельбы по синагогам в районе Торонто" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Еврейская община требует действий после стрельбы по синагогам в районе Торонто</div>
-    <div class="card-excerpt">За последнюю неделю три синагоги в районе Большого Торонто (GTA) подверглись обстрелу — две в Норт-Йорке и одна в Воне. По данным полиции, никто не пострадал, подозреваемые пока не установлены.   Лиде</div>
-    <div class="card-meta">
-      <span class="card-date">9 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-06-v-monreale-zaderzhan-samyy-razyskivaemyy-prestupnik-kanady/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Монреале задержан самый разыскиваемый преступник Канады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">В Монреале задержан самый разыскиваемый преступник Канады</div>
-    <div class="card-excerpt">Полиция Монреаля задержала самого разыскиваемого преступника Канады — 24-летнего Брайана Фуэнтеса Грамахо. Его арестовали ночью в среду.   Фуэнтес Грамахо обвиняется в убийстве первой степени по делу</div>
-    <div class="card-meta">
-      <span class="card-date">6 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-05-prodazhi-zhilya-v-toronto-upali-do-minimuma-za-10-mesyatsev-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Продажи жилья в Торонто упали до минимума за 10 месяцев на фоне торговой войны" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Продажи жилья в Торонто упали до минимума за 10 месяцев на фоне торговой войны</div>
-    <div class="card-excerpt">Продажи жилья в Большом Торонто продолжили снижаться и в феврале достигли самого низкого уровня за последние десять месяцев.   По данным Toronto Regional Real Estate Board, падение продолжается уже пя</div>
-    <div class="card-meta">
-      <span class="card-date">5 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-03-belye-vorotnichki-bolshe-ne-v-poryadke-kak-novaya-ekonomika-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Белые воротнички» больше не в порядке: как новая экономика перевернула рынок труда" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">macleans.ca</div>
-    <div class="card-title">«Белые воротнички» больше не в порядке: как новая экономика перевернула рынок труда</div>
-    <div class="card-excerpt">Роскошный материал McLean's  Инженеры с дипломами расставляют товары в Walmart. Разработчиков массово увольняют. ИИ — повсюду. Так выглядит новый рынок труда, в котором образование больше не гарантиру</div>
-    <div class="card-meta">
-      <span class="card-date">3 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-02-per-poliev-zayavil-chto-gotov-poehat-v-ssha-chtoby-otstaivat/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Пьер Полиев заявил, что готов поехать в США, чтобы отстаивать позицию Канады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Пьер Полиев заявил, что готов поехать в США, чтобы отстаивать позицию Канады</div>
-    <div class="card-excerpt">Лидер консерваторов Пьер Полиев заявил, что готов встретиться с американскими политиками, если это поможет урегулировать продолжающийся торговый конфликт с США.    В подкасте The Bridge with Питером М</div>
-    <div class="card-meta">
-      <span class="card-date">2 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-27-poliev-atakuet-trampa-i-prizyvaet-kanadu-sosredotochitsya-na/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Полиев атакует Трампа и призывает Канаду сосредоточиться на том, что она может контролировать" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Полиев атакует Трампа и призывает Канаду сосредоточиться на том, что она может контролировать</div>
-    <div class="card-excerpt">Лидер консерваторов Пьер Полиев в большой речи в Торонто раскритиковал торговую политику Дональда Трампа, но призвал канадцев не зацикливаться на решениях Белого дома, а укреплять собственную страну.</div>
-    <div class="card-meta">
-      <span class="card-date">27 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-26-doktoru-predyavleny-43-obvineniya-v-seksualnyh-prestupleniya/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Доктору предъявлены 43 обвинения в сексуальных преступлениях, включая вуайеризм, сексуальное насилие и изготовление детской порнографии" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Доктору предъявлены 43 обвинения в сексуальных преступлениях, включая вуайеризм, сексуальное насилие и изготовление детской порнографии</div>
-    <div class="card-excerpt">Канадскому врачу Дэвиду Эдварду-Ои Пуну предъявлены 43 уголовных обвинения, охватывающих период с 2014 по 2025 год. Речь идёт о сексуальном насилии, тайной съёмке для сексуальных целей и преступлениях</div>
-    <div class="card-meta">
-      <span class="card-date">26 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-25-bolnitsa-toronto-zanyala-vtoroe-mesto-v-mire-v-reytinge-news/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Больница Торонто заняла второе место в мире в рейтинге Newsweek" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Больница Торонто заняла второе место в мире в рейтинге Newsweek</div>
-    <div class="card-excerpt">Больница Toronto General Hospital, входящая в сеть University Health Network, заняла второе место в мире в ежегодном рейтинге журнала Newsweek «World’s Best Hospitals 2026».   Канадское учреждение под</div>
-    <div class="card-meta">
-      <span class="card-date">25 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-22-ostrov-printsa-endryu-v-ontario-pereimenuyut-posle-ego-arest/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Остров Принца Эндрю в Онтарио переименуют после его ареста" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">telegraph.co.uk</div>
-    <div class="card-title">Остров Принца Эндрю в Онтарио переименуют после его ареста</div>
-    <div class="card-excerpt">В муниципалитете Селвин (Онтарио) начали процедуру переименования острова Prince Andrew Island на реке Оттонаби после ареста Эндрю Маунтбеттена-Виндзора.    Остров расположен рядом с Лейкфилдом, где б</div>
-    <div class="card-meta">
-      <span class="card-date">22 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-17-otlichnyy-kanadskiy-film-polnyy-lyubvi-k-toronto/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Отличный канадский фильм, полный любви к Торонто." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Отличный канадский фильм, полный любви к Торонто.</div>
-    <div class="card-excerpt">Зал натурально ржал первые 40 минут, потом темп чуть падает, но все равно впечатления отличные.   Непонятно, с чем сравнить, абсолютно уникальная атмосфера, немного безумная.</div>
-    <div class="card-meta">
-      <span class="card-date">17 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-17-kanadtsy-doshli-do-predela-kogda-rech-zahodit-o-stoimosti-av/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадцы “дошли до предела”, когда речь заходит о стоимости автострахования" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Канадцы “дошли до предела”, когда речь заходит о стоимости автострахования</div>
-    <div class="card-excerpt">Стоимость автострахования в Канаде продолжает расти — и чистая история вождения больше не гарантирует снижения тарифа. Об этом пишет издание The Globe and Mail.   Алекс Буржуа из Торонто подыскивает в</div>
-    <div class="card-meta">
-      <span class="card-date">17 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-16-kondominiumy-kuplennye-v-pandemiyu-teper-prinosyat-vladeltsa/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Кондоминиумы, купленные в пандемию, теперь приносят владельцам убытки" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Кондоминиумы, купленные в пандемию, теперь приносят владельцам убытки</div>
-    <div class="card-excerpt">История, описанная в The Globe and Mail, всё чаще звучит одинаково: люди купили кондо в 2020–2022 годах на пике рынка, рассчитывая через пять лет продать с прибылью и перейти в дом побольше. Теперь вм</div>
-    <div class="card-meta">
-      <span class="card-date">16 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-15-okolo-350-tysyach-chelovek-vyshli-na-marsh-v-toronto-v-podde/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Около 350 тысяч человек вышли на марш в Торонто в поддержку протестов в Иране" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Около 350 тысяч человек вышли на марш в Торонто в поддержку протестов в Иране</div>
-    <div class="card-excerpt">По оценке полиции Торонто, в субботу около 350 тысяч человек приняли участие в марше солидарности с протестами в Иране. Демонстрация прошла в районе Норт-Йорк и растянулась вдоль Йонг-стрит.   Участни</div>
-    <div class="card-meta">
-      <span class="card-date">15 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-13-ontario-otmenyaet-zamorozku-platy-za-obuchenie-dlya-mestnyh-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Онтарио отменяет заморозку платы за обучение для местных студентов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Онтарио отменяет заморозку платы за обучение для местных студентов</div>
-    <div class="card-excerpt">Правительство Онтарио снимает многолетнюю заморозку платы за обучение для канадских студентов государственных университетов и колледжей и одновременно пообещало вложить более 6 млрд долларов в систему</div>
-    <div class="card-meta">
-      <span class="card-date">13 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-12-liberaly-ontario-razreshili-vremennym-rezidentam-golosovat-v/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ipolitics.ca</div>
-    <div class="card-title">Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии</div>
-    <div class="card-excerpt">Провинциальная Либеральная партия Онтарио не изменила правила участия в выборах нового лидера. Согласно уставу партии, голосовать могут все её члены, проживающие в Онтарио, включая неграждан, иностран</div>
-    <div class="card-meta">
-      <span class="card-date">12 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-11-drugie-sluchai-strelby-v-kanadskih-shkolah-do-tragedii-v-tam/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">Другие случаи стрельбы в канадских школах до трагедии в Тамбле-Ридже</div>
-    <div class="card-excerpt">Стрельба в Тамблэ-Ридже стала самым смертоносным нападением, связанным со школой в Канаде, почти за 40 лет. До этого в стране уже происходили трагедии, которые оставили глубокий след в общественной па</div>
-    <div class="card-meta">
-      <span class="card-date">11 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-10-srednyaya-zaprashivaemaya-arenda-v-toronto-upala-do-minimuma/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Средняя запрашиваемая аренда в Торонто упала до минимума за четыре года — отчет" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">torontotoday.ca</div>
-    <div class="card-title">Средняя запрашиваемая аренда в Торонто упала до минимума за четыре года — отчет</div>
-    <div class="card-excerpt">Средняя стоимость аренды однокомнатной квартиры в Торонто в январе снизилась до 2 183 долларов. Это на 7,2% меньше, чем год назад, следует из нового отчета  и Urbanation.   Наибольшее годовое падение</div>
-    <div class="card-meta">
-      <span class="card-date">10 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-09-karni-i-ford-obsuzhdali-ideyu-dosrochnyh-federalnyh-vyborov-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни и Форд обсуждали идею досрочных федеральных выборов для получения большинства — источники" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Карни и Форд обсуждали идею досрочных федеральных выборов для получения большинства — источники</div>
-    <div class="card-excerpt">Премьер-министр Канады Марк Карни и премьер Онтарио Даг Форд в неформальных разговорах обсуждали возможность досрочных федеральных выборов как способ получить устойчивое парламентское большинство на ф</div>
-    <div class="card-meta">
-      <span class="card-date">9 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-07-dve-zimy-odnoy-strany-tsvetuschiy-vankuver-i-snezhnyy-ad-v-t/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Две зимы одной страны: цветущий Ванкувер и снежный ад в Торонто" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Две зимы одной страны: цветущий Ванкувер и снежный ад в Торонто</div>
-    <div class="card-excerpt">‌  Пока одна часть Канады встречает февраль с цветами и пчёлами, другая утопает в сугробах и переживает один из самых снежных месяцев в истории. Контраст между Ванкувером и Торонто этой зимой оказался</div>
-    <div class="card-meta">
-      <span class="card-date">7 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-06-ministr-priznal-u-novogo-federalnogo-zhilischnogo-agentstva-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Министр признал: у нового федерального жилищного агентства нет целей по числу построенных домов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Министр признал: у нового федерального жилищного агентства нет целей по числу построенных домов</div>
-    <div class="card-excerpt">‎  Министр жилищного строительства и инфраструктуры Грегор Робертсон, представляя в парламенте закон о создании агентства Build Canada Homes, прямо заявил: никаких целевых показателей по количеству жи</div>
-    <div class="card-meta">
-      <span class="card-date">6 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-05-kak-deshyovye-analogi-ozempic-izmenyat-rasklad/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Как дешёвые аналоги Ozempic изменят расклад?" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Как дешёвые аналоги Ozempic изменят расклад?</div>
-    <div class="card-excerpt">Огромный материал The Globe and Mail  Канада может первой среди западных стран получить дженерики семаглутида — препарата от диабета 2-го типа, который стал массовым средством для снижения веса под бр</div>
-    <div class="card-meta">
-      <span class="card-date">5 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-05-pochemu-dokumentalnyy-film-melaniya-pokazyvayut-v-kanade-i-c/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Почему документальный фильм «Мелания» показывают в Канаде и что означают его неожиданные кассовые сборы" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Почему документальный фильм «Мелания» показывают в Канаде и что означают его неожиданные кассовые сборы</div>
-    <div class="card-excerpt">Документальный фильм «Мелания» — закулисный портрет первой леди США Мелании Трамп — вышел в канадский прокат, несмотря на почти пустые залы и вялый интерес со стороны зрителей. И на первый взгляд всё</div>
-    <div class="card-meta">
-      <span class="card-date">5 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-05-7-sotrudnikov-politsii-toronto-obvineny-v-ramkah-rassledovan/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="7 сотрудников полиции Торонто обвинены в рамках расследования организованной преступности и коррупции — источники" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">7 сотрудников полиции Торонто обвинены в рамках расследования организованной преступности и коррупции — источники</div>
-    <div class="card-excerpt">Семь сотрудников полиции Торонто были арестованы и обвинены в рамках «длительного расследования организованной преступности и коррупции», которое ведёт полиция региона Йорк. Об этом сообщили источники</div>
-    <div class="card-meta">
-      <span class="card-date">5 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-04-evreyskim-studentam-strashno-byt-evreyami-v-kampusah-kak-rea/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Еврейским студентам страшно быть евреями в кампусах. Как реагируют университеты" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thehub.ca</div>
-    <div class="card-title">Еврейским студентам страшно быть евреями в кампусах. Как реагируют университеты</div>
-    <div class="card-excerpt">Антисемитизм в канадских университетах перестал быть маргинальным явлением и стал повседневной реальностью для еврейских студентов. Семь студентов из разных регионов Канады рассказали The Hub, что пос</div>
-    <div class="card-meta">
-      <span class="card-date">4 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-02-vrach-v-toronto-vedyot-2-000-patsientov-i-vsyo-eschyo-bez-pm/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Врач в Торонто ведёт 2 000 пациентов — и всё ещё без ПМЖ" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Врач в Торонто ведёт 2 000 пациентов — и всё ещё без ПМЖ</div>
-    <div class="card-excerpt">Канада годами говорит о катастрофической нехватке врачей. В Онтарио без семейного доктора живут более 2,5 млн человек, по стране — почти 6 млн.   На этом фоне история доктора Майкла Антила выглядит по</div>
-    <div class="card-meta">
-      <span class="card-date">2 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-29-feykovye-video-v-sotssetyah-zamanivayut-turistov-v-kanadu-po/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»</div>
-    <div class="card-excerpt">В преддверии чемпионата мира по футболу 2026 года в TikTok и Instagram массово распространяются видео с ложной информацией об иммиграционных правилах Канады. Как выяснило CBC News, такие ролики нацеле</div>
-    <div class="card-meta">
-      <span class="card-date">29 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-29-kanadtsy-vsyo-chasche-izbegayut-ssha-kuda-oni-teper-letayut/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадцы всё чаще избегают США: куда они теперь летают" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Канадцы всё чаще избегают США: куда они теперь летают</div>
-    <div class="card-excerpt">Канадцы продолжают сокращать поездки в США, компенсируя это ростом внутреннего и зарубежного туризма. Об этом свидетельствуют данные исследования компании Environics Analytics, предоставленные CTV New</div>
-    <div class="card-meta">
-      <span class="card-date">29 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-29-turizm-v-toronto-obnovil-rekord-282-mln-posetiteley-v-2025-g/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Туризм в Торонто обновил рекорд: 28,2 млн посетителей в 2025 году и экономический эффект $13,5 млрд" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">toronto.citynews.ca</div>
-    <div class="card-title">Туризм в Торонто обновил рекорд: 28,2 млн посетителей в 2025 году и экономический эффект $13,5 млрд</div>
-    <div class="card-excerpt">Туристический сектор Торонто показал рекордные результаты в 2025 году. Город принял 28,2 млн посетителей — это максимальный показатель за всю историю наблюдений. Прямые расходы туристов составили $9,1</div>
-    <div class="card-meta">
-      <span class="card-date">29 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-27-vankuver-trebuet-ogranichit-yarkost-led-far-na-federalnom-ur/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Ванкувер требует ограничить яркость LED-фар на федеральном уровне" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Ванкувер требует ограничить яркость LED-фар на федеральном уровне</div>
-    <div class="card-excerpt">⁠  Городской совет Ванкувера единогласно принял редкое для себя решение: обратиться к федеральному правительству с требованием ввести чёткие и обязательные нормы по яркости автомобильных LED-фар.  ⁠</div>
-    <div class="card-meta">
-      <span class="card-date">27 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a></div>
-  <div class="pgn"><a class="pb on" href="/tag/toronto/">1</a><a class="pb" href="/tag/toronto/page/2/">2</a><a class="pb" href="/tag/toronto/page/3/">3</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/tag/toronto/page/7/">7</a><a class="pb" href="/tag/toronto/page/2/">→</a></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-27-kazhdyy-kanadets-stoit-dvuh-amerikantsev-v-los-kabose-podsch/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</div><div class="card-excerpt">Канадцы стали самым быстрорастущим потоком туристов в мексиканский Лос-Кабос — и одновременно самым выгодным.   По данным местной туристической индустрии, в 2025 году регион посетили более 215 тысяч к</div><div class="card-meta"><span class="card-date">27 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/turizm/">#Туризм</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-25-odin-iz-samyh-razyskivaemyh-prestupnikov-v-kanade-zaderzhan-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Один из самых разыскиваемых преступников в Канаде задержан в США по делу об убийстве в Торонто</div><div class="card-excerpt">Полиция Торонто сообщила о задержании Адриана Уокера — одного из самых разыскиваемых преступников страны. Его арестовали в штате Миссисипи.  Уокер проходил по делу о двойной стрельбе в Торонто в мае 2</div><div class="card-meta"><span class="card-date">25 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-05-prodazhi-zhilya-v-toronto-upali-do-minimuma-za-10-mesyatsev-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Продажи жилья в Торонто упали до минимума за 10 месяцев на фоне торговой войны</div><div class="card-excerpt">Продажи жилья в Большом Торонто продолжили снижаться и в феврале достигли самого низкого уровня за последние десять месяцев.   По данным Toronto Regional Real Estate Board, падение продолжается уже пя</div><div class="card-meta"><span class="card-date">5 мар 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/zhilyo/">#Жильё</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-27-poliev-atakuet-trampa-i-prizyvaet-kanadu-sosredotochitsya-na/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Полиев атакует Трампа и призывает Канаду сосредоточиться на том, что она может контролировать</div><div class="card-excerpt">Лидер консерваторов Пьер Полиев в большой речи в Торонто раскритиковал торговую политику Дональда Трампа, но призвал канадцев не зацикливаться на решениях Белого дома, а укреплять собственную страну.</div><div class="card-meta"><span class="card-date">27 фев 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-25-bolnitsa-toronto-zanyala-vtoroe-mesto-v-mire-v-reytinge-news/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Больница Торонто заняла второе место в мире в рейтинге Newsweek</div><div class="card-excerpt">Больница Toronto General Hospital, входящая в сеть University Health Network, заняла второе место в мире в ежегодном рейтинге журнала Newsweek «World’s Best Hospitals 2026».   Канадское учреждение под</div><div class="card-meta"><span class="card-date">25 фев 2026</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-17-otlichnyy-kanadskiy-film-polnyy-lyubvi-k-toronto/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Отличный канадский фильм, полный любви к Торонто.</div><div class="card-excerpt">Зал натурально ржал первые 40 минут, потом темп чуть падает, но все равно впечатления отличные.   Непонятно, с чем сравнить, абсолютно уникальная атмосфера, немного безумная.</div><div class="card-meta"><span class="card-date">17 фев 2026</span><div class="card-tags"><a class="tag tag-reg" href="/tag/toronto/">#Торонто</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-15-okolo-350-tysyach-chelovek-vyshli-na-marsh-v-toronto-v-podde/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Около 350 тысяч человек вышли на марш в Торонто в поддержку протестов в Иране</div><div class="card-excerpt">По оценке полиции Торонто, в субботу около 350 тысяч человек приняли участие в марше солидарности с протестами в Иране. Демонстрация прошла в районе Норт-Йорк и растянулась вдоль Йонг-стрит.   Участни</div><div class="card-meta"><span class="card-date">15 фев 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-09-nalogoplatelschiki-zhaluyutsya-na-dolgie-ozhidaniya-cra-mesy/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Налогоплательщики жалуются на долгие ожидания: CRA месяцами исправляет свои ошибки и задерживает возвраты</div><div class="card-excerpt">По мере приближения налогового сезона 2025 года всё больше канадцев застревают в «налоговом подвешенном состоянии», ожидая, пока Canada Revenue Agency исправит собственные ошибки. При этом, как отмеча</div><div class="card-meta"><span class="card-date">9 фев 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-05-kak-deshyovye-analogi-ozempic-izmenyat-rasklad/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Как дешёвые аналоги Ozempic изменят расклад?</div><div class="card-excerpt">Огромный материал The Globe and Mail  Канада может первой среди западных стран получить дженерики семаглутида — препарата от диабета 2-го типа, который стал массовым средством для снижения веса под бр</div><div class="card-meta"><span class="card-date">5 фев 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-05-pochemu-dokumentalnyy-film-melaniya-pokazyvayut-v-kanade-i-c/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Почему документальный фильм «Мелания» показывают в Канаде и что означают его неожиданные кассовые сборы</div><div class="card-excerpt">Документальный фильм «Мелания» — закулисный портрет первой леди США Мелании Трамп — вышел в канадский прокат, несмотря на почти пустые залы и вялый интерес со стороны зрителей. И на первый взгляд всё</div><div class="card-meta"><span class="card-date">5 фев 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-29-turizm-v-toronto-obnovil-rekord-282-mln-posetiteley-v-2025-g/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>TORO</span></div>'"></div><div class="card-body"><div><span class="src-badge">toronto.citynews.ca</span></div><div class="card-title">Туризм в Торонто обновил рекорд: 28,2 млн посетителей в 2025 году и экономический эффект $13,5 млрд</div><div class="card-excerpt">Туристический сектор Торонто показал рекордные результаты в 2025 году. Город принял 28,2 млн посетителей — это максимальный показатель за всю историю наблюдений. Прямые расходы туристов составили $9,1</div><div class="card-meta"><span class="card-date">29 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/turizm/">#Туризм</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-22-zhitel-toronto-godami-letal-besplatno-vydavaya-sebya-za-pilo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Житель Торонто годами летал бесплатно, выдавая себя за пилота и бортпроводника</div><div class="card-excerpt">⁠  История из Торонто, которая звучит как сценарий Голливуда, дошла до суда США. 33-летний Даллас Покорник обвиняется в том, что на протяжении нескольких лет выдавал себя за пилота и бортпроводника, п</div><div class="card-meta"><span class="card-date">22 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-def" href="/tag/transport/">#Транспорт</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-18-v-toronto-pochti-ischezli-ocheredi-na-911-srednee-ozhidanie-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">В Торонто почти исчезли очереди на 911 — среднее ожидание упало до 3 секунд</div><div class="card-excerpt">Среднее время ожидания ответа оператора 911 в Торонто сократилось до трёх секунд. Полиция города заявляет: это падение на 94% по сравнению с началом прошлого года.   Резкий сдвиг произошёл после масшт</div><div class="card-meta"><span class="card-date">18 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-16-iski-protiv-rcmp-rekrutov-godami-podvergali-unizitelnym-i-in/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Иски против RCMP: рекрутов годами подвергали унизительным и инвазивным медосмотрам</div><div class="card-excerpt">Около тысячи нынешних и бывших сотрудников Королевской канадской конной полиции заявляют, что при приёме на работу их заставляли проходить «неуместные и инвазивные» медицинские осмотры — с обследовани</div><div class="card-meta"><span class="card-date">16 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-13-ii-v-kanadskoy-meditsine-ot-diktovki-do-prognoza-smerti/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">ИИ в канадской медицине: от диктовки до прогноза смерти</div><div class="card-excerpt">Искусственный интеллект всё активнее проникает в канадскую систему здравоохранения — и врачи говорят, что при аккуратном использовании он способен снять часть нагрузки с перегруженной системы.   Один</div><div class="card-meta"><span class="card-date">13 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-12-stolknoveniya-na-mitingah-v-tsentre-toronto-8-arestov-29-obv/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Столкновения на митингах в центре Торонто: 8 арестов, 29 обвинений</div><div class="card-excerpt">Полиция Торонто сообщила об аресте восьми человек и предъявлении 29 обвинений после массовых акций в центре города в субботу. Демонстрации прошли на площади Нэйтан Филлипс у пересечения Queen Street W</div><div class="card-meta"><span class="card-date">12 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-10-vzglyady-kanadtsev-na-immigratsiyu-menyayutsya-kak-eto-povli/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Взгляды канадцев на иммиграцию меняются. Как это повлияет на экономику</div><div class="card-excerpt">⁠  Перелом в общественном отношении к иммиграции стал заметен в конце 2025 года — в тот момент, когда население Канады достигло пика и впервые за десятилетия начало сокращаться. За три месяца численно</div><div class="card-meta"><span class="card-date">10 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-05-bolee-milliona-indiytsev-v-kanade-riskuyut-poteryat-legalnyy/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>OBSE</span></div>'"></div><div class="card-body"><div><span class="src-badge">observerbd.com</span></div><div class="card-title">Более миллиона индийцев в Канаде рискуют потерять легальный статус</div><div class="card-excerpt">Канада готовится к резкому росту числа нелегальных мигрантов. Причина — массовое истечение сроков временных рабочих разрешений. По данным Immigration, Refugees and Citizenship Canada, почти половину т</div><div class="card-meta"><span class="card-date">5 янв 2026</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-29-pochemu-kanadskiy-pensioner-reshil-vyyti-iz-teni-i-priznatsy/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>OTTA</span></div>'"></div><div class="card-body"><div><span class="src-badge">ottawacitizen.com</span></div><div class="card-title">Почему канадский пенсионер решил выйти из тени и признаться в крупнейшем пожертвовании на психиатрию</div><div class="card-excerpt">Брюс Маккин — бывший федеральный чиновник, дипломат и человек, о котором почти никто не знал ещё пару лет назад. Теперь он — крупнейший донор в истории канадской психиатрии. Его суммарные пожертвовани</div><div class="card-meta"><span class="card-date">29 дек 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-28-restorany-pod-udarom-sokraschenie-immigratsii-usilivaet-kriz/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Рестораны под ударом: сокращение иммиграции усиливает кризис в отрасли</div><div class="card-excerpt">⁠   Сокращение иммиграционных потоков уже бьёт по ресторанному бизнесу Канады. Владельцы заведений предупреждают: найти персонал становится всё сложнее, а перспективы роста — туманнее. ⁠   Фахим Ахмад</div><div class="card-meta"><span class="card-date">28 дек 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-24-fayly-epshteyna-kakie-kanadtsy-upominayutsya-v-novoy-publika/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Файлы Эпштейна: какие канадцы упоминаются в новой публикации документов</div><div class="card-excerpt">⁠ ⁠ Минюст США опубликовал ещё около 30 тысяч страниц материалов по делу Джеффри Эпштейна — переписку, служебные записки, показания и внутренние документы ФБР. В них вновь всплывают канадские имена и</div><div class="card-meta"><span class="card-date">24 дек 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-def" href="/tag/turizm/">#Туризм</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-24-kanada-idyot-po-amerikanskomu-stsenariyu-novyy-zakon-o-bezhe/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005689><span style=color:#fff>Guardian</span></div>'"></div><div class="card-body"><div><span class="src-badge">The Guardian</span></div><div class="card-title">Канада идёт по американскому сценарию: новый закон о беженцах пугает правозащитников</div><div class="card-excerpt">⁠ ⁠ Либеральное правительство Канады тихо и быстро протащило через парламент закон, который многие называют переломным моментом для всей миграционной политики страны.  ⁠ ⁠ Bill C-12 — «Закон об укрепл</div><div class="card-meta"><span class="card-date">24 дек 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-21-dzheyms-kemeron-zhyostko-otvetil-na-razgovory-o-51-m-shtate-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>THEC</span></div>'"></div><div class="card-body"><div><span class="src-badge">thecanadianpressnews.ca</span></div><div class="card-title">Джеймс Кэмерон жёстко ответил на разговоры о «51-м штате» на премьере Аватара в Канаде</div><div class="card-excerpt">На канадской премьере Avatar: Fire and Ash в Торонто Джеймс Кэмерон не стал смягчать формулировки.  «Администрация Трампа не понимает одного: мы никогда не станем 51-м штатом», — заявил режиссёр.  «Мы</div><div class="card-meta"><span class="card-date">21 дек 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/ekologiya/">#Экология</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-20-ottava-zakryvaet-edinstvennuyu-biznes-immigratsionnuyu-progr/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Оттава закрывает единственную бизнес-иммиграционную программу: «Канада заплатит за это»</div><div class="card-excerpt">Федеральное правительство прекращает приём новых заявок по Start-Up Visa — последней действующей программе бизнес-иммиграции в Канаде. С 1 января 2026 года новые заявки приниматься не будут, а подача</div><div class="card-meta"><span class="card-date">20 дек 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-15-kanadskie-evrei-ne-otmenili-hanukalnye-ogni-nesmotrya-na-tra/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>THEC</span></div>'"></div><div class="card-body"><div><span class="src-badge">thecjn.ca</span></div><div class="card-title">Канадские евреи не отменили ханукальные огни — несмотря на трагедию в Австралии</div><div class="card-excerpt">После расстрела на пляже Бонди в Сиднее, где двое вооружённых мужчин убили 15 человек во время ханукального праздника, еврейские общины Канады вышли на улицы — не для протеста, а для света.   В Торонт</div><div class="card-meta"><span class="card-date">15 дек 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-15-toronto-muzhchina-obognal-novyy-finch-lrt-na-18-minut/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Торонто: мужчина обогнал новый Finch LRT на 18 минут</div><div class="card-excerpt">Житель Торонто Мак Бауэр, известный в соцсетях как 514runner, устроил забег против недавно открытой линии Finch West LRT — и уверенно победил.   Бауэр давно соревнуется с общественным транспортом TTC.</div><div class="card-meta"><span class="card-date">15 дек 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-12-arendnyh-kvartir-stalo-bolshe-no-arenda-dlya-kanadtsev-vsyo-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Арендных квартир стало больше, но аренда для канадцев всё ещё неподъёмная</div><div class="card-excerpt">‌﻿  Новые данные CMHC показывают парадоксальную картину: предложение на рынке аренды растёт, вакантных квартир становится больше — но цены снижаться не спешат. Для многих семей это означает одно: жиль</div><div class="card-meta"><span class="card-date">12 дек 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/zhilyo/">#Жильё</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-10-avstraliya-zakryla-sotsseti-dlya-detey-do-16-let-kanade-stoi/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>TORO</span></div>'"></div><div class="card-body"><div><span class="src-badge">toronto.citynews.ca</span></div><div class="card-title">Австралия закрыла соцсети для детей до 16 лет. Канаде стоит повторить?</div><div class="card-excerpt">‌  С сегодняшнего дня австралийские подростки младше 16 лет больше не смогут заходить в Instagram, TikTok, Snapchat и другие площадки. Парламент одобрил закон, который запрещает платформам создавать а</div><div class="card-meta"><span class="card-date">10 дек 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-06-model-iz-toronto-zayavlyaet-chto-uber-vysadil-eyo-za-to-chto/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Модель из Торонто заявляет, что Uber высадил её «за то, что она еврейка»</div><div class="card-excerpt">33-летняя Мириам Мяттова, канадско-словацкая модель и бывшая «Мисс Словакия», рассказала National Post, что её выгнали из машины Uber поздно вечером 30 ноября. По её словам, водитель — женщина — остан</div><div class="card-meta"><span class="card-date">6 дек 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-03-chou-hochet-podnyat-sbory-s-dorogih-sdelok-na-rynke-zhilya-t/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Чоу хочет поднять сборы с дорогих сделок на рынке жилья Торонто</div><div class="card-excerpt">Мэр Оливия Чоу предлагает увеличить налог на покупку недвижимости дороже трёх миллионов долларов. Речь идёт о повышении муниципального сбора на передачу прав собственности — меры, которую город утверд</div><div class="card-meta"><span class="card-date">3 дек 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/zhilyo/">#Жильё</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-28-v-kanade-fiksiruyut-vsplesk-torgovli-lyudmi-istoriya-timei-n/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">В Канаде фиксируют всплеск торговли людьми: история Тимеи Надь</div><div class="card-excerpt">‌﻿  Горячая линия по торговле людьми сообщает о рекордных обращениях. Бывшая жертва Тимея Надь говорит, что страну охватила настоящая эпидемия.  ‌﻿  В 1998 году она приехала в Торонто из Будапешта на</div><div class="card-meta"><span class="card-date">28 ноя 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-26-kanadskie-uchyonye-pokazyvayut-redkiy-progress-v-lechenii-gl/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Канадские учёные показывают редкий прогресс в лечении глиобластомы</div><div class="card-excerpt">Глиобластома ежегодно диагностируется примерно у тысячи канадцев и обычно оставляет пациентам считанные месяцы. Но новое клиническое исследование, частично проведённое в Sunnybrook (Торонто), показыва</div><div class="card-meta"><span class="card-date">26 ноя 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-26-prodazhi-novostroek-v-toronto-upali-do-urovnya-blizkogo-k-os/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Продажи новостроек в Торонто упали до уровня, близкого к остановке: за месяц продано всего 54 кондо</div><div class="card-excerpt">Рынок новых домов в GTA проваливается всё глубже. По данным Altus Group для ассоциации BILD, в октябре по всему региону продали только 248 новых кондо — на два процента меньше прошлогоднего рекордно с</div><div class="card-meta"><span class="card-date">26 ноя 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-eco" href="/tag/zhilyo/">#Жильё</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-22-cmhc-startov-stroitelstva-domov-dlya-pokupateley-minimum-za-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#0d4f8c><span style=color:#fff>Hub</span></div>'"></div><div class="card-body"><div><span class="src-badge">The Hub</span></div><div class="card-title">CMHC: Стартов строительства домов для покупателей — минимум за 30 лет, аренда бьёт рекорды</div><div class="card-excerpt">‌﻿   Данные CMHC показывают: 2025-й идёт к самому слабому году для индивидуального жилья с середины 90-х. За первые десять месяцев начато всего чуть больше 41 тысячи объектов для будущих владельцев. Е</div><div class="card-meta"><span class="card-date">22 ноя 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/zhilyo/">#Жильё</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-18-strahovka-dlya-molodyh-voditeley-v-toronto-byot-novye-rekord/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Страховка для молодых водителей в Торонто бьёт новые рекорды</div><div class="card-excerpt">﻿  Молодые мужчины-водители в Торонто могут столкнуться с автостраховкой дороже 13 тысяч долларов в год — такие данные приводит  в комментарии для CTV News. Речь идёт о 20-летнем новичке без претензий</div><div class="card-meta"><span class="card-date">18 ноя 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-17-u-berega-toronto-nashli-redchayshiy-korabl-xix-veka/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">У берега Торонто нашли редчайший корабль XIX века</div><div class="card-excerpt">Группа канадских дайверов, которая шла по следу затонувшего Rapid City, наткнулась на куда более древнее судно. Объект впервые заметили ещё в 2017 году во время прокладки волоконно-оптического кабеля,</div><div class="card-meta"><span class="card-date">17 ноя 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-16-ottava-vkladyvaet-do-545-mln-v-razvitie-zhenskoy-professiona/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Оттава вкладывает до $5,45 млн в развитие женской профессиональной лиги Northern Super League</div><div class="card-excerpt">Федеральное правительство объявило о намерении выделить до 5,45 млн долларов на поддержку Northern Super League (NSL) — первой женской профессиональной футбольной лиги страны. Заявление прозвучало на</div><div class="card-meta"><span class="card-date">16 ноя 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-13-bilety-na-vstrechu-s-kamaloy-harris-v-toronto-vzleteli-do-ne/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Билеты на встречу с Камалой Харрис в Торонто взлетели до нескольких тысяч долларов</div><div class="card-excerpt">﻿  Бывшая вице-президент США Камала Харрис приедет в Торонто 16 ноября в рамках североамериканского тура с новой книгой 107 Days. Твёрдая обложка стоит $42, но попасть на мероприятие в Meridian Hall о</div><div class="card-meta"><span class="card-date">13 ноя 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-13-v-gamiltone-muzhchina-prokatilsya-na-ugnannom-avtobuse-vozil/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">В Гамильтоне мужчина прокатился на угнанном автобусе — возил пассажиров по маршруту и не задел ни бордюра</div><div class="card-excerpt">﻿  В Гамильтоне ночью во вторник произошла история, от которой местная полиция одновременно хватается за голову и не скрывает удивления. Мужчина 36 лет, не имеющий постоянного места проживания, сел за</div><div class="card-meta"><span class="card-date">13 ноя 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-09-kanada-mozhet-stolknutsya-s-hudshim-variantom-grippoznogo-se/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Канада может столкнуться с «худшим вариантом» гриппозного сезона: вирус H3N2 мутирует и, возможно, не совпадает с вакциной</div><div class="card-excerpt">Врачи по всей Канаде готовятся к тяжелому сезону гриппа: новая разновидность штамма H3N2, распространившаяся по миру, может оказаться плохо совместимой с нынешней вакциной.   По данным федерального аг</div><div class="card-meta"><span class="card-date">9 ноя 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a></div></div><div class="card-read">Читать далее →</div></div></a></div>
+  <div class="pgn"><a class="pb on" href="/tag/toronto/">1</a><a class="pb" href="/tag/toronto/page/2/">2</a><a class="pb" href="/tag/toronto/page/3/">3</a><a class="pb" href="/tag/toronto/page/4/">4</a><a class="pb" href="/tag/toronto/page/2/">→</a></div>
 </div>
 <footer>
 <div class="fi">
@@ -668,8 +191,8 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
     <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
     <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
   </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/politika/">#Политика</a><a href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a href="/tag/ekonomika/">#Экономика</a><a href="/tag/zhilyo/">#Жильё</a><a href="/tag/transport/">#Транспорт</a><a href="/tag/rynok-truda/">#Рынок труда</a><a href="/tag/prestupnost/">#Преступность</a><a href="/tag/prava-i-svobody/">#Права и свободы</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/daniel-smit/">Даниэль Смит</a><a href="/person/melani-zholi/">Мелани Жоли</a><a href="/person/anita-anand/">Анита Ананд</a></div>
 </div>
 <div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
 </footer>

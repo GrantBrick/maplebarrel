@@ -18,22 +18,20 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --t:#111;
-  --t2:#555;
-  --t3:#888;
-  --br:#e5e5e5;
---serif:'Playfair Display', Georgia, serif;
---sans:'Golos Text', system-ui, sans-serif;
-}
-
-body{
-  background:#ffffff;
-  color:#111;
-  font-family:var(--sans);
+  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
+  --br:#e2ddd4;--br2:#ccc7bc;
+  --card:#ffffff;--card-hover:#faf8f4;
+  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
+  --ac:#c0392b;--ac2:#c0392b;--ac3:#e05240;
+  --gold:#9a6f20;--gold2:#c9963a;
+  --tg:#2b6cb0;--tg2:#1a56a0;
+  --maple:#c0392b;
+  --shadow:0 2px 12px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -42,137 +40,117 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ── NAV ── */
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:1px}
 .nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--cream);background:var(--bg3)}
-.nl.on{color:var(--cream);background:var(--bg3)}
+.nl:hover{color:var(--t);background:var(--bg4)}
+.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.2)}
-.tgb{
-  background:#c0392b;
-  color:#fff;
-  border-radius:6px;
-  padding:6px 14px;
-  font-weight:600;
-  font-size:13px;
-  border:none;
-}
-
-.tgb:hover{
-  background:#a93226;
-}
+/* Telegram — prominent button */
+.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:all .2s;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.tgb:hover{background:var(--tg);box-shadow:0 2px 8px rgba(26,86,160,.4)}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
 
 .wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
+/* ── SOURCE BADGE (red) ── */
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap}
+
 /* ── CARD SYSTEM ── */
-/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:6px;
-  overflow:hidden;
-  transition:transform .15s;
-}
-.card:hover{
-  transform:translateY(-2px);
-}
+.card{background:var(--card);border-radius:8px;overflow:hidden;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-/* Image container — always 16:9, consistent shadow on image */
-.card-img{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:var(--bg4);
-  flex-shrink:0;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-
+/* Image — fixed 16:9, cover, contained */
+.card-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+.card-img .emoji-fallback{font-size:28px;color:var(--t4)}
 
-/* Card body — cream-tinted text on dark */
-.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#c0392b;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.35;
-  color:#111;
-}
+/* Card body */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:15px}
 .card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-.card-date{font-size:10px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap;border-top:1px solid var(--br)}
+.card-date{font-size:11px;color:var(--t3)}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+/* Read more link */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:4px}
+.card:hover .card-read{text-decoration:underline}
 
-/* Tags — topic-colored by category */
-.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+/* ── TAG CHIPS ── */
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;transition:opacity .12s;letter-spacing:.2px}
 .tag:hover{opacity:.8}
-/* politics/elections */
-.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-/* economy/tariffs */
-.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-/* immigration */
-.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-/* regions */
-.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-/* longreads */
-.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-/* default */
-.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
-
-/* Tag category mapping */
-.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+/* Politics — red */
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+/* Economy — amber */
+.tag-eco{background:#fef3c7;color:#78350f}
+/* Immigration — blue */
+.tag-imm{background:#dbeafe;color:#1e40af}
+/* Regions — green */
+.tag-reg{background:#d1fae5;color:#065f46}
+/* Stats — purple */
+.tag-stat{background:#ede9fe;color:#4c1d95}
+/* Default — gray */
+.tag-def{background:var(--bg4);color:var(--t3)}
 
 /* ── PAGINATION ── */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
 /* ── TAG FILTER BAR ── */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
 .fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
 .fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--cream)}
+.fcol a:hover{color:var(--t)}
 .fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* ── TG CTA ── */
-.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+/* ── TG CTA (bottom of post) ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
 .tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
 .csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
-.ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+.ctgp a{color:var(--tg2)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.cbtn2:hover{background:var(--tg)}
+
+/* ── CARD PLACEHOLDER ── */
+.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.card-placeholder span{font-size:13px;font-weight:700;letter-spacing:.5px;opacity:.9}
+/* Consistent card-img — always 16:9, photo is decorative */
+.card-img{position:relative}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Read more */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:2px}
+
+/* ci-badge smaller */
+.ci-badge{font-size:9px!important;padding:1px 6px!important}
+
+/* lr-card */
+.lr-card{display:flex;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:80px;min-width:80px;height:80px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lr-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lr-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:5px;min-width:0}
+.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
@@ -188,478 +166,23 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
 </style>
 </head>
 <body>
-
-<nav style="background:#fff;border-bottom:1px solid #eee;">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
-
-    <!-- LEFT -->
-    <div style="display:flex;gap:16px;font-size:14px;color:#555">
-      <a href="/" style="color:#000">Новости</a>
-      <a href="/materials/">Материалы</a>
-      <a href="/longreads/">Лонгриды</a>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
-      Maple <span style="color:#d44">🍁</span> Barrel
-    </div>
-
-    <!-- RIGHT -->
-    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
-      <a href="/about/">О проекте</a>
-      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
-    </div>
-
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
   </div>
-</nav>
-
+</div></nav>
 <div class="wrap">
   <div class="tag-hdr">
     <h1>Дональд Трамп</h1>
-    <p>592 материалов</p>
+    <p>646 материалов</p>
   </div>
-  <div class="tag-grid"><a class="card" href="/post/2025-06-24-poliev-ischez-i-tsifry-katastrofa/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Полиев исчез. И цифры — катастрофа" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nanos.co</div>
-    <div class="card-title">Полиев исчез. И цифры — катастрофа</div>
-    <div class="card-excerpt">Согласно последнему опросу Nanos, рейтинг Пьера Полиева как потенциального премьера — всего 23,2%. У Карни — 52,1%. Разрыв: почти 30 пунктов.  Ещё недавно это казалось невозможным. В октябре-ноябре По</div>
-    <div class="card-meta">
-      <span class="card-date">24 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-20-dag-ford-snova-otlichilsya-i-vynuzhden-byl-publichno-izvinya/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🇨🇦 Даг Форд снова отличился — и вынужден был публично извиняться." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">🇨🇦 Даг Форд снова отличился — и вынужден был публично извиняться.</div>
-    <div class="card-excerpt">Всё из-за скандальной фразы о том, что “пора перестать ходить с протянутой рукой” к правительству, адресованной коренным народам Канады.  – Во время обсуждения разработок полезных ископаемых на севере</div>
-    <div class="card-meta">
-      <span class="card-date">20 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-20-v-to-vremya-kak-v-mire-padaet-podderzhka-lgbtk2-kanada-idyot/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="📊 В то время как в мире падает поддержка ЛГБТК2, Канада идёт в противоположную сторону. Новый опрос Ipsos показал: канадцы одни из немногих, чья поддержка ЛГБТК" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">📊 В то время как в мире падает поддержка ЛГБТК2, Канада идёт в противоположную сторону. Новый опрос Ipsos показал: канадцы одни из немногих, чья поддержка ЛГБТК</div>
-    <div class="card-excerpt">2-прав выросла за последний год.  – Почти 80% канадцев поддерживают однополые браки, право на усыновление и защиту от дискриминации в работе, жилье и доступе к услугам – Поддержка видимости: большинст</div>
-    <div class="card-meta">
-      <span class="card-date">20 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-19-kanadskie-pensii-pochti-polnostyu-vne-kanady/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадские пенсии — почти полностью вне Канады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Канадские пенсии — почти полностью вне Канады</div>
-    <div class="card-excerpt">Граждане платят в пенсионный план Канады (CPP) — а тот почти не инвестирует в Канаду. Только 12% активов CPP вложено в отечественную экономику. Зато почти половина — 47% — ушла в США. Это исторический</div>
-    <div class="card-meta">
-      <span class="card-date">19 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-19-tramp-predlagaet-kanade-stat-51-m-shtatom-ssha-opyat/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Трамп предлагает Канаде стать 51-м штатом США. Опять" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Трамп предлагает Канаде стать 51-м штатом США. Опять</div>
-    <div class="card-excerpt">Президент США Дональд Трамп снова перешёл черту. После саммита G7 в Канаде он заявил, что у Оттавы два пути:  1. заплатить $71 млрд за участие в американской системе ПРО («Golden Dome»)  2. или… стать</div>
-    <div class="card-meta">
-      <span class="card-date">19 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-18-karni-uderzhal-g7-na-hodu/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни удержал G7 на ходу" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Карни удержал G7 на ходу</div>
-    <div class="card-excerpt">Итоги саммита G7 в Кананакисе — не только дипломатия, но и стресс-тест на выносливость. Премьер-министр Марк Карни, впервые выступая в роли хозяина «большой семёрки», справился на отлично, несмотря на</div>
-    <div class="card-meta">
-      <span class="card-date">18 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-18-g7-mertva-zhivyot-li-g6/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="G7 мертва. Живёт ли G6?" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">G7 мертва. Живёт ли G6?</div>
-    <div class="card-excerpt">Эндрю Койн в Globe and Mail пишет жёстко и по делу: формат “Большой семёрки” исчерпал себя. И виноват в этом не Китай, не новые вызовы, не внутренние проблемы участников. Виноват Дональд Трамп.  – В 1</div>
-    <div class="card-meta">
-      <span class="card-date">18 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-17-sammit-g7-v-kananaskise-tramp-uehal-karni-ostalsya-s-zayavle/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Саммит G7 в Кананаскисе: Трамп уехал, Карни остался с заявлением" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Саммит G7 в Кананаскисе: Трамп уехал, Карни остался с заявлением</div>
-    <div class="card-excerpt">Лидеры стран G7 призвали к “деэскалации” на Ближнем Востоке. В совместном заявлении, подписанном даже Дональдом Трампом, Иран назван “главным источником нестабильности и террора”, а Израилю подтвержде</div>
-    <div class="card-meta">
-      <span class="card-date">17 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-16-karni-i-velikolepnaya-semyorka-vstrecha-v-alberte-kotoruyu-o/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🇨🇦 Карни и «великолепная семёрка»: встреча в Альберте, которую он не контролирует" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">bbc.com</div>
-    <div class="card-title">🇨🇦 Карни и «великолепная семёрка»: встреча в Альберте, которую он не контролирует</div>
-    <div class="card-excerpt">На этой неделе в Кананаскисе, Альберта, проходит саммит G7 — и это первый большой международный выход Марка Карни как премьера. Он обещал три вещи: глобальное лидерство, экономическое превосходство и</div>
-    <div class="card-meta">
-      <span class="card-date">16 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-15-ottava-protestuet-modi-tramp-i-oruzhie-dlya-izrailya/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🪧 Оттава протестует: Моди, Трамп и оружие для Израиля" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ottawacitizen.com</div>
-    <div class="card-title">🪧 Оттава протестует: Моди, Трамп и оружие для Израиля</div>
-    <div class="card-excerpt">В субботу в центре Оттавы прошли сразу три массовых протеста — в преддверии саммита G7 в Альберте, куда премьер-министр Марк Карни пригласил Нарендру Моди и Дональда Трампа.  На Парламентском холме со</div>
-    <div class="card-meta">
-      <span class="card-date">15 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-11-amerikanskie-tarify-na-stal-neozhidanno-pomogli-kanadskomu-b/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Американские тарифы на сталь неожиданно помогли канадскому бизнесу." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Американские тарифы на сталь неожиданно помогли канадскому бизнесу.</div>
-    <div class="card-excerpt">На фоне новой торговой войны с США одни отрасли страдают, но есть и те, кто выигрывает. Компания Canadian Metal Buildings из Онтарио заявила: из-за американских тарифов их продажи выросли.  «Мы боялис</div>
-    <div class="card-meta">
-      <span class="card-date">11 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-10-ford-i-hyuston-vino-iz-ssha-na-polki-ne-vernyom-poka-tramp-d/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Форд и Хьюстон: вино из США на полки не вернём, пока Трамп держит пошлины" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Форд и Хьюстон: вино из США на полки не вернём, пока Трамп держит пошлины</div>
-    <div class="card-excerpt">Пока Альберта решила снова пустить американский алкоголь в продажу, другие премьеры остались при жёсткой позиции.  Даг Форд вчера заявил: Онтарио не будет возвращать продукцию из США в магазины LCBO,</div>
-    <div class="card-meta">
-      <span class="card-date">10 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-09-kanada-ofitsialno-vyhodit-na-tselevoy-uroven-oboronnyh-rasho/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада официально выходит на целевой уровень оборонных расходов НАТО — 2% ВВП — уже в этом финансовом году." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">archive.ph</div>
-    <div class="card-title">Канада официально выходит на целевой уровень оборонных расходов НАТО — 2% ВВП — уже в этом финансовом году.</div>
-    <div class="card-excerpt">Об этом в понедельник объявит премьер-министр Марк Карни на выступлении в Munk School of Global Affairs в Торонто.   Информация об этом уже подтверждена несколькими источниками The Globe and Mail.  Ре</div>
-    <div class="card-meta">
-      <span class="card-date">9 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-08-potok-bezhentsev-iz-ssha-v-kanadu-rezko-vyros-prichina-v-uzh/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Поток беженцев из США в Канаду резко вырос — причина в ужесточении американской миграционной политики." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Поток беженцев из США в Канаду резко вырос — причина в ужесточении американской миграционной политики.</div>
-    <div class="card-excerpt">Между январём и апрелем число соискателей убежища в Канаде выросло на 87 %. Особенно сильно поток увеличился после мартовского решения США приостановить защиту для беженцев из Колумбии, Гаити, Никараг</div>
-    <div class="card-meta">
-      <span class="card-date">8 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-06-grettski-pod-ognem-kritiki-za-svyazi-s-trampom-no-fanaty-oil/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🏒 Гретцки под огнем критики за связи с Трампом — но фанаты Oilers прощают." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">🏒 Гретцки под огнем критики за связи с Трампом — но фанаты Oilers прощают.</div>
-    <div class="card-excerpt">Пока Edmonton Oilers бьются за Кубок Стэнли, вокруг Уэйна Гретцки (The Great One) не утихает скандал из-за его недавней поддержки Дональда Трампа.  Напомним:  – В январе Гретцки с супругой лично посет</div>
-    <div class="card-meta">
-      <span class="card-date">6 июн 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-06-otnoshenie-kanadtsev-k-ssha-na-istoricheskom-minimume/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🤬 Отношение канадцев к США — на историческом минимуме." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">🤬 Отношение канадцев к США — на историческом минимуме.</div>
-    <div class="card-excerpt">Свежий опрос Environics Institute показывает: у канадцев резко ухудшилось мнение о южном соседе после возвращения Трампа в Белый дом.  «Это худшие показатели за всю историю наших наблюдений за последн</div>
-    <div class="card-meta">
-      <span class="card-date">6 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-04-ontario-blizok-k-musornomu-krizisu-pravitelstvo-vinit-ssha-i/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Онтарио близок к мусорному кризису — правительство винит США и расширяет полигон" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Онтарио близок к мусорному кризису — правительство винит США и расширяет полигон</div>
-    <div class="card-excerpt">Провинция ускоряет одобрение спорного проекта мусорного полигона York1 в Дрездене. Министр экологии объясняет это возможной торговой войной: США якобы могут закрыть границу для канадского мусора, если</div>
-    <div class="card-meta">
-      <span class="card-date">4 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-03-mark-karni-uskoryaet-natsionalnoe-stroitelstvo-kanada-gotovi/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Марк Карни ускоряет “национальное строительство” — Канада готовит ответ на пошлины Трампа." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Марк Карни ускоряет “национальное строительство” — Канада готовит ответ на пошлины Трампа.</div>
-    <div class="card-excerpt">Вчера в Саскатуне состоялась первая встреча нового премьера Марка Карни с главами провинций. На повестке — быстрый запуск крупных инфраструктурных проектов, чтобы усилить экономику и снизить зависимос</div>
-    <div class="card-meta">
-      <span class="card-date">3 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-03-costco-perenosit-proizvodstvo-kirkland-chtoby-izbezhat-tarif/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Costco переносит производство Kirkland чтобы избежать тарифов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Costco переносит производство Kirkland чтобы избежать тарифов</div>
-    <div class="card-excerpt">Costco начала активно переносить производство товаров собственной марки Kirkland поближе к точкам продаж — включая Канаду.   Причина проста: Дональд Трамп вернулся к торговым войнам и накидал кучу нов</div>
-    <div class="card-meta">
-      <span class="card-date">3 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-02-nauka-v-ssha-pod-udarom-kanada-gotovitsya-k-utechke-mozgov-v/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Наука в США под ударом — Канада готовится к «утечке мозгов» в обратную сторону" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nature.com</div>
-    <div class="card-title">Наука в США под ударом — Канада готовится к «утечке мозгов» в обратную сторону</div>
-    <div class="card-excerpt">Резкие сокращения научного финансирования в США при администрации Трампа начинают ощущаться и в Канаде. Международные проекты закрываются, студенты и исследователи теряют возможности, связи между учён</div>
-    <div class="card-meta">
-      <span class="card-date">2 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-02-privet-ot-amerikantsev/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Привет от американцев</div>
-    <div class="card-excerpt">Серия мирных, целенаправленных митингов, праздников и акций протеста, чтобы показать Канаде, правительству США и всему миру: мы солидарны с Канадой.  5 июля мероприятия пройдут вдоль всей самой протяж</div>
-    <div class="card-meta">
-      <span class="card-date">2 июн 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-30-amerikanskiy-turbiznes-v-panike-kanadtsy-massovo-otkazyvayut/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🧳 Американский турбизнес в панике: канадцы массово отказываются от поездок в США из-за Трампа" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">🧳 Американский турбизнес в панике: канадцы массово отказываются от поездок в США из-за Трампа</div>
-    <div class="card-excerpt">(CBC News, 30 мая)  Канадские туристы — крупнейшая группа иностранных посетителей США. В 2024 году они потратили там $20,5 млрд. Но теперь эта золотая жила проседает: по данным за апрель, поездки из К</div>
-    <div class="card-meta">
-      <span class="card-date">30 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-30-ekonomika-kanady-rastyot-bystree-ozhidaniy/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Экономика Канады растёт быстрее ожиданий</div>
-    <div class="card-excerpt">В первом квартале 2025 года ВВП Канады вырос на 2,2% в годовом исчислении, что выше прогноза аналитиков (ожидали 1,7%), сообщает StatsCan. Главный драйвер роста — всплеск экспорта в США, вызванный опа</div>
-    <div class="card-meta">
-      <span class="card-date">30 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-30-tarify-prinosyat-milliardy-otvet-kanady-na-poshliny-trampa-n/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Тарифы приносят миллиарды: ответ Канады на пошлины Трампа начал окупаться</div>
-    <div class="card-excerpt">Канада начала ощутимо пополнять казну за счёт ответных пошлин на американские товары. За первый квартал 2025 года поступления от импортных пошлин выросли сразу на 39%, достигнув 1,95 млрд канадских до</div>
-    <div class="card-meta">
-      <span class="card-date">30 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-30-sudy-ssha-otmenili-a-potom-vernuli-tarify-trampa-chto-teper/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Суды США отменили — а потом вернули тарифы Трампа. Что теперь?</div>
-    <div class="card-excerpt">На днях торговый суд США признал незаконными тарифы Трампа, введённые под предлогом &quot;экстренной ситуации из-за фентанила&quot; и глобальной торговой дисбалансности. Казалось бы, победа — но уже через сутки</div>
-    <div class="card-meta">
-      <span class="card-date">30 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-29-my-ne-vyzhivem-bez-kanady-prosto-ne-vyzhivem/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Мы не выживем без Канады. Просто не выживем»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">bloomberg.com</div>
-    <div class="card-title">«Мы не выживем без Канады. Просто не выживем»</div>
-    <div class="card-excerpt">Так говорит владелица супермаркета в Point Roberts, штат Вашингтон. Это один из приграничных американских городков, который почти полностью зависит от канадских клиентов. Сейчас он разоряется. Причина</div>
-    <div class="card-meta">
-      <span class="card-date">29 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-29-tesla-teryaet-kanadu/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="⚡️ Tesla теряет Канаду" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">electrek.co</div>
-    <div class="card-title">⚡️ Tesla теряет Канаду</div>
-    <div class="card-excerpt">Продажи компании в Квебеке упали на 87% в первом квартале 2025 года. Это — катастрофа на ключевом для электромобилей рынке страны.  По данным SAAQ (дорожная служба Квебека):  – За весь Q1 2025 Tesla п</div>
-    <div class="card-meta">
-      <span class="card-date">29 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-29-sud-v-ssha-zablokiroval-pochti-vse-tarify-kotorye-donald-tra/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Суд в США заблокировал почти все тарифы, которые Дональд Трамп ввёл этой весной — включая пошлины на канадские товары." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">edition.cnn.com</div>
-    <div class="card-title">Суд в США заблокировал почти все тарифы, которые Дональд Трамп ввёл этой весной — включая пошлины на канадские товары.</div>
-    <div class="card-excerpt">Федеральный суд по международной торговле в Манхэттене постановил, что Трамп превысил свои полномочия, когда использовал закон IEEPA (о международных чрезвычайных экономических полномочиях) для начала</div>
-    <div class="card-meta">
-      <span class="card-date">29 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-27-tramp-shantazhiruet-kanadu-ili-61-mlrd-za-zolotoy-kupol-ili-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🇺🇸💣 Трамп шантажирует Канаду: или $61 млрд за «Золотой купол», или 51-й штат США" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">newsweek.com</div>
-    <div class="card-title">🇺🇸💣 Трамп шантажирует Канаду: или $61 млрд за «Золотой купол», или 51-й штат США</div>
-    <div class="card-excerpt">Во вторник Дональд Трамп выкатил новое «предложение» Оттаве: либо Канада платит $61 миллиард за участие в американской ПРО «Golden Dome», либо становится 51-м штатом — и тогда система будет бесплатной</div>
-    <div class="card-meta">
-      <span class="card-date">27 май 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-27-silnaya-svobodnaya-i-v-pidzhake-s-ordenom-karl-iii-zachital-/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">&quot;Сильная, свободная и в пиджаке с орденом&quot;: Карл III зачитал тронную речь</div>
-    <div class="card-excerpt">Монарх вернулся, чтобы напомнить, что Канада — не чей-то придаток, а сила с характером.  В Канаде событие историческое: впервые за полвека монарх лично выступил с тронной речью. Король Карл III, сидя</div>
-    <div class="card-meta">
-      <span class="card-date">27 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-27-nato-podnimaet-planku-teper-ne-2-a-5-vvp-na-oboronu-a-kanada/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="НАТО поднимает планку: теперь не 2%, а 5% ВВП на оборону. А Канада всё ещё на уровне 1.3%." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">bnnbloomberg.ca</div>
-    <div class="card-title">НАТО поднимает планку: теперь не 2%, а 5% ВВП на оборону. А Канада всё ещё на уровне 1.3%.</div>
-    <div class="card-excerpt">На июньском саммите в Гааге союзники планируют утвердить новую цель — тратить 5% национального ВВП на оборону. Генсек НАТО Марк Рютте прямо сказал: об этом уже есть согласие. Это требование активно пр</div>
-    <div class="card-meta">
-      <span class="card-date">27 май 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-22-zolotoy-kupol-trampa-nad-kanadoy-vy-shutite/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Золотой купол» Трампа? Над Канадой? Вы шутите?»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">«Золотой купол» Трампа? Над Канадой? Вы шутите?»</div>
-    <div class="card-excerpt">Бывший глава МИД Ллойд Аксворти резко раскритиковал возможное участие Канады в новой оборонной инициативе США.  – Проект Golden Dome — это космический противоракетный щит, фактически перезапуск провал</div>
-    <div class="card-meta">
-      <span class="card-date">22 май 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-22-davlenie-na-polieva-rastyot-konservatory-trebuyut-uvolit-dzh/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Давление на Полиева растёт: консерваторы требуют уволить Дженни Бирн" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Давление на Полиева растёт: консерваторы требуют уволить Дженни Бирн</div>
-    <div class="card-excerpt">Сразу 12 источников в Консервативной партии подтвердили CBC: терпение к национальному менеджеру кампании Дженни Бирн иссякает. Её винят в проигрыше выборов и угрожают — если она останется, лидерство П</div>
-    <div class="card-meta">
-      <span class="card-date">22 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-21-kanada-obsuzhdaet-uchastie-v-amerikanskoy-pro-zolotoy-kupol/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада обсуждает участие в американской ПРО «Золотой купол»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Канада обсуждает участие в американской ПРО «Золотой купол»</div>
-    <div class="card-excerpt">Премьер-министр Марк Карни подтвердил, что Канада ведёт переговоры с администрацией президента США Дональда Трампа о возможном присоединении к новой противоракетной системе «Золотой купол» (Golden Dom</div>
-    <div class="card-meta">
-      <span class="card-date">21 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-20-kanadtsy-ne-hotyat-novyh-vyborov-pust-partii-rabotayut-vmest/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадцы не хотят новых выборов — пусть партии работают вместе" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Канадцы не хотят новых выборов — пусть партии работают вместе</div>
-    <div class="card-excerpt">Согласно новому опросу Nanos для Globe and Mail, подавляющее большинство канадцев не желают видеть очередные федеральные выборы в ближайший год. Хватит этого цирка.  🔻 Главные цифры:  – 80% канадцев х</div>
-    <div class="card-meta">
-      <span class="card-date">20 май 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-18-karni-i-zelenskiy-vstretilis-v-rime-ukraina-edet-na-sammit-g/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни и Зеленский встретились в Риме: Украина едет на саммит G7 в Канаду" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Карни и Зеленский встретились в Риме: Украина едет на саммит G7 в Канаду</div>
-    <div class="card-excerpt">Премьер-министр Марк Карни впервые лично встретился с Владимиром Зеленским в субботу — накануне инаугурации Папы Льва XIV и за месяц до саммита G7, который Канада примет в Кананаскисе (Альберта) 15–17</div>
-    <div class="card-meta">
-      <span class="card-date">18 май 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-18-otchyot-obmanul-ottava-govorit-bolshinstvo-tarifov-na-tovary/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Отчёт обманул? Оттавa говорит: большинство тарифов на товары из США всё ещё действуют" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Отчёт обманул? Оттавa говорит: большинство тарифов на товары из США всё ещё действуют</div>
-    <div class="card-excerpt">Финансовый министр Франсуа-Филипп Шампань опроверг данные отчёта Oxford Economics, где утверждалось, что Канада фактически “свела к нулю” свои ответные тарифы против США. По словам Шампаня, 70% введён</div>
-    <div class="card-meta">
-      <span class="card-date">18 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-17-universitety-i-kolledzhi-v-ontario-snova-brosheny-byudzhet-d/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Университеты и колледжи в Онтарио снова брошены — бюджет даёт ноль" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Университеты и колледжи в Онтарио снова брошены — бюджет даёт ноль</div>
-    <div class="card-excerpt">Рикардо Транжан из CCPA пишет: правительство Форда режет расходы на поствузовское образование именно в момент острейшего кризиса. Финансирование падает с $14.2 млрд до $13 млрд — и до $12.8 млрд к 202</div>
-    <div class="card-meta">
-      <span class="card-date">17 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-15-elektromobili-v-kanade-buksuyut/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="⚡️ Электромобили в Канаде буксуют" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">⚡️ Электромобили в Канаде буксуют</div>
-    <div class="card-excerpt">Проект Honda на $15 миллиардов в Онтарио — с несколькими аккумуляторными заводами и «канадской» цепочкой поставок — уходит на двухлетнюю паузу. Это крупнейший звоночек для всей EV-индустрии страны.  П</div>
-    <div class="card-meta">
-      <span class="card-date">15 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-14-51-y-shtat-antisemitizm-i-eat-shit-nhl-otstranyaet-vladeltsa/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«51-й штат», антисемитизм и “eat shit” — НХЛ отстраняет владельца Florida Panthers за выходки в соцсетях" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theguardian.com</div>
-    <div class="card-title">«51-й штат», антисемитизм и “eat shit” — НХЛ отстраняет владельца Florida Panthers за выходки в соцсетях</div>
-    <div class="card-excerpt">На фоне напряжённой серии между Toronto Maple Leafs и Florida Panthers, НХЛ отстранила Дуга Сифу — миноритарного владельца и вице-председателя «Пантер». Причина — оскорбительные посты в X, включающие</div>
-    <div class="card-meta">
-      <span class="card-date">14 май 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a></div>
-  <div class="pgn"><a class="pb" href="/person/donald-tramp/page/9/">←</a><a class="pb" href="/person/donald-tramp/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/person/donald-tramp/page/8/">8</a><a class="pb" href="/person/donald-tramp/page/9/">9</a><a class="pb on" href="/person/donald-tramp/page/10/">10</a><a class="pb" href="/person/donald-tramp/page/11/">11</a><a class="pb" href="/person/donald-tramp/page/12/">12</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/person/donald-tramp/page/15/">15</a><a class="pb" href="/person/donald-tramp/page/11/">→</a></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-07-05-poka-ssha-podnimayut-tseny-kanada-delaet-vhod-v-natsparki-be/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>CABI</span></div>'"></div><div class="card-body"><div><span class="src-badge">cabinliving.ca</span></div><div class="card-title">🇨🇦 Пока США поднимают цены, Канада делает вход в нацпарки бесплатным для всех – включая иностранцев.</div><div class="card-excerpt">3 июля Дональд Трамп подписал указ о повышении стоимости входа в национальные парки США для иностранных туристов. Мотив – “улучшить инфраструктуру” и “облегчить доступ для граждан США”. Читай: америка</div><div class="card-meta"><span class="card-date">5 июл 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-04-per-poliev-vozvraschaetsya-v-parlament-cherez-dopvybory-v-ok/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Пьер Полиев возвращается в парламент через допвыборы в округе Battle River–Crowfoot, одном из самых лояльных к консерваторам в Канаде (на выборах в апреле парти</div><div class="card-excerpt">я получила там 83%).   Однако регион также стал очагом недовольства федеральной политикой и центром активности сторонников независимости Альберты.  Лидер движения Alberta Prosperity Project Джеффри Рэ</div><div class="card-meta"><span class="card-date">4 июл 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-04-kanadtsy-rezko-sokraschayut-interes-k-nedvizhimosti-v-ssha-p/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>NYT</span></div>'"></div><div class="card-body"><div><span class="src-badge">NY Times</span></div><div class="card-title">Канадцы резко сокращают интерес к недвижимости в США. По данным Redfin, в мае поисковая активность упала на 26% по сравнению с прошлым годом — четвёртый месяц п</div><div class="card-excerpt">одряд с двузначным падением.  Падение началось в феврале, сразу после введения Трампом 25% тарифов. В апреле, на фоне «Дня освобождения» и торговой войны, трафик обвалился на 34%.  Если в 2024 году ка</div><div class="card-meta"><span class="card-date">4 июл 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/zhilyo/">#Жильё</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-03-kanada-bolshe-ne-mozhet-polagatsya-na-ssha-v-voprosah-infekt/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>OTTA</span></div>'"></div><div class="card-body"><div><span class="src-badge">ottawacitizen.com</span></div><div class="card-title">Канада больше не может полагаться на США в вопросах инфекционной безопасности — предупреждает Канадский медицинский журнал (CMAJ).</div><div class="card-excerpt">Причина: полное разрушение американских институтов общественного здравоохранения под управлением администрации Трампа и нового министра здравоохранения — Роберта Кеннеди-младшего.  – США больше не отс</div><div class="card-meta"><span class="card-date">3 июл 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-03-nesmotrya-na-torgovye-ugrozy-so-storony-trampa-krupnyy-kanad/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Несмотря на торговые угрозы со стороны Трампа, крупный канадский бизнес не только не испугался, а наоборот — разогнался.</div><div class="card-excerpt">• Во II квартале 2025 года канадские компании продали акций на $6.85 млрд — рост на 33% по сравнению с прошлым годом  • Активность на рынке слияний и поглощений (M&amp;A) выросла на 84%  • Общая сумма сде</div><div class="card-meta"><span class="card-date">3 июл 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-03-kanadtsy-vsyo-menshe-doveryayut-ssha-i-chuvstvuyut-sebya-tam/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Канадцы всё меньше доверяют США и чувствуют себя там нежеланными гостями — свежий опрос Leger:</div><div class="card-excerpt">– 53% не доверяют Америке как государству – 55% чувствуют себя в США негостеприимно – 45% не считают США надёжным партнёром по безопасности – 75% уверены, что американские торговые правила несправедли</div><div class="card-meta"><span class="card-date">3 июл 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-03-tsifrovoy-suverenitet-ne-prodayotsya/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">“Цифровой суверенитет не продаётся”.</div><div class="card-excerpt">Коалиция из 30+ организаций и общественных деятелей обратилась к Марку Карни и министру финансов с открытым письмом:  “Вы подарили американским техногигантам $2,5 млрд уже сегодня и $7,2 млрд за 5 лет</div><div class="card-meta"><span class="card-date">3 июл 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-02-nalog-byl-plohoy-no-sposob-ego-otmeny-eschyo-huzhe/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Налог был плохой, но способ его отмены — ещё хуже.</div><div class="card-excerpt">Журналистка The Globe Робин Урбэк пишет: не стоит скорбеть по Digital Services Tax как по потерянной реформе. Это была сомнительная мера, ещё и с перекладыванием расходов на канадцев. Но как именно Ка</div><div class="card-meta"><span class="card-date">2 июл 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-02-kanada-vsyo-eschyo-nadeetsya-dobitsya-otmeny-vseh-tarifov-tr/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Канада всё ещё надеется добиться отмены всех тарифов Трампа — несмотря на угрозы, шантаж и “публичное унижение” Карни на G7.</div><div class="card-excerpt">Главный переговорщик и посол в США Кирстен Хиллман заявила:  “Это наш план. Это наша цель. За это мы боремся.”  Речь идёт о тарифах: – 50% на сталь и алюминий – 25% на автомобили – Ещё 25% на всё оста</div><div class="card-meta"><span class="card-date">2 июл 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-02-ty-by-umer-za-kanadu/"><div class="card-img"><div class="card-placeholder" style="background:#4a4740"><span style="color:#fff">?</span></div></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Ты бы умер за Канаду?</div><div class="card-excerpt">Новый опрос показывает, что 38% канадцев готовы погибнуть за страну — 16% “безусловно”, ещё 22% “в зависимости от обстоятельств”.  Опрос заказал Cascade Institute, чтобы выяснить, что на самом деле ст</div><div class="card-meta"><span class="card-date">2 июл 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-02-elbouc-ap-skoree-golova-vniz-premer-ministr-karni-na-fone-da/"><div class="card-img"><div class="card-placeholder" style="background:#005689"><span style="color:#fff">Guardian</span></div></div><div class="card-body"><div><span class="src-badge">The Guardian</span></div><div class="card-title">“Элбоуc ап”? Скорее — голова вниз. Премьер-министр Карни на фоне давления из Вашингтона проталкивает новый законопроект об иммиграции — Bill C‑2 (Strong Borders</div><div class="card-excerpt">Act), и его содержание наводит на мысли не о Канаде, а о MAGA.  Колумнист The Guardian Тайо Беро пишет:  – Законопроект запрещает подавать на статус беженца, если человек находится в Канаде более года</div><div class="card-meta"><span class="card-date">2 июл 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-01-my-golosovali-za-boytsa-a-poluchili-pokornogo-administratora/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">“Мы голосовали за бойца. А получили покорного администратора”.</div><div class="card-excerpt">Журналист Тейлор Ноакс в новой колонке для The Globe and Mail разносит Марка Карни за отмену цифрового налога под давлением США.  – Налог был направлен на гигантов вроде Amazon, Google, Airbnb и Meta</div><div class="card-meta"><span class="card-date">1 июл 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-30-kanadtsy-gordyatsya-svoey-stranoy-no-ne-bez-ogovorok-po-dann/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Канадцы гордятся своей страной — но не без оговорок. По данным опроса Leger/Postmedia, 83% заявили, что гордятся тем, что они канадцы. Однако только 49% считают</div><div class="card-excerpt">Канаду одной из лучших стран для жизни.  Гордость выше всего в Атлантической Канаде (90%), ниже — в Альберте (78%). Среди молодёжи уровень патриотизма заметно ниже, чем у старших возрастов. Либеральны</div><div class="card-meta"><span class="card-date">30 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-30-belyy-dom-ofitsialno-karni-sdalsya-posle-otmeny-tsifrovogo-n/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>YAHO</span></div>'"></div><div class="card-body"><div><span class="src-badge">yahoo.com</span></div><div class="card-title">Белый дом официально: “Карни сдался”. После отмены цифрового налога пресс-секретарь США Каролин Левитт заявила:</div><div class="card-excerpt">“Премьер-министр Карни и Канада капитулировали перед президентом Трампом”.  Полная цитата:  “Всё очень просто. Премьер-министр Карни и Канада капитулировали перед президентом Трампом и Соединёнными Шт</div><div class="card-meta"><span class="card-date">30 июн 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-30-v-kanade-flagomaniya-prodazhi-flagov-i-flagshtokov-vzleteli-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">🍁 В Канаде — флагомания. Продажи флагов и флагштоков взлетели, как на дрожжах.</div><div class="card-excerpt">Почему? Потому что “будущее 51-го штата США” — теперь не шутка, а повод для патриотизма.  – Компания Flags Unlimited (Барри, Онтарио) заявила о росте продаж флагов на 75%, флагштоков — на 35%  – В маг</div><div class="card-meta"><span class="card-date">30 июн 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-30-ssha-nemedlenno-vozobnovyat-torgovye-peregovory-s-kanadoy-ob/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">США немедленно возобновят торговые переговоры с Канадой. Об этом сообщил главный экономический советник Белого дома Кевин Хассетт, заявив, что “дорогу расчистил</div><div class="card-excerpt">и” после отмены Канадой цифрового налога.  Именно Дональд Трамп потребовал убрать налог на G7-саммите в Кананаскисе 16 июня. Теперь, по словам Хассетта, “Канада согласилась, и мы возвращаемся к перего</div><div class="card-meta"><span class="card-date">30 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-29-toronto-novyy-yel-kak-tramp-podaril-kanade-professorov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>NYT</span></div>'"></div><div class="card-body"><div><span class="src-badge">NY Times</span></div><div class="card-title">Торонто — новый Йель: как Трамп подарил Канаде профессоров</div><div class="card-excerpt">Марк Карни и его правительство не делают громких заявлений про «brain gain» — но оно уже идёт. Университет Торонто активно переманивает профессоров из США. Причина проста: Трамп снова у власти, и амер</div><div class="card-meta"><span class="card-date">29 июн 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-28-davayte-v-subbotu-pochitaem-pro-trampa/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>SINH</span></div>'"></div><div class="card-body"><div><span class="src-badge">sinhalaguide.com</span></div><div class="card-title">Давайте в субботу почитаем про Трампа?</div><div class="card-excerpt">Коррупция как стиль управления: Трамп официально превратил президентство в бизнес-сделку.  За кулисами “мирной миссии” в Персидском заливе — откровенное обогащение себя и семьи. США фактически получил</div><div class="card-meta"><span class="card-date">28 июн 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-28-kanada-nanesla-otvetnyy-udar-po-ssha-vvodit-kvoty-i-shtrafny/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">🇨🇦 Канада нанесла ответный удар по США — вводит квоты и штрафные пошлины на американскую сталь.</div><div class="card-excerpt">Повод: Трамп внезапно отменил торговые переговоры, обвинив Оттаву в “вопиющей атаке” из-за цифрового налога.  – Трамп в Truth Social заявил, что переговоры с Канадой немедленно прекращены – Обещал объ</div><div class="card-meta"><span class="card-date">28 июн 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-27-tramp-rezko-oborval-peregovory-s-kanadoy-po-novoy-torgovoy-s/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Трамп резко оборвал переговоры с Канадой по новой торговой сделке — из-за цифрового налога.</div><div class="card-excerpt">Американский президент заявил, что “немедленно” прекращает все обсуждения, назвав налог “вопиющей атакой” на США и их технокомпании. В соцсети Truth Social Трамп пригрозил в течение 7 дней объявить Ка</div><div class="card-meta"><span class="card-date">27 июн 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-26-molodyozh-kanady-stolknulas-s-samym-rezkim-padeniem-rynka-tr/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003366><span style=color:#fff>FinPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">Financial Post</span></div><div class="card-title">Молодёжь Канады столкнулась с самым резким падением рынка труда среди всех стран G20</div><div class="card-excerpt">По данным Bloomberg, уровень безработицы среди канадцев от 15 до 24 лет вырос на 3,6% за два года — это самый резкий скачок среди 25 крупнейших экономик ОЭСР. Сейчас показатель составляет 13,4%, а сре</div><div class="card-meta"><span class="card-date">26 июн 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-25-konservativnye-blogery-brosili-polieva/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NATI</span></div>'"></div><div class="card-body"><div><span class="src-badge">nationalobserver.com</span></div><div class="card-title">Консервативные блогеры бросили Полиева</div><div class="card-excerpt">Помните, как правые инфлюенсеры хором восхищались Пьером Полиевом? Где теперь этот хор? Месяц после поражения — и полное молчание.  По данным The Narwhal, в июне Полиев лично звонил ключевым ютуберам</div><div class="card-meta"><span class="card-date">25 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-25-karni-tramp-bolshe-ne-hochet-sdelat-kanadu-51-m-shtatom/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>CNN.</span></div>'"></div><div class="card-body"><div><span class="src-badge">cnn.com</span></div><div class="card-title">🇨🇦 Карни: Трамп больше не хочет сделать Канаду 51-м штатом</div><div class="card-excerpt">На встрече НАТО в Гааге премьер Марк Карни заявил CNN, что президент США Дональд Трамп больше не угрожает аннексией Канады.  “Он восхищается Канадой”, — сказал Карни в интервью Кристиане Аманпур. “Воз</div><div class="card-meta"><span class="card-date">25 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-24-karni-podpisal-krupneyshee-oboronnoe-soglashenie-kanady-s-es/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>NYT</span></div>'"></div><div class="card-body"><div><span class="src-badge">NY Times</span></div><div class="card-title">🇨🇦🤝🇪🇺 Карни подписал крупнейшее оборонное соглашение Канады с ЕС</div><div class="card-excerpt">В Брюсселе премьер Марк Карни заключил оборонное партнёрство с Европейским союзом — самое масштабное, которое ЕС когда-либо подписывал с внешней страной. Это часть нового курса: меньше зависимости от</div><div class="card-meta"><span class="card-date">24 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-24-poliev-ischez-i-tsifry-katastrofa/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NANO</span></div>'"></div><div class="card-body"><div><span class="src-badge">nanos.co</span></div><div class="card-title">Полиев исчез. И цифры — катастрофа</div><div class="card-excerpt">Согласно последнему опросу Nanos, рейтинг Пьера Полиева как потенциального премьера — всего 23,2%. У Карни — 52,1%. Разрыв: почти 30 пунктов.  Ещё недавно это казалось невозможным. В октябре-ноябре По</div><div class="card-meta"><span class="card-date">24 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-20-dag-ford-snova-otlichilsya-i-vynuzhden-byl-publichno-izvinya/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">🇨🇦 Даг Форд снова отличился — и вынужден был публично извиняться.</div><div class="card-excerpt">Всё из-за скандальной фразы о том, что “пора перестать ходить с протянутой рукой” к правительству, адресованной коренным народам Канады.  – Во время обсуждения разработок полезных ископаемых на севере</div><div class="card-meta"><span class="card-date">20 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-20-v-to-vremya-kak-v-mire-padaet-podderzhka-lgbtk2-kanada-idyot/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>Global</span></div>'"></div><div class="card-body"><div><span class="src-badge">Global News</span></div><div class="card-title">📊 В то время как в мире падает поддержка ЛГБТК2, Канада идёт в противоположную сторону. Новый опрос Ipsos показал: канадцы одни из немногих, чья поддержка ЛГБТК</div><div class="card-excerpt">2-прав выросла за последний год.  – Почти 80% канадцев поддерживают однополые браки, право на усыновление и защиту от дискриминации в работе, жилье и доступе к услугам – Поддержка видимости: большинст</div><div class="card-meta"><span class="card-date">20 июн 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-19-kanadskie-pensii-pochti-polnostyu-vne-kanady/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Канадские пенсии — почти полностью вне Канады</div><div class="card-excerpt">Граждане платят в пенсионный план Канады (CPP) — а тот почти не инвестирует в Канаду. Только 12% активов CPP вложено в отечественную экономику. Зато почти половина — 47% — ушла в США. Это исторический</div><div class="card-meta"><span class="card-date">19 июн 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-19-tramp-predlagaet-kanade-stat-51-m-shtatom-ssha-opyat/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Трамп предлагает Канаде стать 51-м штатом США. Опять</div><div class="card-excerpt">Президент США Дональд Трамп снова перешёл черту. После саммита G7 в Канаде он заявил, что у Оттавы два пути:  1. заплатить $71 млрд за участие в американской системе ПРО («Golden Dome»)  2. или… стать</div><div class="card-meta"><span class="card-date">19 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-18-karni-uderzhal-g7-na-hodu/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Карни удержал G7 на ходу</div><div class="card-excerpt">Итоги саммита G7 в Кананакисе — не только дипломатия, но и стресс-тест на выносливость. Премьер-министр Марк Карни, впервые выступая в роли хозяина «большой семёрки», справился на отлично, несмотря на</div><div class="card-meta"><span class="card-date">18 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-18-g7-mertva-zhivyot-li-g6/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">G7 мертва. Живёт ли G6?</div><div class="card-excerpt">Эндрю Койн в Globe and Mail пишет жёстко и по делу: формат “Большой семёрки” исчерпал себя. И виноват в этом не Китай, не новые вызовы, не внутренние проблемы участников. Виноват Дональд Трамп.  – В 1</div><div class="card-meta"><span class="card-date">18 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-17-sammit-g7-v-kananaskise-tramp-uehal-karni-ostalsya-s-zayavle/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Саммит G7 в Кананаскисе: Трамп уехал, Карни остался с заявлением</div><div class="card-excerpt">Лидеры стран G7 призвали к “деэскалации” на Ближнем Востоке. В совместном заявлении, подписанном даже Дональдом Трампом, Иран назван “главным источником нестабильности и террора”, а Израилю подтвержде</div><div class="card-meta"><span class="card-date">17 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-16-karni-i-velikolepnaya-semyorka-vstrecha-v-alberte-kotoruyu-o/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>BBC.</span></div>'"></div><div class="card-body"><div><span class="src-badge">bbc.com</span></div><div class="card-title">🇨🇦 Карни и «великолепная семёрка»: встреча в Альберте, которую он не контролирует</div><div class="card-excerpt">На этой неделе в Кананаскисе, Альберта, проходит саммит G7 — и это первый большой международный выход Марка Карни как премьера. Он обещал три вещи: глобальное лидерство, экономическое превосходство и</div><div class="card-meta"><span class="card-date">16 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-15-ottava-protestuet-modi-tramp-i-oruzhie-dlya-izrailya/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>OTTA</span></div>'"></div><div class="card-body"><div><span class="src-badge">ottawacitizen.com</span></div><div class="card-title">🪧 Оттава протестует: Моди, Трамп и оружие для Израиля</div><div class="card-excerpt">В субботу в центре Оттавы прошли сразу три массовых протеста — в преддверии саммита G7 в Альберте, куда премьер-министр Марк Карни пригласил Нарендру Моди и Дональда Трампа.  На Парламентском холме со</div><div class="card-meta"><span class="card-date">15 июн 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-11-amerikanskie-tarify-na-stal-neozhidanno-pomogli-kanadskomu-b/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Американские тарифы на сталь неожиданно помогли канадскому бизнесу.</div><div class="card-excerpt">На фоне новой торговой войны с США одни отрасли страдают, но есть и те, кто выигрывает. Компания Canadian Metal Buildings из Онтарио заявила: из-за американских тарифов их продажи выросли.  «Мы боялис</div><div class="card-meta"><span class="card-date">11 июн 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-10-ford-i-hyuston-vino-iz-ssha-na-polki-ne-vernyom-poka-tramp-d/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Форд и Хьюстон: вино из США на полки не вернём, пока Трамп держит пошлины</div><div class="card-excerpt">Пока Альберта решила снова пустить американский алкоголь в продажу, другие премьеры остались при жёсткой позиции.  Даг Форд вчера заявил: Онтарио не будет возвращать продукцию из США в магазины LCBO,</div><div class="card-meta"><span class="card-date">10 июн 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-09-kanada-ofitsialno-vyhodit-na-tselevoy-uroven-oboronnyh-rasho/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>ARCH</span></div>'"></div><div class="card-body"><div><span class="src-badge">archive.ph</span></div><div class="card-title">Канада официально выходит на целевой уровень оборонных расходов НАТО — 2% ВВП — уже в этом финансовом году.</div><div class="card-excerpt">Об этом в понедельник объявит премьер-министр Марк Карни на выступлении в Munk School of Global Affairs в Торонто.   Информация об этом уже подтверждена несколькими источниками The Globe and Mail.  Ре</div><div class="card-meta"><span class="card-date">9 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-08-potok-bezhentsev-iz-ssha-v-kanadu-rezko-vyros-prichina-v-uzh/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Поток беженцев из США в Канаду резко вырос — причина в ужесточении американской миграционной политики.</div><div class="card-excerpt">Между январём и апрелем число соискателей убежища в Канаде выросло на 87 %. Особенно сильно поток увеличился после мартовского решения США приостановить защиту для беженцев из Колумбии, Гаити, Никараг</div><div class="card-meta"><span class="card-date">8 июн 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-06-endryu-fillips-v-kolonke-dlya-toronto-star-mark-karni-neozhi/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Эндрю Филлипс в колонке для Toronto Star: «Марк Карни неожиданно становится любимцем… консерваторов».</div><div class="card-excerpt">Новая канадская политика становится всё интереснее. На фоне кризиса и победы Либералов под руководством Марка Карни, в стране фактически сформировалось «консервативное правительство под либеральным фл</div><div class="card-meta"><span class="card-date">6 июн 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-06-grettski-pod-ognem-kritiki-za-svyazi-s-trampom-no-fanaty-oil/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">🏒 Гретцки под огнем критики за связи с Трампом — но фанаты Oilers прощают.</div><div class="card-excerpt">Пока Edmonton Oilers бьются за Кубок Стэнли, вокруг Уэйна Гретцки (The Great One) не утихает скандал из-за его недавней поддержки Дональда Трампа.  Напомним:  – В январе Гретцки с супругой лично посет</div><div class="card-meta"><span class="card-date">6 июн 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-reg" href="/tag/alberta/">#Альберта</a></div></div><div class="card-read">Читать далее →</div></div></a></div>
+  <div class="pgn"><a class="pb" href="/person/donald-tramp/page/9/">←</a><a class="pb" href="/person/donald-tramp/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/person/donald-tramp/page/8/">8</a><a class="pb" href="/person/donald-tramp/page/9/">9</a><a class="pb on" href="/person/donald-tramp/page/10/">10</a><a class="pb" href="/person/donald-tramp/page/11/">11</a><a class="pb" href="/person/donald-tramp/page/12/">12</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/person/donald-tramp/page/17/">17</a><a class="pb" href="/person/donald-tramp/page/11/">→</a></div>
 </div>
 <footer>
 <div class="fi">
@@ -668,8 +191,8 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
     <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
     <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
   </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/politika/">#Политика</a><a href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a href="/tag/ekonomika/">#Экономика</a><a href="/tag/zhilyo/">#Жильё</a><a href="/tag/transport/">#Транспорт</a><a href="/tag/rynok-truda/">#Рынок труда</a><a href="/tag/prestupnost/">#Преступность</a><a href="/tag/prava-i-svobody/">#Права и свободы</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/daniel-smit/">Даниэль Смит</a><a href="/person/melani-zholi/">Мелани Жоли</a><a href="/person/anita-anand/">Анита Ананд</a></div>
 </div>
 <div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
 </footer>

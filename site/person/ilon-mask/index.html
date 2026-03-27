@@ -18,22 +18,20 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --t:#111;
-  --t2:#555;
-  --t3:#888;
-  --br:#e5e5e5;
---serif:'Playfair Display', Georgia, serif;
---sans:'Golos Text', system-ui, sans-serif;
-}
-
-body{
-  background:#ffffff;
-  color:#111;
-  font-family:var(--sans);
+  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
+  --br:#e2ddd4;--br2:#ccc7bc;
+  --card:#ffffff;--card-hover:#faf8f4;
+  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
+  --ac:#c0392b;--ac2:#c0392b;--ac3:#e05240;
+  --gold:#9a6f20;--gold2:#c9963a;
+  --tg:#2b6cb0;--tg2:#1a56a0;
+  --maple:#c0392b;
+  --shadow:0 2px 12px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -42,137 +40,117 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ── NAV ── */
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:1px}
 .nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--cream);background:var(--bg3)}
-.nl.on{color:var(--cream);background:var(--bg3)}
+.nl:hover{color:var(--t);background:var(--bg4)}
+.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.2)}
-.tgb{
-  background:#c0392b;
-  color:#fff;
-  border-radius:6px;
-  padding:6px 14px;
-  font-weight:600;
-  font-size:13px;
-  border:none;
-}
-
-.tgb:hover{
-  background:#a93226;
-}
+/* Telegram — prominent button */
+.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:all .2s;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.tgb:hover{background:var(--tg);box-shadow:0 2px 8px rgba(26,86,160,.4)}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
 
 .wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
+/* ── SOURCE BADGE (red) ── */
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap}
+
 /* ── CARD SYSTEM ── */
-/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:6px;
-  overflow:hidden;
-  transition:transform .15s;
-}
-.card:hover{
-  transform:translateY(-2px);
-}
+.card{background:var(--card);border-radius:8px;overflow:hidden;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-/* Image container — always 16:9, consistent shadow on image */
-.card-img{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:var(--bg4);
-  flex-shrink:0;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-
+/* Image — fixed 16:9, cover, contained */
+.card-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+.card-img .emoji-fallback{font-size:28px;color:var(--t4)}
 
-/* Card body — cream-tinted text on dark */
-.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#c0392b;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.35;
-  color:#111;
-}
+/* Card body */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:15px}
 .card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-.card-date{font-size:10px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap;border-top:1px solid var(--br)}
+.card-date{font-size:11px;color:var(--t3)}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+/* Read more link */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:4px}
+.card:hover .card-read{text-decoration:underline}
 
-/* Tags — topic-colored by category */
-.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+/* ── TAG CHIPS ── */
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;transition:opacity .12s;letter-spacing:.2px}
 .tag:hover{opacity:.8}
-/* politics/elections */
-.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-/* economy/tariffs */
-.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-/* immigration */
-.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-/* regions */
-.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-/* longreads */
-.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-/* default */
-.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
-
-/* Tag category mapping */
-.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+/* Politics — red */
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+/* Economy — amber */
+.tag-eco{background:#fef3c7;color:#78350f}
+/* Immigration — blue */
+.tag-imm{background:#dbeafe;color:#1e40af}
+/* Regions — green */
+.tag-reg{background:#d1fae5;color:#065f46}
+/* Stats — purple */
+.tag-stat{background:#ede9fe;color:#4c1d95}
+/* Default — gray */
+.tag-def{background:var(--bg4);color:var(--t3)}
 
 /* ── PAGINATION ── */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
 /* ── TAG FILTER BAR ── */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
 .fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
 .fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--cream)}
+.fcol a:hover{color:var(--t)}
 .fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* ── TG CTA ── */
-.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+/* ── TG CTA (bottom of post) ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
 .tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
 .csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
-.ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+.ctgp a{color:var(--tg2)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.cbtn2:hover{background:var(--tg)}
+
+/* ── CARD PLACEHOLDER ── */
+.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.card-placeholder span{font-size:13px;font-weight:700;letter-spacing:.5px;opacity:.9}
+/* Consistent card-img — always 16:9, photo is decorative */
+.card-img{position:relative}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Read more */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:2px}
+
+/* ci-badge smaller */
+.ci-badge{font-size:9px!important;padding:1px 6px!important}
+
+/* lr-card */
+.lr-card{display:flex;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:80px;min-width:80px;height:80px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lr-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lr-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:5px;min-width:0}
+.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
@@ -188,477 +166,22 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
 </style>
 </head>
 <body>
-
-<nav style="background:#fff;border-bottom:1px solid #eee;">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
-
-    <!-- LEFT -->
-    <div style="display:flex;gap:16px;font-size:14px;color:#555">
-      <a href="/" style="color:#000">Новости</a>
-      <a href="/materials/">Материалы</a>
-      <a href="/longreads/">Лонгриды</a>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
-      Maple <span style="color:#d44">🍁</span> Barrel
-    </div>
-
-    <!-- RIGHT -->
-    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
-      <a href="/about/">О проекте</a>
-      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
-    </div>
-
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
   </div>
-</nav>
-
+</div></nav>
 <div class="wrap">
   <div class="tag-hdr">
     <h1>Илон Маск</h1>
     <p>43 материалов</p>
   </div>
-  <div class="tag-grid"><a class="card" href="/post/2026-03-27-115-kg-metamfetamina-spryatali-v-bankah-s-ogurtsami-gruz-per/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="115 кг метамфетамина спрятали в банках с огурцами — груз перехватили в Британской Колумбии" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">115 кг метамфетамина спрятали в банках с огурцами — груз перехватили в Британской Колумбии</div>
-    <div class="card-excerpt">Канадские власти перехватили партию метамфетамина весом 115 кг, замаскированную под банки с маринованными огурцами.   Контейнер проверили на терминале в Цаввассене в январе. Груз направлялся в Мельбур</div>
-    <div class="card-meta">
-      <span class="card-date">27 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-18-kanadskie-muzhchiny-perezhivayut-postoyannyy-krizis-v-obsche/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье</div>
-    <div class="card-excerpt">Профессор Нииган Синклер из University of Manitoba заявил, что в Канаде сформировался устойчивый кризис, связанный со здоровьем мужчин.   По его словам, мужчины в стране живут меньше, чаще страдают от</div>
-    <div class="card-meta">
-      <span class="card-date">18 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-09-kanada-delaet-stavku-na-sputniki-dlya-tehnologicheskogo-i-vo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада делает ставку на спутники для технологического и военного суверенитета" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">globalnews.ca</div>
-    <div class="card-title">Канада делает ставку на спутники для технологического и военного суверенитета</div>
-    <div class="card-excerpt">Правительство Марка Карни планирует запуск сотен канадских спутников на низкой околоземной орбите, чтобы укрепить независимость страны в сфере связи и безопасности.   Речь идёт о проекте Telesat Light</div>
-    <div class="card-meta">
-      <span class="card-date">9 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-06-kanada-i-yaponiya-podpisali-novoe-strategicheskoe-partnyorst/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада и Япония подписали новое стратегическое партнёрство во время последнего этапа турне Марка Карни по Индо-Тихоокеанскому региону" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Канада и Япония подписали новое стратегическое партнёрство во время последнего этапа турне Марка Карни по Индо-Тихоокеанскому региону</div>
-    <div class="card-excerpt">Премьер-министр Канады Марк Карни и премьер-министр Японии Санаэ Такаити подписали в Токио соглашение о всеобъемлющем стратегическом партнёрстве. Документ предусматривает углубление сотрудничества в с</div>
-    <div class="card-meta">
-      <span class="card-date">6 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-05-vankuver-zasluzhivaet-bolshego-chem-lozh-kena-sima/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Ванкувер заслуживает большего, чем ложь Кена Сима" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalobserver.com</div>
-    <div class="card-title">Ванкувер заслуживает большего, чем ложь Кена Сима</div>
-    <div class="card-excerpt">Мэр Ванкувера Кен Сим извинился после того, как публично обвинил оппозиционного муниципального советника в раздаче наркотиков на Рождество — обвинение, которое оказалось полностью ложным.   Автор коло</div>
-    <div class="card-meta">
-      <span class="card-date">5 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-03-03-belye-natsionalisticheskie-boytsovskie-kluby-predstavlyayut-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Белые националистические бойцовские клубы представляют риск «экстремального насилия», предупреждает правительственный доклад" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Белые националистические бойцовские клубы представляют риск «экстремального насилия», предупреждает правительственный доклад</div>
-    <div class="card-excerpt">Внутренний брифинг Министерства общественной безопасности Канады, полученный CBC News, предупреждает: движение так называемых «active clubs» — белых националистических групп, маскирующихся под спортив</div>
-    <div class="card-meta">
-      <span class="card-date">3 мар 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-25-sto-akkauntov-sozdayut-bolshuyu-chast-konspirologicheskogo-k/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Сто аккаунтов создают большую часть конспирологического контента в Канаде — отчёт" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalobserver.com</div>
-    <div class="card-title">Сто аккаунтов создают большую часть конспирологического контента в Канаде — отчёт</div>
-    <div class="card-excerpt">Всего 100 пользователей ответственны почти за 70% конспирологических публикаций в Канаде. К такому выводу пришли исследователи из Media Ecosystem Observatory.   Анализ охватил более 14 миллионов посто</div>
-    <div class="card-meta">
-      <span class="card-date">25 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-17-vot-kak-vyglyadit-amerikanskiy-fashizm/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Вот как выглядит американский фашизм»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thewalrus.ca</div>
-    <div class="card-title">«Вот как выглядит американский фашизм»</div>
-    <div class="card-excerpt">В канадском издании The Walrus вышла колонка политолога Стюарта Преста, в которой он прямо называет администрацию Дональда Трампа фашистской и империалистической. Автор утверждает: США изменились наст</div>
-    <div class="card-meta">
-      <span class="card-date">17 фев 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-02-01-dzheffri-epshteyn-vezzhal-v-kanadu-posle-sudimosti-za-prestu/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Джеффри Эпштейн въезжал в Канаду после судимости за преступления против несовершеннолетних — это следует из новых документов, опубликованных Минюстом США." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Джеффри Эпштейн въезжал в Канаду после судимости за преступления против несовершеннолетних — это следует из новых документов, опубликованных Минюстом США.</div>
-    <div class="card-excerpt">‌ ‌ Согласно материалам, осуждённый в 2008 году финансист неоднократно бывал в Ванкувере в 2014–2016 годах. Он останавливался в дорогих отелях, прилетал частными самолётами и появлялся в городе во вре</div>
-    <div class="card-meta">
-      <span class="card-date">1 фев 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-29-tesla-2024-byl-plohim-2025-eschyo-huzhe-pribyl-ruhnula-na-46/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Tesla: 2024 был плохим, 2025 — ещё хуже. Прибыль рухнула на 46%" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">arstechnica.com</div>
-    <div class="card-title">Tesla: 2024 был плохим, 2025 — ещё хуже. Прибыль рухнула на 46%</div>
-    <div class="card-excerpt">Tesla отчиталась за 2025 год — и впервые в своей истории показала падение выручки год к году. Если 2024 считался неудачным, то 2025 стал полноценным провалом.   Продажи автомобилей снизились на 8,6%.</div>
-    <div class="card-meta">
-      <span class="card-date">29 янв 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-20-metod-karni-vyrisovyvaetsya-ot-pekina-do-grenlandii/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Метод Карни вырисовывается — от Пекина до Гренландии." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalobserver.com</div>
-    <div class="card-title">Метод Карни вырисовывается — от Пекина до Гренландии.</div>
-    <div class="card-excerpt">⁠  За последние недели внешняя политика Марка Карни перестала выглядеть набором разрозненных визитов и начала складываться в систему. Китай, Катар, Давос — всё это элементы одной линии: диверсификация</div>
-    <div class="card-meta">
-      <span class="card-date">20 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-13-otsekaya-startaperov-ottava-rezhet-buduschee-kanady/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Отсекая стартаперов, Оттава режет будущее Канады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">Отсекая стартаперов, Оттава режет будущее Канады</div>
-    <div class="card-excerpt">Юнг Ву, серийный предприниматель и бывший глава MaRS Discovery District, жёстко критикует решение федерального правительства закрыть приём новых заявок по Start-up Visa Program — ключевому иммиграцион</div>
-    <div class="card-meta">
-      <span class="card-date">13 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-12-kanada-ne-sobiraetsya-zapreschat-x-iz-za-skandala-s-dipfeyka/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада не собирается запрещать X из-за скандала с дипфейками" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Канада не собирается запрещать X из-за скандала с дипфейками</div>
-    <div class="card-excerpt">Министр по искусственному интеллекту и цифровым инновациям Эван Соломон заявил, что Оттава не рассматривает запрет соцсети X, несмотря на громкий скандал вокруг сексуализированных дипфейков, созданных</div>
-    <div class="card-meta">
-      <span class="card-date">12 янв 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-08-ubiraytes-ottuda-k-chyortu-senatory-i-deputaty-trebuyut-chto/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Убирайтесь оттуда к чёрту»: сенаторы и депутаты требуют, чтобы Оттава ушла с X/Твиттер из-за волны ИИ-порнографии" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">hilltimes.com</div>
-    <div class="card-title">«Убирайтесь оттуда к чёрту»: сенаторы и депутаты требуют, чтобы Оттава ушла с X/Твиттер из-за волны ИИ-порнографии</div>
-    <div class="card-excerpt">В то время как канадцы отмечали Новый год, сенатор от Альберты Пола Симонс праздновала личную дату — три года с момента ухода из Twitter, ныне X. И, как она подчёркивает, ни разу об этом не пожалела.</div>
-    <div class="card-meta">
-      <span class="card-date">8 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-06-kak-na-amazon-v-kanade-narkotiki-prodayut-onlayn-i-dostavlya/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Как на Amazon»: в Канаде наркотики продают онлайн и доставляют через Canada Post" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">«Как на Amazon»: в Канаде наркотики продают онлайн и доставляют через Canada Post</div>
-    <div class="card-excerpt">⁠  CBC и Radio-Canada показали, насколько просто сегодня купить кокаин, героин или экстази — буквально в пару кликов, с оплатой картой или e-transfer и доставкой обычной почтой.  ⁠  Реклама всплывает</div>
-    <div class="card-meta">
-      <span class="card-date">6 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-20-natsisty-byli-pravy-chego-na-samom-dele-hotyat-lidery-krupne/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Нацисты были правы»: чего на самом деле хотят лидеры крупнейшей «националистической» группы Канады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">«Нацисты были правы»: чего на самом деле хотят лидеры крупнейшей «националистической» группы Канады</div>
-    <div class="card-excerpt">Лидеры Second Sons Canada — крупнейшей на сегодня белонационалистической группы в стране — считают, что «расовая война уже идёт», поддерживают идеи нацизма и выступают за массовую депортацию небелого</div>
-    <div class="card-meta">
-      <span class="card-date">20 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-18-glavnyy-sanitarnyy-vrach-kvebeka-preduprezhdaet-gripp-raspro/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Главный санитарный врач Квебека предупреждает: грипп распространяется «почти как пожар»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Главный санитарный врач Квебека предупреждает: грипп распространяется «почти как пожар»</div>
-    <div class="card-excerpt">Педиатрические больницы Монреаля переполнены накануне праздников из-за резкого всплеска сезонных вирусов. Власти просят родителей не обращаться в приёмные покои без острой необходимости.    Глава обще</div>
-    <div class="card-meta">
-      <span class="card-date">18 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-15-prazdnichnoe-istoschenie-chto-eto-takoe-i-pochemu-kanadtsy-c/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Праздничное истощение»: что это такое и почему канадцы чувствуют себя выжатыми к концу года" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">«Праздничное истощение»: что это такое и почему канадцы чувствуют себя выжатыми к концу года</div>
-    <div class="card-excerpt">Канадские медиа всё чаще используют термин «festive exhaustion» — состояние, при котором праздники приносят не радость, а усталость, апатию и проблемы со сном. Об этом в эфире CTV Your Morning рассказ</div>
-    <div class="card-meta">
-      <span class="card-date">15 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-12-05-pensioner-iz-saskachevana-poteryal-tri-tysyachi-dollarov-iz-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Пенсионер из Саскачевана потерял три тысячи долларов из-за поддельного видео с «премьер-министром»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Пенсионер из Саскачевана потерял три тысячи долларов из-за поддельного видео с «премьер-министром»</div>
-    <div class="card-excerpt">70-летний Линн Фано из Принс-Альберта решил поделиться своей историей после того, как стал жертвой криптомошенников, использовавших искусственно созданное видео, где будто бы премьер Марк Карни и веду</div>
-    <div class="card-meta">
-      <span class="card-date">5 дек 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-22-v-britanskoy-kolumbii-raskryty-detali-zhyostkogo-zahvata-zal/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Британской Колумбии раскрыты детали жёсткого захвата заложников ради $2 млн в биткоине" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">В Британской Колумбии раскрыты детали жёсткого захвата заложников ради $2 млн в биткоине</div>
-    <div class="card-excerpt">‌﻿   CBC опубликовал решение суда по делу о нападении, в ходе которого семья инвестора оказалась связана, подверглась пыткам, сексуальному насилию и угрозам расправы. Нападение прекратилось только пос</div>
-    <div class="card-meta">
-      <span class="card-date">22 ноя 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-15-vatikan-vernul-kanade-62-artefakta-korennyh-narodov/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Ватикан вернул Канаде 62 артефакта коренных народов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">abcnews.go.com</div>
-    <div class="card-title">Ватикан вернул Канаде 62 артефакта коренных народов</div>
-    <div class="card-excerpt">Ватикан сообщил о передаче 62 предметов, связанных с культурами коренных народов Канады. Папа Лев XIV передал их Канадской конференции католических епископов. Среди возвращённых вещей — знаменитый ину</div>
-    <div class="card-meta">
-      <span class="card-date">15 ноя 2025</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-11-10-v-britanskoy-kolumbii-na-taynom-neonatsistskom-sezde-zasveti/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Британской Колумбии на тайном неонацистском съезде засветились владельцы и тренеры MMA-залов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">toronto.citynews.ca</div>
-    <div class="card-title">В Британской Колумбии на тайном неонацистском съезде засветились владельцы и тренеры MMA-залов</div>
-    <div class="card-excerpt">ОРИГИНАЛ МАТЕРИАЛА ОГОНЬ  CBC разобрало по кадрам закрытое собрание неонацистов и белых супремасистов, которое прошло этим летом в Ванкувере в Scottish Cultural Centre. Организатор — группа Exiles of</div>
-    <div class="card-meta">
-      <span class="card-date">10 ноя 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-10-22-vatikan-vozvraschaet-v-kanadu-artefakty-korennyh-narodov-spu/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Ватикан возвращает в Канаду артефакты коренных народов — спустя сто лет после их изъятия" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Ватикан возвращает в Канаду артефакты коренных народов — спустя сто лет после их изъятия</div>
-    <div class="card-excerpt">Почти век спустя после того, как миссионеры вывезли из Канады предметы коренной культуры для выставки в Риме, часть этой коллекции наконец возвращается домой.   Согласно источникам CBC, Ватикан и Кана</div>
-    <div class="card-meta">
-      <span class="card-date">22 окт 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-09-22-sezon-respiratornyh-bolezney-v-ontario-ofitsialno-nachalsya-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Сезон респираторных болезней в Онтарио официально начался: в школах полно детей, на улице холодает — вирусы возвращаются." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Сезон респираторных болезней в Онтарио официально начался: в школах полно детей, на улице холодает — вирусы возвращаются.</div>
-    <div class="card-excerpt">По данным Toronto Public Health, этой осенью основные угрозы — COVID-19, грипп, РС-вирус (RSV) и корь.   COVID-19 Заболеваемость снова растет и, по прогнозам, достигнет пика в начале зимы. Вакцины теп</div>
-    <div class="card-meta">
-      <span class="card-date">22 сен 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-09-21-emigrantam-po-vsemu-miru-chasto-snitsya-odin-i-tot-zhe-koshm/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Эмигрантам по всему миру часто снится один и тот же кошмар — возвращение домой и невозможность уехать обратно." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Эмигрантам по всему миру часто снится один и тот же кошмар — возвращение домой и невозможность уехать обратно.</div>
-    <div class="card-excerpt">Русскоязычные (и не только) соцсети полны историй: людям снится, что они оказываются в России, проводят время с близкими или гуляют по родному городу, а потом их не выпускают из страны. Просыпаются он</div>
-    <div class="card-meta">
-      <span class="card-date">21 сен 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-09-09-neonatsistskiy-propagandist-dark-foreigner-poluchil-10-let-t/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Неонацистский пропагандист «Dark Foreigner» получил 10 лет тюрьмы" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Неонацистский пропагандист «Dark Foreigner» получил 10 лет тюрьмы</div>
-    <div class="card-excerpt">В Оттаве вынесли приговор Патрику Гордону Макдональду, известному под ником Dark Foreigner. 28-летний житель Канады получил 10 лет лишения свободы за создание и распространение террористической пропаг</div>
-    <div class="card-meta">
-      <span class="card-date">9 сен 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-09-09-kanadskaya-mda-space-teryaet-13-mlrd-kontrakt-aktsii-ruhnuli/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадская MDA Space теряет $1,3 млрд контракт — акции рухнули на 25%" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">iphoneincanada.ca</div>
-    <div class="card-title">Канадская MDA Space теряет $1,3 млрд контракт — акции рухнули на 25%</div>
-    <div class="card-excerpt">Базирующаяся в Брамптоне MDA Space оказалась в эпицентре американской игры вокруг спутникового 5G.   Компания должна была построить для EchoStar более 100 программируемых спутников AURORA D2D стоимост</div>
-    <div class="card-meta">
-      <span class="card-date">9 сен 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-09-06-neuralink-v-kanade-paralizovannye-patsienty-nauchilis-upravl/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Neuralink в Канаде: парализованные пациенты научились управлять компьютером силой мысли" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Neuralink в Канаде: парализованные пациенты научились управлять компьютером силой мысли</div>
-    <div class="card-excerpt">⠀ Двое канадцев с повреждением спинного мозга стали первыми в стране, кому имплантировали чип Neuralink Илона Маска. Операции провели хирурги University Health Network в Торонто 27 августа и 3 сентябр</div>
-    <div class="card-meta">
-      <span class="card-date">6 сен 2025</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-08-20-ilon-mask-neozhidanno-prizemlilsya-v-malenkom-gorodke-britan/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Илон Маск неожиданно приземлился в маленьком городке Британской Колумбии" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ca.yahoo.com</div>
-    <div class="card-title">Илон Маск неожиданно приземлился в маленьком городке Британской Колумбии</div>
-    <div class="card-excerpt">В канадской глубинке – настоящий переполох: Илон Маск внезапно появился в рыбацком поселке Белла Белла (Центральное побережье Британской Колумбии, около 1500 жителей).  По данным CBC, миллиардер и гла</div>
-    <div class="card-meta">
-      <span class="card-date">20 авг 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-07-15-kanadskie-yuristy-fiksiruyut-novuyu-prichinu-razvodov-vliyan/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канадские юристы фиксируют новую причину разводов — влияние «маносферы» и токсичной маскулинности" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Канадские юристы фиксируют новую причину разводов — влияние «маносферы» и токсичной маскулинности</div>
-    <div class="card-excerpt">Семейный юрист из Саскачевана Скотт Байерс заявил, что в последние годы всё больше разводов в провинции связано не с финансами, а с идеологией. Причина — радикализация мужей под влиянием «маносферы» и</div>
-    <div class="card-meta">
-      <span class="card-date">15 июл 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-07-02-elbouc-ap-skoree-golova-vniz-premer-ministr-karni-na-fone-da/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">🛡</span></div>
-  <div class="card-body">
-    <div class="card-src">theguardian.com</div>
-    <div class="card-title">“Элбоуc ап”? Скорее — голова вниз. Премьер-министр Карни на фоне давления из Вашингтона проталкивает новый законопроект об иммиграции — Bill C‑2 (Strong Borders</div>
-    <div class="card-excerpt">Act), и его содержание наводит на мысли не о Канаде, а о MAGA.  Колумнист The Guardian Тайо Беро пишет:  – Законопроект запрещает подавать на статус беженца, если человек находится в Канаде более года</div>
-    <div class="card-meta">
-      <span class="card-date">2 июл 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-06-14-ministr-immigratsii-lena-diab-izbegaet-otvetov-i-zaschischae/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Министр иммиграции Лена Диаб избегает ответов и защищает старую политику Либералов, несмотря на “новое руководство”." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Министр иммиграции Лена Диаб избегает ответов и защищает старую политику Либералов, несмотря на “новое руководство”.</div>
-    <div class="card-excerpt">Джейми Сарконак в National Post описывает, как новый министр провалилась на дебатах по бюджету: вместо конкретики — отсылки к другим министерствам. – Сколько нелегалов выдворили с декабря? Вопрос к Pu</div>
-    <div class="card-meta">
-      <span class="card-date">14 июн 2025</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-30-feyki-dlya-diabetikov-zahvatyvayut-kanadskiy-rynok/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Фейки для диабетиков захватывают канадский рынок</div>
-    <div class="card-excerpt">Diabetes Canada бьёт тревогу: в стране распространяются мошеннические товары для людей с диабетом. Это и чудокапли, якобы заменяющие инъекции GLP-1, и смарт-часы, обещающие измерять уровень сахара без</div>
-    <div class="card-meta">
-      <span class="card-date">30 май 2025</span>
-      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-29-tesla-teryaet-kanadu/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="⚡️ Tesla теряет Канаду" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">electrek.co</div>
-    <div class="card-title">⚡️ Tesla теряет Канаду</div>
-    <div class="card-excerpt">Продажи компании в Квебеке упали на 87% в первом квартале 2025 года. Это — катастрофа на ключевом для электромобилей рынке страны.  По данным SAAQ (дорожная служба Квебека):  – За весь Q1 2025 Tesla п</div>
-    <div class="card-meta">
-      <span class="card-date">29 май 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-05-26-kanada-v-epitsentre-trevozhnoy-statistiki-novyy-doklad-o-ros/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада в эпицентре тревожной статистики: новый доклад о росте антисемитизма" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Канада в эпицентре тревожной статистики: новый доклад о росте антисемитизма</div>
-    <div class="card-excerpt">Движение Combat Antisemitism Movement: &quot;Это самый сильный всплеск ненависти со времён Второй мировой&quot;.  В современном мире антисемитизм остаётся явлением без временных и географических границ. Но посл</div>
-    <div class="card-meta">
-      <span class="card-date">26 май 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-04-11-kak-gruppa-kuplyu-prodam-v-gamiltone-stala-krupneyshim-proan/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Как группа «Куплю-продам в Гамильтоне» стала крупнейшим проаннексионным сообществом Facebook" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Как группа «Куплю-продам в Гамильтоне» стала крупнейшим проаннексионным сообществом Facebook</div>
-    <div class="card-excerpt">До января 2023 года в этом Facebook-сообществе продавали подержанные тостеры, консоли и корм для кошек. Сегодня — почти 18 000 участников обсуждают, как Канада должна стать 51-м штатом США, а Илон Мас</div>
-    <div class="card-meta">
-      <span class="card-date">11 апр 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-03-27-bu-tesla-navodnili-rynok-stoit-li-riskovat-pokupkoy/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Б/у Tesla наводнили рынок — стоит ли рисковать покупкой?</div>
-    <div class="card-excerpt">Из-за политики Илона Маска и падения интереса к бренду канадцы всё чаще избавляются от Tesla.  На платформах перепродажи в Канаде зафиксирован рост объявлений о продаже подержанных Tesla: на BCAA — +3</div>
-    <div class="card-meta">
-      <span class="card-date">27 мар 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-03-26-kanadskie-vybory-pod-ugrozoy-vneshnego-vmeshatelstva/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🔻 Канадские выборы под угрозой внешнего вмешательства" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">🔻 Канадские выборы под угрозой внешнего вмешательства</div>
-    <div class="card-excerpt">Федеральная разведка и независимые аналитики бьют тревогу: выборы в Канаде 28 апреля могут стать мишенью для масштабных дезинформационных кампаний со стороны Китая, России, Индии и даже США.  📌 Почему</div>
-    <div class="card-meta">
-      <span class="card-date">26 мар 2025</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-03-20-massovoe-povrezhdenie-tesla-v-gamiltone/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="🚨 Массовое повреждение Tesla в Гамильтоне" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">🚨 Массовое повреждение Tesla в Гамильтоне</div>
-    <div class="card-excerpt">В Гамильтоне неизвестные повредили более 80 автомобилей Tesla на парковке у дилерского центра рядом с Limeridge Mall.   У машин глубокие царапины и проколотые шины.  Атака произошла на фоне серии напа</div>
-    <div class="card-meta">
-      <span class="card-date">20 мар 2025</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2025-03-19-vandaly-atakovali-avtosalon-tesla-v-monreale/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Вандалы атаковали автосалон Tesla в Монреале" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src"></div>
-    <div class="card-title">Вандалы атаковали автосалон Tesla в Монреале</div>
-    <div class="card-excerpt">Активисты облили краской автосалон Tesla на бульваре Декари в Монреале. Полиция арестовала двух человек.  📌 Кто стоит за атакой?  🔹 Ответственность взяла на себя эко-группа Last Generation Canada.  🔹</div>
-    <div class="card-meta">
-      <span class="card-date">19 мар 2025</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
-    </div>
-  </div>
-</a></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-27-115-kg-metamfetamina-spryatali-v-bankah-s-ogurtsami-gruz-per/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">115 кг метамфетамина спрятали в банках с огурцами — груз перехватили в Британской Колумбии</div><div class="card-excerpt">Канадские власти перехватили партию метамфетамина весом 115 кг, замаскированную под банки с маринованными огурцами.   Контейнер проверили на терминале в Цаввассене в январе. Груз направлялся в Мельбур</div><div class="card-meta"><span class="card-date">27 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-def" href="/tag/transport/">#Транспорт</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-18-kanadskie-muzhchiny-perezhivayut-postoyannyy-krizis-v-obsche/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Канадские мужчины переживают “постоянный кризис в обществе” — эксперт о здоровье</div><div class="card-excerpt">Профессор Нииган Синклер из University of Manitoba заявил, что в Канаде сформировался устойчивый кризис, связанный со здоровьем мужчин.   По его словам, мужчины в стране живут меньше, чаще страдают от</div><div class="card-meta"><span class="card-date">18 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-09-kanada-delaet-stavku-na-sputniki-dlya-tehnologicheskogo-i-vo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>Global</span></div>'"></div><div class="card-body"><div><span class="src-badge">Global News</span></div><div class="card-title">Канада делает ставку на спутники для технологического и военного суверенитета</div><div class="card-excerpt">Правительство Марка Карни планирует запуск сотен канадских спутников на низкой околоземной орбите, чтобы укрепить независимость страны в сфере связи и безопасности.   Речь идёт о проекте Telesat Light</div><div class="card-meta"><span class="card-date">9 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-reg" href="/tag/arktika-i-sever/">#Арктика и Север</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-06-kanada-i-yaponiya-podpisali-novoe-strategicheskoe-partnyorst/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Канада и Япония подписали новое стратегическое партнёрство во время последнего этапа турне Марка Карни по Индо-Тихоокеанскому региону</div><div class="card-excerpt">Премьер-министр Канады Марк Карни и премьер-министр Японии Санаэ Такаити подписали в Токио соглашение о всеобъемлющем стратегическом партнёрстве. Документ предусматривает углубление сотрудничества в с</div><div class="card-meta"><span class="card-date">6 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-05-vankuver-zasluzhivaet-bolshego-chem-lozh-kena-sima/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NATI</span></div>'"></div><div class="card-body"><div><span class="src-badge">nationalobserver.com</span></div><div class="card-title">Ванкувер заслуживает большего, чем ложь Кена Сима</div><div class="card-excerpt">Мэр Ванкувера Кен Сим извинился после того, как публично обвинил оппозиционного муниципального советника в раздаче наркотиков на Рождество — обвинение, которое оказалось полностью ложным.   Автор коло</div><div class="card-meta"><span class="card-date">5 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-03-03-belye-natsionalisticheskie-boytsovskie-kluby-predstavlyayut-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Белые националистические бойцовские клубы представляют риск «экстремального насилия», предупреждает правительственный доклад</div><div class="card-excerpt">Внутренний брифинг Министерства общественной безопасности Канады, полученный CBC News, предупреждает: движение так называемых «active clubs» — белых националистических групп, маскирующихся под спортив</div><div class="card-meta"><span class="card-date">3 мар 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-25-sto-akkauntov-sozdayut-bolshuyu-chast-konspirologicheskogo-k/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NATI</span></div>'"></div><div class="card-body"><div><span class="src-badge">nationalobserver.com</span></div><div class="card-title">Сто аккаунтов создают большую часть конспирологического контента в Канаде — отчёт</div><div class="card-excerpt">Всего 100 пользователей ответственны почти за 70% конспирологических публикаций в Канаде. К такому выводу пришли исследователи из Media Ecosystem Observatory.   Анализ охватил более 14 миллионов посто</div><div class="card-meta"><span class="card-date">25 фев 2026</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-def" href="/tag/ekologiya/">#Экология</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-17-vot-kak-vyglyadit-amerikanskiy-fashizm/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>THEW</span></div>'"></div><div class="card-body"><div><span class="src-badge">thewalrus.ca</span></div><div class="card-title">«Вот как выглядит американский фашизм»</div><div class="card-excerpt">В канадском издании The Walrus вышла колонка политолога Стюарта Преста, в которой он прямо называет администрацию Дональда Трампа фашистской и империалистической. Автор утверждает: США изменились наст</div><div class="card-meta"><span class="card-date">17 фев 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-02-01-dzheffri-epshteyn-vezzhal-v-kanadu-posle-sudimosti-za-prestu/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Джеффри Эпштейн въезжал в Канаду после судимости за преступления против несовершеннолетних — это следует из новых документов, опубликованных Минюстом США.</div><div class="card-excerpt">‌ ‌ Согласно материалам, осуждённый в 2008 году финансист неоднократно бывал в Ванкувере в 2014–2016 годах. Он останавливался в дорогих отелях, прилетал частными самолётами и появлялся в городе во вре</div><div class="card-meta"><span class="card-date">1 фев 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-29-tesla-2024-byl-plohim-2025-eschyo-huzhe-pribyl-ruhnula-na-46/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>ARST</span></div>'"></div><div class="card-body"><div><span class="src-badge">arstechnica.com</span></div><div class="card-title">Tesla: 2024 был плохим, 2025 — ещё хуже. Прибыль рухнула на 46%</div><div class="card-excerpt">Tesla отчиталась за 2025 год — и впервые в своей истории показала падение выручки год к году. Если 2024 считался неудачным, то 2025 стал полноценным провалом.   Продажи автомобилей снизились на 8,6%.</div><div class="card-meta"><span class="card-date">29 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-20-metod-karni-vyrisovyvaetsya-ot-pekina-do-grenlandii/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NATI</span></div>'"></div><div class="card-body"><div><span class="src-badge">nationalobserver.com</span></div><div class="card-title">Метод Карни вырисовывается — от Пекина до Гренландии.</div><div class="card-excerpt">⁠  За последние недели внешняя политика Марка Карни перестала выглядеть набором разрозненных визитов и начала складываться в систему. Китай, Катар, Давос — всё это элементы одной линии: диверсификация</div><div class="card-meta"><span class="card-date">20 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/turizm/">#Туризм</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-13-otsekaya-startaperov-ottava-rezhet-buduschee-kanady/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">Отсекая стартаперов, Оттава режет будущее Канады</div><div class="card-excerpt">Юнг Ву, серийный предприниматель и бывший глава MaRS Discovery District, жёстко критикует решение федерального правительства закрыть приём новых заявок по Start-up Visa Program — ключевому иммиграцион</div><div class="card-meta"><span class="card-date">13 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-12-kanada-ne-sobiraetsya-zapreschat-x-iz-za-skandala-s-dipfeyka/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Канада не собирается запрещать X из-за скандала с дипфейками</div><div class="card-excerpt">Министр по искусственному интеллекту и цифровым инновациям Эван Соломон заявил, что Оттава не рассматривает запрет соцсети X, несмотря на громкий скандал вокруг сексуализированных дипфейков, созданных</div><div class="card-meta"><span class="card-date">12 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-08-ubiraytes-ottuda-k-chyortu-senatory-i-deputaty-trebuyut-chto/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>HILL</span></div>'"></div><div class="card-body"><div><span class="src-badge">hilltimes.com</span></div><div class="card-title">«Убирайтесь оттуда к чёрту»: сенаторы и депутаты требуют, чтобы Оттава ушла с X/Твиттер из-за волны ИИ-порнографии</div><div class="card-excerpt">В то время как канадцы отмечали Новый год, сенатор от Альберты Пола Симонс праздновала личную дату — три года с момента ухода из Twitter, ныне X. И, как она подчёркивает, ни разу об этом не пожалела.</div><div class="card-meta"><span class="card-date">8 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-06-kak-na-amazon-v-kanade-narkotiki-prodayut-onlayn-i-dostavlya/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">«Как на Amazon»: в Канаде наркотики продают онлайн и доставляют через Canada Post</div><div class="card-excerpt">⁠  CBC и Radio-Canada показали, насколько просто сегодня купить кокаин, героин или экстази — буквально в пару кликов, с оплатой картой или e-transfer и доставкой обычной почтой.  ⁠  Реклама всплывает</div><div class="card-meta"><span class="card-date">6 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-20-natsisty-byli-pravy-chego-na-samom-dele-hotyat-lidery-krupne/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">«Нацисты были правы»: чего на самом деле хотят лидеры крупнейшей «националистической» группы Канады</div><div class="card-excerpt">Лидеры Second Sons Canada — крупнейшей на сегодня белонационалистической группы в стране — считают, что «расовая война уже идёт», поддерживают идеи нацизма и выступают за массовую депортацию небелого</div><div class="card-meta"><span class="card-date">20 дек 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-18-glavnyy-sanitarnyy-vrach-kvebeka-preduprezhdaet-gripp-raspro/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Главный санитарный врач Квебека предупреждает: грипп распространяется «почти как пожар»</div><div class="card-excerpt">Педиатрические больницы Монреаля переполнены накануне праздников из-за резкого всплеска сезонных вирусов. Власти просят родителей не обращаться в приёмные покои без острой необходимости.    Глава обще</div><div class="card-meta"><span class="card-date">18 дек 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-15-prazdnichnoe-istoschenie-chto-eto-takoe-i-pochemu-kanadtsy-c/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">«Праздничное истощение»: что это такое и почему канадцы чувствуют себя выжатыми к концу года</div><div class="card-excerpt">Канадские медиа всё чаще используют термин «festive exhaustion» — состояние, при котором праздники приносят не радость, а усталость, апатию и проблемы со сном. Об этом в эфире CTV Your Morning рассказ</div><div class="card-meta"><span class="card-date">15 дек 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-12-05-pensioner-iz-saskachevana-poteryal-tri-tysyachi-dollarov-iz-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Пенсионер из Саскачевана потерял три тысячи долларов из-за поддельного видео с «премьер-министром»</div><div class="card-excerpt">70-летний Линн Фано из Принс-Альберта решил поделиться своей историей после того, как стал жертвой криптомошенников, использовавших искусственно созданное видео, где будто бы премьер Марк Карни и веду</div><div class="card-meta"><span class="card-date">5 дек 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-22-v-britanskoy-kolumbii-raskryty-detali-zhyostkogo-zahvata-zal/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">В Британской Колумбии раскрыты детали жёсткого захвата заложников ради $2 млн в биткоине</div><div class="card-excerpt">‌﻿   CBC опубликовал решение суда по делу о нападении, в ходе которого семья инвестора оказалась связана, подверглась пыткам, сексуальному насилию и угрозам расправы. Нападение прекратилось только пос</div><div class="card-meta"><span class="card-date">22 ноя 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-15-vatikan-vernul-kanade-62-artefakta-korennyh-narodov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>ABCN</span></div>'"></div><div class="card-body"><div><span class="src-badge">abcnews.go.com</span></div><div class="card-title">Ватикан вернул Канаде 62 артефакта коренных народов</div><div class="card-excerpt">Ватикан сообщил о передаче 62 предметов, связанных с культурами коренных народов Канады. Папа Лев XIV передал их Канадской конференции католических епископов. Среди возвращённых вещей — знаменитый ину</div><div class="card-meta"><span class="card-date">15 ноя 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a><a class="tag tag-def" href="/tag/turizm/">#Туризм</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-11-10-v-britanskoy-kolumbii-na-taynom-neonatsistskom-sezde-zasveti/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>TORO</span></div>'"></div><div class="card-body"><div><span class="src-badge">toronto.citynews.ca</span></div><div class="card-title">В Британской Колумбии на тайном неонацистском съезде засветились владельцы и тренеры MMA-залов</div><div class="card-excerpt">ОРИГИНАЛ МАТЕРИАЛА ОГОНЬ  CBC разобрало по кадрам закрытое собрание неонацистов и белых супремасистов, которое прошло этим летом в Ванкувере в Scottish Cultural Centre. Организатор — группа Exiles of</div><div class="card-meta"><span class="card-date">10 ноя 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-10-22-vatikan-vozvraschaet-v-kanadu-artefakty-korennyh-narodov-spu/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Ватикан возвращает в Канаду артефакты коренных народов — спустя сто лет после их изъятия</div><div class="card-excerpt">Почти век спустя после того, как миссионеры вывезли из Канады предметы коренной культуры для выставки в Риме, часть этой коллекции наконец возвращается домой.   Согласно источникам CBC, Ватикан и Кана</div><div class="card-meta"><span class="card-date">22 окт 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-22-sezon-respiratornyh-bolezney-v-ontario-ofitsialno-nachalsya-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Сезон респираторных болезней в Онтарио официально начался: в школах полно детей, на улице холодает — вирусы возвращаются.</div><div class="card-excerpt">По данным Toronto Public Health, этой осенью основные угрозы — COVID-19, грипп, РС-вирус (RSV) и корь.   COVID-19 Заболеваемость снова растет и, по прогнозам, достигнет пика в начале зимы. Вакцины теп</div><div class="card-meta"><span class="card-date">22 сен 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-21-emigrantam-po-vsemu-miru-chasto-snitsya-odin-i-tot-zhe-koshm/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Эмигрантам по всему миру часто снится один и тот же кошмар — возвращение домой и невозможность уехать обратно.</div><div class="card-excerpt">Русскоязычные (и не только) соцсети полны историй: людям снится, что они оказываются в России, проводят время с близкими или гуляют по родному городу, а потом их не выпускают из страны. Просыпаются он</div><div class="card-meta"><span class="card-date">21 сен 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-09-neonatsistskiy-propagandist-dark-foreigner-poluchil-10-let-t/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Неонацистский пропагандист «Dark Foreigner» получил 10 лет тюрьмы</div><div class="card-excerpt">В Оттаве вынесли приговор Патрику Гордону Макдональду, известному под ником Dark Foreigner. 28-летний житель Канады получил 10 лет лишения свободы за создание и распространение террористической пропаг</div><div class="card-meta"><span class="card-date">9 сен 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-09-kanadskaya-mda-space-teryaet-13-mlrd-kontrakt-aktsii-ruhnuli/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>IPHO</span></div>'"></div><div class="card-body"><div><span class="src-badge">iphoneincanada.ca</span></div><div class="card-title">Канадская MDA Space теряет $1,3 млрд контракт — акции рухнули на 25%</div><div class="card-excerpt">Базирующаяся в Брамптоне MDA Space оказалась в эпицентре американской игры вокруг спутникового 5G.   Компания должна была построить для EchoStar более 100 программируемых спутников AURORA D2D стоимост</div><div class="card-meta"><span class="card-date">9 сен 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-09-06-neuralink-v-kanade-paralizovannye-patsienty-nauchilis-upravl/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Neuralink в Канаде: парализованные пациенты научились управлять компьютером силой мысли</div><div class="card-excerpt">⠀ Двое канадцев с повреждением спинного мозга стали первыми в стране, кому имплантировали чип Neuralink Илона Маска. Операции провели хирурги University Health Network в Торонто 27 августа и 3 сентябр</div><div class="card-meta"><span class="card-date">6 сен 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/transport/">#Транспорт</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-08-20-ilon-mask-neozhidanno-prizemlilsya-v-malenkom-gorodke-britan/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>CA.Y</span></div>'"></div><div class="card-body"><div><span class="src-badge">ca.yahoo.com</span></div><div class="card-title">Илон Маск неожиданно приземлился в маленьком городке Британской Колумбии</div><div class="card-excerpt">В канадской глубинке – настоящий переполох: Илон Маск внезапно появился в рыбацком поселке Белла Белла (Центральное побережье Британской Колумбии, около 1500 жителей).  По данным CBC, миллиардер и гла</div><div class="card-meta"><span class="card-date">20 авг 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-def" href="/tag/turizm/">#Туризм</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-15-kanadskie-yuristy-fiksiruyut-novuyu-prichinu-razvodov-vliyan/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Канадские юристы фиксируют новую причину разводов — влияние «маносферы» и токсичной маскулинности</div><div class="card-excerpt">Семейный юрист из Саскачевана Скотт Байерс заявил, что в последние годы всё больше разводов в провинции связано не с финансами, а с идеологией. Причина — радикализация мужей под влиянием «маносферы» и</div><div class="card-meta"><span class="card-date">15 июл 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-07-02-elbouc-ap-skoree-golova-vniz-premer-ministr-karni-na-fone-da/"><div class="card-img"><div class="card-placeholder" style="background:#005689"><span style="color:#fff">Guardian</span></div></div><div class="card-body"><div><span class="src-badge">The Guardian</span></div><div class="card-title">“Элбоуc ап”? Скорее — голова вниз. Премьер-министр Карни на фоне давления из Вашингтона проталкивает новый законопроект об иммиграции — Bill C‑2 (Strong Borders</div><div class="card-excerpt">Act), и его содержание наводит на мысли не о Канаде, а о MAGA.  Колумнист The Guardian Тайо Беро пишет:  – Законопроект запрещает подавать на статус беженца, если человек находится в Канаде более года</div><div class="card-meta"><span class="card-date">2 июл 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-06-14-ministr-immigratsii-lena-diab-izbegaet-otvetov-i-zaschischae/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Министр иммиграции Лена Диаб избегает ответов и защищает старую политику Либералов, несмотря на “новое руководство”.</div><div class="card-excerpt">Джейми Сарконак в National Post описывает, как новый министр провалилась на дебатах по бюджету: вместо конкретики — отсылки к другим министерствам. – Сколько нелегалов выдворили с декабря? Вопрос к Pu</div><div class="card-meta"><span class="card-date">14 июн 2025</span><div class="card-tags"><a class="tag tag-imm" href="/tag/immigratsiya/">#Иммиграция</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-05-30-feyki-dlya-diabetikov-zahvatyvayut-kanadskiy-rynok/"><div class="card-img"><div class="card-placeholder" style="background:#4a4740"><span style="color:#fff">?</span></div></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Фейки для диабетиков захватывают канадский рынок</div><div class="card-excerpt">Diabetes Canada бьёт тревогу: в стране распространяются мошеннические товары для людей с диабетом. Это и чудокапли, якобы заменяющие инъекции GLP-1, и смарт-часы, обещающие измерять уровень сахара без</div><div class="card-meta"><span class="card-date">30 май 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/zdravoohranenie/">#Здравоохранение</a><a class="tag tag-def" href="/tag/transport/">#Транспорт</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-05-29-tesla-teryaet-kanadu/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>ELEC</span></div>'"></div><div class="card-body"><div><span class="src-badge">electrek.co</span></div><div class="card-title">⚡️ Tesla теряет Канаду</div><div class="card-excerpt">Продажи компании в Квебеке упали на 87% в первом квартале 2025 года. Это — катастрофа на ключевом для электромобилей рынке страны.  По данным SAAQ (дорожная служба Квебека):  – За весь Q1 2025 Tesla п</div><div class="card-meta"><span class="card-date">29 май 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-05-26-kanada-v-epitsentre-trevozhnoy-statistiki-novyy-doklad-o-ros/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Канада в эпицентре тревожной статистики: новый доклад о росте антисемитизма</div><div class="card-excerpt">Движение Combat Antisemitism Movement: &quot;Это самый сильный всплеск ненависти со времён Второй мировой&quot;.  В современном мире антисемитизм остаётся явлением без временных и географических границ. Но посл</div><div class="card-meta"><span class="card-date">26 май 2025</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-04-11-kak-gruppa-kuplyu-prodam-v-gamiltone-stala-krupneyshim-proan/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Как группа «Куплю-продам в Гамильтоне» стала крупнейшим проаннексионным сообществом Facebook</div><div class="card-excerpt">До января 2023 года в этом Facebook-сообществе продавали подержанные тостеры, консоли и корм для кошек. Сегодня — почти 18 000 участников обсуждают, как Канада должна стать 51-м штатом США, а Илон Мас</div><div class="card-meta"><span class="card-date">11 апр 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-03-27-bu-tesla-navodnili-rynok-stoit-li-riskovat-pokupkoy/"><div class="card-img"><div class="card-placeholder" style="background:#4a4740"><span style="color:#fff">?</span></div></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Б/у Tesla наводнили рынок — стоит ли рисковать покупкой?</div><div class="card-excerpt">Из-за политики Илона Маска и падения интереса к бренду канадцы всё чаще избавляются от Tesla.  На платформах перепродажи в Канаде зафиксирован рост объявлений о продаже подержанных Tesla: на BCAA — +3</div><div class="card-meta"><span class="card-date">27 мар 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-03-26-kanadskie-vybory-pod-ugrozoy-vneshnego-vmeshatelstva/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">🔻 Канадские выборы под угрозой внешнего вмешательства</div><div class="card-excerpt">Федеральная разведка и независимые аналитики бьют тревогу: выборы в Канаде 28 апреля могут стать мишенью для масштабных дезинформационных кампаний со стороны Китая, России, Индии и даже США.  📌 Почему</div><div class="card-meta"><span class="card-date">26 мар 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-03-20-massovoe-povrezhdenie-tesla-v-gamiltone/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">🚨 Массовое повреждение Tesla в Гамильтоне</div><div class="card-excerpt">В Гамильтоне неизвестные повредили более 80 автомобилей Tesla на парковке у дилерского центра рядом с Limeridge Mall.   У машин глубокие царапины и проколотые шины.  Атака произошла на фоне серии напа</div><div class="card-meta"><span class="card-date">20 мар 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2025-03-19-vandaly-atakovali-avtosalon-tesla-v-monreale/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>?</span></div>'"></div><div class="card-body"><div><span class="src-badge">—</span></div><div class="card-title">Вандалы атаковали автосалон Tesla в Монреале</div><div class="card-excerpt">Активисты облили краской автосалон Tesla на бульваре Декари в Монреале. Полиция арестовала двух человек.  📌 Кто стоит за атакой?  🔹 Ответственность взяла на себя эко-группа Last Generation Canada.  🔹</div><div class="card-meta"><span class="card-date">19 мар 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-def" href="/tag/prestupnost/">#Преступность</a></div></div><div class="card-read">Читать далее →</div></div></a></div>
   <div class="pgn"><a class="pb on" href="/person/ilon-mask/">1</a><a class="pb" href="/person/ilon-mask/page/2/">2</a><a class="pb" href="/person/ilon-mask/page/2/">→</a></div>
 </div>
 <footer>
@@ -668,8 +191,8 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
     <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
     <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
   </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/politika/">#Политика</a><a href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a href="/tag/ekonomika/">#Экономика</a><a href="/tag/zhilyo/">#Жильё</a><a href="/tag/transport/">#Транспорт</a><a href="/tag/rynok-truda/">#Рынок труда</a><a href="/tag/prestupnost/">#Преступность</a><a href="/tag/prava-i-svobody/">#Права и свободы</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/daniel-smit/">Даниэль Смит</a><a href="/person/melani-zholi/">Мелани Жоли</a><a href="/person/anita-anand/">Анита Ананд</a></div>
 </div>
 <div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
 </footer>

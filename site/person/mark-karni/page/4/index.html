@@ -18,22 +18,20 @@
 <meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root{
-  --bg:#ffffff;
-  --card:#ffffff;
-  --t:#111;
-  --t2:#555;
-  --t3:#888;
-  --br:#e5e5e5;
---serif:'Playfair Display', Georgia, serif;
---sans:'Golos Text', system-ui, sans-serif;
-}
-
-body{
-  background:#ffffff;
-  color:#111;
-  font-family:var(--sans);
+  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#f9f7f3;--bg4:#ede9e1;--bg5:#e4e0d6;
+  --br:#e2ddd4;--br2:#ccc7bc;
+  --card:#ffffff;--card-hover:#faf8f4;
+  --t:#1a1916;--t2:#4a4740;--t3:#8a857a;--t4:#b8b3a8;
+  --ac:#c0392b;--ac2:#c0392b;--ac3:#e05240;
+  --gold:#9a6f20;--gold2:#c9963a;
+  --tg:#2b6cb0;--tg2:#1a56a0;
+  --maple:#c0392b;
+  --shadow:0 2px 12px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -42,137 +40,117 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ── NAV ── */
-nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
-.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--t)}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:1px}
 .nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.nl:hover{color:var(--cream);background:var(--bg3)}
-.nl.on{color:var(--cream);background:var(--bg3)}
+.nl:hover{color:var(--t);background:var(--bg4)}
+.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
 .nav-r{display:flex;align-items:center;gap:10px}
-.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
-.tgb:hover{background:rgba(91,155,213,.2)}
-.tgb{
-  background:#c0392b;
-  color:#fff;
-  border-radius:6px;
-  padding:6px 14px;
-  font-weight:600;
-  font-size:13px;
-  border:none;
-}
-
-.tgb:hover{
-  background:#a93226;
-}
+/* Telegram — prominent button */
+.tgb{display:flex;align-items:center;gap:7px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:all .2s;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.tgb:hover{background:var(--tg);box-shadow:0 2px 8px rgba(26,86,160,.4)}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
 
 .wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
+/* ── SOURCE BADGE (red) ── */
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:3px;white-space:nowrap}
+
 /* ── CARD SYSTEM ── */
-/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:6px;
-  overflow:hidden;
-  transition:transform .15s;
-}
-.card:hover{
-  transform:translateY(-2px);
-}
+.card{background:var(--card);border-radius:8px;overflow:hidden;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
-/* Image container — always 16:9, consistent shadow on image */
-.card-img{
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:var(--bg4);
-  flex-shrink:0;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-
+/* Image — fixed 16:9, cover, contained */
+.card-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+.card-img .emoji-fallback{font-size:28px;color:var(--t4)}
 
-/* Card body — cream-tinted text on dark */
-.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-src{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#c0392b;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.35;
-  color:#111;
-}
+/* Card body */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:15px}
 .card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-.card-date{font-size:10px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap;border-top:1px solid var(--br)}
+.card-date{font-size:11px;color:var(--t3)}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+/* Read more link */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:4px}
+.card:hover .card-read{text-decoration:underline}
 
-/* Tags — topic-colored by category */
-.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+/* ── TAG CHIPS ── */
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;transition:opacity .12s;letter-spacing:.2px}
 .tag:hover{opacity:.8}
-/* politics/elections */
-.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-/* economy/tariffs */
-.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-/* immigration */
-.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-/* regions */
-.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-/* longreads */
-.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-/* default */
-.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
-
-/* Tag category mapping */
-.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
-.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
-.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
-.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
-.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
-.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+/* Politics — red */
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+/* Economy — amber */
+.tag-eco{background:#fef3c7;color:#78350f}
+/* Immigration — blue */
+.tag-imm{background:#dbeafe;color:#1e40af}
+/* Regions — green */
+.tag-reg{background:#d1fae5;color:#065f46}
+/* Stats — purple */
+.tag-stat{background:#ede9fe;color:#4c1d95}
+/* Default — gray */
+.tag-def{background:var(--bg4);color:var(--t3)}
 
 /* ── PAGINATION ── */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
 /* ── TAG FILTER BAR ── */
 .tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
 .fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .flogo .lf{color:var(--maple)}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
 .fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
 .fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
-.fcol a:hover{color:var(--cream)}
+.fcol a:hover{color:var(--t)}
 .fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
 
-/* ── TG CTA ── */
-.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+/* ── TG CTA (bottom of post) ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:18px 22px;margin-top:36px}
 .tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
 .ctxt{flex:1}
-.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.ctit{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--t)}
 .csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:6px}
-.ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
-.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+.ctgp a{color:var(--tg2)}
+.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap;box-shadow:0 1px 4px rgba(26,86,160,.3)}
+.cbtn2:hover{background:var(--tg)}
+
+/* ── CARD PLACEHOLDER ── */
+.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.card-placeholder span{font-size:13px;font-weight:700;letter-spacing:.5px;opacity:.9}
+/* Consistent card-img — always 16:9, photo is decorative */
+.card-img{position:relative}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Read more */
+.card-read{font-size:12px;font-weight:600;color:var(--ac);margin-top:2px}
+
+/* ci-badge smaller */
+.ci-badge{font-size:9px!important;padding:1px 6px!important}
+
+/* lr-card */
+.lr-card{display:flex;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
+.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.lr-img{width:80px;min-width:80px;height:80px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lr-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lr-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:5px;min-width:0}
+.lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
@@ -188,477 +166,22 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
 </style>
 </head>
 <body>
-
-<nav style="background:#fff;border-bottom:1px solid #eee;">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
-
-    <!-- LEFT -->
-    <div style="display:flex;gap:16px;font-size:14px;color:#555">
-      <a href="/" style="color:#000">Новости</a>
-      <a href="/materials/">Материалы</a>
-      <a href="/longreads/">Лонгриды</a>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
-      Maple <span style="color:#d44">🍁</span> Barrel
-    </div>
-
-    <!-- RIGHT -->
-    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
-      <a href="/about/">О проекте</a>
-      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
-    </div>
-
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
   </div>
-</nav>
-
+</div></nav>
 <div class="wrap">
   <div class="tag-hdr">
     <h1>Марк Карни</h1>
     <p>782 материалов</p>
   </div>
-  <div class="tag-grid"><a class="card" href="/post/2026-01-31-poliev-prizyvaet-k-nadezhde-i-byot-po-separatizmu-v-alberte-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке</div>
-    <div class="card-excerpt">Пьер Полиев в пятницу вечером выступил с ключевой речью на съезде консерваторов в Калгари — за несколько часов до голосования по своему лидерству. Его задача была двойной: сплотить партийную базу и од</div>
-    <div class="card-meta">
-      <span class="card-date">31 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-31-per-poliev-poluchil-874-i-sohranil-liderstvo-u-konservatorov/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов</div>
-    <div class="card-excerpt">Лидер Консервативной партии Пьер Полиев уверенно прошёл проверку на съезде в Калгари. По итогам голосования 87,4% делегатов высказались за сохранение его на посту. Явка составила 95% — проголосовали 2</div>
-    <div class="card-meta">
-      <span class="card-date">31 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-30-per-poliev-vyhodit-na-reshayuschee-golosovanie-za-liderstvo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Пьер Полиев выходит на решающее голосование за лидерство" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Пьер Полиев выходит на решающее голосование за лидерство</div>
-    <div class="card-excerpt">Сегодня вечером в Калгари Пьер Полиев выступит с речью, которая фактически станет отчётом за его лидерство и прологом к голосованию о будущем главы Консервативной партии. Сразу после выступления делег</div>
-    <div class="card-meta">
-      <span class="card-date">30 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-30-tramp-grozit-dekertifikatsiey-kanadskih-samolyotov-no-u-nego/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Трамп грозит «декертификацией» канадских самолётов — но у него нет таких полномочий" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Трамп грозит «декертификацией» канадских самолётов — но у него нет таких полномочий</div>
-    <div class="card-excerpt">Президент США Дональд Трамп вновь усиливает давление на Канаду, пригрозив «декертифицировать» самолёты канадского производства и ввести 50-процентные пошлины на их продажу в США. Однако авиационные эк</div>
-    <div class="card-meta">
-      <span class="card-date">30 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-30-karni-nazval-serial-heated-rivalry-primerom-myagkoy-sily-kan/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни назвал сериал Heated Rivalry примером «мягкой силы» Канады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Карни назвал сериал Heated Rivalry примером «мягкой силы» Канады</div>
-    <div class="card-excerpt">⁠  Премьер-министр Марк Карни неожиданно оказался в центре внимания канадской поп-культуры, появившись на гала-вечере Prime Time в Оттаве вместе со звездой сериала Heated Rivalry Хадсоном Уильямсом. П</div>
-    <div class="card-meta">
-      <span class="card-date">30 янв 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-29-skott-bessent-prizval-karni-prekratit-moralnoe-pozyorstvo-pe/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Скотт Бессент призвал Карни прекратить «моральное позёрство» перед торговыми переговорами" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Скотт Бессент призвал Карни прекратить «моральное позёрство» перед торговыми переговорами</div>
-    <div class="card-excerpt">Администрация Дональда Трампа усиливает давление на Канаду накануне пересмотра торгового соглашения CUSMA. Министр финансов США Scott Bessent выступил с жёстким предупреждением в адрес премьер-министр</div>
-    <div class="card-meta">
-      <span class="card-date">29 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-29-kir-starmer-distantsirovalsya-ot-rechi-marka-karni-v-davose-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">torontosun.com</div>
-    <div class="card-title">Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»</div>
-    <div class="card-excerpt">Премьер-министр Великобритании Kир Стармер публично дал понять, что не разделяет подход канадского премьера Mark Carney, озвученный на Всемирном экономическом форуме в Давосе.   Выступая перед журнали</div>
-    <div class="card-meta">
-      <span class="card-date">29 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-29-administratsiya-trampa-tayno-vstrechalas-s-kanadskimi-separa/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ft.com</div>
-    <div class="card-title">Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты</div>
-    <div class="card-excerpt">Администрация Дональда Трампа провела серию закрытых встреч с представителями движения Alberta Prosperity Project (APP), выступающего за отделение провинции Альберта от Канады. Об этом пишет Financial</div>
-    <div class="card-meta">
-      <span class="card-date">29 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a><a class="tag tag-reg" data-t="Альберта" href="/tag/alberta/">#Альберта</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-28-liberaly-vyhodyat-na-47-posle-davosa-i-poezdki-karni-v-kitay/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger</div>
-    <div class="card-excerpt">⁠ Либеральная партия резко усилила позиции после международных поездок премьер-министра Марк Карни. Согласно опросу Postmedia–Leger, 47% канадцев готовы проголосовать за либералов, если выборы состоял</div>
-    <div class="card-meta">
-      <span class="card-date">28 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-28-kanada-i-indiya-dogovorilis-rasshirit-torgovlyu-neftyu-i-gaz/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада и Индия договорились расширить торговлю нефтью и газом" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">sg.news.yahoo.com</div>
-    <div class="card-title">Канада и Индия договорились расширить торговлю нефтью и газом</div>
-    <div class="card-excerpt">Оттава и Нью-Дели перезапускают энергетические отношения и планируют нарастить взаимные поставки нефти и газа. Договорённости были объявлены на India Energy Week в Гоа, где встретились министр природн</div>
-    <div class="card-meta">
-      <span class="card-date">28 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-28-karni-torgovye-peregovory-s-ssha-prodolzhatsya-dazhe-esli-v-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни: торговые переговоры с США продолжатся, даже если в Америке сейчас «почти ничего не является нормальным»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Карни: торговые переговоры с США продолжатся, даже если в Америке сейчас «почти ничего не является нормальным»</div>
-    <div class="card-excerpt">⁠  ⁠ Премьер-министр Марк Карни сделал серию жёстких заявлений в адрес администрации Дональд Трамп, подтвердив: Канада продолжит переговоры о пересмотре соглашения о свободной торговле с США, несмотря</div>
-    <div class="card-meta">
-      <span class="card-date">28 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-27-v-kalgari-vystroilis-ocheredi-za-podpisyu-pod-petitsiey-o-vy/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="В Калгари выстроились очереди за подписью под петицией о выходе Альберты из Канады" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">В Калгари выстроились очереди за подписью под петицией о выходе Альберты из Канады</div>
-    <div class="card-excerpt">В Альберте набирает обороты кампания за проведение референдума о выходе провинции из состава Канады. В последние недели сбор подписей проходил в небольших городах и сельских общинах, а накануне впервы</div>
-    <div class="card-meta">
-      <span class="card-date">27 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-27-konechno-net-karni-otverg-razgovory-o-dosrochnyh-vyborah/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Конечно, нет»: Карни отверг разговоры о досрочных выборах" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">«Конечно, нет»: Карни отверг разговоры о досрочных выборах</div>
-    <div class="card-excerpt">⁠  Премьер-министр Марк Карни заявил, что федеральное правительство не рассматривает вариант досрочных выборов весной, несмотря на активизацию парламентской повестки и явно «кампанийный» стиль последн</div>
-    <div class="card-meta">
-      <span class="card-date">27 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-27-amerika-trampa-prishla-za-albertoy/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Америка Трампа пришла за Альбертой" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thetyee.ca</div>
-    <div class="card-title">Америка Трампа пришла за Альбертой</div>
-    <div class="card-excerpt">⁠  Администрация Дональда Трампа всё менее стесняется вмешательства во внутренние дела Канады. Очередная красная линия была пересечена, когда министр финансов США публично заговорил о симпатиях к идее</div>
-    <div class="card-meta">
-      <span class="card-date">27 янв 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-26-vozvraschenie-parlamenta-diagnoz-postavlen-lecheniya-poka-ne/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Возвращение парламента: диагноз поставлен, лечения пока нет" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">archive.ph</div>
-    <div class="card-title">Возвращение парламента: диагноз поставлен, лечения пока нет</div>
-    <div class="card-excerpt">⁠  Парламент Канады возвращается к работе — и это момент, когда политике пора переходить от разговоров к решениям.  ⁠  На этой неделе прозвучали программные речи премьер-министра Марка Карни и лидера</div>
-    <div class="card-meta">
-      <span class="card-date">26 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-26-federalnyy-treker-liberaly-uvelichili-otryv-do-8-punktov-42-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Федеральный трекер: либералы увеличили отрыв до 8 пунктов — 42% против 34%" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">press.liaisonstrategies.ca</div>
-    <div class="card-title">Федеральный трекер: либералы увеличили отрыв до 8 пунктов — 42% против 34%</div>
-    <div class="card-excerpt">Новый национальный опрос Liaison Strategies показывает, что либералы продолжают уходить вперёд. Среди определившихся и склоняющихся избирателей они набирают 42%, консерваторы — 34%. НДП остаётся на ур</div>
-    <div class="card-meta">
-      <span class="card-date">26 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-26-federalnoe-pravitelstvo-vvedyot-produktovuyu-vyplatu-istochn/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Федеральное правительство введёт «продуктовую выплату» — источники" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Федеральное правительство введёт «продуктовую выплату» — источники</div>
-    <div class="card-excerpt">Премьер-министр Марк Карни в понедельник объявит об увеличении налогового кредита по GST и пакете мер, направленных на смягчение роста цен на продукты. Об этом сообщает CBC News со ссылкой на источник</div>
-    <div class="card-meta">
-      <span class="card-date">26 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-25-glava-food-banks-canada-trebuet-srochnyh-mer-ot-ottavy-na-fo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Глава Food Banks Canada требует срочных мер от Оттавы на фоне рекордного роста обращений" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Глава Food Banks Canada требует срочных мер от Оттавы на фоне рекордного роста обращений</div>
-    <div class="card-excerpt">Генеральный директор Food Banks Canada Кирстин Бирдсли заявила, что Канада столкнулась с кризисом продовольственной небезопасности, который больше нельзя игнорировать как второстепенную проблему. Числ</div>
-    <div class="card-meta">
-      <span class="card-date">25 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-25-ssha-pytayutsya-sygrat-na-albertskom-separatizme-chtoby-rask/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">lemonde.fr</div>
-    <div class="card-title">США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре.</div>
-    <div class="card-excerpt">После ослабления риторики вокруг Гренландии администрация Дональда Трампа сместила фокус внимания на Канаду — точнее, на Альберту. Нефтедобывающая провинция, обеспечивающая около 90% канадской нефти,</div>
-    <div class="card-meta">
-      <span class="card-date">25 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-25-avstraliyskiy-premer-podderzhal-karni-i-podtverdil-ego-vizit/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Австралийский премьер поддержал Карни и подтвердил его визит в Канберру в марте" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Австралийский премьер поддержал Карни и подтвердил его визит в Канберру в марте</div>
-    <div class="card-excerpt">Премьер-министр Австралии Энтони Альбанезе заявил, что Марк Карни посетит страну в марте и выступит с речью в парламенте. Об этом он сообщил в интервью Australian Broadcasting Corporation.   По словам</div>
-    <div class="card-meta">
-      <span class="card-date">25 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-24-karni-vypustil-video-pokupay-kanadskoe-bez-upominaniya-ssha-/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">📰</span></div>
-  <div class="card-body">
-    <div class="card-src">x.com</div>
-    <div class="card-title">Карни выпустил видео «Покупай канадское» — без упоминания США, но с очевидным адресатом</div>
-    <div class="card-excerpt">‎  Премьер-министр Марк Карни опубликовал в соцсетях короткое, заранее записанное видео в стиле предвыборной кампании, посвящённое идее «покупать и строить канадское» как ответ на внешние экономически</div>
-    <div class="card-meta">
-      <span class="card-date">24 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-24-esli-by-golosovala-tolko-molodyozh-konservatory-razgromili-b/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Если бы голосовала только молодёжь, консерваторы разгромили бы выборы" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">Если бы голосовала только молодёжь, консерваторы разгромили бы выборы</div>
-    <div class="card-excerpt">‎  Новый опрос показывает беспрецедентный для Канады раскол по возрасту: молодые избиратели массово уходят к консерваторам, тогда как старшие поколения столь же уверенно поддерживают премьер-министра</div>
-    <div class="card-meta">
-      <span class="card-date">24 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-24-tramp-zayavil-chto-kanada-vystupaet-protiv-zolotogo-kupola-n/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Трамп заявил, что Канада выступает против «Золотого купола» над Гренландией" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">bnnbloomberg.ca</div>
-    <div class="card-title">Трамп заявил, что Канада выступает против «Золотого купола» над Гренландией</div>
-    <div class="card-excerpt">‎  Отношения Канады и США вновь оказались в центре внимания после того, как Дональд Трамп заявил, что Оттава выступает против строительства системы ПРО «Golden Dome» над Гренландией. По его словам, пр</div>
-    <div class="card-meta">
-      <span class="card-date">24 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-24-ded-prosnulsya-i-prigrozil-kanade-100-protsentnymi-tarifami-/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Дед проснулся и пригрозил Канаде 100-процентными тарифами из-за возможной сделки с Китаем" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">truthsocial.com</div>
-    <div class="card-title">Дед проснулся и пригрозил Канаде 100-процентными тарифами из-за возможной сделки с Китаем</div>
-    <div class="card-excerpt">‎  Президент США Дональд Трамп заявил, что введёт 100-процентные  тарифы на все канадские товары, если Оттава пойдёт на торговое соглашение с Китаем. Об этом он написал в Truth Social, предупредив, чт</div>
-    <div class="card-meta">
-      <span class="card-date">24 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-23-kanada-proschitala-stsenariy-vtorzheniya-ssha-i-on-zakanchiv/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада просчитала сценарий вторжения США — и он заканчивается за два дня" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">apple.news</div>
-    <div class="card-title">Канада просчитала сценарий вторжения США — и он заканчивается за два дня</div>
-    <div class="card-excerpt">‎  Канадские военные смоделировали гипотетическое вторжение США и пришли к жёсткому выводу: регулярные силы Канады были бы подавлены в течение двух суток. Об этом сообщили источники, знакомые с модели</div>
-    <div class="card-meta">
-      <span class="card-date">23 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-23-karni-isklyuchili-iz-soveta-mira-trampa-mesto-mogut-otdat-me/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни исключили из «Совета мира» Трампа — место могут отдать Мегатрону или Ким Чен Ыну" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thebeaverton.com</div>
-    <div class="card-title">Карни исключили из «Совета мира» Трампа — место могут отдать Мегатрону или Ким Чен Ыну</div>
-    <div class="card-excerpt">‎   Президент США Дональд Трамп заявил, что премьер-министр Канады Марк Карни больше не приглашён в созданный им «Совет мира» — закрытый клуб, куда, по версии Белого дома, входят «сильные лидеры», вое</div>
-    <div class="card-meta">
-      <span class="card-date">23 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-22-karni-krizisnyy-menedzher-kotoryy-seychas-nuzhen-kanade/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни — кризисный менеджер, который сейчас нужен Канаде" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">macleans.ca</div>
-    <div class="card-title">Карни — кризисный менеджер, который сейчас нужен Канаде</div>
-    <div class="card-excerpt">Стивен Махер из Maclean’s пишет, что речь Марка Карни в Давосе показала: именно он — кризисный менеджер, который сейчас нужен Канаде ‎  Автор признаётся, что раньше видел в Карни не только выдающегося</div>
-    <div class="card-meta">
-      <span class="card-date">22 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-22-karni-otvetil-trampu-na-slova-kanada-zhivyot-blagodarya-ssha/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни ответил Трампу на слова «Канада живёт благодаря США» на заседании кабинета" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">Карни ответил Трампу на слова «Канада живёт благодаря США» на заседании кабинета</div>
-    <div class="card-excerpt">‎  Премьер-министр Марк Карни во второй раз за неделю публично ответил Дональду Трампу — на этот раз напрямую, отреагировав на заявление президента США о том, что «Канада живёт благодаря Соединённым Ш</div>
-    <div class="card-meta">
-      <span class="card-date">22 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-22-lyutnik-nazval-rech-karni-politicheskim-shumom-i-predosteryo/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Лютник назвал речь Карни «политическим шумом» и предостерёг Канаду из-за сделки с Китаем" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">halifax.citynews.ca</div>
-    <div class="card-title">Лютник назвал речь Карни «политическим шумом» и предостерёг Канаду из-за сделки с Китаем</div>
-    <div class="card-excerpt">‎  Министр торговли США Говард Лютник резко прошёлся по выступлению премьер-министра Канады Марка Карни на Всемирном экономическом форуме в Давосе, назвав его «политическим шумом» и раскритиковав неда</div>
-    <div class="card-meta">
-      <span class="card-date">22 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-22-vsego-lish-vsplesk-respublikantsy-sovetuyut-kanade-ne-reagir/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Всего лишь всплеск»: республиканцы советуют Канаде не реагировать на Трампа" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">semafor.com</div>
-    <div class="card-title">«Всего лишь всплеск»: республиканцы советуют Канаде не реагировать на Трампа</div>
-    <div class="card-excerpt">⁠  Республиканцы в Конгрессе США призывают Канаду не воспринимать всерьёз очередную волну резких заявлений Дональда Трампа. По их словам, нынешняя перепалка — временное явление, которое не должно повл</div>
-    <div class="card-meta">
-      <span class="card-date">22 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-22-posle-rechi-karni-v-davose-konservatory-dumayut-kak-per-poli/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="После речи Карни в Давосе консерваторы думают, как Пьер Полиеву соответствовать моменту во внешней политике" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalpost.com</div>
-    <div class="card-title">После речи Карни в Давосе консерваторы думают, как Пьер Полиеву соответствовать моменту во внешней политике</div>
-    <div class="card-excerpt">⁠  Речь Марка Карни в Давосе неожиданно поставила перед консерваторами неудобный вопрос: что делать Пьеру Полиеву с внешней политикой, если Дональд Трамп никуда не исчезает и снова определяет повестку</div>
-    <div class="card-meta">
-      <span class="card-date">22 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-21-tiktok-poka-ostayotsya-v-kanade-federalnyy-sud-otmenil-prika/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="TikTok пока остаётся в Канаде — федеральный суд отменил приказ о закрытии" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">theglobeandmail.com</div>
-    <div class="card-title">TikTok пока остаётся в Канаде — федеральный суд отменил приказ о закрытии</div>
-    <div class="card-excerpt">⁠  Федеральный суд Канады приостановил решение правительства о ликвидации канадского бизнеса TikTok. Приложение продолжит работу, а дело возвращено на повторное рассмотрение в Министерство промышленно</div>
-    <div class="card-meta">
-      <span class="card-date">21 янв 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-21-eto-nepriemlemo-dag-ford-zhyostko-otvetil-trampu-na-novye-za/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Это неприемлемо»: Даг Форд жёстко ответил Трампу на новые заявления о Канаде" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">«Это неприемлемо»: Даг Форд жёстко ответил Трампу на новые заявления о Канаде</div>
-    <div class="card-excerpt">⁠  Премьер Онтарио Даг Форд резко раскритиковал президента США Дональда Трампа после его выступления на Всемирном экономическом форуме в Давосе, где тот вновь заговорил о контроле над Гренландией и за</div>
-    <div class="card-meta">
-      <span class="card-date">21 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-21-luchshaya-rech-mirovogo-lidera-za-dolgoe-vremya-davosskiy-sp/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Лучшая речь мирового лидера за долгое время»: Давосский спич Карни разошёлся по планете" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">bnnbloomberg.ca</div>
-    <div class="card-title">«Лучшая речь мирового лидера за долгое время»: Давосский спич Карни разошёлся по планете</div>
-    <div class="card-excerpt">Выступление Марка Карни на Всемирном экономическом форуме в Давосе неожиданно стало глобальным событием. Не канадской новостью, а международной точкой сборки — от Нью-Йорка до Берлина и Дохи.   Ключев</div>
-    <div class="card-meta">
-      <span class="card-date">21 янв 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-21-kanada-na-mirovoy-stsene-karni-ischet-soyuznikov-dlya-vyzhiv/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Канада на мировой сцене: Карни ищет союзников для выживания" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nytimes.com</div>
-    <div class="card-title">Канада на мировой сцене: Карни ищет союзников для выживания</div>
-    <div class="card-excerpt">Премьер-министр Канады Марк Карни выступил в Давосе с резкой речью о конце эпохи Pax Americana, сорвав редкую стоячую овацию на Всемирном экономическом форуме. Происходящее он назвал не «переходом», а</div>
-    <div class="card-meta">
-      <span class="card-date">21 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-21-kanada-zhivyot-blagodarya-ssha/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="«Канада живёт благодаря США»" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">cbc.ca</div>
-    <div class="card-title">«Канада живёт благодаря США»</div>
-    <div class="card-excerpt">Трамп в Давосе решил напомнить Канаде «кто тут главный».    Выступая на Всемирном экономическом форуме, президент США заявил, что «Канада живёт благодаря Соединённым Штатам» и должна быть за это благо</div>
-    <div class="card-meta">
-      <span class="card-date">21 янв 2026</span>
-      <div class="card-tags"></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-21-karni-zavershaet-mirovoe-turne-vstrechami-v-shveytsarii/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Карни завершает мировое турне встречами в Швейцарии" loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">ctvnews.ca</div>
-    <div class="card-title">Карни завершает мировое турне встречами в Швейцарии</div>
-    <div class="card-excerpt">Премьер-министр Канады Марк Карни сегодня подводит черту под девятидневным зарубежным турне, цель которого — привлечение инвестиций и переформатирование внешнеэкономических связей страны. Финальная то</div>
-    <div class="card-meta">
-      <span class="card-date">21 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-20-problema-polieva-v-tom-chto-on-vsyo-eschyo-sporit-s-2024-god/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Проблема Полиева в том, что он всё ещё спорит с 2024 годом." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Проблема Полиева в том, что он всё ещё спорит с 2024 годом.</div>
-    <div class="card-excerpt">⁠  Атака Пьера Полиева на торговую сделку Марка Карни с Китаем прозвучала громко — и пусто. Его главный аргумент: Карни ещё до выборов называл Китай «главной угрозой безопасности», а теперь вдруг гово</div>
-    <div class="card-meta">
-      <span class="card-date">20 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-20-polnyy-perevod-rechi-marka-karni-na-davosskom-forume-kotoray/">
-  <div class="card-img"><span class="emoji-fallback" style="font-size:32px">⭐</span></div>
-  <div class="card-body">
-    <div class="card-src">thestar.com</div>
-    <div class="card-title">Полный перевод речи Марка Карни на Давосском форуме, которая вызвала редкую стоячую овацию в зале.</div>
-    <div class="card-excerpt">⸻  Спасибо, Ларри.  Для меня большая честь — и обязанность — быть сегодня здесь, в момент перелома для Канады и для мира. Я хочу поговорить о разрыве мирового порядка, о конце приятной иллюзии и начал</div>
-    <div class="card-meta">
-      <span class="card-date">20 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
-    </div>
-  </div>
-</a><a class="card" href="/post/2026-01-20-metod-karni-vyrisovyvaetsya-ot-pekina-do-grenlandii/">
-  <div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="Метод Карни вырисовывается — от Пекина до Гренландии." loading="lazy"></div>
-  <div class="card-body">
-    <div class="card-src">nationalobserver.com</div>
-    <div class="card-title">Метод Карни вырисовывается — от Пекина до Гренландии.</div>
-    <div class="card-excerpt">⁠  За последние недели внешняя политика Марка Карни перестала выглядеть набором разрозненных визитов и начала складываться в систему. Китай, Катар, Давос — всё это элементы одной линии: диверсификация</div>
-    <div class="card-meta">
-      <span class="card-date">20 янв 2026</span>
-      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
-    </div>
-  </div>
-</a></div>
+  <div class="tag-grid"><a class="card" href="/post/2026-01-31-poliev-prizyvaet-k-nadezhde-i-byot-po-separatizmu-v-alberte-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке</div><div class="card-excerpt">Пьер Полиев в пятницу вечером выступил с ключевой речью на съезде консерваторов в Калгари — за несколько часов до голосования по своему лидерству. Его задача была двойной: сплотить партийную базу и од</div><div class="card-meta"><span class="card-date">31 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-31-per-poliev-poluchil-874-i-sohranil-liderstvo-u-konservatorov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов</div><div class="card-excerpt">Лидер Консервативной партии Пьер Полиев уверенно прошёл проверку на съезде в Калгари. По итогам голосования 87,4% делегатов высказались за сохранение его на посту. Явка составила 95% — проголосовали 2</div><div class="card-meta"><span class="card-date">31 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-30-per-poliev-vyhodit-na-reshayuschee-golosovanie-za-liderstvo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Пьер Полиев выходит на решающее голосование за лидерство</div><div class="card-excerpt">Сегодня вечером в Калгари Пьер Полиев выступит с речью, которая фактически станет отчётом за его лидерство и прологом к голосованию о будущем главы Консервативной партии. Сразу после выступления делег</div><div class="card-meta"><span class="card-date">30 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-30-tramp-grozit-dekertifikatsiey-kanadskih-samolyotov-no-u-nego/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Трамп грозит «декертификацией» канадских самолётов — но у него нет таких полномочий</div><div class="card-excerpt">Президент США Дональд Трамп вновь усиливает давление на Канаду, пригрозив «декертифицировать» самолёты канадского производства и ввести 50-процентные пошлины на их продажу в США. Однако авиационные эк</div><div class="card-meta"><span class="card-date">30 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-30-karni-nazval-serial-heated-rivalry-primerom-myagkoy-sily-kan/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Карни назвал сериал Heated Rivalry примером «мягкой силы» Канады</div><div class="card-excerpt">⁠  Премьер-министр Марк Карни неожиданно оказался в центре внимания канадской поп-культуры, появившись на гала-вечере Prime Time в Оттаве вместе со звездой сериала Heated Rivalry Хадсоном Уильямсом. П</div><div class="card-meta"><span class="card-date">30 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-29-skott-bessent-prizval-karni-prekratit-moralnoe-pozyorstvo-pe/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Скотт Бессент призвал Карни прекратить «моральное позёрство» перед торговыми переговорами</div><div class="card-excerpt">Администрация Дональда Трампа усиливает давление на Канаду накануне пересмотра торгового соглашения CUSMA. Министр финансов США Scott Bessent выступил с жёстким предупреждением в адрес премьер-министр</div><div class="card-meta"><span class="card-date">29 янв 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-29-kir-starmer-distantsirovalsya-ot-rechi-marka-karni-v-davose-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#e8000d><span style=color:#fff>Sun</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Sun</span></div><div class="card-title">Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»</div><div class="card-excerpt">Премьер-министр Великобритании Kир Стармер публично дал понять, что не разделяет подход канадского премьера Mark Carney, озвученный на Всемирном экономическом форуме в Давосе.   Выступая перед журнали</div><div class="card-meta"><span class="card-date">29 янв 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-29-administratsiya-trampa-tayno-vstrechalas-s-kanadskimi-separa/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>FT.C</span></div>'"></div><div class="card-body"><div><span class="src-badge">ft.com</span></div><div class="card-title">Администрация Трампа тайно встречалась с канадскими сепаратистами из Альберты</div><div class="card-excerpt">Администрация Дональда Трампа провела серию закрытых встреч с представителями движения Alberta Prosperity Project (APP), выступающего за отделение провинции Альберта от Канады. Об этом пишет Financial</div><div class="card-meta"><span class="card-date">29 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-28-liberaly-vyhodyat-na-47-posle-davosa-i-poezdki-karni-v-kitay/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Либералы выходят на 47% после Давоса и поездки Карни в Китай — опрос Leger</div><div class="card-excerpt">⁠ Либеральная партия резко усилила позиции после международных поездок премьер-министра Марк Карни. Согласно опросу Postmedia–Leger, 47% канадцев готовы проголосовать за либералов, если выборы состоял</div><div class="card-meta"><span class="card-date">28 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-28-kanada-i-indiya-dogovorilis-rasshirit-torgovlyu-neftyu-i-gaz/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>SG.N</span></div>'"></div><div class="card-body"><div><span class="src-badge">sg.news.yahoo.com</span></div><div class="card-title">Канада и Индия договорились расширить торговлю нефтью и газом</div><div class="card-excerpt">Оттава и Нью-Дели перезапускают энергетические отношения и планируют нарастить взаимные поставки нефти и газа. Договорённости были объявлены на India Energy Week в Гоа, где встретились министр природн</div><div class="card-meta"><span class="card-date">28 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-28-karni-torgovye-peregovory-s-ssha-prodolzhatsya-dazhe-esli-v-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Карни: торговые переговоры с США продолжатся, даже если в Америке сейчас «почти ничего не является нормальным»</div><div class="card-excerpt">⁠  ⁠ Премьер-министр Марк Карни сделал серию жёстких заявлений в адрес администрации Дональд Трамп, подтвердив: Канада продолжит переговоры о пересмотре соглашения о свободной торговле с США, несмотря</div><div class="card-meta"><span class="card-date">28 янв 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-27-v-kalgari-vystroilis-ocheredi-za-podpisyu-pod-petitsiey-o-vy/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">В Калгари выстроились очереди за подписью под петицией о выходе Альберты из Канады</div><div class="card-excerpt">В Альберте набирает обороты кампания за проведение референдума о выходе провинции из состава Канады. В последние недели сбор подписей проходил в небольших городах и сельских общинах, а накануне впервы</div><div class="card-meta"><span class="card-date">27 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-27-konechno-net-karni-otverg-razgovory-o-dosrochnyh-vyborah/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">«Конечно, нет»: Карни отверг разговоры о досрочных выборах</div><div class="card-excerpt">⁠  Премьер-министр Марк Карни заявил, что федеральное правительство не рассматривает вариант досрочных выборов весной, несмотря на активизацию парламентской повестки и явно «кампанийный» стиль последн</div><div class="card-meta"><span class="card-date">27 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-27-amerika-trampa-prishla-za-albertoy/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>THET</span></div>'"></div><div class="card-body"><div><span class="src-badge">thetyee.ca</span></div><div class="card-title">Америка Трампа пришла за Альбертой</div><div class="card-excerpt">⁠  Администрация Дональда Трампа всё менее стесняется вмешательства во внутренние дела Канады. Очередная красная линия была пересечена, когда министр финансов США публично заговорил о симпатиях к идее</div><div class="card-meta"><span class="card-date">27 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-26-vozvraschenie-parlamenta-diagnoz-postavlen-lecheniya-poka-ne/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>ARCH</span></div>'"></div><div class="card-body"><div><span class="src-badge">archive.ph</span></div><div class="card-title">Возвращение парламента: диагноз поставлен, лечения пока нет</div><div class="card-excerpt">⁠  Парламент Канады возвращается к работе — и это момент, когда политике пора переходить от разговоров к решениям.  ⁠  На этой неделе прозвучали программные речи премьер-министра Марка Карни и лидера</div><div class="card-meta"><span class="card-date">26 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-26-federalnyy-treker-liberaly-uvelichili-otryv-do-8-punktov-42-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>PRES</span></div>'"></div><div class="card-body"><div><span class="src-badge">press.liaisonstrategies.ca</span></div><div class="card-title">Федеральный трекер: либералы увеличили отрыв до 8 пунктов — 42% против 34%</div><div class="card-excerpt">Новый национальный опрос Liaison Strategies показывает, что либералы продолжают уходить вперёд. Среди определившихся и склоняющихся избирателей они набирают 42%, консерваторы — 34%. НДП остаётся на ур</div><div class="card-meta"><span class="card-date">26 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-26-federalnoe-pravitelstvo-vvedyot-produktovuyu-vyplatu-istochn/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Федеральное правительство введёт «продуктовую выплату» — источники</div><div class="card-excerpt">Премьер-министр Марк Карни в понедельник объявит об увеличении налогового кредита по GST и пакете мер, направленных на смягчение роста цен на продукты. Об этом сообщает CBC News со ссылкой на источник</div><div class="card-meta"><span class="card-date">26 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-25-glava-food-banks-canada-trebuet-srochnyh-mer-ot-ottavy-na-fo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Глава Food Banks Canada требует срочных мер от Оттавы на фоне рекордного роста обращений</div><div class="card-excerpt">Генеральный директор Food Banks Canada Кирстин Бирдсли заявила, что Канада столкнулась с кризисом продовольственной небезопасности, который больше нельзя игнорировать как второстепенную проблему. Числ</div><div class="card-meta"><span class="card-date">25 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/obschestvo/">#Общество</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-25-ssha-pytayutsya-sygrat-na-albertskom-separatizme-chtoby-rask/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>LEMO</span></div>'"></div><div class="card-body"><div><span class="src-badge">lemonde.fr</span></div><div class="card-title">США пытаются сыграть на альбертском сепаратизме, чтобы раскачать Канаду&amp; Редкий материал LeMond в обзоре.</div><div class="card-excerpt">После ослабления риторики вокруг Гренландии администрация Дональда Трампа сместила фокус внимания на Канаду — точнее, на Альберту. Нефтедобывающая провинция, обеспечивающая около 90% канадской нефти,</div><div class="card-meta"><span class="card-date">25 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-25-avstraliyskiy-premer-podderzhal-karni-i-podtverdil-ego-vizit/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Австралийский премьер поддержал Карни и подтвердил его визит в Канберру в марте</div><div class="card-excerpt">Премьер-министр Австралии Энтони Альбанезе заявил, что Марк Карни посетит страну в марте и выступит с речью в парламенте. Об этом он сообщил в интервью Australian Broadcasting Corporation.   По словам</div><div class="card-meta"><span class="card-date">25 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-24-karni-vypustil-video-pokupay-kanadskoe-bez-upominaniya-ssha-/"><div class="card-img"><div class="card-placeholder" style="background:#4a4740"><span style="color:#fff">X.CO</span></div></div><div class="card-body"><div><span class="src-badge">x.com</span></div><div class="card-title">Карни выпустил видео «Покупай канадское» — без упоминания США, но с очевидным адресатом</div><div class="card-excerpt">‎  Премьер-министр Марк Карни опубликовал в соцсетях короткое, заранее записанное видео в стиле предвыборной кампании, посвящённое идее «покупать и строить канадское» как ответ на внешние экономически</div><div class="card-meta"><span class="card-date">24 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-24-esli-by-golosovala-tolko-molodyozh-konservatory-razgromili-b/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">Если бы голосовала только молодёжь, консерваторы разгромили бы выборы</div><div class="card-excerpt">‎  Новый опрос показывает беспрецедентный для Канады раскол по возрасту: молодые избиратели массово уходят к консерваторам, тогда как старшие поколения столь же уверенно поддерживают премьер-министра</div><div class="card-meta"><span class="card-date">24 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-24-tramp-zayavil-chto-kanada-vystupaet-protiv-zolotogo-kupola-n/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>BNNB</span></div>'"></div><div class="card-body"><div><span class="src-badge">bnnbloomberg.ca</span></div><div class="card-title">Трамп заявил, что Канада выступает против «Золотого купола» над Гренландией</div><div class="card-excerpt">‎  Отношения Канады и США вновь оказались в центре внимания после того, как Дональд Трамп заявил, что Оттава выступает против строительства системы ПРО «Golden Dome» над Гренландией. По его словам, пр</div><div class="card-meta"><span class="card-date">24 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/turizm/">#Туризм</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-24-ded-prosnulsya-i-prigrozil-kanade-100-protsentnymi-tarifami-/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>TRUT</span></div>'"></div><div class="card-body"><div><span class="src-badge">truthsocial.com</span></div><div class="card-title">Дед проснулся и пригрозил Канаде 100-процентными тарифами из-за возможной сделки с Китаем</div><div class="card-excerpt">‎  Президент США Дональд Трамп заявил, что введёт 100-процентные  тарифы на все канадские товары, если Оттава пойдёт на торговое соглашение с Китаем. Об этом он написал в Truth Social, предупредив, чт</div><div class="card-meta"><span class="card-date">24 янв 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-23-kanada-proschitala-stsenariy-vtorzheniya-ssha-i-on-zakanchiv/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>APPL</span></div>'"></div><div class="card-body"><div><span class="src-badge">Apple News</span></div><div class="card-title">Канада просчитала сценарий вторжения США — и он заканчивается за два дня</div><div class="card-excerpt">‎  Канадские военные смоделировали гипотетическое вторжение США и пришли к жёсткому выводу: регулярные силы Канады были бы подавлены в течение двух суток. Об этом сообщили источники, знакомые с модели</div><div class="card-meta"><span class="card-date">23 янв 2026</span><div class="card-tags"><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-23-karni-isklyuchili-iz-soveta-mira-trampa-mesto-mogut-otdat-me/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>THEB</span></div>'"></div><div class="card-body"><div><span class="src-badge">thebeaverton.com</span></div><div class="card-title">Карни исключили из «Совета мира» Трампа — место могут отдать Мегатрону или Ким Чен Ыну</div><div class="card-excerpt">‎   Президент США Дональд Трамп заявил, что премьер-министр Канады Марк Карни больше не приглашён в созданный им «Совет мира» — закрытый клуб, куда, по версии Белого дома, входят «сильные лидеры», вое</div><div class="card-meta"><span class="card-date">23 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/energetika/">#Энергетика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-22-karni-krizisnyy-menedzher-kotoryy-seychas-nuzhen-kanade/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c8102e><span style=color:#fff>Maclean's</span></div>'"></div><div class="card-body"><div><span class="src-badge">Maclean's</span></div><div class="card-title">Карни — кризисный менеджер, который сейчас нужен Канаде</div><div class="card-excerpt">Стивен Махер из Maclean’s пишет, что речь Марка Карни в Давосе показала: именно он — кризисный менеджер, который сейчас нужен Канаде ‎  Автор признаётся, что раньше видел в Карни не только выдающегося</div><div class="card-meta"><span class="card-date">22 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-22-karni-otvetil-trampu-na-slova-kanada-zhivyot-blagodarya-ssha/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">Карни ответил Трампу на слова «Канада живёт благодаря США» на заседании кабинета</div><div class="card-excerpt">‎  Премьер-министр Марк Карни во второй раз за неделю публично ответил Дональду Трампу — на этот раз напрямую, отреагировав на заявление президента США о том, что «Канада живёт благодаря Соединённым Ш</div><div class="card-meta"><span class="card-date">22 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-22-lyutnik-nazval-rech-karni-politicheskim-shumom-i-predosteryo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>HALI</span></div>'"></div><div class="card-body"><div><span class="src-badge">halifax.citynews.ca</span></div><div class="card-title">Лютник назвал речь Карни «политическим шумом» и предостерёг Канаду из-за сделки с Китаем</div><div class="card-excerpt">‎  Министр торговли США Говард Лютник резко прошёлся по выступлению премьер-министра Канады Марка Карни на Всемирном экономическом форуме в Давосе, назвав его «политическим шумом» и раскритиковав неда</div><div class="card-meta"><span class="card-date">22 янв 2026</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-22-vsego-lish-vsplesk-respublikantsy-sovetuyut-kanade-ne-reagir/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>SEMA</span></div>'"></div><div class="card-body"><div><span class="src-badge">semafor.com</span></div><div class="card-title">«Всего лишь всплеск»: республиканцы советуют Канаде не реагировать на Трампа</div><div class="card-excerpt">⁠  Республиканцы в Конгрессе США призывают Канаду не воспринимать всерьёз очередную волну резких заявлений Дональда Трампа. По их словам, нынешняя перепалка — временное явление, которое не должно повл</div><div class="card-meta"><span class="card-date">22 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-22-posle-rechi-karni-v-davose-konservatory-dumayut-kak-per-poli/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#003087><span style=color:#fff>NatPost</span></div>'"></div><div class="card-body"><div><span class="src-badge">National Post</span></div><div class="card-title">После речи Карни в Давосе консерваторы думают, как Пьер Полиеву соответствовать моменту во внешней политике</div><div class="card-excerpt">⁠  Речь Марка Карни в Давосе неожиданно поставила перед консерваторами неудобный вопрос: что делать Пьеру Полиеву с внешней политикой, если Дональд Трамп никуда не исчезает и снова определяет повестку</div><div class="card-meta"><span class="card-date">22 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-21-tiktok-poka-ostayotsya-v-kanade-federalnyy-sud-otmenil-prika/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>Globe</span></div>'"></div><div class="card-body"><div><span class="src-badge">Globe and Mail</span></div><div class="card-title">TikTok пока остаётся в Канаде — федеральный суд отменил приказ о закрытии</div><div class="card-excerpt">⁠  Федеральный суд Канады приостановил решение правительства о ликвидации канадского бизнеса TikTok. Приложение продолжит работу, а дело возвращено на повторное рассмотрение в Министерство промышленно</div><div class="card-meta"><span class="card-date">21 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-21-eto-nepriemlemo-dag-ford-zhyostko-otvetil-trampu-na-novye-za/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">«Это неприемлемо»: Даг Форд жёстко ответил Трампу на новые заявления о Канаде</div><div class="card-excerpt">⁠  Премьер Онтарио Даг Форд резко раскритиковал президента США Дональда Трампа после его выступления на Всемирном экономическом форуме в Давосе, где тот вновь заговорил о контроле над Гренландией и за</div><div class="card-meta"><span class="card-date">21 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-21-luchshaya-rech-mirovogo-lidera-za-dolgoe-vremya-davosskiy-sp/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>BNNB</span></div>'"></div><div class="card-body"><div><span class="src-badge">bnnbloomberg.ca</span></div><div class="card-title">«Лучшая речь мирового лидера за долгое время»: Давосский спич Карни разошёлся по планете</div><div class="card-excerpt">Выступление Марка Карни на Всемирном экономическом форуме в Давосе неожиданно стало глобальным событием. Не канадской новостью, а международной точкой сборки — от Нью-Йорка до Берлина и Дохи.   Ключев</div><div class="card-meta"><span class="card-date">21 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-21-kanada-na-mirovoy-stsene-karni-ischet-soyuznikov-dlya-vyzhiv/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#1a1a1a><span style=color:#fff>NYT</span></div>'"></div><div class="card-body"><div><span class="src-badge">NY Times</span></div><div class="card-title">Канада на мировой сцене: Карни ищет союзников для выживания</div><div class="card-excerpt">Премьер-министр Канады Марк Карни выступил в Давосе с резкой речью о конце эпохи Pax Americana, сорвав редкую стоячую овацию на Всемирном экономическом форуме. Происходящее он назвал не «переходом», а</div><div class="card-meta"><span class="card-date">21 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-21-kanada-zhivyot-blagodarya-ssha/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#cc0000><span style=color:#fff>CBC</span></div>'"></div><div class="card-body"><div><span class="src-badge">CBC</span></div><div class="card-title">«Канада живёт благодаря США»</div><div class="card-excerpt">Трамп в Давосе решил напомнить Канаде «кто тут главный».    Выступая на Всемирном экономическом форуме, президент США заявил, что «Канада живёт благодаря Соединённым Штатам» и должна быть за это благо</div><div class="card-meta"><span class="card-date">21 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/tehnologii-i-ii/">#Технологии и ИИ</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-21-karni-zavershaet-mirovoe-turne-vstrechami-v-shveytsarii/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#005eb8><span style=color:#fff>CTV</span></div>'"></div><div class="card-body"><div><span class="src-badge">CTV News</span></div><div class="card-title">Карни завершает мировое турне встречами в Швейцарии</div><div class="card-excerpt">Премьер-министр Канады Марк Карни сегодня подводит черту под девятидневным зарубежным турне, цель которого — привлечение инвестиций и переформатирование внешнеэкономических связей страны. Финальная то</div><div class="card-meta"><span class="card-date">21 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-20-problema-polieva-v-tom-chto-on-vsyo-eschyo-sporit-s-2024-god/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#c41230><span style=color:#fff>Star</span></div>'"></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Проблема Полиева в том, что он всё ещё спорит с 2024 годом.</div><div class="card-excerpt">⁠  Атака Пьера Полиева на торговую сделку Марка Карни с Китаем прозвучала громко — и пусто. Его главный аргумент: Карни ещё до выборов называл Китай «главной угрозой безопасности», а теперь вдруг гово</div><div class="card-meta"><span class="card-date">20 янв 2026</span><div class="card-tags"><a class="tag tag-stat" href="/tag/statistika-i-oprosy/">#Статистика и опросы</a><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-20-polnyy-perevod-rechi-marka-karni-na-davosskom-forume-kotoray/"><div class="card-img"><div class="card-placeholder" style="background:#c41230"><span style="color:#fff">Star</span></div></div><div class="card-body"><div><span class="src-badge">Toronto Star</span></div><div class="card-title">Полный перевод речи Марка Карни на Давосском форуме, которая вызвала редкую стоячую овацию в зале.</div><div class="card-excerpt">⸻  Спасибо, Ларри.  Для меня большая честь — и обязанность — быть сегодня здесь, в момент перелома для Канады и для мира. Я хочу поговорить о разрыве мирового порядка, о конце приятной иллюзии и начал</div><div class="card-meta"><span class="card-date">20 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/ekologiya/">#Экология</a></div></div><div class="card-read">Читать далее →</div></div></a><a class="card" href="/post/2026-01-20-metod-karni-vyrisovyvaetsya-ot-pekina-do-grenlandii/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-placeholder style=background:#4a4740><span style=color:#fff>NATI</span></div>'"></div><div class="card-body"><div><span class="src-badge">nationalobserver.com</span></div><div class="card-title">Метод Карни вырисовывается — от Пекина до Гренландии.</div><div class="card-excerpt">⁠  За последние недели внешняя политика Марка Карни перестала выглядеть набором разрозненных визитов и начала складываться в систему. Китай, Катар, Давос — всё это элементы одной линии: диверсификация</div><div class="card-meta"><span class="card-date">20 янв 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-def" href="/tag/turizm/">#Туризм</a></div></div><div class="card-read">Читать далее →</div></div></a></div>
   <div class="pgn"><a class="pb" href="/person/mark-karni/page/3/">←</a><a class="pb" href="/person/mark-karni/">1</a><a class="pb" href="/person/mark-karni/page/2/">2</a><a class="pb" href="/person/mark-karni/page/3/">3</a><a class="pb on" href="/person/mark-karni/page/4/">4</a><a class="pb" href="/person/mark-karni/page/5/">5</a><a class="pb" href="/person/mark-karni/page/6/">6</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/person/mark-karni/page/20/">20</a><a class="pb" href="/person/mark-karni/page/5/">→</a></div>
 </div>
 <footer>
@@ -668,8 +191,8 @@ footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
     <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
     <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
   </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/politika/">#Политика</a><a href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a href="/tag/ekonomika/">#Экономика</a><a href="/tag/zhilyo/">#Жильё</a><a href="/tag/transport/">#Транспорт</a><a href="/tag/rynok-truda/">#Рынок труда</a><a href="/tag/prestupnost/">#Преступность</a><a href="/tag/prava-i-svobody/">#Права и свободы</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/daniel-smit/">Даниэль Смит</a><a href="/person/melani-zholi/">Мелани Жоли</a><a href="/person/anita-anand/">Анита Ананд</a></div>
 </div>
 <div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
 </footer>
