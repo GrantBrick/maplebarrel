@@ -192,119 +192,169 @@ def is_material(p):
     return (p.get('source', '') or '') in MATERIAL_SRCS
 
 def tag_posts(posts):
-    """Auto-tag with 20-topic taxonomy. Max 3-4 tags per post. No internal flags."""
+    """Auto-tag with 20-topic taxonomy. Max 3 tags per post."""
 
-    # Topic → keywords mapping (20 themes)
+    # Use word-boundary safe matching — all keywords are phrases, not substrings
+    # Each keyword must match as a word/phrase, not inside another word
+    import re as _re
+
+    def match_kw(kw, text):
+        """Match keyword safely — short kws need word boundaries."""
+        if len(kw) <= 4:
+            return bool(_re.search(r'(?<!\w)' + _re.escape(kw) + r'(?!\w)', text))
+        return kw in text
+
     TOPIC_TAGS = {
-        'Политика': ['парламент', 'либерал', 'консерват', 'выборы', 'голосован', 'кампани',
-                     'баллотир', 'депутат', 'сенат', 'премьер', 'федеральн', 'министр',
-                     'оппозиц', 'партия', 'НДП', 'блок кебек'],
-        'Международные отношения': ['51-й штат', 'нато', 'g7', 'g20', 'оон', 'дипломат',
-                                     'санкц', 'альянс', 'договор', 'переговор',
-                                     'китай', 'пекин', 'украин', 'израил', 'иран', 'россия'],
-        'Тарифы и торговля': ['тариф', 'пошлин', 'торговая война', 'экспорт', 'импорт',
-                               'торговл', 'nafta', 'cusma', 'протекц'],
-        'Экономика': ['экономик', 'инфляц', 'ввп', 'процентная ставк', 'банк канады',
-                      'рецессий', 'бюджет', 'дефицит', 'долг', 'профицит', 'рост экономик'],
-        'Жильё': ['жиль', 'аренд', 'ипотек', 'кондо', 'недвижимост', 'строительств',
-                  'рынок жиль', 'арендодател', 'арендатор', 'риелтор'],
-        'Рынок труда': ['безработиц', 'рабочих мест', 'зарплат', 'работодател', 'профсоюз',
-                        'забастовк', 'найм', 'увольнен', 'минимальная зарплат',
-                        'временных иностранных работник'],
-        'Иммиграция': ['иммиграц', 'мигрант', 'ircc', 'иностранных студент', 'беженц',
-                       'визы', 'визов', 'постоянн резидент', 'депортац', 'гражданств',
-                       'permanent resident', 'refugee'],
-        'Преступность': ['убийств', 'застрелил', 'арест', 'стрельб', 'мошенничест',
-                         'наркотик', 'фентанил', 'ограблен', 'задержан', 'полиция',
-                         'суд приговор', 'тюрьм', 'преступник'],
-        'Права и свободы': ['права человека', 'дискриминац', 'хартия', 'свобода слова',
-                            'протест', 'акти визм', 'lgbtq', 'антисемит', 'расизм',
-                            'коренных народ', 'примирени', 'first nations'],
-        'Технологии и ИИ': ['искусственный интеллект', 'нейросет', 'chatgpt', 'openai',
-                             'дата-центр', 'кибербезопасн', 'технологи', 'стартап',
-                             'цифров', 'ии ', ' ии,', 'meta ', 'google ', 'amazon '],
-        'Личные финансы': ['пенсий', 'налог', 'cpp', 'rrsp', 'tfsa', 'кредит', 'долг',
-                           'личные финанс', 'страховк', 'банк', 'процентн', 'сбережен'],
-        'Общество': ['культур', 'спорт', 'религи', 'образован', 'школ', 'университет',
-                     'молодёж', 'семья', 'дети', 'пожилых', 'праздник', 'канадцев счита'],
-        'Энергетика': ['нефт', 'газ', 'энергетик', 'трубопровод', 'ормузск', 'trans mountain',
-                       'электроэнерги', 'возобновляем', 'атомн', 'уголь'],
-        'Здравоохранение': ['здоровь', 'больниц', 'медицин', 'врач', 'пациент', 'рак',
-                            'лекарств', 'психическ', 'система здравоохранен', 'фармацевт',
-                            'ожирен', 'вакцин', 'пандеми'],
-        'Экология': ['климат', 'окружающая среда', 'carbon tax', 'выбросы', 'пожар лес',
-                     'наводнен', 'экологи', 'чистая энерги', 'потеплен'],
-        'Транспорт': ['авиац', 'air canada', 'westjet', 'аэропорт', 'авиакатастроф',
-                      'железн дорог', 'via rail', 'автомобил', 'электромобил', 'tesla',
-                      'общественный транспорт', 'метро'],
-        'Кризисы и происшествия': ['чп', 'катастроф', 'авария', 'пожар', 'взрыв',
-                                    'землетрясен', 'ураган', 'наводнен', 'эвакуац',
-                                    'жертв', 'погибш'],
-        'Арктика и Север': ['арктик', 'крайний север', 'суверенитет', 'нунавут',
-                             'северн территор', 'ледяной', 'северный полюс'],
-        'Туризм': ['туризм', 'туристов', 'путешеств', 'отель', 'курорт', 'лос-кабос',
-                   'авиапоездк', 'визит', 'поездк в сша', 'поездк за рубеж'],
-        'Статистика и опросы': ['опрос', 'статистик', ' %', 'процент', 'исследован',
-                                 'poll', 'ranking', 'индекс', 'рейтинг', 'отчёт',
-                                 'цифры', 'statistics canada', 'statscan',
-                                 'по данным', 'согласно данным'],
+        'Политика': [
+            'парламент', 'либерал', 'консерват', 'выборы', 'выборах', 'голосован',
+            'кампани', 'баллотир', 'депутат', 'сенат', 'федеральн', 'министр',
+            'оппозиц', 'партия', 'ндп ', 'bloc québécois',
+        ],
+        'Международные отношения': [
+            '51-й штат', 'нато', ' g7 ', ' g20 ', 'дипломат', 'санкц',
+            'торговая война', 'китай', 'пекин', 'украин', 'израил', 'иран', 'россия',
+            'канада и сша', 'трамп и канад',
+        ],
+        'Тарифы и торговля': [
+            'тариф', 'пошлин', 'торговые ограничен', 'экспорт канад', 'импорт сша',
+            'cusma', 'nafta', 'протекцион', 'торговые переговор',
+        ],
+        'Экономика': [
+            'экономик', 'инфляц', 'ввп', 'процентная ставк', 'банк канады',
+            'рецессий', 'бюджет канад', 'дефицит бюджет', 'рост цен',
+            'стоимость жизни', 'покупательн', 'финансовый кризис',
+        ],
+        'Жильё': [
+            'рынок жиль', 'аренд', 'ипотек', 'кондоминиум', 'недвижимост',
+            'строительств жиль', 'арендодател', 'арендатор', 'стоимость жиль',
+            'доступност жиль', 'жилищн кризис',
+        ],
+        'Рынок труда': [
+            'безработиц', 'рабочих мест', 'зарплат', 'профсоюз', 'забастовк',
+            'увольнен', 'минимальная зарплат', 'временных иностранных работник',
+            'рынок труда', 'трудоустройств',
+        ],
+        'Иммиграция': [
+            'иммиграц', 'мигрант', 'ircc', 'иностранных студент', 'беженц',
+            'постоянн резидент', 'депортац', 'гражданств канад',
+            'immigration canada', 'refugee', 'asylum',
+        ],
+        'Преступность': [
+            'убийств', 'застрелил', 'стрельбу', 'стрельба', 'мошенничест',
+            'наркотик', 'фентанил', 'ограблен', 'задержан полиц', 'осуждён',
+            'приговор', 'преступник', 'банда', 'арестован',
+        ],
+        'Права и свободы': [
+            'права человека', 'дискриминац', 'свобода слова', 'протест',
+            'lgbtq', 'антисемит', 'расизм', 'коренных народ', 'примирени',
+            'first nations', 'правозащит',
+        ],
+        'Технологии и ИИ': [
+            'искусственный интеллект', 'нейросет', 'chatgpt', 'openai',
+            'дата-центр', 'кибербезопасн', 'цифровой суверен', 'стартап технолог',
+            'большие языковые модел', 'регулирование ии',
+        ],
+        'Личные финансы': [
+            'пенсий', 'налог', 'cpp ', 'rrsp', 'tfsa', 'личные финанс',
+            'страхован', 'банковск', 'процентные ставк', 'сбережен',
+            'финансовое планирован', 'кредитн история',
+        ],
+        'Общество': [
+            'культур', 'религи', 'образован', 'школ', 'университет',
+            'молодёж', 'пожилых канадц', 'праздник', 'опрос канадц',
+            'канадское общество', 'социальн',
+        ],
+        'Энергетика': [
+            'нефтян', 'природный газ', 'энергетик', 'трубопровод',
+            'trans mountain', 'электроэнерги', 'возобновляем', 'атомн электростанц',
+            'энергетический кризис', 'нефтепровод',
+        ],
+        'Здравоохранение': [
+            'здравоохранен', 'больниц', 'медицин', 'врач', 'пациент',
+            'лекарств', 'психическ здоровь', 'фармацевт', 'ожирен', 'вакцин',
+            'пандеми', 'система здоровь', 'препарат',
+        ],
+        'Экология': [
+            'климат', 'окружающая среда', 'carbon tax', 'углеродн', 'выбросы',
+            'лесной пожар', 'наводнен', 'потеплен', 'экологическ',
+        ],
+        'Транспорт': [
+            'air canada', 'westjet', 'авиакомпани', 'аэропорт', 'авиакатастроф',
+            'железнодорожн', 'via rail', 'электромобил', 'tesla ',
+            'общественный транспорт',
+        ],
+        'Кризисы и происшествия': [
+            'чрезвычайн', 'катастроф', 'авария', 'лесной пожар', 'взрыв',
+            'землетрясен', 'наводнен', 'эвакуац', 'стихийн бедств',
+        ],
+        'Арктика и Север': [
+            'арктик', 'крайний север', 'суверенитет', 'нунавут',
+            'северные территор', 'северный полюс',
+        ],
+        'Туризм': [
+            'туризм', 'туристов', 'путешеств канадц', 'отель', 'курорт',
+            'лос-кабос', 'туристическ', 'поездк за рубеж',
+        ],
+        'Статистика и опросы': [
+            'согласно опросу', 'новый опрос', 'statistics canada', 'statscan',
+            'согласно данным', 'исследован показ', 'рейтинг одобрен',
+            'индекс потребительск', 'ежегодный отчёт', 'канадцев считают',
+            'канадцев поддерживают', 'канадцев против',
+        ],
     }
 
-    # Geographic tags
     GEO_MAP = {
-        'Онтарио': ['онтарио'],
+        'Онтарио':             ['онтарио'],
         'Британская Колумбия': ['британская колумбия', 'ванкувер', 'ричмонд', 'виктори'],
-        'Альберта': ['альберт', 'калгари', 'эдмонтон'],
-        'Квебек': ['квебек', 'монреаль'],
-        'Торонто': ['торонто', 'gta', 'миссиссаг', 'брэмптон', 'гамильтон'],
+        'Альберта':            ['альберт', 'калгари', 'эдмонтон'],
+        'Квебек':              ['квебек', 'монреаль'],
+        'Торонто':             ['торонто', 'миссиссаг', 'брэмптон', 'гамильтон'],
     }
 
-    # Current persons only
     PERSONS = {
-        'Карни': 'Марк Карни',
+        'Карни':  'Марк Карни',
         'Полиев': 'Пьер Полиев',
-        'Трамп': 'Дональд Трамп',
-        'Форд': 'Даг Форд',
-        'Смит': 'Даниэль Смит',
-        'Жоли': 'Мелани Жоли',
-        'Ананд': 'Анита Ананд',
-        # Keep but lower priority
-        'Трюдо': 'Джастин Трюдо',
-        'Маск': 'Илон Маск',
+        'Трамп':  'Дональд Трамп',
+        'Форд':   'Даг Форд',
+        'Смит':   'Даниэль Смит',
+        'Жоли':   'Мелани Жоли',
+        'Ананд':  'Анита Ананд',
+        'Трюдо':  'Джастин Трюдо',
+        'Маск':   'Илон Маск',
     }
 
     for p in posts:
         text = ((p.get('title') or '') + ' ' + (p.get('body') or '')).lower()
 
-        # Score topics — assign up to 2 topic tags
+        # Score topics
         topic_scores = []
         for topic, keywords in TOPIC_TAGS.items():
-            score = sum(1 for kw in keywords if kw in text)
+            score = sum(1 for kw in keywords if match_kw(kw, text))
             if score > 0:
                 topic_scores.append((score, topic))
         topic_scores.sort(reverse=True)
         topic_tags = [t for _, t in topic_scores[:2]]
 
-        # Add 1-2 geo tags if relevant
-        geo_tags = []
-        for geo, kws in GEO_MAP.items():
-            if any(kw in text for kw in kws):
-                geo_tags.append(geo)
-                if len(geo_tags) >= 1:
-                    break  # max 1 geo tag
+        # Geo — max 1
+        geo_tag = next(
+            (geo for geo, kws in GEO_MAP.items() if any(kw in text for kw in kws)),
+            None
+        )
 
-        # Combine: max 3 tags total (2 topic + 1 geo)
-        combined = topic_tags + [g for g in geo_tags if g not in topic_tags]
+        combined = topic_tags[:]
+        if geo_tag and geo_tag not in combined:
+            combined.append(geo_tag)
         p['tags'] = combined[:3]
 
-        # Internal flags (not shown as public tags)
+        # Internal flags
         p['is_longread'] = is_longread(p)
         p['is_material'] = is_material(p)
-        p['is_stat'] = any(kw in text for kw in
-                           ['статистик', 'опрос', ' %', 'процент', 'исследован',
-                            'по данным', 'statistics canada', 'ranking', 'рейтинг'])
+        p['is_stat'] = any(kw in text for kw in [
+            'statistics canada', 'statscan', 'согласно опросу', 'новый опрос',
+            'рейтинг', 'индекс', 'согласно данным', 'исследован показ',
+            'канадцев считают', 'канадцев поддерживают',
+        ])
 
-        # Persons
         p['persons'] = [full for key, full in PERSONS.items()
                         if key.lower() in text][:3]
 
@@ -845,50 +895,41 @@ def build_post_page(p, related):
 
 def build_news_index(posts_by_date):
     css = """
-/* ── TODAY LAYOUT ── */
-.day-hdr{display:flex;align-items:baseline;gap:12px;padding:18px 0 14px;border-bottom:2px solid var(--br);margin-bottom:18px}
-.day-label{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--t)}
+.day-hdr{display:flex;align-items:baseline;gap:12px;padding:18px 0 12px;border-bottom:2px solid var(--br);margin-bottom:18px}
+.day-label{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--t)}
 .day-sub{font-size:12px;color:var(--t3)}
-
-/* Hero card */
-.hero-card{display:grid;grid-template-columns:1.5fr 1fr;margin-bottom:18px;border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
-.hc-img{overflow:hidden;background:var(--bg4);min-height:260px;position:relative}
+.hero-card{display:grid;grid-template-columns:1.2fr 1fr;margin-bottom:18px;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);background:#fff;transition:transform .15s}
+.hero-card:hover{transform:translateY(-1px)}
+.hc-img{overflow:hidden;background:var(--bg4);position:relative;min-height:220px}
 .hc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hc-body{background:#fff;padding:26px 24px 22px;display:flex;flex-direction:column;gap:10px}
-.hc-title{font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.25;color:var(--t);flex:1}
-.hc-ex{font-size:14px;color:var(--t2);line-height:1.6;-webkit-line-clamp:4;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
-
-/* 3-grid secondary */
-.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
-
-/* Compact numbered list */
-.compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);border-radius:8px;overflow:hidden;margin-bottom:24px}
-.compact-item{background:#fff;display:flex;gap:12px;padding:13px 15px;align-items:flex-start;transition:background .12s}
+.hc-body{padding:20px 20px 18px;display:flex;flex-direction:column;gap:8px}
+.hc-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.3;color:var(--t);flex:1}
+.hc-ex{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+.card{background:#fff}.card-img{aspect-ratio:3/2}
+.compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);margin-bottom:22px;border-radius:6px;overflow:hidden}
+.compact-item{background:#fff;display:flex;gap:10px;padding:11px 14px;align-items:flex-start;transition:background .12s}
 .compact-item:hover{background:var(--bg3)}
-.ci-num{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--br2);flex-shrink:0;line-height:1;min-width:26px;text-align:right}
-.ci-body{flex:1;display:flex;flex-direction:column;gap:5px}
-.ci-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
-
-/* Yesterday 4-grid */
-.yesterday-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
-
-/* Previous days collapsible */
+.ci-num{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--br2);flex-shrink:0;line-height:1;min-width:22px;text-align:right;padding-top:2px}
+.ci-body{flex:1;display:flex;flex-direction:column;gap:4px}
+.ci-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.yesterday-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
 .prev-section{margin-top:8px}
-.prev-day{margin-bottom:12px}
-.prev-day-btn{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
+.prev-day{margin-bottom:10px}
+.prev-day-btn{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
 .prev-day-btn:hover .pd-label{color:var(--t)}
-.pd-label{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--t3);transition:color .15s}
-.pd-count{font-size:12px;color:var(--t3)}
-.pd-tog{font-size:12px;color:var(--t4);margin-left:auto}
-.prev-posts{display:none;grid-template-columns:repeat(4,1fr);gap:12px;padding:14px 0}
+.pd-label{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--t3);transition:color .15s}
+.pd-count{font-size:11px;color:var(--t3)}
+.pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
+.prev-posts{display:none;grid-template-columns:repeat(4,1fr);gap:12px;padding:12px 0}
 .prev-posts.open{display:grid}
-.pp-card{background:#fff;border-radius:7px;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;gap:5px;box-shadow:var(--shadow-sm);transition:transform .12s,box-shadow .12s}
-.pp-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-.pp-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-
-@media(max-width:1000px){.yesterday-grid{grid-template-columns:repeat(3,1fr)}.prev-posts{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.hero-card{grid-template-columns:1fr}.hc-img{min-height:200px}.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.sec-grid{grid-template-columns:1fr}.yesterday-grid{grid-template-columns:1fr}}
+.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow-sm);transition:transform .12s}
+.pp-card:hover{transform:translateY(-1px)}
+.pp-src{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#fff;background:var(--ac);padding:1px 6px;border-radius:2px;display:inline-block;width:fit-content;margin-bottom:2px}
+.pp-title{font-family:var(--serif);font-size:12px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:1100px){.yesterday-grid{grid-template-columns:repeat(3,1fr)}.prev-posts{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.hero-card{grid-template-columns:1fr}.hc-img{min-height:180px}.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.sec-grid{grid-template-columns:1fr}.yesterday-grid{grid-template-columns:1fr 1fr}}
 """
     dates = sorted(posts_by_date.keys(), reverse=True)
     html = '<div class="wrap">'
@@ -927,9 +968,9 @@ def build_news_index(posts_by_date):
             if di == 2:
                 html += '<div class="prev-section">'
             posts_html = ''.join(f'''<a class="pp-card" href="{post_url(p)}">
-              <div class="card-src">{esc(p.get("source",""))}</div>
+              <span class="pp-src">{esc(source_name(p.get("source","")))}</span>
               <div class="pp-title">{esc(p["title"])}</div>
-              <div class="card-date" style="font-size:10px">{fmt_date(p["date"])}</div>
+              <div class="card-date" style="font-size:10px;color:var(--t3)">{fmt_date(p["date"])}</div>
             </a>''' for p in posts)
             idx_str = str(di)
             html += f'''<div class="prev-day">
@@ -1256,11 +1297,19 @@ def build():
     os.makedirs(SITE_DIR)
 
     photos_src = os.path.join(DATA_DIR, 'photos')
+    photos_dst = os.path.join(SITE_DIR, 'photos')
+    os.makedirs(photos_dst, exist_ok=True)
     if os.path.exists(photos_src):
-        shutil.copytree(photos_src, os.path.join(SITE_DIR, 'photos'))
-        print(f"   📷 Фото скопированы")
+        import glob
+        photos = glob.glob(os.path.join(photos_src, '*.jpg')) + \
+                 glob.glob(os.path.join(photos_src, '*.jpeg')) + \
+                 glob.glob(os.path.join(photos_src, '*.png')) + \
+                 glob.glob(os.path.join(photos_src, '*.webp'))
+        for ph in photos:
+            shutil.copy2(ph, photos_dst)
+        print(f"   📷 Скопировано фото: {len(photos)}")
     else:
-        os.makedirs(os.path.join(SITE_DIR, 'photos'))
+        print(f"   ⚠️  Папка data/photos не найдена — фото не будет")
 
     json_path = os.path.join(DATA_DIR, 'result.json')
     if not os.path.exists(json_path):
