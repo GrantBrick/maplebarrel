@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | journAIsts.ca</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #f9fafb;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --accent: #2563eb; /* Технологичный синий для AI */
+    --border: #e5e7eb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    line-height: 1.5; color: var(--text-main); background: var(--bg); 
+}
+a { color: inherit; text-decoration: none; }
+
+header { 
+    background: #fff; border-bottom: 1px solid var(--border); 
+    padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
+}
+.header-content { 
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.05em; }
+.logo span { color: var(--accent); } /* Выделение AI */
+
+.container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+
+/* Сетка постов */
+.posts-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+    gap: 2rem; 
+}
+
+.post-card { 
+    background: var(--card-bg); border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+}
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+.post-image-wrap { width: 100%; height: 200px; overflow: hidden; background: #eee; }
+.post-image { width: 100%; height: 100%; object-fit: cover; }
+
+.post-body { padding: 1.5rem; flex-grow: 1; }
+.post-date { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+.post-text { margin-top: 0.75rem; font-size: 1rem; color: #374151; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+
+.post-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
+.tag-badge { background: #f3f4f6; color: #4b5563; }
+.person-badge { background: #eff6ff; color: var(--accent); }
+
+.pagination { margin-top: 3rem; text-align: center; }
+.btn { padding: 0.75rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn:hover { background: #f3f4f6; }
+
+@media (max-width: 600px) {
+    .posts-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">journ<span>AI</span>sts</a>
+            <nav style="display:flex; gap:1.5rem; font-size:0.9rem; font-weight:500;">
+                <a href="/">Главная</a>
+                <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="posts-grid">
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2367@16-03-2026_10-04-25.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">16.03.2026</span>
+            <div class="post-text">Канадские консерваторы хотят закрыть доступ китайским электромобилям и запретить их программное обеспечение</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/тарифы/" class="badge tag-badge">#тарифы</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2366@15-03-2026_15-02-05.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">15.03.2026</span>
+            <div class="post-text">Год у власти Марка Карни: оценки смешанные, многие ждут реальных результатов</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/экономика/" class="badge tag-badge">#экономика</a><a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2365@15-03-2026_13-03-44.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">15.03.2026</span>
+            <div class="post-text">Парки Канады планируют отстрел десятков оленей на историческом острове в Квебеке</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2364@15-03-2026_10-02-46.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">15.03.2026</span>
+            <div class="post-text">Карни и премьер Норвегии призвали к стабильности нефтяного рынка на фоне войны на Ближнем Востоке</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2363@14-03-2026_18-05-19.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">14.03.2026</span>
+            <div class="post-text">«Видео с ИИ распространяют медицинскую дезинформацию среди канадцев»</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        
+        <div class="post-body">
+            <span class="post-date">14.03.2026</span>
+            <div class="post-text">Оксимирон и Дисастер</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2362@14-03-2026_15-05-32.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">14.03.2026</span>
+            <div class="post-text">Семья Уэстон финансирует запуск национального цифрового медиа-проекта
+The Globe and Mail</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2361@14-03-2026_13-06-51.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">14.03.2026</span>
+            <div class="post-text">Карни: рынок труда Канады всё равно сильнее американского — даже после потери 84 тысяч рабочих мест
+
+
+Экономика Канады потеряла 84 000 рабочих мест в феврале — крупнейшее месячное сокращение занятости за четыре года. Но премьер-министр Марк Карни считает, что общая картина всё равно выглядит лучше, чем в США.</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/экономика/" class="badge tag-badge">#экономика</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2360@14-03-2026_11-06-39.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">14.03.2026</span>
+            <div class="post-text">Жестокий удар по рынку труда: Канада потеряла 84 000 рабочих мест в феврале, безработица выросла до 6,7 %</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/экономика/" class="badge tag-badge">#экономика</a><a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2359@14-03-2026_10-04-08.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">14.03.2026</span>
+            <div class="post-text">«Надзорный орган по прозрачности назвал “шокирующим” план Онтарио скрыть записи телефона премьера»
+
+
+
+Правительство Онтарио во главе с Дагом Фордом готовит изменения в закон о доступе к информации, которые фактически закроют от общественности коммуникации премьера и министров. Речь идет о звонках, сообщениях и других данных с их телефонов.</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2358@13-03-2026_19-01-13.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Я поговорила с более чем 30 источниками о первом годе Марка Карни на посту премьер-министра. Вот что они рассказали</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2357@13-03-2026_17-04-04.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Шай Гилджес-Александер побил рекорд Уилта Чемберлена по сериям игр с 20+ очками</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Дэвид Эби и полиция моды</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2356@13-03-2026_15-03-49.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Когда канадская «толерантность» сталкивается с радикализмом — бывший премьер Британской Колумбии предупреждает о проблеме</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2355@13-03-2026_14-06-40.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Консерваторы внесли законопроект о самообороне при вторжении в дом</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2354@13-03-2026_13-03-02.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Российские хакеры атакуют правительства, бизнес и военных Канады — предупреждает киберразведка</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2353@13-03-2026_12-02-34.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Альберта тратит около $600 млн на образование детей временных жителей на фоне референдума по иммиграции</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2352@13-03-2026_11-05-34.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Канада аннулировала сотни виз из-за связей с иранским режимом</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2351@13-03-2026_09-36-22.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">13.03.2026</span>
+            <div class="post-text">Карни объявил о $35 млрд на оборону и инфраструктуру на Севере Канады</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2349@12-03-2026_18-02-05.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">12.03.2026</span>
+            <div class="post-text">«Вот настоящее доказательство»: в Канаде резко выросло число инсценированных аварий ради страховых выплат</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2348@12-03-2026_17-01-29.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">12.03.2026</span>
+            <div class="post-text">Опрос Leger: канадцы поддерживают ужесточение иммиграции и сокращение госрасходов</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
+        </div>
+    </div>
+    </div><div class="pagination"><a href="/page/4" class="btn">← Сюда</a> <a href="/page/6/" class="btn">Туда →</a></div>
+    </main>
+    <footer style="text-align:center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
+        &copy; 2026 journAIsts.ca | Powered by Maple Barrel
+    </footer>
+</body>
+</html>

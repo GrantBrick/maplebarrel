@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | journAIsts.ca</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #f9fafb;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --accent: #2563eb; /* Технологичный синий для AI */
+    --border: #e5e7eb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    line-height: 1.5; color: var(--text-main); background: var(--bg); 
+}
+a { color: inherit; text-decoration: none; }
+
+header { 
+    background: #fff; border-bottom: 1px solid var(--border); 
+    padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
+}
+.header-content { 
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.05em; }
+.logo span { color: var(--accent); } /* Выделение AI */
+
+.container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+
+/* Сетка постов */
+.posts-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+    gap: 2rem; 
+}
+
+.post-card { 
+    background: var(--card-bg); border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+}
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+.post-image-wrap { width: 100%; height: 200px; overflow: hidden; background: #eee; }
+.post-image { width: 100%; height: 100%; object-fit: cover; }
+
+.post-body { padding: 1.5rem; flex-grow: 1; }
+.post-date { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+.post-text { margin-top: 0.75rem; font-size: 1rem; color: #374151; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+
+.post-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
+.tag-badge { background: #f3f4f6; color: #4b5563; }
+.person-badge { background: #eff6ff; color: var(--accent); }
+
+.pagination { margin-top: 3rem; text-align: center; }
+.btn { padding: 0.75rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn:hover { background: #f3f4f6; }
+
+@media (max-width: 600px) {
+    .posts-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">journ<span>AI</span>sts</a>
+            <nav style="display:flex; gap:1.5rem; font-size:0.9rem; font-weight:500;">
+                <a href="/">Главная</a>
+                <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="posts-grid">
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1230@09-10-2025_11-43-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.10.2025</span>
+            <div class="post-text">«Как подросток на концерте Тейлор Свифт»: Карни под огнём насмешек после визита к Трампу</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1229@09-10-2025_10-42-04.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.10.2025</span>
+            <div class="post-text">Карни вернулся из Вашингтона без сделки по пошлинам, но с поддержкой из Альберты</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1228@09-10-2025_09-23-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.10.2025</span>
+            <div class="post-text">Скандал в U of T: студенческий союз устроил «вечер памяти мучеников Палестины» в годовщину атаки ХАМАС</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        
+        <div class="post-body">
+            <span class="post-date">09.10.2025</span>
+            <div class="post-text">«Блю Джейс» сделали это. Вечером среды в Бронксе канадская команда обыграла «Янкиз» со счётом 5:2 и оформила путёвку в Американскую серию чемпионата (ALCS) — первый такой успех почти за десятилетие.</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1227@08-10-2025_18-36-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.10.2025</span>
+            <div class="post-text">Марк Карни — очень требовательный босс
+
+очень большой и интересный материал про Карни от Macleans's</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a><a href="/person/мелани-жоли/" class="badge person-badge">Мелани Жоли</a> <a href="/tag/тарифы/" class="badge tag-badge">#тарифы</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1226@08-10-2025_13-09-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.10.2025</span>
+            <div class="post-text">Beanflation: кофе в Канаде бьёт по кошельку</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1225@08-10-2025_11-32-48.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.10.2025</span>
+            <div class="post-text">Праздничные траты под нож: 8 из 10 канадцев планируют «существенно» сократить покупки</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1224@08-10-2025_10-31-49.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.10.2025</span>
+            <div class="post-text">Экспорт американского алкоголя в Канаду рухнул на 85%</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1223@08-10-2025_09-31-58.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.10.2025</span>
+            <div class="post-text">«Канада снова нас полюбит»: Трамп встретился с Карни, но договорённости по тарифам так и нет</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/сшаканада/" class="badge tag-badge">#США–Канада</a><a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/тарифы/" class="badge tag-badge">#тарифы</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1222@07-10-2025_18-44-00.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">07.10.2025</span>
+            <div class="post-text">Полиция Онтарио провела крупнейший за год рейд против нелегальных наркоплантаций — на территории индейской резервации Тайендинага (восток Онтарио) изъято марихуаны на сумму свыше 122 миллионов долларов.</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1221@07-10-2025_15-56-28.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">07.10.2025</span>
+            <div class="post-text">Клиенты лоббистов, связанных с Фордом и его племянником, получили сотни миллионов из фонда подготовки кадров</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1220@07-10-2025_14-57-12.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">07.10.2025</span>
+            <div class="post-text">Трамп вводит 25% пошлины на грузовики из Канады и Мексики</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        
+        <div class="post-body">
+            <span class="post-date">07.10.2025</span>
+            <div class="post-text">Для меня большая честь принять премьер-министра Канады Марка Карни, которого я сделал очень популярным. Он чрезвычайно популярный премьер-министр, и мне приятно это говорить, потому что он мне нравится.</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1219@07-10-2025_12-52-12.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">07.10.2025</span>
+            <div class="post-text">Как мошенники отмывают миллионы через криптобанкоматы в Канаде</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1218@07-10-2025_11-51-57.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">07.10.2025</span>
+            <div class="post-text">Канада ужесточила правила для временных работников: заявки упали вдвое, штрафы выросли вдвое</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1217@07-10-2025_10-49-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">07.10.2025</span>
+            <div class="post-text">Кому достались гугловские 100 миллионов: кто выигрывает от новой системы поддержки медиа в Канаде</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1216@07-10-2025_09-51-43.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">07.10.2025</span>
+            <div class="post-text">Rush возвращаются: легендарная канадская группа объявила о первом туре за десять лет</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1215@06-10-2025_19-39-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">06.10.2025</span>
+            <div class="post-text">Канадцы всё дольше добираются до работы — и виноваты в этом не только пробки, но и новые приказы «возвращаться в офис».</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a><a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1214@06-10-2025_17-36-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">06.10.2025</span>
+            <div class="post-text">Последняя хоккейная фабрика Канады держится из последних сил — вопреки тарифам, глобализации и упадку промышленности.</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/экономика/" class="badge tag-badge">#экономика</a><a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/квебек/" class="badge tag-badge">#Квебек</a><a href="/tag/тарифы/" class="badge tag-badge">#тарифы</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1213@06-10-2025_15-38-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">06.10.2025</span>
+            <div class="post-text">Сокращения в канадской паспортной службе ударили прежде всего по сотрудникам из меньшинств и людям с инвалидностью — об этом заявляет профсоюз государственных служащих Union of National Employees (UNE).</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1212@06-10-2025_13-53-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">06.10.2025</span>
+            <div class="post-text">51 000 учителей Альберты вышли на забастовку: 730 000 учеников без уроков</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    </div><div class="pagination"><a href="/page/57" class="btn">← Сюда</a> <a href="/page/59/" class="btn">Туда →</a></div>
+    </main>
+    <footer style="text-align:center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
+        &copy; 2026 journAIsts.ca | Powered by Maple Barrel
+    </footer>
+</body>
+</html>

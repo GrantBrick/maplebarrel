@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | journAIsts.ca</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #f9fafb;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --accent: #2563eb; /* Технологичный синий для AI */
+    --border: #e5e7eb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    line-height: 1.5; color: var(--text-main); background: var(--bg); 
+}
+a { color: inherit; text-decoration: none; }
+
+header { 
+    background: #fff; border-bottom: 1px solid var(--border); 
+    padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
+}
+.header-content { 
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.05em; }
+.logo span { color: var(--accent); } /* Выделение AI */
+
+.container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+
+/* Сетка постов */
+.posts-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+    gap: 2rem; 
+}
+
+.post-card { 
+    background: var(--card-bg); border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+}
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+.post-image-wrap { width: 100%; height: 200px; overflow: hidden; background: #eee; }
+.post-image { width: 100%; height: 100%; object-fit: cover; }
+
+.post-body { padding: 1.5rem; flex-grow: 1; }
+.post-date { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+.post-text { margin-top: 0.75rem; font-size: 1rem; color: #374151; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+
+.post-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
+.tag-badge { background: #f3f4f6; color: #4b5563; }
+.person-badge { background: #eff6ff; color: var(--accent); }
+
+.pagination { margin-top: 3rem; text-align: center; }
+.btn { padding: 0.75rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn:hover { background: #f3f4f6; }
+
+@media (max-width: 600px) {
+    .posts-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">journ<span>AI</span>sts</a>
+            <nav style="display:flex; gap:1.5rem; font-size:0.9rem; font-weight:500;">
+                <a href="/">Главная</a>
+                <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="posts-grid">
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1710@10-12-2025_13-47-54.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">10.12.2025</span>
+            <div class="post-text">Форд давит на госслужащих Онтарио: «Нужно возвращаться в офис»</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1709@10-12-2025_12-54-54.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">10.12.2025</span>
+            <div class="post-text">Опрос: половина канадцев поддерживает новый битумный трубопровод между Альбертой и Британской Колумбией</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1708@10-12-2025_12-29-54.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">10.12.2025</span>
+            <div class="post-text">Канадские вузы активизируют охоту за ведущими мировыми учёными на фоне щедрого федерального финансирования</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a><a href="/person/мелани-жоли/" class="badge person-badge">Мелани Жоли</a> <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1707@10-12-2025_10-58-54.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">10.12.2025</span>
+            <div class="post-text">Виндзор: мужчина задержан дважды за час после двух нападений на одну и ту же женщину</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1706@10-12-2025_09-58-54.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">10.12.2025</span>
+            <div class="post-text">Банк Канады оставил ключевую ставку на уровне 2,25%</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1705@10-12-2025_09-29-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">10.12.2025</span>
+            <div class="post-text">Кирстен Хиллман уходит с поста посла Канады в США</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/джастин-трюдо/" class="badge person-badge">Джастин Трюдо</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1704@09-12-2025_18-11-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">В Канаде и США расширен отзыв почти 70 тысяч тостеров Oster из-за риска ожогов</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1703@09-12-2025_17-34-08.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">Рекордные показатели по торговле людьми в Канаде — лишь верхушка айсберга</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1702@09-12-2025_16-07-04.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">Либералы представили крупный законопроект о защите детей и жертв гендерного насилия</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1701@09-12-2025_14-27-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">Китайский диссидент погиб в Британской Колумбии. Бывший агент, следивший за ним, сомневается, что это было случайностью</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1700@09-12-2025_13-28-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">Microsoft вкладывает в Канаду свыше $5,4 млрд на развитие ИИ-инфраструктуры</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1699@09-12-2025_12-28-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">В Калгари продавец на Marketplace подвергся нападению прямо у себя дома — полиция предупреждает о серии похожих инцидентов</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1698@09-12-2025_11-26-48.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">Исследование: за десятилетие в Канаде появилось 950 тысяч новых государственных рабочих мест — рост обгоняет частный сектор</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/экономика/" class="badge tag-badge">#экономика</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1697@09-12-2025_10-12-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">Нанос: Либералы 39%, Консерваторы 38%, НДП 10% — тревога из-за экономики растёт</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1696@09-12-2025_09-12-08.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">09.12.2025</span>
+            <div class="post-text">Посол США: Вашингтон не стремится похоронить CUSMA, но на столе остаются все варианты</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1695@08-12-2025_21-42-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.12.2025</span>
+            <div class="post-text">Работает ли программа временных иностранных работников? “Да”, говорят владельцы Tims — особенно те, кто платит копейки</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1694@08-12-2025_16-43-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.12.2025</span>
+            <div class="post-text">Оттава запускает новый канал иммиграции для иностранных врачей
+
+
+
+Федералы объявили о создании отдельной категории Express Entry для докторов, прошедших обучение за рубежом. Задача проста: закрыть хронический кадровый провал в системе здравоохранения.
+
+
+Министр иммиграции Лена Метледж Диаб признала: отделения неотложки работают на износ, семьи жалуются на долгие поиски терапевтов, персонал устал. По её словам, сигналы поступают отовсюду — от пациентов до провинций и медработников — и запрос один: врачей нужно больше, причём срочно.
+
+
+Пока что это оперативное сообщение, детали обещают раскрыть позже. Но уже ясно: Оттава пытается показать, что слышит претензии к состоянию медицины и готова облегчить путь в Канаду тем, кто может закрыть дыры в больницах.
+
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1693@08-12-2025_15-39-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.12.2025</span>
+            <div class="post-text">Антихейтовый законопроект завис после сделки офиса Фрейзера с Блоком без одобрения офиса премьера</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1692@08-12-2025_14-22-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.12.2025</span>
+            <div class="post-text">Все больше канадцев, включая детей, оказываются в американских центрах содержания за нарушения иммиграционных правил</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1691@08-12-2025_13-18-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.12.2025</span>
+            <div class="post-text">Саскатун: афганская община требует от Оттавы ускорить въезд семей, застрявших в Пакистане</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_1690@08-12-2025_11-57-35.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">08.12.2025</span>
+            <div class="post-text">Молодёжь Канады всё чаще отказывается от помощи в сфере ментального здоровья: бюджеты трещат, работы мало</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    </div><div class="pagination"><a href="/page/35" class="btn">← Сюда</a> <a href="/page/37/" class="btn">Туда →</a></div>
+    </main>
+    <footer style="text-align:center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
+        &copy; 2026 journAIsts.ca | Powered by Maple Barrel
+    </footer>
+</body>
+</html>

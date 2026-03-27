@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | journAIsts.ca</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #f9fafb;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --accent: #2563eb; /* Технологичный синий для AI */
+    --border: #e5e7eb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    line-height: 1.5; color: var(--text-main); background: var(--bg); 
+}
+a { color: inherit; text-decoration: none; }
+
+header { 
+    background: #fff; border-bottom: 1px solid var(--border); 
+    padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
+}
+.header-content { 
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.05em; }
+.logo span { color: var(--accent); } /* Выделение AI */
+
+.container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+
+/* Сетка постов */
+.posts-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+    gap: 2rem; 
+}
+
+.post-card { 
+    background: var(--card-bg); border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+}
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+.post-image-wrap { width: 100%; height: 200px; overflow: hidden; background: #eee; }
+.post-image { width: 100%; height: 100%; object-fit: cover; }
+
+.post-body { padding: 1.5rem; flex-grow: 1; }
+.post-date { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+.post-text { margin-top: 0.75rem; font-size: 1rem; color: #374151; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+
+.post-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
+.tag-badge { background: #f3f4f6; color: #4b5563; }
+.person-badge { background: #eff6ff; color: var(--accent); }
+
+.pagination { margin-top: 3rem; text-align: center; }
+.btn { padding: 0.75rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn:hover { background: #f3f4f6; }
+
+@media (max-width: 600px) {
+    .posts-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">journ<span>AI</span>sts</a>
+            <nav style="display:flex; gap:1.5rem; font-size:0.9rem; font-weight:500;">
+                <a href="/">Главная</a>
+                <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="posts-grid">
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2092@03-02-2026_10-06-05.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">03.02.2026</span>
+            <div class="post-text">Estee Lauder оштрафовали в Онтарио на $750 тысяч за использование «вечного химиката»</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2091@03-02-2026_09-04-13.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">03.02.2026</span>
+            <div class="post-text">Трамп угрожает Канаде «очень жёстким ответом» за торговую сделку с Китаем</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/тарифы/" class="badge tag-badge">#тарифы</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2090@02-02-2026_15-02-53.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">02.02.2026</span>
+            <div class="post-text">Канадские университеты возвращаются в Индию</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2089@02-02-2026_14-05-31.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">02.02.2026</span>
+            <div class="post-text">Врач в Торонто ведёт 2 000 пациентов — и всё ещё без ПМЖ</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/торонто/" class="badge tag-badge">#Торонто</a><a href="/tag/ircc/" class="badge tag-badge">#IRCC</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2088@02-02-2026_12-08-54.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">02.02.2026</span>
+            <div class="post-text">Продуктовый «ребейт» от Оттавы обойдётся в $12,4 млрд — оценка бюджетного офиса</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2087@02-02-2026_10-05-24.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">02.02.2026</span>
+            <div class="post-text">Смит: депутаты могут подписывать любые петиции — даже за отделение Альберты</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2086@01-02-2026_22-02-18.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">01.02.2026</span>
+            <div class="post-text">Ньюсмейкер</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2085@01-02-2026_20-36-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">01.02.2026</span>
+            <div class="post-text">Индийские банды запугивают Канаду
+⁠
+
+Южноазиатские общины по всей Канаде сталкиваются с волной вымогательств и насилия. В Суррее (Британская Колумбия) власти уже требуют от Оттавы объявить общенациональное чрезвычайное положение. Речь идёт не о разрозненных преступлениях, а о системной кампании запугивания.
+⁠
+
+Схема почти всегда одна и та же: бандиты требуют деньги у выходцев из своих же общин. В случае отказа следуют угрозы, стрельба по домам и бизнесам, съёмка нападений на видео и рассылка роликов жертвам с обещаниями «продолжения».
+⁠
+
+Только с начала января полиция Суррея зафиксировала 35 попыток вымогательства. В Брэмптоне ситуация ещё жёстче — почти 500 таких дел в год с 2023 года. Аналогичные эпизоды отмечены в Эдмонтоне и Калгари.
+⁠
+
+Один из пострадавших, фермер из Онтарио Дхармджит Манд, рассказал, что осенью 2025 года через WhatsApp от него потребовали «пожертвовать» 2 млн долларов в пользу банды Лоуренса Бишнои — транснациональной структуры, управляемой из индийской тюрьмы, но глубоко укоренившейся в Канаде. После отказа его дом обстреляли, видео выложили в сеть, а затем атаковали и дом его брата. Семья теперь планирует уехать в США.
+⁠
+
+По данным полиции, большинство вымогательств осуществляется по заказу криминальных групп, находящихся за пределами Канады. Банда Бишнои была признана террористической организацией канадским правительством в сентябре прошлого года. Сикхские организации давно обвиняют её в использовании для давления на про-халистанских активистов, включая убийство Хардепа Сингха в 2023 году на канадской территории.
+⁠
+
+Есть и другие группировки. В Альберте в 2023 году сеть, связанная с бандой Brothers Keeper, организовывала поджоги и стрельбу против застройщиков южноазиатского происхождения. Дома сжигались ещё до получения разрешений на заселение — как «наказание» за отказ платить. Исполнителей задержали, организатору удалось уйти.
+⁠
+
+Даже когда подозреваемых ловят, эффект минимален. В Брэмптоне и Суррее всё громче говорят о «поймал — отпустил». Действующие правила залога позволяют насильственным преступникам выходить на свободу уже через сутки и годами ждать суда. В итоге приговоры мягкие, условно-досрочное освобождение — почти гарантировано.
+⁠
+
+Отдельная тема — иммиграционная система. Многие участники банд находятся в Канаде нелегально или с просроченными студенческими визами. Некоторые имели криминальное прошлое ещё на родине, но прошли проверку при въезде. В декабре не менее 14 подозреваемых избежали депортации, заявив о намерении получить убежище. Это автоматически даёт им годы пребывания в стране на фоне огромной очереди дел в миграционных трибуналах.
+⁠
+
+В Суррее опасаются, что жертвы всё чаще молчат — из страха или потому, что уже платят. У людей нарастает ощущение, что полиция не способна защитить их. Звучат призывы к ужесточению законов о самообороне, а один из пострадавших уже оказался под следствием за попытку отстреливаться во время нападения.
+⁠
+
+Обстановка накаляется, и риск самосуда растёт. Политическая ответственность за происходящее всё чаще возлагается на федеральные власти и иммиграционную политику последних лет. Теперь мяч на стороне правительства Марка Карни — вопрос лишь в том, будет ли реакция отличаться от эпохи Трюдо.
+⁠
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2084@01-02-2026_14-04-32.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">01.02.2026</span>
+            <div class="post-text">Даг Форд заявил, что пойдёт на четвёртый срок, используя свою жёсткую позицию по Трампу на съезде ПК</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/торонто/" class="badge tag-badge">#Торонто</a><a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/жильё/" class="badge tag-badge">#жильё</a><a href="/tag/тарифы/" class="badge tag-badge">#тарифы</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2083@01-02-2026_13-02-31.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">01.02.2026</span>
+            <div class="post-text">Даниэль Смит в Калгари: удары по старым врагам и молчание о сепаратизме
+
+
+
+На родной площадке в Калгари премьер Альберты Даниэль Смит выступила перед делегатами федерального съезда Консервативной партии, получив тёплый приём и серию оваций — при этом аккуратно обойдя тему сепаратизма, которая всю неделю доминировала в новостях.</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2082@01-02-2026_11-02-24.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">01.02.2026</span>
+            <div class="post-text">Министр иммиграции Канады Лена Диаб заявила, что её ведомство должно получить техническую возможность отслеживать выезд временных резидентов из страны. 
+
+
+Речь идёт о людях с рабочими, учебными и другими временными визами.</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2081@01-02-2026_09-05-34.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">01.02.2026</span>
+            <div class="post-text">Джеффри Эпштейн въезжал в Канаду после судимости за преступления против несовершеннолетних — это следует из новых документов, опубликованных Минюстом США.</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2080@31-01-2026_15-06-36.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">31.01.2026</span>
+            <div class="post-text">Еда — главная тревога канадцев: дороже, чем жильё</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/квебек/" class="badge tag-badge">#Квебек</a><a href="/tag/жильё/" class="badge tag-badge">#жильё</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2079@31-01-2026_13-04-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">31.01.2026</span>
+            <div class="post-text">Аборт, MAID, иммиграция и CBC: о чём спорят консерваторы в Калгари</div>
+        </div>
+        <div class="post-footer">
+             <a href="/tag/жильё/" class="badge tag-badge">#жильё</a><a href="/tag/иммиграция/" class="badge tag-badge">#иммиграция</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2078@31-01-2026_11-05-08.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">31.01.2026</span>
+            <div class="post-text">Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/преступность/" class="badge tag-badge">#преступность</a><a href="/tag/онтарио/" class="badge tag-badge">#Онтарио</a><a href="/tag/квебек/" class="badge tag-badge">#Квебек</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2077@31-01-2026_09-02-53.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">31.01.2026</span>
+            <div class="post-text">Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/выборы/" class="badge tag-badge">#выборы</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2076@30-01-2026_15-02-54.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">30.01.2026</span>
+            <div class="post-text">Вожди коренных народов Альберты высмеяли идею «лучшей жизни» при отделении провинции
+⁠
+
+Лидеры коренных народов, представляющие договоры №6, 7 и 8, публично отвергли заявления сторонников отделения Альберты о том, что независимая провинция якобы улучшит положение Indigenous-сообществ.
+⁠
+
+На совместной встрече в Эдмонтоне гранд-вожди и вожди откровенно смеялись над утверждениями юриста Джеффри Рата — одного из наиболее заметных лиц сепаратистского движения.
+⁠
+
+Ранее Рат заявил, что при выходе Альберты из состава Канады расходы на коренные народы якобы будут «утроены», а бедность, в которой они живут, — устранена за счет новой системы перераспределения доходов.
+⁠
+
+Вожди назвали эти слова абсурдными и подчеркнули, что они единым фронтом выступают против петиции, которая может привести к референдуму о независимости. Несколько First Nations уже подали иски против самой петиции и закона Bill 14, разрешающего подобные гражданские инициативы.
+⁠
+
+Отношение к Рату у коренных народов носит не только политический, но и личный характер. Ранее он представлял интересы ряда First Nations в исках против федерального правительства, однако позже между сторонами возникли конфликты из-за оплаты его услуг. В 2025 году народ Микисью-Кри выиграл суд против Рата, аннулировав его требования по гонорарам.
+⁠
+
+Вожди также заявили, что сама тема отделения усиливает расовую напряженность в провинции. По их словам, споры о сепаратизме все чаще возникают в общественных местах — от хоккейных матчей до ресторанов — и нередко направлены именно против коренных народов.
+⁠
+
+Ключевой аргумент First Nations — юридический. Они подчеркивают, что провинция Альберта не имеет полномочий выносить вопрос о независимости на голосование. Земли договоров №6, 7 и 8 были переданы Короне еще в XIX веке, задолго до появления самой провинции, и эти соглашения имеют приоритет над любыми решениями законодательного собрания Альберты.
+⁠
+
+«Мы подписывали договор о совместном использовании земли и ресурсов, а не договор о выходе из Канады», — заявили представители First Nations.
+⁠
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2075@30-01-2026_14-04-38.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">30.01.2026</span>
+            <div class="post-text">Думаете, покупаете канадское? На самом деле — США
+⁠
+
+Расследование CBC Marketplace показало, как продукты с кленовыми листьями и патриотическими слоганами на упаковке на деле оказываются американского происхождения — иногда формально, иногда откровенно играя на невнимательности покупателей.
+⁠
+
+Феномен уже получил название *maple washing*: визуально товар выглядит «канадским», но мелкий шрифт на обороте сообщает — *Product of USA*. Именно туда большинство покупателей просто не смотрит.
+⁠
+
+Один из примеров — смесь для печенья Betty Crocker. На лицевой стороне — кленовый лист и надпись «самый продаваемый бренд в Канаде». На обратной — произведено в США. Формально всё корректно, по сути — вводит в заблуждение.
+⁠
+
+Похожая история с гороховым супом Habitant. Надпись «Designed in Canada» создаёт ощущение местного продукта, но производство давно перенесено за границу. Campbell’s признала, что использовала формулировку, чтобы подчеркнуть «канадский вкус», и теперь обещает от неё отказаться.
+⁠
+
+Даже McCain, семейная компания из Нью-Брансуика, продаёт часть своей продукции с канадской символикой, произведённую в штате Мэн. Причина — отсутствие нужного оборудования в Канаде.
+⁠
+
+Эксперты отмечают: большинство маркетинговых формулировок — «Designed in Canada», «Proud Canadian company», «№1 в Канаде» — не говорят ничего о происхождении ингредиентов. Единственная надпись, дающая почти стопроцентную гарантию — *Product of Canada*.
+⁠
+
+На фоне торгового давления со стороны США и кампании «Buy Canadian», тема стала особенно чувствительной. Покупатели хотят поддерживать местных производителей, но система маркировки этому не помогает.
+⁠
+
+В качестве примера приводят Австралию, где на упаковке указывается процент местных ингредиентов в виде простой шкалы. Канадские правозащитники давно предлагают сделать нечто подобное, но федеральные ведомства ограничиваются формальными ответами.
+⁠
+
+CFIA заявляет, что «относится к маркировке серьёзно» и предлагает потребителям жаловаться. При этом никаких конкретных реформ пока не объявлено.
+⁠
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        </div>
+        <div class="post-footer">
+             
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2074@30-01-2026_12-03-16.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">30.01.2026</span>
+            <div class="post-text">Пьер Полиев выходит на решающее голосование за лидерство</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/выборы/" class="badge tag-badge">#выборы</a>
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2073@30-01-2026_11-04-01.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">30.01.2026</span>
+            <div class="post-text">Трамп грозит «декертификацией» канадских самолётов — но у него нет таких полномочий</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    
+    <div class="post-card">
+        <div class="post-image-wrap"><img src="/photos/photo_2072@30-01-2026_10-03-13.jpg" class="post-image" loading="lazy"></div>
+        <div class="post-body">
+            <span class="post-date">30.01.2026</span>
+            <div class="post-text">Карни назвал сериал Heated Rivalry примером «мягкой силы» Канады
+⁠
+
+Премьер-министр Марк Карни неожиданно оказался в центре внимания канадской поп-культуры, появившись на гала-вечере Prime Time в Оттаве вместе со звездой сериала Heated Rivalry Хадсоном Уильямсом. Премьер обнялся с актером на красной дорожке и пошутил, что они с ним «практически одно и то же».
+⁠
+
+Карни назвал успех сериала примером канадской «мягкой силы», подчеркнув, что Heated Rivalry отражает базовую ценность страны — терпимость — в мире, который становится все более поляризованным. Он также похвалил создателей проекта за то, что они сохранили сериал «сделанным в Канаде», не поддавшись давлению со стороны американских студий.
+⁠
+
+Шестисерийная драма о двух хоккеистах-соперниках, которые тайно состоят в романтических отношениях, стала крупнейшим оригинальным хитом в истории стриминга Crave и уже продлена на второй сезон. Создатели сериала отметили, что его мировой успех стал возможен благодаря инвестициям в канадскую культуру и полному творческому контролю.
+⁠
+
+Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
+        </div>
+        <div class="post-footer">
+            <a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> 
+        </div>
+    </div>
+    </div><div class="pagination"><a href="/page/17" class="btn">← Сюда</a> <a href="/page/19/" class="btn">Туда →</a></div>
+    </main>
+    <footer style="text-align:center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
+        &copy; 2026 journAIsts.ca | Powered by Maple Barrel
+    </footer>
+</body>
+</html>
