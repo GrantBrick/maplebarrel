@@ -13,7 +13,7 @@ from collections import Counter, defaultdict
 from datetime import datetime
 
 # ── НАСТРОЙКИ ──────────────────────────────────────────
-BASE_URL = "https://journalists.ca"
+BASE_URL = "https://journaists.ca"
 SITE_DIR = "site"
 DATA_DIR = "data"          # папка с result.json и photos/
 POSTS_PER_PAGE = 40
@@ -505,11 +505,6 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* LR CARD (longreads horizontal) */
-.lr-card{display:flex;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
-.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-.lr-img{width:80px;min-width:80px;flex-shrink:0;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
-.lr-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
 .lr-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
 /* FOOTER */
@@ -753,9 +748,9 @@ def lr_card(p):
         img_html = f'<div class="lr-img" style="background:{bg}"><span style="color:{fg};font-size:10px;font-weight:700">{lbl}</span></div>'
     return (f'<a class="lr-card" href="{post_url(p)}">'
             f'{img_html}'
-            f'<div class="lr-body">'
+            f'<div class="lrc-body">'
             f'<span class="src-badge" style="font-size:9px;padding:1px 5px">{esc(src_label)}</span>'
-            f'<div class="lr-title">{esc(p["title"])}</div>'
+            f'<div class="lrc-title">{esc(p["title"])}</div>'
             f'<div class="card-date" style="font-size:10px;margin-top:3px">{fmt_date(p["date"])}</div>'
             f'</div></a>')
 
@@ -1001,7 +996,7 @@ def build_materials_page(posts, page=1, tag=''):
     css = """
 .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
-.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--cream)}
+.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
 @media(max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.mat-grid{grid-template-columns:1fr}}
@@ -1042,16 +1037,18 @@ def build_materials_page(posts, page=1, tag=''):
 def build_longreads_page(posts, page=1, tag=''):
     css = """
 .lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.lr-card{display:grid!important;grid-template-columns:200px 1fr;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm)}
-.lr-card .card-img{border-radius:0!important}
-.lrc-body{padding:18px 20px;display:flex;flex-direction:column;gap:7px}
-.lrc-title{font-family:var(--serif);font-size:16px;font-weight:700;line-height:1.3;color:var(--cream);flex:1}
-.lrc-ex{-webkit-line-clamp:3}
+.lr-card{display:flex!important;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s}
+.lr-card:hover{transform:translateY(-1px)}
+.lr-img{width:120px;min-width:120px;flex-shrink:0;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:13px 15px;flex:1;display:flex;flex-direction:column;gap:5px}
+.lrc-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
-.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--cream)}
+.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.lr-grid{grid-template-columns:1fr}.lr-card{grid-template-columns:140px 1fr}}
-@media(max-width:640px){.lr-card{grid-template-columns:1fr}.lr-card .card-img{display:none}}
+@media(max-width:900px){.lr-grid{grid-template-columns:1fr}.lr-img{width:90px;min-width:90px}}
+@media(max-width:640px){.lr-img{display:none}}
 """
     per = POSTS_PER_PAGE
     total = len(posts)
@@ -1095,7 +1092,7 @@ def build_tag_page(tag, posts, page=1):
     css = """
 .tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--t)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
@@ -1128,7 +1125,7 @@ def build_person_page(person, posts, page=1):
     css = """
 .tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
-.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--t)}
 .tag-hdr p{font-size:13px;color:var(--t3)}
 @media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
@@ -1161,7 +1158,7 @@ def build_surveys_page(posts, page=1):
     css = """
 .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
-.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--cream)}
+.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
 @media(max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.mat-grid{grid-template-columns:1fr}}
