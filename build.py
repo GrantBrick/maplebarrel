@@ -715,21 +715,16 @@ def hero_card(p):
     src = p.get('source', '')
     bg, fg, label = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
     if img:
-        img_html = (f'<div class="hc-img">'
-                    f'<img src="{img}" alt="" loading="eager" '
-                    f"onerror=\"this.parentNode.style.background='{bg}'\">"
-                    f'</div>')
+        img_html = f'<div class="hc-img"><img src="{img}" alt="" loading="eager" onerror="this.src=\'\';this.parentNode.style.background=\'{bg}\'"></div>'
     else:
-        img_html = (f'<div class="hc-img" style="background:{bg}">'
-                    f'<span style="color:{fg};font-size:14px;font-weight:700;letter-spacing:.5px">{label}</span>'
-                    f'</div>')
+        img_html = f'<div class="hc-img"><div class="hc-ph" style="background:{bg};color:{fg}">{label}</div></div>'
     return (f'<a class="hero-card" href="{post_url(p)}">'
             f'{img_html}'
             f'<div class="hc-body">'
             f'<div><span class="src-badge">{esc(src_label)}</span></div>'
             f'<div class="hc-title">{esc(p["title"])}</div>'
             f'<div class="hc-ex">{esc(p.get("excerpt",""))}</div>'
-            f'<div class="card-meta" style="margin-top:auto;padding-top:10px;border-top:1px solid var(--br)">'
+            f'<div class="card-meta" style="margin-top:auto;border-top:1px solid var(--br);padding-top:10px">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_row(p.get("tags"), 3)}</div>'
             f'</div>'
@@ -739,8 +734,18 @@ def hero_card(p):
 
 def small_card(p, loading='lazy'):
     src_label = source_name(p.get('source', ''))
+    img = post_img_src(p)
+    src = p.get('source', '')
+    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    if img:
+        img_html = (f'<div class="card-img">'
+                    f'<img src="{img}" alt="" loading="{loading}" '
+                    f"onerror=\"this.src=\'\';this.parentNode.innerHTML=\'<div class=card-placeholder style=background:{bg}><span style=color:{fg}>{lbl}</span></div>\'\">"
+                    f'</div>')
+    else:
+        img_html = f'<div class="card-img"><div class="card-placeholder" style="background:{bg}"><span style="color:{fg}">{lbl}</span></div></div>'
     return (f'<a class="card" href="{post_url(p)}">'
-            f'{_img_block(p, loading)}'
+            f'{img_html}'
             f'<div class="card-body">'
             f'<div><span class="src-badge">{esc(src_label)}</span></div>'
             f'<div class="card-title">{esc(p["title"])}</div>'
@@ -758,30 +763,31 @@ def compact_item(p, num):
     return (f'<a class="compact-item" href="{post_url(p)}">'
             f'<div class="ci-num">{num:02d}</div>'
             f'<div class="ci-body">'
-            f'<span class="src-badge ci-badge">{esc(src_label)}</span>'
-            f'<div class="card-title ci-title">{esc(p["title"])}</div>'
-            f'<div class="card-meta" style="border:none;padding-top:4px">'
+            f'<span class="src-badge" style="font-size:9px;padding:1px 5px">{esc(src_label)}</span>'
+            f'<div class="ci-title">{esc(p["title"])}</div>'
+            f'<div style="display:flex;gap:6px;align-items:center;margin-top:2px">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_row(p.get("tags"), 1)}</div>'
-            f'</div></div></a>')
+            f'</div>'
+            f'</div></a>')
 
 
 def lr_card(p):
-    """Horizontal mini-card for longreads and related posts."""
+    """Horizontal mini-card for longreads sidebar."""
     src_label = source_name(p.get('source', ''))
     src = p.get('source', '')
-    bg, fg, label = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
     img = post_img_src(p)
     if img:
         img_html = f'<div class="lr-img"><img src="{img}" alt="" loading="lazy" onerror="this.parentNode.style.background=\'{bg}\';this.remove()"></div>'
     else:
-        img_html = f'<div class="lr-img" style="background:{bg}"><span style="color:{fg};font-size:10px;font-weight:700">{label}</span></div>'
+        img_html = f'<div class="lr-img" style="background:{bg}"><span style="color:{fg};font-size:10px;font-weight:700">{lbl}</span></div>'
     return (f'<a class="lr-card" href="{post_url(p)}">'
             f'{img_html}'
             f'<div class="lr-body">'
-            f'<span class="src-badge" style="font-size:9px">{esc(src_label)}</span>'
+            f'<span class="src-badge" style="font-size:9px;padding:1px 5px">{esc(src_label)}</span>'
             f'<div class="lr-title">{esc(p["title"])}</div>'
-            f'<div class="card-date" style="font-size:10px;margin-top:4px">{fmt_date(p["date"])}</div>'
+            f'<div class="card-date" style="font-size:10px;margin-top:3px">{fmt_date(p["date"])}</div>'
             f'</div></a>')
 
 
@@ -907,26 +913,46 @@ def build_post_page(p, related):
 
 def build_news_index(posts_by_date):
     css = """
-.day-hdr{display:flex;align-items:baseline;gap:12px;padding:18px 0 12px;border-bottom:2px solid var(--br);margin-bottom:18px}
+.day-hdr{display:flex;align-items:baseline;gap:12px;padding:18px 0 12px;border-bottom:2px solid var(--br);margin-bottom:20px}
 .day-label{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--t)}
 .day-sub{font-size:12px;color:var(--t3)}
-.hero-card{display:grid;grid-template-columns:1.2fr 1fr;margin-bottom:18px;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);background:#fff;transition:transform .15s}
-.hero-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.12)}
-.hc-img{overflow:hidden;background:var(--bg4);aspect-ratio:4/3}
-.hc-img img{width:100%;height:100%;object-fit:cover;display:block}
-.hc-img .card-placeholder{height:100%}
-.hc-body{padding:22px 22px 20px;display:flex;flex-direction:column;gap:9px;background:#fff}
+
+/* HERO CARD - простая схема без хаков */
+.hero-card{display:grid;grid-template-columns:1fr 1fr;margin-bottom:20px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.hc-img{background:var(--bg4);min-height:260px;overflow:hidden}
+.hc-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:260px}
+.hc-ph{width:100%;min-height:260px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;letter-spacing:.5px}
+.hc-body{background:#fff;padding:24px 22px;display:flex;flex-direction:column;gap:10px}
 .hc-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.3;color:var(--t);flex:1}
-.hc-ex{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.hc-ex{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+
+/* SMALL CARDS */
 .sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
-.card{background:#fff}.card-img{aspect-ratio:3/2}
+.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-2px)}
+.card-img{aspect-ratio:3/2;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.card-body{padding:13px 14px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px;flex:1}
+.card-excerpt{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:7px;padding-top:8px;border-top:1px solid var(--br);flex-wrap:wrap;margin-top:auto}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-read{font-size:11px;font-weight:600;color:var(--ac)}
+
+/* COMPACT LIST */
 .compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);margin-bottom:22px;border-radius:6px;overflow:hidden}
-.compact-item{background:#fff;display:flex;gap:10px;padding:11px 14px;align-items:flex-start;transition:background .12s}
+.compact-item{background:#fff;display:flex;gap:10px;padding:11px 14px;align-items:flex-start;transition:background .12s;text-decoration:none}
 .compact-item:hover{background:var(--bg3)}
-.ci-num{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--br2);flex-shrink:0;line-height:1;min-width:22px;text-align:right;padding-top:2px}
+.ci-num{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--br2);flex-shrink:0;line-height:1.2;min-width:22px;text-align:right}
 .ci-body{flex:1;display:flex;flex-direction:column;gap:4px}
 .ci-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* YESTERDAY */
 .yesterday-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+
+/* PREVIOUS DAYS */
 .prev-section{margin-top:8px}
 .prev-day{margin-bottom:10px}
 .prev-day-btn{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
@@ -936,12 +962,13 @@ def build_news_index(posts_by_date):
 .pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
 .prev-posts{display:none;grid-template-columns:repeat(4,1fr);gap:12px;padding:12px 0}
 .prev-posts.open{display:grid}
-.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow-sm);transition:transform .12s}
+.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:0 1px 4px rgba(0,0,0,.07);transition:transform .12s}
 .pp-card:hover{transform:translateY(-1px)}
 .pp-src{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#fff;background:var(--ac);padding:1px 6px;border-radius:2px;display:inline-block;width:fit-content;margin-bottom:2px}
 .pp-title{font-family:var(--serif);font-size:12px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
 @media(max-width:1100px){.yesterday-grid{grid-template-columns:repeat(3,1fr)}.prev-posts{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.hero-card{grid-template-columns:1fr}.hc-img{min-height:180px}.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.hero-card{grid-template-columns:1fr}.hc-img{min-height:200px}.hc-img img{min-height:200px}.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.sec-grid{grid-template-columns:1fr}.yesterday-grid{grid-template-columns:1fr 1fr}}
 """
     dates = sorted(posts_by_date.keys(), reverse=True)
