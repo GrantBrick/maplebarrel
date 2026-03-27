@@ -469,13 +469,11 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 /* ── CARD — Meduza style ──
    Structure: img → body(badge + title + meta)
    No overflow tricks, no absolute positioning */
-.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
+.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;cursor:pointer}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
-.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-body{padding:16px 16px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
 .card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px}
+.card-excerpt{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
 .card-date{font-size:10px;color:var(--t3)}
 .card-tags{display:flex;gap:3px;flex-wrap:wrap}
@@ -675,17 +673,10 @@ def _img_block(p, loading='lazy'):
 
 
 def hero_card(p):
+    """Hero card — big text, no image (Meduza style)."""
     src_label = source_name(p.get('source', ''))
-    img = post_img_src(p)
-    src = p.get('source', '')
-    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
-    if img:
-        img_block = f'<div class="hc-img"><img src="{img}" alt="" loading="eager"></div>'
-    else:
-        img_block = f'<div class="hc-img" style="background:{bg}"><span style="color:{fg};font-size:14px;font-weight:700">{lbl}</span></div>'
     tags_html = tags_row(p.get('tags'), 3)
     return (f'<a class="hero-card" href="{post_url(p)}">'
-            f'{img_block}'
             f'<div class="hc-body">'
             f'<span class="src-badge">{esc(src_label)}</span>'
             f'<div class="hc-title">{esc(p["title"])}</div>'
@@ -694,25 +685,21 @@ def hero_card(p):
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_html}</div>'
             f'</div></div></a>')
+
 def small_card(p, loading='lazy'):
+    """Text-only card — Meduza style. No images."""
     src_label = source_name(p.get('source', ''))
-    img = post_img_src(p)
-    src = p.get('source', '')
-    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
-    if img:
-        img_block = f'<div class="card-img"><img src="{img}" alt="" loading="{loading}"></div>'
-    else:
-        img_block = f'<div class="card-img"><div class="card-ph" style="background:{bg};color:{fg}">{lbl}</div></div>'
     tags_html = tags_row(p.get('tags'), 2)
     return (f'<a class="card" href="{post_url(p)}">'
-            f'{img_block}'
             f'<div class="card-body">'
             f'<span class="src-badge">{esc(src_label)}</span>'
             f'<div class="card-title">{esc(p["title"])}</div>'
+            f'<div class="card-excerpt">{esc(p.get("excerpt",""))}</div>'
             f'<div class="card-meta">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_html}</div>'
             f'</div></div></a>')
+
 def compact_item(p, num):
     src_label = source_name(p.get('source', ''))
     return (f'<a class="compact-item" href="{post_url(p)}">'
@@ -873,12 +860,10 @@ def build_news_index(posts_by_date):
 .day-sub{font-size:12px;color:var(--t3)}
 
 /* HERO — full width, image on top */
-.hero-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;margin-bottom:18px;transition:box-shadow .15s,transform .15s}
+.hero-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;margin-bottom:16px;transition:box-shadow .15s,transform .15s}
 .hero-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.hc-img{width:100%;aspect-ratio:16/6;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hc-img img{width:100%;height:100%;object-fit:cover;display:block}
-.hc-body{padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px}
-.hc-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.25;color:var(--t)}
+.hc-body{padding:20px 22px 20px;display:flex;flex-direction:column;gap:10px}
+.hc-title{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.2;color:var(--t)}
 .hc-ex{font-size:14px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 
