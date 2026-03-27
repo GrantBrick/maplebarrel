@@ -246,23 +246,21 @@ def parse_telegram_export(json_path):
 
 
 # ── CSS / JS ОБЩИЕ ────────────────────────────────────
-
 COMMON_CSS = """
+
 :root{
-  --bg:#18181a;--bg2:#1e1e21;--bg3:#252528;--bg4:#2c2c30;--bg5:#333337;
-  --br:#2e2e32;--br2:#3d3d42;
-  --card:#222226;--card-hover:#28282d;
-  --cream:#f5f0e8;--cream2:#e8e3d8;--cream3:#d4cfc4;--cream4:#a09b90;
-  --t:#f5f0e8;--t2:#c8c3b8;--t3:#8a857a;--t4:#4a4843;
-  --ac:#c0392b;--ac2:#e05240;--ac3:#ff6b5b;
-  --gold:#c9963a;--gold2:#e8b44a;
-  --tg:#5b9bd5;--tg2:#7ab8f5;
-  --maple:#d4543a;
-  --shadow:0 2px 12px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.25);
-  --shadow-sm:0 1px 6px rgba(0,0,0,.3);
-  --serif:'Playfair Display',Georgia,serif;
-  --bserif:'Source Serif 4',Georgia,serif;
-  --sans:'Golos Text',system-ui,sans-serif
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+}
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -289,14 +287,15 @@ nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0
 /* ── CARD SYSTEM ── */
 /* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
 .card{
-  background:var(--card);
-  border-radius:8px;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
   overflow:hidden;
-  transition:transform .15s,box-shadow .15s;
-  box-shadow:var(--shadow-sm);
-  display:flex;flex-direction:column;
+  transition:transform .15s;
 }
-.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.card:hover{
+  transform:translateY(-2px);
+}
 
 /* Image container — always 16:9, consistent shadow on image */
 .card-img{
@@ -306,12 +305,7 @@ nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0
   flex-shrink:0;
   position:relative;
   display:flex;align-items:center;justify-content:center;
-}
-.card-img::after{
-  content:'';position:absolute;inset:0;
-  box-shadow:inset 0 -40px 40px rgba(0,0,0,.4);
-  pointer-events:none;
-}
+
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
 .card-img .emoji-fallback{font-size:32px;color:var(--t4)}
 
