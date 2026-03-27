@@ -1,799 +1,677 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Материалы | Maple Barrel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-:root {
-    --bg: #fdfdfd;
-    --card-bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #c53030; /* Канадский красный */
-    --border: #eeeeee;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Материалы — Maple Barrel</title>
+<meta name="description" content="Аналитика, мнения и большие тексты о Канаде на русском языке.">
+<link rel="canonical" href="https://journalists.ca/materials/">
+<meta property="og:title" content="Материалы — Maple Barrel">
+<meta property="og:description" content="Аналитика, мнения и большие тексты о Канаде на русском языке.">
+<meta property="og:url" content="https://journalists.ca/materials/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Материалы — Maple Barrel">
+<meta name="twitter:description" content="Аналитика, мнения и большие тексты о Канаде на русском языке.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: 'Inter', -apple-system, system-ui, sans-serif; 
-    line-height: 1.7; color: var(--text-main); background: var(--bg); 
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
-a { color: inherit; text-decoration: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
 
-header { 
-    background: #fff; border-bottom: 1px solid var(--border); 
-    padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
 }
-.header-content { 
-    max-width: 900px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; align-items: center;
+
+.tgb:hover{
+  background:#a93226;
 }
-.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
-.nav-menu { display: flex; gap: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
-.nav-menu a:hover { color: var(--accent); }
 
-.container { max-width: 800px; margin: 3rem auto; padding: 0 20px; }
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-/* Список постов */
-.posts-list { display: flex; flex-direction: column; gap: 4rem; }
-.post-card { border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
-.post-card:last-child { border-bottom: none; }
-
-.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; }
-.post-image { width: 100%; height: auto; display: block; }
-
-.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; }
-.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; }
-.post-content b, .post-content strong { font-weight: 700; }
-.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-
-.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: #f5f5f5; color: #444; font-weight: 500; }
-.person-badge { background: #fff1f1; color: var(--accent); }
-
-.pagination { margin: 5rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
-.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 600; cursor: pointer; }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-
-.page-title { margin-bottom: 3rem; font-size: 2rem; font-weight: 800; }
-footer { text-align: center; padding: 5rem 0; color: #999; font-size: 0.8rem; border-top: 1px solid var(--border); }
-
-@media (max-width: 600px) {
-    header .nav-menu { display: none; } /* Упрощаем для мобилок */
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform .15s;
 }
+.card:hover{
+  transform:translateY(-2px);
+}
+
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+
+.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
+.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--cream)}
+.page-intro p{font-size:14px;color:var(--t2)}
+@media(max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.mat-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="/" class="logo">MAPLE BARREL</a>
-            <nav class="nav-menu">
-                <a href="/materials/">Материалы</a>
-                <a href="/longreads/">Лонгриды</a>
-                <a href="/about/">О проекте</a>
-                <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container">
-        <h1 class="page-title">Материалы</h1><div class="posts-list">
-    <article class="post-card">
-        <span class="post-date">26 июня 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_647@26-06-2025_12-21-48.jpg" class="post-image"></div>
-        <div class="post-content">CBC смоделировало климат будущего: к концу века лето в крупных канадских городах будет напоминать текущие условия в американских штатах южнее. 
 
-Можете проверить свой город по ссылке:
-
-<a href="None">https://newsinteractives.cbc.ca/features/2025/climate-matches/</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">5 июня 2025</span>
-        
-        <div class="post-content"><b>Альберта за Карни?
-</b><i>Новый премьер впечатлил жителей Альберты почти так же, как и Полиев.
-</i>
-Альберта — край вечной любви к Консервативной партии. И вот сюрприз: согласно свежему опросу Janet Brown Opinion Research, <b>жители провинции одинаково впечатлены</b> и Пьером Полиевым, и новым либеральным премьером <b>Маркoм Карни</b>.
-
-Да-да, либералом.
-
-Оценки ставили по шкале от 0 (фу, разочарование) до 10 (ах, восторг) — и Карни набрал почти столько же, сколько и Полиев. Хотя Консервативная партия в Альберте снова собрала <b>почти все мандаты и 65% голосов</b>, а либералы — лишь 28%.
-
-<b>🤷‍♀️ Почему так?
-</b>«Многие консерваторы были готовы дать Карни шанс», — говорит либеральная кандидатка из Калгари Бриндис Уитсон.
-«При Трюдо на меня смотрели как на вирус. При Карни — как на потенциального налогового консультанта».
-
-<b>По данным опроса:
-</b>— Женщины больше симпатизируют Карни,
-— Мужчины — Полиевру,
-— Бумеры вообще в восторге от Карни,
-— А миллениалы и поколение X слегка склоняются к Полиеву.
-Даже <b>премьер Альберты Даниэль Смит</b>, которая ещё вчера вела с Оттавой климатические бои, внезапно почувствовала «смену тона».
-
-«Я давно не слышала от премьера слов про строительство битумопровода на северо-запад», — сказала она CBC.
-
-Хотя, добавила, если словами всё и закончится — «кризис национального единства» снова постучится в дверь.
-
-<b>🗳 Даже консерваторы одобряют
-</b>40% голосовавших за Полиева <b>поставили Карни высокую или умеренную оценку</b>, а вот либералы Полиева особо не жалуют — только 1 из 4 дал ему баллы выше нуля.
-
-«Карни — человек с опытом, центрист, банкир, не Трюдо. Уже неплохо», — поясняет политолог Джон Сантос.
-
-Так что пока в стране экономическая тряска и пошлины со стороны США, Карни выглядит для Альберты если не как спаситель, то хотя бы как <b>вежливый взрослый, умеющий разговаривать с нефтяниками</b>.
-
-Но выдержит ли он местное «мёд с битумом» — покажет следующий квартал. Или первый реальный конфликт.
-
-<a href="None">https://www.cbc.ca/news/canada/calgary/mark-carney-albertans-impression-janet-brown-poll-1.7551574</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">30 мая 2025</span>
-        
-        <div class="post-content"><b>Экономика Канады растёт быстрее ожиданий
-</b>
-<i>В первом квартале 2025 года ВВП Канады вырос на 2,2% в годовом исчислении, что выше прогноза аналитиков (ожидали 1,7%), сообщает StatsCan. Главный драйвер роста — всплеск экспорта в США, вызванный опасениями американских компаний успеть закупиться до ввода новых пошлин Трампа.
-</i>
-<b>📦 Что подтолкнуло рост
-</b>– Американские компании ускоренно скупали канадские товары, опережая ввод тарифов.
-– Рост экспорта привёл к увеличению производства и ВВП.
-– Также вырос импорт, что вызвало накопление запасов на складах.
-
-<b>📉 Тревожные сигналы
-</b>– Снижение потребительских расходов.
-– Отсутствие роста внутреннего спроса — впервые с конца 2023 года.
-– Инвестиции в основной капитал и финальное потребление не изменились.
-
-💬 «Заголовочная цифра сильная, но детали — не очень. Рост обеспечили не фундаментальные факторы, а торговая турбулентность», — говорит Дуглас Портер, главный экономист BMO.
-
-<b>📊 ЦБ Канады на распутье
-</b>Отчёт по ВВП — последний важный индикатор перед решением Банка Канады по ключевой ставке в среду. Несмотря на видимый рост, слабость внутренних показателей может повлиять на решение о снижении ставки.
-
-🏗 <b>Дополнительно</b>
-– В марте ВВП вырос на 0,1% после спада в феврале (-0,2%).
-– Основной вклад внесли добыча полезных ископаемых, нефти и газа, а также строительство.
-– По предварительным оценкам, апрель также покажет умеренный рост (+0,1%).
-
-🧾 Итог: ВВП растёт, но подспудная нестабильность остаётся. Пошлины Трампа стимулировали краткосрочный экспорт, но оставили внутреннюю экономику на паузе.
-
-<a href="None">https://www.cbc.ca/news/business/canada-economy-gdp-q1-1.7547889</a></div>
-        <div class="post-footer"> <a href="/tag/экономика/" class="badge">#экономика</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">29 мая 2025</span>
-        
-        <div class="post-content"><b>Уильямс-Лейк хочет ввести чрезвычайное положение из-за роста беспорядков
-</b><i>Городок с населением 20 тысяч человек борется с ростом преступности и проблемами с психическим здоровьем.
-</i>
-Совет города Уильямс-Лейк (Британская Колумбия) подал предложение объявить местное чрезвычайное положение из-за роста уличных беспорядков, открытого употребления наркотиков, поджогов и проблем с психическим здоровьем в центре города. Это даст полиции дополнительные полномочия, в том числе право направлять людей на принудительное лечение.
-
-<b>Противники и поддержка
-</b>Инициатива вызвала резкую критику со стороны гражданских правозащитников и местного коренного народа Xatsull First Nation, которые считают, что меры лишь усилят маргинализацию и криминализацию уязвимых слоёв населения.
-
-<b>Что дальше?
-</b>Пока неизвестно, поддержит ли провинция введение чрезвычайного положения, хотя городские власти уже выделили $100 000 на усиление полиции. Представители провинции обещают после консультаций представить конкретные планы, включая увеличение койкомест в приютах к июлю.
-
-
-<a href="None">https://www.cbc.ca/news/canada/british-columbia/williams-lake-bc-state-emergency-1.7546563</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 мая 2025</span>
-        
-        <div class="post-content"><b>🩺 Врач по объявлению: 96-летняя пенсионерка из Новой Шотландии ищет семейного доктора через газету</b>
-
-<i>Когда вам 96, вы садитесь на корточки в огороде, выращиваете тюльпаны и не теряете чувство юмора, то, казалось бы, жизнь удалась. Впрочем, есть одно но: у вас нет семейного врача уже три года, и вы — 80-тысячная в очереди. 
-</i>
-Отчаявшись найти врача, Дороти Ламонт из Дармута (Новая Шотландия) написала в The Chronicle Herald почти отчаянное письмо:
-
-«Я в здравом уме и теле, не хочу быть обузой для системы здравоохранения, но мне нужен доктор. Время не на моей стороне».
-
-Дороти — бывшая учительница начальных классов. Она постоянно меняет врачей: все уходят в отставку или покидают провинцию. Сейчас её ведёт виртуальный доктор, но, по словам самой Ламонт, это не то, что ей подходит.
-
-История Дороти тронула сердца канадцев: спустя два дня после выхода объявления ей перезвонили из Nova Scotia Health и пообещали: врача ищут. И, о чудо, в понедельник сообщили: доктор, который заменит её бывшего врача, сможет принять её в ближайшие месяцы.
-
-💡 Но история Дороти — это не исключение, а симптом. Почти 91,5 тыс. жителей Новой Шотландии всё ещё ждут семейного врача. А по всей Канаде таких — около 6,5 миллионов. По данным Минздрава, стране не хватает порядка 23 000 семейных врачей.
-
-Премьер Тим Хьюстон клянётся, что чинит систему, но пока всё чинится, люди вынуждены… разбираться с системой своими силами.
-
-И напоследок — занятный факт: в 2022 году пенсионерка из Виктории уже давала подобное объявление. Так что в следующий раз, когда вас спросят: а зачем нам вообще журналистика? -- вспомните Дороти Ламонт. Возможно, последняя надежда канадских пенсионеров — это не правительство, а полоска в утренней газете.
-
-<a href="None">https://www.cbc.ca/news/canada/nova-scotia/dorothy-lamont-seeking-doctor-newspaper-ad-1.7544628</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 мая 2025</span>
-        
-        <div class="post-content"><b>Канада хочет присоединиться к европейскому оборонному плану до 1 июля
-</b>
-<i>Премьер-министр Марк Карни заявил, что Канада рассчитывает подписать соглашение о вступлении в масштабную программу ReArm Europe до Дня Канады (1 июля). План предусматривает €1,25 трлн военных расходов от стран ЕС в течение 5 лет.
-</i>
-🔹 Цель — снизить зависимость от США. Сейчас 75% канадских оборонных закупок идут в Штаты.
-
-🔹 Карни подчеркнул, что Канада увеличит военный бюджет, но не станет гнаться за цифрами. Сейчас страна тратит 1,37% ВВП на оборону — ниже цели НАТО в 2%.
-
-🔹 США тем временем зовут Канаду в свою систему ПРО Golden Dome — или… предлагают стать 51-м штатом:
-
-
-«Это будет стоить $61 млрд, если останетесь отдельной, но неравной нацией. Или $0 — если станете нашим дорогим 51-м штатом», — Дональд Трамп, в своем стиле.
-
-
-🔹 НАТО обсуждает новый стандарт — 5% ВВП на оборону. Карни обещает участвовать в переговорах, но оставляет за Канадой право действовать с умом: тратить больше, но с выгодой для страны.
-
-📌 Осенью ожидается бюджет, где могут быть конкретные цифры по оборонке.
-
-<a href="None">https://www.cbc.ca/news/politics/rearm-europe-deal-canada-carney-interview-1.7545303</a></div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 мая 2025</span>
-        
-        <div class="post-content"><b>Исчезновение в Новой Шотландии: детей видели на публике за день до пропажи
-</b>
-<i>Полиция просит видео с дороги у дома детей Лилли и Джека Салливан.
-</i>
-<b>След исчезающих
-</b>RCMP (Королевская канадская конная полиция) заявила, что брат и сестра из Пикту-Каунти, Лилли (6 лет) и Джек Салливан (4 года), которых ищут с 2 мая, были замечены на публике за день до исчезновения — 1 мая. Детей видели с членами семьи. По словам их отчима Даниэля Мартелла, дети не ходили в школу 30 апреля (pro d day), а также 1 и 2 мая — якобы болели.
-
-<b>Операция: "Где Салливан?"
-</b>Масштабные поиски продолжались шесть дней, охватив 5,5 квадратных километров лесистой местности у их дома в Лэнсдаун-Стейшн. Работали 160 спасателей, поисковые собаки, вертолёты и дроны. После 7 мая поиски были свернуты, но 8–9 мая водолазы обследовали водоёмы, а 17–18 мая спасатели вновь прочёсывали территорию вокруг дома.
-
-<b>Сбор видеоматериалов
-</b>RCMP подтвердила, что уже собрано множество видеоматериалов с камер в районе. Сейчас полиция обращается к жителям: если у вас есть видео с Gairloch Road с 28 апреля по 2 мая (особенно с видеорегистраторов), срочно передайте данные следствию.
-
-«Мы понимаем, как люди жаждут ответов. Но расследование продолжается, и мы не можем делиться деталями», — Сэнди Матару, RCMP.
-
-На сегодня поступило более 355 заявлений и опрошено свыше 50 человек. И, как говорят следователи, это ещё не конец.
-
-📌 Исчезновение детей всегда — трагедия, но когда они пропадают "внезапно" из дома в малонаселённой местности — вопросов становится всё больше, а ответов всё меньше.
-
-<a href="None">https://www.cbc.ca/news/canada/nova-scotia/jack-lilly-sullivan-seen-one-day-before-disappearance-1.7545747</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">27 мая 2025</span>
-        
-        <div class="post-content"><b>"Сильная, свободная и в пиджаке с орденом": Карл III зачитал тронную речь
-</b><i>Монарх вернулся, чтобы напомнить, что Канада — не чей-то придаток, а сила с характером.
-</i>
-В Канаде событие историческое: впервые за полвека монарх лично выступил с тронной речью. Король Карл III, сидя рядом с королевой Камиллой в Сенате, напомнил канадцам, что страна остаётся сильной и свободной, даже когда привычные отношения с партнёрами переживают изменения.
-
-<b>Соседи с характером
-</b>Не обошлось и без намёков: Карл III тонко прошёлся по волнующей многих теме — напряжённости с США на фоне политики Дональда Трампа и его тарифной войны. Монарх дипломатично заметил, что мир стремительно меняется, но именно сейчас у Канады есть возможность проявить себя по-новому:
-
-
-«Канадцы способны дать себе больше, чем любая чужая держава сможет отобрать. Придерживаясь своих ценностей, вы сможете построить новые союзы и новую экономику, которая будет служить всем канадцам», — подчеркнул король.
-
-
-Не назвав имя Трампа прямо, Карл III дал понять: от соседей, конечно, никуда не деться, но собственный путь и суверенитет важнее.
-
-<b>Королевская любовь и народная симпатия
-</b>Кажется, король нашёл подходящие слова для канадцев: рейтинг монархии на подъёме, а самого Карла в Оттаве встречала огромная толпа с криками "We love you, Charles!" Король признался, что каждая поездка заставляет его влюбляться в Канаду всё сильнее:
-
-
-«Каждый раз, когда я приезжаю сюда, немного Канады проникает в мою кровь — и прямо в сердце», — сказал он, затронув чувства многих канадцев.
-
-
-<b>Что дальше?
-</b>Правительство Марка Карни намерено воспользоваться моментом: в повестке дня снижение налогов, решение жилищного вопроса, укрепление границ и пересмотр иммиграционной политики. Особое внимание уделят экономике, чтобы сделать её максимально независимой.
-
-Ну а король напоследок возложил венок к могиле Неизвестного солдата, подчеркнув, что Канада не забывает своих героев. И покинул страну на электрокаре BMW — пожалуй, ещё один тонкий намёк заокеанским друзьям.
-
-<a href="None">https://www.cbc.ca/news/politics/king-charles-delivers-throne-speech-1.7544242</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">27 мая 2025</span>
-        
-        <div class="post-content"><b>Небо не резиновое, а нервы пилотов – тем более
-</b>
-<i>“Пассажиры, пристегните ремни — и напишите своему депутату!” Примерно так начал свой эмоциональный спич пилот рейса Air Canada Ванкувер–Монреаль, когда объявил людям задержку на 50 минут. Разгорячённый отсутствием персонала на земле, капитан не стал молчать: “Это очень раздражает, стоит компании кучу денег и портит настроение всем, кто надеется успеть по делам или в отпуск”.
-</i>
-<b>Тучи сгущаются не только на взлётной полосе
-</b>Пилот, не стесняясь в выражениях, упрекнул компанию Nav Canada, которая управляет авиадиспетчерами страны, в хронической нехватке кадров и даже намекнул, что новых сотрудников держат на низком старте, чтобы у старожилов было побольше сверхурочных. "Пишите своим депутатам!" — призвал он прямо в салоне.
-
-Компания Air Canada честно подтвердила: расписание сбито уже несколько недель. В Nav Canada оправдываются, что всё не так однозначно и они, наоборот, увеличивают набор и обучение, ведь в этом году только в Ванкувере выдали 40 новых лицензий.
-
-<b>Дилетанты не выдерживают высоты
-</b>Пилотский профсоюз заявляет: ругать отдельно взятого диспетчера — это как злиться на тостер за сырой хлеб, если электричества в доме нет. Проблема системная: страна большая, небо загружено, а людей не хватает во всех точках.
-
-Владелица авиакомпании Iskwew Air, которая гоняет мини-рейсы между YVR и островом Ванкувер, жалуется: "Задержки каждый день, по 20 минут на 20-минутном рейсе — уже не шутка".
-
-<b>Вместо послесловия
-</b>Nav Canada бодро отчитывается: 500 будущих диспетчеров уже учатся, к 2028-му хотят обучить аж 1500. Главное, чтобы они остались в профессии и не сбежали в IT.
-
-
-“Пишите своим депутатам, если устали ждать в небе и на земле” — теперь не только лозунг, но и совет от экипажа Air Canada.
-
-
-Если задержали рейс — смело рассказывайте об этом своим знакомым в парламенте. Ну или хотя бы пилоту, ему явно не всё равно.
-
-<a href="None">https://www.cbc.ca/news/canada/british-columbia/air-canada-pilot-air-traffic-controller-shortage-1.7544484</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 мая 2025</span>
-        
-        <div class="post-content"><b>Наркотики, деньги, 15 стволов
-</b><i>Региональная полиция Йорка изъяла арсенал оружия, а также  запрещенные вещества общей стоимостью $215 000.
-</i>
-В Йоркском регионе полиция устроила собственную версию культового фильма Гая Ричи, только с реальными актёрами и без монтажных склеек. Шесть человек задержаны, изъято 15 единиц огнестрельного оружия, девять из которых были заряжены! Наркотиков на сумму 215 000 долларов — от фентанила до метамфетамина — хватило бы, чтобы обеспечить пару сезонов сериалов про плохих парней.
-
-Всё началось с невинного сообщения: в Джорджине (Онтарио) кто-то слишком активно предлагал запрещённые вещества. Оперативники подключились, вышли на новых фигурантов и обнаружили, что наркотурбизнес растянулся от Торонто до Хантсвилля, а одни и те же лица интересуют сразу несколько подразделений полиции.
-
-Дальше — как в кино: совместная операция с OPP и полицией Торонто, шесть обысков за два дня, и вот на выходе — арсенал, которому позавидовал бы любой гангстер из "Большого куша". Среди задержанных — персонажи с кинематографичными именами: Гэри Лэрд, Рене Гуманзинг, Джастис Комо и другие. Им предъявлен внушительный букет обвинений — от хранения оружия до торговли наркотиками и отмывания денег.
-
-Полиция подчеркивает: если вы знаете что-то ещё о мастерах криминального жанра, не стесняйтесь звонить, телефоны Crime Stoppers работают круглосуточно.
-
-#канада #новостиканады #криминал #восточноепобережье
-
-<a href="None">https://torontosun.com/news/local-news/6-people-charged-after-15-firearms-215gs-in-drugs-seized</a></div>
-        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 мая 2025</span>
-        
-        <div class="post-content"><a href="None">https://www.cbc.ca/news/politics/new-speaker-house-of-commons-1.7543572</a>
-
-<b>СРОЧНО В НОМЕР: Франсис Скарпаледжиа избран новым спикером Палаты общин
-</b>
-<i>Либеральный депутат Франсис Скарпаледжиа, представляющий Квебекский округ Лак-Сен-Луи, избран новым спикером Палаты общин. Теперь именно он будет следить за порядком в палате и модерировать, как говорят в народе, "самую насыщенную политическую сессию последних лет". Премьер-министр Марк Карни уже предупредил коллег, что впереди их ждут "очень, очень" напряжённые недели.
-</i>
-Должность спикера считается внепартийной: выбранный тайным голосованием депутат не входит в фракцию и обязан сохранять абсолютную беспристрастность, что, согласитесь, иногда напоминает работу дрессировщика на арене.
-
-"Я надеюсь на небольшой кредит доверия, раз мы только начали мандат", — скромно заметил Скарпаледжиа, занимая кресло спикера под одобрительный взгляд Карни и временного лидера оппозиции Эндрю Шира. "Спасибо за доверие. Я буду немногословен: дел у всех немало, а времени терять не хочется".
-
-Премьер Карни, впервые выступая в палате, тоже порадовал коллег речью о древнегреческих традициях демократии. "Мы — Афины, они — Рим", — с иронией обратился он к оппозиции. "Да, мы в золотом веке Афин. Спасибо, господин спикер, вы можете рассчитывать на мою поддержку".
-
-Впереди у парламента большие задачи — от изменения внешнеэкономической политики до, пожалуй, нового витка классических споров. Но с новым спикером заседатели обещают держать марку и не терять чувства юмора.
-
-#канада #новостиканады #парламент</div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/квебек/" class="badge">#Квебек</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 мая 2025</span>
-        
-        <div class="post-content"><a href="None">https://www.cbc.ca/news/politics/parliament-return-throne-speech-1.7540624</a>
-
-<b>Парламент Канады возвращается: новые лица, старые традиции и королевский лоск</b>
-<i>Открытие сессии, выборы Спикера и британский монарх в Сенате — спектакль с политическим подтекстом.
-</i>
-Сегодня, 26 мая 2025 года, после почти полугодового затишья в стенах Оттавы вновь раздался шум: парламент Канады вернулся к работе, и это возвращение обещает быть совсем не рутинным. На повестке — сразу несколько неожиданных поворотов, которые придают политическому театру особый шик.
-
-<b>Вход по билетам: выборы Спикера
-</b>Если бы у парламента был свой Netflix, эпизод с выборами Спикера, пожалуй, получил бы самые высокие рейтинги. Обычно эту процедуру проходят без фанфар, но сейчас внимание к креслу Спикера почти сопоставимо с финалом "Игры престолов": после прошлогоднего скандального ухода Энтони Роты из-за приглашения "не того" ветерана, кресло стало символом внутрипартийных и межпартийных разногласий. Претендентов — хоть на школьные выборы, и не исключено, что либералы предпочтут поддержать кандидата от оппозиции: ведь до большинства им всего три места, а у Спикера в голосовании прав, по сути, нет — за исключением случаев ничьей.
-
-Действующих лиц хватает: на пост претендуют и либералы, и консерваторы, и даже "старейшина палаты" — депутат с самым долгим стажем, которому доверено провести голосование. Голосование — та ещё лотерея: тайное, рейтинговое, с постепенным отсеиванием аутсайдеров до тех пор, пока не определится победитель.
-
-<b>Монархия выходит на сцену
-</b>Как только кресло Спикера займёт новый хозяин (или хозяйка), в парламенте начнётся "королевский акт": тронная речь в этот раз будет оглашена не губернатором, а самим королём Карлом (он же Чарльз) III. За всю историю Канады подобная роскошь случалась всего трижды — событие, действительно достойное красной дорожки. Король и королева прибудут к Сенату в парадной карете, запряжённой конями RCMP, под аккомпанемент военного оркестра и залпы пушек.
-
-Процессия впечатляет даже самых закалённых скептиков: полное военное приветствие, почётный караул, церемониальный марш через Вэллингтон-стрит. И, конечно, знаменитое троекратное стучание в дверь палаты — ведь только после этого "королевский посыльный" пригласит депутатов на тронную речь. В этот раз, вместо привычного "генерал-губернатор желает", будет сказано: "Король повелевает".
-
-Сцена готова, актёры на месте, а зрители затаили дыхание: новый сезон политической жизни обещает и классические интриги, и свежие повороты — с налётом британской иронии и канадской самоиронии. ТикТок пока не включили, но кто знает — может, это дело следующей сессии?
-
-#новостиканады #канада #парламент</div>
-        <div class="post-footer"> <a href="/tag/выборы/" class="badge">#выборы</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 мая 2025</span>
-        
-        <div class="post-content"><b>Британский монарх в Оттаве: Карл III и Камилла с визитом в Канаде</b>
-<i>Сегодня Оттава встречает короля Карла III и королеву Камиллу — впервые после коронации монаршая чета наносит официальный визит в Канаду. Для Чарльза это не просто протокольное событие, а, пожалуй, попытка напомнить стране о многовековой связи с британской короной — пусть и с лёгким налётом самоиронии XXI века.
-</i>
-В программе визита — тронная речь в Парламенте, встречи с официальными лицами, обсуждение поддержки коренных народов и климатической повестки. Всё строго по регламенту, но, как водится у аристократии, с изящными реверансами в сторону канадского общества: то Чарльз пошутит про свой французский, то Камилла с достоинством проведёт руку по воздуху, приветствуя публику.
-
-В столице к приезду гостей относятся по-разному — от дипломатической сдержанности до вполне тёплого любопытства. Однако, даже скептики вынуждены признать: монархия, вопреки прогнозам, остаётся частью канадского ландшафта, пусть и больше как традиция, чем как реальная сила.
-
-Впрочем, пока король раздаёт улыбки и поднимает бокал на официальном приёме, страна, кажется, вновь находит поводы для элегантных дискуссий о своём прошлом и будущем.
-
-<a href="None">https://www.cbc.ca/news/politics/king-charles-queen-camilla-visit-canada-1.7542067</a>
-
-#канада #новостиканады</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">19 апреля 2025</span>
-        
-        <div class="post-content">#субботнийлонгрид
-
-<b>🇨🇦 Канада на пороге самой поляризованной кампании десятилетий
-</b>
-<i>Что, если Трамп сделает Канаду снова двупартийной?
-</i>
-<b>Двое против всех: Либералы и Консерваторы делят 80% симпатий
-</b>Впервые с 1958 года Канада стоит на пороге выборов, где две основные партии — Либеральная и Консервативная — получают в сумме более 80% голосов. По данным Nanos Research, либералы под руководством Марка Карни сейчас набирают 45%, а команда Пьера Полиева — 37%. Остальные партии — NDP, Блок, Зелёные и Народная — делят крохи, не дотягивая до 10% в сумме.
-
-Причина такого смещения — не только внутренняя динамика, но и фактор, которого никто не ждал: Дональд Трамп.
-
-
-«Интервенция Трампа в само существование Канады действительно травмировала страну», — говорит бывший премьер-министр Жан Кретьен.
-
-Американские тарифы, прямые угрозы, желание превратить Канаду в 51-й штат — всё это консолидировало электорат. Избиратели отказываются от голосов назло и делают ставку на партии, которые, по их мнению, реально могут противостоять внешнему давлению.
-
-<b>Политическая психотерапия от Трампа: когда страх объединяет
-</b>Жан Кретьен не одинок. Бывшие министры Жан Шаре и Перрин Бити утверждают: Трамп не просто дестабилизировал внешнюю политику — он вывел наружу внутренние слабости. Экономическая уязвимость, недофинансированная оборона, зависимость от американского рынка. Теперь всё это обсуждается открыто.
-
-
-«Раньше в Квебеке мало кто задумывался, что быть в составе Канады — это гарантия выживания культурной идентичности. Теперь — задумываются», — говорит Шаре.
-
-Консерваторы усиливаются за счёт популистских месседжей о преступности и доступности жилья. Либералы — за счёт образа Карни как "человека, который может иметь дело с Белым домом".
-
-<b>Смерть многопартийной системы?
-</b>Политологи спорят: временное ли это явление или начало нового политического цикла? Аналитик Ник Нанос считает, что мы движемся в сторону американской модели — не только по структуре, но и по духу:
-
-
-«Мы уже заимствовали американские технологии ведения кампаний: таргетинг, соцсети, прямые месседжи в обход СМИ. Это уже не Канада 90-х».
-
-Профессор Алекс Марланд добавляет: технологическая поляризация делает консенсус невозможным. Электорат становится менее гибким, дебаты — более ожесточёнными. Даже умеренные голоса теряются на фоне фанатичной поддержки лидеров.
-
-
-«Мы наблюдаем начало новой партийной системы. Возможно, 2025 станет тем годом, когда Канада окончательно перестанет быть многопартийной страной», — говорит он.
-
-
-
-<b>Что дальше?
-</b>Что произойдёт, если NDP потеряет статус официальной партии (менее 12 мандатов)? Что будет с политикой по климату, социальной справедливости, культурному разнообразию? Всё это вопросы без ответов. Но ясно одно: электорат ищет стабильности — и готов жертвовать разнообразием ради силы.
-
-
-«Большинство позволяет правительствам думать на перспективу. А когда напротив тебя сидит Трамп — слабость он чувствует моментально», — резюмирует Перрин Бити.
-
-Иронично, но, возможно, Трамп и правда заслуживает Орден Канады — за то, что заставил нас вспомнить, кто мы есть. Даже в Квебеке.
-
-
-«Теперь они понимают, что сохранить свою идентичность можно только в составе Канады, а не в роли 51-го штата», — говорит Кретьен.
-
-Выборы через неделю. Всё только начинается.
-
-<a href="None">https://www.theglobeandmail.com/canada/article-canada-is-heading-toward-an-election-outcome-not-witnessed-in/</a></div>
-        <div class="post-footer"><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/тарифы/" class="badge">#тарифы</a><a href="/tag/выборы/" class="badge">#выборы</a><a href="/tag/квебек/" class="badge">#Квебек</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">7 апреля 2025</span>
-        
-        <div class="post-content"><b>Канадец потерял $43 000 в баллах PC Optimum</b>
-
-<i>Житель Канады Фрэнк Чжан за 7 лет насобирал 43 миллиона бонусных баллов в популярной программе лояльности PC Optimum (это примерно $43 000!). Но вместо того, чтобы отметить победу над капитализмом и с размахом оплатить продукты, бензин и подарочные карты, он внезапно обнаружил, что его аккаунт заблокирован — без объяснений и возможности вернуть накопленное.
-</i>
-"Это нечестно. Они контролируют мои деньги и баллы, а я не могу сделать вообще ничего", — возмущается Чжан.
-
-<b>Почему баллы внезапно замораживаются?
-</b>Фрэнк далеко не одинок: десятки канадцев регулярно сталкиваются с такими же проблемами. Эксперт по программам лояльности Патрик Сойка объясняет, что всё дело в мелком шрифте пользовательского соглашения. Там встречаются прелестные формулировки вроде "на наше усмотрение" и "по разумному мнению компании".
-Короче говоря, правила специально написаны так, чтобы компания могла заблокировать любой аккаунт в любое время и без лишних объяснений.
-
-Особенно веселит правило о "превышении нормального потребления домашних хозяйств".
-"Что значит нормальное? Семья из четырёх человек может экономить, а другая семья с хорошим доходом тратит значительно больше", — удивляется эксперт.
-
-<b>Почему поддержка молчит?
-</b>Когда Чжан попытался выяснить причину блокировки, поддержка PC Optimum сначала сослалась на систему безопасности и посоветовала сменить пароль. Не помогло. Второй ответ оказался совсем другим: якобы Фрэнк нарушил условия пользования, но объяснять подробности отказались.
-
-Калгариец Джефф Мак столкнулся с аналогичным замком. У него заблокировали 1,5 млн баллов ($1500), объяснив это наличием у него нескольких аккаунтов. Правда, доказать это отказались.
-
-"Подозрительно это всё. Когда не можешь ответить на самые простые вопросы, появляется ещё больше вопросов", — считает Мак.
-
-<b>Баллы вернулись, но не ко всем
-</b>После вмешательства журналистов с телеканала CBC аккаунт Мака внезапно разблокировали, а вот Чжану повезло меньше. Его аккаунт удалили совсем — вместе с накопленными баллами. Компания заявила, что у неё есть серьёзные доказательства коммерческого использования бонусов, но при этом доказательства никому не показала. "Просто поверьте нам на слово", — таков был примерно смысл их ответа.
-
-Совет от Патрика Сойки прост: не копите баллы долго, тратьте сразу, потому что сегодня ты клиент, а завтра — подозреваемый.
-
-#канада #новостиканады
-
-<a href="None">https://www.cbc.ca/news/gopublic/pc-optimum-loblaws-rewards-points-locked-out-1.7500303</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">2 апреля 2025</span>
-        
-        <div class="post-content"><b>💥 Тарифный апокалипсис: Трамп готовит "День освобождения"</b>
-
-<i>Вашингтон затаил дыхание, а Канада — рассчитывает убытки.</i>
-
-<b>Золотой дождь из пошлин</b>
-В среду в 16:00 по восточному времени Дональд Трамп намерен объявить миру экономическую войну — ну, или как минимум, устроить "освобождение". Свою грандиозную тарифную реформу он торжественно представит в Розовом саду Белого дома, окрестив день <i>одним из важнейших в истории США</i>. Скромность — не его конёк.
-
-Под капотами ожиданий — хаос. Никто толком не знает, какие именно пошлины грядут: то ли глобальные 20% на всё, что движется (и не движется тоже), то ли точечные удары по врагам Америки. На столе варианты — один страшнее другого.
-
-Фондовый рынок уже нервничает: все поствыборные плюсы испарились. Потребители — в миноре. Конгресс — в смятении. Даже республиканцы начинают чувствовать, что запах в воздухе — это не аромат экономического возрождения.
-
-<b>Автопром: "Остановите планету, мы сойдём"</b>
-Для Канады, как всегда, плохие новости приходят на колёсах.
-
-"Это остановит всю индустрию за неделю. По обе стороны границы", — <b>Флавио Вольпе</b>, глава Ассоциации автопроизводителей Канады, не церемонится.
-
-По его словам, даже те пошлины, что уже на подходе, похоронят прибыльность отрасли. А если на них наложат новые — привет, Великая депрессия на колёсах.
-Когда Трам решил MAKE AMERICA BUILD CARS AGAIN, он явно забыл, что современные машины производятся по обе стороны границы. И что канадская сборка — это не угроза, а половина американского автопрома.
-
-<b>Сенат берёт слово. И палку</b>
-Пока Белый дом готовится к салюту из протекционизма, демократы метят в праздничный торт лопатой. Сенатор Тим Кейн выносит на голосование резолюцию против тарифов на Канаду, якобы обоснованных "борьбой с фентанилом".
-
-"Наши избиратели в ярости. Они любят Канаду и ненавидят рост цен", — говорит он.
-
-И хотя шансы у документа стать законом — ближе к нулю, символически это будет плевок в праздничный торт президента. Даже некоторые республиканцы готовы проголосовать <i>ЗА</i>, пусть и под давлением праймериз и твитов в стиле "НЕ ДАЙТЕ ДЕМОКРАТАМ ПОБЕДИТЬ".
-
-<b>Итог? Подождите "освобождения"</b>
-Как именно будут выглядеть новые тарифы, пока не ясно. Как и то, переживёт ли этот эксперимент сама экономика США. Как минимум, нам обещают либо оглушительный откат, либо абсолютную чепуху, цитируя эксперта по торговле Дерека Сиссорса.
-Так что в среду весь мир — от автосборки в Виндзоре до брокеров на Уолл-стрит — затаит дыхание. А Трамп снова проверит: выдержит ли планета его экономическую истерику.
-
-#канада #новостиканады #тарифы 
-
-<a href="None">https://www.cbc.ca/news/world/trump-liberation-day-tariffs-1.7499250</a></div>
-        <div class="post-footer"><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> <a href="/tag/тарифы/" class="badge">#тарифы</a><a href="/tag/экономика/" class="badge">#экономика</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">1 апреля 2025</span>
-        
-        <div class="post-content"><b>💸 По информации ИИ, у Полиева $25 миллионов </b>
-
-<i>Как фейковый сайт стал «официальным» источником данных о богатствах канадских политиков — даже для ChatGPT.
-</i>
-🤖 В преддверии выборов канадцы полезли в Google и чат-боты с простым вопросом: <b>во сколько оценивается Пьер Полиев?</b>
-Ответ поразил всех: <b>$25 миллионов.</b>
-Недвижимость, инвестиции, крипта — всё расписано, как в декларации. И всё это на зарплату депутата!
-
-📌 <b>Но!</b> Эти данные — неофициальны, недостоверны и взялись с сайта <i>Pierre Poilievre News</i> — сомнительного ресурса, зарегистрированного в январе неким Дереком Раки из Альберты. Статьи там, судя по всему, пишутся ИИ. GPT Zero дал им 99% «машинности».
-
-⚠️ Сайт мало кто читает (всего 2500 визитов в феврале), но он — <b>первый в Google</b> по запросу «Pierre Poilievre net worth». И на него ссылаются почти все другие сайты и даже чат-боты.
-
-<b>- Meta AI</b> уверенно повторяет цифры.
-<b>- ChatGPT</b> упоминает источник и предупреждает, что данные спорные.
-<b>- Grok</b> честно называет их «спекулятивными».
-<b>- Claude</b> (единственный!) говорит: «Я ничего не знаю, просто сгенерировал на основе догадок».
-
-🧠 Даже ИИ признаётся, что... просто придумал всё это.
-
-«Хотя я и представил это как правду, на самом деле я ничего не проверял и данных у меня нет» — признался Claude.
-
-📎 Интересно, что и состояние Марка Карни тоже «указано» — $6,97 млн. Откуда? Правильно. С того же сайта. Который, по словам команды Полиева, <b>никак не связан с ним или партией</b> и просто распространяет ложь.
-
-🧾 Декларации о доходах политиков в Канаде не раскрывают полную картину. Официальных данных о состоянии Полиева (или Карни) <b>не существует</b>.
-
-👉 Нет у Полиева<b> $25 миллионов</b>. А если и есть, то ИИ всё равно об этом не узнает первым.
-
-💬 <i>Вы верите в такие «утечки»? Или уже умеете отличать ИИ-фантазии от реальности?
-</i>
-#канада #новостиканады #выборы2025
-
-<a href="None">https://www.cbc.ca/news/canada/party-leader-networth-misinformation-ai-1.7498417</a></div>
-        <div class="post-footer"><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/выборы/" class="badge">#выборы</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">29 марта 2025</span>
-        
-        <div class="post-content"><b>🥃 "Ок, Канада?"
-</b>
-<i>Американо-канадская торговая драма набирает обороты: на фоне новой волны пошлин, ответных мер и бойкота товаров, некоторые канадцы решили выразить своё недовольство… бурбону из Кентукки.
-</i>
-<b>Обратная связь
-</b>Владельцу небольшой дистиллерии Brough Brothers из Луисвилля, штат Кентукки, Виктору Ярброу пришло около 50 писем — и многие из них явно не из фан-клуба.
-
-
-«Вы катитесь в рецессию с этими идиотскими пошлинами!» — пишет один канадец.
-«Кентукки не понимают, что когда голосуешь за республиканцев, тебя снова…» — цензурировать пришлось даже самому Виктору.
-
-
-Но вот в чём загвоздка: сам Ярброу — ярый противник пошлин. Более того, он как раз вёл переговоры о продаже 10 000 бутылок бурбона в Нью-Брансуик, пока сделку не заморозили из-за торгового конфликта.
-
-
-«Мы просто оказались между двух огней», — говорит он.
-«Я люблю Канаду. У меня куча тёплых воспоминаний о поездках в Торонто».
-
-
-<b>Пошлины есть, понимания нет</b>
-Виктор не единственный, кто против пошлин. Губернатор Кентукки (демократ) также против пошлин. Правда, он признал, что Канаде «тоже нужно себя защищать». Напомним, что ранее премьер Онтарио Даг Форд в свойственной ему манере заявил:
-
-
-«Первое, по чему мы ударим, — это бурбон. Им конец».
-
-
-Звучит решительно, но немного... мимо. Ведь страдают не корпорации, а маленькие производители вроде Brough Brothers.
-
-<b>Бурбон — символ, но не враг
-</b>Бурбон — гордость Кентукки, но не главная статья экспорта. Тем не менее, именно он стал символом торговой войны. И хотя у Трампа в Кентукки всё ещё прочная база поддержки, даже его сторонники признают: да, удар по ценам будет — по обе стороны границы.
-
-<b>Что мы хотим сказать?
-</b>Мы, канадцы, умеем быть вежливыми, но в этот раз, кажется, дали маху. Письма с руганью — точно не наш стиль. Особенно когда адресат на самом деле за нас.
-
-Так что, может, вместо ругани — просто бокальчик бурбона за мир и немного здравого смысла?
-
-#канада #новостиканады #тарифы
-
-<a href="None">https://www.cbc.ca/news/business/bourbon-trade-war-kentucky-1.7496147</a></div>
-        <div class="post-footer"><a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/тарифы/" class="badge">#тарифы</a><a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 марта 2025</span>
-        
-        <div class="post-content"><b>🏠 Жилищные обещания НДП: запрет на корпоративных арендодателей и поддержка некоммерческого сектора</b>
-
-<i>Внимание СМИ часто сосредоточено на главных соперниках — либералах и консерваторах. Но пока Карни и Полиев соревнуются на митингах, лидер НДП Джагмит Сингх делает ставку на идеи. Давайте посмотрим, что предлагает его партия в ответ на самые острые проблемы.
-</i>
-<b>🔶 Главные инициативы НДП</b>
-Запрет для крупных корпораций на покупку доступного жилья — такая покупка будет разрешена только физлицам, муниципалитетам, кооперативам и некоммерческим организациям.
-
-Прекращение федеральной поддержки (льготных кредитов и страхования ипотек) для корпоративных арендодателей, если те завышают арендную плату.
-
-Увеличение финансирования федерального <i>Rental Protection Fund</i> для поддержки общественного жилья.
-
-Использование федеральных земель под строительство доступного жилья (анонсировано ранее в Монреале).
-
-Повышение необлагаемого минимума дохода на 21% (анонсировано в Гамильтоне).
-
-<b>🗣️ Акцент на борьбу за обычных людей</b>
-Джагмит Сингх позиционирует НДП как единственную партию, защищающую "работающих людей", в отличие от либералов и консерваторов, которые, по его словам, "работают на миллионеров и миллиардеров".
-
-Сингх выступил с критикой Марка Карни, лидера Либеральной партии, за его связи с Brookfield — корпорацией, скупившей дома, включая здание жительницы Торонто Эрин Финдли, с которой Сингх встречался дважды на этой неделе.
-
-<b>🚗 Ответ на пошлины Трампа</b>
-После неожиданного заявления президента США Дональда Трампа о 25% пошлинах на импорт автомобилей с 3 апреля, Сингх отменил мероприятия в Лондоне и выехал в Виндзор.
-
-Он пообещал защитить автопром Канады, включая меры по предотвращению вывоза оборудования с заводов, получивших госсубсидии.
-
-<b>📍 Кампания продолжается</b>
-В отличие от Карни и Полиева, Сингх пока не проводил масштабных митингов, сосредоточив первую неделю кампании на политических инициативах.
-
-Вечером пятницы лидер НДП вернулся в Оттаву, на выходных запланирована поездка в Британскую Колумбию.
-
-#канада #новостиканады #выборы2025
-
-<a href="None">https://www.cbc.ca/news/politics/ndp-housing-landlord-limits-1.7496836</a></div>
-        <div class="post-footer"> <a href="/tag/выборы/" class="badge">#выборы</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 марта 2025</span>
-        
-        <div class="post-content">🎙️ <b>Карни обещает спасти CBC</b>
-
-<i>На фоне очередного "обещаю лишить финансирования" от Пьера Полиева Марк Карни заявил: CBC/Radio-Canada нужно не отменять, а реформировать, причём срочно.
-</i>
-📍 В Монреале он пообещал представить план спасения общественного вещателя в ближайшие дни. Без конкретики, но с заявлением, что единственный способ сделать CBC жизнеспособным — реформы.
-
-По его словам, идея Полиева — сохранить только франкоязычную Radio-Canada, ликвидируя остальное — это фантазия.
-
-"Он не Соломон. Разделить ребёнка пополам не получится. Radio-Canada не выживет без CBC".
-
-Даже если ребёнок — вещательная корпорация с годовым бюджетом $1.4 млрд.
-🎭 Полиев, напомним, в своём <i>Quebec-only</i> манифесте пообещал оставить всё культурное финансирование, включая Radio-Canada — но от CBC в остальной стране планирует избавиться. О судьбе англоязычных сервисов — ни слова.
-
-💼 Между строк читается, что Карни, возможно, продолжит курс, который ещё в феврале предложила Паскаль Сен-Онж:
-— пересмотреть финансирование,
-— убрать рекламу из новостных программ,
-— и защитить медиапространство от гегемонии миллиардеров и влияния администрации Трампа.
-
-Ничего так, вступление в кампанию.
-
-<b>📺 Вопрос на повестке
-</b>CBC — это просто госмедиа или всё же часть национальной идентичности?
-И можно ли реформировать что-то на $1.4 млрд… не трогая самое главное — доверие аудитории?
-
-<a href="None">https://nationalpost.com/news/politics/federal_election/mark-carney-cbc-reform</a></div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 марта 2025</span>
-        
-        <div class="post-content"><b>Tesla продала 8653 авто за 3 дня в Канаде. Неужели?</b>
-
-<i>Скандал разгорается вокруг четырёх канадских дилерских центров Tesla, которые зафиксировали 8653 проданных электромобиля всего за один уикенд в январе. Это позволило им потребовать $43 млн в виде государственных субсидий по федеральной EV-программе, которая тогда уже подходила к завершению.
-</i>
-<b>Контекст</b>
-– Заявки поданы <b>в последние дни действия программы.</b>
-– Продажи — по две машины в минуту круглосуточно — вызывают сомнения.
-– После вступления в должность, <b>премьер Марк Карни и министр транспорта Христя Фриланд заморозили выплаты</b> до завершения проверки.
-– Freeland: Tesla <b>исключается из всех будущих EV-программ</b> пока действуют <b>незаконные тарифы США против Канады.</b>
-– Из-за «вброса» Tesla <b>225 конкурентов</b> не успели получить свои выплаты, потеряв в сумме <b>$10 млн.</b>
-– Некоторые дилеры оказались под угрозой увольнений и закрытия.
-
-Что дальше? Федеральные аудиторы проверяют каждую заявку Tesla построчно. Компания пока хранит молчание.
-
-#канада #новостиканады #неоднозначно
-
-<a href="None">https://www.nytimes.com/2025/03/27/world/canada/tesla-canada-sales-musk.html</a></div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a><a href="/person/христя-фриланд/" class="badge person-badge">Христя Фриланд</a> <a href="/tag/тарифы/" class="badge">#тарифы</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 марта 2025</span>
-        
-        <div class="post-content"><b>Жми «обновить» и молись: в Канаде запускается иммиграционный пилот для домашних работников</b><i>
-</i>
-<i>С 1 апреля в Канаде открывается Home Care Worker Immigration Pilot — программа, которая может дать путь к ПМЖ работникам по уходу. В теории — шанс. На практике — гонка на выживание в стиле Hunger Games: 2750 мест, принцип «кто первый встал, того и тапки», плюс немного квот по почте (275 мест для тех, кто умеет держать ручку и верит в Почту Канады). Если ты не успел нажать кнопку — принимай сожаления. Всё просто. Всё по-честному.</i>
-
-Работники готовятся, как к экзамену: проверяют интернет, настраивают будильники, заранее приходят в офисы союзов мигрантов, чтобы сидеть на хорошем вайфае. У кого-то на кону не просто статус, а семья, дети и будущее без статуса «нелегал».
-
-Правила упростили: теперь достаточно шести месяцев опыта или обучения (в прошлом году требовалось два года), снизили уровень языка. Но не снизили стресса — потому что даже если ты няня-легенда и PSW-богиня, побеждает не опыт, а скорость клика.
-
-Иммиграционные эксперты теряются между словами «классная инициатива» и «что за цирк». Ведь можно было принять заявки и выбрать лучших. Но нет — подход «на скорость» якобы «равный для всех». Ну да, особенно если у кого-то старый ноутбук, смена или трое детей на руках.
-
-Тем временем Гингер Ластимоса, сиделка с двухлетним опытом, просто хочет остаться. Её папка с документами готова, её оптимизм заряжен, её интернет подключён. Она надеется попасть в эти 2750. А если нет — что ж, ещё год жизни на паузе.
-
-P.S. У Майкла Бубле в подвале — каток. У иммигрантов — только неровный лёд под ногами.
-
-#канада #новостиканады #неоднозначно
-
-<a href="None">https://www.cbc.ca/news/canada/toronto/race-to-login-first-for-canada-s-permanent-residency-pilot-like-the-hunger-games-1.7495077</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 марта 2025</span>
-        
-        <div class="post-content"><b>Майкл Бубле: из певца на свадьбах — в мировую поп-икону 
-</b>
-<i>Когда тебе говорят «это никогда не случится», просто скажи «ага» и продолжай петь.
-</i>
-До того как стать лощёным королём рождественских плейлистов, Майкл Бубле пел в барах Торонто и зарабатывал в буквальном смысле на пиво. Он уже подумывал вернуться в Британскую Колумбию и пойти учиться на журналиста (вдруг в эфир возьмут, раз на сцену не берут?).
-
-Но однажды после случайного выступления на корпоративе его диск оказался в руках человека из окружения бывшего премьера Брайана Малруни. Через пару дней Бубле уже пел на свадьбе дочери Малруни. Там же — о, чудо — был легендарный продюсер Дэвид Фостер… который выгнал Бубле с порога: «Это никогда не случится». Прекрасный тёплый приём, спасибо, Дэвид.
-
-Бубле не сдался. Он пытался снова и снова, искал деньги, встречался с Полом Анкой, просил, умолял, обивал пороги… и в итоге таки попал на прослушивание к боссу Warner. На фразу: «У нас уже есть Синатра», Бубле ответил: «Синатра умер. Не хороните музыку вместе с ним».
-
-Через пять дней Фостер перезвонил и сказал: «Добро пожаловать в семью. Можешь больше не волноваться». С тех пор Бубле действительно перестал волноваться — у него теперь всё есть: слава, Грэмми и... каток в подвале своего дома. Да-да, настоящий ледовый каток. Потому что почему бы и нет?
-
-А в это воскресенье он снова ведёт церемонию Juno Awards. И, скорее всего, снова будет шутить, петь и напоминать, что цитата «это никогда не случится» звучит как начало хорошей истории.
-
-<a href="None">https://www.cbc.ca/arts/q/michael-bubl%C3%A9-was-told-it-was-never-going-to-happen-1.7491795</a></div>
-        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">27 марта 2025</span>
-        
-        <div class="post-content"><b>Карни приостановил кампанию из-за тарифов Трампа на автомобили
-</b>
-<i>Премьер-министр Марк Карни временно прервал предвыборную кампанию и вернулся в Оттаву в ответ на заявление Дональда Трампа о введении 25% пошлины на импорт готовых автомобилей в США. Это решение может ударить по сотням тысяч канадских рабочих мест, связанных с автопромом — одной из крупнейших отраслей экономики страны.
-</i>
-Карни созвал комитет по Канадо-американским отношениям и нацбезопасности. Он пообещал реакцию со стороны Канады: «Это нарушение. Он предал торговое соглашение. Ответ будет. У нас есть варианты».
-
-Министр международной торговли Доминик Леблан дважды говорил с министром торговли США после заявления Трампа. Сам Карни пока не общался с президентом, но заявил, что готов к разговору — при условии уважения суверенитета Канады.
-
-Лидеры всех партий отреагировали. Пьер Полиев заявил: «Надо бороться как черт». Джагмит Сингх перенёс поездку в Виндзор и встретится с представителями профсоюза автопрома. Лидер блока Квебека предложил ввести субсидии на зарплаты, чтобы поддержать бизнес.
-
-<a href="None">https://www.cbc.ca/news/politics/carney-trump-auto-tariffs-1.7494829</a></div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/квебек/" class="badge">#Квебек</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">27 марта 2025</span>
-        
-        <div class="post-content"><b>Жительница Саскачевана вызвала полицию из-за насилия — и сама получила обвинение
-</b>
-<i>Таша Добни из Мус-Джо (Саскачеван) вызвала полицию в октябре 2024 года, заявив, что бывший партнёр применил к ней силу. По её словам, он повалил её на пол и прижал своим телом, а у неё остались синяки на лице и теле. Однако прибывшие на место офицеры квалифицировали ситуацию как «токсичные отношения» и предъявили обвинения в нападении обоим участникам конфликта.
-</i>
-Позже обвинения были сняты — прокуратура сочла, что нет достаточных оснований для суда.
-
-Эксперты отмечают, что изначально система «обязательных обвинений» при реагировании на домашнее насилие создавалась для защиты женщин. Но всё чаще она приводит к тому, что <b>обвинения получают и пострадавшие</b>, особенно если обе стороны эмоционально вовлечены в конфликт. Это, по словам юристов и правозащитников, <b>подрывает доверие женщин к системе</b>.
-
-Добни заявила, что после этого инцидента <b>не чувствует себя в безопасности, обращаясь за помощью к полиции</b>. Позже её бывший партнёр продолжал искать с ней контакт, несмотря на ограничения. Она сообщала об этом в полицию, но, по её словам, так и не получила ответа.
-
-#канада #новостиканады
-
-<a href="None">https://www.cbc.ca/news/canada/saskatchewan/woman-lost-trust-police-charged-domestic-violence-1.7492674</a></div>
-        <div class="post-footer"> </div>
-    </article>
-    </div><div class="pagination"><a href="/materials/page/2/" class="btn">Вперед →</a></div>
-    </main>
-    <footer>
-        &copy; 2024–2026 Maple Barrel. Все права защищены.
-    </footer>
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-intro">
+    <h1>Материалы</h1>
+    <p>Аналитика, мнения и тексты из The Atlantic, Maclean's, The Hub и других изданий — не привязанные к конкретной дате.</p>
+  </div>
+  <div class="tag-chips"><a class="tc on" href="/materials/">Все</a><a class="tc" href="/materials/tag/tarify/">#тарифы</a><a class="tc" href="/materials/tag/immigratsiya/">#иммиграция</a><a class="tc" href="/materials/tag/zhilyo/">#жильё</a><a class="tc" href="/materials/tag/vybory/">#выборы</a><a class="tc" href="/materials/tag/ekonomika/">#экономика</a><a class="tc" href="/materials/tag/energetika/">#энергетика</a><a class="tc" href="/materials/tag/prestupnost/">#преступность</a><a class="tc" href="/materials/tag/ontario/">#Онтарио</a><a class="tc" href="/materials/tag/kvebek/">#Квебек</a><a class="tc" href="/materials/tag/toronto/">#Торонто</a></div>
+  <div class="mat-grid"><a class="card" href="/post/2026-03-27-kazhdyy-kanadets-stoit-dvuh-amerikantsev-v-los-kabose-podsch/">
+  <div class="card-img"><img src="/photos/photo_2466@27-03-2026_10-06-19.jpg" alt="Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</div>
+    <div class="card-excerpt">Канадцы стали самым быстрорастущим потоком туристов в мексиканский Лос-Кабос — и одновременно самым выгодным.   По данным местной туристической индустрии, в 2025 году регион посетили более 215 тысяч к</div>
+    <div class="card-meta">
+      <span class="card-date">27 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-retsessiya-rubezhey-lishaet-molodyh-kanadtsev-buduschego/">
+  <div class="card-img"><img src="/photos/photo_2453@25-03-2026_22-02-08.jpg" alt="Рецессия рубежей лишает молодых канадцев будущего" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Рецессия рубежей лишает молодых канадцев будущего</div>
+    <div class="card-excerpt">Обязательно зацените оригинал, прекрасно оформлен и куча даннных  Эрик Ломбарди пишет, что Канада столкнулась с новой формой кризиса — не классической рецессией, а затяжным сбоем, при котором молодые</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-vezhlivyy-pogrom-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_2450@25-03-2026_17-34-39.jpg" alt="«Вежливый погром» в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theatlantic.com</div>
+    <div class="card-title">«Вежливый погром» в Канаде</div>
+    <div class="card-excerpt">Джесси Браун пишет о том, что после событий 7 октября в Канаде изменилась атмосфера вокруг еврейского сообщества — и не только через насилие, но и через поведение институтов.  Он начинает с истории вр</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-ottava-igraet-s-bezopasnostyu/">
+  <div class="card-img"><img src="/photos/photo_2449@25-03-2026_14-06-44.jpg" alt="Оттава играет с безопасностью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Оттава играет с безопасностью</div>
+    <div class="card-excerpt">Редакция Postmedia утверждает, что федеральное правительство теряет контроль над иммиграционной системой, и это уже вызывает вопросы к безопасности страны.  В центре критики — отчёт аудитора Карен Хог</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-kanada-stanovitsya-ubezhischem-dlya-mezhdunarodnyh-prestupni/">
+  <div class="card-img"><img src="/photos/photo_2448@25-03-2026_13-06-32.jpg" alt="Канада становится «убежищем» для международных преступников и террористов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Канада становится «убежищем» для международных преступников и террористов</div>
+    <div class="card-excerpt">Дэниел Робсон пишет, что проблема в Канаде глубже, чем просто доступ полиции к данным. По его мнению, страна всё чаще используется как удобная точка для преступников — не обязательно как конечное убеж</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-poliev-trebuet-ot-karni-uvolit-ministrov-iz-za-otchyota-audi/">
+  <div class="card-img"><img src="/photos/photo_2447@25-03-2026_12-06-01.jpg" alt="Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">westernstandard.news</div>
+    <div class="card-title">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев призвал премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.   Речь идёт о дей</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-kak-mark-karni-prodal-kanadu-kitayu/">
+  <div class="card-img"><img src="/photos/photo_2446@25-03-2026_11-03-04.jpg" alt="Как Марк Карни «продал» Канаду Китаю" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">spectator.com</div>
+    <div class="card-title">Как Марк Карни «продал» Канаду Китаю</div>
+    <div class="card-excerpt">Джейн Стэннус пишет, что правительство Марка Карни резко смягчило риторику в отношении Си Цзиньпина и перешло к активному сотрудничеству.  Во время визита в Пекин подписали соглашения по торговле, эне</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-ucheniya-v-arktike-poshli-ne-po-planu-tehnika-zamyorzla-stre/">
+  <div class="card-img"><img src="/photos/photo_2440@24-03-2026_21-01-42.jpg" alt="Учения в Арктике пошли не по плану: техника замёрзла, стрельбы отменили" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">Учения в Арктике пошли не по плану: техника замёрзла, стрельбы отменили</div>
+    <div class="card-excerpt">Охренеть какой красивый оригинал от NY Times  Канада попыталась продемонстрировать военную готовность на Крайнем Севере — и столкнулась с банальной проблемой: всё замёрзло.  Во время учений Operation</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-zachem-liberaly-rasshiryayut-programmu-vremennyh-inostrannyh/">
+  <div class="card-img"><img src="/photos/photo_2438@24-03-2026_18-02-23.jpg" alt="Зачем либералы расширяют программу временных иностранных работников?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Зачем либералы расширяют программу временных иностранных работников?</div>
+    <div class="card-excerpt">Брайан Лилли пишет, что правительство Марк Карни идёт в противоположную сторону от логики рынка труда: безработица растёт — а доступ к дешёвой иностранной рабочей силе расширяют.  По данным Statistics</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-panika-vokrug-primireniya-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_2434@24-03-2026_13-05-38.jpg" alt="Паника вокруг примирения в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">Паника вокруг примирения в Канаде</div>
+    <div class="card-excerpt">Автор Хелсилем описывает растущую реакцию на усиление прав коренных народов в Британской Колумбии — и объясняет, почему многие воспринимают это как «угрозу».  За последние годы произошёл сдвиг: – в 20</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-pozhilye-kanadtsy-ostayutsya-glavnoy-oporoy-karni-opros/">
+  <div class="card-img"><img src="/photos/photo_2432@24-03-2026_10-01-56.jpg" alt="Пожилые канадцы остаются главной опорой Карни — опрос" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Пожилые канадцы остаются главной опорой Карни — опрос</div>
+    <div class="card-excerpt">Новый опрос Liaison Strategies показывает: лидерство Марк Карни держится не на молодёжи, а на избирателях старшего возраста.  Либералы сохраняют серьёзный отрыв от консерваторов — 41% против 27% у ком</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-15-god-u-vlasti-marka-karni-otsenki-smeshannye-mnogie-zhdut-rea/">
+  <div class="card-img"><img src="/photos/photo_2366@15-03-2026_15-02-05.jpg" alt="Год у власти Марка Карни: оценки смешанные, многие ждут реальных результатов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Год у власти Марка Карни: оценки смешанные, многие ждут реальных результатов</div>
+    <div class="card-excerpt">Газета National Post опубликовала своеобразный «табель успеваемости» премьер-министра Марка Карни спустя год после его прихода к власти. Итог получился неоднозначным: правительство активно действует,</div>
+    <div class="card-meta">
+      <span class="card-date">15 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-07-lilley-oprosy-pokazyvayut-pochemu-konservatory-ne-hotyat-vyb/">
+  <div class="card-img"><img src="/photos/photo_2316@07-03-2026_15-05-12.jpg" alt="Лиллей: опросы показывают, почему консерваторы не хотят выборов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Лиллей: опросы показывают, почему консерваторы не хотят выборов</div>
+    <div class="card-excerpt">Колумнист National Post Брайан Лиллей пишет, что Консервативная партия Канады во главе с Пьером Полиевым не спешит идти на выборы — и причина может быть в опросах.   Согласно опросу Leger для Postmedi</div>
+    <div class="card-meta">
+      <span class="card-date">7 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-05-liberaly-poluchayut-49-podderzhki-izbirateley-krupneyshiy-ot/">
+  <div class="card-img"><img src="/photos/photo_2302@05-03-2026_17-02-21.jpg" alt="Либералы получают 49% поддержки избирателей — крупнейший отрыв партии за 10 лет: опрос Leger" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Либералы получают 49% поддержки избирателей — крупнейший отрыв партии за 10 лет: опрос Leger</div>
+    <div class="card-excerpt">Почти половина канадцев заявили, что проголосовали бы за Либеральную партию, если бы федеральные выборы состоялись сегодня. Это даёт партии премьер-министра Марка Карни самый большой перевес над сопер</div>
+    <div class="card-meta">
+      <span class="card-date">5 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-03-belye-vorotnichki-bolshe-ne-v-poryadke-kak-novaya-ekonomika-/">
+  <div class="card-img"><img src="/photos/photo_2296@03-03-2026_21-04-35.jpg" alt="«Белые воротнички» больше не в порядке: как новая экономика перевернула рынок труда" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">«Белые воротнички» больше не в порядке: как новая экономика перевернула рынок труда</div>
+    <div class="card-excerpt">Роскошный материал McLean's  Инженеры с дипломами расставляют товары в Walmart. Разработчиков массово увольняют. ИИ — повсюду. Так выглядит новый рынок труда, в котором образование больше не гарантиру</div>
+    <div class="card-meta">
+      <span class="card-date">3 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-03-goldsteyn-kritika-provalnoy-immigratsionnoy-i-bezhenskoy-pol/">
+  <div class="card-img"><img src="/photos/photo_2293@03-03-2026_17-04-04.jpg" alt="ГОЛДСТЕЙН: Критика провальной иммиграционной и беженской политики — это не расизм" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">ГОЛДСТЕЙН: Критика провальной иммиграционной и беженской политики — это не расизм</div>
+    <div class="card-excerpt">Колумнистка Лорри Голдстейн утверждает: когда правительство премьер-министра Марк Карни отвечает на критику иммиграционной политики обвинениями в расизме, оно фактически называет расистами большинство</div>
+    <div class="card-meta">
+      <span class="card-date">3 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-28-redaktsionnaya-kolonka-toronto-sun-hvatit-krichat-o-rasizme-/">
+  <div class="card-img"><img src="/photos/photo_2276@28-02-2026_18-01-28.jpg" alt="Редакционная колонка Toronto Sun: хватит кричать о «расизме», чтобы блокировать реформу системы беженцев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Редакционная колонка Toronto Sun: хватит кричать о «расизме», чтобы блокировать реформу системы беженцев</div>
+    <div class="card-excerpt">Иммиграционная и система убежища в Канаде давно даёт сбои, и попытки объявлять любую критику «расизмом» выглядят попыткой уйти от разговора по существу. Такую позицию высказывает редакция Postmedia.</div>
+    <div class="card-meta">
+      <span class="card-date">28 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-26-konets-lichnoy-privatnosti-spryatatsya-bolshe-negde/">
+  <div class="card-img"><img src="/photos/photo_2262@26-02-2026_21-03-53.jpg" alt="Конец личной приватности. «Спрятаться больше негде»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Конец личной приватности. «Спрятаться больше негде»</div>
+    <div class="card-excerpt">Каждый день появляются сообщения о новых утечках персональных данных. Но, несмотря на это, многие канадцы всё ещё не готовы смириться с мыслью, что их личная информация фактически находится под контро</div>
+    <div class="card-meta">
+      <span class="card-date">26 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-24-bolee-1-iz-5-kanadtsev-teper-rabotaet-v-gossektore-i-eta-dol/">
+  <div class="card-img"><img src="/photos/photo_2244@24-02-2026_17-03-07.jpg" alt="Более 1 из 5 канадцев теперь работает в госсекторе — и эта доля растёт" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Более 1 из 5 канадцев теперь работает в госсекторе — и эта доля растёт</div>
+    <div class="card-excerpt">Согласно данным Statistics Canada, в январе 2026 года в государственном секторе Канады работали 4,597 млн человек. Это 21,8% от всех занятых в стране.    Речь идёт о сотрудниках федеральных, провинциа</div>
+    <div class="card-meta">
+      <span class="card-date">24 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-23-pochemu-olimpiyskiy-komitet-kanady-byot-trevogu-iz-za-konkur/">
+  <div class="card-img"><img src="/photos/photo_2238@23-02-2026_20-03-17.jpg" alt="Почему Олимпийский комитет Канады бьёт тревогу из-за конкурентоспособности страны" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Почему Олимпийский комитет Канады бьёт тревогу из-за конкурентоспособности страны</div>
+    <div class="card-excerpt">Руководство Canadian Olympic Committee выступило с жёстким предупреждением: национальная спортивная система «растянута до предела», а без дополнительного финансирования Канада будет всё чаще уступать</div>
+    <div class="card-meta">
+      <span class="card-date">23 фев 2026</span>
+      <div class="card-tags"></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-19-kak-risk-otdeleniya-mozhet-stoit-alberte-tysyach-rabochih-me/">
+  <div class="card-img"><img src="/photos/photo_2211@19-02-2026_11-06-29.jpg" alt="Как риск отделения может стоить Альберте тысяч рабочих мест" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Как риск отделения может стоить Альберте тысяч рабочих мест</div>
+    <div class="card-excerpt">Политическая неопределённость снова становится фактором давления на экономику. Если в 2025 году источником тревоги были колебания торговой политики США, то теперь риски могут возникнуть внутри самой К</div>
+    <div class="card-meta">
+      <span class="card-date">19 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-13-mark-karni-demontiruet-nasledie-dzhastina-tryudo-15-razvorot/">
+  <div class="card-img"><img src="/photos/photo_2173@13-02-2026_19-00-47.jpg" alt="Марк Карни демонтирует наследие Джастина Трюдо: 15 разворотов политики за первый год у власти" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Марк Карни демонтирует наследие Джастина Трюдо: 15 разворотов политики за первый год у власти</div>
+    <div class="card-excerpt">Почти за год на посту премьер-министра Марк Карни пересмотрел ряд ключевых решений своего предшественника Джастин Трюдо.     1.  Отмена потребительского углеродного налога на бензин и отопление (при с</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-13-do-massovogo-ubiystva-sryvy-psihiki-i-onlayn-radikalizatsiya/">
+  <div class="card-img"><img src="/photos/photo_2170@13-02-2026_14-05-40.jpg" alt="До массового убийства — срывы психики и онлайн-радикализация" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">До массового убийства — срывы психики и онлайн-радикализация</div>
+    <div class="card-excerpt">Расследование The New York Times описывает постепенное погружение 18-летней Джесси Ван Рутселар в кризис психического здоровья и интернет-среды с экстремальным насилием перед трагедией в Тамблер-Ридж,</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-13-mettyu-lau-slabye-osnovaniya-liberalov-dlya-vesennih-vyborov/">
+  <div class="card-img"><img src="/photos/photo_2169@13-02-2026_13-05-47.jpg" alt="Мэттью Лау: Слабые основания либералов для весенних выборов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">financialpost.com</div>
+    <div class="card-title">Мэттью Лау: Слабые основания либералов для весенних выборов</div>
+    <div class="card-excerpt">Колумнист Matthew Lau пишет, что разговоры о весенних выборах усилились на фоне роста рейтингов либералов и объявления о выплатах на $12,4 млрд в рамках программы «Canada Groceries and Essentials Bene</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-13-terri-glavin-vsyo-bolee-glubokoe-proniknovenie-kitaya-v-kana/">
+  <div class="card-img"><img src="/photos/photo_2168@13-02-2026_12-05-37.jpg" alt="Терри Главин: Всё более глубокое проникновение Китая в Канаду" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Терри Главин: Всё более глубокое проникновение Китая в Канаду</div>
+    <div class="card-excerpt">Новое расследование выявило 575 прокитайских организаций, встроенных в восемь направлений «мягкой силы» в Канаде.   В материале обозревателя Terry Glavin со ссылкой на доклад Jamestown Foundation, пре</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-11-vladelets-mosta-lobbiroval-administratsiyu-ssha-pered-tem-ka/">
+  <div class="card-img"><img src="/photos/photo_2151@11-02-2026_15-02-06.jpg" alt="Владелец моста лоббировал администрацию США перед тем, как Трамп обрушился с критикой на конкурирующий переход в Канаду" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">Владелец моста лоббировал администрацию США перед тем, как Трамп обрушился с критикой на конкурирующий переход в Канаду</div>
+    <div class="card-excerpt">Детройтский миллиардер Мэттью Морун, семья которого десятилетиями владеет мостом Ambassador Bridge между Детройтом и Виндзором, встретился в Вашингтоне с министром торговли США Ховардом Латником за не</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-11-karni-potratil-bolee-772-tys-dollarov-na-bortovoe-pitanie-i-/">
+  <div class="card-img"><img src="/photos/photo_2148@11-02-2026_11-03-42.jpg" alt="Карни потратил более 772 тыс. долларов на бортовое питание и проживание в прошлом году — данные ведомства" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Карни потратил более 772 тыс. долларов на бортовое питание и проживание в прошлом году — данные ведомства</div>
+    <div class="card-excerpt">Премьер-министр Марк Карни с момента вступления в должность в марте 2025 года потратил не менее 300 тыс. долларов на питание на борту правительственных рейсов и ещё как минимум 472 тыс. долларов — на</div>
+    <div class="card-meta">
+      <span class="card-date">11 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-10-barbara-key-nazyvat-kanadskie-shkoly-internaty-genotsidom-sm/">
+  <div class="card-img"><img src="/photos/photo_2140@10-02-2026_19-04-08.jpg" alt="Барбара Кей: называть канадские школы-интернаты геноцидом — смертельно неверно" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Барбара Кей: называть канадские школы-интернаты геноцидом — смертельно неверно</div>
+    <div class="card-excerpt">В своей колонке для National Post Барбара Кей резко критикует официальную позицию Канады, согласно которой система школ-интернатов для коренных народов была признана «геноцидом». По её мнению, страна</div>
+    <div class="card-meta">
+      <span class="card-date">10 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-07-polovina-kanadtsev-ne-imeet-semeynogo-vracha-ili-ne-mozhet-p/">
+  <div class="card-img"><img src="/photos/photo_2121@07-02-2026_12-06-27.jpg" alt="Половина канадцев не имеет семейного врача или не может попасть к нему на приём" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Половина канадцев не имеет семейного врача или не может попасть к нему на приём</div>
+    <div class="card-excerpt">‌  Новый опрос Angus Reid рисует мрачную картину состояния канадской медицины. Половина жителей страны либо вообще не имеет семейного врача, либо сталкивается с серьёзными трудностями при попытке запи</div>
+    <div class="card-meta">
+      <span class="card-date">7 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-06-ministr-priznal-u-novogo-federalnogo-zhilischnogo-agentstva-/">
+  <div class="card-img"><img src="/photos/photo_2118@06-02-2026_17-03-50.jpg" alt="Министр признал: у нового федерального жилищного агентства нет целей по числу построенных домов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Министр признал: у нового федерального жилищного агентства нет целей по числу построенных домов</div>
+    <div class="card-excerpt">‎  Министр жилищного строительства и инфраструктуры Грегор Робертсон, представляя в парламенте закон о создании агентства Build Canada Homes, прямо заявил: никаких целевых показателей по количеству жи</div>
+    <div class="card-meta">
+      <span class="card-date">6 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-06-mnenie-argumentov-za-otmenu-sistemy-upravleniya-postavkami-s/">
+  <div class="card-img"><img src="/photos/photo_2116@06-02-2026_12-02-28.jpg" alt="Мнение: аргументов за отмену системы управления поставками становится всё больше" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">financialpost.com</div>
+    <div class="card-title">Мнение: аргументов за отмену системы управления поставками становится всё больше</div>
+    <div class="card-excerpt">‎  Herbert Grubel из Financial Post пишет, что система управления сельхозпоставками обходится канадским потребителям слишком дорого — и момент для её демонтажа может оказаться ближе, чем кажется. ‎  С</div>
+    <div class="card-meta">
+      <span class="card-date">6 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-04-rossiya-vsyo-uspeshnee-vedyot-informatsionnuyu-voynu-protiv-/">
+  <div class="card-img"><img src="/photos/photo_2101@04-02-2026_13-02-50.jpg" alt="Россия всё успешнее ведёт информационную войну против Канады — предупреждает советник по безопасности" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Россия всё успешнее ведёт информационную войну против Канады — предупреждает советник по безопасности</div>
+    <div class="card-excerpt">Россия добивается всё большего успеха в информационном воздействии на канадское общество, и последствия уже заметны, заявила уходящая советница по национальной безопасности и разведке при правительств</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-pol" data-t="Украина" href="/tag/ukraina/">#Украина</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-04-evreyskim-studentam-strashno-byt-evreyami-v-kampusah-kak-rea/">
+  <div class="card-img"><img src="/photos/photo_2100@04-02-2026_11-02-56.jpg" alt="Еврейским студентам страшно быть евреями в кампусах. Как реагируют университеты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Еврейским студентам страшно быть евреями в кампусах. Как реагируют университеты</div>
+    <div class="card-excerpt">Антисемитизм в канадских университетах перестал быть маргинальным явлением и стал повседневной реальностью для еврейских студентов. Семь студентов из разных регионов Канады рассказали The Hub, что пос</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-04-karni-povtoryaet-provalnuyu-politiku-tryudo-razdavaya-eschyo/">
+  <div class="card-img"><img src="/photos/photo_2099@04-02-2026_10-05-37.jpg" alt="Карни повторяет провальную политику Трюдо, раздавая ещё один GST-ребейт" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Карни повторяет провальную политику Трюдо, раздавая ещё один GST-ребейт</div>
+    <div class="card-excerpt">Грейди Манро и Джейк Фасс из National Post пишут, что правительство Марка Карни фактически воспроизводит старые и неэффективные меры эпохи Джастина Трюдо, выдавая их за новый «пакет доступности».   На</div>
+    <div class="card-meta">
+      <span class="card-date">4 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-03-rezhim-v-irane-ugroza-kanade-i-ego-predstaviteli-uzhe-zdes/">
+  <div class="card-img"><img src="/photos/photo_2095@03-02-2026_14-02-52.jpg" alt="Режим в Иране — угроза Канаде. И его представители уже здесь" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Режим в Иране — угроза Канаде. И его представители уже здесь</div>
+    <div class="card-excerpt">Майкл Боннер в National Post пишет прямо: исламская республика Иран — это не просто проблема Ближнего Востока. Это активная и долгосрочная угроза безопасности Канады.   Автор исходит из простого тезис</div>
+    <div class="card-meta">
+      <span class="card-date">3 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-01-indiyskie-bandy-zapugivayut-kanadu/">
+  <div class="card-img"><img src="/photos/photo_2085@01-02-2026_20-36-01.jpg" alt="Индийские банды запугивают Канаду" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">spectator.com</div>
+    <div class="card-title">Индийские банды запугивают Канаду</div>
+    <div class="card-excerpt">⁠  Южноазиатские общины по всей Канаде сталкиваются с волной вымогательств и насилия. В Суррее (Британская Колумбия) власти уже требуют от Оттавы объявить общенациональное чрезвычайное положение. Речь</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-31-poliev-prizyvaet-k-nadezhde-i-byot-po-separatizmu-v-alberte-/">
+  <div class="card-img"><img src="/photos/photo_2078@31-01-2026_11-05-08.jpg" alt="Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Полиев призывает к «надежде»  и бьёт по сепаратизму в Альберте и Квебеке</div>
+    <div class="card-excerpt">Пьер Полиев в пятницу вечером выступил с ключевой речью на съезде консерваторов в Калгари — за несколько часов до голосования по своему лидерству. Его задача была двойной: сплотить партийную базу и од</div>
+    <div class="card-meta">
+      <span class="card-date">31 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-31-per-poliev-poluchil-874-i-sohranil-liderstvo-u-konservatorov/">
+  <div class="card-img"><img src="/photos/photo_2077@31-01-2026_09-02-53.jpg" alt="Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Пьер Полиев получил 87,4% и сохранил лидерство у консерваторов</div>
+    <div class="card-excerpt">Лидер Консервативной партии Пьер Полиев уверенно прошёл проверку на съезде в Калгари. По итогам голосования 87,4% делегатов высказались за сохранение его на посту. Явка составила 95% — проголосовали 2</div>
+    <div class="card-meta">
+      <span class="card-date">31 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-29-kir-starmer-distantsirovalsya-ot-rechi-marka-karni-v-davose-/">
+  <div class="card-img"><img src="/photos/photo_2061@29-01-2026_10-07-12.jpg" alt="Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Кир Стармер дистанцировался от речи Марка Карни в Давосе: «Я прагматик»</div>
+    <div class="card-excerpt">Премьер-министр Великобритании Kир Стармер публично дал понять, что не разделяет подход канадского премьера Mark Carney, озвученный на Всемирном экономическом форуме в Давосе.   Выступая перед журнали</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-28-polovina-bezdetnyh-zhenschin-v-kanade-ne-hotyat-detey-kazhda/">
+  <div class="card-img"><img src="/photos/photo_2059@28-01-2026_20-01-32.jpg" alt="Половина бездетных женщин в Канаде не хотят детей — каждая четвёртая в 40 лет так и не стала матерью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Половина бездетных женщин в Канаде не хотят детей — каждая четвёртая в 40 лет так и не стала матерью</div>
+    <div class="card-excerpt">Новые данные Statistics Canada показывают резкий сдвиг в репродуктивных установках канадок. В 2024 году 23,6% женщин в возрасте от 40 до 49 лет не имели ни биологических, ни усыновлённых детей. Среди</div>
+    <div class="card-meta">
+      <span class="card-date">28 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb on" href="/materials/">1</a><a class="pb" href="/materials/page/2/">2</a><a class="pb" href="/materials/page/3/">3</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/materials/page/7/">7</a><a class="pb" href="/materials/page/2/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
 </body>
 </html>

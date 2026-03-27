@@ -1,896 +1,677 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тема: #IRCC | Maple Barrel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-:root {
-    --bg: #fdfdfd;
-    --card-bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #c53030; /* Канадский красный */
-    --border: #eeeeee;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#IRCC — Maple Barrel</title>
+<meta name="description" content="Все материалы по теме «IRCC» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<link rel="canonical" href="https://journalists.ca/tag/ircc/">
+<meta property="og:title" content="#IRCC — Maple Barrel">
+<meta property="og:description" content="Все материалы по теме «IRCC» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta property="og:url" content="https://journalists.ca/tag/ircc/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="#IRCC — Maple Barrel">
+<meta name="twitter:description" content="Все материалы по теме «IRCC» на русском языке. Канадские новости из CBC, CTV, Globe and Mail.">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: 'Inter', -apple-system, system-ui, sans-serif; 
-    line-height: 1.7; color: var(--text-main); background: var(--bg); 
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
-a { color: inherit; text-decoration: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
 
-header { 
-    background: #fff; border-bottom: 1px solid var(--border); 
-    padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
 }
-.header-content { 
-    max-width: 900px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; align-items: center;
+
+.tgb:hover{
+  background:#a93226;
 }
-.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
-.nav-menu { display: flex; gap: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
-.nav-menu a:hover { color: var(--accent); }
 
-.container { max-width: 800px; margin: 3rem auto; padding: 0 20px; }
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-/* Список постов */
-.posts-list { display: flex; flex-direction: column; gap: 4rem; }
-.post-card { border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
-.post-card:last-child { border-bottom: none; }
-
-.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; }
-.post-image { width: 100%; height: auto; display: block; }
-
-.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; }
-.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; }
-.post-content b, .post-content strong { font-weight: 700; }
-.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-
-.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: #f5f5f5; color: #444; font-weight: 500; }
-.person-badge { background: #fff1f1; color: var(--accent); }
-
-.pagination { margin: 5rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
-.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 600; cursor: pointer; }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-
-.page-title { margin-bottom: 3rem; font-size: 2rem; font-weight: 800; }
-footer { text-align: center; padding: 5rem 0; color: #999; font-size: 0.8rem; border-top: 1px solid var(--border); }
-
-@media (max-width: 600px) {
-    header .nav-menu { display: none; } /* Упрощаем для мобилок */
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform .15s;
 }
+.card:hover{
+  transform:translateY(-2px);
+}
+
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+
+.tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
+.tag-hdr h1{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:4px;color:var(--cream)}
+.tag-hdr p{font-size:13px;color:var(--t3)}
+@media(max-width:1100px){.tag-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tag-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="/" class="logo">MAPLE BARREL</a>
-            <nav class="nav-menu">
-                <a href="/materials/">Материалы</a>
-                <a href="/longreads/">Лонгриды</a>
-                <a href="/about/">О проекте</a>
-                <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container">
-        <h1 class="page-title">Тема: #IRCC</h1><div class="posts-list">
-    <article class="post-card">
-        <span class="post-date">19 февраля 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2215@19-02-2026_15-02-21.jpg" class="post-image"></div>
-        <div class="post-content">У Канады есть скрытая проблема в системе предоставления убежища
-​
-<a href="https://www.theglobeandmail.com/opinion/article-canada-has-a-hidden-asylum-policy-problem/">Автор: Джеймс Юсиф</a>, бывший директор по политике IRCC и экс-член Immigration and Refugee Board of Canada (IRB)
 
-​
-Совет по иммиграции и делам беженцев Канады (IRB) — структура с бюджетом почти 350 млн долларов и штатом около 2 500 сотрудников — при этом остаётся во многом непрозрачной.
-
-​
-IRB действует «на расстоянии» от правительства и обладает полномочиями формировать собственную политику без прямого участия министров или кабинета. Такая модель, по мнению автора, позволила внедрить практику, которая фактически отменила ключевой элемент рассмотрения заявлений на убежище — очные слушания.
-
-​
-Речь идёт о политике File Review, в рамках которой заявки из определённых стран начали одобряться исключительно на основе письменных материалов, без личного допроса заявителей. С января 2019 по февраль 2023 года таким образом были удовлетворены 24 599 заявлений — без единого вопроса со стороны трибунала.
-
-​
-Проблема в том, что слушание выполняет не только формальную функцию. Оно позволяет выявлять противоречия, поддельные документы и потенциальные риски для безопасности. Если заявителя не допрашивают, невозможно задействовать механизмы уведомления профильных министров в случае тревожных сигналов.
-
-​
-По данным автора, уровень одобрения заявлений в Канаде вырос до 80% от дел, рассмотренных по существу. Для сравнения: в 2024 году Ирландия одобрила 30% таких заявок, Швеция — 40%, Германия — 59%. Исследования показывают, что процент признания влияет на выбор страны со стороны просителей убежища.
-
-​
-Одновременно растёт и накопившийся объём дел. Если в 2016 году в очереди находилось 17 000 заявлений, то к 2025 году показатель приблизился к 300 000. Меры, призванные ускорить процесс, по мнению автора, не только не сократили очередь, но могли создать впечатление упрощённой и быстрой процедуры.
-
-​
-Юсиф ставит вопрос шире: как трибунал, чья задача — осуществлять независимое рассмотрение дел, смог фактически отказаться от процедуры слушаний? Он предполагает, что уникальный статус IRB ограничивает прозрачность и контроль со стороны правительства.
-
-​
-Автор предлагает пересмотреть модель управления, чтобы усилить надзор со стороны министров и кабинета, сохранив при этом независимость решений.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">7 февраля 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2124@07-02-2026_19-03-40.jpg" class="post-image"></div>
-        <div class="post-content">Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде
-​‌
-
-Тысячи украинцев, бежавших от войны и начавших новую жизнь в Канаде, сейчас сталкиваются с неопределённым будущим. <a href="https://www.ctvnews.ca/winnipeg/article/calls-to-make-special-pathway-for-ukrainians-to-settle-in-canada/">Об этом предупреждают общественные организации</a>, призывая федеральные власти срочно изменить миграционную политику.
-​‌
-
-Юлия Корытник покинула Киев в 2023 году и приехала в Виннипег по программе Canada-Ukraine Authorization for Emergency Travel. Почти за три года она обустроила здесь жизнь, работает и называет Канаду своим домом. Но юридически она остаётся временным резидентом с открытым разрешением на работу, которое может быть отозвано.
-​‌
-
-По оценке организации United Ukrainians of Canada, в аналогичном положении находятся около 200 тысяч украинцев. Многие из них покидали страну в спешке, без документов, с ограниченным знанием языка и без возможности сразу соответствовать требованиям для получения постоянного статуса.
-​‌
-
-Сейчас для украинцев действует программа воссоединения семей, но она охватывает только тех, у кого есть близкие родственники в Канаде. По данным Immigration, Refugees and Citizenship Canada, по этой линии подано 25 455 заявок, и лишь около 2 490 человек уже получили статус постоянных резидентов.
-​‌
-
-Активисты требуют расширить подход и создать отдельный «специальный путь» для всех украинцев, прибывших по экстренной программе, а не только для тех, кто подходит под критерии воссоединения семьи.
-​‌
-
-Более 25 тысяч канадцев уже направили письма своим депутатам с требованием оставить украинцев в стране и предоставить им постоянный статус. Цель кампании — собрать 100 тысяч обращений.
-​‌
-
-Вопрос дошёл и до парламента: депутат от Виннипег Норт Кевин Ламурё внёс петицию в Палату общин с призывом работать с провинциями, чтобы удержать украинцев в Канаде и дать им шанс на постоянное проживание.
-​‌
-
-В IRCC напоминают, что участники программы CUAET могут продлить своё пребывание ещё на три года — приём заявок открыт до конца марта. Пока заявления рассматриваются, статус заявителей сохраняется, если они не покидают страну.
-​‌
-
-В ведомстве подчёркивают, что депортации в Украину приостановлены из-за продолжающейся войны, а поддержка украинцев со стороны Канады «остаётся неизменной».
-​‌
-
-Для Юлии Корытник продление статуса — временное решение. Она надеется, что Канада станет её домом на долгие годы.
-​‌
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">2 февраля 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2089@02-02-2026_14-05-31.jpg" class="post-image"></div>
-        <div class="post-content">Врач в Торонто ведёт 2 000 пациентов — и всё ещё без ПМЖ
-​
-​
-Канада годами говорит о катастрофической нехватке врачей. В Онтарио без семейного доктора живут более 2,5 млн человек, по стране — почти 6 млн.
-​
-​
-На этом фоне <a href="https://www.cbc.ca/radio/whitecoat/us-doctor-permanent-residency-9.7055152">история доктора Майкла Антила</a> выглядит почти издевательством над здравым смыслом. Врач с 20-летним стажем, переехал из Северной Каролины в Торонто в 2023 году, получил лицензию CPSO, подписал пятилетний контракт — и сейчас обслуживает свыше 2 000 пациентов в одной из клиник города.
-​
-​
-Проблема одна: постоянного вида на жительство у него до сих пор нет.
-​
-​
-За три года Антил трижды подавал документы — и трижды получал отказ. Не из-за медицины, не из-за спроса, а из-за «технических ошибок»:
-​
-– не тот пункт отмечен в анкете про степень образования
-– транскрипт жены без нужного штампа
-– нотариус поставил подпись не в том месте
-​
-​
-Попытка пройти через Express Entry провалилась из-за возраста и отсутствия французского. Путь через Ontario Immigrant Nominee Program закончился закрытым дедлайном — документы дошли на две недели позже после месячной бюрократической волокиты.
-​
-​
-Работодатель Антила прямо говорит: ситуация абсурдна. Две тысячи семей зависят от этого врача, а федеральная система не допускает ни малейшей гибкости.
-​
-​
-Иммиграционный юрист, работающий с делом, называет систему «жёсткой и беспощадной»: одна галочка — и заявка мертва. Автоматизация ради быстрых сроков просто не учитывает реальный контекст.
-​
-​
-IRCC в ответ ограничилось стандартной формулировкой про «улучшение коммуникаций и онлайн-инструментов».
-​
-​
-В стране, где дефицит врачей официально признан кризисом, доктор с полной практикой остаётся временным работником. И это уже не частная история — это диагноз системе.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/торонто/" class="badge">#Торонто</a><a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">29 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2069@29-01-2026_21-09-01.jpg" class="post-image"></div>
-        <div class="post-content">Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»
-​
-
-<a href="https://www.cbc.ca/news/canada/misleading-immigration-fifa-world-cup-9.7065818">В преддверии чемпионата мира по футболу 2026 года в TikTok и Instagram</a> массово распространяются видео с ложной информацией об иммиграционных правилах Канады. Как выяснило CBC News, такие ролики нацелены на болельщиков и потенциальных мигрантов, планирующих поездку на матчи.
-​
-
-Расследование показало, что аккаунты, публикующие подобные видео, связаны с разными странами — включая Индию, Пакистан и саму Канаду. Редакция CBC перевела ролики на хинди, урду и панджаби и обнаружила в них систематическое искажение правил въезда.
-​
-
-Один из самых распространённых тезисов — утверждение, что люди, приезжающие в Канаду по гостевой визе на чемпионат мира, якобы могут легально работать и даже остаться в стране надолго. В видео используют скриншоты сайта Immigration, Refugees and Citizenship Canada, изображения канадского паспорта и флага с «зелёной галочкой».
-​
-
-Иммиграционные эксперты подчёркивают: это обман. Речь идёт о неверной интерпретации временного решения властей, принятого в ноябре. Оно касается только ограниченного круга лиц, напрямую приглашённых FIFA — сотрудников и подрядчиков. Для обычных болельщиков никаких послаблений не существует. В IRCC прямо заявляют: чемпионат мира не является поводом для работы, долгосрочного проживания или подачи прошения о убежище.
-​
-
-Другая популярная схема — продажа так называемой «специальной визы FIFA». В одном из видео мужчина на урду предлагает «пакет» за 150 тысяч индийских рупий (около 2 220 канадских долларов), обещая высокий шанс одобрения и включая «визовые сборы, билеты на матчи, биометрию и консультации». Эксперты подчёркивают: отдельной визовой категории для чемпионата мира не существует, а стандартные проверки остаются обязательными.
-​
-
-После запросов CBC News часть подобных роликов была удалена с платформ. Canadian Anti-Fraud Centre подтвердил, что получает сообщения о мошенничестве, связанном с чемпионатом мира, и отметил, что подобные схемы традиционно активизируются вокруг крупных международных событий.
-​
-
-Чемпионат мира 2026 года пройдёт с 11 июня по 19 июля. Матчи состоятся в Торонто, Ванкувер, а также в ряде городов США и Мексики. Канадские власти и дипломатические миссии за рубежом уже проводят разъяснительные кампании, предупреждая о фейковых предложениях, «гарантированном въезде» и «работе на чемпионате».
-​
-
-Власти подчёркивают: наличие билета на матч не гарантирует въезд в Канаду. Окончательное решение всегда принимает пограничный офицер при пересечении границы.
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a><a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">13 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1940@13-01-2026_21-50-15.jpg" class="post-image"></div>
-        <div class="post-content">2,1 млн временных резидентов теряют статус в 2026 году. Уедут ли они из Канады?
-​
-​
-<a href="https://www.cbc.ca/news/canada/windsor/millions-will-have-expired-or-expiring-statuses-in-2026-9.7042698">В этом году у Канады истекают или уже истекут разрешения на проживание у 2,1 млн временных резидентов</a>. Правительство исходит из того, что большинство из них просто уедут. Эксперты называют это опасной иллюзией.
-​
-​
-25-летний Абхишек Пармар — один из таких людей. Он живёт в Виндзоре с 2019 года, учился в колледже, потратил более $80 тыс. на обучение и жизнь, работал в автопроме и подал на ПМЖ через онтарийскую программу.
-​
-​
-Но сначала его уволили из-за торговых тарифов, затем — со второй работы. Провинциальный путь к ПМЖ был привязан к занятости и рухнул. Его рабочее разрешение истекает в марте.
-​
-​
-«Я никогда не думал уезжать из Канады. А теперь всё заканчивается. Это ужасное чувство», — говорит он.
-​
-​
-По данным IRCC, в 2024 году истекли разрешения у 1,49 млн временных резидентов. В 2025 году истекают ещё у 1,4 млн. Даже с учётом 380–395 тыс. мест ПМЖ в год, минимум 2,1 млн человек окажутся без статуса.
-​
-​
-Более половины разрешений, истекающих в этом году, заканчиваются уже к июню.
-​
-​
-Федеральное правительство заявляет прямо: временный статус не даёт никаких гарантий ПМЖ, и люди обязаны покинуть страну. При потере статуса есть 90 дней на попытку его восстановить.
-​
-​
-Но иммиграционные юристы считают, что расчёт на «добровольный отъезд» не выдерживает реальности.
-​
-​
-Адвокат Лу Янсен Дангзалан говорит, что Канада годами продавалась как страна «лёгкого ПМЖ». Многие люди продали имущество, залезли в долги, взяли кредиты под безумные проценты — и теперь просто не могут вернуться.
-​
-​
-«Предполагается слишком много добросовестности. Не все просто встанут и уедут», — говорит он.
-​
-​
-В 2024–25 годах Канада депортировала около 18 тыс. человек — почти 400 в неделю — в основном отказанных беженцев. Масштабировать это до миллионов, по словам юристов, административно невозможно.
-​
-​
-IRCC признаёт, что точных данных нет, но в стране может находиться от 200 до 500 тыс. нелегальных мигрантов — и это число может вырасти.
-​
-​
-Иммиграционные консультанты подтверждают: люди паникуют. В Виндзоре до 90% консультаций сейчас — попытки любой ценой продлить статус или найти путь к ПМЖ.
-​
-​
-«Математика не сходится. Количество заявителей растёт, а мест нет», — говорит консультант Аманжит Каур Верма.
-​
-​
-Многие рассматривают уход «в подполье». Эксперты называют происходящее «очень болезненным процессом» — и для людей, и для государства.
-​
-​
-Вывод специалистов прост: предположение, что 2,1 млн человек спокойно уедут, — фикция. В реальности Канаду ждёт рост нелегального статуса, серой занятости и человеческих трагедий.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">8 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1900@08-01-2026_15-03-39.jpg" class="post-image"></div>
-        <div class="post-content">В 2026 году Канада примет ещё меньше иммигрантов
-​
-​
-<a href="https://winnipeg.citynews.ca/2026/01/06/more-cuts-to-canadas-immigration-arrivals-in-2026/">Федеральное правительство продолжает сокращать</a> иммиграционные показатели. В 2026 году Канада планирует принять около 380 тысяч постоянных жителей — на 15 тысяч меньше, чем в 2025 году, и значительно ниже уровня 2024 года, когда в страну въехало почти 484 тысячи новых резидентов.
-​
-​
-Тренд на снижение совпадает с замедлением роста населения: по данным Statistics Canada, в третьем квартале 2025 года прирост сократился на 0,2%. Юристы и эксперты предупреждают, что при стареющем населении и дефиците рабочей силы страна по-прежнему критически зависит от иммиграции.
-​
-​
-Особенно жёсткие изменения затронули временных резидентов. Количество студенческих виз в 2026 году сократят до 155 тысяч — более чем вдвое по сравнению с планами на 2025 год. Приём временных иностранных работников также урежут: 230 тысяч вместо более чем 365 тысяч годом ранее.
-​
-​
-Иммиграционный адвокат Рави Джейн считает, что правительство несправедливо поступает с иностранными студентами, которые уже находятся в стране и работали в Канаде после учёбы. По его словам, логичнее было бы переводить таких людей в статус постоянных жителей, а не вынуждать их уезжать.
-​
-​
-Сокращения затронут и гуманитарное направление. В 2026 году Канада примет 56 200 беженцев и защищённых лиц — немного меньше, чем в 2025-м. Параллельно Оттава ужесточает правила через закон C-12, который ограничивает подачу заявлений на убежище и даёт правительству право останавливать или аннулировать иммиграционные заявки «в общественных интересах».
-​
-​
-Часть экспертов считает эти меры избыточными. По их мнению, канадская система убежища уже учитывает сроки пребывания и статус заявителей, а новые ограничения создают риски для правовой стабильности.
-​
-​
-Отдельный приоритет — франкоязычная иммиграция вне Квебека. В 2026 году доля франкоговорящих постоянных жителей должна составить около 9%, с дальнейшим ростом в последующие годы. Критики отмечают, что акцент на французский язык всё чаще носит политический характер и вытесняет кандидатов с сильным экономическим профилем.
-​
-​
-В IRCC заявляют, что обновлённый план на 2026–2028 годы нацелен на экономическую иммиграцию и закрытие дефицита кадров. При этом эксперты подчёркивают: многие иммигранты приезжают с опытом, связями и предпринимательским потенциалом, который Канада до сих пор использует не в полной мере.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/иммиграция/" class="badge">#иммиграция</a><a href="/tag/квебек/" class="badge">#Квебек</a><a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">7 января 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1893@07-01-2026_18-06-01.jpg" class="post-image"></div>
-        <div class="post-content">Канада заморозила визовую программу для стартапов — без замены и с очередью на 10 лет
-​
-​
-<a href="https://www.theglobeandmail.com/politics/article-ircc-halts-startup-visa-program-foreign-entrepreneurs/">Иммиграционное ведомство Канады IRCC в конце декабр</a>я тихо остановило приём новых заявок по программе Start-up Visa — одному из ключевых инструментов привлечения иностранных предпринимателей. Официальная формулировка: программа «перестала работать так, как задумывалось».
-​
-​
-Start-up Visa действовала с 2013 года и давала иностранным основателям компаний путь к постоянному резидентству при поддержке аккредитованных канадских организаций. Формально она должна была создавать рабочие места и тянуть в страну инновации.
-​
-​
-На практике — очередь на рассмотрение заявок растянулась более чем на 10 лет, а саму программу, по признанию IRCC, начали массово использовать не по назначению.
-​
-​
-Представитель ведомства Изабель Дюбуа заявила, что требования оказались слишком мягкими, а некоторые «назначенные организации» поддерживали слабые или вовсе фиктивные стартапы. Новый пилотный проект «разрабатывается», но сроков нет.
-​
-​
-Иммиграционные юристы называют происходящее провалом. По их словам, закрывать программу без немедленной замены — прямое приглашение для предпринимателей уехать в США или Европу.
-​
-​
-Адвокат Стивен Грин напоминает: когда программа запускалась, ею восхищались во всём мире. Теперь же Канада теряет репутацию страны для инноваций — из-за бюрократии и политического страха перед иммиграцией.
-​
-​
-Один из заявителей — Амир Сузандехфар из Ирана — ждёт решения уже пять лет. Его команда планирует производство мембран для фильтрации микропластика из воды. По его словам, из-за неопределённости невозможно привлечь инвестиции или запустить завод.
-​
-​
-IRCC подтверждает: новые заявки не принимаются, старые — будут рассматриваться, но медленно. Одновременно приостановлены и другие иммиграционные программы — для самозанятых, сиделок и квалифицированных беженцев с работой.
-​
-​
-В мандатных письмах премьер-министра Марка Карни говорится о необходимости «привлекать глобальные таланты». На практике — один из немногих рабочих каналов для таких людей просто закрыт.
-​
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">17 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1767@17-12-2025_10-02-54.jpg" class="post-image"></div>
-        <div class="post-content">Нелегальный статус и годы ожидания: как иммиграционная система Канады подводит детей
-​‎
-
-<a href="https://www.cbc.ca/news/canada/ottawa/undocumented-children-at-risk-due-to-unviable-immigration-wait-times-lawyers-warn-9.7016069">Юристы и правозащитники бьют тревогу</a>: тысячи детей и подростков в Канаде рискуют остаться без будущего из-за фактически недееспособных сроков рассмотрения заявок на ПМЖ по гуманитарному и сострадательному основанию. Об этом сообщает CBC.
-​‎
-
-Речь идёт о детях без статуса или с утраченным временным статусом — зачастую это единственный иммиграционный путь, который для них вообще остаётся. Но в 2025 году сроки ожидания по этому каналу внезапно выросли до десятков лет.
-​‎
-
-По данным юристов, в очереди сейчас более 55 тысяч заявлений, тогда как правительство планирует принимать:
-​‎
-– 1 100 человек в 2026 году
-– 1 000 в 2027
-– 1 000 в 2028
-​‎
-
-Иммиграционный адвокат из Оттавы Хизер Нойфельд называет это «беспрецедентным обрушением» гуманитарного направления. По её словам, дети рискуют быть депортированы ещё до того, как их дело вообще рассмотрят.
-​‎
-
-CBC приводит истории подростков, выросших в Канаде, которые внезапно узнали, что у них нет статуса:
-​‎
-– они не могут легально работать
-– не могут поступить в колледж или университет
-– не имеют доступа к медицинской помощи
-– не могут путешествовать даже со школьной командой
-​‎
-
-16–17-летние подростки говорят о постоянном страхе, чувстве отставания от сверстников и невозможности строить планы — учёба, профессия, жизнь поставлены на паузу на неопределённый срок.
-​‎
-
-Правозащитные организации подчёркивают: по Конвенции ООН о правах ребёнка и собственному иммиграционному законодательству Канада обязана действовать в интересах детей. Отсрочка решений на 10–50 лет фактически означает отказ от этой обязанности.
-​‎
-
-IRCC в ответ заявляет, что гуманитарный путь — «последний вариант», а ускоренное рассмотрение возможно только в исключительных случаях по индивидуальному запросу.
-​‎
-
-Юристы предупреждают: если ситуация не изменится, Канада рискует создать собственный «подкласс» молодых людей без статуса — образованных, интегрированных, но вынужденных жить в тени.
-​‎
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">5 декабря 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1664@05-12-2025_11-29-01.jpg" class="post-image"></div>
-        <div class="post-content">Консерваторы требуют вернуть очные церемонии гражданства и прекратить «гражданство в один клик»
-​
-
-<a href="https://www.cbc.ca/news/politics/conservatives-want-end-to-virtual-citizenship-ceremonies-9.7001830">Консерваторы усилили давление на правительство:</a> они хотят, чтобы виртуальные церемонии гражданства ушли в прошлое и все новые канадцы получали паспортную клятву только в присутствии судьи, гостей и сообщества.
-​
-
-Депутат Мишель Ремпел Гарнер заявила, что более половины новых граждан в прошлом году проходили процедуру онлайн, и назвала это абсурдом. По её мнению, очная церемония — важная часть гражданской жизни страны, которая помогает объединять людей, а переход на онлайн подрывает этот смысл.
-​
-
-Виртуальный формат появился в начале пандемии в 2020 году. В 2022-м Ottawa возобновила очные церемонии, но не стала отказываться от онлайн-варианта: это помогло разгружать очереди. И новый формат действительно стал массовым — за вторую половину 2022 года менее 10% претендентов выбрали очное участие.
-​
-
-При этом «гражданство в один клик» — преувеличение. IRCC поясняет: кандидат проходит видеоконференцию с проверкой личности, уничтожает карту постоянного резидента перед сотрудником ведомства, затем участвует в онлайн-церемонии, подписывает документ и отправляет его в IRCC.
-​
-
-Идея ещё более упрощённой схемы — самостоятельного подтверждения клятвы — была предложена в 2023 году, но большинство участников консультаций выступили против.
-​
-
-Консерватор Том Кмец поддержал петицию о возвращении очных церемоний как стандарта. В ответ парламентский секретарь министра иммиграции Пол Чианг заявил, что виртуальный формат помогает сокращать сроки ожидания. IRCC подтвердило: правительство не собирается отказываться ни от онлайн, ни от очных вариантов.
-​
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 ноября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1603@28-11-2025_15-29-01.jpg" class="post-image"></div>
-        <div class="post-content">У десятков тысяч бывших иностранных студентов вот-вот истекают визы. Что будет дальше — туманно
-
-​‌﻿
-
-<a href="https://www.theglobeandmail.com/business/article-international-students-visas-expiring-soon-what-happens-next/">По данным, предоставленным The Globe and Mail,</a> к 31 декабря истекают разрешения на работу у 31,6 тысячи выпускников канадских вузов. Это одна из самых уязвимых групп временных жителей, и эксперты всё громче задают вопрос: сколько людей останутся в стране без статуса?
-
-​‌﻿
-
-Официальных оценок нет. IRCC признаёт, что не знает, сколько обладателей просроченных PGWP продолжают жить в Канаде. CBSA в прошлом году депортировала около 18 тысяч человек, но не сообщает, кто именно попал под выдворение. Экономисты, включая Бенджамина Таля из CIBC, предполагают, что среди тех, кто остаётся без документов, могут быть сотни тысяч бывших временных жителей.
-
-​‌﻿
-
-Пик истекающих PGWP был в прошлом году — около 70 тысяч. Сейчас эта цифра ниже, но всё равно огромная. И статистика переходов удручающая: из примерно 115 тысяч обладателей PGWP, срок которых закончился в 2025 году, только 12% смогли продлить разрешение или перейти на другой тип визы. Часть получила ПМЖ — в 2022 году их доля составила те же 12%.
-
-​‌﻿
-
-Многие пытаются искать обходные маршруты — туристические визы, новые рабочие разрешения, даже запросы убежища. По словам Сайеда Хуссана из Migrant Workers Alliance for Change, всё больше выпускников живут фактически без документов. И на фоне высоких расходов, низких зарплат и ограничений на путь к ПМЖ всё больше думают об отъезде.
-
-​‌﻿
-
-Конфликт вокруг международных студентов стал символом резкой смены курса. Их число выросло с 350 тысяч в 2015 году до миллиона в 2023-м. PGWP увеличились более чем в шесть раз. Это была осознанная ставка Оттавы времён нехватки рабочих рук: страна активно привлекала студентов, давая понять, что обучение — дорога к ПМЖ.
-
-​‌﻿
-
-Но после общественного давления из-за цен на жильё и перегрузки инфраструктуры правительство резко закрутило гайки: сократило выдачу учебных разрешений, ужесточило переходы на ПМЖ и взяло курс на снижение доли временных жителей. План — опустить показатель до 5% населения к 2027 году. Сейчас это 7,3%, около 3 миллионов человек — без учёта тех, чьи визы уже просрочены.
-
-​‌﻿
-
-Сегодня тысячи бывших студентов, накопивших долги за обучение и рассчитывавших остаться, рискуют оказаться в правовом вакууме. Протесты, как в Брамптоне прошлой осенью, вполне могут повториться — особенно среди тех, кто поверил прежним обещаниям и теперь сталкивается с закрытыми дверями.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">18 ноября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1525@18-11-2025_20-49-01.jpg" class="post-image"></div>
-        <div class="post-content">Отток квалифицированных иммигрантов ускоряется — новый отчёт ICC
-
-​﻿
-
-<a href="https://www.ctvnews.ca/canada/article/canadas-highly-skilled-immigrants-are-leaving-the-fastest-report/">Новый анализ Института канадского гражданства показывает тревожную картину</a>: наиболее образованные и опытные новоприбывшие уезжают из Канады быстрее остальных. Исследование “The Leaky Bucket 2025” говорит, что каждый пятый иммигрант покидает страну в течение 25 лет после получения ПМЖ, а пик убыли приходится на первые пять лет.
-
-​﻿
-
-Люди с докторскими степенями покидают Канаду вдвое чаще обладателей бакалавриата. Если при этом карьерные перспективы не дают роста доходов, вероятность уезда увеличивается втрое. Генеральный директор ICC Дэниел Бернхард предупреждает: на фоне торговой конфронтации с США сокращение численности высококвалифицированных специалистов ослабляет способность страны отвечать на экономические вызовы.
-
-​﻿
-
-Правительство Марка Карни хочет удвоить объём неамериканского экспорта за десять лет. Но, как отмечает Бернхард, именно те, кто имеет опыт работы в других регионах мира, и покидают Канаду активнее всего. Среди них — инженеры, специалисты в сфере ИКТ, управленцы, архитекторы, а также менеджеры из производственных отраслей. Руководители высшего звена уезжают с частотой, почти вдвое превышающей среднюю.
-
-​﻿
-
-В основе исследования — статистика внутренних налоговых данных и истории иммиграции за период с 1982 по 2020 год. Более 60% людей в выборке — экономические иммигранты, от которых государство ждёт лидерской роли в развитии экономики.
-
-​﻿
-
-ICC считает, что стране нужна продуманная стратегия удержания кадров. Бернхард критикует федеральное ведомство IRCC за избыточный фокус на контроле, предлагая сместить акцент на поддержку иммигрантов и создание условий для их профессионального роста. По его словам, существующие сервисы ориентированы на тех, кто не владеет английским, тогда как наиболее квалифицированные приезжие этими услугами почти не пользуются.
-
-​﻿
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">11 ноября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1471@11-11-2025_14-46-23.jpg" class="post-image"></div>
-        <div class="post-content">Канада почти перестала выдавать учебные визы студентам из Индии — падение на 93% за два года
-​
-П<a href="https://nationalpost.com/news/canada/canada-rejected-applications-indian-students">о данным Immigration, Refugees and Citizenship Canada (IRCC)</a>, с января по август 2025 года Канада одобрила всего 9 955 учебных разрешений для граждан Индии. Для сравнения — 76 930 за тот же период в 2024-м и 149 875 в 2023-м.
-​
-Резкое сокращение совпало с ужесточением иммиграционной политики Оттавы и отказом от программы Student Direct Stream, которая ранее ускоряла оформление виз для индийских заявителей. Теперь 71% заявок из Индии отклоняются, тогда как в 2023 году отказ получали лишь 23%. Средний показатель по всем странам — 58%.
-​
-IRCC объясняет падение числа разрешений борьбой с поддельными письмами о зачислении и попытками «укрепить целостность программы». В 2023 году власти выявили 1 550 фальшивых писем из Индии, а год спустя — уже 14 000 подозрительных документов от заявителей со всего мира.
-​
-Канада также повысила финансовые требования к иностранным студентам и ввела обязательную проверку писем о приёме напрямую через учебные заведения.
-​
-В индийском посольстве заявили, что понимают право Канады самостоятельно решать, кому выдавать визы, но напомнили: индийские студенты «входят в число лучших в мире» и принесли значительную пользу канадским университетам.
-​
-По данным Канадского бюро международного образования, в прошлом году индийцы составляли 39% всех иностранных студентов в стране. Китай был на втором месте — с долей всего 10%.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">4 ноября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1417@04-11-2025_14-26-41.jpg" class="post-image"></div>
-        <div class="post-content">Оттава хочет получить право массово аннулировать визы — в том числе из-за мошенничества из Индии и Бангладеш
-​
-<a href="https://www.cbc.ca/news/politics/mass-cancellation-power-visas-india-bangladesh-9.6956426">Федеральное правительство Канады добивается новых полномочий</a>, позволяющих отменять группы виз сразу — на фоне растущих опасений по поводу поддельных заявлений из Индии и Бангладеш, сообщает CBC News со ссылкой на внутренние документы.
-​
-В презентации, подготовленной для офиса министра иммиграции Лены Метледж Диаб, говорится, что Immigration, Refugees and Citizenship Canada (IRCC), Канадское агентство пограничных служб и «неназванные американские партнёры» создали рабочую группу по выявлению и аннулированию мошеннических заявок на визы. В документе прямо указываются «страны с особыми проблемами» — Индия и Бангладеш.
-​
-Официально министр Диаб утверждала, что речь идёт лишь о возможностях реагирования в случаях пандемии или войны. Но внутренние материалы включают третий пункт — «отмена виз для граждан отдельных стран».
-​
-Эти положения включены в новый законопроект C-12, который правительство Карни намерено провести как часть «пограничной реформы». Однако правозащитные организации — более 300 групп, включая Migrant Rights Network — предупреждают, что такие полномочия могут превратить систему в «машину массовых депортаций».
-​
-Иммиграционные юристы также подозревают, что идея массовой отмены может использоваться для сокращения накопившегося бэклога заявок.
-​
-​
-Почему речь идёт об Индии
-​
-Внутренние данные IRCC показывают резкий рост проблем именно с индийскими визами. Проверка заявок из Индии в 2024 году увеличила средний срок рассмотрения с 30 до 54 дней, а одобрений стало меньше — с 63 тысяч в январе до 48 тысяч в июне.
-​
-Количество индийских граждан, подающих на убежище, выросло с менее 500 в месяц весной 2023-го до примерно 2 тысяч летом 2024-го. В том же году более 1800 заявителей получили «письма процессуальной справедливости» после задержек на этапе посадки на самолёт.
-​
-IRCC утверждает, что ужесточение контроля уже дало эффект: количество нелегальных пересечений границы с США снизилось на 97 %, а доля визовых отказов из-за подозрения на мошенничество выросла на 25 %.
-​
-​
-Баланс между контролем и дипломатией
-​
-Пока ведомство просит у парламента новые полномочия, Оттава одновременно пытается восстановить отношения с Нью-Дели. Напряжённость началась ещё при Джастине Трюдо после обвинений в адрес индийских спецслужб в причастности к убийству сикхского активиста Хардипа Сингха Ниджара в Британской Колумбии.
-​
-В июне премьер-министр Индии Нарендра Моди встретился с Марком Карни во время саммита G7 в Альберте, и стороны заявили о «новом начале» отношений. Тем не менее запрос на право массовых аннуляций виз в Индии и Бангладеш вряд ли поможет сгладить дипломатические противоречия.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">3 ноября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1406@03-11-2025_10-33-01.jpg" class="post-image"></div>
-        <div class="post-content">В Канаду пустили более 17 600 человек с судимостью за последние 10 лет
-
-​ ⠀
-<a href="https://www.ctvnews.ca/politics/article/canada-has-approved-entry-for-more-than-17600-people-with-a-criminal-record-in-last-decade/">CTV News сообщает</a>, что с 2014 по 2024 год Канада одобрила более 17 600 заявок на реабилитацию от иностранцев с уголовным прошлым, желающих въехать в страну — на работу, учёбу, постоянное проживание или просто в гости. Всего подано более 25 тысяч заявлений, из которых 70 % одобрено, около 20 % отклонено, 10 % отозваны.
-
-​ ⠀
-Министерство иммиграции (IRCC) уверяет, что решения принимаются «на основе закона и детального анализа обстоятельств». Каждый заявитель должен доказать, что после преступления прошло не менее пяти лет и он не представляет угрозы для общества.
-
-​ ⠀
-IRCC не делит дела по видам преступлений — в одной статистике могут быть как осуждённые за мелкие нарушения, так и за серьёзные правонарушения. Адвокат по иммиграционным делам Шанталь Деслож пояснила, что процедура одинакова для всех — от браконьера, прострелившего утку не в сезон, до человека с реальным сроком. «Под словами “иностранные преступники” часто подразумевают страшное, но в реальности большинство нарушений — незначительные», — говорит она.
-
-​ ⠀
-IRCC подчёркивает, что речь не о «прощении» преступлений — реабилитация лишь снимает статус нежелательного лица. После этого человеку всё равно нужно пройти общую процедуру получения визы или иммиграционного статуса.
-
-​ ⠀
-По словам Деслож, «чем тяжелее преступление, тем меньше шанс на разрешение». Но именно эта практика позволяет, например, артистам, спортсменам или членам семей канадцев получить шанс въезда.
-
-​ ⠀
-Канада, кстати, куда строже США: если американцы обращают внимание лишь на «морально порочные» преступления, то в Канаде сама по себе судимость — уже причина отказа. Даже за вождение в пьяном виде.
-
-​ ⠀
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">20 октября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1301@20-10-2025_11-47-00.jpg" class="post-image"></div>
-        <div class="post-content">50 лет ожидания: иммиграционные юристы в шоке, а Минминистр Диаб уверяет — «ошибки нет»
-​
-​
-Канадская иммиграционная система, похоже, окончательно треснула по швам. <a href="https://www.cbc.ca/news/canada/ottawa/50-year-immigration-wait-stuns-lawyers-and-families-but-ircc-says-it-s-no-mistake-9.6939919">Новые официальные данные показывают</a>, что обработка некоторых заявлений на ПМЖ может занять до 50 лет. Да, не пять, не десять — пятьдесят.
-
-​
-Речь идёт о заявках по гуманитарной и сострадательной категории, где теперь указаны сроки от 12 до 600 месяцев. Для других программ ситуация не лучше: 9 лет — для опекунов, 19 лет — для сельхозпотока, 35 лет — для стартап-визы.
-
-​
-Для семей вроде Олги Кушко из Оттавы эти цифры звучат как приговор. Она с мужем и двумя детьми сбежала из Киева после начала полномасштабного вторжения и подала документы летом. Сайт IRCC теперь показывает: «ожидание более 10 лет». Когда семья подавала — прогноз был около двух.
-
-​
-«Это не имеет смысла. Я просто надеюсь, что это ошибка», — говорит Кушко. Её младший сын с аутизмом уже привык к школе в Оттаве, а возвращаться в разрушенную Украину им некуда. Весной заканчиваются рабочие разрешения, и семья в отчаянии.
-
-​
-Иммиграционные юристы звучат не менее раздражённо.
-«Если это правда — это шок. Мои клиенты в панике», — говорит адвокат Клер Хукайем из Оттавы. — «Такое ощущение, что они просто не хотят обрабатывать эти дела».
-
-​
-Юрист из Ванкувера Стивен Мёрренс называет происходящее «невиданным» и подозревает, что правительство готовится просто аннулировать очереди, если пройдут новые «пограничные» законопроекты либералов, включая Билль C-12, который даёт министру полномочия массово вычищать бэклог.
-
-​
-Подобное уже случалось: в 2012-м Оттава стерла сотни тысяч заявок квалифицированных рабочих, а через два года — инвесторов и предпринимателей.
-
-​
-IRCC, впрочем, уверяет: никакой ошибки нет. Директор коммуникаций министра Лены Метледж Диаб, Лора Блондо, заявила CBC, что публикация таких сроков — «сознательная прозрачность».
-
-​
-«Мы обязались вернуть системе баланс», — заявили в министерстве, добавив, что расчёт основан на количестве заявлений и квотах на приём.
-
-​
-Переводя с бюрократического: мест нет, но очередь не закрыта. Просто растянута до 2075 года.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">3 октября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1192@03-10-2025_10-37-02.jpg" class="post-image"></div>
-        <div class="post-content">47 тысяч иностранных студентов могут находиться в Канаде нелегально — такие данные озвучили в парламенте представители министерства иммиграции (IRCC).
-
-<a href="https://nationalpost.com/opinion/as-many-as-47000-foreign-students-may-now-be-in-canada-illegally-ircc">По словам Айши Зафар, главы отдела миграционной добросовестности</a>, речь идёт о 47 175 студентах, которых канадские вузы отметили как «потенциально не соблюдающих условия визы» — то есть они просто перестали ходить на занятия.
-
-Консервативный депутат Мишель Ремпель Гарнер прямо спросила, как государство собирается «отслеживать и выдворять» таких студентов. Ответ Зафар был неутешительным: точных данных нет, а выдворение — дело Пограничной службы Канады, которая «будет разбираться».
-
-Особо подчеркнули, что Индия остаётся главным источником мошеннических схем с визами. Весной 2024 года только индийских «no show» студентов — тех, кто так и не пришёл на занятия — было зафиксировано почти 20 тысяч.
-
-Либеральное правительство Марка Карни сейчас сокращает все категории иммиграции, но именно студенческие визы урезают особенно сильно: в первой половине 2025 года одобрили лишь 36 тысяч разрешений, тогда как годом ранее — 125 тысяч.
-
-Тем временем оппозиция уверена: программа студенческих виз остаётся одной из самых уязвимых для иммиграционных махинаций. В парламенте даже вспоминали расследование Radio-Canada о том, как банды из Кот-д’Ивуара используют этот канал, чтобы завозить людей в Канаду.
-
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">17 сентября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1093@17-09-2025_13-23-01.jpg" class="post-image"></div>
-        <div class="post-content">Иммиграционные юристы бьют тревогу: визы отклоняются «по шаблону»
-
-​
-<a href="https://ici.radio-canada.ca/rci/en/news/2192570/immigration-lawyers-concerned-irccs-use-of-processing-technology-leading-to-unfair-visa-refusals">Иммиграционные адвокаты всё чаще сталкиваются с отказами, которые выглядят абсурдно</a>. Пример? Заявление отклонили «из-за отсутствия свидетельства о рождении», хотя документ был приложен. По словам юриста Марио Беллиссимо, это заставляет сомневаться: а просматривают ли офицеры все бумаги или решения выносятся за считанные минуты?
-
-​
-Подозрение падает на новые технологии, которые использует министерство иммиграции. С 2018 года действует система advanced data analytics, а также инструмент Chinook, позволяющий офицерам просматривать сотни дел на одном экране и вставлять готовые шаблоны отказов. Формально решения принимает человек, но адвокаты уверены: софт подталкивает к массовым и поверхностным отказам.
-
-​
-Бывшая сотрудница IRCC Энни Боудуан вспоминает, что к концу её службы офицеров буквально подгоняли по квотам: «Быстрее, больше, качество уже не так важно». Сегодня, говорит она, можно увидеть отказы, где даже не упомянуты ключевые факты — например, наличие канадского супруга у заявителя.
-
-​
-История пары из Монреаля это подтверждает: гражданке Канады и её мужу из Индии сначала отказали во въездной визе, проигнорировав брак и спонсорскую заявку. Только после пересмотра иммиграционные власти признали ошибку и разрешили въезд.
-
-​
-IRCC утверждает, что технологии нужны для борьбы с гигантскими бэклогами (более 2,2 млн заявок летом), а окончательные решения принимают «высококвалифицированные офицеры». Но юристы, включая Канадскую ассоциацию иммиграционных адвокатов, считают: массовая обработка «по шаблону» подрывает доверие к системе и лишает людей права на справедливое рассмотрение.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">13 сентября 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_1067@13-09-2025_10-17-01.jpg" class="post-image"></div>
-        <div class="post-content">80% индийских студентов получают отказ в канадских учебных визах
-
-​﻿
-<a href="https://www.financialexpress.com/business/investing-abroad-indian-students-face-high-rejection-rate-for-canada-study-permits-3974152/">Канада резко ужесточила правила для иностранных студентов </a>— особенно для выходцев из Индии. По данным BorderPass, во втором квартале 2025 года отказ получили четыре из пяти индийских заявителей. Это делает их самой пострадавшей группой среди всех иностранных студентов.
-
-​﻿
-Индийцы традиционно составляют около 40% международного студенческого контингента в Канаде, но сейчас именно они массово получают отказы. В среднем по стране канадские власти отвергли почти две трети заявлений на учебные пермиты в 2025 году — это рекордный показатель за более чем десятилетие.
-
-​﻿
-Причины:
-– введение федерального лимита на количество учебных виз (сначала в 2024 году, затем дополнительное сокращение ещё на 10% в 2025-м);
-– ужесточение финансовых требований: сумма, которую студент должен показать на счету, выросла с $10,000 в 2023-м до $22,895 в 2025-м (включая обучение и проживание);
-– распространённая позиция офицеров IRCC: «нет уверенности, что студент покинет Канаду после окончания учёбы» — именно этот аргумент фигурировал более чем в 75% отказов.
-
-​﻿
-Результат — падение международного студенческого потока: только за первые шесть месяцев 2025 года в страну приехало на 214,000 меньше студентов, чем годом ранее. Это снижение более чем на 70%.
-
-​﻿
-Фактически, система превращается в фильтр: заявлений подаётся меньше, но требования настолько высоки, что проходит лишь меньшинство — и в основном самые «идеальные» кандидаты.</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">27 августа 2025</span>
-        
-        <div class="post-content">Либералы снова промахнулись с обещаниями по иммиграции
-
-​﻿
-Несмотря на громкие заявления о снижении иммиграционных потоков, правительство Лены Метледж Диаб уже идёт к новым рекордам.
-
-​﻿
-<a href="https://nationalpost.com/opinion/liberals-are-already-missing-their-promised-lower-immigration-targets?itm_source=index">По данным IRCC</a>, за первые семь месяцев 2025 года Канада приняла 246 300 новых постоянных резидентов. Если темпы сохранятся, к концу года их будет около 422 000 — при обещанном лимите в 395 000.
-
-​﻿
-То есть каждый день в страну въезжает примерно 1200 человек. Для сравнения: ещё в 2014-м, когда Канада приняла 260 тысяч иммигрантов, Статистика Канады называла это «уровнем небывалым со времён Первой мировой». Сегодняшний показатель — на 62% выше.
-
-​﻿
-С временными мигрантами ситуация ещё более показательна. На весь 2025 год лимит по программе иностранных работников составлял 82 000. Но уже к июню выдали 105 195 разрешений. В 2024-м за то же время — 109 тысяч. И это при том, что именно временные мигранты ответственны за беспрецедентный прирост населения последних лет: с 2021-го оно выросло с 38 до 41,7 млн, в среднем на 900 тысяч ежегодно.
-
-​﻿
-Напомним, либералы обещали сократить долю временных мигрантов в населении с 7% в 2024 году до 5% к 2026-му. Пока что цифры идут в обратную сторону.
-
-​﻿
-Пьер Полиев, который ещё весной говорил о привязке иммиграционных квот к темпам жилищного строительства, теперь требует «жёстких ограничений» и даже «отрицательного прироста населения» на ближайшие годы.
-
-​﻿
-И в этом вопросе у него есть поддержка. Последний опрос Leger показал: большинство канадцев считают, что страна принимает слишком много мигрантов. И что интересно — так же думает и большинство самих иммигрантов.</div>
-        <div class="post-footer"><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 июля 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_826@26-07-2025_10-51-34.jpg" class="post-image"></div>
-        <div class="post-content">Отель больше не дом: Оттава сворачивает финансирование жилья для беженцев
-
-Федеральное правительство Канады прекращает оплачивать размещение соискателей убежища в отелях. Программа будет завершена 30 сентября 2025 года. Об этом сообщил департамент иммиграции (IRCC)<a href="https://www.cbc.ca/news/canada/thunder-bay/ircc-ends-hotel-funding-for-asylum-seekers-1.7593668"> в ответ на запрос CBC News.</a>
-
-— Сейчас в пяти отелях Онтарио и Квебека проживает 485 человек.
-
-— С 2020 года на временное размещение в отелях потрачено около $1,1 млрд.
-
-— По данным IRCC, более 15 тыс. человек ранее уже перешли на самостоятельное проживание.
-
-— Ведомство обещает помочь оставшимся найти жильё, но не уточняет, как именно.
-
-Проблема в том, что муниципальные приюты уже переполнены. По словам United Way Greater Toronto, построить новые — дело небыстрое. Кроме того, доступное жильё в дефиците, а арендодатели часто отказываются сдавать квартиры соискателям убежища.
-
- «Это риск для здоровья. А в крайних случаях даже жизни»,  говорит директор инвестпрограмм Adaoma Patterson.
-
-Контекст:
-
-– В январе правительство внезапно прекратило программу субсидий на покупку жилья.
-
-– Ранее также было отменено $68-миллионное обновление системы рассмотрения заявлений на убежище.
-
-– Новый законопроект «О сильных границах» усложняет процедуру подачи заявлений.
-
-– Иммиграционный министр заявил, что будет «сотрудничать с провинциями», но пока неясно, как именно.
-
-Экономист Кристофер Ворсвик считает, что Оттава просто перекладывает проблему на плечи провинций и муниципалитетов:
-
- «Это дорого. Муниципалитеты не могут бесконечно тянуть без налоговых рычагов. Вопрос: откуда возьмутся деньги?»
-
-Местные организации, вроде церкви Miracle Arena в Воне, снова готовятся подставить плечо, но признают: ресурсы на исходе.
-
- «Это как вытащить тонущего в лодку. Но лодка не бесконечна», — говорит пастор Айзек Оппонг.</div>
-        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/квебек/" class="badge">#Квебек</a><a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">23 июля 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_812@23-07-2025_11-51-45.jpg" class="post-image"></div>
-        <div class="post-content"><a href="https://www.theglobeandmail.com/politics/article-ottawas-hotel-bill-for-asylum-seekers-reaches-11-billion/">The Globe and Mail сообщает</a>: с 2017 года федеральное правительство потратило $1.1 млрд на размещение беженцев в отелях. 
-
-Ещё $1.5 млрд — переведено провинциям и городам в рамках программы IHAP.
-
-– Всего с 2017 по 2024 число заявок на убежище выросло с 50 тыс. до 173 тыс. в год
-
-– В марте 2024 правительство размещало беженцев в 7 отелях, сейчас — в 5 (4 в Онтарио, 1 в Квебеке)
-
-– Средняя стоимость проживания — $132 в день на человека, в 2023 было $199
-
-– В Торонто с 2017 года выделено $669 млн, в Квебек
- $542 млн, Оттава  $105.7 млн, Peel Region  $97.8 млн
-
-– В феврале в Peel открылся крупнейший в Канаде центр размещения беженцев, на 680 мест, в 10 минутах от Pearson
-
-Консерваторы называют такие расходы несправедливыми по отношению к остальным канадцам. Мишель Ремпел Гарнер: «Когда обычный человек слышит, что беженцев селят в отели — это вызывает вполне понятное чувство несправедливости».
-
-НДП критикует правительство за отсутствие устойчивого решения: «Это просто не имеет смысла»,  заявила депутат Дженни Кван.
-
-С 2023 года Ottawa начала выдавать “notices to vacate”, чтобы стимулировать переселение. По данным IRCC, 13 000 человек покинули отели с января по март 2024.
-
-Правительство готовит новые ограничения: законопроект C-2 предлагает запретить рассмотрение дел для тех, кто незаконно пересёк границу или находится в стране больше года.</div>
-        <div class="post-footer"> <a href="/tag/онтарио/" class="badge">#Онтарио</a><a href="/tag/квебек/" class="badge">#Квебек</a><a href="/tag/торонто/" class="badge">#Торонто</a><a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">20 июля 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_796@20-07-2025_14-42-01.jpg" class="post-image"></div>
-        <div class="post-content">IRCC разослало приглашения на спонсорство родителей и бабушек-дедушек, <a href="https://www.ctvnews.ca/canada/article/thousands-of-canadians-to-start-receiving-invitations-to-apply-to-sponsor-parents-and-grandparents/">но только тем, кто подался ещё в 2020 году</a>
-
-– 17 860 канадцев получат письма с приглашением подать документы на спонсорство родителей и пожилых родственников
-
-– Приём заявок стартует 28 июля и продлится несколько недель
-
-– Цель — обработать до 10 000 заявлений по программе Parents and Grandparents Program (PGP)
-
-– Все заявки подаются онлайн, через Permanent Residence Portal
-
-Важное: новую форму интереса в 2025 году открывать не будут. Это означает, что участвуют только те, кто заполнил её ещё в 2020 году. Если вы подались тогда то проверьте email, включая спам.
-
-Если письма нет то остаётся опция супервизы:
-
-– многоразовая виза сроком до 10 лет
-
-– позволяет родственникам находиться в Канаде по 5 лет за раз, с возможностью продления ещё на 2 года
-
-– остаётся доступной для всех, вне зависимости от отбора по PGP
-
-Несмотря на общее сокращение числа приезжих, федеральное правительство подчёркивает: воссоединение семей  приоритет, оно составляет 22% всех иммиграционных квот.</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">18 июля 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_784@18-07-2025_14-56-52.jpg" class="post-image"></div>
-        <div class="post-content">В первом квартале 2025 года <a href="https://open.canada.ca/data/en/dataset/90fed587-1364-4f33-a9ee-208181dc0b97">либеральное правительство одобрило почти 50 тысяч заявок LMIA</a> — это рекордные объёмы разрешений для найма временных иностранных работников (TFW). 
-
-Программа действует через механизм Labour Market Impact Assessment (LMIA), и даёт компаниям право нанимать иностранных работников, если доказано, что это не вредит канадскому рынку труда.
-
-Но есть нюанс: эти данные отражают количество позиций, а не самих работников. Далеко не каждая одобренная заявка приводит к выдаче визы. Решение в итоге принимает IRCC  и часть работодателей впоследствии вообще отказывается от вакансий.
-
-Особо важно: раньше в списках LMIA не публиковались данные по заявкам в поддержку постоянного проживания (PR). Теперь  публикуются. Это означает ещё большую прозрачность в статистике миграции по линии TFWP.
-
-Для справки: большинство этих рабочих мест это низкооплачиваемые позиции в агроиндустрии, ресторанах, строительстве и уходе за пожилыми. Речь не о высококвалифицированной миграции.</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">4 июля 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_686@04-07-2025_12-13-18.jpg" class="post-image"></div>
-        <div class="post-content">🇨🇦 За последние 10 лет Канада одобрила въезд более <b>17 600 иностранцам с судимостью</b>. Это официально подтвердило Министерство иммиграции, беженцев и гражданства (IRCC) в ответ на запрос CTV News.
-
-С 2014 по 2024 год более <b>25 000 человек</b> подали заявки на так называемую «реабилитацию» — процедуру, позволяющую снять запрет на въезд из-за судимости за границей.
-
-Вот как распределились заявки:
-
-– ~70% были одобрены
-– ~20% получили отказ
-– ~10% заявок были отозваны самими заявителями
-
-Важные детали:
-
-– IRCC не публикует данные о <b>характере преступлений</b> — не ясно, идет ли речь о бытовых кражах или серьезных насильственных преступлениях
-– Также не указывается, на какой именно тип визы претендовали эти люди — временная, рабочая, учебная или ПМЖ
-– Заявления принимаются из всех стран, фильтра по «стране происхождения» нет
-
-Согласно закону, для одобрения требуется:
-
-– Прошло минимум 5 лет с момента преступления или окончания наказания
-– Доказательства, что человек не представляет угрозу обществу
-– Учет «доказательств хорошей репутации» и поддержки в сообществе
-
-📌 IRCC подчеркивает: это <b>не “прощение” преступлений</b>, а юридическая процедура, действующая в Канаде с 2001 года. Она позволяет лишь снять формальный барьер въезда, но не гарантирует визу. Одобренные случаи включают артистов, спортсменов, а также супругов и родственников канадцев.
-
-И да — никакой прозрачности по видам преступлений нет. Но, по словам министерства, “все решения принимаются индивидуально и осторожно”.</div>
-        <div class="post-footer"> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">28 июня 2025</span>
-        <div class="post-image-wrap"><img src="/photos/photo_656@28-06-2025_13-51-45.jpg" class="post-image"></div>
-        <div class="post-content">Международные студенты: минус 70% — Канада сама себя обнулила
-
-<a href="https://immigrationnewscanada.ca/canadas-international-students-capping/">В 2025 году в Канаду приедет всего 124 000 новых иностранных студентов</a>. Это почти на 70% меньше, чем в 2023. И это не ошибка — это государственная политика.
-
-Федеральное правительство вначале ввело капы в 2024, потом ужесточило их в 2025. Теперь в рамках общего лимита 437 тысяч разрешений более 60% виз уходят не новым студентам, а на продления тем, кто уже внутри страны. На новых осталось около 163 000. В реальности, в первые 4 месяца 2025 одобрили только 31 000 заявок — это минус 70% за год. Уровень одобрения — 33%, против 47% в 2024.
-
-Причины — как обычно, смесь политических страхов и бюрократического идиотизма.
-Правила ужесточили по всем фронтам:
-– выросли требования к доказательству финансов
-– изменилась доступность PGWP (многие колледжи теперь не дают права на работу после учёбы)
-– IRCC вручную режет одобрения, чтобы снизить долю временных жителей
-
-Результат закономерен. Заявок стало меньше — на 30% по сравнению с 2024.
-По бакалавриату спад — 39%, по магистратуре — 32%.
-Вузы теряют студентов, бюджеты трещат. Малые города, завязанные на колледжи, теряют миллионы.
-
-Ситуацию временно спасают «внутренние» студенты — те, кто уже в Канаде. Их продления виз формально поддерживают цифры. Но это иллюзия. В 2026 количество таких студентов начнёт резко снижаться, потому что новых просто не завезли.
-
-И это всё на фоне цели правительства — сократить число временных жителей до 5% населения к 2027 году.
-Министр образования может сколько угодно говорить, что международные студенты важны.
-Но решает не он. Решает Марк Миллер — и он уже всё решил.</div>
-        <div class="post-footer"><a href="/person/марк-миллер/" class="badge person-badge">Марк Миллер</a> <a href="/tag/ircc/" class="badge">#IRCC</a></div>
-    </article>
-    </div><div class="pagination"><a href="/tag/ircc/page/2/" class="btn">Вперед →</a></div>
-    </main>
-    <footer>
-        &copy; 2024–2026 Maple Barrel. Все права защищены.
-    </footer>
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="tag-hdr">
+    <h1>#IRCC</h1>
+    <p>76 материалов по теме</p>
+  </div>
+  <div class="tag-grid"><a class="card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/">
+  <div class="card-img"><img src="/photos/photo_2463@26-03-2026_18-00-48.jpg" alt="Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div>
+    <div class="card-excerpt">Бывший министр иммиграции, а ныне министр юстиции Шон Фрейзер заявил, что с учётом сегодняшних данных он бы раньше ограничил программу иностранных студентов.   По его словам, федеральное правительство</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-ottava-igraet-s-bezopasnostyu/">
+  <div class="card-img"><img src="/photos/photo_2449@25-03-2026_14-06-44.jpg" alt="Оттава играет с безопасностью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Оттава играет с безопасностью</div>
+    <div class="card-excerpt">Редакция Postmedia утверждает, что федеральное правительство теряет контроль над иммиграционной системой, и это уже вызывает вопросы к безопасности страны.  В центре критики — отчёт аудитора Карен Хог</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-kanada-ne-otslezhivaet-inostrannyh-studentov-posle-okonchani/">
+  <div class="card-img"><img src="/photos/photo_2435@24-03-2026_14-06-45.jpg" alt="Канада не отслеживает иностранных студентов после окончания виз — аудит" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bloomberg.com</div>
+    <div class="card-title">Канада не отслеживает иностранных студентов после окончания виз — аудит</div>
+    <div class="card-excerpt">Аудитор Канады Карен Хоган выявила серьёзные дыры в системе иностранных студентов: власти фактически не знают, уезжают ли люди после истечения разрешений.  Главные выводы отчёта: – нет надёжной систем</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-06-kanada-zapuskaet-novuyu-programmu-chtoby-dat-postoyannyy-sta/">
+  <div class="card-img"><img src="/photos/photo_2310@06-03-2026_15-04-20.jpg" alt="Канада запускает новую программу, чтобы дать постоянный статус 33 000 иностранным работникам — сообщает министр иммиграции" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Канада запускает новую программу, чтобы дать постоянный статус 33 000 иностранным работникам — сообщает министр иммиграции</div>
+    <div class="card-excerpt">Министр иммиграции Канады Лена Метледж Диаб заявила, что правительство уже тихо запустило новую программу, которая позволит 33 000 временным иностранным работникам получить постоянное место жительства</div>
+    <div class="card-meta">
+      <span class="card-date">6 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-25-gde-ministr-immigratsii-kanady-obschestvennye-organizatsii-z/">
+  <div class="card-img"><img src="/photos/photo_2252@25-02-2026_15-03-06.jpg" alt="Где министр иммиграции Канады? Общественные организации задают вопросы" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Где министр иммиграции Канады? Общественные организации задают вопросы</div>
+    <div class="card-excerpt">Назначение Лены Метледж Диаб на пост министра иммиграции вызвало высокие ожидания. Дочь иммигрантов, бывший министр в правительстве Новой Шотландии, она должна была стать сильным голосом в одном из са</div>
+    <div class="card-meta">
+      <span class="card-date">25 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-19-u-kanady-est-skrytaya-problema-v-sisteme-predostavleniya-ube/">
+  <div class="card-img"><img src="/photos/photo_2215@19-02-2026_15-02-21.jpg" alt="У Канады есть скрытая проблема в системе предоставления убежища" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">У Канады есть скрытая проблема в системе предоставления убежища</div>
+    <div class="card-excerpt">Автор: Джеймс Юсиф, бывший директор по политике IRCC и экс-член Immigration and Refugee Board of Canada (IRB)   Совет по иммиграции и делам беженцев Канады (IRB) — структура с бюджетом почти 350 млн д</div>
+    <div class="card-meta">
+      <span class="card-date">19 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-18-liberalnoe-pravitelstvo-rasshiryaet-programmu-express-entry-/">
+  <div class="card-img"><img src="/photos/photo_2209@18-02-2026_19-01-01.jpg" alt="Либеральное правительство расширяет программу Express Entry для ряда квалифицированных работников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Либеральное правительство расширяет программу Express Entry для ряда квалифицированных работников</div>
+    <div class="card-excerpt">Правительство либералов объявило о расширении иммиграционной программы Express Entry. Новые приоритетные категории нацелены на специалистов в аэрокосмической отрасли, научных исследованиях и военной с</div>
+    <div class="card-meta">
+      <span class="card-date">18 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-18-vot-chto-pokazyvayut-novye-dannye-ob-immigratsii-rezkoe-pade/">
+  <div class="card-img"><img src="/photos/photo_2208@18-02-2026_18-04-46.jpg" alt="Вот что показывают новые данные об иммиграции: резкое падение числа иностранных студентов и временных работников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Вот что показывают новые данные об иммиграции: резкое падение числа иностранных студентов и временных работников</div>
+    <div class="card-excerpt">Канада в 2025 году зафиксировала падение на 53% по числу новых иностранных студентов и временных иностранных работников. Об этом свидетельствуют свежие данные иммиграционного ведомства.    Всего в стр</div>
+    <div class="card-meta">
+      <span class="card-date">18 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-17-ot-ukraintsev-s-ekstrennymi-vizami-ozhidayut-vozvrascheniya-/">
+  <div class="card-img"><img src="/photos/photo_2196@17-02-2026_14-05-24.jpg" alt="От украинцев с экстренными визами ожидают возвращения домой после окончания войны" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">calgary.citynews.ca</div>
+    <div class="card-title">От украинцев с экстренными визами ожидают возвращения домой после окончания войны</div>
+    <div class="card-excerpt">Министерство иммиграции Канады заявило, что по-прежнему ожидает возвращения украинцев, приехавших по программе Canada-Ukraine Authorization for Emergency Travel (CUAET), когда это станет безопасно.</div>
+    <div class="card-meta">
+      <span class="card-date">17 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-13-mark-karni-demontiruet-nasledie-dzhastina-tryudo-15-razvorot/">
+  <div class="card-img"><img src="/photos/photo_2173@13-02-2026_19-00-47.jpg" alt="Марк Карни демонтирует наследие Джастина Трюдо: 15 разворотов политики за первый год у власти" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Марк Карни демонтирует наследие Джастина Трюдо: 15 разворотов политики за первый год у власти</div>
+    <div class="card-excerpt">Почти за год на посту премьер-министра Марк Карни пересмотрел ряд ключевых решений своего предшественника Джастин Трюдо.     1.  Отмена потребительского углеродного налога на бензин и отопление (при с</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-13-ontario-otmenyaet-zamorozku-platy-za-obuchenie-dlya-mestnyh-/">
+  <div class="card-img"><img src="/photos/photo_2171@13-02-2026_17-01-39.jpg" alt="Онтарио отменяет заморозку платы за обучение для местных студентов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Онтарио отменяет заморозку платы за обучение для местных студентов</div>
+    <div class="card-excerpt">Правительство Онтарио снимает многолетнюю заморозку платы за обучение для канадских студентов государственных университетов и колледжей и одновременно пообещало вложить более 6 млрд долларов в систему</div>
+    <div class="card-meta">
+      <span class="card-date">13 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-12-liberaly-ontario-razreshili-vremennym-rezidentam-golosovat-v/">
+  <div class="card-img"><img src="/photos/photo_2164@12-02-2026_17-03-06.jpg" alt="Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ipolitics.ca</div>
+    <div class="card-title">Либералы Онтарио разрешили временным резидентам голосовать в выборах лидера — в отличие от федеральной партии</div>
+    <div class="card-excerpt">Провинциальная Либеральная партия Онтарио не изменила правила участия в выборах нового лидера. Согласно уставу партии, голосовать могут все её члены, проживающие в Онтарио, включая неграждан, иностран</div>
+    <div class="card-meta">
+      <span class="card-date">12 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-07-prizyvy-sozdat-spetsialnyy-put-dlya-postoyannogo-prozhivaniy/">
+  <div class="card-img"><img src="/photos/photo_2124@07-02-2026_19-03-40.jpg" alt="Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Призывы создать «специальный путь» для постоянного проживания украинцев в Канаде</div>
+    <div class="card-excerpt">‌  Тысячи украинцев, бежавших от войны и начавших новую жизнь в Канаде, сейчас сталкиваются с неопределённым будущим. Об этом предупреждают общественные организации, призывая федеральные власти срочно</div>
+    <div class="card-meta">
+      <span class="card-date">7 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-02-kanadskie-universitety-vozvraschayutsya-v-indiyu/">
+  <div class="card-img"><img src="/photos/photo_2090@02-02-2026_15-02-53.jpg" alt="Канадские университеты возвращаются в Индию" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канадские университеты возвращаются в Индию</div>
+    <div class="card-excerpt">Ассоциация Universities Canada отправила в Индию делегацию из более чем 20 президентов университетов. Поездка рассчитана на пять дней и подаётся как попытка перезапустить отношения между двумя странам</div>
+    <div class="card-meta">
+      <span class="card-date">2 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-02-01-ministr-immigratsii-kanady-lena-diab-zayavila-chto-eyo-vedom/">
+  <div class="card-img"><img src="/photos/photo_2082@01-02-2026_11-02-24.jpg" alt="Министр иммиграции Канады Лена Диаб заявила, что её ведомство должно получить техническую возможность отслеживать выезд временных резидентов из страны." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">toronto.citynews.ca</div>
+    <div class="card-title">Министр иммиграции Канады Лена Диаб заявила, что её ведомство должно получить техническую возможность отслеживать выезд временных резидентов из страны.</div>
+    <div class="card-excerpt">Речь идёт о людях с рабочими, учебными и другими временными визами. ‌ ‌ По данным Министерства иммиграции, беженцев и гражданства, в 2026 году истекает срок действия почти 1,9 млн временных виз. В 202</div>
+    <div class="card-meta">
+      <span class="card-date">1 фев 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-29-feykovye-video-v-sotssetyah-zamanivayut-turistov-v-kanadu-po/">
+  <div class="card-img"><img src="/photos/photo_2069@29-01-2026_21-09-01.jpg" alt="Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Фейковые видео в соцсетях заманивают туристов в Канаду под видом «виз на чемпионат мира»</div>
+    <div class="card-excerpt">В преддверии чемпионата мира по футболу 2026 года в TikTok и Instagram массово распространяются видео с ложной информацией об иммиграционных правилах Канады. Как выяснило CBC News, такие ролики нацеле</div>
+    <div class="card-meta">
+      <span class="card-date">29 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-22-universitety-ontario-trebuyut-eschyo-12-mlrd-mest-i-uslug-dl/">
+  <div class="card-img"><img src="/photos/photo_2006@22-01-2026_10-05-41.jpg" alt="Университеты Онтарио требуют ещё $1,2 млрд: «мест и услуг для студентов не хватает»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Университеты Онтарио требуют ещё $1,2 млрд: «мест и услуг для студентов не хватает»</div>
+    <div class="card-excerpt">⁠  Университеты провинции Онтарио просят срочно добавить $1,2 млрд к базовому финансированию уже в следующем году, а к 2028-му — довести ежегодную прибавку до $1,6 млрд. По их словам, без этого систем</div>
+    <div class="card-meta">
+      <span class="card-date">22 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-20-universitety-kanady-vhodyat-v-polosu-sistemnogo-krizisa-i-et/">
+  <div class="card-img"><img src="/photos/photo_1985@20-01-2026_11-36-28.jpg" alt="Университеты Канады входят в полосу системного кризиса — и это уже не абстрактная тревога ректоров." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Университеты Канады входят в полосу системного кризиса — и это уже не абстрактная тревога ректоров.</div>
+    <div class="card-excerpt">⁠  Одна из ключевых особенностей канадского высшего образования — равенство. Где ты учился, обычно не имеет значения: почти все университеты государственные, уровень сопоставим, стигмы «второсортного</div>
+    <div class="card-meta">
+      <span class="card-date">20 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-13-21-mln-vremennyh-rezidentov-teryayut-status-v-2026-godu-uedu/">
+  <div class="card-img"><img src="/photos/photo_1940@13-01-2026_21-50-15.jpg" alt="2,1 млн временных резидентов теряют статус в 2026 году. Уедут ли они из Канады?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">2,1 млн временных резидентов теряют статус в 2026 году. Уедут ли они из Канады?</div>
+    <div class="card-excerpt">В этом году у Канады истекают или уже истекут разрешения на проживание у 2,1 млн временных резидентов. Правительство исходит из того, что большинство из них просто уедут. Эксперты называют это опасной</div>
+    <div class="card-meta">
+      <span class="card-date">13 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-08-v-2026-godu-kanada-primet-eschyo-menshe-immigrantov/">
+  <div class="card-img"><img src="/photos/photo_1900@08-01-2026_15-03-39.jpg" alt="В 2026 году Канада примет ещё меньше иммигрантов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">winnipeg.citynews.ca</div>
+    <div class="card-title">В 2026 году Канада примет ещё меньше иммигрантов</div>
+    <div class="card-excerpt">Федеральное правительство продолжает сокращать иммиграционные показатели. В 2026 году Канада планирует принять около 380 тысяч постоянных жителей — на 15 тысяч меньше, чем в 2025 году, и значительно н</div>
+    <div class="card-meta">
+      <span class="card-date">8 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-01-07-kanada-zamorozila-vizovuyu-programmu-dlya-startapov-bez-zame/">
+  <div class="card-img"><img src="/photos/photo_1893@07-01-2026_18-06-01.jpg" alt="Канада заморозила визовую программу для стартапов — без замены и с очередью на 10 лет" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Канада заморозила визовую программу для стартапов — без замены и с очередью на 10 лет</div>
+    <div class="card-excerpt">Иммиграционное ведомство Канады IRCC в конце декабря тихо остановило приём новых заявок по программе Start-up Visa — одному из ключевых инструментов привлечения иностранных предпринимателей. Официальн</div>
+    <div class="card-meta">
+      <span class="card-date">7 янв 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-28-restorany-pod-udarom-sokraschenie-immigratsii-usilivaet-kriz/">
+  <div class="card-img"><img src="/photos/photo_1834@28-12-2025_13-47-09.jpg" alt="Рестораны под ударом: сокращение иммиграции усиливает кризис в отрасли" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Рестораны под ударом: сокращение иммиграции усиливает кризис в отрасли</div>
+    <div class="card-excerpt">⁠   Сокращение иммиграционных потоков уже бьёт по ресторанному бизнесу Канады. Владельцы заведений предупреждают: найти персонал становится всё сложнее, а перспективы роста — туманнее. ⁠   Фахим Ахмад</div>
+    <div class="card-meta">
+      <span class="card-date">28 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-24-kanada-idyot-po-amerikanskomu-stsenariyu-novyy-zakon-o-bezhe/">
+  <div class="card-img"><img src="/photos/photo_1819@24-12-2025_10-34-44.jpg" alt="Канада идёт по американскому сценарию: новый закон о беженцах пугает правозащитников" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theguardian.com</div>
+    <div class="card-title">Канада идёт по американскому сценарию: новый закон о беженцах пугает правозащитников</div>
+    <div class="card-excerpt">⁠ ⁠ Либеральное правительство Канады тихо и быстро протащило через парламент закон, который многие называют переломным моментом для всей миграционной политики страны.  ⁠ ⁠ Bill C-12 — «Закон об укрепл</div>
+    <div class="card-meta">
+      <span class="card-date">24 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-23-sever-britanskoy-kolumbii-teryaet-rabotnikov-iz-za-uzhestoch/">
+  <div class="card-img"><img src="/photos/photo_1817@23-12-2025_19-45-14.jpg" alt="Север Британской Колумбии теряет работников из-за ужесточения правил для иностранцев" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Север Британской Колумбии теряет работников из-за ужесточения правил для иностранцев</div>
+    <div class="card-excerpt">Новые ограничения на программу временных иностранных работников уже бьют по малым и удалённым городам на севере Британской Колумбии. Бизнес и местные экономические организации предупреждают: вакансии</div>
+    <div class="card-meta">
+      <span class="card-date">23 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-22-kanada-potratila-78-mln-na-deportatsii-rekord-so-vremyon-har/">
+  <div class="card-img"><img src="/photos/photo_1807@22-12-2025_18-47-01.jpg" alt="Канада потратила $78 млн на депортации — рекорд со времён Харпера" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Канада потратила $78 млн на депортации — рекорд со времён Харпера</div>
+    <div class="card-excerpt">В 2024–25 финансовом году Канада выдворила 18 048 человек и потратила на это более $78 млн. Это самый высокий показатель депортаций с 2012 года — периода правительства Стивена Харпера. Данные получены</div>
+    <div class="card-meta">
+      <span class="card-date">22 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-17-nelegalnyy-status-i-gody-ozhidaniya-kak-immigratsionnaya-sis/">
+  <div class="card-img"><img src="/photos/photo_1767@17-12-2025_10-02-54.jpg" alt="Нелегальный статус и годы ожидания: как иммиграционная система Канады подводит детей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Нелегальный статус и годы ожидания: как иммиграционная система Канады подводит детей</div>
+    <div class="card-excerpt">‎  Юристы и правозащитники бьют тревогу: тысячи детей и подростков в Канаде рискуют остаться без будущего из-за фактически недееспособных сроков рассмотрения заявок на ПМЖ по гуманитарному и сострадат</div>
+    <div class="card-meta">
+      <span class="card-date">17 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-15-conestoga-college-okazalsya-v-chisle-glavnyh-zhertv-rezkogo-/">
+  <div class="card-img"><img src="/photos/photo_1754@15-12-2025_13-20-00.jpg" alt="Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой." loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Conestoga College оказался в числе главных жертв резкого сокращения иностранных студентов, введённого Оттавой.</div>
+    <div class="card-excerpt">Ещё в конце 2023 года колледж из Китченера переживал настоящий бум: число иностранных студентов выросло до 32,5 тыс., что на 145% больше всего за два года. Доходы Conestoga почти утроились и достигли</div>
+    <div class="card-meta">
+      <span class="card-date">15 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-14-kelouna-lider-kanady-po-urovnyu-pustuyuschih-arendnyh-kvarti/">
+  <div class="card-img"><img src="/photos/photo_1747@14-12-2025_14-14-01.jpg" alt="Келоуна — лидер Канады по уровню пустующих арендных квартир" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Келоуна — лидер Канады по уровню пустующих арендных квартир</div>
+    <div class="card-excerpt">Келоуна неожиданно вышла на первое место среди всех канадских агломераций по уровню вакантности арендного жилья. По данным ежегодного отчёта CMHC, показатель достиг 6,4% — резкий рост по сравнению с 3</div>
+    <div class="card-meta">
+      <span class="card-date">14 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-05-konservatory-trebuyut-vernut-ochnye-tseremonii-grazhdanstva-/">
+  <div class="card-img"><img src="/photos/photo_1664@05-12-2025_11-29-01.jpg" alt="Консерваторы требуют вернуть очные церемонии гражданства и прекратить «гражданство в один клик»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Консерваторы требуют вернуть очные церемонии гражданства и прекратить «гражданство в один клик»</div>
+    <div class="card-excerpt">Консерваторы усилили давление на правительство: они хотят, чтобы виртуальные церемонии гражданства ушли в прошлое и все новые канадцы получали паспортную клятву только в присутствии судьи, гостей и со</div>
+    <div class="card-meta">
+      <span class="card-date">5 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-04-ministr-immigratsii-preduprezhdaet-inostrantsev-ne-zloupotre/">
+  <div class="card-img"><img src="/photos/photo_1642@04-12-2025_11-12-08.jpg" alt="Министр иммиграции предупреждает иностранцев: не злоупотребляйте Канадской системой убежища, пока США и Великобритания закручивают гайки" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Министр иммиграции предупреждает иностранцев: не злоупотребляйте Канадской системой убежища, пока США и Великобритания закручивают гайки</div>
+    <div class="card-excerpt">⁠  Лена Диаб дала понять: Канада не станет запасным аэродромом для тех, кто пытается обойти ужесточённые правила в других странах G7. На фоне того, что Вашингтон фактически остановил приём заявлений н</div>
+    <div class="card-meta">
+      <span class="card-date">4 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-12-03-statkan-poteryal-sotni-tysyach-negrazhdan-perepis-2021-goda-/">
+  <div class="card-img"><img src="/photos/photo_1635@03-12-2025_14-06-46.jpg" alt="Статкан «потерял» сотни тысяч неграждан: перепись 2021 года не досчиталась трети временных жителей" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Статкан «потерял» сотни тысяч неграждан: перепись 2021 года не досчиталась трети временных жителей</div>
+    <div class="card-excerpt">Новый отчёт Statistics Canada признаёт: в переписи 2021 года не были учтены примерно 38% людей без гражданства, живущих в стране на временной основе. Это студенты, временные рабочие и просители убежищ</div>
+    <div class="card-meta">
+      <span class="card-date">3 дек 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-28-u-desyatkov-tysyach-byvshih-inostrannyh-studentov-vot-vot-is/">
+  <div class="card-img"><img src="/photos/photo_1603@28-11-2025_15-29-01.jpg" alt="У десятков тысяч бывших иностранных студентов вот-вот истекают визы. Что будет дальше — туманно" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">У десятков тысяч бывших иностранных студентов вот-вот истекают визы. Что будет дальше — туманно</div>
+    <div class="card-excerpt">‌﻿  По данным, предоставленным The Globe and Mail, к 31 декабря истекают разрешения на работу у 31,6 тысячи выпускников канадских вузов. Это одна из самых уязвимых групп временных жителей, и эксперты</div>
+    <div class="card-meta">
+      <span class="card-date">28 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-26-britanskaya-kolumbiya-zapuskaet-proverku-sistemy-post-sredne/">
+  <div class="card-img"><img src="/photos/photo_1587@26-11-2025_12-42-00.jpg" alt="Британская Колумбия запускает проверку системы пост-среднего образования — международные студенты ушли, дефициты растут" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Британская Колумбия запускает проверку системы пост-среднего образования — международные студенты ушли, дефициты растут</div>
+    <div class="card-excerpt">Министр пост-среднего образования Джесси Саннер объявила, что провинция начинает независимую проверку всей системы — на фоне того, что число иностранных студентов рухнуло на 70%. По её словам, решение</div>
+    <div class="card-meta">
+      <span class="card-date">26 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-25-statkan-opyat-podvezla-infografiku-kotoruyu-mozhno-smelo-pri/">
+  <div class="card-img"><img src="/photos/photo_1578@25-11-2025_14-03-53.jpg" alt="Статкан опять подвезла инфографику, которую можно смело приклеивать к двери кабинета Марка Карни как объяснительную записку — “как мы довели систему до ручки за" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">www150.statcan.gc.ca</div>
+    <div class="card-title">Статкан опять подвезла инфографику, которую можно смело приклеивать к двери кабинета Марка Карни как объяснительную записку — “как мы довели систему до ручки за</div>
+    <div class="card-excerpt">десять лет”.   Наблюдаем картину: в 2014/15 международники были четвертью контингента колледжей. Теперь — половина. Индия — 59% всех студентов в паблик-колледжах. Китай, который раньше был №1, теперь</div>
+    <div class="card-meta">
+      <span class="card-date">25 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-18-ottok-kvalifitsirovannyh-immigrantov-uskoryaetsya-novyy-otch/">
+  <div class="card-img"><img src="/photos/photo_1525@18-11-2025_20-49-01.jpg" alt="Отток квалифицированных иммигрантов ускоряется — новый отчёт ICC" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Отток квалифицированных иммигрантов ускоряется — новый отчёт ICC</div>
+    <div class="card-excerpt">﻿  Новый анализ Института канадского гражданства показывает тревожную картину: наиболее образованные и опытные новоприбывшие уезжают из Канады быстрее остальных. Исследование “The Leaky Bucket 2025” г</div>
+    <div class="card-meta">
+      <span class="card-date">18 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-14-mnenie-vysshee-obrazovanie-v-britanskoy-kolumbii-medlenno-tr/">
+  <div class="card-img"><img src="/photos/photo_1495@14-11-2025_19-57-01.jpg" alt="Мнение: высшее образование в Британской Колумбии медленно трещит по швам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">vancouversun.com</div>
+    <div class="card-title">Мнение: высшее образование в Британской Колумбии медленно трещит по швам</div>
+    <div class="card-excerpt">﻿  Тревор МакФадьен пишет в Vancouver Sun, что система уже не держится на собственных опорах. Федеральный лимит на приём иностранных студентов подаётся как шаг в сфере жилья и борьба с сомнительными к</div>
+    <div class="card-meta">
+      <span class="card-date">14 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-11-kanada-pochti-perestala-vydavat-uchebnye-vizy-studentam-iz-i/">
+  <div class="card-img"><img src="/photos/photo_1471@11-11-2025_14-46-23.jpg" alt="Канада почти перестала выдавать учебные визы студентам из Индии — падение на 93% за два года" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Канада почти перестала выдавать учебные визы студентам из Индии — падение на 93% за два года</div>
+    <div class="card-excerpt">По данным Immigration, Refugees and Citizenship Canada (IRCC), с января по август 2025 года Канада одобрила всего 9 955 учебных разрешений для граждан Индии. Для сравнения — 76 930 за тот же период в</div>
+    <div class="card-meta">
+      <span class="card-date">11 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-08-inostranets-podal-v-sud-na-universitet-kalgari-trebuya-500-0/">
+  <div class="card-img"><img src="/photos/photo_1454@08-11-2025_19-44-01.jpg" alt="Иностранец подал в суд на Университет Калгари, требуя $500 000 за «академическую несправедливость»" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">calgaryherald.com</div>
+    <div class="card-title">Иностранец подал в суд на Университет Калгари, требуя $500 000 за «академическую несправедливость»</div>
+    <div class="card-excerpt">Студент программы для юристов с иностранным образованием при Университете Калгари Энесс Этлик подал гражданский иск на полмиллиона долларов, утверждая, что действия вуза сорвали его карьерные и иммигр</div>
+    <div class="card-meta">
+      <span class="card-date">8 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-imm" data-t="IRCC" href="/tag/ircc/">#IRCC</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-05-ottava-zakruchivaet-kran-dlya-vremennyh-migrantov-minus-43-u/">
+  <div class="card-img"><img src="/photos/photo_1422@05-11-2025_11-05-50.jpg" alt="Оттава закручивает кран для временных мигрантов: минус 43 % уже в 2026 году" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оттава закручивает кран для временных мигрантов: минус 43 % уже в 2026 году</div>
+    <div class="card-excerpt">Федеральное правительство резко меняет курс на иммиграцию: в бюджете, представленном во вторник, зафиксировано, что Канада в 2026 финансовом году примет только 385 000 временных жителей — это примерно</div>
+    <div class="card-meta">
+      <span class="card-date">5 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2025-11-04-ottava-hochet-poluchit-pravo-massovo-annulirovat-vizy-v-tom-/">
+  <div class="card-img"><img src="/photos/photo_1417@04-11-2025_14-26-41.jpg" alt="Оттава хочет получить право массово аннулировать визы — в том числе из-за мошенничества из Индии и Бангладеш" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Оттава хочет получить право массово аннулировать визы — в том числе из-за мошенничества из Индии и Бангладеш</div>
+    <div class="card-excerpt">Федеральное правительство Канады добивается новых полномочий, позволяющих отменять группы виз сразу — на фоне растущих опасений по поводу поддельных заявлений из Индии и Бангладеш, сообщает CBC News с</div>
+    <div class="card-meta">
+      <span class="card-date">4 ноя 2025</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a></div>
+  <div class="pgn"><a class="pb on" href="/tag/ircc/">1</a><a class="pb" href="/tag/ircc/page/2/">2</a><a class="pb" href="/tag/ircc/page/2/">→</a></div>
+</div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
 </body>
 </html>

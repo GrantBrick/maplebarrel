@@ -1,957 +1,872 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная лента | Maple Barrel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-:root {
-    --bg: #fdfdfd;
-    --card-bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #c53030; /* Канадский красный */
-    --border: #eeeeee;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maple Barrel</title>
+<meta name="description" content="Новости Канады">
+<link rel="canonical" href="https://journalists.ca/">
+<meta property="og:title" content="Maple Barrel">
+<meta property="og:description" content="Новости Канады">
+<meta property="og:url" content="https://journalists.ca/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journalists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maple Barrel">
+<meta name="twitter:description" content="Новости Канады">
+<meta name="twitter:image" content="https://journalists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --t:#111;
+  --t2:#555;
+  --t3:#888;
+  --br:#e5e5e5;
+--serif:'Playfair Display', Georgia, serif;
+--sans:'Golos Text', system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: 'Inter', -apple-system, system-ui, sans-serif; 
-    line-height: 1.7; color: var(--text-main); background: var(--bg); 
+
+body{
+  background:#ffffff;
+  color:#111;
+  font-family:var(--sans);
 }
-a { color: inherit; text-decoration: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
 
-header { 
-    background: #fff; border-bottom: 1px solid var(--border); 
-    padding: 1.5rem 0; position: sticky; top: 0; z-index: 100;
+/* ── NAV ── */
+nav{background:var(--bg);border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;backdrop-filter:blur(6px)}
+.ni{max-width:1300px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.logo .lf{color:var(--maple)}
+.nav-links{display:flex;gap:1px}
+.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl:hover{color:var(--cream);background:var(--bg3)}
+.nl.on{color:var(--cream);background:var(--bg3)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.tgb{display:flex;align-items:center;gap:6px;background:rgba(91,155,213,.1);color:var(--tg2);border:1px solid rgba(91,155,213,.2);border-radius:18px;font-size:13px;font-weight:600;padding:5px 13px;text-decoration:none;transition:all .2s}
+.tgb:hover{background:rgba(91,155,213,.2)}
+.tgb{
+  background:#c0392b;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  font-weight:600;
+  font-size:13px;
+  border:none;
 }
-.header-content { 
-    max-width: 900px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; align-items: center;
+
+.tgb:hover{
+  background:#a93226;
 }
-.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
-.nav-menu { display: flex; gap: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
-.nav-menu a:hover { color: var(--accent); }
 
-.container { max-width: 800px; margin: 3rem auto; padding: 0 20px; }
+.wrap{max-width:1300px;margin:0 auto;padding:24px 20px 56px}
 
-/* Список постов */
-.posts-list { display: flex; flex-direction: column; gap: 4rem; }
-.post-card { border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
-.post-card:last-child { border-bottom: none; }
-
-.post-image-wrap { width: 100%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; }
-.post-image { width: 100%; height: auto; display: block; }
-
-.post-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: block; }
-.post-content { font-size: 1.15rem; white-space: pre-wrap; word-wrap: break-word; }
-.post-content b, .post-content strong { font-weight: 700; }
-.post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-
-.post-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.badge { font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: #f5f5f5; color: #444; font-weight: 500; }
-.person-badge { background: #fff1f1; color: var(--accent); }
-
-.pagination { margin: 5rem 0; text-align: center; display: flex; justify-content: center; gap: 1rem; }
-.btn { padding: 0.8rem 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-weight: 600; cursor: pointer; }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-
-.page-title { margin-bottom: 3rem; font-size: 2rem; font-weight: 800; }
-footer { text-align: center; padding: 5rem 0; color: #999; font-size: 0.8rem; border-top: 1px solid var(--border); }
-
-@media (max-width: 600px) {
-    header .nav-menu { display: none; } /* Упрощаем для мобилок */
+/* ── CARD SYSTEM ── */
+/* Every card: dark bg, cream text, consistent image ratio, subtle shadow */
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform .15s;
 }
+.card:hover{
+  transform:translateY(-2px);
+}
+
+/* Image container — always 16:9, consistent shadow on image */
+.card-img{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--bg4);
+  flex-shrink:0;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img .emoji-fallback{font-size:32px;color:var(--t4)}
+
+/* Card body — cream-tinted text on dark */
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-src{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#c0392b;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.35;
+  color:#111;
+}
+.card-excerpt{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.card-date{font-size:10px;color:var(--t3)}
+.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+
+/* Tags — topic-colored by category */
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;white-space:nowrap;transition:opacity .12s}
+.tag:hover{opacity:.8}
+/* politics/elections */
+.tag-pol{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+/* economy/tariffs */
+.tag-eco{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+/* immigration */
+.tag-imm{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+/* regions */
+.tag-reg{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+/* longreads */
+.tag-deep{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+/* default */
+.tag-def{background:var(--bg4);color:var(--t3);border:1px solid var(--br2)}
+
+/* Tag category mapping */
+.tag[data-t="тарифы"],.tag[data-t="экономика"],.tag[data-t="жильё"]{background:rgba(201,150,58,.12);color:#d4a040;border:1px solid rgba(201,150,58,.22)}
+.tag[data-t="иммиграция"],.tag[data-t="IRCC"]{background:rgba(91,155,213,.12);color:#7ab8f5;border:1px solid rgba(91,155,213,.22)}
+.tag[data-t="выборы"],.tag[data-t="преступность"],.tag[data-t="США–Канада"]{background:rgba(192,57,43,.15);color:#e87060;border:1px solid rgba(192,57,43,.25)}
+.tag[data-t="Онтарио"],.tag[data-t="Квебек"],.tag[data-t="Торонто"],.tag[data-t="Альберта"],.tag[data-t="Арктика"]{background:rgba(80,160,100,.12);color:#70c080;border:1px solid rgba(80,160,100,.22)}
+.tag[data-t="в глубину"]{background:rgba(150,100,200,.12);color:#c090e8;border:1px solid rgba(150,100,200,.22)}
+.tag[data-t="Украина"],.tag[data-t="энергетика"],.tag[data-t="климат"]{background:rgba(100,140,200,.12);color:#90b8e8;border:1px solid rgba(100,140,200,.22)}
+
+/* ── PAGINATION ── */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:var(--card);color:var(--t3);font-size:13px;transition:all .15s}
+.pb:hover{border-color:var(--br2);color:var(--cream)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pb.disabled{opacity:.3;pointer-events:none}
+
+/* ── TAG FILTER BAR ── */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:var(--card);transition:all .15s;white-space:nowrap}
+.tc:hover{border-color:var(--br2);color:var(--cream)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);padding:36px 20px;margin-top:56px}
+.fi{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px;color:var(--cream)}
+.flogo .lf{color:var(--maple)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.65;max-width:340px;margin-bottom:8px}
+.fsrcs{font-size:11px;color:var(--t4);line-height:1.9}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:12px}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--cream)}
+.fcp{max-width:1300px;margin:20px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+
+/* ── TG CTA ── */
+.tgcta{display:flex;align-items:center;gap:16px;background:rgba(91,155,213,.07);border:1px solid rgba(91,155,213,.15);border-radius:8px;padding:18px 22px;margin-top:36px}
+.tgcta svg{width:28px;height:28px;flex-shrink:0;color:var(--tg2)}
+.ctxt{flex:1}
+.ctit{font-weight:600;font-size:15px;margin-bottom:3px;color:var(--cream)}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:6px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cbtn2:hover{background:var(--tg2);color:#1a1a2e}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="/" class="logo">MAPLE BARREL</a>
-            <nav class="nav-menu">
-                <a href="/materials/">Материалы</a>
-                <a href="/longreads/">Лонгриды</a>
-                <a href="/about/">О проекте</a>
-                <a href="https://t.me/maplebarrel" target="_blank">Telegram</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container">
-        <h1 class="page-title">Главная лента</h1><div class="posts-list">
-    <article class="post-card">
-        <span class="post-date">27 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2466@27-03-2026_10-06-19.jpg" class="post-image"></div>
-        <div class="post-content">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов
 
-​
-<a href="https://nationalpost.com/news/canada/every-canadian-is-worth-two-americans-los-cabos-tourism-officials-say-after-surge-in-visits">Канадцы стали самым быстрорастущим потоком туристов в мексиканский Лос-Кабос</a> — и одновременно самым выгодным.
-
-​
-По данным местной туристической индустрии, в 2025 году регион посетили более 215 тысяч канадцев. Это значительно меньше, чем 2,2 млн американцев — но динамика совсем другая.
-
-​
-Рост из Канады составил 10% за год. У США — фактически ноль: плюс 0,1%.
-
-​
-На этом фоне представители туризма формулируют без дипломатии: каждый канадец «стоит двух американцев».
-
-​
-Причина простая — поведение туристов.
-
-​
-Канадцы остаются в среднем на 11 дней. Американцы — всего на 5,6.
-Средние траты — около $4600 на человека.
-
-​
-То есть канадцы приезжают дольше, тратят больше и создают стабильный поток, а не короткие заезды.
-
-​
-На этом фоне авиакомпании резко наращивают рейсы из Канады:
-– общее количество перелётов в Мексику выросло на 9%
-– в Торонто — почти на 19%
-
-​
-В США — обратная картина: сокращение рейсов и стагнация спроса.
-
-​
-Туроператоры объясняют это просто: канадцы всё чаще ищут не просто пляж, а «опыт» — еду, природу, активный отдых.
-
-​
-Плюс фактор безопасности. В Лос-Кабосе прямо намекают, что выглядят лучше на фоне других мексиканских направлений.
-
-​
-Отдельный бонус — цены. После пика в 2024 году стоимость отелей постепенно снижается.
-
-​
-В итоге складывается редкая ситуация: рынок растёт, цены падают, а турист тратит больше.
-
-​
-И Лос-Кабос делает ставку именно на Канаду — уже не как на зимний поток, а как на долгосрочный рынок.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">27 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2465@27-03-2026_09-04-53.jpg" class="post-image"></div>
-        <div class="post-content">Канада достигла цели НАТО по военным расходам
-
-​
-<a href="https://www.ctvnews.ca/politics/article/canada-officially-hits-nato-2-gdp-target/">Канада впервые за десятилетия вышла на целевой уровень НАТО </a>— 2% ВВП на оборону. По данным альянса, в 2025 году страна потратила более $60 млрд.
-
-​
-Премьер-министр Марк Карни заявил, что это самый высокий уровень военных расходов со времён окончания холодной войны. По его словам, правительство действовало «с беспрецедентной скоростью», вложив десятки миллиардов всего за 10 месяцев.
-
-​
-Ещё в 2024 году Канада тратила лишь 1,47% ВВП и входила в число отстающих стран НАТО. Теперь — формально в клубе «нормальных» союзников.
-
-​
-Отдельный штрих: все 32 страны альянса наконец достигли минимального порога. Генсек НАТО Марк Рютте прямо признал — во многом это результат давления Дональда Трампа, который годами угрожал союзникам выходом США из альянса.
-
-​
-Карни пошёл дальше и пообещал двигаться к новой планке — 5% ВВП к 2035 году. Это уже около $150 млрд в год.
-
-​
-Контраст с Джастином Трюдо резкий. Его правительство рассчитывало дойти до 2% только к 2037 году. При этом утечки из Пентагона показывали, что сам Трюдо не верил, что Канада вообще когда-либо выполнит обязательство.
-
-​
-Но главный вопрос остаётся: деньги есть — способности есть?
-
-​
-Эксперты говорят, что нет. Нехватка боеспособных солдат, половина техники не готова к использованию, новые подлодки и корабли всё ещё только в планах.
-
-​
-Даже при росте расходов Канада может столкнуться с ситуацией, когда просто нечего отправить на реальные миссии.
-
-​
-Консерваторы уже критикуют: больше денег не означает больше реальной силы. Новое агентство по оборонным инвестициям называют лишним уровнем бюрократии, который лишь замедлит закупки.
-
-​
-Ирония в том, что формально Канада теперь выполняет требования НАТО — но по факту всё ещё пытается догнать собственную армию.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2464@26-03-2026_21-01-30.jpg" class="post-image"></div>
-        <div class="post-content">С окончанием патентов на препараты для похудения врачи и пациенты ждут дешёвые аналоги
-
-​
-<a href="https://www.cbc.ca/news/health/generic-ozempic-canada-waiting-9.7142339">В Канаде заканчивается монополия на один из самых популярных препаратов</a> для похудения — семаглутид (известный по брендам вроде Ozempic и Wegovy). Патент компании Novo Nordisk истёк в январе, и теперь на рынок могут выйти более дешёвые аналоги.
-
-​
-Сейчас оригинальные препараты стоят примерно $300–400 в месяц. Для многих — неподъёмная сумма, особенно без страховки. Поэтому вопрос «когда будут дженерики?» стал ежедневным на приёмах у врачей.
-
-​
-Health Canada уже рассматривает девять заявок на аналоги. По оценкам экспертов, первые из них могут появиться летом или в начале осени. Цена может упасть примерно до $100 в месяц — иногда даже ниже.
-
-​
-Для пациентов это не просто экономия. Многие вынуждены прекращать лечение из-за стоимости, после чего вес возвращается — нередко с ухудшением здоровья. В итоге люди платят, страдают и остаются там же, где начинали.
-
-​
-Показательный контраст — Индия. Там дженерики начали продавать сразу после окончания патента, а цена может доходить до $19 в месяц. Но канадцам придётся ждать одобрения регулятора.
-
-​
-Врачи говорят прямо: доступность — ключевая проблема. Даже при страховке пациенты часто не тянут доплаты. Без страховки — почти всегда отказ от лечения.
-
-​
-Есть и обратная сторона. Снижение цены может резко увеличить спрос — включая тех, кому препарат не показан. Уже сейчас его просят ради «минус 10–15 кг для внешнего вида».
-
-​
-Плюс риски: побочные эффекты (тошнота, боли, проблемы с ЖКТ) и рынок подделок. Ранее Health Canada уже предупреждала о нелегальных версиях препаратов.
-
-​
-Ирония в том, что дороговизна сама создаёт серые схемы — онлайн-сервисы, где можно получить препарат по сомнительным данным. Дешёвые аналоги могут это частично остановить.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2463@26-03-2026_18-00-48.jpg" class="post-image"></div>
-        <div class="post-content">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше
-
-​
-<a href="https://www.cbc.ca/news/politics/immigration-student-cap-9.7142089">Бывший министр иммиграции, а ныне министр юстиции Шон Фрейзер заявил</a>, что с учётом сегодняшних данных он бы раньше ограничил программу иностранных студентов.
-
-​
-По его словам, федеральное правительство тогда действовало «добросовестно», пытаясь договориться с провинциями, которые сами просили расширить доступ к программе.
-
-​
-«Если бы я знал то, что знаю сейчас, я бы ввёл жёсткий лимит раньше», — сказал Фрейзер.
-
-​
-Речь идёт о периоде 2021–2023 годов, когда он возглавлял иммиграционное ведомство.
-
-​
-На этом фоне лидер консерваторов Пьер Полиев требует от премьера Марка Карни уволить сразу трёх министров:
-  •  Шона Фрейзера
-  •  действующего министра иммиграции Лену Диаб
-  •  бывшего министра Марка Миллера
-
-​
-Причина — отчёт аудитора Карен Хоган, где указаны «критические слабости» в контроле за программой.
-
-​
-Ключевые цифры из отчёта:
-  •  около 150 000 потенциальных случаев мошенничества
-  •  в 2023–2024 годах проверяли лишь около 2 000 в год
-  •  не хватало ресурсов для расследований
-  •  сотни студентов попадали в Канаду по поддельным документам и затем оставались
-
-​
-Карни в ответ заявил, что его правительство уже «взяло систему под контроль» и сейчас проверяет все случаи мошенничества.
-
-​
-Лена Диаб обещает централизовать расследования, но пока не уточняет, будет ли увеличено финансирование.
-
-​
-Одновременно власти указывают на падение числа выданных студенческих виз примерно на 60% — это, по их мнению, должно разгрузить систему и повысить контроль.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2462@26-03-2026_17-03-18.jpg" class="post-image"></div>
-        <div class="post-content">Глава Air Canada снова «промахнулся» с двуязычием
-
-​
-<a href="https://apple.news/A8JId04GNR_KX_-4Xfxkh_A">Колумнист Конрад Якабуски пишет,</a> что глава Air Canada Майкл Руссо вновь оказался в центре скандала из-за игнорирования французского языка.
-
-​
-Поводом стало видеообращение после крушения самолёта в Нью-Йорке: Руссо выступил почти полностью на английском, ограничившись «bonjour» и «merci», добавив лишь французские субтитры.
-
-​
-Это вызвало резкую реакцию в Квебеке, где соблюдение закона о официальных языках давно считается хронической проблемой для авиакомпании.
-
-​
-Автор отмечает, что жалобы на Air Canada регулярно занимают первое место у комиссара по официальным языкам, а прогресса почти нет.
-
-​
-Ситуация особенно чувствительна, поскольку рейс вылетел из Монреаля, а среди экипажа и пассажиров были франкофоны, включая одного из погибших пилотов.
-
-​
-Премьер-министр Марк Карни ранее напоминал, что французский язык — ключевая часть канадской идентичности и международной роли страны.
-
-​
-На этом фоне поведение Руссо выглядит как демонстративное игнорирование двуязычия.
-
-​
-Якабуски также указывает на более широкую проблему: доля франкофонов в Канаде снижается, а уровень владения французским вне Квебека остаётся слабым.
-
-​
-При этом глобально французский язык растёт, особенно в Африке, и его значение в мире увеличивается.
-
-​
-Автор считает, что Air Canada могла бы использовать двуязычие как конкурентное преимущество, но руководство компании этим не пользуется.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> <a href="/tag/квебек/" class="badge">#Квебек</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2461@26-03-2026_15-06-12.jpg" class="post-image"></div>
-        <div class="post-content">Канада остаётся зависимой от DEI
-
-​
-<a href="https://apple.news/AO8cp_s95SbOIi1PyOhj-Sg">Монреальский эндокринолог Рой Эппен пишет,</a> что канадская система медицинского образования всё глубже уходит в идеологию DEI — в отличие от США, где Дональд Трамп пытается ограничить её влияние.
-
-​
-Автор утверждает, что в Канаде власти и профессиональные структуры, напротив, усиливают акцент на «социальной справедливости» и «антирасизме» в подготовке врачей.
-
-​
-В центре критики — Королевский колледж врачей и хирургов Канады, который разрабатывает обновлённую систему подготовки врачей CanMEDS.
-
-​
-По словам Эппена, изначально в новой модели предлагалось сместить фокус с медицинской экспертизы на ценности вроде equity и social justice.
-
-​
-После критики колледж частично отступил и признал, что роль «медицинского эксперта» остаётся базовой. Но при этом «health equity» всё равно встроена во всю систему подготовки.
-
-​
-Автор считает это проблемой:
-  •  акцент на equity якобы снижает значение профессиональных навыков
-  •  врачей отвлекают на политические и социальные вопросы
-  •  возможен уклон в «предпочтительное лечение» на основе расы
-
-​
-Он утверждает, что медицина должна сосредоточиться на лечении пациентов, а не на продвижении политических идей.
-
-​
-Также Эппен критикует федеральные власти, заявляя, что правительство в Оттаве поддерживает DEI-подход и не пытается ему противостоять.
-
-​
-В качестве контраста он приводит США, где, по его мнению, идёт борьба с подобной идеологией.
-
-​
-Важно: это колонка с мнением автора, а не новостной материал.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2460@26-03-2026_14-05-41.jpg" class="post-image"></div>
-        <div class="post-content">Иммиграция Канады отказала заявительнице, сославшись на «выдуманные» обязанности — в деле фигурирует ИИ
-
-​
-<a href="https://apple.news/AwSV6TM2rQOGmPy63hKmGtg">В Канаде разгорается новый скандал вокруг иммиграционной системы</a>: отказ в ПМЖ объяснили обязанностями, которых у заявительницы никогда не было.
-
-​
-Речь идёт о Кеми Аде — научной сотруднице и преподавателе в университете Макмастера. В решении Immigration, Refugees and Citizenship Canada указало, что её работа связана с монтажом электрических схем, сборкой панелей и программированием — что полностью не соответствует её реальной деятельности в сфере медицинских исследований.
-
-​
-Сама Аде заявила, что была шокирована: подобные обязанности она никогда не указывала в заявке.
-
-​
-Внизу письма содержалось примечание о том, что при обработке использовался генеративный ИИ. Формально ведомство подчёркивает, что решение принял человек, а ИИ не давал рекомендаций.
-
-​
-Однако критики видят в этом серьёзную проблему.
-
-​
-Иммиграционный юрист Зейнаб Зиаи отмечает, что такие системы могут «галлюцинировать» — то есть генерировать факты, которых не существует.
-
-​
-Адвокат заявительницы Лука Вукелич прямо говорит: система фактически «придумала» описание работы его клиентки.
-
-​
-Профессор права Университета Макгилла Дженнифер Расо добавляет, что использование таких инструментов может подрывать доверие к системе, особенно если непонятно, как именно они применяются и что именно проверяет человек.
-
-​
-Особое беспокойство вызывает непрозрачность: власти не раскрывают, какие именно ИИ-инструменты используются и как они влияют на процесс.
-
-​
-На фоне огромного бэклога — около миллиона заявок, превышающих сроки обработки — ведомство активно внедряет автоматизацию для ускорения работы.
-
-​
-Но этот случай показывает обратную сторону: ошибки ИИ могут напрямую влиять на судьбы людей.
-
-​
-После огласки дело Аде пересматривается.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/иммиграция/" class="badge">#иммиграция</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2459@26-03-2026_12-06-47.jpg" class="post-image"></div>
-        <div class="post-content">Meta и YouTube признаны виновными в создании «зависимых» продуктов, вредящих детям
-
-​
-<a href="https://www.theguardian.com/media/2026/mar/25/jury-verdict-us-first-social-media-addiction-trial-meta-youtube">Суд присяжных в Лос-Анджелесе признал Meta и YouTube ответственными</a> за создание продуктов, вызывающих зависимость у несовершеннолетних и наносящих вред их психическому здоровью.
-
-​
-Присяжные пришли к выводу, что компании проявили халатность и не предупредили пользователей о рисках.
-
-​
-Истице присудили компенсацию в размере $6 млн:
-
-– Meta выплатит 70%
-– YouTube — оставшуюся часть
-
-​
-Центральная фигура дела — девушка, заявившая, что стала зависимой от YouTube с шести лет и от Instagram с девяти.
-
-​
-По её словам, уже к 10 годам у неё началась депрессия и самоповреждение, а позже были диагностированы дисморфофобия и социальная фобия, которые она связывает с использованием соцсетей.
-
-​
-Адвокаты сравнили ситуацию с делами против табачных компаний 1990-х, утверждая, что функции вроде бесконечной ленты и автопроигрывания намеренно удерживают пользователей.
-
-​
-Решение присяжных стало первым в своём роде — суд признал связь между дизайном соцсетей и вредом для подростков.
-
-​
-Компании не согласны с вердиктом и заявили, что будут его обжаловать. В Meta подчеркнули, что психическое здоровье подростков — сложный вопрос, который нельзя свести к одному приложению.
-
-​
-Это дело — первое из серии десятков аналогичных процессов в США, которые могут задать новый юридический стандарт для индустрии соцсетей.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2458@26-03-2026_11-02-52.jpg" class="post-image"></div>
-        <div class="post-content">Энергетический кризис только начинается
-
-​
-<a href="https://www.cbc.ca/news/business/armstrong-oil-strait-of-hormuz-9.7142143">Конфликт на Ближнем Востоке уже запускает масштабный энергетический шок</a> — и худшее, по оценкам аналитиков, впереди.
-
-​
-Ключевой фактор — фактическое перекрытие Ормузского пролива (Strait of Hormuz), через который проходит значительная часть мировых поставок нефти и газа.
-
-​
-Последние танкеры, вышедшие до начала конфликта, прибудут в Азию в ближайшие 8–10 дней. После этого образуется «пустота» — около 500 млн баррелей нефти, которые обычно поступают на рынок, просто не придут.
-
-​
-Это означает переход от дефицита «на бумаге» к реальному физическому дефициту топлива.
-
-​
-Уже сейчас:
-
-– цены на нефть, газ и топливо резко растут
-– фьючерсы на газ в Азии выросли примерно на 90%
-– около 120 млрд кубометров газа не может пройти через пролив
-
-​
-Для сравнения: в 2022 году потеря российских поставок в Европу составила около 80 млрд кубометров — и тогда цены выросли на сотни процентов.
-
-​
-Некоторые страны уже чувствуют последствия:
-
-– Пакистан вводит четырёхдневную рабочую неделю
-– закрываются школы
-– вводятся меры экономии энергии
-
-​
-Даже экстренные меры — включая высвобождение 400 млн баррелей из стратегических резервов — не закрывают дефицит.
-
-​
-Проблема усугубляется тем, что даже при открытии пролива поставки восстановятся не сразу: нефть физически перемещается медленно, и на восстановление логистики уйдут недели.
-
-​
-По оценкам аналитиков, перебои могут продлиться как минимум до мая, а нестабильность — до осени.
-
-​
-На этом фоне внутри самой индустрии звучат противоречивые сигналы: публично — осторожный оптимизм, неофициально — разговоры о потенциально «катастрофических» последствиях.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">26 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2457@26-03-2026_10-06-02.jpg" class="post-image"></div>
-        <div class="post-content">Форд пригрозил «послать армию», чтобы не допустить возвращения Кромби на пост мэра Миссиссаги
-
-​
-<a href="https://www.thestar.com/politics/provincial/doug-ford-warns-bonnie-crombie-he-will-send-an-army-to-stop-her-becoming-mississauga-mayor/article_af93630b-91fb-4c94-9e55-2f4826471b0a.html">Премьер Онтарио Даг Форд заявил, что вмешается</a> в возможную муниципальную кампанию в Миссиссаге, если Бонни Кромби решит снова баллотироваться в мэры.
-
-​
-По словам Форда, он готов «послать армию», чтобы поддержать действующего мэра Кэролин Пэрриш.
-
-​
-«Обычно я не вмешиваюсь в муниципальные выборы, но в этот раз отправлю сюда армию, чтобы поддержать мэра Пэрриш», — сказал Форд.
-
-​
-Он также назвал период управления Кромби «абсолютной катастрофой» и добавил: «Давай, попробуй».
-
-​
-Кромби ранее три срока занимала пост мэра Миссиссаги, затем возглавляла либералов Онтарио. В январе она ушла с поста лидера и рассматривает возвращение в муниципальную политику перед выборами в октябре.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/даг-форд/" class="badge person-badge">Даг Форд</a> <a href="/tag/выборы/" class="badge">#выборы</a><a href="/tag/онтарио/" class="badge">#Онтарио</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2453@25-03-2026_22-02-08.jpg" class="post-image"></div>
-        <div class="post-content">Рецессия рубежей лишает молодых канадцев будущего
-​
-<a href="https://thehub.ca/2026/03/24/a-milestone-recession-is-stealing-the-future-from-young-canadians/">Обязательно зацените оригинал, прекрасно оформлен и куча даннных</a>
-
-Эрик Ломбарди пишет, что Канада столкнулась с новой формой кризиса — не классической рецессией, а затяжным сбоем, при котором молодые люди не могут вовремя достигать базовых этапов взрослой жизни.
-​
-Раньше работала простая логика: образование, работа, жильё, семья. Сейчас эта цепочка растягивается и ломается. Требования остались прежними, а результат стал дороже, позже и менее гарантированным.
-​
-Проблема начинается ещё до первой работы. Выпускники выходят с долгами около 29 тысяч долларов и попадают на рынок, где безработица среди молодёжи держится выше 14%. При этом значительная часть занята не по специальности и зарабатывает меньше, чем предыдущие поколения.
-​
-Появился парадокс: молодые не стали слабее, но экономика хуже конвертирует их навыки в доход и карьеру. В результате усиливается отток в США, который, по оценкам, связан с заметной частью разрыва в доходах и производительности.
-​
-Ситуация с доходами выглядит ещё жёстче: впервые мужчины старше 65 зарабатывают больше, чем группа 25–34. У канадцев младше 45 лет рост доходов почти остановился.
-​
-Главный удар — жильё.
-Если раньше дом стоил примерно в три раза больше годового дохода пары, то сейчас в Торонто это больше чем в 12 раз, в Ванкувере — выше 17.
-​
-Первое жильё всё чаще покупают ближе к 40 годам. Без помощи родителей для многих это становится недостижимым.
-​
-Это меняет саму модель общества: успех всё меньше зависит от усилий и всё больше — от стартовых условий.
-​
-Даже два дохода в семье теперь часто не дают того уровня жизни, который раньше обеспечивал один.
-​
-Последствия выходят за рамки экономики. Люди откладывают семьи и детей. Желание иметь около двух детей сохраняется, но реальный уровень рождаемости упал до примерно 1,2.
-​
-Параллельно снижается предпринимательская активность: всё больше денег уходит на аренду и ипотеку, а не на риск и создание бизнеса.
-​
-Это отражается и на настроениях. Канада опустилась с 6-го места в рейтинге счастья до 25-го, при этом разрыв по возрасту резкий: пожилые остаются среди самых удовлетворённых, молодёжь — далеко ниже.
-​
-Главная мысль автора:
-будущее не исчезло, но сильно отодвинулось.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/экономика/" class="badge">#экономика</a><a href="/tag/торонто/" class="badge">#Торонто</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2452@25-03-2026_21-02-34.jpg" class="post-image"></div>
-        <div class="post-content">73% канадцев считают, что многие остаются в отношениях из-за денег
-​
-<a href="https://globalnews.ca/news/11743739/relationship-or-single-finances-survey/">Новый опрос от H&R Block показывает довольно приземлённый взгляд на отношения в Канаде</a>: финансы всё чаще становятся ключевым фактором, а не чувства.
-​
-73% респондентов уверены, что многие пары остаются вместе именно по финансовым причинам.
-​
-И это не единичное мнение — картина шире:
-жизнь в паре воспринимается как экономически выгодная. 80% считают, что быть в отношениях дешевле, чем жить одному.
-​
-Брак тоже всё чаще рассматривают как практическое решение, а не романтическое:
-около 40% называют его прежде всего вопросом удобства, особенно если есть дети.
-​
-На этом фоне появляются новые идеи:
-почти четверть канадцев поддерживают концепцию «пятилетнего контракта» вместо традиционного брака.
-​
-И одновременно — довольно циничный сигнал:
-27% говорят, что расстались бы с партнёром, если бы выиграли в лотерею.
-​
-Финансы влияют и на юридическую сторону:
-62% готовы подписать брачный контракт, если партнёр зарабатывает больше.
-​
-Отдельное раздражение вызывает налоговая система:
-57% считают, что пары получают больше льгот,
-63% — что одиночкам нужно дать больше налоговых преимуществ.
-​
-На фоне роста цен и экономической неопределённости отношения всё чаще выглядят не как выбор, а как стратегия выживания.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2451@25-03-2026_19-00-43.jpg" class="post-image"></div>
-        <div class="post-content">Либералы обсудят возрастные ограничения для соцсетей и ИИ-чатботов
-​
-<a href="https://toronto.citynews.ca/2026/03/24/liberals-to-debate-age-restrictions-on-social-media-ai-chatbots/">На съезде Либеральной партии в Монреале в апреле обсудят идею</a> ограничить доступ подростков к соцсетям и ИИ — вплоть до жёстких запретов.
-​
-Один из предложенных пунктов — запретить использование ИИ-чатботов (включая ChatGPT) для лиц младше 16 лет. Авторы инициативы утверждают, что такие технологии могут снижать социальную активность, втягивать подростков в опасные разговоры и даже давать вредные советы уязвимым пользователям.
-​
-Другая инициатива предлагает установить минимальный возраст 16 лет для регистрации в соцсетях — по аналогии с Австралией — и переложить ответственность за проверку возраста на сами платформы.
-​
-Параллельно обсуждается создание отдельного органа цифровой безопасности, который будет следить за соблюдением правил, проводить проверки и штрафовать компании.
-​
-Марк Карни ранее говорил, что идея «возраста совершеннолетия» для соцсетей обсуждается, но окончательного решения нет.
-​
-На том же съезде поднимут и другие темы:
-реформа избирательной системы, включая пропорциональное представительство, а также спорное предложение о применении федерального права отменять провинциальные законы, если те используют оговорку notwithstanding clause.
-​
-Министр юстиции Шон Фрейзер уже дистанцировался от последней идеи, заявив, что не рассматривает её применение.
-​
-Формально такие резолюции не обязательны для правительства — но именно с них обычно начинается сдвиг политики.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2450@25-03-2026_17-34-39.jpg" class="post-image"></div>
-        <div class="post-content">«Вежливый погром» в Канаде
-​
-<a href="https://www.theatlantic.com/international/2026/03/canada-antisemitism/686507/">Джесси Браун пишет о том</a>, что после событий 7 октября в Канаде изменилась атмосфера вокруг еврейского сообщества — и не только через насилие, но и через поведение институтов.
-​
-Он начинает с истории врача Теда Розенберга из University of British Columbia, который ушёл после 30 лет работы. Причина — не сами высказывания коллег, а реакция университета, который, по его словам, отказался признавать проблему антисемитизма и предложил решать всё через общие DEI-процедуры.
-​
-Дальше автор расширяет картину. За последние годы в Канаде зафиксирован резкий рост нападений, угроз и атак на еврейские учреждения. Но, по его мнению, куда менее заметна другая тенденция — люди просто уходят. Без скандалов, без громких дел, тихо исчезают из университетов, медицины, образования.
-​
-Он приводит цифры: значительная часть еврейских врачей и студентов сталкивалась с враждебной средой после 2023 года. Некоторые перестали ассоциировать себя с учреждениями вроде University of Toronto, другие задумываются об эмиграции.
-​
-Похожие истории появляются в школах, культурной сфере, медиа. Где-то отменяют мероприятия, где-то возникают конфликты внутри организаций, где-то люди просто уходят, не чувствуя поддержки.
-​
-Отдельный слой — политика и общественные нормы. Браун утверждает, что стремление «никого не обидеть» приводит к перекосу: институты осторожно реагируют на одни группы и игнорируют проблемы других. В этом контексте он упоминает новые подходы вроде концепции anti-Palestinian racism, которые, по мнению критиков, иногда ограничивают обсуждение.
-​
-Главная идея текста: речь не только о прямой ненависти, а о постепенном вытеснении из публичной жизни — процессе, который сложно измерить, потому что он происходит без явных инцидентов и часто остаётся вне статистики.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2449@25-03-2026_14-06-44.jpg" class="post-image"></div>
-        <div class="post-content">Оттава играет с безопасностью
-​
-<a href="https://torontosun.com/opinion/editorials/editorial-feds-gambling-with-public-safety">Редакция Postmedia утверждает,</a> что федеральное правительство теряет контроль над иммиграционной системой, и это уже вызывает вопросы к безопасности страны.
-​
-В центре критики — отчёт аудитора Карен Хоган.
-​
-Проверки иностранных студентов практически не работают. Из более чем 150 тысяч подозрительных случаев расследовали лишь около 4 тысяч. Многие дела просто зависли, потому что люди не отвечают на запросы.
-​
-Есть и случаи откровенного мошенничества. Сотни студентов получили визы по поддельным данным, после чего подавались на другие иммиграционные статусы и нередко оставались в стране.
-​
-Редакция обращает внимание на более широкую проблему. Государство фактически теряет часть людей из поля зрения. Десятки тысяч человек, которым предписано покинуть Канаду, продолжают находиться в стране.
-​
-Система убежища тоже перегружена. Большинство отклонённых заявителей остаются в Канаде даже после прохождения всех процедур. Очередь дел превышает сотни тысяч, часть решений принимается без очных слушаний.
-​
-Отдельно упоминается затянувшаяся история с реестром иностранных лоббистов. Закон принят, руководитель назначен, но система до сих пор не запущена.
-​
-Общий вывод редакции: проблема не в отдельных сбоях, а в системной неспособности государства доводить решения до конца.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2448@25-03-2026_13-06-32.jpg" class="post-image"></div>
-        <div class="post-content">Канада становится «убежищем» для международных преступников и террористов
-​
-<a href="https://thehub.ca/2026/03/23/canada-is-a-safe-haven-for-international-criminals-and-terrorists/">Дэниел Робсон пишет, что проблема в Канаде глубже</a>, чем просто доступ полиции к данным. По его мнению, страна всё чаще используется как удобная точка для преступников — не обязательно как конечное убежище, а как место, где можно переждать, перегруппироваться и выиграть время.
-​
-В центре обсуждения — законопроект C-22, который должен упростить доступ правоохранителей к цифровой информации. Но автор считает, что сам факт его появления говорит о системной слабости: государство реагирует медленно, а этим пользуются.
-​
-Он приводит несколько кейсов, которые, по его мнению, показывают одну и ту же модель:
-Канада появляется в цепочке перемещений как «удобная остановка» — с меньшим давлением и запаздывающим контролем.
-​
-Один из примеров — Мехди Хиджауи.
-​
-По описанию автора, это бывший сотрудник марокканской разведки, связанный с финансовыми махинациями и международным ордером на арест. После начала преследования он оказался в Канаде — не как конечный пункт, а как первая точка, где можно снизить давление и выстроить дальнейшие шаги.
-​
-Ключевая мысль текста:
-страна может играть роль в международной преступной схеме даже без того, чтобы быть её центром. Достаточно быть местом, где проверки слабее, процессы медленнее, а системы перегружены.
-​
-Робсон утверждает, что именно это и делает Канаду «полезной» для таких схем — и что без системных изменений эта роль будет только усиливаться.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2447@25-03-2026_12-06-01.jpg" class="post-image"></div>
-        <div class="post-content">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам
-
-​
-<a href="https://www.westernstandard.news/news/poilievre-calls-on-trudeau-to-fire-ministers-over-ag-report-on-international-student-program/72190">Лидер консерваторов Пьер Полиев призвал</a> премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.
-
-​
-Речь идёт о действующем министре иммиграции Лене Диаб, а также её предшественниках — Шоне Фрейзере и Марке Миллере.
-
-​
-Полиев утверждает, что программа вышла из-под контроля:
-
-– рост на 121% за 2019–2023 годы
-– около 153 000 подозрительных случаев мошенничества за два года
-– расследовано лишь ~4 000 (2,6%)
-– 41% дел закрыты, потому что заявители просто перестали отвечать
-– 92% проверенных всё равно получили визы
-– из почти 39 500 человек с истёкшими визами только 40% подтверждённо покинули Канаду
-
-​
-Полиев обвиняет либералов в том, что они допустили резкий рост иммиграции без контроля и без ресурсов — жилья, рабочих мест и медицины.
-
-​
-Отдельный укол — кадровые решения: Фрейзера повысили, Миллер остался в кабинете, а Диаб, по словам Полиева, не смогла восстановить доверие к системе.
-
-​
-Он добавляет, что даже внутри либеральной фракции есть сомнения в её работе.
-
-​
-«Некомпетентность и безрассудное управление системой иммиграции не просто терпели — за это награждали», — пишет Полиев.
-
-​
-Скандал вокруг иммиграции продолжает набирать обороты — оппозиция усиливает давление и требует ужесточения контроля.
-
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/пьер-полиев/" class="badge person-badge">Пьер Полиев</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2446@25-03-2026_11-03-04.jpg" class="post-image"></div>
-        <div class="post-content">Как Марк Карни «продал» Канаду Китаю
-​
-Д<a href="https://spectator.com/article/how-mark-carney-sold-canada-to-china/?edition=us">жейн Стэннус пишет</a>, что правительство Марка Карни резко смягчило риторику в отношении Си Цзиньпина и перешло к активному сотрудничеству.
-​
-Во время визита в Пекин подписали соглашения по торговле, энергетике, глобальному управлению и взаимодействию правоохранительных органов.
-​
-Автор связывает это с попыткой снизить зависимость от США на фоне торгового конфликта. Но именно выбор Китая вызывает наибольшие опасения.
-​
-Ключевые риски, которые она выделяет:
-– зависимость от китайского рынка, особенно по экспорту канолы
-– усиление влияния Пекина на решения Канады
-– возможный доступ китайских структур к чувствительной информации
-​
-Отдельное внимание — соглашению между RCMP и китайским министерством общественной безопасности.
-​
-Критики напоминают, что эти структуры обвинялись в давлении на китайскую диаспору за рубежом. При этом детали соглашения не раскрыты.
-​
-В тексте также приводится мнение Майкла Коврига, одного из «двух Майклов», который предупреждает: Китай может использовать Канаду как рынок сбыта и подорвать местное производство.
-​
-Логика автора простая:
-экономическое сотрудничество с Китаем может превратиться в политическую зависимость.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2445@25-03-2026_10-04-12.jpg" class="post-image"></div>
-        <div class="post-content">Один из самых разыскиваемых преступников в Канаде задержан в США по делу об убийстве в Торонто
-​
-<a href="https://www.ctvnews.ca/toronto/article/one-of-canadas-most-wanted-fugitives-accused-of-murder-in-2024-toronto-shooting-arrested-in-us-police/">Полиция Торонто сообщила о задержании Адриана Уокера</a> — одного из самых разыскиваемых преступников страны. Его арестовали в штате Миссисипи.
-​
-Уокер проходил по делу о двойной стрельбе в Торонто в мае 2024 года. Тогда погиб 31-летний Тревор Джон, ещё одна женщина получила ранения.
-​
-После задержания его экстрадируют в Канаду, где ему предъявят обвинения в убийстве первой степени и покушении на убийство.
-​
-По данным американских властей, он скрывался под чужим именем и незаконно пересёк границу США. Операция по его поимке заняла несколько дней и проводилась при участии федеральных служб.
-​
-Это уже второй обвиняемый по делу: ранее был задержан другой подозреваемый, Кемиан Франклин.
-​
-Уокер входил в список программы BOLO как 14-й в рейтинге самых разыскиваемых в Канаде.
-​
-Американские власти заявили, что после завершения процедур в США он будет депортирован обратно в Канаду.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/торонто/" class="badge">#Торонто</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">25 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2444@25-03-2026_09-03-08.jpg" class="post-image"></div>
-        <div class="post-content">Федеральная минимальная зарплата вырастет до $18,15 в час
-​
-<a href="https://www.cbc.ca/news/politics/federal-minimum-wage-increase-9.7140017">С 1 апреля федеральная минимальная зарплата в Канаде увеличится с $17,75 до $18,15 в час</a>. Повышение составит 40 центов и проходит автоматически — по формуле, привязанной к инфляции.
-​
-Расчёт основан на индексе потребительских цен за прошлый год. В 2025 году инфляция составила 2,1%, поэтому ставку просто подогнали под этот уровень и округлили.
-​
-Эта минималка действует не для всех. Она распространяется только на федеральные отрасли — транспорт, банки, телеком. Большинство работников в стране по-прежнему живут по провинциальным ставкам.
-​
-Разброс по регионам заметный: от $19,75 в Нунавуте до $15 в Альберте.
-​
-Федеральную минимальную зарплату ввели в 2021 году при правительстве Джастина Трюдо, и с тех пор её ежегодно корректируют под инфляцию.
-​
-Формально — индексация. По факту — повышение на уровне статистики, которое вряд ли меняет реальную покупательную способность.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">24 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2440@24-03-2026_21-01-42.jpg" class="post-image"></div>
-        <div class="post-content">Учения в Арктике пошли не по плану: техника замёрзла, стрельбы отменили
-
-<a href="https://www.nytimes.com/2026/03/23/world/canada/canada-arctic-territory-military.html">Охренеть какой красивый оригинал от NY Times</a>
-​
-Канада попыталась продемонстрировать военную готовность на Крайнем Севере — и столкнулась с банальной проблемой: всё замёрзло.
-​
-Во время учений Operation Nanook-Nunalivut возле Кембридж-Бей температура с учётом ветра опускалась до −80°F (около −62°C).
-​
-Что пошло не так:
-– дверь ангара просто замёрзла и не открылась
-– вертолёт CH-47 Chinook остался снаружи
-– техника вышла из строя из-за холода
-– ремонт оказался невозможен в таких условиях
-​
-Этот вертолёт был ключевым:
-он должен был перебросить гаубицы M777 howitzer для показательной стрельбы перед военными чиновниками.
-​
-В итоге:
-– вертолёт не взлетел
-– одну из двух гаубиц вообще не удалось задействовать
-– демонстрационную стрельбу отменили
-​
-Солдаты в итоге тянули артиллерию по земле, буквально вырубая лёд кирками, чтобы закрепить орудия.
-​
-Но даже это оказалось зря — погода резко ухудшилась, и мероприятие свернули.
-​
-Параллельно пришлось сократить и дальний патруль на снегоходах: без вертолёта эвакуация в случае ЧП была под вопросом.
-​
-Главный вывод, который сами военные озвучили прямо:
-Канада банально не готова полноценно действовать в Арктике.
-​
-Проблемы системные:
-– нехватка инфраструктуры (даже тёплых ангаров)
-– отсутствие постоянных баз
-– логистические ограничения
-​
-На фоне того, как США усиливаются в Аляске, а Россия десятилетиями наращивает военное присутствие, канадская демонстрация силы выглядела… мягко говоря, сырой.
-​
-Ирония ситуации: учения должны были показать способность «воевать где угодно», но вместо этого показали, что даже открыть дверь в Арктике — уже задача.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">24 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2439@24-03-2026_19-04-04.jpg" class="post-image"></div>
-        <div class="post-content">Жилищный трибунал Квебека признал запрет на животных нарушением Хартии прав
-​
-В Квебеке произошло решение, которое может серьёзно изменить рынок аренды: <a href="https://www.cbc.ca/news/canada/montreal/quebec-no-pets-clause-rental-housing-tenants-landlords-9.7138728">Tribunal administratif du logement признал</a>, что пункт в договоре аренды о запрете животных может нарушать Хартию прав и свобод.
-​
-Поводом стало дело арендатора Дежардена, которого пытались выселить из-за собаки. Судья Сюзанна Гевремон отказала арендодателю и разрешила ему остаться в квартире.
-​
-Ключевой вывод:
-полный запрет на животных — это вмешательство в частную и семейную жизнь человека в его собственном доме.
-​
-Решение опирается на положения Хартии Квебека о:
-– праве на личную свободу
-– праве на частную жизнь
-​
-Что это меняет:
-– запреты на животных не исчезают автоматически
-– но теперь их можно оспаривать
-– суд будет рассматривать каждую ситуацию отдельно
-​
-Иначе говоря: сам факт наличия пункта в договоре больше не гарантирует, что его можно применить.
-​
-Для арендодателей это означает новую реальность — придётся доказывать, что запрет обоснован (например, ущерб или нарушения).
-​
-Для арендаторов — серьёзный юридический инструмент, особенно на фоне жилищного кризиса.
-​
-Зоозащитники отмечают, что проблема масштабная:
-многие люди вынуждены отказываться от питомцев из-за невозможности найти жильё.
-​
-Министр жилищной политики Каролин Пру подчеркнула, что решение касается конкретного случая — но давление на изменение закона уже растёт.
-​
-Фактически суд впервые прямо связал запрет на животных с нарушением фундаментальных прав — и это может стать прецедентом для будущих дел.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"> <a href="/tag/жильё/" class="badge">#жильё</a><a href="/tag/квебек/" class="badge">#Квебек</a></div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">24 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2438@24-03-2026_18-02-23.jpg" class="post-image"></div>
-        <div class="post-content">Зачем либералы расширяют программу временных иностранных работников?
-​
-<a href="https://torontosun.com/opinion/columnists/why-are-liberals-expanding-temporary-foreign-worker-program">Брайан Лилли пишет, что правительство Марк Карни идёт в противоположную сторону от логики рынка труда</a>: безработица растёт — а доступ к дешёвой иностранной рабочей силе расширяют.
-​
-По данным Statistics Canada:
-– общая безработица — 6,7%
-– среди молодёжи — 14,1%
-– за год +30 тыс. безработных
-– минус 108 тыс. полноценных рабочих мест
-​
-И на этом фоне министр труда Пэтти Хайду объявляет:
-работодателям разрешат увеличить долю низкооплачиваемых временных иностранных работников с 10% до 15% персонала в ряде сельских регионов.
-​
-Какие именно регионы — пока неизвестно. Провинции должны сами согласиться участвовать.
-​
-Аргумент правительства:
-в отдельных районах есть нехватка рабочих рук, и бизнес не может закрыть вакансии местными.
-​
-Критика, на которой строится колонка:
-– при высокой безработице это выглядит как подмена канадских работников
-– особенно для молодёжи, которая и так не может найти работу
-– компании получают стимул нанимать более дешёвую рабочую силу
-​
-Отдельно подчёркивается, что речь не о сельском хозяйстве, а о низкооплачиваемых позициях — например, в сфере быстрого питания, включая Tim Hortons.
-​
-Программа временных иностранных работников уже давно стала политически токсичной темой — и это решение только подливает масла в огонь.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/марк-карни/" class="badge person-badge">Марк Карни</a> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">24 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2437@24-03-2026_16-21-17.jpg" class="post-image"></div>
-        <div class="post-content">4:20</div>
-        <div class="post-footer"> </div>
-    </article>
-    
-    <article class="post-card">
-        <span class="post-date">24 марта 2026</span>
-        <div class="post-image-wrap"><img src="/photos/photo_2436@24-03-2026_15-01-55.jpg" class="post-image"></div>
-        <div class="post-content">Поездки канадцев в США обвалились на 22% за год
-​
-<a href="https://globalnews.ca/news/11741979/canada-united-states-travel-january-2026/">По данным Statistics Canada, число возвращений канадцев из США в январе 2026 года упало на 22%</a> по сравнению с прошлым годом. Это уже 13-й месяц подряд снижения.
-​
-Причина — не в погоде и не в ценах на бензин. Всё куда прямее: торговая война и риторика Дональд Трамп с идеями про «51-й штат» заметно охладили интерес к поездкам на юг.
-​
-Цифры:
-– поездки на машине: минус 26,3%
-– авиапоездки: минус 12,8%
-– всего 2,1 млн возвращений из США за месяц
-​
-При этом канадцы не перестали путешествовать — просто сменили направление:
-– поездки за пределы США выросли на 10,6%
-​
-Отдельный показатель — короткие визиты:
-– 67,5% поездок в США — однодневные
-– именно они просели сильнее всего
-​
-Бизнес уже реагирует. WestJet сокращает более десятка маршрутов между Канадой и США на лето 2026.
-​
-На фоне этого усиливается эффект «покупай канадское»:
-– 56% канадцев сознательно выбирали местные товары
-– среди старшего поколения — до 70%
-​
-Фактически — неформальный потребительский бойкот, растянутый на месяцы.
-​
-Подписывайтесь на @maplebarrel - Новости Канады в полном объеме</div>
-        <div class="post-footer"><a href="/person/дональд-трамп/" class="badge person-badge">Дональд Трамп</a> </div>
-    </article>
-    </div><div class="pagination"><a href="/page/2/" class="btn">Вперед →</a></div>
-    </main>
-    <footer>
-        &copy; 2024–2026 Maple Barrel. Все права защищены.
-    </footer>
+<nav style="background:#fff;border-bottom:1px solid #eee;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+
+    <!-- LEFT -->
+    <div style="display:flex;gap:16px;font-size:14px;color:#555">
+      <a href="/" style="color:#000">Новости</a>
+      <a href="/materials/">Материалы</a>
+      <a href="/longreads/">Лонгриды</a>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div style="text-align:center;font-family:Playfair Display,serif;font-size:28px;font-weight:700;color:#000">
+      Maple <span style="color:#d44">🍁</span> Barrel
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;justify-content:flex-end;gap:16px;font-size:14px;color:#555">
+      <a href="/about/">О проекте</a>
+      <a href="https://t.me/maplebarrel" style="color:#d44">Telegram</a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrap"><h2 style="margin-bottom:16px">Главное</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><a class="card" href="/post/2026-03-27-kazhdyy-kanadets-stoit-dvuh-amerikantsev-v-los-kabose-podsch/">
+  <div class="card-img"><img src="/photos/photo_2466@27-03-2026_10-06-19.jpg" alt="Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</div>
+    <div class="card-excerpt">Канадцы стали самым быстрорастущим потоком туристов в мексиканский Лос-Кабос — и одновременно самым выгодным.   По данным местной туристической индустрии, в 2025 году регион посетили более 215 тысяч к</div>
+    <div class="card-meta">
+      <span class="card-date">27 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-retsessiya-rubezhey-lishaet-molodyh-kanadtsev-buduschego/">
+  <div class="card-img"><img src="/photos/photo_2453@25-03-2026_22-02-08.jpg" alt="Рецессия рубежей лишает молодых канадцев будущего" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Рецессия рубежей лишает молодых канадцев будущего</div>
+    <div class="card-excerpt">Обязательно зацените оригинал, прекрасно оформлен и куча даннных  Эрик Ломбарди пишет, что Канада столкнулась с новой формой кризиса — не классической рецессией, а затяжным сбоем, при котором молодые</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-vezhlivyy-pogrom-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_2450@25-03-2026_17-34-39.jpg" alt="«Вежливый погром» в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theatlantic.com</div>
+    <div class="card-title">«Вежливый погром» в Канаде</div>
+    <div class="card-excerpt">Джесси Браун пишет о том, что после событий 7 октября в Канаде изменилась атмосфера вокруг еврейского сообщества — и не только через насилие, но и через поведение институтов.  Он начинает с истории вр</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-ottava-igraet-s-bezopasnostyu/">
+  <div class="card-img"><img src="/photos/photo_2449@25-03-2026_14-06-44.jpg" alt="Оттава играет с безопасностью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Оттава играет с безопасностью</div>
+    <div class="card-excerpt">Редакция Postmedia утверждает, что федеральное правительство теряет контроль над иммиграционной системой, и это уже вызывает вопросы к безопасности страны.  В центре критики — отчёт аудитора Карен Хог</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a></div><h2 style="margin:36px 0 16px">Лонгриды</h2><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px"><a class="card" href="/post/2026-03-27-kazhdyy-kanadets-stoit-dvuh-amerikantsev-v-los-kabose-podsch/">
+  <div class="card-img"><img src="/photos/photo_2466@27-03-2026_10-06-19.jpg" alt="Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</div>
+    <div class="card-excerpt">Канадцы стали самым быстрорастущим потоком туристов в мексиканский Лос-Кабос — и одновременно самым выгодным.   По данным местной туристической индустрии, в 2025 году регион посетили более 215 тысяч к</div>
+    <div class="card-meta">
+      <span class="card-date">27 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-retsessiya-rubezhey-lishaet-molodyh-kanadtsev-buduschego/">
+  <div class="card-img"><img src="/photos/photo_2453@25-03-2026_22-02-08.jpg" alt="Рецессия рубежей лишает молодых канадцев будущего" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Рецессия рубежей лишает молодых канадцев будущего</div>
+    <div class="card-excerpt">Обязательно зацените оригинал, прекрасно оформлен и куча даннных  Эрик Ломбарди пишет, что Канада столкнулась с новой формой кризиса — не классической рецессией, а затяжным сбоем, при котором молодые</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-vezhlivyy-pogrom-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_2450@25-03-2026_17-34-39.jpg" alt="«Вежливый погром» в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theatlantic.com</div>
+    <div class="card-title">«Вежливый погром» в Канаде</div>
+    <div class="card-excerpt">Джесси Браун пишет о том, что после событий 7 октября в Канаде изменилась атмосфера вокруг еврейского сообщества — и не только через насилие, но и через поведение институтов.  Он начинает с истории вр</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-ottava-igraet-s-bezopasnostyu/">
+  <div class="card-img"><img src="/photos/photo_2449@25-03-2026_14-06-44.jpg" alt="Оттава играет с безопасностью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Оттава играет с безопасностью</div>
+    <div class="card-excerpt">Редакция Postmedia утверждает, что федеральное правительство теряет контроль над иммиграционной системой, и это уже вызывает вопросы к безопасности страны.  В центре критики — отчёт аудитора Карен Хог</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-kanada-stanovitsya-ubezhischem-dlya-mezhdunarodnyh-prestupni/">
+  <div class="card-img"><img src="/photos/photo_2448@25-03-2026_13-06-32.jpg" alt="Канада становится «убежищем» для международных преступников и террористов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Канада становится «убежищем» для международных преступников и террористов</div>
+    <div class="card-excerpt">Дэниел Робсон пишет, что проблема в Канаде глубже, чем просто доступ полиции к данным. По его мнению, страна всё чаще используется как удобная точка для преступников — не обязательно как конечное убеж</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-poliev-trebuet-ot-karni-uvolit-ministrov-iz-za-otchyota-audi/">
+  <div class="card-img"><img src="/photos/photo_2447@25-03-2026_12-06-01.jpg" alt="Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">westernstandard.news</div>
+    <div class="card-title">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев призвал премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.   Речь идёт о дей</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a></div><div style="display:grid;grid-template-columns:3fr 1fr;gap:40px;margin-top:40px"><div><h2 style="margin-bottom:16px">Лента</h2><a class="card" href="/post/2026-03-26-glava-air-canada-snova-promahnulsya-s-dvuyazychiem/">
+  <div class="card-img"><img src="/photos/photo_2462@26-03-2026_17-03-18.jpg" alt="Глава Air Canada снова «промахнулся» с двуязычием" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Глава Air Canada снова «промахнулся» с двуязычием</div>
+    <div class="card-excerpt">Колумнист Конрад Якабуски пишет, что глава Air Canada Майкл Руссо вновь оказался в центре скандала из-за игнорирования французского языка.   Поводом стало видеообращение после крушения самолёта в Нью-</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-26-kanada-ostayotsya-zavisimoy-ot-dei/">
+  <div class="card-img"><img src="/photos/photo_2461@26-03-2026_15-06-12.jpg" alt="Канада остаётся зависимой от DEI" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Канада остаётся зависимой от DEI</div>
+    <div class="card-excerpt">Монреальский эндокринолог Рой Эппен пишет, что канадская система медицинского образования всё глубже уходит в идеологию DEI — в отличие от США, где Дональд Трамп пытается ограничить её влияние.   Авто</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-26-immigratsiya-kanady-otkazala-zayavitelnitse-soslavshis-na-vy/">
+  <div class="card-img"><img src="/photos/photo_2460@26-03-2026_14-05-41.jpg" alt="Иммиграция Канады отказала заявительнице, сославшись на «выдуманные» обязанности — в деле фигурирует ИИ" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Иммиграция Канады отказала заявительнице, сославшись на «выдуманные» обязанности — в деле фигурирует ИИ</div>
+    <div class="card-excerpt">В Канаде разгорается новый скандал вокруг иммиграционной системы: отказ в ПМЖ объяснили обязанностями, которых у заявительницы никогда не было.   Речь идёт о Кеми Аде — научной сотруднице и преподават</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-26-meta-i-youtube-priznany-vinovnymi-v-sozdanii-zavisimyh-produ/">
+  <div class="card-img"><img src="/photos/photo_2459@26-03-2026_12-06-47.jpg" alt="Meta и YouTube признаны виновными в создании «зависимых» продуктов, вредящих детям" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theguardian.com</div>
+    <div class="card-title">Meta и YouTube признаны виновными в создании «зависимых» продуктов, вредящих детям</div>
+    <div class="card-excerpt">Суд присяжных в Лос-Анджелесе признал Meta и YouTube ответственными за создание продуктов, вызывающих зависимость у несовершеннолетних и наносящих вред их психическому здоровью.   Присяжные пришли к в</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-26-energeticheskiy-krizis-tolko-nachinaetsya/">
+  <div class="card-img"><img src="/photos/photo_2458@26-03-2026_11-02-52.jpg" alt="Энергетический кризис только начинается" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Энергетический кризис только начинается</div>
+    <div class="card-excerpt">Конфликт на Ближнем Востоке уже запускает масштабный энергетический шок — и худшее, по оценкам аналитиков, впереди.   Ключевой фактор — фактическое перекрытие Ормузского пролива (Strait of Hormuz), че</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-26-ford-prigrozil-poslat-armiyu-chtoby-ne-dopustit-vozvrascheni/">
+  <div class="card-img"><img src="/photos/photo_2457@26-03-2026_10-06-02.jpg" alt="Форд пригрозил «послать армию», чтобы не допустить возвращения Кромби на пост мэра Миссиссаги" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title">Форд пригрозил «послать армию», чтобы не допустить возвращения Кромби на пост мэра Миссиссаги</div>
+    <div class="card-excerpt">Премьер Онтарио Даг Форд заявил, что вмешается в возможную муниципальную кампанию в Миссиссаге, если Бонни Кромби решит снова баллотироваться в мэры.   По словам Форда, он готов «послать армию», чтобы</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-retsessiya-rubezhey-lishaet-molodyh-kanadtsev-buduschego/">
+  <div class="card-img"><img src="/photos/photo_2453@25-03-2026_22-02-08.jpg" alt="Рецессия рубежей лишает молодых канадцев будущего" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Рецессия рубежей лишает молодых канадцев будущего</div>
+    <div class="card-excerpt">Обязательно зацените оригинал, прекрасно оформлен и куча даннных  Эрик Ломбарди пишет, что Канада столкнулась с новой формой кризиса — не классической рецессией, а затяжным сбоем, при котором молодые</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-73-kanadtsev-schitayut-chto-mnogie-ostayutsya-v-otnosheniyah/">
+  <div class="card-img"><img src="/photos/photo_2452@25-03-2026_21-02-34.jpg" alt="73% канадцев считают, что многие остаются в отношениях из-за денег" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">73% канадцев считают, что многие остаются в отношениях из-за денег</div>
+    <div class="card-excerpt">Новый опрос от H&amp;R Block показывает довольно приземлённый взгляд на отношения в Канаде: финансы всё чаще становятся ключевым фактором, а не чувства.  73% респондентов уверены, что многие пары остаются</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-liberaly-obsudyat-vozrastnye-ogranicheniya-dlya-sotssetey-i-/">
+  <div class="card-img"><img src="/photos/photo_2451@25-03-2026_19-00-43.jpg" alt="Либералы обсудят возрастные ограничения для соцсетей и ИИ-чатботов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">toronto.citynews.ca</div>
+    <div class="card-title">Либералы обсудят возрастные ограничения для соцсетей и ИИ-чатботов</div>
+    <div class="card-excerpt">На съезде Либеральной партии в Монреале в апреле обсудят идею ограничить доступ подростков к соцсетям и ИИ — вплоть до жёстких запретов.  Один из предложенных пунктов — запретить использование ИИ-чатб</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="технологии" href="/tag/tehnologii/">#технологии</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-vezhlivyy-pogrom-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_2450@25-03-2026_17-34-39.jpg" alt="«Вежливый погром» в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theatlantic.com</div>
+    <div class="card-title">«Вежливый погром» в Канаде</div>
+    <div class="card-excerpt">Джесси Браун пишет о том, что после событий 7 октября в Канаде изменилась атмосфера вокруг еврейского сообщества — и не только через насилие, но и через поведение институтов.  Он начинает с истории вр</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-ottava-igraet-s-bezopasnostyu/">
+  <div class="card-img"><img src="/photos/photo_2449@25-03-2026_14-06-44.jpg" alt="Оттава играет с безопасностью" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Оттава играет с безопасностью</div>
+    <div class="card-excerpt">Редакция Postmedia утверждает, что федеральное правительство теряет контроль над иммиграционной системой, и это уже вызывает вопросы к безопасности страны.  В центре критики — отчёт аудитора Карен Хог</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-kanada-stanovitsya-ubezhischem-dlya-mezhdunarodnyh-prestupni/">
+  <div class="card-img"><img src="/photos/photo_2448@25-03-2026_13-06-32.jpg" alt="Канада становится «убежищем» для международных преступников и террористов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">thehub.ca</div>
+    <div class="card-title">Канада становится «убежищем» для международных преступников и террористов</div>
+    <div class="card-excerpt">Дэниел Робсон пишет, что проблема в Канаде глубже, чем просто доступ полиции к данным. По его мнению, страна всё чаще используется как удобная точка для преступников — не обязательно как конечное убеж</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-poliev-trebuet-ot-karni-uvolit-ministrov-iz-za-otchyota-audi/">
+  <div class="card-img"><img src="/photos/photo_2447@25-03-2026_12-06-01.jpg" alt="Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">westernstandard.news</div>
+    <div class="card-title">Полиев требует от Карни уволить министров из-за отчёта аудитора по иностранным студентам</div>
+    <div class="card-excerpt">Лидер консерваторов Пьер Полиев призвал премьер-министра Марка Карни отправить в отставку сразу трёх министров после «разгромного» отчёта аудитора по программе иностранных студентов.   Речь идёт о дей</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-kak-mark-karni-prodal-kanadu-kitayu/">
+  <div class="card-img"><img src="/photos/photo_2446@25-03-2026_11-03-04.jpg" alt="Как Марк Карни «продал» Канаду Китаю" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">spectator.com</div>
+    <div class="card-title">Как Марк Карни «продал» Канаду Китаю</div>
+    <div class="card-excerpt">Джейн Стэннус пишет, что правительство Марка Карни резко смягчило риторику в отношении Си Цзиньпина и перешло к активному сотрудничеству.  Во время визита в Пекин подписали соглашения по торговле, эне</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-odin-iz-samyh-razyskivaemyh-prestupnikov-v-kanade-zaderzhan-/">
+  <div class="card-img"><img src="/photos/photo_2445@25-03-2026_10-04-12.jpg" alt="Один из самых разыскиваемых преступников в Канаде задержан в США по делу об убийстве в Торонто" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Один из самых разыскиваемых преступников в Канаде задержан в США по делу об убийстве в Торонто</div>
+    <div class="card-excerpt">Полиция Торонто сообщила о задержании Адриана Уокера — одного из самых разыскиваемых преступников страны. Его арестовали в штате Миссисипи.  Уокер проходил по делу о двойной стрельбе в Торонто в мае 2</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-25-federalnaya-minimalnaya-zarplata-vyrastet-do-1815-v-chas/">
+  <div class="card-img"><img src="/photos/photo_2444@25-03-2026_09-03-08.jpg" alt="Федеральная минимальная зарплата вырастет до $18,15 в час" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Федеральная минимальная зарплата вырастет до $18,15 в час</div>
+    <div class="card-excerpt">С 1 апреля федеральная минимальная зарплата в Канаде увеличится с $17,75 до $18,15 в час. Повышение составит 40 центов и проходит автоматически — по формуле, привязанной к инфляции.  Расчёт основан на</div>
+    <div class="card-meta">
+      <span class="card-date">25 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-ucheniya-v-arktike-poshli-ne-po-planu-tehnika-zamyorzla-stre/">
+  <div class="card-img"><img src="/photos/photo_2440@24-03-2026_21-01-42.jpg" alt="Учения в Арктике пошли не по плану: техника замёрзла, стрельбы отменили" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nytimes.com</div>
+    <div class="card-title">Учения в Арктике пошли не по плану: техника замёрзла, стрельбы отменили</div>
+    <div class="card-excerpt">Охренеть какой красивый оригинал от NY Times  Канада попыталась продемонстрировать военную готовность на Крайнем Севере — и столкнулась с банальной проблемой: всё замёрзло.  Во время учений Operation</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Арктика" href="/tag/arktika/">#Арктика</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-zhilischnyy-tribunal-kvebeka-priznal-zapret-na-zhivotnyh-nar/">
+  <div class="card-img"><img src="/photos/photo_2439@24-03-2026_19-04-04.jpg" alt="Жилищный трибунал Квебека признал запрет на животных нарушением Хартии прав" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Жилищный трибунал Квебека признал запрет на животных нарушением Хартии прав</div>
+    <div class="card-excerpt">В Квебеке произошло решение, которое может серьёзно изменить рынок аренды: Tribunal administratif du logement признал, что пункт в договоре аренды о запрете животных может нарушать Хартию прав и свобо</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-zachem-liberaly-rasshiryayut-programmu-vremennyh-inostrannyh/">
+  <div class="card-img"><img src="/photos/photo_2438@24-03-2026_18-02-23.jpg" alt="Зачем либералы расширяют программу временных иностранных работников?" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Зачем либералы расширяют программу временных иностранных работников?</div>
+    <div class="card-excerpt">Брайан Лилли пишет, что правительство Марк Карни идёт в противоположную сторону от логики рынка труда: безработица растёт — а доступ к дешёвой иностранной рабочей силе расширяют.  По данным Statistics</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-poezdki-kanadtsev-v-ssha-obvalilis-na-22-za-god/">
+  <div class="card-img"><img src="/photos/photo_2436@24-03-2026_15-01-55.jpg" alt="Поездки канадцев в США обвалились на 22% за год" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Поездки канадцев в США обвалились на 22% за год</div>
+    <div class="card-excerpt">По данным Statistics Canada, число возвращений канадцев из США в январе 2026 года упало на 22% по сравнению с прошлым годом. Это уже 13-й месяц подряд снижения.  Причина — не в погоде и не в ценах на</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-kanada-ne-otslezhivaet-inostrannyh-studentov-posle-okonchani/">
+  <div class="card-img"><img src="/photos/photo_2435@24-03-2026_14-06-45.jpg" alt="Канада не отслеживает иностранных студентов после окончания виз — аудит" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">bloomberg.com</div>
+    <div class="card-title">Канада не отслеживает иностранных студентов после окончания виз — аудит</div>
+    <div class="card-excerpt">Аудитор Канады Карен Хоган выявила серьёзные дыры в системе иностранных студентов: власти фактически не знают, уезжают ли люди после истечения разрешений.  Главные выводы отчёта: – нет надёжной систем</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-panika-vokrug-primireniya-v-kanade/">
+  <div class="card-img"><img src="/photos/photo_2434@24-03-2026_13-05-38.jpg" alt="Паника вокруг примирения в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">macleans.ca</div>
+    <div class="card-title">Паника вокруг примирения в Канаде</div>
+    <div class="card-excerpt">Автор Хелсилем описывает растущую реакцию на усиление прав коренных народов в Британской Колумбии — и объясняет, почему многие воспринимают это как «угрозу».  За последние годы произошёл сдвиг: – в 20</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-dzhastin-king-snova-arestovan-cherez-dve-nedeli-posle-posled/">
+  <div class="card-img"><img src="/photos/photo_2433@24-03-2026_12-06-28.jpg" alt="Джастин Кинг снова арестован через две недели после «последнего шанса» под залог" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Джастин Кинг снова арестован через две недели после «последнего шанса» под залог</div>
+    <div class="card-excerpt">В Ньюфаундленде история с «последним шансом» закончилась предсказуемо: Джастин Кинг снова за решёткой — спустя всего две недели после освобождения под залог.  34-летний обвиняемый ранее проходил по 21</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="преступность" href="/tag/prestupnost/">#преступность</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-pozhilye-kanadtsy-ostayutsya-glavnoy-oporoy-karni-opros/">
+  <div class="card-img"><img src="/photos/photo_2432@24-03-2026_10-01-56.jpg" alt="Пожилые канадцы остаются главной опорой Карни — опрос" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">torontosun.com</div>
+    <div class="card-title">Пожилые канадцы остаются главной опорой Карни — опрос</div>
+    <div class="card-excerpt">Новый опрос Liaison Strategies показывает: лидерство Марк Карни держится не на молодёжи, а на избирателях старшего возраста.  Либералы сохраняют серьёзный отрыв от консерваторов — 41% против 27% у ком</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-24-pravitelstvo-karni-priznalo-oshibku-prava-cheloveka-vsyo-tak/">
+  <div class="card-img"><img src="/photos/photo_2431@24-03-2026_09-14-58.jpg" alt="Правительство Карни признало «ошибку»: права человека всё-таки обсуждали с Си" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">nsnews.com</div>
+    <div class="card-title">Правительство Карни признало «ошибку»: права человека всё-таки обсуждали с Си</div>
+    <div class="card-excerpt">Правительство Марк Карни внезапно «исправило» собственные данные, поданные в парламент, — теперь утверждает, что тема прав человека всё же поднималась на встрече с Си Цзиньпин.  Ранее официальный доку</div>
+    <div class="card-meta">
+      <span class="card-date">24 мар 2026</span>
+      <div class="card-tags"></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-23-zamena-sistemy-phoenix-oboydyotsya-minimum-v-42-mlrd-otchyot/">
+  <div class="card-img"><img src="/photos/photo_2430@23-03-2026_21-09-02.jpg" alt="Замена системы Phoenix обойдётся минимум в $4,2 млрд — отчёт аудитора" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Замена системы Phoenix обойдётся минимум в $4,2 млрд — отчёт аудитора</div>
+    <div class="card-excerpt">Федеральное правительство Канады готовится потратить не менее 4,2 млрд долларов на замену провалившейся платёжной системы Phoenix — и это, судя по отчёту аудитора, далеко не предел.  Аудитор Канады Ка</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-23-samye-deshyovye-avtomobili-v-kanade-v-2026-godu/">
+  <div class="card-img"><img src="/photos/photo_2429@23-03-2026_17-02-12.jpg" alt="Самые дешёвые автомобили в Канаде в 2026 году" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">driving.ca</div>
+    <div class="card-title">Самые дешёвые автомобили в Канаде в 2026 году</div>
+    <div class="card-excerpt">В Канаде больше нет новых машин дешевле $20 тысяч — рынок окончательно сдвинулся вверх. Driving разобрал самые доступные модели по сегментам.   Самый дешёвый автомобиль: Hyundai Elantra ($22,999)   Ба</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-23-ford-obyavit-aeroport-billi-bishop-osoboy-ekonomicheskoy-zon/">
+  <div class="card-img"><img src="/photos/photo_2428@23-03-2026_15-06-30.jpg" alt="Форд объявит аэропорт Билли Бишоп «особой экономической зоной», чтобы разрешить реактивные самолёты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">theglobeandmail.com</div>
+    <div class="card-title">Форд объявит аэропорт Билли Бишоп «особой экономической зоной», чтобы разрешить реактивные самолёты</div>
+    <div class="card-excerpt">Премьер Онтарио Даг Форд решил пойти ва-банк: он планирует объявить аэропорт Билли Бишоп в Торонто «особой экономической зоной», чтобы обойти муниципальные и провинциальные ограничения и расширить взл</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="коренные народы" href="/tag/korennye-narody/">#коренные народы</a><a class="tag tag-reg" data-t="Онтарио" href="/tag/ontario/">#Онтарио</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-23-v-ssha-rezko-vyros-spros-na-kanadskoe-grazhdanstvo-posle-izm/">
+  <div class="card-img"><img src="/photos/photo_2427@23-03-2026_14-01-43.jpg" alt="В США резко вырос спрос на канадское гражданство после изменения закона" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">В США резко вырос спрос на канадское гражданство после изменения закона</div>
+    <div class="card-excerpt">После изменения закона о гражданстве в Канаде резко увеличилось число заявок от американцев, желающих подтвердить своё право на канадский паспорт.   Речь идёт о законе Bill C-3, принятом в декабре 202</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-23-menedzher-kampanii-konservatorov-otmahnulsya-ot-oprosov-s-bo/">
+  <div class="card-img"><img src="/photos/photo_2426@23-03-2026_12-04-30.jpg" alt="Менеджер кампании консерваторов отмахнулся от опросов с большим отрывом либералов" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Менеджер кампании консерваторов отмахнулся от опросов с большим отрывом либералов</div>
+    <div class="card-excerpt">Федеральные консерваторы не собираются паниковать из-за опросов, где либералы опережают их на 10+ пунктов. Руководитель кампании партии Стив Аутхаус прямо сказал: «опросы — это просто опросы».   По ег</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-23-aviadispetcher-krichal-stop-za-sekundy-do-smertelnoy-katastr/">
+  <div class="card-img"><img src="/photos/photo_2425@23-03-2026_10-11-24.jpg" alt="Авиадиспетчер кричал «стоп» за секунды до смертельной катастрофы Air Canada в Нью-Йорке" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Авиадиспетчер кричал «стоп» за секунды до смертельной катастрофы Air Canada в Нью-Йорке</div>
+    <div class="card-excerpt">За мгновения до столкновения самолёта Air Canada с пожарной машиной в аэропорту Ла-Гуардия диспетчер в панике повторял «стоп» — как минимум десять раз, пытаясь остановить технику, выехавшую на взлётно</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-23-samolyot-air-canada-express-stolknulsya-s-avtomobilem-v-aero/">
+  <div class="card-img"><img src="/photos/photo_2424@23-03-2026_08-01-38.jpg" alt="Самолёт Air Canada Express столкнулся с автомобилем в аэропорту Ла-Гуардия — погибли пилоты" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">x.com</div>
+    <div class="card-title">Самолёт Air Canada Express столкнулся с автомобилем в аэропорту Ла-Гуардия — погибли пилоты</div>
+    <div class="card-excerpt">В аэропорту Ла-Гуардия в Нью-Йорке произошла авария на взлётно-посадочной полосе: самолёт Air Canada Express столкнулся с транспортом аэропортовых служб.   По данным Reuters, в результате погибли оба</div>
+    <div class="card-meta">
+      <span class="card-date">23 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-22-oprosy-amerikantsy-huzhe-otnosyatsya-k-kanade-i-eto-plohaya-/">
+  <div class="card-img"><img src="/photos/photo_2423@22-03-2026_17-04-37.jpg" alt="Опросы: американцы хуже относятся к Канаде — и это плохая новость для торговой войны" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title">Опросы: американцы хуже относятся к Канаде — и это плохая новость для торговой войны</div>
+    <div class="card-excerpt">Свежие данные показывают редкую ситуацию: ухудшились не только настроения канадцев к США, но и наоборот.   По данным Gallup, доля американцев с положительным отношением к Канаде упала с 91% до 80% — м</div>
+    <div class="card-meta">
+      <span class="card-date">22 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-pol" data-t="США–Канада" href="/tag/sshakanada/">#США–Канада</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-22-vzglyad-na-kanadu-v-tsifrah/">
+  <div class="card-img"><img src="/photos/photo_2422@22-03-2026_15-01-51.jpg" alt="Взгляд на Канаду — в цифрах" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">niagaraindependent.ca</div>
+    <div class="card-title">Взгляд на Канаду — в цифрах</div>
+    <div class="card-excerpt">Крис Джордж из National Post собирает сухую статистику — и картина выходит довольно мрачная.   Экономика  – 0,5%: худший рост в G7 за 10 лет – разрыв с США по ВВП на душу населения вырос с ~20% до 40%</div>
+    <div class="card-meta">
+      <span class="card-date">22 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="жильё" href="/tag/zhilyo/">#жильё</a><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-22-poliev-sam-dogovorilsya-o-podkaste-dzho-rogana/">
+  <div class="card-img"><img src="/photos/photo_2421@22-03-2026_12-02-41.jpg" alt="Полиев сам договорился о подкасте Джо Рогана" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Полиев сам договорился о подкасте Джо Рогана</div>
+    <div class="card-excerpt">Глава кампании консерваторов Стив Оутхаус рассказал, что Пьер Полиев лично договорился о своем участии в подкасте Джо Рогана — без посредников и долгих переговоров.   По его словам, Полиев и Роган про</div>
+    <div class="card-meta">
+      <span class="card-date">22 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-20-skryvayutsya-na-vidu-rezkiy-rost-onlayn-ekspluatatsii-detey-/">
+  <div class="card-img"><img src="/photos/photo_2420@20-03-2026_21-02-26.jpg" alt="«Скрываются на виду»: резкий рост онлайн-эксплуатации детей в Канаде" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">«Скрываются на виду»: резкий рост онлайн-эксплуатации детей в Канаде</div>
+    <div class="card-excerpt">Полиция RCMP в Нью-Брансуике фиксирует резкий рост онлайн-преступлений против детей — и говорит, что злоумышленники теперь действуют «прямо на виду».  За период с 2019 по 2024 год количество дел у спе</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-20-kongress-ssha-natselilsya-na-kanadskiy-nalog-na-netflix-s-no/">
+  <div class="card-img"><img src="/photos/photo_2419@20-03-2026_17-05-10.jpg" alt="Конгресс США нацелился на канадский «налог на Netflix» с новым законопроектом" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title">Конгресс США нацелился на канадский «налог на Netflix» с новым законопроектом</div>
+    <div class="card-excerpt">В США запускают новый фронт давления на Канаду — теперь из-за стриминговых сервисов.  Республиканец Ллойд Смакер представил законопроект, направленный против канадского закона об онлайн-стриминге. Док</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="тарифы" href="/tag/tarify/">#тарифы</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-20-muzhchina-s-49-sudimostyami-snova-vypuschen-v-obschestvo-van/">
+  <div class="card-img"><img src="/photos/photo_2418@20-03-2026_15-04-34.jpg" alt="Мужчина с 49 судимостями снова выпущен в общество Ванкувера" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title">Мужчина с 49 судимостями снова выпущен в общество Ванкувера</div>
+    <div class="card-excerpt">В Ванкувер вновь оказался на свободе рецидивист с десятками преступлений за плечами — и это решение уже вызывает вопросы.  Речь о Джордане Макинтоше, у которого 49 судимостей, включая 11 за насилие и</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-20-algoritmicheskoe-tsenoobrazovanie-ispolzuyut-v-kanade-pochem/">
+  <div class="card-img"><img src="/photos/photo_2417@20-03-2026_14-02-06.jpg" alt="Алгоритмическое ценообразование используют в Канаде. Почему многие хотят его запретить" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Алгоритмическое ценообразование используют в Канаде. Почему многие хотят его запретить</div>
+    <div class="card-excerpt">Большинство канадцев выступают против так называемого «алгоритмического ценообразования» — когда компании с помощью ИИ и данных назначают разную цену разным людям за один и тот же товар.  Опрос Abacus</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="энергетика" href="/tag/energetika/">#энергетика</a></div>
+    </div>
+  </div>
+</a><a class="card" href="/post/2026-03-20-ottava-rezhet-rashody-pod-nozh-idut-nauka-turizm-i-inostrann/">
+  <div class="card-img"><img src="/photos/photo_2416@20-03-2026_13-02-10.jpg" alt="Оттава режет расходы: под нож идут наука, туризм и иностранная помощь" loading="lazy"></div>
+  <div class="card-body">
+    <div class="card-src">globalnews.ca</div>
+    <div class="card-title">Оттава режет расходы: под нож идут наука, туризм и иностранная помощь</div>
+    <div class="card-excerpt">Правительство Марк Карни запускает масштабное сокращение расходов — и список попавших под урезание программ выглядит довольно показательно.  Согласно бюджетным планам на 2026–2027 годы, федеральные ве</div>
+    <div class="card-meta">
+      <span class="card-date">20 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a><a class="tag tag-def" data-t="климат" href="/tag/klimat/">#климат</a></div>
+    </div>
+  </div>
+</a></div><div><h3 style="margin-bottom:12px">Последние</h3><a class="compact-item" href="/post/2026-03-27-kazhdyy-kanadets-stoit-dvuh-amerikantsev-v-los-kabose-podsch/">
+  <div class="ci-num">01</div>
+  <div class="ci-body">
+    <div class="card-src">nationalpost.com</div>
+    <div class="card-title ci-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</div>
+    <div class="card-meta">
+      <span class="card-date">27 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Торонто" href="/tag/toronto/">#Торонто</a></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-27-kanada-dostigla-tseli-nato-po-voennym-rashodam/">
+  <div class="ci-num">02</div>
+  <div class="ci-body">
+    <div class="card-src">ctvnews.ca</div>
+    <div class="card-title ci-title">Канада достигла цели НАТО по военным расходам</div>
+    <div class="card-meta">
+      <span class="card-date">27 мар 2026</span>
+      <div class="card-tags"></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-26-s-okonchaniem-patentov-na-preparaty-dlya-pohudeniya-vrachi-i/">
+  <div class="ci-num">03</div>
+  <div class="ci-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title ci-title">С окончанием патентов на препараты для похудения врачи и пациенты ждут дешёвые аналоги</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/">
+  <div class="ci-num">04</div>
+  <div class="ci-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title ci-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-26-glava-air-canada-snova-promahnulsya-s-dvuyazychiem/">
+  <div class="ci-num">05</div>
+  <div class="ci-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title ci-title">Глава Air Canada снова «промахнулся» с двуязычием</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-reg" data-t="Квебек" href="/tag/kvebek/">#Квебек</a></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-26-kanada-ostayotsya-zavisimoy-ot-dei/">
+  <div class="ci-num">06</div>
+  <div class="ci-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title ci-title">Канада остаётся зависимой от DEI</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-26-immigratsiya-kanady-otkazala-zayavitelnitse-soslavshis-na-vy/">
+  <div class="ci-num">07</div>
+  <div class="ci-body">
+    <div class="card-src">apple.news</div>
+    <div class="card-title ci-title">Иммиграция Канады отказала заявительнице, сославшись на «выдуманные» обязанности — в деле фигурирует ИИ</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-imm" data-t="иммиграция" href="/tag/immigratsiya/">#иммиграция</a></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-26-meta-i-youtube-priznany-vinovnymi-v-sozdanii-zavisimyh-produ/">
+  <div class="ci-num">08</div>
+  <div class="ci-body">
+    <div class="card-src">theguardian.com</div>
+    <div class="card-title ci-title">Meta и YouTube признаны виновными в создании «зависимых» продуктов, вредящих детям</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-def" data-t="здоровье" href="/tag/zdorove/">#здоровье</a></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-26-energeticheskiy-krizis-tolko-nachinaetsya/">
+  <div class="ci-num">09</div>
+  <div class="ci-body">
+    <div class="card-src">cbc.ca</div>
+    <div class="card-title ci-title">Энергетический кризис только начинается</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-eco" data-t="экономика" href="/tag/ekonomika/">#экономика</a></div>
+    </div>
+  </div>
+</a><a class="compact-item" href="/post/2026-03-26-ford-prigrozil-poslat-armiyu-chtoby-ne-dopustit-vozvrascheni/">
+  <div class="ci-num">10</div>
+  <div class="ci-body">
+    <div class="card-src">thestar.com</div>
+    <div class="card-title ci-title">Форд пригрозил «послать армию», чтобы не допустить возвращения Кромби на пост мэра Миссиссаги</div>
+    <div class="card-meta">
+      <span class="card-date">26 мар 2026</span>
+      <div class="card-tags"><a class="tag tag-pol" data-t="выборы" href="/tag/vybory/">#выборы</a></div>
+    </div>
+  </div>
+</a></div></div></div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
+    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+  </div>
+  <div class="fcol"><h4>Темы</h4><a href="/tag/tarify/">#тарифы</a><a href="/tag/immigratsiya/">#иммиграция</a><a href="/tag/zhilyo/">#жильё</a><a href="/tag/vybory/">#выборы</a><a href="/tag/ekonomika/">#экономика</a><a href="/tag/energetika/">#энергетика</a><a href="/tag/prestupnost/">#преступность</a><a href="/tag/ontario/">#Онтарио</a></div>
+  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dzhastin-tryudo/">Джастин Трюдо</a></div>
+</div>
+<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+</footer>
 </body>
 </html>
