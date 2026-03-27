@@ -561,39 +561,98 @@ def build_news_index(posts_by_date):
 .day-hdr{display:flex;align-items:baseline;gap:12px;padding:16px 0 12px;border-bottom:1px solid var(--br);margin-bottom:1px}
 .day-label{font-family:var(--serif);font-size:20px;font-weight:700}
 .day-count{font-size:12px;color:var(--t3)}
-.hero-card{display:grid;grid-template-columns:1.4fr 1fr;background:var(--bg2);margin-bottom:1px;transition:background .12s}
+
+.hero-card{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    background:var(--bg2);
+    margin-bottom:1px;
+    transition:background .12s;
+    align-items:stretch;
+}
 .hero-card:hover{background:var(--bg3)}
-.hc-img{overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;min-height:240px}
-.hc-body{padding:24px 24px 20px;display:flex;flex-direction:column;gap:8px}
-.hc-title{font-size:22px;flex:1}
-.hc-ex{-webkit-line-clamp:4;font-size:14px}
-.hc-meta{margin-top:auto;padding-top:10px}
-.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--br);margin-bottom:1px}
-.small-card{background:var(--bg2);display:flex;flex-direction:column;transition:background .12s}
-.small-card:hover{background:var(--bg3)}
-.sc-img{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
-.sc-body{padding:13px 15px;flex:1;display:flex;flex-direction:column;gap:5px}
-.sc-title{font-size:15px;flex:1}
-.sc-meta{margin-top:auto;padding-top:6px}
-.compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);margin-bottom:1px}
-.compact-item{background:var(--bg2);display:flex;gap:12px;padding:12px 15px;align-items:flex-start;transition:background .12s}
-.compact-item:hover{background:var(--bg3)}
-.ci-num{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--bg4);flex-shrink:0;line-height:1;min-width:26px;text-align:right}
-.ci-body{flex:1;display:flex;flex-direction:column;gap:4px}
-.ci-title{font-size:14px}
-.prev-section{margin-top:24px}
-.prev-day{margin-bottom:16px}
-.prev-day-btn{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
-.pd-label{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--t2)}
-.pd-count{font-size:12px;color:var(--t3)}
-.pd-tog{font-size:12px;color:var(--t4);margin-left:auto}
-.prev-posts{display:none;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br)}
-.prev-posts.open{display:grid}
-.pp-card{background:var(--bg2);padding:11px 13px;display:flex;flex-direction:column;gap:4px;transition:background .12s}
-.pp-card:hover{background:var(--bg3)}
-.pp-title{font-family:var(--serif);font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-@media(max-width:900px){.hero-card{grid-template-columns:1fr}.sec-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.sec-grid{grid-template-columns:1fr}}
+
+.hc-img{
+    width:100%;
+    height:100%;
+    min-height:260px;
+    overflow:hidden;
+    background:var(--bg4);
+}
+
+.hc-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hc-body{
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.hc-title{
+    font-size:22px;
+    line-height:1.25;
+}
+
+.hc-ex{
+    font-size:14px;
+    color:var(--t2);
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.hc-meta{
+    margin-top:auto;
+    padding-top:10px;
+}
+
+.sec-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--br);
+    margin-bottom:1px;
+}
+
+.small-card{
+    background:var(--bg2);
+    display:flex;
+    flex-direction:column;
+}
+
+.sc-img{
+    width:100%;
+    aspect-ratio:16/9;
+    overflow:hidden;
+}
+
+.sc-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.sc-body{
+    padding:14px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.sc-title{
+    font-size:15px;
+    line-height:1.3;
+}
+
+@media(max-width:900px){
+    .hero-card{grid-template-columns:1fr}
+}
 """
     dates = sorted(posts_by_date.keys(), reverse=True)
     html = '<div class="wrap">'
