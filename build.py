@@ -937,7 +937,7 @@ def build_post_page(p, related):
 .art-src-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
 .art-pers{display:flex;gap:6px;flex-wrap:wrap}
 .art-per{font-size:11px;color:var(--tg2);background:rgba(43,108,176,.08);border:1px solid rgba(43,108,176,.2);padding:2px 9px;border-radius:8px}
-.art-title{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.2;margin-bottom:18px;color:var(--t)}
+.art-title{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1.2;margin-bottom:18px;color:var(--t)}
 .art-hero{aspect-ratio:16/9;overflow:hidden;background:var(--bg4);margin-bottom:20px;border-radius:8px;box-shadow:var(--shadow)}
 .art-hero img{width:100%;height:100%;object-fit:cover}
 .art-hero-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
@@ -961,7 +961,7 @@ def build_post_page(p, related):
 .rc-date{font-size:10px;color:var(--t4)}
 .bk{display:inline-flex;align-items:center;gap:5px;color:var(--t3);font-size:13px;margin-bottom:24px;transition:color .15s}
 .bk:hover{color:var(--t)}
-@media(max-width:900px){.art-layout{grid-template-columns:1fr}.art-sb{display:none}.art-title{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.2;margin-bottom:18px;color:var(--t)}.art-body-wrap{padding:20px 18px}}
+@media(max-width:900px){.art-layout{grid-template-columns:1fr}.art-sb{display:none}.art-title{font-size:22px}.art-body-wrap{padding:20px 18px}}
 """
 
     content = (
@@ -1020,12 +1020,12 @@ def build_news_index(posts_by_date):
 .slider-wrap{margin-bottom:8px}
 .slider-track{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
 .slider-track::-webkit-scrollbar{display:none}
-.slide-card{min-width:220px;max-width:220px;flex-shrink:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s;border:1px solid var(--br)}
+.slide-card{min-width:220px;max-width:220px;flex-shrink:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s}
 .slide-card:hover{transform:translateY(-2px)}
 .slide-img{width:100%;aspect-ratio:4/3;background:var(--bg4);overflow:hidden}
 .slide-img img{width:100%;height:100%;object-fit:cover;display:block}
-.slide-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
-.slide-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.5px;display:block}
+.slide-body{padding:10px 12px 12px}
+.slide-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.5px;display:block;margin-bottom:5px}
 .slide-title{font-family:var(--serif);font-size:13px;font-weight:400;line-height:1.35;color:var(--t)}
 
 /* NEWS by day */
@@ -1068,12 +1068,12 @@ def build_news_index(posts_by_date):
 .slider-wrap{margin-bottom:8px}
 .slider-track{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
 .slider-track::-webkit-scrollbar{display:none}
-.slide-card{min-width:220px;max-width:220px;flex-shrink:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s;border:1px solid var(--br)}
+.slide-card{min-width:220px;max-width:220px;flex-shrink:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s}
 .slide-card:hover{transform:translateY(-2px)}
 .slide-img{width:100%;aspect-ratio:4/3;background:var(--bg4);overflow:hidden}
 .slide-img img{width:100%;height:100%;object-fit:cover;display:block}
-.slide-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
-.slide-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.5px;display:block}
+.slide-body{padding:10px 12px 12px}
+.slide-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.5px;display:block;margin-bottom:5px}
 .slide-title{font-family:var(--serif);font-size:13px;font-weight:400;line-height:1.35;color:var(--t)}
 
 /* NEWS by day */
@@ -1124,13 +1124,15 @@ def build_news_index(posts_by_date):
         bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
         src_label = source_name(src)
         if img:
-            img_block = '<div class="card-img"><img src="' + img + '" alt="" loading="lazy"></div>'
+            img_block = '<div class="slide-img"><img src="' + img + '" alt="" loading="lazy"></div>'
         else:
-            img_block = '<div class="card-img"><div class="card-ph" style="background:' + bg + ';color:' + fg + '">' + lbl + '</div></div>'
+            img_block = '<div class="slide-img"><div class="card-ph" style="background:' + bg + ';color:' + fg + '">' + lbl + '</div></div>'
         slides_html += ('<a class="slide-card" href="' + post_url(p) + '">'
                         + img_block
-                        + '<span class="src-badge">' + esc(src_label) + '</span>'
-                        + '<div class="card-title" style="font-size:15px;font-weight:800">' + esc(p['title']) + '</div>'
+                        + '<div class="slide-body">'
+                        + '<span class="slide-src">' + esc(src_label) + '</span>'
+                        + '<div class="slide-title">' + esc(p['title']) + '</div>'
+                        + '</div>'
                         + '</a>')
 
     html = ('<div class="wrap">'
