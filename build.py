@@ -469,18 +469,12 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 /* ── CARD — Meduza style ──
    Structure: img → body(badge + title + meta)
    No overflow tricks, no absolute positioning */
-.hero-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;cursor:pointer;margin-bottom:16px}
-.hero-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.hc-body{padding:20px 22px;display:flex;flex-direction:column;gap:6px}
-.hc-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.2;color:var(--t)}
-.hc-ex{font-size:14px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;word-break:break-word;margin-top:4px}
-.hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0;display:block}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
 .card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
-.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:7px;overflow:hidden}
 .card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px}
 .card-excerpt{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
@@ -503,7 +497,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .pb.disabled{opacity:.3;pointer-events:none}
 
-.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--br)}
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
 .tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
 .tc:hover{border-color:var(--br2);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
@@ -694,7 +688,6 @@ def hero_card(p):
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_html}</div>'
             f'</div></div></a>')
-
 def small_card(p, loading='lazy'):
     src_label = source_name(p.get('source', ''))
     tags_html = tags_row(p.get('tags'), 2)
@@ -710,16 +703,17 @@ def small_card(p, loading='lazy'):
             f'</div></div></a>')
 
 def photo_card(p, loading='lazy'):
+    """Card with photo — for Materials, Longreads, Surveys, Tags."""
     src_label = source_name(p.get('source', ''))
     img = post_img_src(p)
     src = p.get('source', '')
     bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
-    tags_html = tags_row(p.get('tags'), 2)
-    excerpt = p.get('excerpt','') or ''
     if img:
         img_block = f'<div class="card-img"><img src="{img}" alt="" loading="{loading}"></div>'
     else:
         img_block = f'<div class="card-img"><div class="card-ph" style="background:{bg};color:{fg}">{lbl}</div></div>'
+    tags_html = tags_row(p.get('tags'), 2)
+    excerpt = p.get('excerpt','') or ''
     return (f'<a class="card" href="{post_url(p)}">'
             f'{img_block}'
             f'<div class="card-body">'
@@ -731,10 +725,10 @@ def photo_card(p, loading='lazy'):
             f'<div class="card-tags">{tags_html}</div>'
             f'</div></div></a>')
 
+
 def compact_item(p, num):
     src_label = source_name(p.get('source', ''))
     tags_html = tags_row(p.get('tags'), 1)
-    excerpt = p.get('excerpt','') or ''
     return (f'<a class="card" href="{post_url(p)}">'
             f'<div class="card-body">'
             f'<span class="src-badge">{esc(src_label)}</span>'
@@ -885,33 +879,19 @@ def build_post_page(p, related):
 
 def build_news_index(posts_by_date):
     css = """
-.day-hdr{display:flex;align-items:baseline;gap:12px;padding:16px 0 12px;border-bottom:2px solid var(--br);margin-bottom:18px}
+.day-hdr{display:flex;align-items:baseline;gap:12px;padding:14px 0 12px;border-bottom:2px solid var(--br);margin-bottom:18px}
 .day-label{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--t)}
 .day-sub{font-size:12px;color:var(--t3)}
 
-/* HERO — full width, image on top */
-.hero-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;margin-bottom:18px;transition:box-shadow .15s,transform .15s}
+/* Hero — big text card, full width */
+.hero-card{background:#fff;border-radius:8px;box-shadow:var(--shadow-sm);padding:20px 22px;margin-bottom:16px;display:flex;flex-direction:column;gap:8px;transition:box-shadow .15s,transform .15s;cursor:pointer}
 .hero-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.hc-img{width:100%;aspect-ratio:16/6;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hc-img img{width:100%;height:100%;object-fit:cover;display:block}
-.hc-body{padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px}
 .hc-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.25;color:var(--t)}
-.hc-ex{font-size:14px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;word-break:break-word;margin-top:4px}
-.hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hc-ex{font-size:14px;color:var(--t2);line-height:1.55;margin-top:4px;word-break:break-word}
+.hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
 
-/* 3-grid */
-.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
-
-/* Compact numbered list */
-.compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
-
-
-
-
-
-
-/* Yesterday 4-grid */
-.yesterday-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+/* 2-column grid for all news cards */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
 
 /* Prev days */
 .prev-section{margin-top:8px}
@@ -921,18 +901,15 @@ def build_news_index(posts_by_date):
 .pd-label{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--t3);transition:color .15s}
 .pd-count{font-size:11px;color:var(--t3)}
 .pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
-.prev-posts{display:none;grid-template-columns:repeat(4,1fr);gap:12px;padding:12px 0}
+.prev-posts{display:none;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0}
 .prev-posts.open{display:grid}
 .pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow-sm);transition:transform .12s}
 .pp-card:hover{transform:translateY(-1px)}
 .pp-src{font-size:9px;font-weight:700;text-transform:uppercase;color:#fff;background:var(--ac);padding:1px 6px;border-radius:2px;width:fit-content;margin-bottom:2px}
 .pp-title{font-family:var(--serif);font-size:12px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
-@media(max-width:1100px){.yesterday-grid{grid-template-columns:repeat(3,1fr)}.prev-posts{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.sec-grid{grid-template-columns:1fr 1fr}.yesterday-grid{grid-template-columns:1fr 1fr}.compact-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.sec-grid{grid-template-columns:1fr}.yesterday-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.news-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:1fr}}
 """
-
     dates = sorted(posts_by_date.keys(), reverse=True)
     html = '<div class="wrap">'
 
@@ -945,34 +922,20 @@ def build_news_index(posts_by_date):
         else:
             label = fmt_date_full_short(date)
 
-        if di == 0:
-            # TODAY: hero + 3-grid + compact list
-            html += f'<div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(posts)} материалов · {fmt_date_full_short(date)}</div></div>'
-            if posts:
-                html += hero_card(posts[0])
-            if len(posts) > 1:
-                sec = posts[1:4]
-                html += f'<div class="sec-grid">{"".join(small_card(p) for p in sec)}</div>'
-            if len(posts) > 4:
-                rest = posts[4:]
-                html += f'<div class="compact-grid">{"".join(compact_item(p, i+5) for i, p in enumerate(rest))}</div>'
-
-        elif di == 1:
-            # YESTERDAY: 4-card grid
+        if di <= 1:
             html += f'<div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(posts)} материалов</div></div>'
-            html += f'<div class="yesterday-grid">{"".join(small_card(p) for p in posts[:8])}</div>'
-            if len(posts) > 8:
-                extra = posts[8:]
-                html += f'<div class="compact-grid" style="margin-top:-10px;margin-bottom:24px">{"".join(compact_item(p, i+9) for i, p in enumerate(extra))}</div>'
-
+            # First post — hero
+            html += hero_card(posts[0])
+            # Rest — 2-column grid
+            if len(posts) > 1:
+                html += f'<div class="news-grid">{''.join(small_card(p) for p in posts[1:])}</div>'
         else:
-            # PREVIOUS DAYS: collapsible
             if di == 2:
                 html += '<div class="prev-section">'
             posts_html = ''.join(f'''<a class="pp-card" href="{post_url(p)}">
               <span class="pp-src">{esc(source_name(p.get("source","")))}</span>
               <div class="pp-title">{esc(p["title"])}</div>
-              <div class="card-date" style="font-size:10px;color:var(--t3)">{fmt_date(p["date"])}</div>
+              <div class="card-date" style="font-size:10px;color:var(--t3);margin-top:2px">{fmt_date(p["date"])}</div>
             </a>''' for p in posts)
             idx_str = str(di)
             html += f'''<div class="prev-day">
@@ -985,32 +948,26 @@ def build_news_index(posts_by_date):
             </div>'''
 
     if len(dates) > 2:
-        html += '</div>'  # close prev-section
-
+        html += '</div>'
     html += '</div>'
     html += '<script>function toggleDay(id){const el=document.getElementById("pd"+id);const tog=document.getElementById("pt"+id);const open=el.classList.toggle("open");tog.textContent=open?"− скрыть":"+ показать"}</script>'
 
     return page_shell(
         title="Maple Barrel — Новости Канады на русском",
-        desc="Ежедневный обзор канадских СМИ на русском языке. Политика, экономика и жизнь Канады из CBC, Globe and Mail, CTV и других ведущих изданий.",
+        desc="Ежедневный обзор канадских СМИ на русском языке. Политика, экономика и жизнь Канады.",
         url="/",
         content=html,
-        active='news',
-        css_extra=css
+        active='news'
     )
-
-
-# ── МАТЕРИАЛЫ ─────────────────────────────────────────
 
 def build_materials_page(posts, page=1, tag=''):
     css = """
 .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.mat-grid .card{min-height:140px}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
 .page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.mat-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
+@media(max-width:640px){.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
 """
     per = POSTS_PER_PAGE
     total = len(posts)
@@ -1044,7 +1001,6 @@ def build_materials_page(posts, page=1, tag=''):
 
 
 # ── ЛОНГРИДЫ ──────────────────────────────────────────
-
 def build_longreads_page(posts, page=1, tag=''):
     css = """
 .lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -1168,12 +1124,11 @@ def build_surveys_page(posts, page=1):
     pgn = _pagination(page, pages, '/surveys/')
     css = """
 .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.mat-grid .card{min-height:140px}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
 .page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.mat-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
+@media(max-width:640px){.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
 """
     content = f"""<div class="wrap">
   <div class="page-intro">
@@ -1194,13 +1149,12 @@ def build_surveys_page(posts, page=1):
 
 
 # ── О ПРОЕКТЕ / КОНТАКТЫ ──────────────────────────────
-
 def build_about_page():
     content = """<div class="wrap" style="max-width:760px">
   <h1 style="font-family:var(--serif);font-size:32px;font-weight:700;margin-bottom:20px">О проекте</h1>
   <div style="font-family:var(--bserif);font-size:18px;line-height:1.85;color:var(--t)">
     <p>Maple Barrel — независимый русскоязычный медиапроект о Канаде. Каждый день мы отбираем главное из ведущих канадских изданий и пересказываем по-русски.</p>
-    <p>Ручной отбор материалов, редактура и живой русский текст — без автоматического перевода и без лишнего шума.</p>
+    <p>Ежедневный редакторский отбор, живой русский текст и канадский контекст — только то, что важно знать.</p>
     <p>Проект работает с февраля 2025 года. В архиве — более 2700 материалов о канадской политике, экономике, иммиграции, жилье и повседневной жизни страны.</p>
     <p><strong>Источники:</strong> CBC, CTV, Globe and Mail, National Post, Global News, Bloomberg, Reuters, NY Times, Maclean's, The Atlantic, Toronto Star, The Hub и другие надёжные издания.</p>
   </div>
