@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTV News — Maple Barrel</title>
+<meta name="description" content="Все материалы из CTV News на русском языке.">
+<link rel="canonical" href="https://journaists.ca/source/ctv-news/">
+<meta property="og:title" content="CTV News — Maple Barrel">
+<meta property="og:description" content="Все материалы из CTV News на русском языке.">
+<meta property="og:url" content="https://journaists.ca/source/ctv-news/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journaists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CTV News — Maple Barrel">
+<meta name="twitter:description" content="Все материалы из CTV News на русском языке.">
+<meta name="twitter:image" content="https://journaists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
+  --br:#e8e4dc;--br2:#d0ccc4;
+  --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
+  --ac:#e53e3e;--ac2:#c53030;--tg:#0088cc;--maple:#e53e3e;
+  --dark:#2d3748;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:0 8px 24px rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Inter','Golos Text',system-ui,sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:19px;font-weight:900;letter-spacing:-1px;color:var(--ac);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:3px}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
+.nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
+.nav-r{display:flex;align-items:center}
+.tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
+.tgb:hover{background:#006fa8}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
+
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
+
+/* SOURCE BADGE — dark grey */
+.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
+
+/* READ MORE — light red with leaf */
+.btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
+.btn-more:hover{opacity:1}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
+.sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+
+/* CARD — for featured grid */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.25;color:var(--t);letter-spacing:-.2px}
+.card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
+.card-date{font-size:11px;color:var(--t4)}
+
+/* LR-CARD — horizontal, for materials/longreads/surveys */
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+
+/* TAGS */
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+.tag-eco{background:#fef3c7;color:#78350f}
+.tag-imm{background:#dbeafe;color:#1e40af}
+.tag-reg{background:#d1fae5;color:#065f46}
+.tag-stat{background:#ede9fe;color:#4c1d95}
+.tag-def{background:var(--bg4);color:var(--t3)}
+
+/* TAG FILTER BAR */
+.tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tc{font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:.15s;letter-spacing:.3px;white-space:nowrap;cursor:pointer}
+.tc:hover{border-color:var(--t);color:var(--t)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* PAGINATION */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:.15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* FOOTER */
+footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:28px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
+.ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:.15s}
+.fcol a:hover{color:var(--ac)}
+.fcp{max-width:1200px;margin:24px auto 0;padding:20px 24px 0;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
+
+/* TG CTA on post page */
+.tgcta{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bee3f8;border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
+.ctxt{flex:1}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:5px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:9px 18px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;transition:.15s}
+.cbtn2:hover{background:#006fa8}
+
+@media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:700px){.fi{grid-template-columns:1fr}.ni{gap:8px}.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
+  </div>
+</div></nav>
+<div class="wrap"><div class="page-intro"><h1>CTV News</h1><p>311 материалов из этого издания</p></div><div class="lr-grid"><a class="lr-card" href="/post/2025-05-10-vsyo-bolshe-kanadtsev-uezzhayut-lechitsya-za-granitsu-ne-rad/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Всё больше канадцев уезжают лечиться за границу — не ради комфорта, а потому что здесь просто не могут получить помощь.</div><p class="lrc-ex">Эллисон из Торонто страдала от невыносимой боли в спине. Врач отказался принять её даже через 8 месяцев ожидания. Она уже начала прощаться с жизнью и рассматривать эвтаназию, пока...</p><span class="lrc-date">10 май 2025</span></div></a><a class="lr-card" href="/post/2025-05-10-ssha-hotyat-uderzhat-kanadskih-pensionerov-dolshe-novyy-zako/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">🇺🇸 США хотят удержать канадских пенсионеров дольше — новый законопроект “Canadian Snowbird Visa Act” предлагает увеличить допустимый срок пребывания в США для к</div><p class="lrc-ex">анадцев старше 50 лет с 182 до 240 дней в году.  Авторы идеи — республиканцы из приграничных штатов:  – Элис Стефаник (Нью-Йорк) говорит, что канадцы «критически важны» для...</p><span class="lrc-date">10 май 2025</span></div></a><a class="lr-card" href="/post/2025-05-09-tramp-pokazal-kanade-chego-zhdat-ot-buduschih-torgovyh-pereg/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">📉 Трамп показал Канаде, чего ждать от будущих торговых переговоров. Новый «предварительный» торговый договор США и Великобритании намекает: тарифы могут снижать</div><p class="lrc-ex">ся, но отменять их полностью Трамп не собирается.  Сделка ещё не подписана, но уже ясно — речь идёт об управляемой торговле, а не о свободной.  🔹 США сохранят базовую пошлину 10%...</p><span class="lrc-date">9 май 2025</span></div></a><a class="lr-card" href="/post/2025-05-08-porazhenie-polieva-udarilo-ne-tolko-po-imidzhu-no-i-po-koshe/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">💸 Поражение Полиева ударило не только по имиджу — но и по кошельку. А заодно и по другому депутату.</div><p class="lrc-ex">После того как Пьер Полиев проиграл выборы в своём округе в пригороде Оттавы, он временно остался без депутатского кресла и, соответственно, без зарплаты в Палате общин. Его доход...</p><span class="lrc-date">8 май 2025</span></div></a><a class="lr-card" href="/post/2025-05-04-gevin-nyusom-karni-dolzhen-idti-k-trampu-s-dostoinstvom-i-od/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Гэвин Ньюсом: “Карни должен идти к Трампу с достоинством и один на один”</div><p class="lrc-ex">Губернатор Калифорнии Гэвин Ньюсом в эфире CTV выразил надежду на успешную встречу Карни и Трампа на следующей неделе:  – “Не бери с собой толпу, как Зеленский. Один на один — вот...</p><span class="lrc-date">4 май 2025</span></div></a><a class="lr-card" href="/post/2025-05-04-novaya-demokraticheskaya-partiya-alberty-bolshe-ne-obyazana-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">🟠 Новая Демократическая партия Альберты больше не обязана слушаться Оттаву</div><p class="lrc-ex">Делегаты проголосовали: новые члены теперь могут вступать только в провинциальную НДП, без автоматического членства в федеральной. Лидер Наид Ненши заявил — это решение для тех,...</p><span class="lrc-date">4 май 2025</span></div></a><a class="lr-card" href="/post/2025-05-04-v-edmontone-proshyol-miting-za-otdelenie-alberty-ot-kanady/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">В Эдмонтоне прошёл митинг за отделение Альберты от Канады</div><p class="lrc-ex">Сотни человек собрались у здания законодательного собрания. Одни размахивали флагами Альберты, другие — флагом США. Главный посыл: “Федерация не работает. Нас не слышат. Пора...</p><span class="lrc-date">4 май 2025</span></div></a><a class="lr-card" href="/post/2025-05-03-dezinformatsiya-povliyala-na-vybory-schitayut-3-iz-4-kanadts/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Дезинформация повлияла на выборы — считают 3 из 4 канадцев</div><p class="lrc-ex">По данным опроса Leger, 77% канадцев уверены, что дезинформация повлияла на итоги выборов:  – 19% говорят о «серьёзном влиянии» – 32% — о «умеренном» – 26% — о «незначительном» –...</p><span class="lrc-date">3 май 2025</span></div></a><a class="lr-card" href="/post/2025-04-30-pochta-kanady-snova-na-grani-zabastovki-peregovory-idut-no-p/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Почта Канады снова на грани забастовки: переговоры идут, но прорыва нет</div><p class="lrc-ex">Canada Post и профсоюз почтовых работников (CUPW) возобновили переговоры с посредником на этой неделе — но шансов на договорённость всё меньше.  Ключевые даты:  – Действующее...</p><span class="lrc-date">30 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-29-v-shkolnyh-vyborah-po-vsey-kanade-pobedili-konservatory/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">В школьных выборах по всей Канаде победили… Консерваторы!</div><p class="lrc-ex">Пока взрослые выбирали Карни и либералов, 900 000 школьников провели собственные федеральные выборы. Результат? Консервативное правительство меньшинства во главе с Пьером...</p><span class="lrc-date">29 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-29-krupneyshaya-oshibka-pera/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Крупнейшая ошибка Пьера</div><p class="lrc-ex">На фоне исторической победы Марка Карни многие в штабе Консерваторов до сих пор в шоке. Всё ведь должно было быть иначе: огромные митинги, высокие рейтинги, падение Либералов при...</p><span class="lrc-date">29 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-27-finalnyy-opros-nanos-liberaly-lidiruyut-na-4-pered-vyborami/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">🔴 Финальный опрос Nanos: Либералы лидируют на 4% перед выборами</div><p class="lrc-ex">В последний день федеральной кампании (27 апреля) Либералы опережают Консерваторов на четыре процентных пункта, следует из трёхдневного замера Nanos Research для CTV News и The...</p><span class="lrc-date">27 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-26-pochemu-liberaly-idut-na-bolshinstvo-pri-pochti-ravnyh-reyti/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Почему Либералы идут на большинство при почти равных рейтингах с Консерваторами: объясняет Nanos</div><p class="lrc-ex">Последние опросы показывают, что разрыв между Либералами и Консерваторами перед выборами составляет всего 3–4%. Но прогнозы по количеству мест в парламенте дают Либералам шансы на...</p><span class="lrc-date">26 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-26-opros-sredi-immigrantov-i-ih-potomkov-bolshe-storonnikov-lib/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Опрос: среди иммигрантов и их потомков больше сторонников Либералов, чем Консерваторов</div><p class="lrc-ex">Свежие данные Nanos Research показывают: избиратели с иммиграционными корнями чаще выбирают Либеральную партию.  Поддержка среди групп – Иммигранты (родились за пределами Канады):...</p><span class="lrc-date">26 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-22-liberaly-operezhayut-konservatorov-na-6-dve-klyuchevye-grupp/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Либералы опережают Консерваторов на 6% — две ключевые группы пока &quot;чистая лотерея&quot;</div><p class="lrc-ex">Новый трёхдневный опрос Nanos (19–21 апреля): – Либералы: 43% – Консерваторы: 37% – NDP: 10%, Блок: 6%, Зелёные: 3%, PPC: 1%  ⚡️ Две группы, где пока полный разброд (ключевые для...</p><span class="lrc-date">22 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-21-dorogie-izbirateli-liberalov-vy-deystvitelno-hotite-eschyo-4/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">“Дорогие избиратели Либералов, вы действительно хотите ещё 4 года того же самого?” — редакция National Post</div><p class="lrc-ex">📍 За неделю до выборов издание выпускает жёсткую колонку, обращённую прямо к сторонникам Либералов. Основная мысль: Карни — это просто “Трюдо в очках и с британским акцентом”, а...</p><span class="lrc-date">21 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-21-gde-tsifry-per-u-konservatorov-vsyo-eschyo-net-proschitannoy/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">“Где цифры, Пьер?” — У Консерваторов всё ещё нет просчитанной платформы, и аналитики считают это упущением.</div><p class="lrc-ex">На пасхальных выходных Пьер Полиев продолжил атаковать либералов за «инфляционный» план Карни на $130 млрд новых трат, назвав его «хуже, чем Трюдо». Он обещает сэкономить $10 млрд...</p><span class="lrc-date">21 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-19-krepko-li-vy-spite-po-nocham/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Крепко ли вы спите по ночам?</div><p class="lrc-ex">Опрос Nanos: большинство канадцев чувствуют себя в безопасности — кроме сторонников консерваторов.  Свежие цифры перед выборами – 59% респондентов говорят, что чувствуют себя так...</p><span class="lrc-date">19 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-19-karni-kitay-krupneyshaya-ugroza-kanade-v-sfere-vneshnego-vme/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">🇨🇳 Карни: Китай — крупнейшая угроза Канаде в сфере внешнего вмешательства</div><p class="lrc-ex">Выступая на предвыборной остановке в Ниагара-Фолс, премьер-министр и лидер Либеральной партии Марк Карни обозначил Пекин как «главную угрозу для безопасности Канады с...</p><span class="lrc-date">19 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-18-liberaly-derzhat-8-nad-konservatorami-nanos-27-y-den-kampani/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">📊 Либералы держат +8 над консерваторами — Nanos, 27-й день кампании</div><p class="lrc-ex">Новая трёхдневная выборка от Nanos (по 17 апреля) показывает:  – Либералы — 45% – Консерваторы — 37% (без изменений) – НДП — 8% – Блок — 6% – Зелёные — 3% – Народная партия — 1% ...</p><span class="lrc-date">18 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-17-dag-ford-poshyol-v-nastuplenie-barery-mezhdu-provintsiyami-p/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Даг Форд пошёл в наступление: барьеры между провинциями — под нож</div><p class="lrc-ex">Пока Трамп душит Канаду тарифами, Онтарио решает навести порядок у себя — и открывает двери для торговли и рабочих рук со всей страны. Сегодня Форд внёс в парламент закон, который...</p><span class="lrc-date">17 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-16-karni-lidiruet-s-otryvom-v-8-punktov-liberaly-perehvatyvayut/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Карни лидирует с отрывом в 8 пунктов — либералы перехватывают Квебек и Британскую Колумбию</div><p class="lrc-ex">За 11 дней до выборов — и перед сегодняшними французскими дебатами — либералы вырвались вперёд на 8 пунктов, набирая 45% против 37% у консерваторов. Это данные трёхдневного...</p><span class="lrc-date">16 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-14-den-23-liberaly-7-pered-debatami-karni-uhodit-vperyod/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">День 23. Либералы +7. Перед дебатами Карни уходит вперёд.</div><p class="lrc-ex">Свежий трекер Nanos показывает: – Либералы — 45% (+1) – Консерваторы — 38% (–1) – NDP — 9% – Блок — 6% – Зелёные — 2% – PPC — 1%  💬 Ник Нанос: “Преимущество Карни стабильно...</p><span class="lrc-date">14 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-13-den-22-liberaly-5-favority-prosto-davyat-vseh-ostalnyh/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">День 22. Либералы +5. “Фавориты просто давят всех остальных.”</div><p class="lrc-ex">Свежий трекер Nanos показывает: 83% канадцев голосуют либо за Либералов (44%), либо за Консерваторов (39%). Это рекордная консолидация. На прошлых выборах у двух главных партий...</p><span class="lrc-date">13 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-12-liberaly-6-otryv-derzhitsya/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Либералы +6 — отрыв держится.</div><p class="lrc-ex">На 21-й день кампании Nanos фиксирует: – Либералы — 43.3% (+) – Консерваторы — 37.1% (–) – NDP — 10% – Блок — 6% – Зелёные — 3% – PPC — 1%  📍 Где выигрывают:  – Онтарио: Либералы...</p><span class="lrc-date">12 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-11-kompaniya-marka-karni-zaregistrirovala-fond-v-ofshore-kotory/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Компания Марка Карни зарегистрировала фонд в офшоре, который критиковал Обама</div><p class="lrc-ex">Пока Либеральная партия обещает «налоговую справедливость», выясняется, что бывшая компания Марка Карни, Brookfield, активно использует те самые офшоры, от которых “страдает...</p><span class="lrc-date">11 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-10-tseny-na-konservy-mogut-vyrasti-na-40-tsentov-za-banku-iz-za/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">🥫 Цены на консервы могут вырасти на 40 центов за банку из-за тарифов</div><p class="lrc-ex">🇨🇦 Канадская компания Sun-Brite Foods Inc. (владеет брендами Unico и Primo) предупредила: из-за тарифной войны с США цены на консервированные продукты могут вырасти на 25-40...</p><span class="lrc-date">10 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-10-karni-teryaet-preimuschestvo-kak-luchshiy-premer-poliev-prib/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">📊 Карни теряет преимущество как “лучший премьер” — Полиев приближается</div><p class="lrc-ex">На 19-й день выборов борьба между Либералами и Консерваторами остаётся напряжённой: – Либералы: 43% – Консерваторы: 38% – НДП: 9% – Блок Квебекуа: 6% – Зелёные: 3% – НПК: 2%  💥...</p><span class="lrc-date">10 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-08-i-esche-opros/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">И еще опрос!</div><p class="lrc-ex">Новый трек Nanos (5–7 апреля, n=1 285):   Либералы — 43%, консерваторы — 38%, НДП — исторический провал   – Либералы сохраняют 5-процентное лидерство – НДП — только 8%, это...</p><span class="lrc-date">8 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-07-karni-nachal-zapadnyy-tur-s-kolkosti-v-adres-daniel-smit/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">🌊 Карни начал западный тур — с колкости в адрес Даниэль Смит</div><p class="lrc-ex">Столица Британской Колумбии Виктория стала первой остановкой Марка Карни в его кампании по западной части страны. И начал он с явного сигнала: либералы не будут молчать, пока...</p><span class="lrc-date">7 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-05-i-esche-odin-opros-na-etot-raz-ot-nanos/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">И еще один опрос, на этот раз от NANOS</div><p class="lrc-ex">Кому верят больше — Карни или Полиеву?  Ответ: Карни, и это касается даже сомневающихся.  🔎 Данные свежего опроса Nanos (1–3 апреля)  – 48% канадцев доверяют Карни в вопросе...</p><span class="lrc-date">5 апр 2025</span></div></a></div><div class="pgn"><a class="pb" href="/source/ctv-news/page/7/">←</a><a class="pb" href="/source/ctv-news/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/source/ctv-news/page/6/">6</a><a class="pb" href="/source/ctv-news/page/7/">7</a><a class="pb on" href="/source/ctv-news/page/8/">8</a></div></div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo">MAPLE <span style="color:var(--maple)">🍁</span> BARREL</div>
+    <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
+    <a class="ftg" href="https://t.me/maplebarrel">Подписаться в Telegram</a>
+  </div>
+  <div class="fcol">
+    <h4>Темы</h4>
+    <a href="/tag/politika/">#Политика</a>
+    <a href="/tag/ekonomika/">#Экономика</a>
+    <a href="/tag/immigratsiya/">#Иммиграция</a>
+    <a href="/tag/zhilyo/">#Жильё</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a>
+    <a href="/tag/zdravookhranenie/">#Здравоохранение</a>
+  </div>
+  <div class="fcol">
+    <h4>Персоны</h4>
+    <a href="/person/mark-karni/">Марк Карни</a>
+    <a href="/person/per-poliev/">Пьер Полиев</a>
+    <a href="/person/donald-tramp/">Дональд Трамп</a>
+    <a href="/person/dag-ford/">Даг Форд</a>
+    <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Источники</h4>
+    <a href="/source/cbc/">CBC</a>
+    <a href="/source/ctv-news/">CTV News</a>
+    <a href="/source/globe-and-mail/">Globe and Mail</a>
+    <a href="/source/global-news/">Global News</a>
+    <a href="/source/national-post/">National Post</a>
+    <a href="/source/toronto-star/">Toronto Star</a>
+    <a href="/source/macleans/">Maclean's</a>
+    <a href="/source/the-hub/">The Hub</a>
+  </div>
+  <div class="fcol">
+    <h4>Разделы</h4>
+    <a href="/materials/">Материалы</a>
+    <a href="/longreads/">Лонгриды</a>
+    <a href="/surveys/">Опросы</a>
+    <a href="/about/">О проекте</a>
+    <a href="https://t.me/maplebarrel">Telegram</a>
+  </div>
+</div>
+<div class="fcp">
+  <span>© 2026 Maple Barrel · journaists.ca</span>
+  <span>Новости Канады на русском языке</span>
+</div>
+</footer>
+</body>
+</html>

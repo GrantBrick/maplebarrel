@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Post — Maple Barrel</title>
+<meta name="description" content="Все материалы из Financial Post на русском языке.">
+<link rel="canonical" href="https://journaists.ca/source/financial-post/">
+<meta property="og:title" content="Financial Post — Maple Barrel">
+<meta property="og:description" content="Все материалы из Financial Post на русском языке.">
+<meta property="og:url" content="https://journaists.ca/source/financial-post/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journaists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Financial Post — Maple Barrel">
+<meta name="twitter:description" content="Все материалы из Financial Post на русском языке.">
+<meta name="twitter:image" content="https://journaists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
+  --br:#e8e4dc;--br2:#d0ccc4;
+  --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
+  --ac:#e53e3e;--ac2:#c53030;--tg:#0088cc;--maple:#e53e3e;
+  --dark:#2d3748;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:0 8px 24px rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Inter','Golos Text',system-ui,sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:19px;font-weight:900;letter-spacing:-1px;color:var(--ac);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:3px}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
+.nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
+.nav-r{display:flex;align-items:center}
+.tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
+.tgb:hover{background:#006fa8}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
+
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
+
+/* SOURCE BADGE — dark grey */
+.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
+
+/* READ MORE — light red with leaf */
+.btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
+.btn-more:hover{opacity:1}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
+.sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+
+/* CARD — for featured grid */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.25;color:var(--t);letter-spacing:-.2px}
+.card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
+.card-date{font-size:11px;color:var(--t4)}
+
+/* LR-CARD — horizontal, for materials/longreads/surveys */
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+
+/* TAGS */
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+.tag-eco{background:#fef3c7;color:#78350f}
+.tag-imm{background:#dbeafe;color:#1e40af}
+.tag-reg{background:#d1fae5;color:#065f46}
+.tag-stat{background:#ede9fe;color:#4c1d95}
+.tag-def{background:var(--bg4);color:var(--t3)}
+
+/* TAG FILTER BAR */
+.tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tc{font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:.15s;letter-spacing:.3px;white-space:nowrap;cursor:pointer}
+.tc:hover{border-color:var(--t);color:var(--t)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* PAGINATION */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:.15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* FOOTER */
+footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:28px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
+.ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:.15s}
+.fcol a:hover{color:var(--ac)}
+.fcp{max-width:1200px;margin:24px auto 0;padding:20px 24px 0;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
+
+/* TG CTA on post page */
+.tgcta{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bee3f8;border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
+.ctxt{flex:1}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:5px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:9px 18px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;transition:.15s}
+.cbtn2:hover{background:#006fa8}
+
+@media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:700px){.fi{grid-template-columns:1fr}.ni{gap:8px}.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
+  </div>
+</div></nav>
+<div class="wrap"><div class="page-intro"><h1>Financial Post</h1><p>22 материалов из этого издания</p></div><div class="lr-grid"><a class="lr-card" href="/post/2026-02-13-mettyu-lau-slabye-osnovaniya-liberalov-dlya-vesennih-vyborov/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Мэттью Лау: Слабые основания либералов для весенних выборов</div><p class="lrc-ex">Колумнист Matthew Lau пишет, что разговоры о весенних выборах усилились на фоне роста рейтингов либералов и объявления о выплатах на $12,4 млрд в рамках программы «Canada...</p><span class="lrc-date">13 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-06-mnenie-argumentov-za-otmenu-sistemy-upravleniya-postavkami-s/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Мнение: аргументов за отмену системы управления поставками становится всё больше</div><p class="lrc-ex">‎  Herbert Grubel из Financial Post пишет, что система управления сельхозпоставками обходится канадским потребителям слишком дорого — и момент для её демонтажа может оказаться...</p><span class="lrc-date">6 фев 2026</span></div></a><a class="lr-card" href="/post/2026-01-13-poezdki-kanadtsev-v-ssha-obvalilis-na-31/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Поездки канадцев в США обвалились на 31%</div><p class="lrc-ex">По данным Statistics Canada, в декабре число поездок канадцев в США резко сократилось — минус 30,7% по сравнению с декабрём прошлого года. Это уже 12-й месяц подряд, когда...</p><span class="lrc-date">13 янв 2026</span></div></a><a class="lr-card" href="/post/2025-12-11-pokolenie-x-podminaet-pod-sebya-bogatstvo-kanady-bumery-tery/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Поколение X подминает под себя богатство Канады: бумеры теряют монополию на деньги</div><p class="lrc-ex">Общая стоимость активов канадских домохозяйств во втором квартале 2025 года достигла рекордных $17,87 трлн, но распределены эти деньги очень неравномерно. Финансовый отчёт...</p><span class="lrc-date">11 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-06-chto-sulit-kanade-sdelka-netflixwarner-bros-na-83-mlrd-udar-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Что сулит Канаде сделка Netflix–Warner Bros. на $83 млрд: удар по Crave и тревога в киноиндустрии</div><p class="lrc-ex">Новость о том, что Netflix собирается купить Warner Bros. Discovery почти за $83 млрд, взорвала медиарынок. Если регуляторы дадут зелёный свет, стриминг-гигант получит библиотеку...</p><span class="lrc-date">6 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-06-kanadskiy-dollar-probil-otmetku-v-72-tsenta-ssha-na-fone-neo/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Канадский доллар пробил отметку в 72 цента США на фоне неожиданно сильной статистики по занятости</div><p class="lrc-ex">Луни в пятницу поднялся выше 72 центов — впервые с конца сентября. Толчком стал свежий отчёт Статкан, который перечеркнул прогнозы: вместо ожидаемого снижения занятости на 2,5...</p><span class="lrc-date">6 дек 2025</span></div></a><a class="lr-card" href="/post/2025-11-29-geraedts-gidroenergiya-bolshe-ne-vytyanet-kanade-pora-prizna/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Гераедтс: Гидроэнергия больше не вытянет — Канаде пора признать очевидное</div><p class="lrc-ex">‌﻿  Генри Гераедтс в Financial Post пишет, что Канада стоит на пороге серьёзного провала по электрогенерации. Причина банальна: страна почти целиком сидит на гидроресурсах,...</p><span class="lrc-date">29 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-10-chto-dal-byudzhet-2025-pokoleniyu-z-i-millenialam/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Что дал бюджет-2025 поколению Z и миллениалам</div><p class="lrc-ex">Первый бюджет правительства Марка Карни обещал «поколенческие инвестиции» — но молодые канадцы, похоже, остались с ощущением déjà vu. Обещаний много, но конкретных мер, способных...</p><span class="lrc-date">10 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-10-27-kanada-gotovitsya-obyavit-novye-immigratsionnye-tseli-no-kak/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Канада готовится объявить новые иммиграционные цели — но как понять, «правильное» число?</div><p class="lrc-ex">Правительство Марка Карни представит свой первый план по уровням иммиграции в начале ноября — на фоне растущей безработицы и критики в адрес программы временных иностранных...</p><span class="lrc-date">27 окт 2025</span></div></a><a class="lr-card" href="/post/2025-10-06-tim-hortons-povyshaet-tseny-na-kofe-vsego-na-tri-tsenta-za-c/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Tim Hortons повышает цены на кофе — «всего на три цента за чашку»</div><p class="lrc-ex">Впервые за три года сеть Tim Hortons поднимает цену на кофе — на 1,5%, или примерно на три цента за чашку. Компания уверяет, что это «более чем разумно», учитывая, что за то же...</p><span class="lrc-date">6 окт 2025</span></div></a><a class="lr-card" href="/post/2025-09-20-mnenie-kanadskim-universitetam-ne-hvataet-raznoobraziya-vzgl/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Мнение: Канадским университетам не хватает разнообразия взглядов</div><p class="lrc-ex">Майкл Зваагстра и Мэттью Митчелл в Financial Post пишут, что канадские университеты стали местом, где звучит только «правильная» точка зрения. Консервативные студенты убеждены:...</p><span class="lrc-date">20 сен 2025</span></div></a><a class="lr-card" href="/post/2025-09-17-cd-howe-institute-kanade-stoit-eschyo-silnee-urezat-immigrat/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">C.D. Howe Institute: Канаде стоит ещё сильнее урезать иммиграцию</div><p class="lrc-ex">Правительство Марка Карни уже снизило цели по приёму постоянных резидентов: 395 тысяч в 2025 году, 380 тысяч в 2026-м и 365 тысяч в 2027-м вместо прежних 485 тысяч. Но...</p><span class="lrc-date">17 сен 2025</span></div></a><a class="lr-card" href="/post/2025-09-04-kanadskiy-krizis-produktivnosti-usugubilsya-krupneyshee-pade/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Канадский кризис продуктивности усугубился — крупнейшее падение за три года</div><p class="lrc-ex">﻿ StatCan зафиксировало резкое падение производительности труда: во втором квартале 2025 года она снизилась на 1%. Это худший показатель с конца 2022 года.  ﻿ Главный фактор —...</p><span class="lrc-date">4 сен 2025</span></div></a><a class="lr-card" href="/post/2025-08-09-ot-plohogo-k-uzhasnomu-rynok-novyh-kondo-v-toronto-ruhnul-do/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">«От плохого к ужасному»: рынок новых кондо в Торонто рухнул до минимальных уровней за 30 лет</div><p class="lrc-ex">Рынок новых кондоминиумов в Торонто обвалился до уровней, которых не было три десятилетия. По данным Urbanation Inc., во втором квартале 2025 года в регионе Большого Торонто и...</p><span class="lrc-date">9 авг 2025</span></div></a><a class="lr-card" href="/post/2025-08-06-mark-karni-nachal-iskat-puti-smyagcheniya-otvetnyh-poshlin-p/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Марк Карни начал искать пути смягчения ответных пошлин против США — несмотря на то, что именно борьба с торговой агрессией Трампа была его главным лозунгом на в</div><p class="lrc-ex">ыборах.  Выступая в Британской Колумбии, премьер заявил, что Оттава будет «избирательно» снимать пошлины, если это поможет сохранить рабочие места и снизить нагрузку на канадский...</p><span class="lrc-date">6 авг 2025</span></div></a><a class="lr-card" href="/post/2025-07-08-otezd-bogatyh-iz-kanady-bolshe-chem-kazhetsya/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Отъезд богатых из Канады — больше, чем кажется</div><p class="lrc-ex">Налоговый консультант Ким Муди: если за первые 23 года карьеры он вел около дюжины кейсов эмиграции состоятельных клиентов, то за последние 10 лет — почти тысячу.  По оценке...</p><span class="lrc-date">8 июл 2025</span></div></a><a class="lr-card" href="/post/2025-06-30-dumaesh-nedvizhimost-luchshiy-sposob-vlozhit-dengi-ne-speshi/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Думаешь, недвижимость — лучший способ вложить деньги? Не спеши.</div><p class="lrc-ex">Анализ канадских и американских данных с 1980 года показал: инвестирование в S&amp;P 500 принесло в 4 раза больше дохода, чем покупка дома.  📈 Вот сухая статистика:  – S&amp;P 500: +5079%...</p><span class="lrc-date">30 июн 2025</span></div></a><a class="lr-card" href="/post/2025-06-26-molodyozh-kanady-stolknulas-s-samym-rezkim-padeniem-rynka-tr/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Молодёжь Канады столкнулась с самым резким падением рынка труда среди всех стран G20</div><p class="lrc-ex">По данным Bloomberg, уровень безработицы среди канадцев от 15 до 24 лет вырос на 3,6% за два года — это самый резкий скачок среди 25 крупнейших экономик ОЭСР. Сейчас показатель...</p><span class="lrc-date">26 июн 2025</span></div></a><a class="lr-card" href="/post/2025-06-10-na-rynke-zhilya-v-toronto-zator-aktivnyh-listingov-bolshe-30/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">🏘 На рынке жилья в Торонто — затор: активных листингов больше 30 тысяч, но покупатели не реагируют.</div><p class="lrc-ex">По данным Toronto Regional Real Estate Board, в мае 2025 в регионе GTA зафиксировано более 30 000 активных предложений — на 41,5% больше, чем год назад. Продажи при этом упали на...</p><span class="lrc-date">10 июн 2025</span></div></a><a class="lr-card" href="/post/2025-05-15-kanada-vvela-poshliny-na-60-mlrd-tovarov-iz-ssha-i-tut-zhe-p/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">🇨🇦📉 Канада ввела пошлины на $60 млрд товаров из США… и тут же почти все отменила</div><p class="lrc-ex">После победы на выборах Марк Карни обещал быть «жёстким переговорщиком» в торговой войне с Вашингтоном. В марте правительство ввело 25% пошлины на американский импорт, включая...</p><span class="lrc-date">15 май 2025</span></div></a><a class="lr-card" href="/post/2025-04-26-ne-pro-vybory-no-ne-menee-vazhno/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">Не про выборы, но не менее важно</div><p class="lrc-ex">Тут financial post выпустил материал на тему, которая вообще не в повестке выборов, хотя является одной из самых критичных в мире — гонка AI.  Канадский техсектор бьёт тревогу: в...</p><span class="lrc-date">26 апр 2025</span></div></a><a class="lr-card" href="/post/2025-04-22-spend-less-invest-more-perevod-s-liberalnogo-budut-novye-nal/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Financial Post</span><div class="lrc-title">&quot;Spend less, invest more&quot;? Перевод с либерального: будут новые налоги</div><p class="lrc-ex">Эксперт по налогам Ким Муди жёстко раскритиковал экономическую программу Марка Карни и либералов, назвав их предвыборное обещание «тратить меньше, инвестировать больше» красивым...</p><span class="lrc-date">22 апр 2025</span></div></a></div></div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo">MAPLE <span style="color:var(--maple)">🍁</span> BARREL</div>
+    <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
+    <a class="ftg" href="https://t.me/maplebarrel">Подписаться в Telegram</a>
+  </div>
+  <div class="fcol">
+    <h4>Темы</h4>
+    <a href="/tag/politika/">#Политика</a>
+    <a href="/tag/ekonomika/">#Экономика</a>
+    <a href="/tag/immigratsiya/">#Иммиграция</a>
+    <a href="/tag/zhilyo/">#Жильё</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a>
+    <a href="/tag/zdravookhranenie/">#Здравоохранение</a>
+  </div>
+  <div class="fcol">
+    <h4>Персоны</h4>
+    <a href="/person/mark-karni/">Марк Карни</a>
+    <a href="/person/per-poliev/">Пьер Полиев</a>
+    <a href="/person/donald-tramp/">Дональд Трамп</a>
+    <a href="/person/dag-ford/">Даг Форд</a>
+    <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Источники</h4>
+    <a href="/source/cbc/">CBC</a>
+    <a href="/source/ctv-news/">CTV News</a>
+    <a href="/source/globe-and-mail/">Globe and Mail</a>
+    <a href="/source/global-news/">Global News</a>
+    <a href="/source/national-post/">National Post</a>
+    <a href="/source/toronto-star/">Toronto Star</a>
+    <a href="/source/macleans/">Maclean's</a>
+    <a href="/source/the-hub/">The Hub</a>
+  </div>
+  <div class="fcol">
+    <h4>Разделы</h4>
+    <a href="/materials/">Материалы</a>
+    <a href="/longreads/">Лонгриды</a>
+    <a href="/surveys/">Опросы</a>
+    <a href="/about/">О проекте</a>
+    <a href="https://t.me/maplebarrel">Telegram</a>
+  </div>
+</div>
+<div class="fcp">
+  <span>© 2026 Maple Barrel · journaists.ca</span>
+  <span>Новости Канады на русском языке</span>
+</div>
+</footer>
+</body>
+</html>

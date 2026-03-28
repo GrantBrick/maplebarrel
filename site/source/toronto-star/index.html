@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toronto Star — Maple Barrel</title>
+<meta name="description" content="Все материалы из Toronto Star на русском языке.">
+<link rel="canonical" href="https://journaists.ca/source/toronto-star/">
+<meta property="og:title" content="Toronto Star — Maple Barrel">
+<meta property="og:description" content="Все материалы из Toronto Star на русском языке.">
+<meta property="og:url" content="https://journaists.ca/source/toronto-star/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journaists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Toronto Star — Maple Barrel">
+<meta name="twitter:description" content="Все материалы из Toronto Star на русском языке.">
+<meta name="twitter:image" content="https://journaists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
+  --br:#e8e4dc;--br2:#d0ccc4;
+  --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
+  --ac:#e53e3e;--ac2:#c53030;--tg:#0088cc;--maple:#e53e3e;
+  --dark:#2d3748;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:0 8px 24px rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Inter','Golos Text',system-ui,sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:19px;font-weight:900;letter-spacing:-1px;color:var(--ac);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:3px}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
+.nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
+.nav-r{display:flex;align-items:center}
+.tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
+.tgb:hover{background:#006fa8}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
+
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
+
+/* SOURCE BADGE — dark grey */
+.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
+
+/* READ MORE — light red with leaf */
+.btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
+.btn-more:hover{opacity:1}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
+.sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+
+/* CARD — for featured grid */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.25;color:var(--t);letter-spacing:-.2px}
+.card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
+.card-date{font-size:11px;color:var(--t4)}
+
+/* LR-CARD — horizontal, for materials/longreads/surveys */
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+
+/* TAGS */
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+.tag-eco{background:#fef3c7;color:#78350f}
+.tag-imm{background:#dbeafe;color:#1e40af}
+.tag-reg{background:#d1fae5;color:#065f46}
+.tag-stat{background:#ede9fe;color:#4c1d95}
+.tag-def{background:var(--bg4);color:var(--t3)}
+
+/* TAG FILTER BAR */
+.tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tc{font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:.15s;letter-spacing:.3px;white-space:nowrap;cursor:pointer}
+.tc:hover{border-color:var(--t);color:var(--t)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* PAGINATION */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:.15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* FOOTER */
+footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:28px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
+.ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:.15s}
+.fcol a:hover{color:var(--ac)}
+.fcp{max-width:1200px;margin:24px auto 0;padding:20px 24px 0;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
+
+/* TG CTA on post page */
+.tgcta{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bee3f8;border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
+.ctxt{flex:1}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:5px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:9px 18px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;transition:.15s}
+.cbtn2:hover{background:#006fa8}
+
+@media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:700px){.fi{grid-template-columns:1fr}.ni{gap:8px}.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
+  </div>
+</div></nav>
+<div class="wrap"><div class="page-intro"><h1>Toronto Star</h1><p>81 материалов из этого издания</p></div><div class="lr-grid"><a class="lr-card" href="/post/2026-03-26-ford-prigrozil-poslat-armiyu-chtoby-ne-dopustit-vozvrascheni/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Форд пригрозил «послать армию», чтобы не допустить возвращения Кромби на пост мэра Миссиссаги</div><p class="lrc-ex">Премьер Онтарио Даг Форд заявил, что вмешается в возможную муниципальную кампанию в Миссиссаге, если Бонни Кромби решит снова баллотироваться в мэры.   По словам Форда, он готов...</p><span class="lrc-date">26 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-13-konservatory-vnesli-zakonoproekt-o-samooborone-pri-vtorzheni/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Консерваторы внесли законопроект о самообороне при вторжении в дом</div><p class="lrc-ex">Консервативная партия предложила изменить Уголовный кодекс Канады, чтобы расширить защиту людей, применивших силу против злоумышленников во время вторжения в дом.   Депутат от...</p><span class="lrc-date">13 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-06-kanada-zapuskaet-novuyu-programmu-chtoby-dat-postoyannyy-sta/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Канада запускает новую программу, чтобы дать постоянный статус 33 000 иностранным работникам — сообщает министр иммиграции</div><p class="lrc-ex">Министр иммиграции Канады Лена Метледж Диаб заявила, что правительство уже тихо запустило новую программу, которая позволит 33 000 временным иностранным работникам получить...</p><span class="lrc-date">6 мар 2026</span></div></a><a class="lr-card" href="/post/2026-02-05-pochemu-dokumentalnyy-film-melaniya-pokazyvayut-v-kanade-i-c/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Почему документальный фильм «Мелания» показывают в Канаде и что означают его неожиданные кассовые сборы</div><p class="lrc-ex">Документальный фильм «Мелания» — закулисный портрет первой леди США Мелании Трамп — вышел в канадский прокат, несмотря на почти пустые залы и вялый интерес со стороны зрителей. И...</p><span class="lrc-date">5 фев 2026</span></div></a><a class="lr-card" href="/post/2026-01-28-karni-torgovye-peregovory-s-ssha-prodolzhatsya-dazhe-esli-v-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Карни: торговые переговоры с США продолжатся, даже если в Америке сейчас «почти ничего не является нормальным»</div><p class="lrc-ex">⁠  ⁠ Премьер-министр Марк Карни сделал серию жёстких заявлений в адрес администрации Дональд Трамп, подтвердив: Канада продолжит переговоры о пересмотре соглашения о свободной...</p><span class="lrc-date">28 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-28-kanada-vvodit-doplaty-za-meditsinu-dlya-bezhentsev-i-prosite/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Канада вводит доплаты за медицину для беженцев и просителей убежища</div><p class="lrc-ex">С 1 мая федеральное правительство начнёт взимать со спонсируемых беженцев и просителей убежища доплату за часть медицинских услуг. Речь идёт о первом годе их пребывания в стране и...</p><span class="lrc-date">28 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-22-universitety-ontario-trebuyut-eschyo-12-mlrd-mest-i-uslug-dl/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Университеты Онтарио требуют ещё $1,2 млрд: «мест и услуг для студентов не хватает»</div><p class="lrc-ex">⁠  Университеты провинции Онтарио просят срочно добавить $1,2 млрд к базовому финансированию уже в следующем году, а к 2028-му — довести ежегодную прибавку до $1,6 млрд. По их...</p><span class="lrc-date">22 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-20-problema-polieva-v-tom-chto-on-vsyo-eschyo-sporit-s-2024-god/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Проблема Полиева в том, что он всё ещё спорит с 2024 годом.</div><p class="lrc-ex">⁠  Атака Пьера Полиева на торговую сделку Марка Карни с Китаем прозвучала громко — и пусто. Его главный аргумент: Карни ещё до выборов называл Китай «главной угрозой...</p><span class="lrc-date">20 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-20-polnyy-perevod-rechi-marka-karni-na-davosskom-forume-kotoray/"><div class="lr-img" style="background:#c41230;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:11px;font-weight:700">Star</span></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Полный перевод речи Марка Карни на Давосском форуме, которая вызвала редкую стоячую овацию в зале.</div><p class="lrc-ex">⸻  Спасибо, Ларри.  Для меня большая честь — и обязанность — быть сегодня здесь, в момент перелома для Канады и для мира. Я хочу поговорить о разрыве мирового порядка, о конце...</p><span class="lrc-date">20 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-19-feykovye-fanaty-chm-2026-pytayutsya-oboyti-vizovye-pravila-k/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Фейковые фанаты ЧМ-2026 пытаются обойти визовые правила Канады</div><p class="lrc-ex">По мере приближения чемпионата мира по футболу в Канаде появляется всё больше схем, где под видом «футбольного туризма» людям продают иллюзии лёгкого въезда и даже работы без...</p><span class="lrc-date">19 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-12-kanada-ne-sobiraetsya-zapreschat-x-iz-za-skandala-s-dipfeyka/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Канада не собирается запрещать X из-за скандала с дипфейками</div><p class="lrc-ex">Министр по искусственному интеллекту и цифровым инновациям Эван Соломон заявил, что Оттава не рассматривает запрет соцсети X, несмотря на громкий скандал вокруг сексуализированных...</p><span class="lrc-date">12 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-11-pravilo-o-vysokoy-trave-v-missisage-narushaet-svobodu-vyrazh/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Правило о «высокой траве» в Миссисаге нарушает свободу выражения — суд</div><p class="lrc-ex">⁠  Суд Онтарио признал неконституционной часть муниципального регламента города Миссисага, которая требовала от владельцев домов подстригать газоны ниже 20 сантиметров. ⁠  Судья...</p><span class="lrc-date">11 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-05-kak-rabotaet-immigratsionnaya-sistema-kanady-vzglyad-iznutri/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Как работает иммиграционная система Канады — взгляд изнутри</div><p class="lrc-ex">Мемуары Нила Кокрейна, проработавшего почти четверть века в федеральном иммиграционном ведомстве, читаются как хроника утраченной эпохи — времени, когда решения принимались не...</p><span class="lrc-date">5 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-05-v-venesuele-doktrina-donrou-trampa-uzhe-rabotaet-kanade-pora/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">В Венесуэле «доктрина Донроу» Трампа уже работает. Канаде пора перестать отсиживаться</div><p class="lrc-ex">Джастин Линг пишет, что США официально вернулись к смене режимов в Латинской Америке — и Канада больше не может делать вид, что это её не касается.    В ночь на пятницу...</p><span class="lrc-date">5 янв 2026</span></div></a><a class="lr-card" href="/post/2025-12-28-ushyol-prishyol-uderzhalsya-turbulentnyy-god-dlya-tryudo-kar/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Ушёл, пришёл, удержался: турбулентный год для Трюдо, Карни и Полиева</div><p class="lrc-ex">⁠   2025 год в канадской политике оказался таким, что любые выводы устаревают быстрее новостной ленты. Смена лидеров, торговая война с США, раскол оппозиции и дрейф Либералов к...</p><span class="lrc-date">28 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-28-restorany-pod-udarom-sokraschenie-immigratsii-usilivaet-kriz/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Рестораны под ударом: сокращение иммиграции усиливает кризис в отрасли</div><p class="lrc-ex">⁠   Сокращение иммиграционных потоков уже бьёт по ресторанному бизнесу Канады. Владельцы заведений предупреждают: найти персонал становится всё сложнее, а перспективы роста —...</p><span class="lrc-date">28 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-22-kanada-potratila-78-mln-na-deportatsii-rekord-so-vremyon-har/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Канада потратила $78 млн на депортации — рекорд со времён Харпера</div><p class="lrc-ex">В 2024–25 финансовом году Канада выдворила 18 048 человек и потратила на это более $78 млн. Это самый высокий показатель депортаций с 2012 года — периода правительства Стивена...</p><span class="lrc-date">22 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-22-toronto-idyot-k-50-letnemu-minimumu-po-ubiystvam-pochemu-zhe/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Торонто идёт к 50-летнему минимуму по убийствам. Почему же горожанам кажется, что преступности стало больше?</div><p class="lrc-ex">⁠  Вопреки устойчивому ощущению «всё становится хуже», статистика за 2025 год показывает обратное: Торонто может закончить год с самым низким числом убийств за полвека. По...</p><span class="lrc-date">22 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-20-ottava-zakryvaet-edinstvennuyu-biznes-immigratsionnuyu-progr/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Оттава закрывает единственную бизнес-иммиграционную программу: «Канада заплатит за это»</div><p class="lrc-ex">Федеральное правительство прекращает приём новых заявок по Start-Up Visa — последней действующей программе бизнес-иммиграции в Канаде. С 1 января 2026 года новые заявки...</p><span class="lrc-date">20 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-16-my-hotim-bolshe-kazino-dag-ford-predstavil-plan-prevrascheni/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">«Мы хотим больше казино»: Даг Форд представил план превращения Ниагара-Фолс в «Лас-Вегас Севера»</div><p class="lrc-ex">Премьер Онтарио Даг Форд объявил о стратегии Destination Niagara, цель которой — резко нарастить туризм и поддержать экономику провинции на фоне торговой войны с США. Ключевая...</p><span class="lrc-date">16 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-10-ford-davit-na-gossluzhaschih-ontario-nuzhno-vozvraschatsya-v/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Форд давит на госслужащих Онтарио: «Нужно возвращаться в офис»</div><p class="lrc-ex">‌﻿   Премьер Даг Форд вновь потребовал от сотрудников провинциального правительства работать очно пять дней в неделю. Поводом стали данные Toronto Star: почти 11 тысяч из примерно...</p><span class="lrc-date">10 дек 2025</span></div></a><a class="lr-card" href="/post/2025-11-27-uels-obsuzhdaet-shtrafy-za-lozh-v-politike-stoit-li-kanade-o/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Уэльс обсуждает штрафы за ложь в политике. Стоит ли Канаде обратить внимание?</div><p class="lrc-ex">В Уэльсе сейчас проходит эксперимент, который несколько лет назад казался политической фантастикой: попытка ввести санкции за ложь со стороны избранных чиновников. На фоне...</p><span class="lrc-date">27 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-18-gen-z-snova-pod-pritselom-putanitsa-vokrug-best-before/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Gen Z снова под прицелом: путаница вокруг best before</div><p class="lrc-ex">Опрос Dalhousie University и Too Good To Go показал, что около 40% канадцев 18–24 лет неправильно понимают маркировку best before. Многие воспринимают её как предупреждение об...</p><span class="lrc-date">18 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-16-est-prichina-po-kotoroy-mark-karni-ne-razgovarivaet-s-donald/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Есть причина, по которой Марк Карни не разговаривает с Дональдом Трампом</div><p class="lrc-ex">Paywall  Отношения между Марком Карни и Дональдом Трампом охладились до нуля. Еще месяц назад премьер без смущения рассказывал, как американский президент писал ему практически...</p><span class="lrc-date">16 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-11-facebook-reklamiruet-kokain-i-oksikodon-zhurnalisty-toronto-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Facebook рекламирует кокаин и оксикодон. Журналисты Toronto Star заказали — и получили их по почте</div><p class="lrc-ex">Корреспонденты Toronto Star проверили, насколько просто купить наркотики через рекламу в Facebook. Оказалось — очень просто. Заказали кокаин и таблетки оксикодона по ссылкам,...</p><span class="lrc-date">11 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-11-mnenie-u-polieva-partiya-ili-bratstvo/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Мнение | У Полиева партия или братство?</div><p class="lrc-ex">Сьюзан Делакурт, The Toronto Star  Фраза «фратхаус» — студенческое братство — обидела многих, но, возможно, точнее всего описывает атмосферу вокруг Пьера Полиева. Именно так...</p><span class="lrc-date">11 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-08-konservatory-polieva-treschat-po-shvam-poka-karni-uderzhivae/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Консерваторы Полиева трещат по швам, пока Карни удерживает власть после второго голосования по бюджету</div><p class="lrc-ex">Правительство Марка Карни вновь пережило вотум доверия: поправка Блока Квебека, призывавшая отклонить бюджет, провалилась со счётом 307 против 30. Но главная интрига недели...</p><span class="lrc-date">8 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-07-liberaly-i-ndp-protolknuli-zakon-o-poteryannyh-kanadtsah-otm/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Либералы и НДП протолкнули закон о «потерянных канадцах», отменив поправки оппозиции</div><p class="lrc-ex">⠀ Правительство Марка Карни при поддержке НДП провело через третье чтение законопроект C-3 о гражданстве по происхождению (citizenship by descent) — в его исходной версии, без...</p><span class="lrc-date">7 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-05-menopauza-lechitsya-mozhno-no-ne-vsem-po-karmanu/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Менопауза: лечиться можно, но не всем по карману</div><p class="lrc-ex">Paywall  ﻿ Канадские женщины всё чаще обращаются за помощью при менопаузе — но доступ к нормальной терапии по-прежнему остаётся роскошью.  ﻿ 48-летняя Карин Бошан из Оттавы...</p><span class="lrc-date">5 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-10-27-favoritizm-druzya-i-milliardy-pochemu-obvineniya-v-kumovstve/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Фаворитизм, друзья и миллиарды: почему обвинения в кумовстве преследуют Дага Форда уже семь лет</div><p class="lrc-ex">С момента прихода к власти в 2018 году премьер Онтарио Даг Форд не раз сталкивался с обвинениями в кумовстве и продвижении по знакомству сторонников Прогрессивно-консервативной...</p><span class="lrc-date">27 окт 2025</span></div></a><a class="lr-card" href="/post/2025-10-18-opros-sensatsiya-v-alberte-okazalsya-feyerverkom-vnutri-odno/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Опрос-сенсация в Альберте оказался фейерверком внутри одной компании</div><p class="lrc-ex">⠀ «11 % поддерживают новую Республиканскую партию Альберты!» — с таким громким заголовком в сентябре вышел опрос малоизвестной фирмы Cardinal Research. Медиа подхватили, аналитики...</p><span class="lrc-date">18 окт 2025</span></div></a><a class="lr-card" href="/post/2025-10-13-sabrina-maddyo-karni-hochet-zavlech-amerikanskih-aytishnikov/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Сабрина Маддё: Карни хочет завлечь американских айтишников, но Канада не справляется даже со своими</div><p class="lrc-ex">Премьер-министр Марк Карни подал сигнал: Канада готова воспользоваться шансом, когда Дональд Трамп объявил о $100-тысячном сборе за H-1B-визы в США. Мол, пусть талантливые...</p><span class="lrc-date">13 окт 2025</span></div></a><a class="lr-card" href="/post/2025-10-12-diskriminatsiya-i-udar-po-immigrantam-ontario-vvodit-novoe-p/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">«Дискриминация и удар по иммигрантам»: Онтарио вводит новое правило для врачей-иностранцев</div><p class="lrc-ex">Министерство здравоохранения Онтарио тихо изменило правила допуска к медицинской резидентуре — и вызвало бурю возмущения. Теперь, чтобы участвовать в первом туре распределения...</p><span class="lrc-date">12 окт 2025</span></div></a><a class="lr-card" href="/post/2025-10-11-proverki-rabotodateley-vremennyh-inostrannyh-rabotnikov-v-ka/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Проверки работодателей временных иностранных работников в Канаде рухнули — при том что самих рабочих стало в разы больше</div><p class="lrc-ex">Как выяснила Toronto Star, за последние пять лет число инспекций компаний, нанимающих временных иностранных работников, упало на 57% — с 3365 в 2020 году до 1435 в 2024-м.    И...</p><span class="lrc-date">11 окт 2025</span></div></a><a class="lr-card" href="/post/2025-10-09-pravitelstvo-karni-smyagchilo-proekt-zhyostkogo-immigratsion/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Правительство Карни смягчило проект жёсткого иммиграционного закона, но не отступило от его сути</div><p class="lrc-ex">Кабинет Марка Карни внёс в парламент обновлённую версию законопроекта Strong Borders Act — теперь без самых спорных пунктов, вызвавших волну критики.   Из текста убрали положения,...</p><span class="lrc-date">9 окт 2025</span></div></a><a class="lr-card" href="/post/2025-10-09-skandal-v-u-of-t-studencheskiy-soyuz-ustroil-vecher-pamyati-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Скандал в U of T: студенческий союз устроил «вечер памяти мучеников Палестины» в годовщину атаки ХАМАС</div><p class="lrc-ex">На кампусе Университета Торонто в Миссиссаге прошла акция, организованная студенческим союзом и Палестинским культурным клубом, приуроченная к двухлетней годовщине атаки ХАМАС на...</p><span class="lrc-date">9 окт 2025</span></div></a><a class="lr-card" href="/post/2025-10-04-tri-goda-v-kanade-dostatochno-dlya-grazhdanstva-po-proishozh/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">🇨🇦 Три года в Канаде — достаточно для гражданства по происхождению? Парламент спорит</div><p class="lrc-ex">В парламенте Канады разгорелся спор вокруг законопроекта C-3, который должен изменить Закон о гражданстве и сделать его соответствующим Конституции.   Законопроект позволит...</p><span class="lrc-date">4 окт 2025</span></div></a><a class="lr-card" href="/post/2025-09-27-kanada-rezhet-razresheniya-na-rabotu-dlya-inostrannyh-vypusk/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Канада режет разрешения на работу для иностранных выпускников</div><p class="lrc-ex">В 2025 году выпускники канадских вузов получат на 30% меньше постдипломных разрешений на работу (PGWP), чем годом ранее: всего около 143 тысяч против 205 тысяч в 2024-м. По данным...</p><span class="lrc-date">27 сен 2025</span></div></a><a class="lr-card" href="/post/2025-09-20-kanada-snova-v-tope-dlya-inostrannyh-studentov/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Канада снова в топе для иностранных студентов</div><p class="lrc-ex">Несмотря на жесткие ограничения Оттавы на студенческие визы и доступ к постдипломным рабочим разрешениям, Канада неожиданно вернула себе привлекательность в глазах будущих...</p><span class="lrc-date">20 сен 2025</span></div></a><a class="lr-card" href="/post/2025-09-19-per-poliev-utverzhdaet-chto-programma-vremennyh-inostrannyh-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Toronto Star</span><div class="lrc-title">Пьер Полиев утверждает, что программа временных иностранных рабочих отбирает рабочие места у канадцев. Проверяем факты</div><p class="lrc-ex">Лидер Консерваторов Пьер Полиев снова требует закрыть программу временных иностранных рабочих (TFW), заявляя, что она «ворует рабочие места у канадцев». На фоне роста безработицы...</p><span class="lrc-date">19 сен 2025</span></div></a></div><div class="pgn"><a class="pb on" href="/source/toronto-star/">1</a><a class="pb" href="/source/toronto-star/page/2/">2</a><a class="pb" href="/source/toronto-star/page/3/">3</a><a class="pb" href="/source/toronto-star/page/2/">→</a></div></div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo">MAPLE <span style="color:var(--maple)">🍁</span> BARREL</div>
+    <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
+    <a class="ftg" href="https://t.me/maplebarrel">Подписаться в Telegram</a>
+  </div>
+  <div class="fcol">
+    <h4>Темы</h4>
+    <a href="/tag/politika/">#Политика</a>
+    <a href="/tag/ekonomika/">#Экономика</a>
+    <a href="/tag/immigratsiya/">#Иммиграция</a>
+    <a href="/tag/zhilyo/">#Жильё</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a>
+    <a href="/tag/zdravookhranenie/">#Здравоохранение</a>
+  </div>
+  <div class="fcol">
+    <h4>Персоны</h4>
+    <a href="/person/mark-karni/">Марк Карни</a>
+    <a href="/person/per-poliev/">Пьер Полиев</a>
+    <a href="/person/donald-tramp/">Дональд Трамп</a>
+    <a href="/person/dag-ford/">Даг Форд</a>
+    <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Источники</h4>
+    <a href="/source/cbc/">CBC</a>
+    <a href="/source/ctv-news/">CTV News</a>
+    <a href="/source/globe-and-mail/">Globe and Mail</a>
+    <a href="/source/global-news/">Global News</a>
+    <a href="/source/national-post/">National Post</a>
+    <a href="/source/toronto-star/">Toronto Star</a>
+    <a href="/source/macleans/">Maclean's</a>
+    <a href="/source/the-hub/">The Hub</a>
+  </div>
+  <div class="fcol">
+    <h4>Разделы</h4>
+    <a href="/materials/">Материалы</a>
+    <a href="/longreads/">Лонгриды</a>
+    <a href="/surveys/">Опросы</a>
+    <a href="/about/">О проекте</a>
+    <a href="https://t.me/maplebarrel">Telegram</a>
+  </div>
+</div>
+<div class="fcp">
+  <span>© 2026 Maple Barrel · journaists.ca</span>
+  <span>Новости Канады на русском языке</span>
+</div>
+</footer>
+</body>
+</html>

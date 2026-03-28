@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBC — Maple Barrel</title>
+<meta name="description" content="Все материалы из CBC на русском языке.">
+<link rel="canonical" href="https://journaists.ca/source/cbc/">
+<meta property="og:title" content="CBC — Maple Barrel">
+<meta property="og:description" content="Все материалы из CBC на русском языке.">
+<meta property="og:url" content="https://journaists.ca/source/cbc/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journaists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CBC — Maple Barrel">
+<meta name="twitter:description" content="Все материалы из CBC на русском языке.">
+<meta name="twitter:image" content="https://journaists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
+  --br:#e8e4dc;--br2:#d0ccc4;
+  --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
+  --ac:#e53e3e;--ac2:#c53030;--tg:#0088cc;--maple:#e53e3e;
+  --dark:#2d3748;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:0 8px 24px rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Inter','Golos Text',system-ui,sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:19px;font-weight:900;letter-spacing:-1px;color:var(--ac);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:3px}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
+.nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
+.nav-r{display:flex;align-items:center}
+.tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
+.tgb:hover{background:#006fa8}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
+
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
+
+/* SOURCE BADGE — dark grey */
+.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
+
+/* READ MORE — light red with leaf */
+.btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
+.btn-more:hover{opacity:1}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
+.sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+
+/* CARD — for featured grid */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.25;color:var(--t);letter-spacing:-.2px}
+.card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
+.card-date{font-size:11px;color:var(--t4)}
+
+/* LR-CARD — horizontal, for materials/longreads/surveys */
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+
+/* TAGS */
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+.tag-eco{background:#fef3c7;color:#78350f}
+.tag-imm{background:#dbeafe;color:#1e40af}
+.tag-reg{background:#d1fae5;color:#065f46}
+.tag-stat{background:#ede9fe;color:#4c1d95}
+.tag-def{background:var(--bg4);color:var(--t3)}
+
+/* TAG FILTER BAR */
+.tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tc{font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:.15s;letter-spacing:.3px;white-space:nowrap;cursor:pointer}
+.tc:hover{border-color:var(--t);color:var(--t)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* PAGINATION */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:.15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* FOOTER */
+footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:28px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
+.ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:.15s}
+.fcol a:hover{color:var(--ac)}
+.fcp{max-width:1200px;margin:24px auto 0;padding:20px 24px 0;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
+
+/* TG CTA on post page */
+.tgcta{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bee3f8;border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
+.ctxt{flex:1}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:5px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:9px 18px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;transition:.15s}
+.cbtn2:hover{background:#006fa8}
+
+@media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:700px){.fi{grid-template-columns:1fr}.ni{gap:8px}.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
+  </div>
+</div></nav>
+<div class="wrap"><div class="page-intro"><h1>CBC</h1><p>480 материалов из этого издания</p></div><div class="lr-grid"><a class="lr-card" href="/post/2026-01-08-uyazvima-li-kanada-venesuela-grenlandiya-i-novaya-strategiya/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Уязвима ли Канада? Венесуэла, Гренландия и новая стратегия Трампа</div><p class="lrc-ex">Майк Кроули из CBC пишет, что действия Дональда Трампа — силовой захват Николаса Мадуро и угрозы применить военную силу для получения Гренландии — заставляют по-новому взглянуть...</p><span class="lrc-date">8 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-07-shkoly-alberty-tiho-ubrali-knigi-iz-bibliotek-kakie-imenno-n/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Школы Альберты тихо убрали книги из библиотек — какие именно, не говорят</div><p class="lrc-ex">В Альберте вступили в силу новые правила для школьных библиотек, и несколько школьных округов уже убрали десятки книг с полок. Проблема в том, что названия этих книг держат в...</p><span class="lrc-date">7 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-06-kak-na-amazon-v-kanade-narkotiki-prodayut-onlayn-i-dostavlya/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">«Как на Amazon»: в Канаде наркотики продают онлайн и доставляют через Canada Post</div><p class="lrc-ex">⁠  CBC и Radio-Canada показали, насколько просто сегодня купить кокаин, героин или экстази — буквально в пару кликов, с оплатой картой или e-transfer и доставкой обычной почтой. ...</p><span class="lrc-date">6 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-06-profsoyuzy-i-gossluzhaschie-vystupili-protiv-obyazatelnogo-v/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Профсоюзы и госслужащие выступили против обязательного возвращения в офисы в Онтарио</div><p class="lrc-ex">С 5 января в Онтарио вступило в силу требование о полном возвращении государственных служащих в офисы — пять дней в неделю. Решение правительства вызвало резкую критику со стороны...</p><span class="lrc-date">6 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-05-ottava-predlagaet-shtrafy-do-1-mln-za-narushenie-pravil-rees/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Оттава предлагает штрафы до $1 млн за нарушение правил реестра иностранного влияния</div><p class="lrc-ex">Федеральное правительство Канады предлагает ввести штрафы до $1 млн для физических лиц и организаций, которые нарушат требования будущего реестра прозрачности иностранного...</p><span class="lrc-date">5 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-05-zelenskiy-naznachil-hristyu-friland-ekonomicheskim-sovetniko/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Зеленский назначил Христю Фриланд экономическим советником Украины</div><p class="lrc-ex">Президент Украины Владимир Зеленский объявил о назначении бывшего вице-премьера Канады Христя Фриланд своим экономическим советником.    По словам Зеленского, Украине необходимо...</p><span class="lrc-date">5 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-01-novyy-god-novye-nalogi-chto-izmenitsya-v-kanade-v-2026-godu/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Новый год — новые налоги: что изменится в Канаде в 2026 году</div><p class="lrc-ex">С 1 января вступают в силу обновлённые налоговые параметры. Больших сюрпризов нет — эксперты называют изменения «вялым сезоном», но несколько моментов всё же стоит зафиксировать. ...</p><span class="lrc-date">1 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-01-snowbirds-iz-kanady-hotyat-uyti-iz-floridy-no-rynok-nedvizhi/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Snowbirds из Канады хотят уйти из Флориды — но рынок недвижимости не даёт</div><p class="lrc-ex">Для сотен тысяч канадских snowbirds зима десятилетиями означала одно и то же: самолёт на юг и месяцы во Флориде. Теперь всё чаще встаёт другой вопрос — ехать туда вообще или...</p><span class="lrc-date">1 янв 2026</span></div></a><a class="lr-card" href="/post/2025-12-30-elbows-up-v-2025-m-kak-kanadskiy-boykot-ssha-udaril-po-alkog/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Elbows up в 2025-м: как канадский бойкот США ударил по алкоголю, поездкам и апельсиновому соку</div><p class="lrc-ex">⁠  Фраза Elbows up — фирменный приём Горди Хоу — в 2025 году стала чем угодно: лозунгом, мемом, маркетинговым ходом и символом экономического сопротивления.   Поводом стали угрозы...</p><span class="lrc-date">30 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-30-chto-dalshe-v-kanadskoy-politike-pyat-syuzhetov-za-kotorymi-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Что дальше в канадской политике: пять сюжетов, за которыми будут следить в 2026 году</div><p class="lrc-ex">⁠  2025-й закончился максимально нервно: уход Джастина Трюдо, приход Марка Карни, перебежчики из Консервативной партии и торговая война США. 2026-й обещает быть не менее...</p><span class="lrc-date">30 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-30-cra-trebuet-vernut-10-mlrd-covid-vyplat-dengi-zakonchilis-po/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">CRA требует вернуть $10 млрд COVID-выплат: деньги закончились, поблажки — тоже</div><p class="lrc-ex">⁠  Канадское налоговое агентство (CRA) заявляет, что до сих пор не получило около $10 млрд COVID-выплат, которые, по итогам проверок, были перечислены людям без права на получение...</p><span class="lrc-date">30 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-29-do-ogrableniy-poezdov-v-ssha-sandens-kid-byl-kovboem-v-alber/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">До ограблений поездов в США Сандэнс Кид был ковбоем в Альберте</div><p class="lrc-ex">⁠ Задолго до первых Calgary Stampede в город тянуло ковбоев совсем иного сорта. Гарри Лонгабо — более известный как Sundance Kid — провёл около трёх лет в Альберте в начале...</p><span class="lrc-date">29 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-28-kanada-deportiruet-pochti-400-chelovek-v-nedelyu-maksimum-za/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Канада депортирует почти 400 человек в неделю — максимум за десятилетие</div><p class="lrc-ex">⁠   Canada Border Services Agency ускорило депортации до уровня, которого страна не видела более десяти лет. Сейчас из Канады высылают почти 400 человек в неделю, в основном —...</p><span class="lrc-date">28 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-28-ontario-menyaet-pravila-publikatsii-vakansiy-s-1-yanvarya-20/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Онтарио меняет правила публикации вакансий с 1 января 2026 года</div><p class="lrc-ex">⁠   Власти Онтарио вводят новые требования к публичным вакансиям. Изменения в рамках Employment Standards Act затронут работодателей с численностью более 25 сотрудников. ⁠  ...</p><span class="lrc-date">28 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-26-karni-o-politike-trampe-i-zhertvah-chto-premer-skazal-v-itog/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Карни о политике, Трампе и «жертвах»: что премьер сказал в итоговом интервью CBC</div><p class="lrc-ex">⁠ 2025 год стал для Канады годом резких поворотов. Еще год назад Джастин Трюдо раздумывал, уходить или нет. Итог — его отставка, приход Марка Карни, победа либералов на выборах и...</p><span class="lrc-date">26 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-25-10-samyh-prodavaemyh-kanadskih-knig-2025-goda/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">10 самых продаваемых канадских книг 2025 года</div><p class="lrc-ex">CBC Books опубликовал рейтинг бестселлеров года на основе продаж более чем в 250 независимых книжных магазинов Канады (данные Bookmanager). В списке — художественная проза,...</p><span class="lrc-date">25 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-24-tramp-govoril-chto-ne-hochet-kanadskie-mashiny-no-odna-iz-ni/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Трамп говорил, что не хочет канадские машины. Но одна из них — из Виндзора — сейчас собирает американские награды</div><p class="lrc-ex">⁠ ⁠ Всего несколько месяцев назад Дональд Трамп публично заявлял, что США «не нужны канадские автомобили». Ирония в том, что именно сейчас автомобиль, собранный в Канаде, получает...</p><span class="lrc-date">24 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-24-fayly-epshteyna-kakie-kanadtsy-upominayutsya-v-novoy-publika/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Файлы Эпштейна: какие канадцы упоминаются в новой публикации документов</div><p class="lrc-ex">⁠ ⁠ Минюст США опубликовал ещё около 30 тысяч страниц материалов по делу Джеффри Эпштейна — переписку, служебные записки, показания и внутренние документы ФБР. В них вновь...</p><span class="lrc-date">24 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-24-nikogda-bolshe-pensioner-iz-vindzora-opozorilsya-iz-za-pusty/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">«Никогда больше»: пенсионер из Виндзора опозорился из-за пустых подарочных карт</div><p class="lrc-ex">⁠ ⁠ 66-летний Марк Дюгей из Виндзора говорит, что больше никогда не купит подарочные карты. Причина — $275, которые буквально исчезли.  ⁠ ⁠ В начале декабря его клуб пенсионеров...</p><span class="lrc-date">24 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-23-sever-britanskoy-kolumbii-teryaet-rabotnikov-iz-za-uzhestoch/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Север Британской Колумбии теряет работников из-за ужесточения правил для иностранцев</div><p class="lrc-ex">Новые ограничения на программу временных иностранных работников уже бьют по малым и удалённым городам на севере Британской Колумбии. Бизнес и местные экономические организации...</p><span class="lrc-date">23 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-23-v-alberte-odobrili-vopros-o-vyhode-iz-sostava-kanady/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">В Альберте одобрили вопрос о выходе из состава Канады</div><p class="lrc-ex">Избирательная комиссия Альберты дала зелёный свет гражданской инициативе о возможном отделении провинции от Канады. Это означает, что группа Alberta Prosperity Project может...</p><span class="lrc-date">23 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-23-uvolennye-razrabotchiki-gta-v-kanade-prosyat-vernut-im-rabot/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Уволенные разработчики GTA в Канаде просят вернуть им работу</div><p class="lrc-ex">Один из канадских сотрудников студии Rockstar, уволенных осенью, рассказал CBC News, что увольнение стало полным шоком. В октябре компания одновременно уволила 34 человека — троих...</p><span class="lrc-date">23 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-23-canada-post-i-profsoyuz-dogovorilis-zabastovok-ne-budet/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Canada Post и профсоюз договорились: забастовок не будет</div><p class="lrc-ex">Canada Post и Канадский союз почтовых работников (CUPW) объявили о предварительных соглашениях по двум ключевым подразделениям — городским почтовым операциям и сельским и...</p><span class="lrc-date">23 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-22-novoe-issledovanie-ai-chatboty-sposobny-menyat-elektoralnyy-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Новое исследование: AI-чатботы способны менять электоральный выбор канадцев</div><p class="lrc-ex">Разговор с AI-чатботом может убедить человека изменить свой голос — и в Канаде этот эффект заметно сильнее, чем в США. К такому выводу пришли авторы нового исследования,...</p><span class="lrc-date">22 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-22-eto-mozhno-bylo-predotvratit-novye-pravila-dolzhny-ostanovit/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">«Это можно было предотвратить»: новые правила должны остановить выплаты фейковых возвратов от CRA</div><p class="lrc-ex">Федеральное правительство Канады признало давнюю проблему: Canada Revenue Agency годами выплачивало миллионы долларов по фиктивным налоговым возвратам, став жертвой так называемых...</p><span class="lrc-date">22 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-20-natsisty-byli-pravy-chego-na-samom-dele-hotyat-lidery-krupne/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">«Нацисты были правы»: чего на самом деле хотят лидеры крупнейшей «националистической» группы Канады</div><p class="lrc-ex">Лидеры Second Sons Canada — крупнейшей на сегодня белонационалистической группы в стране — считают, что «расовая война уже идёт», поддерживают идеи нацизма и выступают за массовую...</p><span class="lrc-date">20 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-20-vankuver-uroven-vakantnyh-kvartir-maksimum-s-1980-h/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Ванкувер: уровень вакантных квартир — максимум с 1980-х</div><p class="lrc-ex">Впервые за почти 40 лет в Метро Ванкувере зафиксирован уровень вакантности, который считается «здоровым» по североамериканским меркам.   По данным Canada Mortgage and Housing...</p><span class="lrc-date">20 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-20-samye-zagruzhennye-dni-puteshestviy-v-godu-uzhe-zdes-haos-il/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Самые загруженные дни путешествий в году уже здесь. Хаос или спокойствие?</div><p class="lrc-ex">Конец декабря — традиционно пик путешествий в Канаде. В ближайшие дни аэропорты, вокзалы и трассы будут работать на пределе: это самые загруженные даты всего 2025 года. Вопрос,...</p><span class="lrc-date">20 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-19-kakie-produkty-provinilis-pered-pokupatelyami-chto-silnee-vs/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Какие продукты «провинились» перед покупателями: что сильнее всего подорожало в канадских магазинах</div><p class="lrc-ex">Продуктовая инфляция в Канаде достигла максимума почти за два года. По данным Statistics Canada, цены на продукты в магазинах в ноябре выросли на 4,7% в годовом выражении — при...</p><span class="lrc-date">19 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-19-buduschee-marineland-v-niagara-fols-po-prezhnemu-v-podveshen/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Будущее Marineland в Ниагара-Фолс по-прежнему в подвешенном состоянии</div><p class="lrc-ex">Жители Ниагара-Фолс всё больше недовольны отсутствием решений по судьбе закрытого Marineland и десятков животных, включая до 30 белух и четырёх дельфинов. Почти два месяца прошло...</p><span class="lrc-date">19 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-19-est-li-nepravilnyy-sposob-poluchit-parlamentskoe-bolshinstvo/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Есть ли «неправильный» способ получить парламентское большинство?</div><p class="lrc-ex">После перехода депутата Майкла Ма к либералам Пьер Полиев обвинил премьер-министра Марка Карни в попытке «проманипулировать» большинством через закулисные сделки, а не через...</p><span class="lrc-date">19 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-19-v-ontario-i-kvebeke-nakryli-krupnuyu-set-krazh-iz-shoppers-d/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">В Онтарио и Квебеке накрыли крупную сеть краж из Shoppers Drug Mart</div><p class="lrc-ex">Полиция Хэмилтона сообщила о ликвидации организованной преступной группы, причастной к сотням краж из магазинов Shoppers Drug Mart в Онтарио и Квебеке. Ущерб — свыше $1 млн.   В...</p><span class="lrc-date">19 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-18-glavnyy-sanitarnyy-vrach-kvebeka-preduprezhdaet-gripp-raspro/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Главный санитарный врач Квебека предупреждает: грипп распространяется «почти как пожар»</div><p class="lrc-ex">Педиатрические больницы Монреаля переполнены накануне праздников из-за резкого всплеска сезонных вирусов. Власти просят родителей не обращаться в приёмные покои без острой...</p><span class="lrc-date">18 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-18-tramp-vydvinul-usloviya-kanade-dlya-prodleniya-cusma-pivo-mo/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Трамп выдвинул условия Канаде для продления CUSMA: пиво, молоко и стриминг</div><p class="lrc-ex">Администрация Дональда Трампа впервые публично обозначила, что именно Канада должна изменить, чтобы сохранить торговое соглашение CUSMA после пересмотра в 2026 году. Об этом в...</p><span class="lrc-date">18 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-18-tramp-v-chastnyh-peregovorah-ne-ugrozhal-vyhodom-iz-cusma-ka/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Трамп в частных переговорах не угрожал выходом из CUSMA — Карни</div><p class="lrc-ex">Премьер-министр Канады Марк Карни заявил, что в личных разговорах с Дональдом Трампом не слышал угроз разорвать соглашение Canada–U.S.–Mexico Agreement (CUSMA), несмотря на...</p><span class="lrc-date">18 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-17-nelegalnyy-status-i-gody-ozhidaniya-kak-immigratsionnaya-sis/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Нелегальный статус и годы ожидания: как иммиграционная система Канады подводит детей</div><p class="lrc-ex">‎  Юристы и правозащитники бьют тревогу: тысячи детей и подростков в Канаде рискуют остаться без будущего из-за фактически недееспособных сроков рассмотрения заявок на ПМЖ по...</p><span class="lrc-date">17 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-16-kanadskim-deputatam-otkazali-vo-vezde-v-izrail/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Канадским депутатам отказали во въезде в Израиль</div><p class="lrc-ex">Делегации из 30 канадцев, включая шесть депутатов парламента, отказали во въезде в Израиль при пересечении границы со стороны Иордании. Об этом сообщает CBC News.   По словам...</p><span class="lrc-date">16 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-16-vse-bolshe-kanadtsev-vybirayut-meksiku-vmesto-ssha-dlya-zimn/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Все больше канадцев выбирают Мексику вместо США для зимнего отдыха</div><p class="lrc-ex">Все больше канадцев отказываются от традиционных зимних поездок в США и выбирают отдых внутри Канады или в Мексике. Об этом сообщает CBC News, отмечая заметное изменение...</p><span class="lrc-date">16 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-15-kanadtsy-do-35-let-tonut-v-dolgah-i-kupi-seychas-plati-potom/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Канадцы до 35 лет тонут в долгах — и «купи сейчас, плати потом» только усугубляет ситуацию</div><p class="lrc-ex">Молодые канадцы сталкиваются с рекордным уровнем долгового стресса. Некоммерческая Credit Counselling Society сообщила, что в 2025 году к ним обратилось больше людей в возрасте от...</p><span class="lrc-date">15 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-15-toronto-muzhchina-obognal-novyy-finch-lrt-na-18-minut/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Торонто: мужчина обогнал новый Finch LRT на 18 минут</div><p class="lrc-ex">Житель Торонто Мак Бауэр, известный в соцсетях как 514runner, устроил забег против недавно открытой линии Finch West LRT — и уверенно победил.   Бауэр давно соревнуется с...</p><span class="lrc-date">15 дек 2025</span></div></a></div><div class="pgn"><a class="pb" href="/source/cbc/page/3/">←</a><a class="pb" href="/source/cbc/">1</a><a class="pb" href="/source/cbc/page/2/">2</a><a class="pb" href="/source/cbc/page/3/">3</a><a class="pb on" href="/source/cbc/page/4/">4</a><a class="pb" href="/source/cbc/page/5/">5</a><a class="pb" href="/source/cbc/page/6/">6</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/source/cbc/page/12/">12</a><a class="pb" href="/source/cbc/page/5/">→</a></div></div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo">MAPLE <span style="color:var(--maple)">🍁</span> BARREL</div>
+    <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
+    <a class="ftg" href="https://t.me/maplebarrel">Подписаться в Telegram</a>
+  </div>
+  <div class="fcol">
+    <h4>Темы</h4>
+    <a href="/tag/politika/">#Политика</a>
+    <a href="/tag/ekonomika/">#Экономика</a>
+    <a href="/tag/immigratsiya/">#Иммиграция</a>
+    <a href="/tag/zhilyo/">#Жильё</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a>
+    <a href="/tag/zdravookhranenie/">#Здравоохранение</a>
+  </div>
+  <div class="fcol">
+    <h4>Персоны</h4>
+    <a href="/person/mark-karni/">Марк Карни</a>
+    <a href="/person/per-poliev/">Пьер Полиев</a>
+    <a href="/person/donald-tramp/">Дональд Трамп</a>
+    <a href="/person/dag-ford/">Даг Форд</a>
+    <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Источники</h4>
+    <a href="/source/cbc/">CBC</a>
+    <a href="/source/ctv-news/">CTV News</a>
+    <a href="/source/globe-and-mail/">Globe and Mail</a>
+    <a href="/source/global-news/">Global News</a>
+    <a href="/source/national-post/">National Post</a>
+    <a href="/source/toronto-star/">Toronto Star</a>
+    <a href="/source/macleans/">Maclean's</a>
+    <a href="/source/the-hub/">The Hub</a>
+  </div>
+  <div class="fcol">
+    <h4>Разделы</h4>
+    <a href="/materials/">Материалы</a>
+    <a href="/longreads/">Лонгриды</a>
+    <a href="/surveys/">Опросы</a>
+    <a href="/about/">О проекте</a>
+    <a href="https://t.me/maplebarrel">Telegram</a>
+  </div>
+</div>
+<div class="fcp">
+  <span>© 2026 Maple Barrel · journaists.ca</span>
+  <span>Новости Канады на русском языке</span>
+</div>
+</footer>
+</body>
+</html>

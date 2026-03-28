@@ -154,6 +154,26 @@ SOURCE_NAMES = {
     'westernstandard.news': 'Western Standard', 'spectator.com': 'Spectator',
 }
 
+SOURCE_SLUG = {
+    'cbc.ca': 'cbc',
+    'ctvnews.ca': 'ctv-news',
+    'theglobeandmail.com': 'globe-and-mail',
+    'globalnews.ca': 'global-news',
+    'nationalpost.com': 'national-post',
+    'thestar.com': 'toronto-star',
+    'macleans.ca': 'macleans',
+    'thehub.ca': 'the-hub',
+    'bloomberg.com': 'bloomberg',
+    'nytimes.com': 'ny-times',
+    'theatlantic.com': 'the-atlantic',
+    'torontosun.com': 'toronto-sun',
+    'reuters.com': 'reuters',
+    'theguardian.com': 'the-guardian',
+    'financialpost.com': 'financial-post',
+    'westernstandard.news': 'western-standard',
+    'apple.news': 'apple-news',
+}
+
 def source_name(src):
     return SOURCE_NAMES.get(src, src or '—')
 
@@ -484,7 +504,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .card:hover .card-img img{transform:scale(1.04)}
 .card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
-.card-title{font-family:var(--serif);font-size:20px;font-weight:800;line-height:1.2;color:var(--t);letter-spacing:-.3px}
+.card-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.25;color:var(--t);letter-spacing:-.2px}
 .card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
 .card-date{font-size:11px;color:var(--t4)}
 
@@ -522,7 +542,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 
 /* FOOTER */
 footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
-.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:28px}
 .flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
 .fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
 .ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
@@ -603,10 +623,21 @@ def footer_html():
   <div class="fcol">
     <h4>Персоны</h4>
     <a href="/person/mark-karni/">Марк Карни</a>
-    <a href="/person/per-polev/">Пьер Полиев</a>
+    <a href="/person/per-poliev/">Пьер Полиев</a>
     <a href="/person/donald-tramp/">Дональд Трамп</a>
     <a href="/person/dag-ford/">Даг Форд</a>
     <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Источники</h4>
+    <a href="/source/cbc/">CBC</a>
+    <a href="/source/ctv-news/">CTV News</a>
+    <a href="/source/globe-and-mail/">Globe and Mail</a>
+    <a href="/source/global-news/">Global News</a>
+    <a href="/source/national-post/">National Post</a>
+    <a href="/source/toronto-star/">Toronto Star</a>
+    <a href="/source/macleans/">Maclean's</a>
+    <a href="/source/the-hub/">The Hub</a>
   </div>
   <div class="fcol">
     <h4>Разделы</h4>
@@ -706,7 +737,7 @@ def _img_block(p, loading='lazy'):
     if img:
         return (f'<div class="card-img">'
                 f'<img src="{img}" alt="" loading="{loading}" '
-                f"onerror=\"this.parentNode.innerHTML='{ph_html}'\">"
+                f'onerror="this.style.display=\'none\'">'
                 f'</div>')
     return f'<div class="card-img"><div class="card-placeholder" style="background:{bg}"><span style="color:{fg}">{label}</span></div></div>'
 
@@ -1105,19 +1136,14 @@ def build_news_index(posts_by_date):
 
 def build_materials_page(posts, page=1, tag=''):
     css = """
-.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
-.lr-card:hover{opacity:.85}
-.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
-.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
-.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
-.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mat-grid .card-title{font-size:15px;font-weight:700}
+.mat-grid .card-excerpt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
 .page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t3)}
-@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+@media(max-width:900px){.mat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.mat-grid{grid-template-columns:1fr}}
 """
     per = POSTS_PER_PAGE
     total = len(posts)
@@ -1137,7 +1163,7 @@ def build_materials_page(posts, page=1, tag=''):
     <p>Аналитика, мнения и тексты из The Atlantic, Maclean's, The Hub и других изданий — не привязанные к конкретной дате.</p>
   </div>
   {tag_chips}
-  <div class="lr-grid">{"".join(lr_card(p) for p in page_posts)}</div>
+  <div class="mat-grid">{"".join(photo_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(
@@ -1344,6 +1370,47 @@ def build_contacts_page():
 
 # ── SITEMAP ───────────────────────────────────────────
 
+
+def build_source_page(src_domain, src_label, posts, page=1):
+    per = POSTS_PER_PAGE
+    total = len(posts)
+    pages = max(1, -(-total // per))
+    page_posts = posts[(page-1)*per:page*per]
+    pgn = _pagination(page, pages, f'/source/{SOURCE_SLUG.get(src_domain, slugify(src_label))}/')
+    css = """
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+"""
+    cards = ''.join(lr_card(p) for p in page_posts)
+    html = ('<div class="wrap">'
+            + '<div class="page-intro">'
+            + f'<h1>{esc(src_label)}</h1>'
+            + f'<p>{total} материалов из этого издания</p>'
+            + '</div>'
+            + f'<div class="lr-grid">{cards}</div>'
+            + pgn
+            + '</div>')
+    src_slug = SOURCE_SLUG.get(src_domain, slugify(src_label))
+    return page_shell(
+        title=f"{src_label} — Maple Barrel",
+        desc=f"Все материалы из {src_label} на русском языке.",
+        url=f"/source/{src_slug}/",
+        content=html,
+        active='news',
+        css_extra=css
+    )
+
 def build_sitemap(posts):
     urls = [
         f"  <url><loc>{BASE_URL}/</loc><changefreq>hourly</changefreq><priority>1.0</priority></url>",
@@ -1506,9 +1573,23 @@ def build():
 
     write('about/index.html', build_about_page())
     write('contacts/index.html', build_contacts_page())
+
+    # ── Источники ──
+    source_index = defaultdict(list)
+    for p in posts_desc:
+        src = p.get('source', '')
+        if src in SOURCE_SLUG:
+            source_index[src].append(p)
+    print(f"   📰 Генерируем {len(source_index)} источников...")
+    for src_domain, sposts in source_index.items():
+        src_label = source_name(src_domain)
+        src_slug = SOURCE_SLUG[src_domain]
+        for pg in range(1, max(1, -(-len(sposts) // per)) + 1):
+            write(f'source/{src_slug}/{"" if pg==1 else f"page/{pg}/"}index.html',
+                  build_source_page(src_domain, src_label, sposts, pg))
     write('sitemap.xml', build_sitemap(posts_desc))
     write('robots.txt', build_robots())
-    write('_redirects', '/post/*  /post/:splat  200\n/tag/*  /tag/:splat  200\n/surveys/*  /surveys/:splat  200\n')
+    write('_redirects', '/post/*  /post/:splat  200\n/source/*  /source/:splat  200\n/tag/*  /tag/:splat  200\n/surveys/*  /surveys/:splat  200\n')
 
     elapsed = (datetime.now() - start).total_seconds()
     total_files = sum(len(fs) for _, _, fs in os.walk(SITE_DIR))

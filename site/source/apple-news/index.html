@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple News — Maple Barrel</title>
+<meta name="description" content="Все материалы из Apple News на русском языке.">
+<link rel="canonical" href="https://journaists.ca/source/apple-news/">
+<meta property="og:title" content="Apple News — Maple Barrel">
+<meta property="og:description" content="Все материалы из Apple News на русском языке.">
+<meta property="og:url" content="https://journaists.ca/source/apple-news/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journaists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apple News — Maple Barrel">
+<meta name="twitter:description" content="Все материалы из Apple News на русском языке.">
+<meta name="twitter:image" content="https://journaists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
+  --br:#e8e4dc;--br2:#d0ccc4;
+  --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
+  --ac:#e53e3e;--ac2:#c53030;--tg:#0088cc;--maple:#e53e3e;
+  --dark:#2d3748;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:0 8px 24px rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Inter','Golos Text',system-ui,sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:19px;font-weight:900;letter-spacing:-1px;color:var(--ac);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:3px}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
+.nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
+.nav-r{display:flex;align-items:center}
+.tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
+.tgb:hover{background:#006fa8}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
+
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
+
+/* SOURCE BADGE — dark grey */
+.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
+
+/* READ MORE — light red with leaf */
+.btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
+.btn-more:hover{opacity:1}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
+.sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+
+/* CARD — for featured grid */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.25;color:var(--t);letter-spacing:-.2px}
+.card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
+.card-date{font-size:11px;color:var(--t4)}
+
+/* LR-CARD — horizontal, for materials/longreads/surveys */
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+
+/* TAGS */
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+.tag-eco{background:#fef3c7;color:#78350f}
+.tag-imm{background:#dbeafe;color:#1e40af}
+.tag-reg{background:#d1fae5;color:#065f46}
+.tag-stat{background:#ede9fe;color:#4c1d95}
+.tag-def{background:var(--bg4);color:var(--t3)}
+
+/* TAG FILTER BAR */
+.tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tc{font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:.15s;letter-spacing:.3px;white-space:nowrap;cursor:pointer}
+.tc:hover{border-color:var(--t);color:var(--t)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* PAGINATION */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:.15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* FOOTER */
+footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:28px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
+.ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:.15s}
+.fcol a:hover{color:var(--ac)}
+.fcp{max-width:1200px;margin:24px auto 0;padding:20px 24px 0;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
+
+/* TG CTA on post page */
+.tgcta{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bee3f8;border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
+.ctxt{flex:1}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:5px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:9px 18px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;transition:.15s}
+.cbtn2:hover{background:#006fa8}
+
+@media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:700px){.fi{grid-template-columns:1fr}.ni{gap:8px}.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
+  </div>
+</div></nav>
+<div class="wrap"><div class="page-intro"><h1>Apple News</h1><p>53 материалов из этого издания</p></div><div class="lr-grid"><a class="lr-card" href="/post/2026-03-26-glava-air-canada-snova-promahnulsya-s-dvuyazychiem/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Глава Air Canada снова «промахнулся» с двуязычием</div><p class="lrc-ex">Колумнист Конрад Якабуски пишет, что глава Air Canada Майкл Руссо вновь оказался в центре скандала из-за игнорирования французского языка.   Поводом стало видеообращение после...</p><span class="lrc-date">26 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-26-kanada-ostayotsya-zavisimoy-ot-dei/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Канада остаётся зависимой от DEI</div><p class="lrc-ex">Монреальский эндокринолог Рой Эппен пишет, что канадская система медицинского образования всё глубже уходит в идеологию DEI — в отличие от США, где Дональд Трамп пытается...</p><span class="lrc-date">26 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-26-immigratsiya-kanady-otkazala-zayavitelnitse-soslavshis-na-vy/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Иммиграция Канады отказала заявительнице, сославшись на «выдуманные» обязанности — в деле фигурирует ИИ</div><p class="lrc-ex">В Канаде разгорается новый скандал вокруг иммиграционной системы: отказ в ПМЖ объяснили обязанностями, которых у заявительницы никогда не было.   Речь идёт о Кеми Аде — научной...</p><span class="lrc-date">26 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-22-oprosy-amerikantsy-huzhe-otnosyatsya-k-kanade-i-eto-plohaya-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Опросы: американцы хуже относятся к Канаде — и это плохая новость для торговой войны</div><p class="lrc-ex">Свежие данные показывают редкую ситуацию: ухудшились не только настроения канадцев к США, но и наоборот.   По данным Gallup, доля американцев с положительным отношением к Канаде...</p><span class="lrc-date">22 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-20-shest-vyvodov-iz-poyavleniya-pera-polieva-v-podkaste-dzho-ro/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Шесть выводов из появления Пьера Полиева в подкасте Джо Рогана</div><p class="lrc-ex">Лидер консерваторов Пьер Полиев провёл почти 2,5 часа в подкасте Джо Роган — и это был не просто разговор, а полноценная политическая заявка на аудиторию за пределами Канады.  Вот...</p><span class="lrc-date">20 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-13-ya-pogovorila-s-bolee-chem-30-istochnikami-o-pervom-gode-mar/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Я поговорила с более чем 30 источниками о первом годе Марка Карни на посту премьер-министра. Вот что они рассказали</div><p class="lrc-ex">Альтия Радж из Toronto Star пишет, что первый год Марка Карни у власти показал противоречивую картину: премьер сосредоточен на экономике и быстрых решениях, но его стиль...</p><span class="lrc-date">13 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-11-v-kanade-usilivaetsya-bebi-retsessiya-rozhdaemost-padaet-vo-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">В Канаде усиливается «бэби-рецессия» — рождаемость падает во всех крупных городах</div><p class="lrc-ex">Новые демографические данные показывают резкое снижение рождаемости в Канаде. Как сообщает The Globe and Mail, за последние пять лет все 42 крупнейших города страны зафиксировали...</p><span class="lrc-date">11 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-11-u-kanady-est-to-chto-nuzhno-miru-ostalos-nauchitsya-eto-prod/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">У Канады есть то, что нужно миру — осталось научиться это продавать</div><p class="lrc-ex">Колумнист Toronto Star Дэвид Олив пишет, что на фоне мировых конфликтов Канада может сыграть гораздо более важную роль в мировой экономике.   Война на Ближнем Востоке и...</p><span class="lrc-date">11 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-10-remont-svoimi-rukami-kanadtsy-ekonomyat-no-riski-ostayutsya/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Ремонт своими руками: канадцы экономят, но риски остаются</div><p class="lrc-ex">Многие владельцы жилья в Канаде всё чаще берутся за ремонт самостоятельно. Причина проста: стоимость строительных и ремонтных работ продолжает расти, и отказ от услуг подрядчиков...</p><span class="lrc-date">10 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-10-nalog-kak-papin-nalog-kak-nalogi-menyayut-povedenie-k-luchsh/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Налог как «папин налог»: как налоги меняют поведение — к лучшему и к худшему</div><p class="lrc-ex">Ким Муди в Financial Post пишет, что налоги почти всегда меняют поведение людей — иногда ожидаемо, иногда с довольно странными последствиями.   Он вспоминает семейную шутку: когда...</p><span class="lrc-date">10 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-10-separatisty-alberty-zastryali-na-pervoy-peredache/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Сепаратисты Альберты застряли на первой передаче</div><p class="lrc-ex">Колумнистка Toronto Star Джиллиан Стюард пишет, что движение за независимость Альберты пока не набирает обороты — даже несмотря на политические уступки со стороны премьера...</p><span class="lrc-date">10 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-06-sever-ontario-neozhidanno-stal-tsentrom-kino-i-teleproizvods/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Север Онтарио неожиданно стал центром кино- и телепроизводства</div><p class="lrc-ex">Небольшие города северного Онтарио — такие как Sudbury, North Bay и Sault Ste. Marie — превращаются в площадки для съёмок фильмов и телесериалов.   Регион, который традиционно...</p><span class="lrc-date">6 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-06-dzheff-rass-obraschenie-pera-polieva-k-angliyskim-kornyam-im/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Джефф Расс: Обращение Пьера Полиева к английским корням — именно то, что нужно Канаде сейчас</div><p class="lrc-ex">Колумнист National Post Джефф Расс пишет, что визит лидера консерваторов Пьера Полиева в Великобританию и его слова о значении Magna Carta стали напоминанием о британских корнях...</p><span class="lrc-date">6 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-06-trudovoe-zakonodatelstvo-kanady-ne-gotovo-k-epohe-iskusstven/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Трудовое законодательство Канады не готово к эпохе искусственного интеллекта</div><p class="lrc-ex">Авторы статьи утверждают, что канадский рынок труда становится менее стабильным. Рост безработицы, ухудшение качества рабочих мест и риск сокращений из-за внедрения искусственного...</p><span class="lrc-date">6 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-05-prodazhi-zhilya-v-toronto-upali-do-minimuma-za-10-mesyatsev-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Продажи жилья в Торонто упали до минимума за 10 месяцев на фоне торговой войны</div><p class="lrc-ex">Продажи жилья в Большом Торонто продолжили снижаться и в феврале достигли самого низкого уровня за последние десять месяцев.   По данным Toronto Regional Real Estate Board,...</p><span class="lrc-date">5 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-02-garri-marr-plohie-novosti-pokolenie-z/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Гарри Марр: Плохие новости, поколение Z!</div><p class="lrc-ex">Герой пенсионной рекламы Freedom 55 всё ещё работает в 60+, и вам тоже придётся    Колумнист Гарри Марр пишет о неприятной для молодых канадцев реальности: ранний выход на пенсию...</p><span class="lrc-date">2 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-02-poka-kanada-uhodit-ot-zavisimosti-ot-ssha-meksika-vybiraet-u/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Пока Канада уходит от зависимости от США, Мексика выбирает уступки</div><p class="lrc-ex">В январе, в день, когда Марк Карни выступал в Давосе с призывом к «средним державам» координироваться между собой, а не конкурировать за благосклонность Вашингтона, президент...</p><span class="lrc-date">2 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-01-poliev-vyborov-byt-ne-dolzhno-do-peresmotra-cusma/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Полиев: выборов быть не должно до пересмотра CUSMA</div><p class="lrc-ex">Лидер консерваторов Пьер Полиев заявил, что Канада не должна проводить федеральные выборы до пересмотра торгового соглашения CUSMA (Canada–U.S.–Mexico Agreement) в этом году....</p><span class="lrc-date">1 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-01-karni-kanada-ne-budet-uchastvovat-v-voennoy-operatsii-ssha-i/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Карни: Канада не будет участвовать в военной операции США и Израиля против Ирана</div><p class="lrc-ex">Премьер-министр Марк Карни заявил, что Канада не примет военного участия в текущих действиях США и Израиля против Ирана.    Заявление прозвучало после того, как США и Израиль...</p><span class="lrc-date">1 мар 2026</span></div></a><a class="lr-card" href="/post/2026-02-28-mnenie-chislo-detey-zhivuschih-v-bednosti-rastyot/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Мнение: число детей, живущих в бедности, растёт</div><p class="lrc-ex">Канада всё чаще выглядит страной с ухудшающимися перспективами для своих детей. В 2023 году детская бедность выросла третий год подряд — об этом говорится в ежегодном отчёте...</p><span class="lrc-date">28 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-27-kanada-prodolzhaet-izbegat-poezdok-v-ssha-i-aktivnee-pokupae/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">«Канада продолжает избегать поездок в США и активнее покупает отечественные товары»</div><p class="lrc-ex">Недовольство торговой политикой Дональда Трампа привело к заметному росту расходов канадцев на местные товары и внутренний туризм. Об этом говорится в аналитическом отчёте Банка...</p><span class="lrc-date">27 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-27-byudzhet-alberty2026-defitsit-94-mlrd-narushaet-sobstvennye-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">«Бюджет Альберты–2026: дефицит $9,4 млрд нарушает собственные фискальные правила провинции»</div><p class="lrc-ex">Правительство Альберты представило второй подряд многомиллиардный дефицит — и впервые официально выходит за рамки собственных бюджетных ограничений.   Министр финансов Нейт Хорнер...</p><span class="lrc-date">27 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-26-ottava-znala-o-skorom-ischerpanii-subsidiy-na-elektromobili-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Оттава знала о скором исчерпании субсидий на электромобили за месяцы до уведомления общественности — свидетельствуют документы</div><p class="lrc-ex">Чиновники Transport Canada были осведомлены ещё в ноябре 2024 года, что финансирование популярной программы субсидий на электромобили iZEV может закончиться в конце декабря или...</p><span class="lrc-date">26 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-26-gubernator-michigana-zayavila-chto-most-mezhdu-ssha-i-kanado/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Губернатор Мичигана заявила, что мост между США и Канадой, который Трамп угрожал заблокировать, откроется</div><p class="lrc-ex">Губернатор штата Мичиган Гретчен Уитмер заявила, что международный мост Горди Хау между США и Канадой будет открыт, несмотря на прежние угрозы со стороны президента Дональда...</p><span class="lrc-date">26 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-23-esli-eda-eto-lekarstvo-pochemu-by-ne-vypisat-retsept-na-cher/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">«Если еда — это лекарство, почему бы не выписать рецепт на чернику?» В Новой Шотландии тестируют новый подход</div><p class="lrc-ex">Исследователи из Dalhousie University в Галифаксе запустили клиническое исследование, в рамках которого пожилым участникам буквально «прописывают» чернику.  Проект под названием...</p><span class="lrc-date">23 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-23-v-kanade-otzyvayut-20-000-portativnyh-zaryadnyh-ustroystv-iz/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">В Канаде отзывают 20 000 портативных зарядных устройств из-за риска возгорания</div><p class="lrc-ex">В Канаде отзывают около 20 000 внешних аккумуляторов LOGiiX из-за потенциальной опасности возгорания.  Health Canada сообщило, что «небольшое количество» моделей LOGiiX Piston...</p><span class="lrc-date">23 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-21-kanada-i-ssha-snova-vstretyatsya-pochemu-v-finale-ne-budet-p/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Канада и США снова встретятся: почему в финале не будет повторения драк 4 Nations</div><p class="lrc-ex">Сборные Канады и США вновь сыграют друг с другом — теперь в финале Олимпиады по мужскому хоккею. Год назад их матч на турнире 4 Nations вошёл в историю тремя драками за первые...</p><span class="lrc-date">21 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-19-gonka-za-liderstvo-posle-polieva-uzhe-nachalas/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Гонка за лидерство после Полиева уже началась</div><p class="lrc-ex">Колонка Эндрю Койна в The Globe and Mail — это по сути разбор того, что борьба за лидерство у консерваторов уже стартовала, даже если формально никто её не объявлял.    Поводом...</p><span class="lrc-date">19 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-19-byvshiy-prints-endryu-arestovan-po-podozreniyu-v-zloupotrebl/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Бывший принц Эндрю арестован по подозрению в злоупотреблении должностными полномочиями</div><p class="lrc-ex">Эндрю Маунтбеттен-Виндзор, ранее известный как принц Эндрю, был арестован по подозрению в злоупотреблении служебным положением. Расследование связано с его многолетними контактами...</p><span class="lrc-date">19 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-18-vot-chto-pokazyvayut-novye-dannye-ob-immigratsii-rezkoe-pade/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Вот что показывают новые данные об иммиграции: резкое падение числа иностранных студентов и временных работников</div><p class="lrc-ex">Канада в 2025 году зафиксировала падение на 53% по числу новых иностранных студентов и временных иностранных работников. Об этом свидетельствуют свежие данные иммиграционного...</p><span class="lrc-date">18 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-18-dannye-torgovlya-kanady-s-ssha-padaet-tretiy-god-podryad-vpe/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Данные: торговля Канады с США падает третий год подряд — впервые за десятилетия</div><p class="lrc-ex">После публикации годовой статистики США станет ясно: товарооборот между Канадой и Соединёнными Штатами сократился третий год подряд — такого не было более 30 лет.    Через ноябрь...</p><span class="lrc-date">18 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-18-muzhskaya-sbornaya-kanady-prodolzhaet-put-k-zolotu-v-hokkee-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Мужская сборная Канады продолжает путь к золоту в хоккее; Саро борется за четвёртую медаль</div><p class="lrc-ex">Сборная Канады по хоккею среди мужчин выходит на четвертьфинал Олимпиады в Милане — Кортине и снова встретится с Чехией.    В стартовом матче турнира канадцы разгромили чехов 5:0,...</p><span class="lrc-date">18 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-15-serzh-labbe-tramp-govorit-chto-ssha-nikogda-ne-nuzhdalis-v-n/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Серж Лаббе: Трамп говорит, что США «никогда не нуждались» в НАТО. Канадская кровь говорит об обратном</div><p class="lrc-ex">В колонке для National Post бригадный генерал в отставке Серж Лаббе резко ответил на заявление Дональда Трампа о том, что США «никогда не нуждались» в союзниках по НАТО.   По...</p><span class="lrc-date">15 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-13-seksualnaya-i-schedraya-kak-kanadskaya-sistema-gospodderzhki/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Сексуальная и щедрая: как канадская система господдержки породила хит Heated Rivalry</div><p class="lrc-ex">Новый сериал Heated Rivalry — история о двух профессиональных хоккеистах, чьи отношения выходят далеко за пределы льда — стал неожиданным хитом по обе стороны границы. Проект...</p><span class="lrc-date">13 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-09-vot-ona-diagramma-veka-kanadskaya-versiya/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Вот она — «диаграмма века», канадская версия</div><p class="lrc-ex">В 2016 году экономист Марк Перри опубликовал график, показывающий, где именно в экономике США прячется инфляция. Его быстро окрестили «диаграммой века». Канадская версия не менее...</p><span class="lrc-date">9 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-09-kitayskie-elektromobili-skoro-poyavyatsya-v-kanade-stoit-li-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Китайские электромобили скоро появятся в Канаде. Стоит ли их покупать?</div><p class="lrc-ex">Канада готовится к наплыву китайских электромобилей. В январе премьер-министр Марк Карни объявил, что страна разрешит ежегодный импорт до 49 000 китайских EV. Более половины из...</p><span class="lrc-date">9 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-09-rossiya-po-prezhnemu-otstranena-ot-olimpiady-no-rossiyane-po/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Россия по-прежнему отстранена от Олимпиады — но россияне повсюду</div><p class="lrc-ex">Почти десятилетие российский флаг не поднимается на Олимпийских играх — сначала из-за допинговых санкций, затем из-за войны против Украины. Формально Россия остаётся спортивным...</p><span class="lrc-date">9 фев 2026</span></div></a><a class="lr-card" href="/post/2026-02-04-per-poliev-menyaet-strategiyu-pered-srochnoy-vstrechey-s-mar/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Пьер Полиев меняет стратегию перед «срочной встречей» с Марком Карни</div><p class="lrc-ex">Пьер Полиев после уверенной победы на партийном съезде пытается показать Консервативную партию не как силу постоянного сопротивления, а как политиков, готовых действовать и...</p><span class="lrc-date">4 фев 2026</span></div></a><a class="lr-card" href="/post/2026-01-30-per-poliev-vyhodit-na-reshayuschee-golosovanie-za-liderstvo/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Пьер Полиев выходит на решающее голосование за лидерство</div><p class="lrc-ex">Сегодня вечером в Калгари Пьер Полиев выступит с речью, которая фактически станет отчётом за его лидерство и прологом к голосованию о будущем главы Консервативной партии. Сразу...</p><span class="lrc-date">30 янв 2026</span></div></a><a class="lr-card" href="/post/2026-01-26-yuzhnyy-ontario-pod-snegom-shkoly-zakryty-transport-paralizo/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">Apple News</span><div class="lrc-title">Южный Онтарио под снегом: школы закрыты, транспорт парализован, дороги опасны — регион Торонто разбирает рекордный снегопад</div><p class="lrc-ex">Торонто приходит в себя после мощного зимнего шторма, который обрушился на регион в выходные. Мороз, лёд и десятки сантиметров снега привели к массовым отменам рейсов, закрытию...</p><span class="lrc-date">26 янв 2026</span></div></a></div><div class="pgn"><a class="pb on" href="/source/apple-news/">1</a><a class="pb" href="/source/apple-news/page/2/">2</a><a class="pb" href="/source/apple-news/page/2/">→</a></div></div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo">MAPLE <span style="color:var(--maple)">🍁</span> BARREL</div>
+    <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
+    <a class="ftg" href="https://t.me/maplebarrel">Подписаться в Telegram</a>
+  </div>
+  <div class="fcol">
+    <h4>Темы</h4>
+    <a href="/tag/politika/">#Политика</a>
+    <a href="/tag/ekonomika/">#Экономика</a>
+    <a href="/tag/immigratsiya/">#Иммиграция</a>
+    <a href="/tag/zhilyo/">#Жильё</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a>
+    <a href="/tag/zdravookhranenie/">#Здравоохранение</a>
+  </div>
+  <div class="fcol">
+    <h4>Персоны</h4>
+    <a href="/person/mark-karni/">Марк Карни</a>
+    <a href="/person/per-poliev/">Пьер Полиев</a>
+    <a href="/person/donald-tramp/">Дональд Трамп</a>
+    <a href="/person/dag-ford/">Даг Форд</a>
+    <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Источники</h4>
+    <a href="/source/cbc/">CBC</a>
+    <a href="/source/ctv-news/">CTV News</a>
+    <a href="/source/globe-and-mail/">Globe and Mail</a>
+    <a href="/source/global-news/">Global News</a>
+    <a href="/source/national-post/">National Post</a>
+    <a href="/source/toronto-star/">Toronto Star</a>
+    <a href="/source/macleans/">Maclean's</a>
+    <a href="/source/the-hub/">The Hub</a>
+  </div>
+  <div class="fcol">
+    <h4>Разделы</h4>
+    <a href="/materials/">Материалы</a>
+    <a href="/longreads/">Лонгриды</a>
+    <a href="/surveys/">Опросы</a>
+    <a href="/about/">О проекте</a>
+    <a href="https://t.me/maplebarrel">Telegram</a>
+  </div>
+</div>
+<div class="fcp">
+  <span>© 2026 Maple Barrel · journaists.ca</span>
+  <span>Новости Канады на русском языке</span>
+</div>
+</footer>
+</body>
+</html>

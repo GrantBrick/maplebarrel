@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBC — Maple Barrel</title>
+<meta name="description" content="Все материалы из CBC на русском языке.">
+<link rel="canonical" href="https://journaists.ca/source/cbc/">
+<meta property="og:title" content="CBC — Maple Barrel">
+<meta property="og:description" content="Все материалы из CBC на русском языке.">
+<meta property="og:url" content="https://journaists.ca/source/cbc/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://journaists.ca/og-default.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CBC — Maple Barrel">
+<meta name="twitter:description" content="Все материалы из CBC на русском языке.">
+<meta name="twitter:image" content="https://journaists.ca/og-default.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
+  --br:#e8e4dc;--br2:#d0ccc4;
+  --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
+  --ac:#e53e3e;--ac2:#c53030;--tg:#0088cc;--maple:#e53e3e;
+  --dark:#2d3748;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:0 8px 24px rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --bserif:'Source Serif 4',Georgia,serif;
+  --sans:'Inter','Golos Text',system-ui,sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:19px;font-weight:900;letter-spacing:-1px;color:var(--ac);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:3px}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
+.nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
+.nav-r{display:flex;align-items:center}
+.tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
+.tgb:hover{background:#006fa8}
+.tgb svg{width:14px;height:14px;flex-shrink:0}
+
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
+
+/* SOURCE BADGE — dark grey */
+.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
+
+/* READ MORE — light red with leaf */
+.btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
+.btn-more:hover{opacity:1}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
+.sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+
+/* CARD — for featured grid */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.25;color:var(--t);letter-spacing:-.2px}
+.card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
+.card-date{font-size:11px;color:var(--t4)}
+
+/* LR-CARD — horizontal, for materials/longreads/surveys */
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+
+/* TAGS */
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.tag-pol{background:#fde8e8;color:#9b1c1c}
+.tag-eco{background:#fef3c7;color:#78350f}
+.tag-imm{background:#dbeafe;color:#1e40af}
+.tag-reg{background:#d1fae5;color:#065f46}
+.tag-stat{background:#ede9fe;color:#4c1d95}
+.tag-def{background:var(--bg4);color:var(--t3)}
+
+/* TAG FILTER BAR */
+.tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tc{font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:.15s;letter-spacing:.3px;white-space:nowrap;cursor:pointer}
+.tc:hover{border-color:var(--t);color:var(--t)}
+.tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* PAGINATION */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:.15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* FOOTER */
+footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:28px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
+.ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:.15s}
+.fcol a:hover{color:var(--ac)}
+.fcp{max-width:1200px;margin:24px auto 0;padding:20px 24px 0;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
+
+/* TG CTA on post page */
+.tgcta{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bee3f8;border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
+.ctxt{flex:1}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px}
+.csub{font-size:13px;color:var(--t2)}
+.ctgp{font-size:11px;color:var(--t3);margin-top:5px}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:9px 18px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;transition:.15s}
+.cbtn2:hover{background:#006fa8}
+
+@media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:700px){.fi{grid-template-columns:1fr}.ni{gap:8px}.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="/"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></a>
+  <div class="nav-links"><a class="nl on" href="/">Новости</a><a class="nl" href="/materials/">Материалы</a><a class="nl" href="/longreads/">Лонгриды</a><a class="nl" href="/surveys/">Опросы</a><a class="nl" href="/about/">О проекте</a></div>
+  <div class="nav-r">
+    <a class="tgb" href="https://t.me/maplebarrel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg>
+      <span>Telegram</span>
+    </a>
+  </div>
+</div></nav>
+<div class="wrap"><div class="page-intro"><h1>CBC</h1><p>480 материалов из этого издания</p></div><div class="lr-grid"><a class="lr-card" href="/post/2025-12-14-konservator-ostalsya-bez-podarka-deputat-ushyol-k-liberalam-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Консерватор остался без подарка: депутат ушёл к либералам вместе с Secret Santa</div><p class="lrc-ex">Депутат-консерватор Джамил Дживани нашёл самый бытовой символ политического перехода Майкла Ма к либералам — исчезнувший рождественский подарок. Ма оказался его Secret Santa на...</p><span class="lrc-date">14 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-14-britanskaya-kolumbiya-podala-isk-protiv-juul-obvinyaya-kompa/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Британская Колумбия подала иск против Juul, обвиняя компанию в зависимости у подростков</div><p class="lrc-ex">Правительство Британской Колумбии подало гражданский иск против Juul Labs, обвинив производителя электронных сигарет в создании «высокоаддиктивных» никотиновых продуктов и...</p><span class="lrc-date">14 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-12-boykot-poezdok-v-ssha-so-storony-kanadtsev-byot-po-prigranic/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Бойкот поездок в США со стороны канадцев бьёт по приграничным штатам — доклад Конгресса</div><p class="lrc-ex">‌﻿  Новый доклад экономического комитета Конгресса США показывает: сокращение поездок канадцев в Соединённые Штаты уже серьёзно бьёт по бизнесу в приграничных штатах. Документ...</p><span class="lrc-date">12 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-12-kvebek-reshil-zanyatsya-svetskostyu-cherez-menyu-bill-9-puga/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Квебек решил заняться светскостью через меню: Bill 9 пугает детсады и больницы с халялем и кошером</div><p class="lrc-ex">‌﻿ В Квебеке обсуждают Bill 9 — новый законопроект CAQ «об укреплении светскости». Среди прочего он запрещает госучреждениям «предлагать исключительно рацион, основанный на...</p><span class="lrc-date">12 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-12-cra-sobiraetsya-nanyat-1-700-operatorov-koll-tsentrov-pered-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">CRA собирается нанять 1 700 операторов колл-центров перед налоговым сезоном</div><p class="lrc-ex">‌﻿  Canada Revenue Agency планирует в ближайшие месяцы нанять или повторно привлечь около 1 700 сотрудников колл-центров, чтобы справиться с наплывом звонков в период подачи...</p><span class="lrc-date">12 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-12-v-kanade-sotrudnika-voennoy-razvedki-obvinili-v-shpionazhe/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">В Канаде сотрудника военной разведки обвинили в шпионаже</div><p class="lrc-ex">‌﻿  Министерство национальной обороны подтвердило: старший уорент-офицер Мэттью Робар, служащий в структуре Canadian Forces Intelligence Command, арестован и обвинён в передаче...</p><span class="lrc-date">12 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-11-eschyo-odin-konservator-perehodit-k-liberalam-karni-ostayots/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Ещё один консерватор переходит к либералам — Карни остаётся в одном кресле от большинства</div><p class="lrc-ex">‌﻿  Фракция Консервативной партии снова теряет депутата: онтарийский парламентарий Майкл Ма объявил, что покидает ряды КПК и присоединяется к либералам. Решение он объяснил...</p><span class="lrc-date">11 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-11-v-alberte-odobrili-eschyo-odnu-initsiativu-na-otzyv-deputata/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">В Альберте одобрили ещё одну инициативу на отзыв депутата — теперь под угрозой сама Даниэль Смит</div><p class="lrc-ex">Премьер Альберты Даниэль Смит официально стала объектом кампании по отзыву депутата в своём округе Brooks–Medicine Hat. Elections Alberta в среду утвердила петиции против неё, а...</p><span class="lrc-date">11 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-11-glava-natsionalnogo-muzeya-ob-immigratsii-obvinena-v-mnogole/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Глава национального музея об иммиграции обвинена в многолетних нарушениях: отчёт фиксирует грубость, унижение сотрудников и публичное обращение к руководителям </div><p class="lrc-ex">как «sluts»    Расследование офиса комиссара по добросовестности госсектора пришло к выводу: Марри Чапман, руководитель Канадского музея иммиграции на пирсе 21 в Галифаксе,...</p><span class="lrc-date">11 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-10-ssha-obvinyayut-kanadu-v-tom-chto-ona-stala-chernym-vhodom-d/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">США обвиняют Канаду в том, что она стала «черным входом» для китайских товаров</div><p class="lrc-ex">⁠  Американские отраслевые лоббисты усилили давление на Вашингтон, утверждая на слушаниях по будущему CUSMA, что канадские и мексиканские компании продвигают в США продукцию с...</p><span class="lrc-date">10 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-09-liberaly-predstavili-krupnyy-zakonoproekt-o-zaschite-detey-i/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Либералы представили крупный законопроект о защите детей и жертв гендерного насилия</div><p class="lrc-ex">‌﻿  Правительство Марка Карни вынесло на рассмотрение Палаты общин обширный пакет поправок к Уголовному кодексу — Protecting Victims Act. Кабинет называет его самым масштабным...</p><span class="lrc-date">9 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-09-kitayskiy-dissident-pogib-v-britanskoy-kolumbii-byvshiy-agen/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Китайский диссидент погиб в Британской Колумбии. Бывший агент, следивший за ним, сомневается, что это было случайностью</div><p class="lrc-ex">﻿  Radio-Canada опубликовала материалы, которые дают редкий взгляд на работу китайских спецслужб за рубежом. Источник — бывший агент министерства общественной безопасности Китая,...</p><span class="lrc-date">9 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-08-antiheytovyy-zakonoproekt-zavis-posle-sdelki-ofisa-freyzera-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Антихейтовый законопроект завис после сделки офиса Фрейзера с Блоком без одобрения офиса премьера</div><p class="lrc-ex">﻿  Канадские либералы опять запутались в собственных договорённостях. По данным CBC News, будущее законопроекта C-9 оказалось под вопросом после того, как команда министра юстиции...</p><span class="lrc-date">8 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-08-bolshinstvo-del-o-moshennichestve-v-ontario-razvalivaetsya-i/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Большинство дел о мошенничестве в Онтарио разваливается из-за нехватки людей и перегруженных судов</div><p class="lrc-ex">С 2020 года в Онтарио больше половины дел о мошенничестве прекращаются или снимаются ещё до разбирательства. CBC разобрало свежие данные и выяснило: система просто не справляется...</p><span class="lrc-date">8 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-06-o-net-snova-semya-iz-britanskoy-kolumbii-perezhila-uzhe-chet/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">«О нет, снова»: семья из Британской Колумбии пережила уже четыре вылета машин в свой двор за три года</div><p class="lrc-ex">Жители Кэледенa Брент и Мелисса Бёртоны когда-то мечтали о тихой ферме в Оканагане. Но начиная с 2022 года их задний двор стал фактически продолжением трассы 97. Сначала всё...</p><span class="lrc-date">6 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-06-zakulise-padeniya-dzhona-rastada-kak-bk-konservatory-svergli/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Закулисье падения Джона Растада: как БК-консерваторы свергли собственного лидера</div><p class="lrc-ex">Последние дни перед отставкой Джона Растада больше походили на политический фарс: тайные совещания, юридические выкрутасы и кульминация в виде… конкурcа по сборке пряничных...</p><span class="lrc-date">6 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-06-karni-tramp-i-sheynbaum-vstretilis-bez-pomoschnikov-v-vashin/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Карни, Трамп и Шейнбаум встретились без помощников в Вашингтоне</div><p class="lrc-ex">После жеребьёвки ЧМ-2026 в Центре Кеннеди Марк Карни провёл закрытую беседу с Дональдом Трампом и президентом Мексики Клаудией Шейнбаум. Разговор занял около 45 минут.   В офисе...</p><span class="lrc-date">6 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-05-politsiya-obnaruzhila-v-poiskovoy-istorii-pary-zapros-ya-nen/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Полиция обнаружила в поисковой истории пары запрос “Я ненавижу своего ребёнка” за два дня до смерти мальчика</div><p class="lrc-ex">В Онтарио продолжается суд над Бекки Хамбер и Бренди Куни, обвиняемыми в убийстве 12-летнего приёмного мальчика. Обвинение называет это намеренным убийством с элементами жестокого...</p><span class="lrc-date">5 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-05-pensioner-iz-saskachevana-poteryal-tri-tysyachi-dollarov-iz-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Пенсионер из Саскачевана потерял три тысячи долларов из-за поддельного видео с «премьер-министром»</div><p class="lrc-ex">70-летний Линн Фано из Принс-Альберта решил поделиться своей историей после того, как стал жертвой криптомошенников, использовавших искусственно созданное видео, где будто бы...</p><span class="lrc-date">5 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-05-konservatory-nazvali-ministra-immigratsii-ochen-plohim-zased/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Консерваторы назвали министра иммиграции «очень плохим», заседание комитета перешло в личные выпады</div><p class="lrc-ex">На парламентском комитете по иммиграции в четверг произошло одно из самых резких столкновений за последнее время. Мишель Ремпел Гарнер, главный критик иммиграционной политики от...</p><span class="lrc-date">5 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-05-konservatory-trebuyut-vernut-ochnye-tseremonii-grazhdanstva-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Консерваторы требуют вернуть очные церемонии гражданства и прекратить «гражданство в один клик»</div><p class="lrc-ex">Консерваторы усилили давление на правительство: они хотят, чтобы виртуальные церемонии гражданства ушли в прошлое и все новые канадцы получали паспортную клятву только в...</p><span class="lrc-date">5 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-05-v-federalnoy-sluzhbe-bolee-27-tysyach-sotrudnikov-poluchili-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">В федеральной службе более 27 тысяч сотрудников получили от $150 тысяч и выше за прошлый год</div><p class="lrc-ex">Документ, представленный в парламенте, показал масштабы зарплат федеральных служащих: за 2024–25 год свыше 27 000 человек получили компенсацию (оклады, бонусы, льготы и...</p><span class="lrc-date">5 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-04-nikotinovye-paketiki-prodolzhayut-prodavat-nezakonno-po-vsey/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Никотиновые пакетики  продолжают продавать незаконно по всей стране — несмотря на новые ограничения</div><p class="lrc-ex">⁠  Расследование CBC News показало: после запрета продажи никотиновых пакетиков в магазинах низкого ценового сегмента они всё равно лежат на прилавках в крупных городах — от...</p><span class="lrc-date">4 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-04-tim-hortons-aktivno-lobbiruet-rasshirenie-kvot-na-vremennyh-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Tim Hortons активно лоббирует расширение квот на временных иностранцев</div><p class="lrc-ex">⁠  CBC News выяснил, что сеть Tim Hortons более полутора лет давит на Оттаву с просьбой поднять потолок на найм временных иностранных работников. Эти просьбы звучали и письменно,...</p><span class="lrc-date">4 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-04-lider-konservatorov-britanskoy-kolumbii-smeschyon-no-otkazyv/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Лидер консерваторов Британской Колумбии смещён, но отказывается уходить</div><p class="lrc-ex">Правление партии объявило, что Джон Растад больше не руководит B.C. Conservatives. Поводом стало письмо 20 депутатов, которые заявили о потере доверия. Растад публично отвечает,...</p><span class="lrc-date">4 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-03-politsiya-ontario-poluchila-zhaloby-na-razoblachenie-santy-n/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Полиция Онтарио получила жалобы на &quot;разоблачение Санты&quot;, но нарушений закона нет</div><p class="lrc-ex">В Брантфорде, где на выходных прошёл ежегодный парад Санты, некоторые зрители обратились в полицию из-за неожиданного зрелища: в окнах одного из домов по маршруту висели плакаты с...</p><span class="lrc-date">3 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-03-muzhchina-iz-ontario-sobral-50-000-na-issledovaniya-raka-obe/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Мужчина из Онтарио собрал $50 000 на исследования рака, объехав земной шар на велосипеде</div><p class="lrc-ex">Марк Хербст, 69 лет, вернулся домой после почти годовой кругосветки. Он проехал 30 000 км через 25 стран, посвящая каждую педаль памяти своей жены Джеки, умершей от рака кожи в...</p><span class="lrc-date">3 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-03-chou-hochet-podnyat-sbory-s-dorogih-sdelok-na-rynke-zhilya-t/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Чоу хочет поднять сборы с дорогих сделок на рынке жилья Торонто</div><p class="lrc-ex">Мэр Оливия Чоу предлагает увеличить налог на покупку недвижимости дороже трёх миллионов долларов. Речь идёт о повышении муниципального сбора на передачу прав собственности — меры,...</p><span class="lrc-date">3 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-03-krupnaya-operatsiya-protiv-oborota-fentanila-tysyachi-zaderz/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Крупная операция против оборота фентанила: тысячи задержаний, сотни килограммов изъяты</div><p class="lrc-ex">Пяти месяцев хватило, чтобы полиция по всей стране собрала впечатляющую сводку: 386 кг фентанила, почти шесть тысяч килограммов кокаина, свыше тонны метамфетамина и более 13 млн...</p><span class="lrc-date">3 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-02-afn-trebuet-otmenit-truboprovodnuyu-sdelku-karni-i-deniel-sm/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">AFN требует отменить трубопроводную сделку Карни и Дэниэл Смит</div><p class="lrc-ex">‌﻿  Ассамблея Первых Наций во вторник единогласно проголосовала за требование снять новое соглашение Оттавы и Альберты о битумном трубопроводе к азиатским рынкам.  ‌﻿  Главная...</p><span class="lrc-date">2 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-02-petitsiya-navsegda-s-kanadoy-priznana-uspeshnoy-pochti-polmi/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Петиция «Навсегда с Канадой» признана успешной: почти полмиллиона албертцев подписались против сепаратизма</div><p class="lrc-ex">Elections Alberta подтвердила: гражданская инициатива Forever Canadian собрала более чем достаточно подписей. Для успеха требовалось 293 976, проверенными оказались 404 293 —...</p><span class="lrc-date">2 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-02-priyuty-ottavy-zabity-uzhe-v-nachale-zimy-lyudi-spyat-na-pol/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Приюты Оттавы забиты уже в начале зимы, люди спят на полу и в стульях</div><p class="lrc-ex">В Оттаве зима только началась, а система приютов уже не справляется. Руководители крупнейших учреждений говорят, что работают на пределе, причём без городских ночных центров...</p><span class="lrc-date">2 дек 2025</span></div></a><a class="lr-card" href="/post/2025-12-01-passazhiry-westjet-i-air-transat-dobivayutsya-kompensatsiy-p/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Пассажиры WestJet и Air Transat добиваются компенсаций после того, как сотрудники ошибочно заявили, что снимать видео запрещено</div><p class="lrc-ex">﻿  CBC публикует сразу два примера, где сотрудники авиакомпаний пытались силой пресечь запись споров — и оба раза пассажиры оказались правы.  ﻿  В аэропорту Эдмонтона семья...</p><span class="lrc-date">1 дек 2025</span></div></a><a class="lr-card" href="/post/2025-11-30-kanadtsy-uhodyat-domoy-ranshe-klubnaya-stsena-szhimaetsya/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Канадцы уходят домой раньше — клубная сцена сжимается</div><p class="lrc-ex">‌﻿  CBC фиксирует очевидный спад ночной активности: бары и клубы по стране всё чаще простаивают в часы, которые раньше считались самыми прибыльными.  ‌﻿  Что происходит в...</p><span class="lrc-date">30 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-30-ottava-zapustila-pervyy-obschedostupnyy-reestr-ii-uzhe-bolee/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Оттава запустила первый общедоступный реестр ИИ — уже более 400 систем в федеральных ведомствах</div><p class="lrc-ex">‌﻿  Правительство представило новый инструмент прозрачности: публичный реестр, где перечислены все проекты, связанные с искусственным интеллектом, которые используются или...</p><span class="lrc-date">30 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-28-dokumenty-raskryvayut-masshtaby-gibeli-zhivotnyh-pod-poezdam/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Документы раскрывают масштабы гибели животных под поездами в Британской Колумбии. Что делают, чтобы это остановить?</div><p class="lrc-ex">‌﻿  Темой занялись CBC и The Narwhal, запросив данные у правительства Британской Колумбии. Картина получилась мрачной: сотни животных ежегодно гибнут под поездами CN и CPKC, а...</p><span class="lrc-date">28 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-28-molson-canada-obvinyaet-byvshih-menedzherov-v-mnogomillionno/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Molson Canada обвиняет бывших менеджеров в многомиллионной схеме мошенничества</div><p class="lrc-ex">‌﻿  В Онтарио подан иск, в котором Molson Canada утверждает: группа бывших сотрудников организовала сложную схему вывода денег через фиктивные поставщиков, подставные компании и...</p><span class="lrc-date">28 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-27-kak-baza-ucp-vosprimet-sdelku-daniel-smit-s-ottavoy-soglashe/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Как база UCP воспримет сделку Даниэль Смит с Оттавой: соглашение есть, настроения — совсем другие</div><p class="lrc-ex">Сегодня премьер Альберты Даниэль Смит и Марк Карни подпишут меморандум о сотрудничестве по энергетике. Но реакция на этот документ в самом сердце её партии может оказаться далёкой...</p><span class="lrc-date">27 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-27-sistema-treschit-govorit-medsestra-posle-smerti-materi-prozh/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">«Система трещит», — говорит медсестра после смерти матери, прожд авшей помощь больше 30 часов</div><p class="lrc-ex">В Виннипеге расследуют критический случай: 82-летняя Женевьев Прайс умерла после того, как более суток пролежала на каталке в коридоре, ожидая лечения.  По словам её дочери,...</p><span class="lrc-date">27 ноя 2025</span></div></a><a class="lr-card" href="/post/2025-11-25-karni-otkatyvaet-nazad-frazu-komu-kakoe-delo-i-poluchaet-shk/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Карни откатывает назад фразу “кому какое дело?” — и получает шквал атак от консерваторов</div><p class="lrc-ex">Премьер-министр Марк Карни сегодня признал, что зря отмахнулся от вопросов о контактах с Дональдом Трампом. В воскресенье, после саммита G20 в Йоханнесбурге, журналисты спросили,...</p><span class="lrc-date">25 ноя 2025</span></div></a></div><div class="pgn"><a class="pb" href="/source/cbc/page/4/">←</a><a class="pb" href="/source/cbc/">1</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/source/cbc/page/3/">3</a><a class="pb" href="/source/cbc/page/4/">4</a><a class="pb on" href="/source/cbc/page/5/">5</a><a class="pb" href="/source/cbc/page/6/">6</a><a class="pb" href="/source/cbc/page/7/">7</a><span style="color:var(--t4);padding:0 4px">…</span><a class="pb" href="/source/cbc/page/12/">12</a><a class="pb" href="/source/cbc/page/6/">→</a></div></div>
+<footer>
+<div class="fi">
+  <div>
+    <div class="flogo">MAPLE <span style="color:var(--maple)">🍁</span> BARREL</div>
+    <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
+    <a class="ftg" href="https://t.me/maplebarrel">Подписаться в Telegram</a>
+  </div>
+  <div class="fcol">
+    <h4>Темы</h4>
+    <a href="/tag/politika/">#Политика</a>
+    <a href="/tag/ekonomika/">#Экономика</a>
+    <a href="/tag/immigratsiya/">#Иммиграция</a>
+    <a href="/tag/zhilyo/">#Жильё</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a>
+    <a href="/tag/zdravookhranenie/">#Здравоохранение</a>
+  </div>
+  <div class="fcol">
+    <h4>Персоны</h4>
+    <a href="/person/mark-karni/">Марк Карни</a>
+    <a href="/person/per-poliev/">Пьер Полиев</a>
+    <a href="/person/donald-tramp/">Дональд Трамп</a>
+    <a href="/person/dag-ford/">Даг Форд</a>
+    <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Источники</h4>
+    <a href="/source/cbc/">CBC</a>
+    <a href="/source/ctv-news/">CTV News</a>
+    <a href="/source/globe-and-mail/">Globe and Mail</a>
+    <a href="/source/global-news/">Global News</a>
+    <a href="/source/national-post/">National Post</a>
+    <a href="/source/toronto-star/">Toronto Star</a>
+    <a href="/source/macleans/">Maclean's</a>
+    <a href="/source/the-hub/">The Hub</a>
+  </div>
+  <div class="fcol">
+    <h4>Разделы</h4>
+    <a href="/materials/">Материалы</a>
+    <a href="/longreads/">Лонгриды</a>
+    <a href="/surveys/">Опросы</a>
+    <a href="/about/">О проекте</a>
+    <a href="https://t.me/maplebarrel">Telegram</a>
+  </div>
+</div>
+<div class="fcp">
+  <span>© 2026 Maple Barrel · journaists.ca</span>
+  <span>Новости Канады на русском языке</span>
+</div>
+</footer>
+</body>
+</html>
