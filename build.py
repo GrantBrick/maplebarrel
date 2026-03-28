@@ -468,7 +468,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .src-badge{display:inline-block;color:var(--ac);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 
 /* CARD — prototype style: img → source → title → excerpt */
-.card{display:flex;flex-direction:column;cursor:pointer;transition:opacity .15s}
+.card{display:flex;flex-direction:column;cursor:pointer;transition:opacity .15s;background:#fff;border-radius:6px;overflow:hidden}
 .card:hover{opacity:.88}
 .card-img{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:4px;margin-bottom:12px;background:var(--bg4);flex-shrink:0}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
@@ -752,6 +752,7 @@ def photo_card(p, loading='lazy'):
             f'<div class="card-tags">{tags_html}</div>'
             f'</div></a>')
 
+
 def compact_item(p, num):
     src_label = source_name(p.get('source', ''))
     tags_html = tags_row(p.get('tags'), 1)
@@ -769,6 +770,7 @@ def lr_card(p):
     img = post_img_src(p)
     src = p.get('source', '')
     bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    excerpt = p.get('excerpt','') or ''
     if img:
         img_block = f'<div class="lr-img"><img src="{img}" alt="" loading="lazy"></div>'
     else:
@@ -776,10 +778,12 @@ def lr_card(p):
     return (f'<a class="lr-card" href="{post_url(p)}">'
             f'{img_block}'
             f'<div class="lrc-body">'
-            f'<span class="src-badge" style="font-size:9px">{esc(src_label)}</span>'
+            f'<span class="src-badge">{esc(src_label)}</span>'
             f'<div class="lrc-title">{esc(p["title"])}</div>'
-            f'<span class="card-date" style="font-size:10px;color:var(--t3)">{fmt_date(p["date"])}</span>'
-            f'</div></a>')
+            f'<div class="card-meta" style="margin-top:auto">'
+            f'<span class="card-date">{fmt_date(p["date"])}</span>'
+            f'<div class="card-tags">{tags_row(p.get("tags"),1)}</div>'
+            f'</div></div></a>')
 
 
 
@@ -906,7 +910,7 @@ def build_post_page(p, related):
 def build_news_index(posts_by_date):
     css = """
 /* HOMEPAGE */
-.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:8px}
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
 .featured-grid .card-title{font-size:20px}
 
 /* LONGREADS SLIDER */
@@ -926,8 +930,8 @@ def build_news_index(posts_by_date):
 .day-hdr{display:flex;align-items:baseline;gap:10px;padding:12px 0 10px;border-bottom:2px solid var(--t);margin-bottom:16px}
 .day-label{font-size:17px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px;color:var(--t)}
 .day-sub{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
-.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.news-card{background:#fff;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow-sm);transition:opacity .15s}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.news-card{background:#fff;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow-sm);transition:opacity .15s;text-decoration:none}
 .news-card:hover{opacity:.85}
 .news-card .card-title{font-size:15px;font-weight:700;line-height:1.25;margin-bottom:0}
 
@@ -1051,12 +1055,12 @@ def build_news_index(posts_by_date):
 
 def build_materials_page(posts, page=1, tag=''):
     css = """
-.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
 .page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
-@media(max-width:640px){.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
+@media(max-width:900px){.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+@media(max-width:640px){.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
 """
     per = POSTS_PER_PAGE
     total = len(posts)
@@ -1076,7 +1080,7 @@ def build_materials_page(posts, page=1, tag=''):
     <p>Аналитика, мнения и тексты из The Atlantic, Maclean's, The Hub и других изданий — не привязанные к конкретной дате.</p>
   </div>
   {tag_chips}
-  <div class="mat-grid">{"".join(photo_card(p) for p in page_posts)}</div>
+  <div class="mat-grid">{"".join(lr_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(
@@ -1212,19 +1216,19 @@ def build_surveys_page(posts, page=1):
     page_posts = posts[(page-1)*per:page*per]
     pgn = _pagination(page, pages, '/surveys/')
     css = """
-.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
 .page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
 .page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
-@media(max-width:640px){.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
+@media(max-width:900px){.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+@media(max-width:640px){.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
 """
     content = f"""<div class="wrap">
   <div class="page-intro">
     <h1>Опросы и статистика</h1>
     <p>Данные, исследования, опросы и рейтинги — всё что можно измерить о Канаде.</p>
   </div>
-  <div class="mat-grid">{"".join(photo_card(p) for p in page_posts)}</div>
+  <div class="mat-grid">{"".join(lr_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(
