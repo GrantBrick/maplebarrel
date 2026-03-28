@@ -524,9 +524,9 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 /* SECTION HEADERS */
 .sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
 .sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
-.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
-.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase;flex-shrink:0}
-.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;margin-left:auto;white-space:nowrap}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:32px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
+.sec-hdr-row a{font-size:12px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;margin-left:auto}
 
 /* CARD — for featured grid */
 .card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
@@ -608,7 +608,6 @@ def nav_html(active='news'):
     pages = [
         ('news',      '/',           'Новости'),
         ('materials', '/materials/', 'Материалы'),
-        ('longreads', '/longreads/', 'Лонгриды'),
         ('surveys',   '/surveys/',   'Опросы'),
         ('about',     '/about/',     'О проекте'),
     ]
@@ -1019,7 +1018,7 @@ def build_news_index(posts_by_date):
 .slide-img img{width:100%;height:100%;object-fit:cover;display:block}
 .slide-body{padding:10px 12px 12px}
 .slide-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.5px;display:block;margin-bottom:5px}
-.slide-title{font-family:var(--serif);font-size:13px;font-weight:500;line-height:1.3;color:var(--t)}
+.slide-title{font-family:var(--serif);font-size:13px;font-weight:400;line-height:1.35;color:var(--t)}
 
 /* NEWS by day */
 .day-hdr-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
@@ -1040,7 +1039,7 @@ def build_news_index(posts_by_date):
 .pd-count{font-size:11px;color:var(--t3)}
 .pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
 .prev-posts{display:none;grid-template-columns:1fr 1fr;gap:10px;padding:12px 0}
-.prev-posts.open{display:grid}
+
 .pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
 .pp-card:hover{opacity:.8}
 .pp-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px}
@@ -1064,7 +1063,7 @@ def build_news_index(posts_by_date):
 .slide-img img{width:100%;height:100%;object-fit:cover;display:block}
 .slide-body{padding:10px 12px 12px}
 .slide-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.5px;display:block;margin-bottom:5px}
-.slide-title{font-family:var(--serif);font-size:13px;font-weight:500;line-height:1.3;color:var(--t)}
+.slide-title{font-family:var(--serif);font-size:13px;font-weight:400;line-height:1.35;color:var(--t)}
 
 /* NEWS by day */
 .day-hdr-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
@@ -1085,7 +1084,7 @@ def build_news_index(posts_by_date):
 .pd-count{font-size:11px;color:var(--t3)}
 .pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
 .prev-posts{display:none;grid-template-columns:1fr 1fr;gap:10px;padding:12px 0}
-.prev-posts.open{display:grid}
+
 .pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
 .pp-card:hover{opacity:.8}
 .pp-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px}
@@ -1123,8 +1122,7 @@ def build_news_index(posts_by_date):
     html = ('<div class="wrap">'
             + '<div class="sec-hdr" style="margin-top:16px"><h2>Главное</h2></div>'
             + '<div class="featured-grid">' + featured_html + '</div>'
-            + '<div class="sec-hdr"><h2>Лонгриды</h2>'
-            + '<a href="/longreads/">Все лонгриды →</a></div>'
+            + '<div class="sec-hdr-row"><h2>Лонгриды</h2><a href="/longreads/">Все лонгриды →</a></div>'
             + '<div class="slider-wrap">'
             + '<div class="slider-track" id="lr-slider">' + slides_html + '</div>'
             + '<div class="slider-nav">'
@@ -1135,7 +1133,7 @@ def build_news_index(posts_by_date):
 
     # News feed by day
     shown_ids = {p['id'] for p in top4}
-    for di, date in enumerate(dates[:10]):
+    for di, date in enumerate(dates):
         day_posts = [p for p in posts_by_date[date] if p['id'] not in shown_ids]
         if not day_posts:
             continue
@@ -1177,10 +1175,10 @@ def build_news_index(posts_by_date):
                      + '<div class="prev-posts" id="pd' + idx_s + '">' + posts_html + '</div>'
                      + '</div>')
 
-    if len([d for d in dates[:10]]) > 3:
+    if len(dates) > 3:
         html += '</div>'
     html += '</div>'
-    html += '<script>function toggleDay(id){var el=document.getElementById("pd"+id);var tog=document.getElementById("pt"+id);var open=el.classList.toggle("open");tog.textContent=open?"− скрыть":"+ показать"}</script>'
+    html += '<script>function toggleDay(id){var el=document.getElementById("pd"+id);var tog=document.getElementById("pt"+id);if(!el)return;var open=el.style.display==="grid";el.style.display=open?"none":"grid";tog.textContent=open?"+ показать":"− скрыть";}</script>'
 
     return page_shell(
         title="Maple Barrel — Новости Канады на русском",
