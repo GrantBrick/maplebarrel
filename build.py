@@ -172,7 +172,7 @@ SOURCE_SLUG = {
     'financialpost.com': 'financial-post',
     'westernstandard.news': 'western-standard',
     'apple.news': 'apple-news',
-    'redakciya': 'Редакция',
+    'redakciya': 'Reddit',
 }
 
 def source_name(src):
@@ -1160,7 +1160,7 @@ def build_news_index(posts_by_date):
         else:
             label = fmt_date_full_short(date)
 
-        if di <= 2:
+        if di < 5:
             cards_html = ''.join(
                 '<a class="news-card" href="' + post_url(p) + '">'
                 + '<span class="src-badge">' + esc(source_name(p.get('source', ''))) + '</span>'
@@ -1173,9 +1173,7 @@ def build_news_index(posts_by_date):
                      + '<div class="news-grid">' + cards_html + '</div>'
                      + '</div>')
         else:
-            if di == 3:
-                html += '<div class="prev-section">'
-            if di == 13:
+            if di == 5:
                 html += '<div class="more-days" id="more-days-wrap">'
             posts_html = ''.join(
                 '<a class="pp-card" href="' + post_url(p) + '">'
@@ -1193,15 +1191,12 @@ def build_news_index(posts_by_date):
                      + '<div class="prev-posts" id="pd' + idx_s + '">' + posts_html + '</div>'
                      + '</div>')
 
-    if len(dates) > 13:
+    if len(dates) > 5:
         html += '</div>'  # close more-days
-        html += '</div>'  # close prev-section
-    elif len(dates) > 3:
-        html += '</div>'  # close prev-section
     html += '</div>'
     _js = ('<script>'
            + 'function toggleDay(id){var el=document.getElementById("pd"+id);var tog=document.getElementById("pt"+id);if(!el)return;var open=el.style.display==="grid";el.style.display=open?"none":"grid";tog.textContent=open?"+\u00a0\u043f\u043e\u043a\u0430\u0437\u0430\u0442\u044c":"\u2212\u00a0\u0441\u043a\u0440\u044b\u0442\u044c";}'
-           + '(function(){var wrap=document.getElementById("more-days-wrap");if(!wrap)return;var days=[].slice.call(wrap.querySelectorAll(".prev-day"));var page=0,per=10;days.forEach(function(d,i){if(i>=per)d.style.display="none";});var btn=document.createElement("button");btn.className="more-days-btn";btn.textContent="\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451 10 \u0434\u043d\u0435\u0439 \u2192";wrap.appendChild(btn);btn.addEventListener("click",function(){page++;var shown=0;days.forEach(function(d,i){if(i<(page+1)*per){d.style.display="";shown++;}});if(shown>=days.length)btn.style.display="none";});})();'
+           + '(function(){var wrap=document.getElementById("more-days-wrap");if(!wrap)return;var days=[].slice.call(wrap.querySelectorAll(".prev-day"));var page=0,per=10;days.forEach(function(d,i){if(i>=per)d.style.display="none";});var btn=document.createElement("button");btn.className="more-days-btn";btn.textContent="\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451 \u2192";wrap.appendChild(btn);btn.addEventListener("click",function(){page++;var shown=0;days.forEach(function(d,i){if(i<(page+1)*per){d.style.display="";shown++;}});if(shown>=days.length)btn.style.display="none";});})();'
            + '</script>')
     html += _js
     return page_shell(
