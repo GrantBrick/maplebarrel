@@ -380,12 +380,43 @@ def tag_posts(posts):
 
     return posts
 
+def plural_ru(n, one, few, many):
+    """Russian pluralization: 1 материал, 2 материала, 5 материалов"""
+    n = abs(n) % 100
+    n1 = n % 10
+    if 11 <= n <= 19:
+        return many
+    if n1 == 1:
+        return one
+    if 2 <= n1 <= 4:
+        return few
+    return many
+
+def fmt_count(n):
+    return f"{n} {plural_ru(n, 'материал', 'материала', 'материалов')}"
+
+
+
 
 # ── ПАРСИНГ result.json ────────────────────────────────
 
 def parse_telegram_export(json_path):
     with open(json_path, encoding='utf-8') as f:
         data = json.load(f)
+
+    from datetime import datetime as _dt
+    # Reconstruct photo filenames: photo_N@DD-MM-YYYY_HH-MM-SS.jpg
+    photo_seq_map = {}
+    photo_counter = 0
+    for m in data.get('messages', []):
+        if m.get('type') == 'message' and m.get('photo'):
+            photo_counter += 1
+            try:
+                dt = _dt.fromisoformat(m['date'])
+                fname = f"photo_{photo_counter}@{dt.strftime('%d-%m-%Y_%H-%M-%S')}.jpg"
+                photo_seq_map[m['id']] = 'photos/' + fname
+            except Exception:
+                pass
 
     posts = []
     for m in data.get('messages', []):
@@ -442,7 +473,7 @@ def parse_telegram_export(json_path):
             'source': source,
             'source_url': source_url,
             'tg_url': f'https://t.me/maplebarrel/{m["id"]}',
-            'photo': m.get('photo', ''),
+            'photo': photo_seq_map.get(m['id'], ''),
         })
 
     return posts
@@ -484,7 +515,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
 
 /* SOURCE BADGE — dark grey */
-.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:3px;width:fit-content}
+.src-badge{display:inline-block;background:#4a5568;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:3px;width:fit-content}
 
 /* READ MORE — light red with leaf */
 .btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
@@ -495,7 +526,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
 .sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
 .sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase;flex-shrink:0}
-.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;margin-left:auto;flex-shrink:0}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;margin-left:auto;white-space:nowrap}
 
 /* CARD — for featured grid */
 .card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
@@ -828,6 +859,25 @@ def lr_card(p):
 
 # ── СТРАНИЦА ПОСТА ─────────────────────────────────────
 
+
+def rel_card(p):
+    """Compact vertical card for sidebar."""
+    src_label = source_name(p.get('source', ''))
+    img = post_img_src(p)
+    src = p.get('source', '')
+    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a5568', '#fff', src[:4].upper() if src else '?'))
+    if img:
+        img_block = '<div class="rc-img"><img src="' + img + '" alt="" loading="lazy"></div>'
+    else:
+        img_block = '<div class="rc-img" style="background:' + bg + '"><span style="color:' + fg + ';font-size:9px;font-weight:700">' + lbl + '</span></div>'
+    return ('<a class="rc" href="' + post_url(p) + '">'
+            + img_block
+            + '<div class="rc-body">'
+            + '<span class="rc-src">' + esc(src_label) + '</span>'
+            + '<div class="rc-title">' + esc(p['title']) + '</div>'
+            + '<span class="rc-date">' + fmt_date(p['date']) + '</span>'
+            + '</div></a>')
+
 def build_post_page(p, related):
     img = post_img_src(p)
     og_img = ''
@@ -873,7 +923,7 @@ def build_post_page(p, related):
     post_tags = set(p.get('tags') or [])
     related_by_tag = [r for r in related if set(r.get('tags') or []) & post_tags][:4]
     related_final = related_by_tag if related_by_tag else related[:4]
-    related_html = ''.join(lr_card(r) for r in related_final)
+    related_html = ''.join(rel_card(r) for r in related_final)
 
     css = """
 .art-layout{display:grid;grid-template-columns:1fr 300px;gap:52px}
@@ -893,7 +943,15 @@ def build_post_page(p, related):
 .src-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--t3);border:1px solid var(--br);padding:7px 14px;border-radius:5px;margin-top:20px;background:#fff;transition:all .15s}
 .src-link:hover{color:var(--t);border-color:var(--br2)}
 .art-sb .sbt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);padding-bottom:10px;border-bottom:2px solid var(--br);margin-bottom:14px}
-.rel-posts{display:flex;flex-direction:column;gap:8px}
+.rel-posts{display:flex;flex-direction:column;gap:10px}
+.rc{display:flex;gap:10px;text-decoration:none;transition:opacity .15s}
+.rc:hover{opacity:.8}
+.rc-img{width:72px;min-width:72px;height:58px;border-radius:4px;overflow:hidden;background:var(--bg4);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.rc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.rc-body{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.rc-src{font-size:9px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.4px}
+.rc-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rc-date{font-size:10px;color:var(--t4)}
 .bk{display:inline-flex;align-items:center;gap:5px;color:var(--t3);font-size:13px;margin-bottom:24px;transition:color .15s}
 .bk:hover{color:var(--t)}
 @media(max-width:900px){.art-layout{grid-template-columns:1fr}.art-sb{display:none}.art-title{font-size:22px}.art-body-wrap{padding:20px 18px}}
@@ -960,8 +1018,8 @@ def build_news_index(posts_by_date):
 .slide-img{width:100%;aspect-ratio:4/3;background:var(--bg4);overflow:hidden}
 .slide-img img{width:100%;height:100%;object-fit:cover;display:block}
 .slide-body{padding:10px 12px 12px}
-.slide-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px;display:block;margin-bottom:5px}
-.slide-title{font-family:var(--serif);font-size:13px;font-weight:600;line-height:1.3;color:var(--t)}
+.slide-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.5px;display:block;margin-bottom:5px}
+.slide-title{font-family:var(--serif);font-size:13px;font-weight:500;line-height:1.3;color:var(--t)}
 
 /* NEWS by day */
 .day-hdr-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
@@ -969,7 +1027,7 @@ def build_news_index(posts_by_date):
 .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
 .news-card{background:#fff;border-radius:6px;padding:13px 15px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
 .news-card:hover{opacity:.8}
-.news-src{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--ac);letter-spacing:.4px}
+.news-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.4px}
 .news-title{font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
 .news-date{font-size:11px;color:var(--t4);margin-top:3px}
 
@@ -1005,8 +1063,8 @@ def build_news_index(posts_by_date):
 .slide-img{width:100%;aspect-ratio:4/3;background:var(--bg4);overflow:hidden}
 .slide-img img{width:100%;height:100%;object-fit:cover;display:block}
 .slide-body{padding:10px 12px 12px}
-.slide-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px;display:block;margin-bottom:5px}
-.slide-title{font-family:var(--serif);font-size:13px;font-weight:600;line-height:1.3;color:var(--t)}
+.slide-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.5px;display:block;margin-bottom:5px}
+.slide-title{font-family:var(--serif);font-size:13px;font-weight:500;line-height:1.3;color:var(--t)}
 
 /* NEWS by day */
 .day-hdr-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
@@ -1014,7 +1072,7 @@ def build_news_index(posts_by_date):
 .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
 .news-card{background:#fff;border-radius:6px;padding:13px 15px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
 .news-card:hover{opacity:.8}
-.news-src{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--ac);letter-spacing:.4px}
+.news-src{font-size:10px;font-weight:700;text-transform:uppercase;color:#4a5568;letter-spacing:.4px}
 .news-title{font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
 .news-date{font-size:11px;color:var(--t4);margin-top:3px}
 
@@ -1113,7 +1171,7 @@ def build_news_index(posts_by_date):
             html += ('<div class="prev-day">'
                      + '<button class="prev-day-btn" onclick="toggleDay('' + idx_s + '')">'
                      + '<span class="pd-label">' + label + '</span>'
-                     + '<span class="pd-count">' + str(len(day_posts)) + ' материалов</span>'
+                     + '<span class="pd-count">' + fmt_count(len(day_posts)) + '</span>'
                      + '<span class="pd-tog" id="pt' + idx_s + '">+ показать</span>'
                      + '</button>'
                      + '<div class="prev-posts" id="pd' + idx_s + '">' + posts_html + '</div>'
