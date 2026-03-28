@@ -435,9 +435,10 @@ COMMON_CSS = """
   --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
   --br:#e8e4dc;--br2:#d0ccc4;
   --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
-  --ac:#e53e3e;--tg:#0088cc;--maple:#e53e3e;
-  --shadow:0 2px 8px rgba(0,0,0,.08);
-  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --ac:#e53e3e;--ac2:#c53030;--tg:#0088cc;--maple:#e53e3e;
+  --dark:#2d3748;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:0 8px 24px rgba(0,0,0,.12);
   --serif:'Playfair Display',Georgia,serif;
   --bserif:'Source Serif 4',Georgia,serif;
   --sans:'Inter','Golos Text',system-ui,sans-serif
@@ -450,38 +451,56 @@ img{display:block}
 
 /* NAV */
 nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.ni{max-width:1200px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-size:20px;font-weight:900;letter-spacing:-1px;color:var(--t);display:flex;align-items:center;gap:4px;text-transform:uppercase}
-.logo .lf{color:var(--maple)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:19px;font-weight:900;letter-spacing:-1px;color:var(--ac);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:3px}
 .nav-links{display:flex;gap:2px}
-.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap;letter-spacing:.3px}
-.nl:hover{color:var(--t);background:var(--bg4)}
-.nl.on{color:var(--t);background:var(--bg4)}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
+.nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
 .nav-r{display:flex;align-items:center}
-.tgb{display:flex;align-items:center;gap:6px;background:var(--tg);color:#fff;border-radius:8px;font-size:12px;font-weight:800;padding:8px 18px;text-decoration:none;transition:background .2s;text-transform:uppercase;letter-spacing:.3px}
+.tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
 .tgb:hover{background:#006fa8}
 .tgb svg{width:14px;height:14px;flex-shrink:0}
 
-.wrap{max-width:1200px;margin:0 auto;padding:20px 20px 56px}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
 
-/* SOURCE — red, all caps */
-.src-badge{display:inline-block;color:var(--ac);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+/* SOURCE BADGE — dark grey */
+.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
 
-/* CARD — prototype style: img → source → title → excerpt */
-.card{display:flex;flex-direction:column;cursor:pointer;transition:opacity .15s;background:#fff;border-radius:6px;overflow:hidden}
-.card:hover{opacity:.88}
-.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:4px;margin-bottom:12px;background:var(--bg4);flex-shrink:0}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+/* READ MORE — light red with leaf */
+.btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
+.btn-more:hover{opacity:1}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
+.sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+
+/* CARD — for featured grid */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .card:hover .card-img img{transform:scale(1.04)}
-.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px;border-radius:4px}
-.card-title{font-size:18px;font-weight:800;line-height:1.2;color:var(--t);margin-bottom:8px;letter-spacing:-.3px}
-.card-excerpt{color:var(--t2);font-size:14px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
-.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.card-date{font-size:11px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-title{font-family:var(--serif);font-size:20px;font-weight:800;line-height:1.2;color:var(--t);letter-spacing:-.3px}
+.card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
+.card-date{font-size:11px;color:var(--t4)}
+
+/* LR-CARD — horizontal, for materials/longreads/surveys */
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
 
 /* TAGS */
-.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap;letter-spacing:.2px}
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
 .tag-pol{background:#fde8e8;color:#9b1c1c}
 .tag-eco{background:#fef3c7;color:#78350f}
 .tag-imm{background:#dbeafe;color:#1e40af}
@@ -489,56 +508,42 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .tag-stat{background:#ede9fe;color:#4c1d95}
 .tag-def{background:var(--bg4);color:var(--t3)}
 
-/* SECTION HEADER */
-.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin:36px 0 18px;border-bottom:3px solid var(--t);padding-bottom:8px}
-.sec-hdr h2{font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:-.3px}
-.sec-hdr a{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:.3px}
-.sec-hdr a:hover{color:var(--t)}
-
-/* PAGINATION */
-.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
-.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-
-/* TAG FILTER */
-.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--br)}
-.tc{font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.2px}
+/* TAG FILTER BAR */
+.tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tc{font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:.15s;letter-spacing:.3px;white-space:nowrap;cursor:pointer}
 .tc:hover{border-color:var(--t);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
-/* LR CARD (longreads sidebar/related) */
-.lr-card{display:flex;gap:12px;background:#fff;border-radius:6px;overflow:hidden;padding:10px;box-shadow:var(--shadow-sm);transition:opacity .15s}
-.lr-card:hover{opacity:.85}
-.lr-img{width:90px;min-width:90px;flex-shrink:0;overflow:hidden;border-radius:3px;background:var(--bg4)}
-.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
-.lrc-body{flex:1;display:flex;flex-direction:column;gap:4px}
-.lrc-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+/* PAGINATION */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:.15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* FOOTER */
-footer{border-top:2px solid var(--br);padding:40px 20px;margin-top:56px;background:#fff}
-.fi{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
-.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:4px}
-.flogo .lf{color:var(--maple)}
-.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px}
+footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
+.ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
-.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:.15s}
 .fcol a:hover{color:var(--ac)}
-.fcp{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
+.fcp{max-width:1200px;margin:24px auto 0;padding:20px 24px 0;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
 
-/* TG CTA (post page) */
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+/* TG CTA on post page */
+.tgcta{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bee3f8;border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
 .tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
 .ctxt{flex:1}
-.ctit{font-weight:700;font-size:14px;margin-bottom:2px;color:var(--t)}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:5px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:6px;text-decoration:none;transition:background .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:9px 18px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;transition:.15s}
 .cbtn2:hover{background:#006fa8}
 
 @media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.fi{grid-template-columns:1fr}.ni{gap:8px}}
+@media(max-width:700px){.fi{grid-template-columns:1fr}.ni{gap:8px}.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
 """
 
 FONTS_LINK = '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">'
@@ -582,8 +587,9 @@ def footer_html():
     return f"""<footer>
 <div class="fi">
   <div>
-    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <div class="flogo">MAPLE <span style="color:var(--maple)">🍁</span> BARREL</div>
     <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
+    <a class="ftg" href="https://t.me/maplebarrel">Подписаться в Telegram</a>
   </div>
   <div class="fcol">
     <h4>Темы</h4>
@@ -591,8 +597,8 @@ def footer_html():
     <a href="/tag/ekonomika/">#Экономика</a>
     <a href="/tag/immigratsiya/">#Иммиграция</a>
     <a href="/tag/zhilyo/">#Жильё</a>
-    <a href="/tag/tarify-i-torgovlya/">#Тарифы</a>
-    <a href="/tag/zdraboohranenie/">#Здравоохранение</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a>
+    <a href="/tag/zdravookhranenie/">#Здравоохранение</a>
   </div>
   <div class="fcol">
     <h4>Персоны</h4>
@@ -735,23 +741,23 @@ def photo_card(p, loading='lazy'):
     src_label = source_name(p.get('source', ''))
     img = post_img_src(p)
     src = p.get('source', '')
-    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
-    tags_html = tags_row(p.get('tags'), 2)
+    bg, fg, lbl = SOURCE_COLORS.get(src, ('#2d3748', '#fff', src[:4].upper() if src else '?'))
     excerpt = p.get('excerpt','') or ''
+    if len(excerpt) > 180:
+        cut = excerpt[:180]; sp = cut.rfind(' ')
+        excerpt = (cut[:sp] if sp > 0 else cut) + '...'
     if img:
-        img_block = f'<div class="card-img"><img src="{img}" alt="" loading="{loading}"></div>'
+        img_block = '<div class="card-img"><img src="' + img + '" alt="" loading="' + loading + '"></div>'
     else:
-        img_block = f'<div class="card-img"><div class="card-ph" style="background:{bg};color:{fg}">{lbl}</div></div>'
-    return (f'<a class="card" href="{post_url(p)}">'
-            f'{img_block}'
-            f'<span class="src-badge">{esc(src_label)}</span>'
-            f'<div class="card-title">{esc(p["title"])}</div>'
-            f'<div class="card-excerpt">{esc(excerpt)}</div>'
-            f'<div class="card-meta">'
-            f'<span class="card-date">{fmt_date(p["date"])}</span>'
-            f'<div class="card-tags">{tags_html}</div>'
-            f'</div></a>')
-
+        img_block = '<div class="card-img"><div style="width:100%;height:100%;background:' + bg + ';display:flex;align-items:center;justify-content:center;color:' + fg + ';font-size:13px;font-weight:700">' + lbl + '</div></div>'
+    return ('<a class="card" href="' + post_url(p) + '">'
+            + img_block
+            + '<div class="card-body-inner">'
+            + '<span class="src-badge">' + esc(src_label) + '</span>'
+            + '<div class="card-title">' + esc(p['title']) + '</div>'
+            + '<p class="card-excerpt">' + esc(excerpt) + '</p>'
+            + '<span class="btn-more">Читать далее 🍁</span>'
+            + '</div></a>')
 
 def compact_item(p, num):
     src_label = source_name(p.get('source', ''))
@@ -769,21 +775,23 @@ def lr_card(p):
     src_label = source_name(p.get('source', ''))
     img = post_img_src(p)
     src = p.get('source', '')
-    bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    bg, fg, lbl = SOURCE_COLORS.get(src, ('#2d3748', '#fff', src[:4].upper() if src else '?'))
     excerpt = p.get('excerpt','') or ''
+    if len(excerpt) > 180:
+        cut = excerpt[:180]; sp = cut.rfind(' ')
+        excerpt = (cut[:sp] if sp > 0 else cut) + '...'
     if img:
-        img_block = f'<div class="lr-img"><img src="{img}" alt="" loading="lazy"></div>'
+        img_block = '<div class="lr-img"><img src="' + img + '" alt="" loading="lazy"></div>'
     else:
-        img_block = f'<div class="lr-img" style="background:{bg}"><span style="color:{fg};font-size:11px;font-weight:700">{lbl}</span></div>'
-    return (f'<a class="lr-card" href="{post_url(p)}">'
-            f'{img_block}'
-            f'<div class="lrc-body">'
-            f'<span class="src-badge">{esc(src_label)}</span>'
-            f'<div class="lrc-title">{esc(p["title"])}</div>'
-            f'<div class="card-meta" style="margin-top:auto">'
-            f'<span class="card-date">{fmt_date(p["date"])}</span>'
-            f'<div class="card-tags">{tags_row(p.get("tags"),1)}</div>'
-            f'</div></div></a>')
+        img_block = '<div class="lr-img" style="background:' + bg + ';display:flex;align-items:center;justify-content:center"><span style="color:' + fg + ';font-size:11px;font-weight:700">' + lbl + '</span></div>'
+    return ('<a class="lr-card" href="' + post_url(p) + '">'
+            + img_block
+            + '<div class="lrc-body">'
+            + '<span class="src-badge">' + esc(src_label) + '</span>'
+            + '<div class="lrc-title">' + esc(p['title']) + '</div>'
+            + '<p class="lrc-ex">' + esc(excerpt) + '</p>'
+            + '<span class="lrc-date">' + fmt_date(p['date']) + '</span>'
+            + '</div></a>')
 
 
 
@@ -909,50 +917,91 @@ def build_post_page(p, related):
 
 def build_news_index(posts_by_date):
     css = """
-/* HOMEPAGE */
-.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
-.featured-grid .card-title{font-size:20px}
+/* FEATURED 2x2 */
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
 
-/* LONGREADS SLIDER */
-.slider-wrap{overflow:hidden;margin-bottom:8px}
-.slider-track{display:flex;gap:18px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px}
+/* SLIDER */
+.slider-wrap{margin-bottom:8px}
+.slider-track{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
 .slider-track::-webkit-scrollbar{display:none}
-.slide-card{min-width:260px;max-width:260px;display:flex;flex-direction:column;cursor:pointer;transition:opacity .15s;flex-shrink:0}
-.slide-card:hover{opacity:.85}
-.slide-card .card-img{aspect-ratio:4/3;margin-bottom:10px}
-.slide-card .card-title{font-size:15px;font-weight:800;line-height:1.25}
-.slider-nav{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
-.slider-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--br2);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .15s}
-.slider-btn:hover{border-color:var(--t);background:var(--t);color:#fff}
+.slide-card{min-width:220px;max-width:220px;flex-shrink:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s}
+.slide-card:hover{transform:translateY(-2px)}
+.slide-img{width:100%;aspect-ratio:4/3;background:var(--bg4);overflow:hidden}
+.slide-img img{width:100%;height:100%;object-fit:cover;display:block}
+.slide-body{padding:10px 12px 12px}
+.slide-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px;display:block;margin-bottom:5px}
+.slide-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
 
-/* NEWS FEED by day */
-.day-block{margin-bottom:32px}
-.day-hdr{display:flex;align-items:baseline;gap:10px;padding:12px 0 10px;border-bottom:2px solid var(--t);margin-bottom:16px}
-.day-label{font-size:17px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px;color:var(--t)}
-.day-sub{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
-.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.news-card{background:#fff;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow-sm);transition:opacity .15s;text-decoration:none}
-.news-card:hover{opacity:.85}
-.news-card .card-title{font-size:15px;font-weight:700;line-height:1.25;margin-bottom:0}
+/* NEWS by day */
+.day-hdr-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.news-card{background:#fff;border-radius:6px;padding:13px 15px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
+.news-card:hover{opacity:.8}
+.news-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px}
+.news-title{font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.news-date{font-size:11px;color:var(--t4);margin-top:3px}
 
 /* PREV DAYS */
 .prev-section{margin-top:4px}
 .prev-day{margin-bottom:8px}
 .prev-day-btn{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
 .prev-day-btn:hover .pd-label{color:var(--t)}
-.pd-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.2px;color:var(--t3);transition:color .15s}
+.pd-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.2px;color:var(--t3);transition:.15s}
 .pd-count{font-size:11px;color:var(--t3)}
 .pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
-.prev-posts{display:none;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0}
+.prev-posts{display:none;grid-template-columns:1fr 1fr;gap:10px;padding:12px 0}
 .prev-posts.open{display:grid}
-.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow-sm);transition:opacity .15s}
-.pp-card:hover{opacity:.85}
-.pp-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--ac);letter-spacing:.3px}
-.pp-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
+.pp-card:hover{opacity:.8}
+.pp-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px}
+.pp-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t)}
 
 @media(max-width:700px){.featured-grid{grid-template-columns:1fr}.news-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:1fr}}
 """
 
+def build_news_index(posts_by_date):
+    css = """
+/* FEATURED 2x2 */
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+
+/* SLIDER */
+.slider-wrap{margin-bottom:8px}
+.slider-track{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.slider-track::-webkit-scrollbar{display:none}
+.slide-card{min-width:220px;max-width:220px;flex-shrink:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s}
+.slide-card:hover{transform:translateY(-2px)}
+.slide-img{width:100%;aspect-ratio:4/3;background:var(--bg4);overflow:hidden}
+.slide-img img{width:100%;height:100%;object-fit:cover;display:block}
+.slide-body{padding:10px 12px 12px}
+.slide-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px;display:block;margin-bottom:5px}
+.slide-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
+
+/* NEWS by day */
+.day-hdr-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.news-card{background:#fff;border-radius:6px;padding:13px 15px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
+.news-card:hover{opacity:.8}
+.news-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px}
+.news-title{font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.news-date{font-size:11px;color:var(--t4);margin-top:3px}
+
+/* PREV DAYS */
+.prev-section{margin-top:4px}
+.prev-day{margin-bottom:8px}
+.prev-day-btn{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
+.prev-day-btn:hover .pd-label{color:var(--t)}
+.pd-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.2px;color:var(--t3);transition:.15s}
+.pd-count{font-size:11px;color:var(--t3)}
+.pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
+.prev-posts{display:none;grid-template-columns:1fr 1fr;gap:10px;padding:12px 0}
+.prev-posts.open{display:grid}
+.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
+.pp-card:hover{opacity:.8}
+.pp-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px}
+.pp-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t)}
+
+@media(max-width:700px){.featured-grid{grid-template-columns:1fr}.news-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:1fr}}
+"""
     dates = sorted(posts_by_date.keys(), reverse=True)
     all_posts_desc = []
     for d in dates:
@@ -962,8 +1011,7 @@ def build_news_index(posts_by_date):
     top4 = all_posts_desc[:4]
     featured_html = ''.join(photo_card(p, loading='eager') for p in top4)
 
-    # Longreads slider — up to 10 longreads
-    from collections import defaultdict
+    # Longreads slider
     all_longreads = [p for p in all_posts_desc if p.get('is_longread')][:10]
     slides_html = ''
     for p in all_longreads:
@@ -972,32 +1020,29 @@ def build_news_index(posts_by_date):
         bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
         src_label = source_name(src)
         if img:
-            img_block = f'<div class="card-img"><img src="{img}" alt="" loading="lazy"></div>'
+            img_block = '<div class="card-img"><img src="' + img + '" alt="" loading="lazy"></div>'
         else:
-            img_block = f'<div class="card-img"><div class="card-ph" style="background:{bg};color:{fg}">{lbl}</div></div>'
-        slides_html += (f'<a class="slide-card" href="{post_url(p)}">'
-                        f'{img_block}'
-                        f'<span class="src-badge">{esc(src_label)}</span>'
-                        f'<div class="card-title" style="font-size:15px;font-weight:800">{esc(p["title"])}</div>'
-                        f'</a>')
+            img_block = '<div class="card-img"><div class="card-ph" style="background:' + bg + ';color:' + fg + '">' + lbl + '</div></div>'
+        slides_html += ('<a class="slide-card" href="' + post_url(p) + '">'
+                        + img_block
+                        + '<span class="src-badge">' + esc(src_label) + '</span>'
+                        + '<div class="card-title" style="font-size:15px;font-weight:800">' + esc(p['title']) + '</div>'
+                        + '</a>')
 
-    html = f'''<div class="wrap">
-  <div class="sec-hdr" style="margin-top:16px"><h2>Главное</h2></div>
-  <div class="featured-grid">{featured_html}</div>
+    html = ('<div class="wrap">'
+            + '<div class="sec-hdr" style="margin-top:16px"><h2>Главное</h2></div>'
+            + '<div class="featured-grid">' + featured_html + '</div>'
+            + '<div class="sec-hdr"><h2>Лонгриды</h2>'
+            + '<a href="/longreads/">Все лонгриды →</a></div>'
+            + '<div class="slider-wrap">'
+            + '<div class="slider-track" id="lr-slider">' + slides_html + '</div>'
+            + '<div class="slider-nav">'
+            + '<button class="slider-btn" onclick="document.getElementById(\'lr-slider\').scrollBy({left:-280,behavior:\'smooth\'})">←</button>'
+            + '<button class="slider-btn" onclick="document.getElementById(\'lr-slider\').scrollBy({left:280,behavior:\'smooth\'})">→</button>'
+            + '</div></div>'
+            + '<div class="sec-hdr"><h2>Новости</h2></div>')
 
-  <div class="sec-hdr"><h2>Лонгриды</h2><a href="/longreads/">Все лонгриды →</a></div>
-  <div class="slider-wrap">
-    <div class="slider-track" id="lr-slider">{slides_html}</div>
-    <div class="slider-nav">
-      <button class="slider-btn" onclick="document.getElementById('lr-slider').scrollBy({{left:-280,behavior:'smooth'}})">&larr;</button>
-      <button class="slider-btn" onclick="document.getElementById('lr-slider').scrollBy({{left:280,behavior:'smooth'}})">&rarr;</button>
-    </div>
-  </div>
-
-  <div class="sec-hdr"><h2>Новости</h2></div>
-'''
-
-    # News feed by day — skip top 4 already shown
+    # News feed by day
     shown_ids = {p['id'] for p in top4}
     for di, date in enumerate(dates[:10]):
         day_posts = [p for p in posts_by_date[date] if p['id'] not in shown_ids]
@@ -1012,41 +1057,46 @@ def build_news_index(posts_by_date):
 
         if di <= 2:
             cards_html = ''.join(
-                f'''<a class="news-card" href="{post_url(p)}">
-                  <span class="src-badge">{esc(source_name(p.get("source","")))}</span>
-                  <div class="card-title" style="font-size:15px;font-weight:700;line-height:1.25">{esc(p["title"])}</div>
-                  <div class="card-meta">
-                    <span class="card-date">{fmt_date(p["date"])}</span>
-                    <div class="card-tags">{tags_row(p.get("tags"),1)}</div>
-                  </div>
-                </a>''' for p in day_posts)
-            html += f'<div class="day-block"><div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(day_posts)} материалов</div></div><div class="news-grid">{cards_html}</div></div>'
+                '<a class="news-card" href="' + post_url(p) + '">'
+                + '<span class="src-badge">' + esc(source_name(p.get('source', ''))) + '</span>'
+                + '<div class="card-title" style="font-size:15px;font-weight:700;line-height:1.25">' + esc(p['title']) + '</div>'
+                + '<span class="card-date">' + fmt_date(p['date']) + '</span>'
+                + '</a>'
+                for p in day_posts)
+            html += ('<div class="day-block">'
+                     + '<div class="day-hdr">'
+                     + '<div class="day-label">' + label + '</div>'
+                     + '<div class="day-sub">' + str(len(day_posts)) + ' материалов</div>'
+                     + '</div>'
+                     + '<div class="news-grid">' + cards_html + '</div>'
+                     + '</div>')
         else:
             if di == 3:
                 html += '<div class="prev-section">'
-            posts_html = ''.join(f'''<a class="pp-card" href="{post_url(p)}">
-              <span class="pp-src">{esc(source_name(p.get("source","")))}</span>
-              <div class="pp-title">{esc(p["title"])}</div>
-            </a>''' for p in day_posts)
-            idx = str(di)
-            html += f'''<div class="prev-day">
-              <button class="prev-day-btn" onclick="toggleDay('{idx}')">
-                <span class="pd-label">{label}</span>
-                <span class="pd-count">{len(day_posts)} материалов</span>
-                <span class="pd-tog" id="pt{idx}">+ показать</span>
-              </button>
-              <div class="prev-posts" id="pd{idx}">{posts_html}</div>
-            </div>'''
+            posts_html = ''.join(
+                '<a class="pp-card" href="' + post_url(p) + '">'
+                + '<span class="pp-src">' + esc(source_name(p.get('source', ''))) + '</span>'
+                + '<div class="pp-title">' + esc(p['title']) + '</div>'
+                + '</a>'
+                for p in day_posts)
+            idx_s = str(di)
+            html += ('<div class="prev-day">'
+                     + '<button class="prev-day-btn" onclick="toggleDay('' + idx_s + '')">'
+                     + '<span class="pd-label">' + label + '</span>'
+                     + '<span class="pd-count">' + str(len(day_posts)) + ' материалов</span>'
+                     + '<span class="pd-tog" id="pt' + idx_s + '">+ показать</span>'
+                     + '</button>'
+                     + '<div class="prev-posts" id="pd' + idx_s + '">' + posts_html + '</div>'
+                     + '</div>')
 
     if len([d for d in dates[:10]]) > 3:
         html += '</div>'
-
     html += '</div>'
-    html += '<script>function toggleDay(id){var el=document.getElementById("pd"+id);var tog=document.getElementById("pt"+id);var open=el.classList.toggle("open");tog.textContent=open?"\u2212 скрыть":"+ показать"}</script>'
+    html += '<script>function toggleDay(id){var el=document.getElementById("pd"+id);var tog=document.getElementById("pt"+id);var open=el.classList.toggle("open");tog.textContent=open?"− скрыть":"+ показать"}</script>'
 
     return page_shell(
         title="Maple Barrel — Новости Канады на русском",
-        desc="Ежедневный обзор канадских СМИ на русском языке. Политика, экономика и жизнь Канады.",
+        desc="Ежедневный обзор канадских СМИ на русском языке.",
         url="/",
         content=html,
         active='news',
@@ -1055,12 +1105,19 @@ def build_news_index(posts_by_date):
 
 def build_materials_page(posts, page=1, tag=''):
     css = """
-.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
-.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
-.page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
-@media(max-width:640px){.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
 """
     per = POSTS_PER_PAGE
     total = len(posts)
@@ -1080,7 +1137,7 @@ def build_materials_page(posts, page=1, tag=''):
     <p>Аналитика, мнения и тексты из The Atlantic, Maclean's, The Hub и других изданий — не привязанные к конкретной дате.</p>
   </div>
   {tag_chips}
-  <div class="mat-grid">{"".join(lr_card(p) for p in page_posts)}</div>
+  <div class="lr-grid">{"".join(lr_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(
@@ -1096,19 +1153,19 @@ def build_materials_page(posts, page=1, tag=''):
 # ── ЛОНГРИДЫ ──────────────────────────────────────────
 def build_longreads_page(posts, page=1, tag=''):
     css = """
-.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.lr-card{display:flex!important;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s}
-.lr-card:hover{transform:translateY(-1px)}
-.lr-img{width:120px;min-width:120px;flex-shrink:0;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
 .lr-img img{width:100%;height:100%;object-fit:cover;display:block}
-.lrc-body{padding:13px 15px;flex:1;display:flex;flex-direction:column;gap:5px}
-.lrc-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
-.lrc-ex{font-size:12px;color:var(--t2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
-.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
-.page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.lr-grid{grid-template-columns:1fr}.lr-img{width:90px;min-width:90px}}
-@media(max-width:640px){.lr-img{display:none}}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
 """
     per = POSTS_PER_PAGE
     total = len(posts)
@@ -1216,19 +1273,26 @@ def build_surveys_page(posts, page=1):
     page_posts = posts[(page-1)*per:page*per]
     pgn = _pagination(page, pages, '/surveys/')
     css = """
-.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.page-intro{padding:16px 0 22px;border-bottom:1px solid var(--br);margin-bottom:22px}
-.page-intro h1{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px;color:var(--t)}
-.page-intro p{font-size:14px;color:var(--t2)}
-@media(max-width:900px){.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
-@media(max-width:640px){.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
+.page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
+.page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
+.page-intro p{font-size:14px;color:var(--t3)}
+@media(max-width:700px){.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
 """
     content = f"""<div class="wrap">
   <div class="page-intro">
     <h1>Опросы и статистика</h1>
     <p>Данные, исследования, опросы и рейтинги — всё что можно измерить о Канаде.</p>
   </div>
-  <div class="mat-grid">{"".join(lr_card(p) for p in page_posts)}</div>
+  <div class="lr-grid">{"".join(lr_card(p) for p in page_posts)}</div>
   {pgn}
 </div>"""
     return page_shell(

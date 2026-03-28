@@ -22,9 +22,10 @@
   --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
   --br:#e8e4dc;--br2:#d0ccc4;
   --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
-  --ac:#e53e3e;--tg:#0088cc;--maple:#e53e3e;
-  --shadow:0 2px 8px rgba(0,0,0,.08);
-  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --ac:#e53e3e;--ac2:#c53030;--tg:#0088cc;--maple:#e53e3e;
+  --dark:#2d3748;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:0 8px 24px rgba(0,0,0,.12);
   --serif:'Playfair Display',Georgia,serif;
   --bserif:'Source Serif 4',Georgia,serif;
   --sans:'Inter','Golos Text',system-ui,sans-serif
@@ -37,38 +38,56 @@ img{display:block}
 
 /* NAV */
 nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.ni{max-width:1200px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-size:20px;font-weight:900;letter-spacing:-1px;color:var(--t);display:flex;align-items:center;gap:4px;text-transform:uppercase}
-.logo .lf{color:var(--maple)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:19px;font-weight:900;letter-spacing:-1px;color:var(--ac);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:3px}
 .nav-links{display:flex;gap:2px}
-.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap;letter-spacing:.3px}
-.nl:hover{color:var(--t);background:var(--bg4)}
-.nl.on{color:var(--t);background:var(--bg4)}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
+.nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
 .nav-r{display:flex;align-items:center}
-.tgb{display:flex;align-items:center;gap:6px;background:var(--tg);color:#fff;border-radius:8px;font-size:12px;font-weight:800;padding:8px 18px;text-decoration:none;transition:background .2s;text-transform:uppercase;letter-spacing:.3px}
+.tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
 .tgb:hover{background:#006fa8}
 .tgb svg{width:14px;height:14px;flex-shrink:0}
 
-.wrap{max-width:1200px;margin:0 auto;padding:20px 20px 56px}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
 
-/* SOURCE — red, all caps */
-.src-badge{display:inline-block;color:var(--ac);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+/* SOURCE BADGE — dark grey */
+.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
 
-/* CARD — prototype style: img → source → title → excerpt */
-.card{display:flex;flex-direction:column;cursor:pointer;transition:opacity .15s;background:#fff;border-radius:6px;overflow:hidden}
-.card:hover{opacity:.88}
-.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:4px;margin-bottom:12px;background:var(--bg4);flex-shrink:0}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+/* READ MORE — light red with leaf */
+.btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
+.btn-more:hover{opacity:1}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
+.sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+
+/* CARD — for featured grid */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .card:hover .card-img img{transform:scale(1.04)}
-.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px;border-radius:4px}
-.card-title{font-size:18px;font-weight:800;line-height:1.2;color:var(--t);margin-bottom:8px;letter-spacing:-.3px}
-.card-excerpt{color:var(--t2);font-size:14px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
-.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.card-date{font-size:11px;color:var(--t3)}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
+.card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-title{font-family:var(--serif);font-size:20px;font-weight:800;line-height:1.2;color:var(--t);letter-spacing:-.3px}
+.card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
+.card-date{font-size:11px;color:var(--t4)}
+
+/* LR-CARD — horizontal, for materials/longreads/surveys */
+.lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lr-card{display:flex;flex-direction:row;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
+.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
 
 /* TAGS */
-.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap;letter-spacing:.2px}
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
 .tag-pol{background:#fde8e8;color:#9b1c1c}
 .tag-eco{background:#fef3c7;color:#78350f}
 .tag-imm{background:#dbeafe;color:#1e40af}
@@ -76,56 +95,42 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .tag-stat{background:#ede9fe;color:#4c1d95}
 .tag-def{background:var(--bg4);color:var(--t3)}
 
-/* SECTION HEADER */
-.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin:36px 0 18px;border-bottom:3px solid var(--t);padding-bottom:8px}
-.sec-hdr h2{font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:-.3px}
-.sec-hdr a{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:.3px}
-.sec-hdr a:hover{color:var(--t)}
-
-/* PAGINATION */
-.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
-.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
-.pb:hover{border-color:var(--br2);color:var(--t)}
-.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-
-/* TAG FILTER */
-.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--br)}
-.tc{font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.2px}
+/* TAG FILTER BAR */
+.tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tc{font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:.15s;letter-spacing:.3px;white-space:nowrap;cursor:pointer}
 .tc:hover{border-color:var(--t);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
-/* LR CARD (longreads sidebar/related) */
-.lr-card{display:flex;gap:12px;background:#fff;border-radius:6px;overflow:hidden;padding:10px;box-shadow:var(--shadow-sm);transition:opacity .15s}
-.lr-card:hover{opacity:.85}
-.lr-img{width:90px;min-width:90px;flex-shrink:0;overflow:hidden;border-radius:3px;background:var(--bg4)}
-.lr-img img{width:100%;height:100%;object-fit:cover;display:block}
-.lrc-body{flex:1;display:flex;flex-direction:column;gap:4px}
-.lrc-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+/* PAGINATION */
+.pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
+.pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:.15s}
+.pb:hover{border-color:var(--br2);color:var(--t)}
+.pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* FOOTER */
-footer{border-top:2px solid var(--br);padding:40px 20px;margin-top:56px;background:#fff}
-.fi{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
-.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:4px}
-.flogo .lf{color:var(--maple)}
-.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px}
+footer{background:#fff;border-top:2px solid var(--br);padding:40px 0 24px;margin-top:48px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px;margin-bottom:12px}
+.ftg{display:inline-block;background:var(--tg);color:#fff;border-radius:6px;font-size:12px;font-weight:700;padding:7px 14px;text-transform:uppercase;letter-spacing:.3px}
 .fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
-.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:.15s}
 .fcol a:hover{color:var(--ac)}
-.fcp{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
+.fcp{max-width:1200px;margin:24px auto 0;padding:20px 24px 0;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
 
-/* TG CTA (post page) */
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+/* TG CTA on post page */
+.tgcta{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bee3f8;border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
 .tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
 .ctxt{flex:1}
-.ctit{font-weight:700;font-size:14px;margin-bottom:2px;color:var(--t)}
-.csub{font-size:12px;color:var(--t2)}
+.ctit{font-weight:700;font-size:14px;margin-bottom:2px}
+.csub{font-size:13px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:5px}
 .ctgp a{color:var(--tg)}
-.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:6px;text-decoration:none;transition:background .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:9px 18px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;transition:.15s}
 .cbtn2:hover{background:#006fa8}
 
 @media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.fi{grid-template-columns:1fr}.ni{gap:8px}}
+@media(max-width:700px){.fi{grid-template-columns:1fr}.ni{gap:8px}.lr-grid{grid-template-columns:1fr}.lr-img{width:110px;min-width:110px}}
 
 .art-layout{display:grid;grid-template-columns:1fr 300px;gap:52px}
 .art-src-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
@@ -161,12 +166,13 @@ footer{border-top:2px solid var(--br);padding:40px 20px;margin-top:56px;backgrou
     </a>
   </div>
 </div></nav>
-<div class="wrap"><a class="bk" href="javascript:history.back()">← Назад</a><div class="art-layout"><div><div class="art-src-row"><span class="src-badge">National Post</span><div class="art-pers"><a class="art-per" href="/person/mark-karni/">Марк Карни</a><a class="art-per" href="/person/per-poliev/">Пьер Полиев</a><a class="art-per" href="/person/donald-tramp/">Дональд Трамп</a></div></div><h1 class="art-title">Полиев: «Карни обещал силу, а принес капитуляцию»</h1><div class="art-hero"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="eager" onerror="this.parentNode.innerHTML='<div class=art-hero-ph style=background:#003087><span style=color:#fff;font-size:24px;font-weight:700>NatPost</span></div>'"></div><div class="art-metabar"><span class="art-date">4 сентября 2025</span><div class="art-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="art-body-wrap"><div class="art-body"><p>﻿</p><p>Пьер Полиев опубликовал колонку в National Post, где подвел итоги первых шести месяцев Марка Карни на посту премьера. Вердикт лидера консерваторов звучит безжалостно: «Он нарушил все ключевые обещания».</p><p>﻿</p><p>Полиев разбивает критику на четыре блока:</p><p>– Финансы. Карни обещал дисциплину и сокращение расходов, но увеличил федеральные траты на $37 млрд — плюс 8% всего за полгода. Дефицит выше, чем при Трюдо, а долговые заимствования приближаются к пандемическим уровням.</p><p>– Суверенитет. Громкие обещания «поставить локти» в переговорах с Трампом обернулись отказом от цифрового налога и контр-тарифов. Сделка с США так и не подписана, зато тарифы выросли.</p><p>– Строительство. Вместо «удвоения темпов» — падение числа новых домов, провал по инфраструктурным проектам и блокировка энергетических коридоров.</p><p>– Честность. Карни заявлял, что владеет лишь «наличными и недвижимостью», но декларации раскрыли 574 фондовые позиции, включая акции Amazon, Pfizer и Brookfield — компании, где он сам был председателем совета.</p><p>﻿</p><p>Итоговая формула Полиева: Карни обещал дисциплину — дал долги. Обещал силу — дал слабость. Обещал прозрачность — дал обман.</p></div></div><a class="src-link" href="https://nationalpost.com/opinion/pierre-poilievre-mark-carney-delivers-surrender" target="_blank" rel="noopener">Читать оригинал на National Post →</a><div class="tgcta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg><div class="ctxt"><div class="ctit">Читайте Maple Barrel в Telegram</div><div class="csub">Новые материалы каждый день — прямо в мессенджере</div><div class="ctgp">Этот пост в Telegram: <a href="https://t.me/maplebarrel/1255" target="_blank" rel="noopener">https://t.me/maplebarrel/1255</a></div></div><a class="cbtn2" href="https://t.me/maplebarrel" target="_blank" rel="noopener">Подписаться</a></div></div><div class="art-sb"><div class="sbt">Читайте также</div><div class="rel-posts"><a class="lr-card" href="/post/2026-03-27-liberaly-uzhestochayut-izbiratelnye-zakony-dipfeyki-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">National Post</span><div class="lrc-title">Либералы ужесточают избирательные законы: дипфейки, иностранное вмешательство и «длинные бюллетени»</div><div class="card-meta" style="margin-top:auto"><span class="card-date">27 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div></div></a><a class="lr-card" href="/post/2026-03-27-pereshedshiy-k-liberalam-deputat-izvinilsya-za-povedenie-na-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Перешедший к либералам депутат извинился за поведение на слушаниях по китайским электромобилям</div><div class="card-meta" style="margin-top:auto"><span class="card-date">27 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div></div></a><a class="lr-card" href="/post/2026-03-27-kanada-dostigla-tseli-nato-po-voennym-rashodam/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Канада достигла цели НАТО по военным расходам</div><div class="card-meta" style="margin-top:auto"><span class="card-date">27 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div></div></a><a class="lr-card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div><div class="card-meta" style="margin-top:auto"><span class="card-date">26 мар 2026</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a></div></div></div></a></div></div></div></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Полиев: «Карни обещал силу, а принес капитуляцию»", "datePublished": "2025-09-04", "publisher": {"@type": "Organization", "name": "Maple Barrel", "url": "https://journaists.ca"}, "url": "https://journaists.ca/post/2025-09-04-poliev-karni-obeschal-silu-a-prines-kapitulyatsiyu/", "description": "﻿ Пьер Полиев опубликовал колонку в National Post, где подвел итоги первых шести месяцев Марка Карни на посту премьера. Вердикт лидера консерваторов звучит безж"}</script>
+<div class="wrap"><a class="bk" href="javascript:history.back()">← Назад</a><div class="art-layout"><div><div class="art-src-row"><span class="src-badge">National Post</span><div class="art-pers"><a class="art-per" href="/person/mark-karni/">Марк Карни</a><a class="art-per" href="/person/per-poliev/">Пьер Полиев</a><a class="art-per" href="/person/donald-tramp/">Дональд Трамп</a></div></div><h1 class="art-title">Полиев: «Карни обещал силу, а принес капитуляцию»</h1><div class="art-hero"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="eager" onerror="this.parentNode.innerHTML='<div class=art-hero-ph style=background:#003087><span style=color:#fff;font-size:24px;font-weight:700>NatPost</span></div>'"></div><div class="art-metabar"><span class="art-date">4 сентября 2025</span><div class="art-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a></div></div><div class="art-body-wrap"><div class="art-body"><p>﻿</p><p>Пьер Полиев опубликовал колонку в National Post, где подвел итоги первых шести месяцев Марка Карни на посту премьера. Вердикт лидера консерваторов звучит безжалостно: «Он нарушил все ключевые обещания».</p><p>﻿</p><p>Полиев разбивает критику на четыре блока:</p><p>– Финансы. Карни обещал дисциплину и сокращение расходов, но увеличил федеральные траты на $37 млрд — плюс 8% всего за полгода. Дефицит выше, чем при Трюдо, а долговые заимствования приближаются к пандемическим уровням.</p><p>– Суверенитет. Громкие обещания «поставить локти» в переговорах с Трампом обернулись отказом от цифрового налога и контр-тарифов. Сделка с США так и не подписана, зато тарифы выросли.</p><p>– Строительство. Вместо «удвоения темпов» — падение числа новых домов, провал по инфраструктурным проектам и блокировка энергетических коридоров.</p><p>– Честность. Карни заявлял, что владеет лишь «наличными и недвижимостью», но декларации раскрыли 574 фондовые позиции, включая акции Amazon, Pfizer и Brookfield — компании, где он сам был председателем совета.</p><p>﻿</p><p>Итоговая формула Полиева: Карни обещал дисциплину — дал долги. Обещал силу — дал слабость. Обещал прозрачность — дал обман.</p></div></div><a class="src-link" href="https://nationalpost.com/opinion/pierre-poilievre-mark-carney-delivers-surrender" target="_blank" rel="noopener">Читать оригинал на National Post →</a><div class="tgcta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.88 8.18l-2.02 9.52c-.15.67-.54.84-1.1.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.02 5.49-4.96c.24-.21-.05-.33-.37-.12L6.26 14.38l-2.96-.92c-.64-.2-.65-.64.14-.95l11.54-4.45c.53-.19 1 .13.9.12z"/></svg><div class="ctxt"><div class="ctit">Читайте Maple Barrel в Telegram</div><div class="csub">Новые материалы каждый день — прямо в мессенджере</div><div class="ctgp">Этот пост в Telegram: <a href="https://t.me/maplebarrel/1255" target="_blank" rel="noopener">https://t.me/maplebarrel/1255</a></div></div><a class="cbtn2" href="https://t.me/maplebarrel" target="_blank" rel="noopener">Подписаться</a></div></div><div class="art-sb"><div class="sbt">Читайте также</div><div class="rel-posts"><a class="lr-card" href="/post/2026-03-27-liberaly-uzhestochayut-izbiratelnye-zakony-dipfeyki-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">National Post</span><div class="lrc-title">Либералы ужесточают избирательные законы: дипфейки, иностранное вмешательство и «длинные бюллетени»</div><p class="lrc-ex">Правительство Марка Карни представило законопроект C-25 — масштабную реформу избирательного законодательства. Формальная цель — защитить выборы от вмешательства, манипуляций и...</p><span class="lrc-date">27 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-27-pereshedshiy-k-liberalam-deputat-izvinilsya-za-povedenie-na-/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Перешедший к либералам депутат извинился за поведение на слушаниях по китайским электромобилям</div><p class="lrc-ex">Депутат от Либеральной партии Майкл Ма оказался в центре скандала после заседания парламентского комитета, где обсуждали политику Канады по китайским электромобилям.   Во время...</p><span class="lrc-date">27 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-27-kanada-dostigla-tseli-nato-po-voennym-rashodam/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CTV News</span><div class="lrc-title">Канада достигла цели НАТО по военным расходам</div><p class="lrc-ex">Канада впервые за десятилетия вышла на целевой уровень НАТО — 2% ВВП на оборону. По данным альянса, в 2025 году страна потратила более $60 млрд.   Премьер-министр Марк Карни...</p><span class="lrc-date">27 мар 2026</span></div></a><a class="lr-card" href="/post/2026-03-26-oglyadyvayas-nazad-byvshiy-ministr-priznal-limit-na-inostran/"><div class="lr-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="lrc-body"><span class="src-badge">CBC</span><div class="lrc-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div><p class="lrc-ex">Бывший министр иммиграции, а ныне министр юстиции Шон Фрейзер заявил, что с учётом сегодняшних данных он бы раньше ограничил программу иностранных студентов.   По его словам,...</p><span class="lrc-date">26 мар 2026</span></div></a></div></div></div></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Полиев: «Карни обещал силу, а принес капитуляцию»", "datePublished": "2025-09-04", "publisher": {"@type": "Organization", "name": "Maple Barrel", "url": "https://journaists.ca"}, "url": "https://journaists.ca/post/2025-09-04-poliev-karni-obeschal-silu-a-prines-kapitulyatsiyu/", "description": "﻿ Пьер Полиев опубликовал колонку в National Post, где подвел итоги первых шести месяцев Марка Карни на посту премьера. Вердикт лидера консерваторов звучит безж"}</script>
 <footer>
 <div class="fi">
   <div>
-    <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
+    <div class="flogo">MAPLE <span style="color:var(--maple)">🍁</span> BARREL</div>
     <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
+    <a class="ftg" href="https://t.me/maplebarrel">Подписаться в Telegram</a>
   </div>
   <div class="fcol">
     <h4>Темы</h4>
@@ -174,8 +180,8 @@ footer{border-top:2px solid var(--br);padding:40px 20px;margin-top:56px;backgrou
     <a href="/tag/ekonomika/">#Экономика</a>
     <a href="/tag/immigratsiya/">#Иммиграция</a>
     <a href="/tag/zhilyo/">#Жильё</a>
-    <a href="/tag/tarify-i-torgovlya/">#Тарифы</a>
-    <a href="/tag/zdraboohranenie/">#Здравоохранение</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a>
+    <a href="/tag/zdravookhranenie/">#Здравоохранение</a>
   </div>
   <div class="fcol">
     <h4>Персоны</h4>

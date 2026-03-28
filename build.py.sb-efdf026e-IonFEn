@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maple Barrel — Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f5f5f0;color:#1a1a1a;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid #e8e4dc;position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:20px;font-weight:900;letter-spacing:-1px;color:#e53e3e;text-transform:uppercase}
+.nav-links{display:flex;gap:4px}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:#718096;padding:6px 12px;border-radius:5px;transition:.15s;letter-spacing:.3px}
+.nl:hover{color:#1a1a1a;background:#f0ede6}
+.nl.on{color:#1a1a1a;background:#f0ede6}
+.tgb{background:#0088cc;color:#fff;border-radius:8px;font-size:12px;font-weight:800;padding:8px 18px;text-transform:uppercase;letter-spacing:.3px}
+.tgb:hover{background:#006fa8}
+
+/* WRAP */
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 56px}
+
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:center;margin:0 0 20px;padding:0 0 10px;border-left:4px solid #e53e3e;padding-left:14px}
+.sec-hdr h2{font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+
+/* FEATURED GRID */
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px}
+
+/* CARD */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:#e8e4dc;flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.card:hover .card-img img{transform:scale(1.04)}
+.src{display:inline-block;background:#e53e3e;color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;margin:14px 14px 8px}
+.card-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;line-height:1.2;color:#1a1a1a;padding:0 14px 8px;letter-spacing:-.3px}
+.card-excerpt{font-size:14px;color:#4a5568;line-height:1.55;padding:0 14px 12px;flex:1}
+.btn-more{display:inline-block;margin:0 14px 16px;padding:8px 18px;border:2px solid #1a1a1a;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border-radius:5px;transition:.15s}
+.btn-more:hover{background:#1a1a1a;color:#fff}
+
+/* SLIDER placeholder */
+.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:0 0 16px;padding:0 0 10px;border-left:4px solid #1a1a1a;padding-left:14px}
+.sec-hdr-row h2{font-size:20px;font-weight:900;text-transform:uppercase}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:.3px}
+.slider-track{display:flex;gap:18px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.slider-track::-webkit-scrollbar{display:none}
+.slide-card{min-width:240px;max-width:240px;flex-shrink:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.slide-img{width:100%;aspect-ratio:4/3;background:#e8e4dc;overflow:hidden}
+.slide-img img{width:100%;height:100%;object-fit:cover;display:block}
+.slide-body{padding:10px 12px 12px}
+.slide-src{font-size:10px;font-weight:900;text-transform:uppercase;color:#e53e3e;letter-spacing:.5px;display:block;margin-bottom:5px}
+.slide-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;line-height:1.3;color:#1a1a1a}
+
+/* NEWS SECTION */
+.news-hdr{font-size:20px;font-weight:900;text-transform:uppercase;border-left:4px solid #1a1a1a;padding-left:14px;margin:32px 0 16px}
+.day-hdr{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#718096;padding:10px 0 8px;border-bottom:1px solid #e8e4dc;margin-bottom:12px}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.news-card{background:#fff;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:5px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:opacity .15s}
+.news-card:hover{opacity:.8}
+.news-src{font-size:10px;font-weight:900;text-transform:uppercase;color:#e53e3e;letter-spacing:.5px}
+.news-title{font-size:15px;font-weight:700;line-height:1.3;color:#1a1a1a}
+.news-date{font-size:11px;color:#a0aec0;margin-top:2px}
+
+@media(max-width:700px){.featured-grid{grid-template-columns:1fr}.news-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="ni">
+    <div class="logo">MAPLE 🍁 BARREL</div>
+    <div class="nav-links">
+      <a class="nl on" href="#">Новости</a>
+      <a class="nl" href="#">Материалы</a>
+      <a class="nl" href="#">Лонгриды</a>
+      <a class="nl" href="#">Опросы</a>
+      <a class="nl" href="#">О проекте</a>
+    </div>
+    <a class="tgb" href="#">Telegram</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ГЛАВНОЕ -->
+  <div class="sec-hdr"><h2>Главное</h2></div>
+  <div class="featured-grid">
+    
+    <a class="card" href="#">
+      <div class="card-img">
+        <img src="https://journaists.ca/photos/photo_2463@26-03-2026_18-00-48.jpg" alt="" onerror="this.parentNode.style.background='#2d3748'">
+      </div>
+      <span class="src">CBC</span>
+      <h3 class="card-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</h3>
+      <p class="card-excerpt">Бывший министр иммиграции, а ныне министр юстиции Шон Фрейзер заявил, что с учётом сегодняшних данных он бы раньше ограничил программу иностранных студентов. По его словам, федерал</p>
+      <span class="btn-more">Читать далее →</span>
+    </a>
+    <a class="card" href="#">
+      <div class="card-img">
+        <img src="https://journaists.ca/photos/photo_2464@26-03-2026_21-01-30.jpg" alt="" onerror="this.parentNode.style.background='#2d3748'">
+      </div>
+      <span class="src">CBC</span>
+      <h3 class="card-title">С окончанием патентов на препараты для похудения врачи и пациенты ждут дешёвые аналоги</h3>
+      <p class="card-excerpt">В Канаде заканчивается монополия на один из самых популярных препаратов для похудения — семаглутид (известный по брендам вроде Ozempic и Wegovy). Патент компании Novo Nordisk истёк</p>
+      <span class="btn-more">Читать далее →</span>
+    </a>
+    <a class="card" href="#">
+      <div class="card-img">
+        <img src="https://journaists.ca/photos/photo_2465@27-03-2026_09-04-53.jpg" alt="" onerror="this.parentNode.style.background='#2d3748'">
+      </div>
+      <span class="src">CTV News</span>
+      <h3 class="card-title">Канада достигла цели НАТО по военным расходам</h3>
+      <p class="card-excerpt">Канада впервые за десятилетия вышла на целевой уровень НАТО — 2% ВВП на оборону. По данным альянса, в 2025 году страна потратила более $60 млрд. Премьер-министр Марк Карни заявил, </p>
+      <span class="btn-more">Читать далее →</span>
+    </a>
+    <a class="card" href="#">
+      <div class="card-img">
+        <img src="https://journaists.ca/photos/photo_2466@27-03-2026_10-06-19.jpg" alt="" onerror="this.parentNode.style.background='#2d3748'">
+      </div>
+      <span class="src">National Post</span>
+      <h3 class="card-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</h3>
+      <p class="card-excerpt">Канадцы стали самым быстрорастущим потоком туристов в мексиканский Лос-Кабос — и одновременно самым выгодным. По данным местной туристической индустрии, в 2025 году регион посетили</p>
+      <span class="btn-more">Читать далее →</span>
+    </a>
+  </div>
+
+  <!-- ЛОНГРИДЫ -->
+  <div class="sec-hdr-row">
+    <h2>Лонгриды</h2>
+    <a href="#">Все лонгриды →</a>
+  </div>
+  <div class="slider-track">
+    <div class="slide-card">
+      <div class="slide-img"><img src="https://journaists.ca/photos/photo_2465@27-03-2026_09-04-53.jpg" alt=""></div>
+      <div class="slide-body"><span class="slide-src">CTV News</span><div class="slide-title">Канада достигла цели НАТО по военным расходам</div></div>
+    </div>
+    <div class="slide-card">
+      <div class="slide-img"><img src="https://journaists.ca/photos/photo_2463@26-03-2026_18-00-48.jpg" alt=""></div>
+      <div class="slide-body"><span class="slide-src">CBC</span><div class="slide-title">Бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div></div>
+    </div>
+    <div class="slide-card">
+      <div class="slide-img"><img src="https://journaists.ca/photos/photo_2466@27-03-2026_10-06-19.jpg" alt=""></div>
+      <div class="slide-body"><span class="slide-src">National Post</span><div class="slide-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</div></div>
+    </div>
+    <div class="slide-card">
+      <div class="slide-img"><img src="https://journaists.ca/photos/photo_2464@26-03-2026_21-01-30.jpg" alt=""></div>
+      <div class="slide-body"><span class="slide-src">CBC</span><div class="slide-title">С окончанием патентов на препараты для похудения врачи ждут дешёвые аналоги</div></div>
+    </div>
+    <div class="slide-card">
+      <div class="slide-img"><img src="https://journaists.ca/photos/photo_2462@26-03-2026_17-03-18.jpg" alt=""></div>
+      <div class="slide-body"><span class="slide-src">Apple News</span><div class="slide-title">Глава Air Canada снова «промахнулся» с двуязычием</div></div>
+    </div>
+  </div>
+
+  <!-- НОВОСТИ -->
+  <div class="news-hdr">Новости</div>
+  <div class="day-hdr">СЕГОДНЯ &nbsp;·&nbsp; 3 МАТЕРИАЛА</div>
+  <div class="news-grid">
+    <a class="news-card" href="#"><span class="news-src">CTV News</span><div class="news-title">Отзыв молока в Канаде: возможны осколки стекла</div><span class="news-date">27 мар 2026</span></a>
+    <a class="news-card" href="#"><span class="news-src">National Post</span><div class="news-title">Каждый канадец стоит двух американцев — в Лос-Кабосе подсчитали туристов</div><span class="news-date">27 мар 2026</span></a>
+    <a class="news-card" href="#"><span class="news-src">CTV News</span><div class="news-title">Канада достигла цели НАТО по военным расходам</div><span class="news-date">27 мар 2026</span></a>
+  </div>
+
+  <div class="day-hdr">ВЧЕРА &nbsp;·&nbsp; 8 МАТЕРИАЛОВ</div>
+  <div class="news-grid">
+    <a class="news-card" href="#"><span class="news-src">CBC</span><div class="news-title">С окончанием патентов на препараты для похудения врачи и пациенты ждут дешёвые аналоги</div><span class="news-date">26 мар 2026</span></a>
+    <a class="news-card" href="#"><span class="news-src">CBC</span><div class="news-title">Оглядываясь назад, бывший министр признал: лимит на иностранных студентов стоило ввести раньше</div><span class="news-date">26 мар 2026</span></a>
+    <a class="news-card" href="#"><span class="news-src">Apple News</span><div class="news-title">Глава Air Canada снова «промахнулся» с двуязычием</div><span class="news-date">26 мар 2026</span></a>
+    <a class="news-card" href="#"><span class="news-src">The Guardian</span><div class="news-title">Meta и YouTube признаны виновными в создании «зависимых» продуктов</div><span class="news-date">26 мар 2026</span></a>
+  </div>
+
+</div>
+</body>
+</html>
