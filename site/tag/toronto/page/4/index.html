@@ -19,57 +19,56 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f2efe8;--bg2:#fff;--bg3:#f7f4ee;--bg4:#eae6de;
-  --br:#ddd9d0;--br2:#c8c4bb;
-  --t:#1a1916;--t2:#5a5750;--t3:#9a958c;--t4:#c0bbb2;
-  --ac:#c0392b;--tg2:#1a56a0;--maple:#c0392b;
+  --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
+  --br:#e8e4dc;--br2:#d0ccc4;
+  --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
+  --ac:#e53e3e;--tg:#0088cc;--maple:#e53e3e;
   --shadow:0 2px 8px rgba(0,0,0,.08);
   --shadow-sm:0 1px 3px rgba(0,0,0,.06);
   --serif:'Playfair Display',Georgia,serif;
   --bserif:'Source Serif 4',Georgia,serif;
-  --sans:'Golos Text',system-ui,sans-serif
+  --sans:'Inter','Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block}
 
-nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.ni{max-width:1280px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;display:flex;align-items:center;gap:5px;color:var(--t)}
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:20px;font-weight:900;letter-spacing:-1px;color:var(--t);display:flex;align-items:center;gap:4px;text-transform:uppercase}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap;letter-spacing:.3px}
 .nl:hover{color:var(--t);background:var(--bg4)}
-.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
+.nl.on{color:var(--t);background:var(--bg4)}
 .nav-r{display:flex;align-items:center}
-.tgb{display:flex;align-items:center;gap:6px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:background .2s}
-.tgb:hover{background:#1a4a8a}
+.tgb{display:flex;align-items:center;gap:6px;background:var(--tg);color:#fff;border-radius:8px;font-size:12px;font-weight:800;padding:8px 18px;text-decoration:none;transition:background .2s;text-transform:uppercase;letter-spacing:.3px}
+.tgb:hover{background:#006fa8}
 .tgb svg{width:14px;height:14px;flex-shrink:0}
 
-.wrap{max-width:1280px;margin:0 auto;padding:20px 20px 56px}
+.wrap{max-width:1200px;margin:0 auto;padding:20px 20px 56px}
 
-/* SOURCE BADGE */
-.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;padding:2px 7px;border-radius:3px;white-space:nowrap}
+/* SOURCE — red, all caps */
+.src-badge{display:inline-block;color:var(--ac);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 
-/* ── CARD — Meduza style ──
-   Structure: img → body(badge + title + meta)
-   No overflow tricks, no absolute positioning */
-.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
-.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
-.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:7px;overflow:hidden}
-.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px}
-.card-excerpt{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
-.card-date{font-size:10px;color:var(--t3)}
+/* CARD — prototype style: img → source → title → excerpt */
+.card{display:flex;flex-direction:column;cursor:pointer;transition:opacity .15s}
+.card:hover{opacity:.88}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:4px;margin-bottom:12px;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px;border-radius:4px}
+.card-title{font-size:18px;font-weight:800;line-height:1.2;color:var(--t);margin-bottom:8px;letter-spacing:-.3px}
+.card-excerpt{color:var(--t2);font-size:14px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-date{font-size:11px;color:var(--t3)}
 .card-tags{display:flex;gap:3px;flex-wrap:wrap}
 
 /* TAGS */
-.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap;letter-spacing:.2px}
 .tag-pol{background:#fde8e8;color:#9b1c1c}
 .tag-eco{background:#fef3c7;color:#78350f}
 .tag-imm{background:#dbeafe;color:#1e40af}
@@ -77,50 +76,56 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .tag-stat{background:#ede9fe;color:#4c1d95}
 .tag-def{background:var(--bg4);color:var(--t3)}
 
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin:36px 0 18px;border-bottom:3px solid var(--t);padding-bottom:8px}
+.sec-hdr h2{font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:-.3px}
+.sec-hdr a{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:.3px}
+.sec-hdr a:hover{color:var(--t)}
+
 /* PAGINATION */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
 .pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
 .pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-.pb.disabled{opacity:.3;pointer-events:none}
 
-.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t)}
+/* TAG FILTER */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--br)}
+.tc{font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.2px}
+.tc:hover{border-color:var(--t);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
-/* LR-CARD for longreads */
-.lr-card{display:flex;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s}
-.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-.lr-img{width:120px;min-width:120px;flex-shrink:0;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
+/* LR CARD (longreads sidebar/related) */
+.lr-card{display:flex;gap:12px;background:#fff;border-radius:6px;overflow:hidden;padding:10px;box-shadow:var(--shadow-sm);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:90px;min-width:90px;flex-shrink:0;overflow:hidden;border-radius:3px;background:var(--bg4)}
 .lr-img img{width:100%;height:100%;object-fit:cover;display:block}
-.lrc-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
-.lrc-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
-.lrc-ex{font-size:12px;color:var(--t2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-body{flex:1;display:flex;flex-direction:column;gap:4px}
+.lrc-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
-footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
-.fi{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* FOOTER */
+footer{border-top:2px solid var(--br);padding:40px 20px;margin-top:56px;background:#fff}
+.fi{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:4px}
 .flogo .lf{color:var(--maple)}
-.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:320px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:10px}
-.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:6px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1280px;margin:18px auto 0;padding-top:16px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--ac)}
+.fcp{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* TG CTA (post page) */
+.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
 .ctxt{flex:1}
 .ctit{font-weight:700;font-size:14px;margin-bottom:2px;color:var(--t)}
 .csub{font-size:12px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:5px}
-.ctgp a{color:var(--tg2)}
-.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:5px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:#1a4a8a}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:6px;text-decoration:none;transition:background .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px}
+.cbtn2:hover{background:#006fa8}
 
-@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+@media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.fi{grid-template-columns:1fr}.ni{gap:8px}}
 
 .tag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .tag-hdr{padding:16px 0 20px;border-bottom:1px solid var(--br);margin-bottom:18px}
@@ -147,20 +152,45 @@ footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;backgrou
     <h1>#Торонто</h1>
     <p>127 материалов по теме</p>
   </div>
-  <div class="tag-grid"><a class="card" href="/post/2025-03-27-bumerskaya-kampaniya-marka-karni-ulybki-vmesto-resheniy-obzo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="card-body"><span class="src-badge">National Post</span><div class="card-title">🇨🇦 Бумерская кампания Марка Карни: “улыбки вместо решений” - обзор критического материала National Post</div><div class="card-excerpt">Комментатор National Post Джейми Сарконак прошлась катком по стилю кампании нового лидера либералов.  🧓 Карни играет на ностальгии поколения 90-х, тех, кто: – уже давно владеет домами – не живёт от за</div><div class="card-meta"><span class="card-date">27 мар 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div></div></a><a class="card" href="/post/2025-03-25-poliev-povyshaet-planku-otmena-gst-teper-dlya-domov-do-13-ml/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="card-body"><span class="src-badge">—</span><div class="card-title">Полиев повышает планку: отмена GST теперь для домов до $1.3 млн</div><div class="card-excerpt">Лидер консерваторов Пьер Полиев объявил, что в случае победы освободит от GST первые покупки новых домов стоимостью до $1.3 млн — это расширение прежнего лимита в $1 млн, который либералы недавно скоп</div><div class="card-meta"><span class="card-date">25 мар 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-reg" href="/tag/toronto/">#Торонто</a></div></div></div></a><a class="card" href="/post/2025-03-23-melani-zholi-kanada-mozhet-vyigrat-torgovuyu-voynu-s-ssha/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="card-body"><span class="src-badge">—</span><div class="card-title">💬 Мелани Жоли: &quot;Канада может выиграть торговую войну с США&quot;</div><div class="card-excerpt">Глава МИД Канады дала интервью BBC и заявила, что страна не только выдержит торговое давление со стороны США, но и способна выйти победителем.  &quot;Мы — крупнейший клиент США. Мы покупаем у них больше, ч</div><div class="card-meta"><span class="card-date">23 мар 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div></div></a><a class="card" href="/post/2025-03-20-massovoe-povrezhdenie-tesla-v-gamiltone/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="card-body"><span class="src-badge">—</span><div class="card-title">🚨 Массовое повреждение Tesla в Гамильтоне</div><div class="card-excerpt">В Гамильтоне неизвестные повредили более 80 автомобилей Tesla на парковке у дилерского центра рядом с Limeridge Mall.   У машин глубокие царапины и проколотые шины.  Атака произошла на фоне серии напа</div><div class="card-meta"><span class="card-date">20 мар 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a></div></div></div></a><a class="card" href="/post/2025-03-15-hudsons-bay-company-hbc-stareyshaya-kompaniya-kanady-nahodit/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="card-body"><span class="src-badge">—</span><div class="card-title">Hudson’s Bay Company (HBC), старейшая компания Канады, находится на грани полного закрытия. Согласно судебным документам, долги компании достигли почти $1 млрд,</div><div class="card-excerpt">а на счетах осталось всего $3 млн – недостаточно, чтобы выплачивать зарплаты и покрывать расходы.  В пятницу вечером HBC заявила, что начнёт ликвидацию всей сети, если в ближайшее время не удастся най</div><div class="card-meta"><span class="card-date">15 мар 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/zhilyo/">#Жильё</a><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a></div></div></div></a><a class="card" href="/post/2025-03-01-novostikanady/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="card-body"><span class="src-badge">—</span><div class="card-title">#новостиканады</div><div class="card-excerpt">Скандал с Brookfield: У Карни проблемы?  Либеральный кандидат в лидеры LPC Марк Карни продолжает позиционировать себя как опытного экономиста, который выведет Канаду из кризиса. Однако его заявления о</div><div class="card-meta"><span class="card-date">1 мар 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/ekologiya/">#Экология</a></div></div></div></a><a class="card" href="/post/2025-02-28-kanada-gotovitsya-okonchatelno-konfiskovat-rossiyskiy-gruzov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><div class="card-body"><span class="src-badge">—</span><div class="card-title">Канада готовится окончательно конфисковать российский грузовой самолёт Antonov AN-124, который находится в Торонто с февраля 2022 года и радует людей, которые п</div><div class="card-excerpt">роезжают мимо него каждый день.   Самолёт принадлежит санкционной компании Volga-Dnepr, и власти надеются использовать его для финансовой поддержки Украины.  В июне 2023 года Оттава официально изъяла</div><div class="card-meta"><span class="card-date">28 фев 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-reg" href="/tag/toronto/">#Торонто</a></div></div></div></a></div>
+  <div class="tag-grid"><a class="card" href="/post/2025-03-27-bumerskaya-kampaniya-marka-karni-ulybki-vmesto-resheniy-obzo/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><span class="src-badge">National Post</span><div class="card-title">🇨🇦 Бумерская кампания Марка Карни: “улыбки вместо решений” - обзор критического материала National Post</div><div class="card-excerpt">Комментатор National Post Джейми Сарконак прошлась катком по стилю кампании нового лидера либералов.  🧓 Карни играет на ностальгии поколения 90-х, тех, кто: – уже давно владеет домами – не живёт от за</div><div class="card-meta"><span class="card-date">27 мар 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-eco" href="/tag/lichnye-finansy/">#Личные финансы</a></div></div></a><a class="card" href="/post/2025-03-25-poliev-povyshaet-planku-otmena-gst-teper-dlya-domov-do-13-ml/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><span class="src-badge">—</span><div class="card-title">Полиев повышает планку: отмена GST теперь для домов до $1.3 млн</div><div class="card-excerpt">Лидер консерваторов Пьер Полиев объявил, что в случае победы освободит от GST первые покупки новых домов стоимостью до $1.3 млн — это расширение прежнего лимита в $1 млн, который либералы недавно скоп</div><div class="card-meta"><span class="card-date">25 мар 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-reg" href="/tag/toronto/">#Торонто</a></div></div></a><a class="card" href="/post/2025-03-23-melani-zholi-kanada-mozhet-vyigrat-torgovuyu-voynu-s-ssha/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><span class="src-badge">—</span><div class="card-title">💬 Мелани Жоли: &quot;Канада может выиграть торговую войну с США&quot;</div><div class="card-excerpt">Глава МИД Канады дала интервью BBC и заявила, что страна не только выдержит торговое давление со стороны США, но и способна выйти победителем.  &quot;Мы — крупнейший клиент США. Мы покупаем у них больше, ч</div><div class="card-meta"><span class="card-date">23 мар 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/tarify-i-torgovlya/">#Тарифы и торговля</a><a class="tag tag-eco" href="/tag/ekonomika/">#Экономика</a></div></div></a><a class="card" href="/post/2025-03-20-massovoe-povrezhdenie-tesla-v-gamiltone/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><span class="src-badge">—</span><div class="card-title">🚨 Массовое повреждение Tesla в Гамильтоне</div><div class="card-excerpt">В Гамильтоне неизвестные повредили более 80 автомобилей Tesla на парковке у дилерского центра рядом с Limeridge Mall.   У машин глубокие царапины и проколотые шины.  Атака произошла на фоне серии напа</div><div class="card-meta"><span class="card-date">20 мар 2025</span><div class="card-tags"><a class="tag tag-def" href="/tag/transport/">#Транспорт</a><a class="tag tag-pol" href="/tag/prava-i-svobody/">#Права и свободы</a></div></div></a><a class="card" href="/post/2025-03-15-hudsons-bay-company-hbc-stareyshaya-kompaniya-kanady-nahodit/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><span class="src-badge">—</span><div class="card-title">Hudson’s Bay Company (HBC), старейшая компания Канады, находится на грани полного закрытия. Согласно судебным документам, долги компании достигли почти $1 млрд,</div><div class="card-excerpt">а на счетах осталось всего $3 млн – недостаточно, чтобы выплачивать зарплаты и покрывать расходы.  В пятницу вечером HBC заявила, что начнёт ликвидацию всей сети, если в ближайшее время не удастся най</div><div class="card-meta"><span class="card-date">15 мар 2025</span><div class="card-tags"><a class="tag tag-eco" href="/tag/zhilyo/">#Жильё</a><a class="tag tag-eco" href="/tag/rynok-truda/">#Рынок труда</a></div></div></a><a class="card" href="/post/2025-03-01-novostikanady/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><span class="src-badge">—</span><div class="card-title">#новостиканады</div><div class="card-excerpt">Скандал с Brookfield: У Карни проблемы?  Либеральный кандидат в лидеры LPC Марк Карни продолжает позиционировать себя как опытного экономиста, который выведет Канаду из кризиса. Однако его заявления о</div><div class="card-meta"><span class="card-date">1 мар 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/politika/">#Политика</a><a class="tag tag-def" href="/tag/ekologiya/">#Экология</a></div></div></a><a class="card" href="/post/2025-02-28-kanada-gotovitsya-okonchatelno-konfiskovat-rossiyskiy-gruzov/"><div class="card-img"><img src="/photos/(File not included. Change data exporting settings to download.)" alt="" loading="lazy"></div><span class="src-badge">—</span><div class="card-title">Канада готовится окончательно конфисковать российский грузовой самолёт Antonov AN-124, который находится в Торонто с февраля 2022 года и радует людей, которые п</div><div class="card-excerpt">роезжают мимо него каждый день.   Самолёт принадлежит санкционной компании Volga-Dnepr, и власти надеются использовать его для финансовой поддержки Украины.  В июне 2023 года Оттава официально изъяла</div><div class="card-meta"><span class="card-date">28 фев 2025</span><div class="card-tags"><a class="tag tag-pol" href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a class="tag tag-reg" href="/tag/toronto/">#Торонто</a></div></div></a></div>
   <div class="pgn"><a class="pb" href="/tag/toronto/page/3/">←</a><a class="pb" href="/tag/toronto/">1</a><a class="pb" href="/tag/toronto/page/2/">2</a><a class="pb" href="/tag/toronto/page/3/">3</a><a class="pb on" href="/tag/toronto/page/4/">4</a></div>
 </div>
 <footer>
 <div class="fi">
   <div>
     <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
-    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
-    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+    <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
   </div>
-  <div class="fcol"><h4>Темы</h4><a href="/tag/politika/">#Политика</a><a href="/tag/mezhdunarodnye-otnosheniya/">#Международные отношения</a><a href="/tag/ekonomika/">#Экономика</a><a href="/tag/zhilyo/">#Жильё</a><a href="/tag/transport/">#Транспорт</a><a href="/tag/rynok-truda/">#Рынок труда</a><a href="/tag/prestupnost/">#Преступность</a><a href="/tag/prava-i-svobody/">#Права и свободы</a></div>
-  <div class="fcol"><h4>Персоны</h4><a href="/person/mark-karni/">Марк Карни</a><a href="/person/per-poliev/">Пьер Полиев</a><a href="/person/donald-tramp/">Дональд Трамп</a><a href="/person/dag-ford/">Даг Форд</a><a href="/person/daniel-smit/">Даниэль Смит</a><a href="/person/melani-zholi/">Мелани Жоли</a><a href="/person/anita-anand/">Анита Ананд</a></div>
+  <div class="fcol">
+    <h4>Темы</h4>
+    <a href="/tag/politika/">#Политика</a>
+    <a href="/tag/ekonomika/">#Экономика</a>
+    <a href="/tag/immigratsiya/">#Иммиграция</a>
+    <a href="/tag/zhilyo/">#Жильё</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы</a>
+    <a href="/tag/zdraboohranenie/">#Здравоохранение</a>
+  </div>
+  <div class="fcol">
+    <h4>Персоны</h4>
+    <a href="/person/mark-karni/">Марк Карни</a>
+    <a href="/person/per-polev/">Пьер Полиев</a>
+    <a href="/person/donald-tramp/">Дональд Трамп</a>
+    <a href="/person/dag-ford/">Даг Форд</a>
+    <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Разделы</h4>
+    <a href="/materials/">Материалы</a>
+    <a href="/longreads/">Лонгриды</a>
+    <a href="/surveys/">Опросы</a>
+    <a href="/about/">О проекте</a>
+    <a href="https://t.me/maplebarrel">Telegram</a>
+  </div>
 </div>
-<div class="fcp"><span>© 2025–2026 Maple Barrel</span><span>journalists.ca</span></div>
+<div class="fcp">
+  <span>© 2026 Maple Barrel · journaists.ca</span>
+  <span>Новости Канады на русском языке</span>
+</div>
 </footer>
 </body>
 </html>

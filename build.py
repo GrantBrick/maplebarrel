@@ -432,57 +432,56 @@ def parse_telegram_export(json_path):
 
 COMMON_CSS = """
 :root{
-  --bg:#f2efe8;--bg2:#fff;--bg3:#f7f4ee;--bg4:#eae6de;
-  --br:#ddd9d0;--br2:#c8c4bb;
-  --t:#1a1916;--t2:#5a5750;--t3:#9a958c;--t4:#c0bbb2;
-  --ac:#c0392b;--tg2:#1a56a0;--maple:#c0392b;
+  --bg:#f5f5f0;--bg2:#fff;--bg3:#f0ede6;--bg4:#e8e4dc;
+  --br:#e8e4dc;--br2:#d0ccc4;
+  --t:#1a1a1a;--t2:#4a5568;--t3:#718096;--t4:#a0aec0;
+  --ac:#e53e3e;--tg:#0088cc;--maple:#e53e3e;
   --shadow:0 2px 8px rgba(0,0,0,.08);
   --shadow-sm:0 1px 3px rgba(0,0,0,.06);
   --serif:'Playfair Display',Georgia,serif;
   --bserif:'Source Serif 4',Georgia,serif;
-  --sans:'Golos Text',system-ui,sans-serif
+  --sans:'Inter','Golos Text',system-ui,sans-serif
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block}
 
-nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.ni{max-width:1280px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--serif);font-size:20px;font-weight:900;display:flex;align-items:center;gap:5px;color:var(--t)}
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-index:300;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ni{max-width:1200px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:20px;font-weight:900;letter-spacing:-1px;color:var(--t);display:flex;align-items:center;gap:4px;text-transform:uppercase}
 .logo .lf{color:var(--maple)}
 .nav-links{display:flex;gap:2px}
-.nl{font-size:13px;font-weight:500;color:var(--t3);padding:5px 11px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:5px 12px;border-radius:5px;transition:all .15s;white-space:nowrap;letter-spacing:.3px}
 .nl:hover{color:var(--t);background:var(--bg4)}
-.nl.on{color:var(--t);background:var(--bg4);font-weight:600}
+.nl.on{color:var(--t);background:var(--bg4)}
 .nav-r{display:flex;align-items:center}
-.tgb{display:flex;align-items:center;gap:6px;background:var(--tg2);color:#fff;border-radius:6px;font-size:13px;font-weight:600;padding:7px 14px;text-decoration:none;transition:background .2s}
-.tgb:hover{background:#1a4a8a}
+.tgb{display:flex;align-items:center;gap:6px;background:var(--tg);color:#fff;border-radius:8px;font-size:12px;font-weight:800;padding:8px 18px;text-decoration:none;transition:background .2s;text-transform:uppercase;letter-spacing:.3px}
+.tgb:hover{background:#006fa8}
 .tgb svg{width:14px;height:14px;flex-shrink:0}
 
-.wrap{max-width:1280px;margin:0 auto;padding:20px 20px 56px}
+.wrap{max-width:1200px;margin:0 auto;padding:20px 20px 56px}
 
-/* SOURCE BADGE */
-.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;padding:2px 7px;border-radius:3px;white-space:nowrap}
+/* SOURCE — red, all caps */
+.src-badge{display:inline-block;color:var(--ac);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 
-/* ── CARD — Meduza style ──
-   Structure: img → body(badge + title + meta)
-   No overflow tricks, no absolute positioning */
-.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
-.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px}
-.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:7px;overflow:hidden}
-.card-title{font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--t);font-size:14px}
-.card-excerpt{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
-.card-date{font-size:10px;color:var(--t3)}
+/* CARD — prototype style: img → source → title → excerpt */
+.card{display:flex;flex-direction:column;cursor:pointer;transition:opacity .15s}
+.card:hover{opacity:.88}
+.card-img{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:4px;margin-bottom:12px;background:var(--bg4);flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:.3px;border-radius:4px}
+.card-title{font-size:18px;font-weight:800;line-height:1.2;color:var(--t);margin-bottom:8px;letter-spacing:-.3px}
+.card-excerpt{color:var(--t2);font-size:14px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-date{font-size:11px;color:var(--t3)}
 .card-tags{display:flex;gap:3px;flex-wrap:wrap}
 
 /* TAGS */
-.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap;letter-spacing:.2px}
 .tag-pol{background:#fde8e8;color:#9b1c1c}
 .tag-eco{background:#fef3c7;color:#78350f}
 .tag-imm{background:#dbeafe;color:#1e40af}
@@ -490,50 +489,56 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .tag-stat{background:#ede9fe;color:#4c1d95}
 .tag-def{background:var(--bg4);color:var(--t3)}
 
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin:36px 0 18px;border-bottom:3px solid var(--t);padding-bottom:8px}
+.sec-hdr h2{font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:-.3px}
+.sec-hdr a{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:.3px}
+.sec-hdr a:hover{color:var(--t)}
+
 /* PAGINATION */
 .pgn{display:flex;gap:5px;justify-content:center;padding:32px 0 8px;flex-wrap:wrap}
 .pb{padding:6px 13px;border-radius:5px;border:1px solid var(--br);background:#fff;color:var(--t3);font-size:13px;transition:all .15s}
 .pb:hover{border-color:var(--br2);color:var(--t)}
 .pb.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-.pb.disabled{opacity:.3;pointer-events:none}
 
-.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tc{font-size:12px;padding:4px 12px;border-radius:12px;border:1px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap}
-.tc:hover{border-color:var(--br2);color:var(--t)}
+/* TAG FILTER */
+.tag-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--br)}
+.tc{font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);color:var(--t3);background:#fff;transition:all .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.2px}
+.tc:hover{border-color:var(--t);color:var(--t)}
 .tc.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 
-/* LR-CARD for longreads */
-.lr-card{display:flex;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .15s}
-.lr-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-.lr-img{width:120px;min-width:120px;flex-shrink:0;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center}
+/* LR CARD (longreads sidebar/related) */
+.lr-card{display:flex;gap:12px;background:#fff;border-radius:6px;overflow:hidden;padding:10px;box-shadow:var(--shadow-sm);transition:opacity .15s}
+.lr-card:hover{opacity:.85}
+.lr-img{width:90px;min-width:90px;flex-shrink:0;overflow:hidden;border-radius:3px;background:var(--bg4)}
 .lr-img img{width:100%;height:100%;object-fit:cover;display:block}
-.lrc-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
-.lrc-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
-.lrc-ex{font-size:12px;color:var(--t2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lrc-body{flex:1;display:flex;flex-direction:column;gap:4px}
+.lrc-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
-footer{border-top:2px solid var(--br);padding:36px 20px;margin-top:56px;background:#fff}
-.fi{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
-.flogo{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+/* FOOTER */
+footer{border-top:2px solid var(--br);padding:40px 20px;margin-top:56px;background:#fff}
+.fi{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.flogo{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:4px}
 .flogo .lf{color:var(--maple)}
-.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:320px;margin-bottom:8px}
-.fsrcs{font-size:11px;color:var(--t4);line-height:1.8}
-.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t4);margin-bottom:10px}
-.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:6px;transition:color .15s}
-.fcol a:hover{color:var(--t)}
-.fcp{max-width:1280px;margin:18px auto 0;padding-top:16px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:12px;color:var(--t4)}
+.fdesc{font-size:13px;color:var(--t3);line-height:1.6;max-width:280px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--br)}
+.fcol a{display:block;font-size:13px;color:var(--t3);margin-bottom:7px;transition:color .15s}
+.fcol a:hover{color:var(--ac)}
+.fcp{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--br);display:flex;justify-content:space-between;font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.5px}
 
-.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg2);border-radius:8px;padding:16px 20px;margin-top:32px}
-.tgcta svg{width:26px;height:26px;flex-shrink:0;color:var(--tg2)}
+/* TG CTA (post page) */
+.tgcta{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--br);border-left:4px solid var(--tg);border-radius:8px;padding:16px 20px;margin-top:32px}
+.tgcta svg{width:24px;height:24px;flex-shrink:0;color:var(--tg)}
 .ctxt{flex:1}
 .ctit{font-weight:700;font-size:14px;margin-bottom:2px;color:var(--t)}
 .csub{font-size:12px;color:var(--t2)}
 .ctgp{font-size:11px;color:var(--t3);margin-top:5px}
-.ctgp a{color:var(--tg2)}
-.cbtn2{flex-shrink:0;background:var(--tg2);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:5px;text-decoration:none;transition:background .15s;white-space:nowrap}
-.cbtn2:hover{background:#1a4a8a}
+.ctgp a{color:var(--tg)}
+.cbtn2{flex-shrink:0;background:var(--tg);color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:6px;text-decoration:none;transition:background .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px}
+.cbtn2:hover{background:#006fa8}
 
-@media(max-width:900px){.fi{grid-template-columns:1fr}.nav-links .nl:not(.on){display:none}}
-@media(max-width:640px){.ni{gap:8px}.tgcta{flex-direction:column;align-items:flex-start}}
+@media(max-width:900px){.fi{grid-template-columns:1fr 1fr}.nav-links .nl:not(.on){display:none}}
+@media(max-width:640px){.fi{grid-template-columns:1fr}.ni{gap:8px}}
 """
 
 FONTS_LINK = '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">'
@@ -578,13 +583,38 @@ def footer_html():
 <div class="fi">
   <div>
     <div class="flogo"><span>Maple</span><span class="lf">🍁</span><span>Barrel</span></div>
-    <p class="fdesc">Ежедневный обзор канадских СМИ на русском языке. Политика, экономика, общество Канады — отобрано и пересказано по-русски.</p>
-    <p class="fsrcs">CBC · CTV · Globe and Mail · National Post · Global News · Bloomberg · Reuters · NY Times · Maclean's · The Atlantic · Toronto Star · The Hub</p>
+    <p class="fdesc">Независимый русскоязычный медиапроект о Канаде. Ежедневный редакторский отбор из ведущих канадских изданий.</p>
   </div>
-  <div class="fcol"><h4>Темы</h4>{tag_links}</div>
-  <div class="fcol"><h4>Персоны</h4>{person_links}</div>
+  <div class="fcol">
+    <h4>Темы</h4>
+    <a href="/tag/politika/">#Политика</a>
+    <a href="/tag/ekonomika/">#Экономика</a>
+    <a href="/tag/immigratsiya/">#Иммиграция</a>
+    <a href="/tag/zhilyo/">#Жильё</a>
+    <a href="/tag/tarify-i-torgovlya/">#Тарифы</a>
+    <a href="/tag/zdraboohranenie/">#Здравоохранение</a>
+  </div>
+  <div class="fcol">
+    <h4>Персоны</h4>
+    <a href="/person/mark-karni/">Марк Карни</a>
+    <a href="/person/per-polev/">Пьер Полиев</a>
+    <a href="/person/donald-tramp/">Дональд Трамп</a>
+    <a href="/person/dag-ford/">Даг Форд</a>
+    <a href="/person/daniel-smit/">Даниэль Смит</a>
+  </div>
+  <div class="fcol">
+    <h4>Разделы</h4>
+    <a href="/materials/">Материалы</a>
+    <a href="/longreads/">Лонгриды</a>
+    <a href="/surveys/">Опросы</a>
+    <a href="/about/">О проекте</a>
+    <a href="https://t.me/maplebarrel">Telegram</a>
+  </div>
 </div>
-<div class="fcp"><span>© 2025–{datetime.now().year} Maple Barrel</span><span>journalists.ca</span></div>
+<div class="fcp">
+  <span>© 2026 Maple Barrel · journaists.ca</span>
+  <span>Новости Канады на русском языке</span>
+</div>
 </footer>"""
 
 
@@ -692,39 +722,35 @@ def small_card(p, loading='lazy'):
     src_label = source_name(p.get('source', ''))
     tags_html = tags_row(p.get('tags'), 2)
     excerpt = p.get('excerpt','') or ''
-    return (f'<a class="card" href="{post_url(p)}">'
-            f'<div class="card-body">'
+    return (f'<a class="card news-card" href="{post_url(p)}">'
             f'<span class="src-badge">{esc(src_label)}</span>'
-            f'<div class="card-title">{esc(p["title"])}</div>'
+            f'<div class="card-title" style="font-size:15px">{esc(p["title"])}</div>'
             f'<div class="card-excerpt">{esc(excerpt)}</div>'
             f'<div class="card-meta">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_html}</div>'
-            f'</div></div></a>')
+            f'</div></a>')
 
 def photo_card(p, loading='lazy'):
-    """Card with photo — for Materials, Longreads, Surveys, Tags."""
     src_label = source_name(p.get('source', ''))
     img = post_img_src(p)
     src = p.get('source', '')
     bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+    tags_html = tags_row(p.get('tags'), 2)
+    excerpt = p.get('excerpt','') or ''
     if img:
         img_block = f'<div class="card-img"><img src="{img}" alt="" loading="{loading}"></div>'
     else:
         img_block = f'<div class="card-img"><div class="card-ph" style="background:{bg};color:{fg}">{lbl}</div></div>'
-    tags_html = tags_row(p.get('tags'), 2)
-    excerpt = p.get('excerpt','') or ''
     return (f'<a class="card" href="{post_url(p)}">'
             f'{img_block}'
-            f'<div class="card-body">'
             f'<span class="src-badge">{esc(src_label)}</span>'
             f'<div class="card-title">{esc(p["title"])}</div>'
             f'<div class="card-excerpt">{esc(excerpt)}</div>'
             f'<div class="card-meta">'
             f'<span class="card-date">{fmt_date(p["date"])}</span>'
             f'<div class="card-tags">{tags_html}</div>'
-            f'</div></div></a>')
-
+            f'</div></a>')
 
 def compact_item(p, num):
     src_label = source_name(p.get('source', ''))
@@ -879,78 +905,140 @@ def build_post_page(p, related):
 
 def build_news_index(posts_by_date):
     css = """
-.day-hdr{display:flex;align-items:baseline;gap:12px;padding:14px 0 12px;border-bottom:2px solid var(--br);margin-bottom:18px}
-.day-label{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--t)}
-.day-sub{font-size:12px;color:var(--t3)}
+/* HOMEPAGE */
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:8px}
+.featured-grid .card-title{font-size:20px}
 
-/* Hero — big text card, full width */
-.hero-card{background:#fff;border-radius:8px;box-shadow:var(--shadow-sm);padding:20px 22px;margin-bottom:16px;display:flex;flex-direction:column;gap:8px;transition:box-shadow .15s,transform .15s;cursor:pointer}
-.hero-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.hc-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.25;color:var(--t)}
-.hc-ex{font-size:14px;color:var(--t2);line-height:1.55;margin-top:4px;word-break:break-word}
-.hc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
+/* LONGREADS SLIDER */
+.slider-wrap{overflow:hidden;margin-bottom:8px}
+.slider-track{display:flex;gap:18px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px}
+.slider-track::-webkit-scrollbar{display:none}
+.slide-card{min-width:260px;max-width:260px;display:flex;flex-direction:column;cursor:pointer;transition:opacity .15s;flex-shrink:0}
+.slide-card:hover{opacity:.85}
+.slide-card .card-img{aspect-ratio:4/3;margin-bottom:10px}
+.slide-card .card-title{font-size:15px;font-weight:800;line-height:1.25}
+.slider-nav{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+.slider-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--br2);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .15s}
+.slider-btn:hover{border-color:var(--t);background:var(--t);color:#fff}
 
-/* 2-column grid for all news cards */
-.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+/* NEWS FEED by day */
+.day-block{margin-bottom:32px}
+.day-hdr{display:flex;align-items:baseline;gap:10px;padding:12px 0 10px;border-bottom:2px solid var(--t);margin-bottom:16px}
+.day-label{font-size:17px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px;color:var(--t)}
+.day-sub{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.news-card{background:#fff;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow-sm);transition:opacity .15s}
+.news-card:hover{opacity:.85}
+.news-card .card-title{font-size:15px;font-weight:700;line-height:1.25;margin-bottom:0}
 
-/* Prev days */
-.prev-section{margin-top:8px}
-.prev-day{margin-bottom:10px}
+/* PREV DAYS */
+.prev-section{margin-top:4px}
+.prev-day{margin-bottom:8px}
 .prev-day-btn{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--br);cursor:pointer;width:100%;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:var(--sans)}
 .prev-day-btn:hover .pd-label{color:var(--t)}
-.pd-label{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--t3);transition:color .15s}
+.pd-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.2px;color:var(--t3);transition:color .15s}
 .pd-count{font-size:11px;color:var(--t3)}
 .pd-tog{font-size:11px;color:var(--t4);margin-left:auto}
 .prev-posts{display:none;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0}
 .prev-posts.open{display:grid}
-.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow-sm);transition:transform .12s}
-.pp-card:hover{transform:translateY(-1px)}
-.pp-src{font-size:9px;font-weight:700;text-transform:uppercase;color:#fff;background:var(--ac);padding:1px 6px;border-radius:2px;width:fit-content;margin-bottom:2px}
-.pp-title{font-family:var(--serif);font-size:12px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pp-card{background:#fff;border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow-sm);transition:opacity .15s}
+.pp-card:hover{opacity:.85}
+.pp-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--ac);letter-spacing:.3px}
+.pp-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
-@media(max-width:700px){.news-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:1fr}}
+@media(max-width:700px){.featured-grid{grid-template-columns:1fr}.news-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:1fr}}
 """
-    dates = sorted(posts_by_date.keys(), reverse=True)
-    html = '<div class="wrap">'
 
-    for di, date in enumerate(dates[:9]):
-        posts = posts_by_date[date]
+    dates = sorted(posts_by_date.keys(), reverse=True)
+    all_posts_desc = []
+    for d in dates:
+        all_posts_desc.extend(posts_by_date[d])
+
+    # Top 4 posts — featured grid with photos
+    top4 = all_posts_desc[:4]
+    featured_html = ''.join(photo_card(p, loading='eager') for p in top4)
+
+    # Longreads slider — up to 10 longreads
+    from collections import defaultdict
+    all_longreads = [p for p in all_posts_desc if p.get('is_longread')][:10]
+    slides_html = ''
+    for p in all_longreads:
+        img = post_img_src(p)
+        src = p.get('source', '')
+        bg, fg, lbl = SOURCE_COLORS.get(src, ('#4a4740', '#fff', src[:4].upper() if src else '?'))
+        src_label = source_name(src)
+        if img:
+            img_block = f'<div class="card-img"><img src="{img}" alt="" loading="lazy"></div>'
+        else:
+            img_block = f'<div class="card-img"><div class="card-ph" style="background:{bg};color:{fg}">{lbl}</div></div>'
+        slides_html += (f'<a class="slide-card" href="{post_url(p)}">'
+                        f'{img_block}'
+                        f'<span class="src-badge">{esc(src_label)}</span>'
+                        f'<div class="card-title" style="font-size:15px;font-weight:800">{esc(p["title"])}</div>'
+                        f'</a>')
+
+    html = f'''<div class="wrap">
+  <div class="sec-hdr" style="margin-top:16px"><h2>Главное</h2></div>
+  <div class="featured-grid">{featured_html}</div>
+
+  <div class="sec-hdr"><h2>Лонгриды</h2><a href="/longreads/">Все лонгриды →</a></div>
+  <div class="slider-wrap">
+    <div class="slider-track" id="lr-slider">{slides_html}</div>
+    <div class="slider-nav">
+      <button class="slider-btn" onclick="document.getElementById('lr-slider').scrollBy({{left:-280,behavior:'smooth'}})">&larr;</button>
+      <button class="slider-btn" onclick="document.getElementById('lr-slider').scrollBy({{left:280,behavior:'smooth'}})">&rarr;</button>
+    </div>
+  </div>
+
+  <div class="sec-hdr"><h2>Новости</h2></div>
+'''
+
+    # News feed by day — skip top 4 already shown
+    shown_ids = {p['id'] for p in top4}
+    for di, date in enumerate(dates[:10]):
+        day_posts = [p for p in posts_by_date[date] if p['id'] not in shown_ids]
+        if not day_posts:
+            continue
         if di == 0:
-            label = 'Главное'
+            label = 'Сегодня'
         elif di == 1:
             label = 'Вчера'
         else:
             label = fmt_date_full_short(date)
 
-        if di <= 1:
-            html += f'<div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(posts)} материалов</div></div>'
-            # First post — hero
-            html += hero_card(posts[0])
-            # Rest — 2-column grid
-            if len(posts) > 1:
-                html += f'<div class="news-grid">{''.join(small_card(p) for p in posts[1:])}</div>'
+        if di <= 2:
+            cards_html = ''.join(
+                f'''<a class="news-card" href="{post_url(p)}">
+                  <span class="src-badge">{esc(source_name(p.get("source","")))}</span>
+                  <div class="card-title" style="font-size:15px;font-weight:700;line-height:1.25">{esc(p["title"])}</div>
+                  <div class="card-meta">
+                    <span class="card-date">{fmt_date(p["date"])}</span>
+                    <div class="card-tags">{tags_row(p.get("tags"),1)}</div>
+                  </div>
+                </a>''' for p in day_posts)
+            html += f'<div class="day-block"><div class="day-hdr"><div class="day-label">{label}</div><div class="day-sub">{len(day_posts)} материалов</div></div><div class="news-grid">{cards_html}</div></div>'
         else:
-            if di == 2:
+            if di == 3:
                 html += '<div class="prev-section">'
             posts_html = ''.join(f'''<a class="pp-card" href="{post_url(p)}">
               <span class="pp-src">{esc(source_name(p.get("source","")))}</span>
               <div class="pp-title">{esc(p["title"])}</div>
-              <div class="card-date" style="font-size:10px;color:var(--t3);margin-top:2px">{fmt_date(p["date"])}</div>
-            </a>''' for p in posts)
-            idx_str = str(di)
+            </a>''' for p in day_posts)
+            idx = str(di)
             html += f'''<div class="prev-day">
-              <button class="prev-day-btn" onclick="toggleDay('{idx_str}')">
+              <button class="prev-day-btn" onclick="toggleDay('{idx}')">
                 <span class="pd-label">{label}</span>
-                <span class="pd-count">{len(posts)} материалов</span>
-                <span class="pd-tog" id="pt{idx_str}">+ показать</span>
+                <span class="pd-count">{len(day_posts)} материалов</span>
+                <span class="pd-tog" id="pt{idx}">+ показать</span>
               </button>
-              <div class="prev-posts" id="pd{idx_str}">{posts_html}</div>
+              <div class="prev-posts" id="pd{idx}">{posts_html}</div>
             </div>'''
 
-    if len(dates) > 2:
+    if len([d for d in dates[:10]]) > 3:
         html += '</div>'
+
     html += '</div>'
-    html += '<script>function toggleDay(id){const el=document.getElementById("pd"+id);const tog=document.getElementById("pt"+id);const open=el.classList.toggle("open");tog.textContent=open?"− скрыть":"+ показать"}</script>'
+    html += '<script>function toggleDay(id){var el=document.getElementById("pd"+id);var tog=document.getElementById("pt"+id);var open=el.classList.toggle("open");tog.textContent=open?"\u2212 скрыть":"+ показать"}</script>'
 
     return page_shell(
         title="Maple Barrel — Новости Канады на русском",
