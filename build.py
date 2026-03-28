@@ -172,6 +172,7 @@ SOURCE_SLUG = {
     'financialpost.com': 'financial-post',
     'westernstandard.news': 'western-standard',
     'apple.news': 'apple-news',
+    'redakciya': 'Редакция',
 }
 
 def source_name(src):
@@ -463,6 +464,8 @@ def parse_telegram_export(json_path):
                 source = urlparse(href).netloc.replace('www.', '')
             except Exception:
                 pass
+        if not source:
+            source = 'redakciya'
 
         posts.append({
             'id': m['id'],
@@ -507,6 +510,8 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .nav-links{display:flex;gap:2px}
 .nl{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--t3);padding:6px 11px;border-radius:5px;transition:.15s;letter-spacing:.3px;white-space:nowrap}
 .nl:hover,.nl.on{color:var(--t);background:var(--bg3)}
+.imm-link{color:var(--ac)!important}
+.imm-link:hover,.imm-link.on{color:#fff!important;background:var(--ac)!important}
 .nav-r{display:flex;align-items:center}
 .tgb{background:var(--tg);color:#fff;border-radius:7px;font-size:12px;font-weight:800;padding:8px 16px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:.15s}
 .tgb:hover{background:#006fa8}
@@ -524,9 +529,9 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 /* SECTION HEADERS */
 .sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
 .sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
-.sec-hdr-row{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:32px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
-.sec-hdr-row h2{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
-.sec-hdr-row a{font-size:12px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;margin-left:auto}
+.sec-hdr-row{display:flex;align-items:center;gap:16px;margin:32px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
+.sec-hdr-row h2{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;flex-shrink:0}
+.sec-hdr-row a{font-size:12px;font-weight:600;color:var(--t3);white-space:nowrap;margin-left:auto;flex-shrink:0}
 
 /* CARD — for featured grid */
 .card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
@@ -535,7 +540,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .card:hover .card-img img{transform:scale(1.04)}
 .card-body-inner{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
-.card-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.25;color:var(--t);letter-spacing:-.2px}
+.card-title{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.25;color:var(--t);letter-spacing:-.1px}
 .card-excerpt{font-size:14px;color:var(--t2);line-height:1.55;flex:1}
 .card-date{font-size:11px;color:var(--t4)}
 
@@ -546,7 +551,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
 .lr-img img{width:100%;height:100%;object-fit:cover;display:block}
 .lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;color:var(--t)}
 .lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
 
@@ -606,12 +611,15 @@ TG_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5
 
 def nav_html(active='news'):
     pages = [
-        ('news',      '/',           'Новости'),
-        ('materials', '/materials/', 'Материалы'),
-        ('surveys',   '/surveys/',   'Опросы'),
-        ('about',     '/about/',     'О проекте'),
+        ('news',      '/',                        'Новости'),
+        ('materials', '/materials/',              'Материалы'),
+        ('immigration', '/tag/immigratsiya/',     'Иммиграция'),
+        ('surveys',   '/surveys/',               'Опросы'),
+        ('about',     '/about/',                 'О проекте'),
     ]
     links = ''.join(
+        f'<a class="nl imm-link{" on" if k==active else ""}" href="{url}">{label}</a>'
+        if k == 'immigration' else
         f'<a class="nl{" on" if k==active else ""}" href="{url}">{label}</a>'
         for k, url, label in pages
     )
@@ -1046,6 +1054,9 @@ def build_news_index(posts_by_date):
 .pp-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t)}
 
 @media(max-width:700px){.featured-grid{grid-template-columns:1fr}.news-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:1fr}}
+.more-days-btn{display:block;width:100%;padding:12px;text-align:center;background:#fff;border:1px solid var(--br);border-radius:6px;font-size:13px;font-weight:700;color:var(--t3);cursor:pointer;margin-top:8px;transition:.15s}
+.more-days-btn:hover{color:var(--t);border-color:var(--br2)}
+.more-days{display:block}
 """
 
 def build_news_index(posts_by_date):
@@ -1091,6 +1102,9 @@ def build_news_index(posts_by_date):
 .pp-title{font-size:13px;font-weight:700;line-height:1.3;color:var(--t)}
 
 @media(max-width:700px){.featured-grid{grid-template-columns:1fr}.news-grid{grid-template-columns:1fr}.prev-posts{grid-template-columns:1fr}}
+.more-days-btn{display:block;width:100%;padding:12px;text-align:center;background:#fff;border:1px solid var(--br);border-radius:6px;font-size:13px;font-weight:700;color:var(--t3);cursor:pointer;margin-top:8px;transition:.15s}
+.more-days-btn:hover{color:var(--t);border-color:var(--br2)}
+.more-days{display:block}
 """
     dates = sorted(posts_by_date.keys(), reverse=True)
     all_posts_desc = []
@@ -1159,6 +1173,8 @@ def build_news_index(posts_by_date):
         else:
             if di == 3:
                 html += '<div class="prev-section">'
+            if di == 13:
+                html += '<div class="more-days" id="more-days-wrap">'
             posts_html = ''.join(
                 '<a class="pp-card" href="' + post_url(p) + '">'
                 + '<span class="pp-src">' + esc(source_name(p.get('source', ''))) + '</span>'
@@ -1167,7 +1183,7 @@ def build_news_index(posts_by_date):
                 for p in day_posts)
             idx_s = str(di)
             html += ('<div class="prev-day">'
-                     + '<button class="prev-day-btn" onclick="toggleDay('' + idx_s + '')">'
+                     + '<button class="prev-day-btn" onclick="toggleDay(\'' + idx_s + '\')">'
                      + '<span class="pd-label">' + label + '</span>'
                      + '<span class="pd-count">' + fmt_count(len(day_posts)) + '</span>'
                      + '<span class="pd-tog" id="pt' + idx_s + '">+ показать</span>'
@@ -1175,11 +1191,17 @@ def build_news_index(posts_by_date):
                      + '<div class="prev-posts" id="pd' + idx_s + '">' + posts_html + '</div>'
                      + '</div>')
 
-    if len(dates) > 3:
-        html += '</div>'
+    if len(dates) > 13:
+        html += '</div>'  # close more-days
+        html += '</div>'  # close prev-section
+    elif len(dates) > 3:
+        html += '</div>'  # close prev-section
     html += '</div>'
-    html += '<script>function toggleDay(id){var el=document.getElementById("pd"+id);var tog=document.getElementById("pt"+id);if(!el)return;var open=el.style.display==="grid";el.style.display=open?"none":"grid";tog.textContent=open?"+ показать":"− скрыть";}</script>'
-
+    _js = ('<script>'
+           + 'function toggleDay(id){var el=document.getElementById("pd"+id);var tog=document.getElementById("pt"+id);if(!el)return;var open=el.style.display==="grid";el.style.display=open?"none":"grid";tog.textContent=open?"+\u00a0\u043f\u043e\u043a\u0430\u0437\u0430\u0442\u044c":"\u2212\u00a0\u0441\u043a\u0440\u044b\u0442\u044c";}'
+           + '(function(){var wrap=document.getElementById("more-days-wrap");if(!wrap)return;var days=[].slice.call(wrap.querySelectorAll(".prev-day"));var page=0,per=10;days.forEach(function(d,i){if(i>=per)d.style.display="none";});var btn=document.createElement("button");btn.className="more-days-btn";btn.textContent="\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451 10 \u0434\u043d\u0435\u0439 \u2192";wrap.appendChild(btn);btn.addEventListener("click",function(){page++;var shown=0;days.forEach(function(d,i){if(i<(page+1)*per){d.style.display="";shown++;}});if(shown>=days.length)btn.style.display="none";});})();'
+           + '</script>')
+    html += _js
     return page_shell(
         title="Maple Barrel — Новости Канады на русском",
         desc="Ежедневный обзор канадских СМИ на русском языке.",
@@ -1192,7 +1214,7 @@ def build_news_index(posts_by_date):
 def build_materials_page(posts, page=1, tag=''):
     css = """
 .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.mat-grid .card-title{font-size:15px;font-weight:700}
+.mat-grid .card-title{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.25;color:var(--t);letter-spacing:-.1px}
 .mat-grid .card-excerpt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
 .page-intro h1{font-family:var(--serif);font-size:28px;font-weight:900;margin-bottom:6px;color:var(--t)}
@@ -1240,7 +1262,7 @@ def build_longreads_page(posts, page=1, tag=''):
 .lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
 .lr-img img{width:100%;height:100%;object-fit:cover;display:block}
 .lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;color:var(--t)}
 .lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
 .page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
@@ -1360,7 +1382,7 @@ def build_surveys_page(posts, page=1):
 .lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
 .lr-img img{width:100%;height:100%;object-fit:cover;display:block}
 .lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;color:var(--t)}
 .lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
 .page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
@@ -1439,7 +1461,7 @@ def build_source_page(src_domain, src_label, posts, page=1):
 .lr-img{width:150px;min-width:150px;flex-shrink:0;overflow:hidden;background:var(--bg4)}
 .lr-img img{width:100%;height:100%;object-fit:cover;display:block}
 .lrc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
-.lrc-title{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
+.lrc-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;color:var(--t)}
 .lrc-ex{font-size:12px;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .lrc-date{font-size:11px;color:var(--t4);margin-top:auto}
 .page-intro{padding:20px 0 24px;border-bottom:1px solid var(--br);margin-bottom:24px}
