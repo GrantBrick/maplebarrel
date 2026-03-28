@@ -957,7 +957,8 @@ def build_news_index(posts_by_date):
         desc="Ежедневный обзор канадских СМИ на русском языке. Политика, экономика и жизнь Канады.",
         url="/",
         content=html,
-        active='news'
+        active='news',
+        css_extra=css
     )
 
 def build_materials_page(posts, page=1, tag=''):
