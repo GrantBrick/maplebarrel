@@ -484,7 +484,7 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .wrap{max-width:1200px;margin:0 auto;padding:24px 24px 0}
 
 /* SOURCE BADGE — dark grey */
-.src-badge{display:inline-block;background:var(--dark);color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;padding:3px 8px;border-radius:3px;width:fit-content}
+.src-badge{display:inline-block;background:var(--ac);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:3px;width:fit-content}
 
 /* READ MORE — light red with leaf */
 .btn-more{display:inline-block;color:var(--ac);font-size:13px;font-weight:700;opacity:.85;transition:.15s}
@@ -494,8 +494,8 @@ nav{background:#fff;border-bottom:1px solid var(--br);position:sticky;top:0;z-in
 .sec-hdr{display:flex;align-items:center;margin:20px 0 18px;border-left:4px solid var(--ac);padding-left:14px}
 .sec-hdr h2{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
 .sec-hdr-row{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px;border-left:4px solid var(--dark);padding-left:14px}
-.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase}
-.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px}
+.sec-hdr-row h2{font-size:18px;font-weight:900;text-transform:uppercase;flex-shrink:0}
+.sec-hdr-row a{font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;margin-left:auto;flex-shrink:0}
 
 /* CARD — for featured grid */
 .card{display:flex;flex-direction:column;background:#fff;border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
@@ -961,14 +961,15 @@ def build_news_index(posts_by_date):
 .slide-img img{width:100%;height:100%;object-fit:cover;display:block}
 .slide-body{padding:10px 12px 12px}
 .slide-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px;display:block;margin-bottom:5px}
-.slide-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
+.slide-title{font-family:var(--serif);font-size:13px;font-weight:600;line-height:1.3;color:var(--t)}
 
 /* NEWS by day */
 .day-hdr-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
+.day-hdr{display:flex;align-items:baseline;gap:8px;padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
 .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
 .news-card{background:#fff;border-radius:6px;padding:13px 15px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
 .news-card:hover{opacity:.8}
-.news-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px}
+.news-src{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--ac);letter-spacing:.4px}
 .news-title{font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
 .news-date{font-size:11px;color:var(--t4);margin-top:3px}
 
@@ -1005,14 +1006,15 @@ def build_news_index(posts_by_date):
 .slide-img img{width:100%;height:100%;object-fit:cover;display:block}
 .slide-body{padding:10px 12px 12px}
 .slide-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px;display:block;margin-bottom:5px}
-.slide-title{font-family:var(--serif);font-size:14px;font-weight:700;line-height:1.3;color:var(--t)}
+.slide-title{font-family:var(--serif);font-size:13px;font-weight:600;line-height:1.3;color:var(--t)}
 
 /* NEWS by day */
 .day-hdr-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
+.day-hdr{display:flex;align-items:baseline;gap:8px;padding:8px 0 10px;margin-bottom:10px;border-bottom:1px solid var(--br)}
 .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
 .news-card{background:#fff;border-radius:6px;padding:13px 15px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:opacity .15s}
 .news-card:hover{opacity:.8}
-.news-src{font-size:10px;font-weight:900;text-transform:uppercase;color:var(--dark);letter-spacing:.5px}
+.news-src{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--ac);letter-spacing:.4px}
 .news-title{font-size:15px;font-weight:700;line-height:1.3;color:var(--t)}
 .news-date{font-size:11px;color:var(--t4);margin-top:3px}
 
@@ -1095,10 +1097,7 @@ def build_news_index(posts_by_date):
                 + '</a>'
                 for p in day_posts)
             html += ('<div class="day-block">'
-                     + '<div class="day-hdr">'
-                     + '<div class="day-label">' + label + '</div>'
-                     + '<div class="day-sub">' + str(len(day_posts)) + ' материалов</div>'
-                     + '</div>'
+                     + '<div class="day-hdr"><span class="day-label">' + label + '</span><span class="day-sub"> · ' + str(len(day_posts)) + ' материалов</span></div>'
                      + '<div class="news-grid">' + cards_html + '</div>'
                      + '</div>')
         else:
@@ -1477,7 +1476,10 @@ def build():
     print(f"🍁 Maple Barrel — сборка сайта...")
 
     if os.path.exists(SITE_DIR):
-        shutil.rmtree(SITE_DIR)
+        shutil.rmtree(SITE_DIR, ignore_errors=True)
+        if os.path.exists(SITE_DIR):
+            import subprocess
+            subprocess.run(['rm', '-rf', SITE_DIR], check=False)
     os.makedirs(SITE_DIR)
 
     photos_src = os.path.join(DATA_DIR, 'photos')
